@@ -19,24 +19,24 @@ app.get('/results', (req, res) => {
   const options = {
     uri: `https://api.typeform.com/forms/${formId}/responses`,
     qs: {
-        query: respondentId
+      query: respondentId
     },
     headers: {
-        'Authorization': `Bearer ${authToken}`
+      'Authorization': `Bearer ${authToken}`
     },
     json: true
-  };
+  }
 
   rp(options)
     .then(function (response) {
       const answers = response.items[0].answers
-      console.log(answers);
+      console.log(answers)
     })
-    .catch(function (err) {
+    .catch(function () {
       console.log('oh snap!')
-    });
+    })
 
-  res.render('results', { data: [40, 10, 50, 30, 70, 40]})
+  res.render('results', { data: [40, 10, 50, 30, 70, 40] })
 })
 
 module.exports = app
