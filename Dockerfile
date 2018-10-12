@@ -2,7 +2,7 @@ FROM node:8-slim
 
 WORKDIR /usr/src/app
 
-ADD package.json yarn.lock ./
+COPY package.json yarn.lock ./
 
 RUN yarn install
 
