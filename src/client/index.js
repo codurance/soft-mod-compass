@@ -10,7 +10,7 @@ typeformEmbed.makeWidget(
   surveyUrl,
   {
     onSubmit: () => {
-      console.log('we done did it')
+      window.location = `/results?id=${uuid}`
     }
   }
 )
