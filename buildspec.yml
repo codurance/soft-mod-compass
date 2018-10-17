@@ -1,0 +1,7 @@
+version: 0.2
+
+phases:
+  unit_tests:
+    commands:
+      - ./run-tests-in-docker.sh
+
