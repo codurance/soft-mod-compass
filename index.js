@@ -1,5 +1,5 @@
 const app = require('./src/server/app')
-const port = 3000
+const port = 8080
 
 const server = app.listen(port, () => {
   console.log(`ready at http://localhost:${port}`)
