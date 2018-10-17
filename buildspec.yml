@@ -5,3 +5,7 @@ phases:
     commands:
       - sh ./run-tests-in-docker.sh
 
+artifacts:
+  files:
+    - '**/*'
+
