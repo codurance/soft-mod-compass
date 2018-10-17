@@ -3,5 +3,5 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - ./run-tests-in-docker.sh
+      - sh ./run-tests-in-docker.sh
 
