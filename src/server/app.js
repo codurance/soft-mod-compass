@@ -39,4 +39,10 @@ app.get('/results', (req, res) => {
   res.render('results', { data: [40, 10, 50, 30, 70, 40] })
 })
 
+app.get('/test-data', (req, res) => {
+  res.json({
+    scores: [...Array(5)].map(i => Math.round(Math.random() * 100))
+  })
+})
+
 module.exports = app
