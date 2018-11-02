@@ -48,7 +48,8 @@ app.get('/report/:uuid', (req, res) => {
       recipe: 'chrome-pdf'
     },
     data: {
-      uuid: req.params.uuid
+      uuid: req.params.uuid,
+      scores: randomScores()
     }
   }).then((out) => {
     out.stream.pipe(res)
@@ -59,8 +60,12 @@ app.get('/report/:uuid', (req, res) => {
 
 app.get('/test-data', (req, res) => {
   res.json({
-    scores: [...Array(5)].map(i => Math.round(Math.random() * 100))
+    scores: randomScores()
   })
 })
+
+function randomScores () {
+  return [...Array(5)].map(i => Math.round(Math.random() * 100))
+}
 
 module.exports = app
