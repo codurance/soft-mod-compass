@@ -1,0 +1,17 @@
+{
+    "shortid": "SyR8PsuhX",
+    "name": "Compass",
+    "recipe": "chrome-pdf",
+    "engine": "handlebars",
+    "chrome": {
+        "printBackground": true
+    },
+    "modificationDate": {
+        "$$date": 1541089418547
+    },
+    "_id": "bUe0ZtrZKts6vwCZ",
+    "$entitySet": "templates",
+    "data": {
+        "shortid": "BJZFwid3m"
+    }
+}

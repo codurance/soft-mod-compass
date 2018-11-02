@@ -1,5 +1,6 @@
 const path = require('path')
 const rp = require('request-promise')
+const jsreport = require('jsreport')
 const express = require('express')
 const app = express()
 
@@ -37,6 +38,23 @@ app.get('/results', (req, res) => {
     })
 
   res.render('results', { data: [40, 10, 50, 30, 70, 40] })
+})
+
+app.get('/report/:uuid', (req, res) => {
+  jsreport.render({
+    template: {
+      name: 'Compass',
+      engine: 'handlebars',
+      recipe: 'chrome-pdf',
+    },
+    data: {
+      uuid: req.params.uuid
+    }
+  }).then((out) => {
+    out.stream.pipe(res)
+  }).catch((e) => {
+    res.end(e.message)
+  })
 })
 
 app.get('/test-data', (req, res) => {
