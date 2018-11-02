@@ -10,7 +10,7 @@ typeformEmbed.makeWidget(
   surveyUrl,
   {
     onSubmit: () => {
-      window.location = `/results?id=${uuid}`
+      window.location = `https://info.codurance.com/compass-test?uuid=${uuid}`
     }
   }
 )
