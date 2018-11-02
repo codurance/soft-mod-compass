@@ -2,12 +2,28 @@
 # yarn lockfile v1
 
 
+"@babel/code-frame@7.0.0-beta.46":
+  version "7.0.0-beta.46"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/@babel/code-frame/-/code-frame-7.0.0-beta.46.tgz#e0d002100805daab1461c0fcb32a07e304f3a4f4"
+  integrity sha1-4NACEAgF2qsUYcD8syoH4wTzpPQ=
+  dependencies:
+    "@babel/highlight" "7.0.0-beta.46"
+
 "@babel/code-frame@^7.0.0-beta.35":
   version "7.0.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/@babel/code-frame/-/code-frame-7.0.0.tgz#06e2ab19bdb535385559aabb5ba59729482800f8"
   integrity sha1-BuKrGb21NThVWaq7W6WXKUgoAPg=
   dependencies:
     "@babel/highlight" "^7.0.0"
+
+"@babel/highlight@7.0.0-beta.46":
+  version "7.0.0-beta.46"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/@babel/highlight/-/highlight-7.0.0-beta.46.tgz#c553c51e65f572bdedd6eff66fc0bb563016645e"
+  integrity sha1-xVPFHmX1cr3t1u/2b8C7VjAWZF4=
+  dependencies:
+    chalk "^2.0.0"
+    esutils "^2.0.2"
+    js-tokens "^3.0.0"
 
 "@babel/highlight@^7.0.0":
   version "7.0.0"
@@ -17,6 +33,13 @@
     chalk "^2.0.0"
     esutils "^2.0.2"
     js-tokens "^4.0.0"
+
+"@rkusa/linebreak@^1.0.0":
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/@rkusa/linebreak/-/linebreak-1.0.0.tgz#987b6b1f8cc8f5901afbf45f4e9f7744518d0163"
+  integrity sha1-mHtrH4zI9ZAa+/RfTp93RFGNAWM=
+  dependencies:
+    unicode-trie "^0.3.0"
 
 "@webassemblyjs/ast@1.7.8":
   version "1.7.8"
@@ -181,7 +204,7 @@ abbrev@1:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
   integrity sha1-+PLIh60Qv2f2NPAFtph/7TF5qsg=
 
-accepts@~1.3.5:
+accepts@~1.3.3, accepts@~1.3.4, accepts@~1.3.5:
   version "1.3.5"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/accepts/-/accepts-1.3.5.tgz#eb777df6011723a3b14e8a72c0805c8e86746bd2"
   integrity sha1-63d99gEXI6OxTopywIBcjoZ0a9I=
@@ -226,12 +249,34 @@ acorn@^6.0.1:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/acorn/-/acorn-6.0.2.tgz#6a459041c320ab17592c6317abbfdf4bbaa98ca4"
   integrity sha1-akWQQcMgqxdZLGMXq7/fS7qpjKQ=
 
+after@0.8.2:
+  version "0.8.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/after/-/after-0.8.2.tgz#fedb394f9f0e02aa9768e702bda23b505fae7e1f"
+  integrity sha1-/ts5T58OAqqXaOcCvaI7UF+ufh8=
+
+agent-base@^4.1.0:
+  version "4.2.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/agent-base/-/agent-base-4.2.1.tgz#d89e5999f797875674c07d87f260fc41e83e8ca9"
+  integrity sha1-2J5ZmfeXh1Z0wH2H8mD8Qeg+jKk=
+  dependencies:
+    es6-promisify "^5.0.0"
+
 ajv-keywords@^3.0.0, ajv-keywords@^3.1.0:
   version "3.2.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/ajv-keywords/-/ajv-keywords-3.2.0.tgz#e86b819c602cf8821ad637413698f1dec021847a"
   integrity sha1-6GuBnGAs+IIa1jdBNpjx3sAhhHo=
 
-ajv@^5.3.0:
+ajv@6.4.0:
+  version "6.4.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/ajv/-/ajv-6.4.0.tgz#d3aff78e9277549771daf0164cff48482b754fc6"
+  integrity sha1-06/3jpJ3VJdx2vAWTP9ISCt1T8Y=
+  dependencies:
+    fast-deep-equal "^1.0.0"
+    fast-json-stable-stringify "^2.0.0"
+    json-schema-traverse "^0.3.0"
+    uri-js "^3.0.2"
+
+ajv@^5.1.0, ajv@^5.3.0:
   version "5.5.2"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-5.5.2.tgz#73b5eeca3fab653e3d3f9422b341ad42205dc965"
   integrity sha1-c7Xuyj+rZT49P5Qis0GtQiBdyWU=
@@ -250,6 +295,20 @@ ajv@^6.0.1, ajv@^6.1.0, ajv@^6.5.0:
     fast-json-stable-stringify "^2.0.0"
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
+
+align-text@^0.1.1, align-text@^0.1.3:
+  version "0.1.4"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/align-text/-/align-text-0.1.4.tgz#0cd90a561093f35d0a99256c22b7069433fad117"
+  integrity sha1-DNkKVhCT810KmSVsIrcGlDP60Rc=
+  dependencies:
+    kind-of "^3.0.2"
+    longest "^1.0.1"
+    repeat-string "^1.5.2"
+
+amdefine@>=0.0.4:
+  version "1.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
+  integrity sha1-SlKCrBZHKek2Gbz9OtFR+BfOkfU=
 
 ansi-escapes@^3.0.0:
   version "3.1.0"
@@ -278,6 +337,11 @@ ansi-styles@^3.2.0, ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
+any-promise@^1.1.0:
+  version "1.3.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/any-promise/-/any-promise-1.3.0.tgz#abc6afeedcea52e809cdc0376aed3ce39635d17f"
+  integrity sha1-q8av7tzqUugJzcA3au0845Y10X8=
+
 anymatch@^2.0.0:
   version "2.0.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/anymatch/-/anymatch-2.0.0.tgz#bcb24b4f37934d9aa7ac17b4adaf89e7c76ef2eb"
@@ -285,6 +349,16 @@ anymatch@^2.0.0:
   dependencies:
     micromatch "^3.1.4"
     normalize-path "^2.1.1"
+
+app-root-path@2.0.1:
+  version "2.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/app-root-path/-/app-root-path-2.0.1.tgz#cd62dcf8e4fd5a417efc664d2e5b10653c651b46"
+  integrity sha1-zWLc+OT9WkF+/GZNLlsQZTxlG0Y=
+
+append-field@^0.1.0:
+  version "0.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/append-field/-/append-field-0.1.0.tgz#6ddc58fa083c7bc545d3c5995b2830cc2366d44a"
+  integrity sha1-bdxY+gg8e8VF08WZWygwzCNm1Eo=
 
 append-transform@^0.4.0:
   version "0.4.0"
@@ -297,6 +371,32 @@ aproba@^1.0.3, aproba@^1.1.1:
   version "1.2.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/aproba/-/aproba-1.2.0.tgz#6802e6264efd18c790a1b0d517f0f2627bf2c94a"
   integrity sha1-aALmJk79GMeQobDVF/DyYnvyyUo=
+
+archiver-utils@^1.3.0:
+  version "1.3.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/archiver-utils/-/archiver-utils-1.3.0.tgz#e50b4c09c70bf3d680e32ff1b7994e9f9d895174"
+  integrity sha1-5QtMCccL89aA4y/xt5lOn52JUXQ=
+  dependencies:
+    glob "^7.0.0"
+    graceful-fs "^4.1.0"
+    lazystream "^1.0.0"
+    lodash "^4.8.0"
+    normalize-path "^2.0.0"
+    readable-stream "^2.0.0"
+
+archiver@2.1.1:
+  version "2.1.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/archiver/-/archiver-2.1.1.tgz#ff662b4a78201494a3ee544d3a33fe7496509ebc"
+  integrity sha1-/2YrSnggFJSj7lRNOjP+dJZQnrw=
+  dependencies:
+    archiver-utils "^1.3.0"
+    async "^2.0.0"
+    buffer-crc32 "^0.2.1"
+    glob "^7.0.0"
+    lodash "^4.8.0"
+    readable-stream "^2.0.0"
+    tar-stream "^1.5.0"
+    zip-stream "^1.2.0"
 
 are-we-there-yet@~1.1.2:
   version "1.1.5"
@@ -335,6 +435,11 @@ arr-union@^3.1.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/arr-union/-/arr-union-3.1.0.tgz#e39b09aea9def866a8f206e288af63919bae39c4"
   integrity sha1-45sJrqne+Gao8gbiiK9jkZuuOcQ=
 
+array-each@^1.0.1:
+  version "1.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/array-each/-/array-each-1.0.1.tgz#a794af0c05ab1752846ee753a1f211a05ba0c44f"
+  integrity sha1-p5SvDAWrF1KEbudTofIRoFugxE8=
+
 array-equal@^1.0.0:
   version "1.0.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/array-equal/-/array-equal-1.0.0.tgz#8c2a5ef2472fd9ea742b04c77a75093ba2757c93"
@@ -352,6 +457,11 @@ array-includes@^3.0.3:
   dependencies:
     define-properties "^1.1.2"
     es-abstract "^1.7.0"
+
+array-slice@^1.0.0:
+  version "1.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/array-slice/-/array-slice-1.1.0.tgz#e368ea15f89bc7069f7ffb89aec3a6c7d4ac22d4"
+  integrity sha1-42jqFfibxwaff/uJrsOmx9SsItQ=
 
 array-union@^1.0.1:
   version "1.0.2"
@@ -374,6 +484,11 @@ array-unique@^0.3.2:
   version "0.3.2"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/array-unique/-/array-unique-0.3.2.tgz#a894b75d4bc4f6cd679ef3244a9fd8f46ae2d428"
   integrity sha1-qJS3XUvE9s1nnvMkSp/Y9Gri1Cg=
+
+arraybuffer.slice@~0.0.7:
+  version "0.0.7"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/arraybuffer.slice/-/arraybuffer.slice-0.0.7.tgz#3bbc4275dd584cc1b10809b89d4e8b63a69e7675"
+  integrity sha1-O7xCdd1YTMGxCAm4nU6LY6aednU=
 
 arrify@^1.0.0, arrify@^1.0.1:
   version "1.0.1"
@@ -428,12 +543,53 @@ async-limiter@~1.0.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/async-limiter/-/async-limiter-1.0.0.tgz#78faed8c3d074ab81f22b4e985d79e8738f720f8"
   integrity sha1-ePrtjD0HSrgfIrTphdeehzj3IPg=
 
-async@^2.1.4, async@^2.5.0:
+async-replace@1.0.1:
+  version "1.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/async-replace/-/async-replace-1.0.1.tgz#d3f0857ccd02f1e94eb149cb5f89d58ac4f021d6"
+  integrity sha1-0/CFfM0C8elOsUnLX4nVisTwIdY=
+  dependencies:
+    async "^1.4.2"
+
+async@0.9.0:
+  version "0.9.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/async/-/async-0.9.0.tgz#ac3613b1da9bed1b47510bb4651b8931e47146c7"
+  integrity sha1-rDYTsdqb7RtHUQu0ZRuJMeRxRsc=
+
+async@1.5.2, async@^1.4.0, async@^1.4.2:
+  version "1.5.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
+  integrity sha1-7GphrlZIDAw8skHJVhjiCJL5Zyo=
+
+async@2.1.2:
+  version "2.1.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/async/-/async-2.1.2.tgz#612a4ab45ef42a70cde806bad86ee6db047e8385"
+  integrity sha1-YSpKtF70KnDN6Aa62G7m2wR+g4U=
+  dependencies:
+    lodash "^4.14.0"
+
+async@2.6.0:
+  version "2.6.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/async/-/async-2.6.0.tgz#61a29abb6fcc026fea77e56d1c6ec53a795951f4"
+  integrity sha1-YaKau2/MAm/qd+VtHG7FOnlZUfQ=
+  dependencies:
+    lodash "^4.14.0"
+
+async@^2.0.0, async@^2.1.4, async@^2.5.0, async@latest:
   version "2.6.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/async/-/async-2.6.1.tgz#b245a23ca71930044ec53fa46aa00a3e87c6a610"
   integrity sha1-skWiPKcZMAROxT+kaqAKPofGphA=
   dependencies:
     lodash "^4.17.10"
+
+async@~0.9.0:
+  version "0.9.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/async/-/async-0.9.2.tgz#aea74d5e61c1f899613bf64bda66d4c78f2fd17d"
+  integrity sha1-rqdNXmHB+JlhO/ZL2mbUx48v0X0=
+
+async@~1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/async/-/async-1.0.0.tgz#f8fc04ca3a13784ade9e1641af98578cfbd647a9"
+  integrity sha1-+PwEyjoTeErenhZBr5hXjPvWR6k=
 
 asynckit@^0.4.0:
   version "0.4.0"
@@ -450,7 +606,7 @@ aws-sign2@~0.7.0:
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.7.0.tgz#b46e890934a9591f2d2f6f86d7e6a9f1b3fe76a8"
   integrity sha1-tG6JCTSpWR8tL2+G1+ap8bP+dqg=
 
-aws4@^1.8.0:
+aws4@^1.6.0, aws4@^1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.8.0.tgz#f0e003d9ca9e7f59c7a508945d7b2ef9a04a542f"
   integrity sha1-8OAD2cqef1nHpQiUXXsu+aBKVC8=
@@ -616,15 +772,30 @@ babylon@^6.18.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/babylon/-/babylon-6.18.0.tgz#af2f3b88fa6f5c1e4c634d1a0f8eac4f55b395e3"
   integrity sha1-ry87iPpvXB5MY00aD46sT1WzleM=
 
+backo2@1.0.2:
+  version "1.0.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/backo2/-/backo2-1.0.2.tgz#31ab1ac8b129363463e35b3ebb69f4dfcfba7947"
+  integrity sha1-MasayLEpNjRj41s+u2n038+6eUc=
+
 balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
   integrity sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
 
+base64-arraybuffer@0.1.5:
+  version "0.1.5"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/base64-arraybuffer/-/base64-arraybuffer-0.1.5.tgz#73926771923b5a19747ad666aa5cd4bf9c6e9ce8"
+  integrity sha1-c5JncZI7Whl0etZmqlzUv5xunOg=
+
 base64-js@^1.0.2:
   version "1.3.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/base64-js/-/base64-js-1.3.0.tgz#cab1e6118f051095e58b5281aea8c1cd22bfc0e3"
   integrity sha1-yrHmEY8FEJXli1KBrqjBzSK/wOM=
+
+base64id@1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/base64id/-/base64id-1.0.0.tgz#47688cb99bb6804f0e06d3e763b1c32e57d8e6b6"
+  integrity sha1-R2iMuZu2gE8OBtPnY7HDLlfY5rY=
 
 base@^0.11.1:
   version "0.11.2"
@@ -639,12 +810,24 @@ base@^0.11.1:
     mixin-deep "^1.2.0"
     pascalcase "^0.1.1"
 
+batch@~0.4.0:
+  version "0.4.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/batch/-/batch-0.4.0.tgz#bffe40bc117b73942da155bc77d8a36a21a6ac58"
+  integrity sha1-v/5AvBF7c5QtoVW8d9ijaiGmrFg=
+
 bcrypt-pbkdf@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.2.tgz#a4301d389b6a43f9b67ff3ca11a3f6637e360e9e"
   integrity sha1-pDAdOJtqQ/m2f/PKEaP2Y342Dp4=
   dependencies:
     tweetnacl "^0.14.3"
+
+better-assert@~1.0.0:
+  version "1.0.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/better-assert/-/better-assert-1.0.2.tgz#40866b9e1b9e0b55b481894311e68faffaebc522"
+  integrity sha1-QIZrnhueC1W0gYlDEeaPr/rrxSI=
+  dependencies:
+    callsite "1.0.0"
 
 big.js@^3.1.3:
   version "3.2.0"
@@ -656,6 +839,24 @@ binary-extensions@^1.0.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/binary-extensions/-/binary-extensions-1.12.0.tgz#c2d780f53d45bba8317a8902d4ceeaf3a6385b14"
   integrity sha1-wteA9T1Fu6gxeokC1M7q86Y4WxQ=
 
+bl@^1.0.0:
+  version "1.2.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/bl/-/bl-1.2.2.tgz#a160911717103c07410cef63ef51b397c025af9c"
+  integrity sha1-oWCRFxcQPAdBDO9j71Gzl8Alr5w=
+  dependencies:
+    readable-stream "^2.3.5"
+    safe-buffer "^5.1.1"
+
+blob@0.0.5:
+  version "0.0.5"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/blob/-/blob-0.0.5.tgz#d680eeef25f8cd91ad533f5b01eed48e64caf683"
+  integrity sha1-1oDu7yX4zZGtUz9bAe7UjmTK9oM=
+
+bluebird@3.5.1:
+  version "3.5.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/bluebird/-/bluebird-3.5.1.tgz#d9551f9de98f1fcda1e683d17ee91a0602ee2eb9"
+  integrity sha1-2VUfnemPH82h5oPRfukaBgLuLrk=
+
 bluebird@^3.5.0, bluebird@^3.5.1:
   version "3.5.2"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/bluebird/-/bluebird-3.5.2.tgz#1be0908e054a751754549c270489c1505d4ab15a"
@@ -665,6 +866,22 @@ bn.js@^4.0.0, bn.js@^4.1.0, bn.js@^4.1.1, bn.js@^4.4.0:
   version "4.11.8"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/bn.js/-/bn.js-4.11.8.tgz#2cde09eb5ee341f484746bb0309b3253b1b1442f"
   integrity sha1-LN4J617jQfSEdGuwMJsyU7GxRC8=
+
+body-parser@1.18.2:
+  version "1.18.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/body-parser/-/body-parser-1.18.2.tgz#87678a19d84b47d859b83199bd59bce222b10454"
+  integrity sha1-h2eKGdhLR9hZuDGZvVm84iKxBFQ=
+  dependencies:
+    bytes "3.0.0"
+    content-type "~1.0.4"
+    debug "2.6.9"
+    depd "~1.1.1"
+    http-errors "~1.6.2"
+    iconv-lite "0.4.19"
+    on-finished "~2.3.0"
+    qs "6.5.1"
+    raw-body "2.3.2"
+    type-is "~1.6.15"
 
 body-parser@1.18.3:
   version "1.18.3"
@@ -681,6 +898,20 @@ body-parser@1.18.3:
     qs "6.5.2"
     raw-body "2.3.3"
     type-is "~1.6.16"
+
+boom@4.x.x:
+  version "4.3.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/boom/-/boom-4.3.1.tgz#4f8a3005cb4a7e3889f749030fd25b96e01d2e31"
+  integrity sha1-T4owBctKfjiJ90kDD9JbluAdLjE=
+  dependencies:
+    hoek "4.x.x"
+
+boom@5.x.x:
+  version "5.2.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/boom/-/boom-5.2.0.tgz#5dd9da6ee3a5f302077436290cb717d3f4a54e02"
+  integrity sha1-XdnabuOl8wIHdDYpDLcX0/SlTgI=
+  dependencies:
+    hoek "4.x.x"
 
 brace-expansion@^1.1.7:
   version "1.1.11"
@@ -798,6 +1029,29 @@ bser@^2.0.0:
   dependencies:
     node-int64 "^0.4.0"
 
+buffer-alloc-unsafe@^1.1.0:
+  version "1.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/buffer-alloc-unsafe/-/buffer-alloc-unsafe-1.1.0.tgz#bd7dc26ae2972d0eda253be061dba992349c19f0"
+  integrity sha1-vX3CauKXLQ7aJTvgYdupkjScGfA=
+
+buffer-alloc@^1.2.0:
+  version "1.2.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/buffer-alloc/-/buffer-alloc-1.2.0.tgz#890dd90d923a873e08e10e5fd51a57e5b7cce0ec"
+  integrity sha1-iQ3ZDZI6hz4I4Q5f1RpX5bfM4Ow=
+  dependencies:
+    buffer-alloc-unsafe "^1.1.0"
+    buffer-fill "^1.0.0"
+
+buffer-crc32@^0.2.1, buffer-crc32@~0.2.3:
+  version "0.2.13"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/buffer-crc32/-/buffer-crc32-0.2.13.tgz#0d333e3f00eac50aa1454abd30ef8c2a5d9a7242"
+  integrity sha1-DTM+PwDqxQqhRUq9MO+MKl2ackI=
+
+buffer-fill@^1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/buffer-fill/-/buffer-fill-1.0.0.tgz#f8f78b76789888ef39f205cd637f68e702122b2c"
+  integrity sha1-+PeLdniYiO858gXNY39o5wISKyw=
+
 buffer-from@^1.0.0:
   version "1.1.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
@@ -817,6 +1071,14 @@ buffer@^4.3.0:
     ieee754 "^1.1.4"
     isarray "^1.0.0"
 
+buffer@^5.1.0:
+  version "5.2.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/buffer/-/buffer-5.2.1.tgz#dd57fa0f109ac59c602479044dca7b8b3d0b71d6"
+  integrity sha1-3Vf6DxCaxZxgJHkETcp7iz0LcdY=
+  dependencies:
+    base64-js "^1.0.2"
+    ieee754 "^1.1.4"
+
 builtin-modules@^1.0.0:
   version "1.1.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/builtin-modules/-/builtin-modules-1.1.1.tgz#270f076c5a72c02f5b65a47df94c5fe3a278892f"
@@ -827,10 +1089,28 @@ builtin-status-codes@^3.0.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
   integrity sha1-hZgoeOIbmOHGZCXgPQF0eI9Wnug=
 
+busboy@^0.2.11:
+  version "0.2.14"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/busboy/-/busboy-0.2.14.tgz#6c2a622efcf47c57bbbe1e2a9c37ad36c7925453"
+  integrity sha1-bCpiLvz0fFe7vh4qnDetNseSVFM=
+  dependencies:
+    dicer "0.2.5"
+    readable-stream "1.1.x"
+
+bytes@2.3.0:
+  version "2.3.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/bytes/-/bytes-2.3.0.tgz#d5b680a165b6201739acb611542aabc2d8ceb070"
+  integrity sha1-1baAoWW2IBc5rLYRVCqrwtjOsHA=
+
 bytes@3.0.0:
   version "3.0.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/bytes/-/bytes-3.0.0.tgz#d32815404d689699f85a4ea4fa8755dd13a96048"
   integrity sha1-0ygVQE1olpn4Wk6k+odV3ROpYEg=
+
+bytes@~0.2.1:
+  version "0.2.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/bytes/-/bytes-0.2.1.tgz#555b08abcb063f8975905302523e4cd4ffdfdf31"
+  integrity sha1-VVsIq8sGP4l1kFMCUj5M1P/f3zE=
 
 cacache@^10.0.4:
   version "10.0.4"
@@ -873,6 +1153,11 @@ caller-path@^0.1.0:
   dependencies:
     callsites "^0.2.0"
 
+callsite@1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/callsite/-/callsite-1.0.0.tgz#280398e5d664bd74038b6f0905153e6e8af1bc20"
+  integrity sha1-KAOY5dZkvXQDi28JBRU+borxvCA=
+
 callsites@^0.2.0:
   version "0.2.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/callsites/-/callsites-0.2.0.tgz#afab96262910a7f33c19a5775825c69f34e350ca"
@@ -882,6 +1167,26 @@ callsites@^2.0.0:
   version "2.0.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/callsites/-/callsites-2.0.0.tgz#06eb84f00eea413da86affefacbffb36093b3c50"
   integrity sha1-BuuE8A7qQT2oav/vrL/7Ngk7PFA=
+
+camelcase@5.0.0:
+  version "5.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/camelcase/-/camelcase-5.0.0.tgz#03295527d58bd3cd4aa75363f35b2e8d97be2f42"
+  integrity sha1-AylVJ9WL081Kp1Nj81sujZe+L0I=
+
+camelcase@^1.0.2:
+  version "1.2.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/camelcase/-/camelcase-1.2.1.tgz#9bb5304d2e0b56698b2c758b08a3eaa9daa58a39"
+  integrity sha1-m7UwTS4LVmmLLHWLCKPqqdqlijk=
+
+camelcase@^2.0.1:
+  version "2.1.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/camelcase/-/camelcase-2.1.1.tgz#7c1d16d679a1bbe59ca02cacecfb011e201f5a1f"
+  integrity sha1-fB0W1nmhu+WcoCys7PsBHiAfWh8=
+
+camelcase@^3.0.0:
+  version "3.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/camelcase/-/camelcase-3.0.0.tgz#32fc4b9fcdaf845fcdf7e73bb97cac2261f0ab0a"
+  integrity sha1-MvxLn82vhF/N9+c7uXysImHwqwo=
 
 camelcase@^4.1.0:
   version "4.1.0"
@@ -899,6 +1204,23 @@ caseless@~0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
+
+center-align@^0.1.1:
+  version "0.1.3"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/center-align/-/center-align-0.1.3.tgz#aa0d32629b6ee972200411cbd4461c907bc2b7ad"
+  integrity sha1-qg0yYptu6XIgBBHL1EYckHvCt60=
+  dependencies:
+    align-text "^0.1.3"
+    lazy-cache "^1.0.3"
+
+chalk@2.3.2:
+  version "2.3.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/chalk/-/chalk-2.3.2.tgz#250dc96b07491bfd601e648d66ddf5f60c7a5c65"
+  integrity sha1-JQ3JawdJG/1gHmSNZt319gx6XGU=
+  dependencies:
+    ansi-styles "^3.2.1"
+    escape-string-regexp "^1.0.5"
+    supports-color "^5.3.0"
 
 chalk@^1.1.3:
   version "1.1.3"
@@ -925,6 +1247,25 @@ chardet@^0.4.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/chardet/-/chardet-0.4.2.tgz#b5473b33dc97c424e5d98dc87d55d4d8a29c8bf2"
   integrity sha1-tUc7M9yXxCTl2Y3IfVXU2KKci/I=
 
+chokidar@2.0.2:
+  version "2.0.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/chokidar/-/chokidar-2.0.2.tgz#4dc65139eeb2714977735b6a35d06e97b494dfd7"
+  integrity sha1-TcZROe6ycUl3c1tqNdBul7SU39c=
+  dependencies:
+    anymatch "^2.0.0"
+    async-each "^1.0.0"
+    braces "^2.3.0"
+    glob-parent "^3.1.0"
+    inherits "^2.0.1"
+    is-binary-path "^1.0.0"
+    is-glob "^4.0.0"
+    normalize-path "^2.1.1"
+    path-is-absolute "^1.0.0"
+    readdirp "^2.0.0"
+    upath "^1.0.0"
+  optionalDependencies:
+    fsevents "^1.0.0"
+
 chokidar@^2.0.2:
   version "2.0.4"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/chokidar/-/chokidar-2.0.4.tgz#356ff4e2b0e8e43e322d18a372460bbcf3accd26"
@@ -949,6 +1290,13 @@ chownr@^1.0.1:
   version "1.1.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/chownr/-/chownr-1.1.1.tgz#54726b8b8fff4df053c42187e801fb4412df1494"
   integrity sha1-VHJri4//TfBTxCGH6AH7RBLfFJQ=
+
+chrome-page-eval@1.0.1:
+  version "1.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/chrome-page-eval/-/chrome-page-eval-1.0.1.tgz#e77b6773be4b889efcd0780c4b58bb9950392939"
+  integrity sha1-53tnc75LiJ780HgMS1i7mVA5KTk=
+  dependencies:
+    debug "3.1.0"
 
 chrome-trace-event@^1.0.0:
   version "1.0.0"
@@ -997,6 +1345,40 @@ cli-width@^2.0.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/cli-width/-/cli-width-2.2.0.tgz#ff19ede8a9a5e579324147b0c11f0fbcbabed639"
   integrity sha1-/xnt6Kml5XkyQUewwR8PvLq+1jk=
 
+client-sessions@0.8.0:
+  version "0.8.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/client-sessions/-/client-sessions-0.8.0.tgz#a7d8c5558ad5d56f2a199f3533eb654b5df893fd"
+  integrity sha1-p9jFVYrV1W8qGZ81M+tlS134k/0=
+  dependencies:
+    cookies "^0.7.0"
+
+cliui@4.0.0:
+  version "4.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/cliui/-/cliui-4.0.0.tgz#743d4650e05f36d1ed2575b59638d87322bfbbcc"
+  integrity sha1-dD1GUOBfNtHtJXW1ljjYcyK/u8w=
+  dependencies:
+    string-width "^2.1.1"
+    strip-ansi "^4.0.0"
+    wrap-ansi "^2.0.0"
+
+cliui@^2.1.0:
+  version "2.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/cliui/-/cliui-2.1.0.tgz#4b475760ff80264c762c3a1719032e91c7fea0d1"
+  integrity sha1-S0dXYP+AJkx2LDoXGQMukcf+oNE=
+  dependencies:
+    center-align "^0.1.1"
+    right-align "^0.1.1"
+    wordwrap "0.0.2"
+
+cliui@^3.0.3, cliui@^3.2.0:
+  version "3.2.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/cliui/-/cliui-3.2.0.tgz#120601537a916d29940f934da3b48d585a39213d"
+  integrity sha1-EgYBU3qRbSmUD5NNo7SNWFo5IT0=
+  dependencies:
+    string-width "^1.0.1"
+    strip-ansi "^3.0.1"
+    wrap-ansi "^2.0.0"
+
 cliui@^4.0.0:
   version "4.1.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/cliui/-/cliui-4.1.0.tgz#348422dbe82d800b3022eef4f6ac10bf2e4d1b49"
@@ -1036,6 +1418,16 @@ color-name@1.1.3:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/color-name/-/color-name-1.1.3.tgz#a7d0558bd89c42f795dd42328f740831ca53bc25"
   integrity sha1-p9BVi9icQveV3UIyj3QIMcpTvCU=
 
+colors@1.0.x:
+  version "1.0.3"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/colors/-/colors-1.0.3.tgz#0433f44d809680fdeb60ed260f1b0c262e82a40b"
+  integrity sha1-BDP0TYCWgP3rYO0mDxsMJi6CpAs=
+
+colors@^1.1.2:
+  version "1.3.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/colors/-/colors-1.3.2.tgz#2df8ff573dfbf255af562f8ce7181d6b971a359b"
+  integrity sha1-Lfj/Vz378lWvVi+M5xgda5caNZs=
+
 combined-stream@1.0.6:
   version "1.0.6"
   resolved "http://registry.npmjs.org/combined-stream/-/combined-stream-1.0.6.tgz#723e7df6e801ac5613113a7e445a9b69cb632818"
@@ -1043,12 +1435,19 @@ combined-stream@1.0.6:
   dependencies:
     delayed-stream "~1.0.0"
 
-combined-stream@~1.0.6:
+combined-stream@^1.0.6, combined-stream@~1.0.5, combined-stream@~1.0.6:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-1.0.7.tgz#2d1d24317afb8abe95d6d2c0b07b57813539d828"
   integrity sha1-LR0kMXr7ir6V1tLAsHtXgTU52Cg=
   dependencies:
     delayed-stream "~1.0.0"
+
+commander@~1.2.0:
+  version "1.2.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/commander/-/commander-1.2.0.tgz#fd5713bfa153c7d6cc599378a5ab4c45c535029e"
+  integrity sha1-/VcTv6FTx9bMWZN4patMRcU1Ap4=
+  dependencies:
+    keypress "0.1.x"
 
 commander@~2.13.0:
   version "2.13.0"
@@ -1065,17 +1464,65 @@ commondir@^1.0.1:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/commondir/-/commondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
   integrity sha1-3dgA2gxmEnOTzKWVDqloo6rxJTs=
 
-component-emitter@^1.2.0, component-emitter@^1.2.1:
+component-bind@1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/component-bind/-/component-bind-1.0.0.tgz#00c608ab7dcd93897c0009651b1d3a8e1e73bbd1"
+  integrity sha1-AMYIq33Nk4l8AAllGx06jh5zu9E=
+
+component-emitter@1.2.1, component-emitter@^1.2.0, component-emitter@^1.2.1:
   version "1.2.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/component-emitter/-/component-emitter-1.2.1.tgz#137918d6d78283f7df7a6b7c5a63e140e69425e6"
   integrity sha1-E3kY1teCg/ffemt8WmPhQOaUJeY=
+
+component-inherit@0.0.3:
+  version "0.0.3"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/component-inherit/-/component-inherit-0.0.3.tgz#645fc4adf58b72b649d5cae65135619db26ff143"
+  integrity sha1-ZF/ErfWLcrZJ1crmUTVhnbJv8UM=
+
+compress-commons@^1.2.0:
+  version "1.2.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/compress-commons/-/compress-commons-1.2.2.tgz#524a9f10903f3a813389b0225d27c48bb751890f"
+  integrity sha1-UkqfEJA/OoEzibAiXSfEi7dRiQ8=
+  dependencies:
+    buffer-crc32 "^0.2.1"
+    crc32-stream "^2.0.0"
+    normalize-path "^2.0.0"
+    readable-stream "^2.0.0"
+
+compressible@~2.0.8:
+  version "2.0.15"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/compressible/-/compressible-2.0.15.tgz#857a9ab0a7e5a07d8d837ed43fe2defff64fe212"
+  integrity sha1-hXqasKfloH2Ng37UP+Le//ZP4hI=
+  dependencies:
+    mime-db ">= 1.36.0 < 2"
+
+compression@1.6.2:
+  version "1.6.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/compression/-/compression-1.6.2.tgz#cceb121ecc9d09c52d7ad0c3350ea93ddd402bc3"
+  integrity sha1-zOsSHsydCcUtetDDNQ6pPd1AK8M=
+  dependencies:
+    accepts "~1.3.3"
+    bytes "2.3.0"
+    compressible "~2.0.8"
+    debug "~2.2.0"
+    on-headers "~1.0.1"
+    vary "~1.1.0"
 
 concat-map@0.0.1:
   version "0.0.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=
 
-concat-stream@^1.5.0:
+concat-stream@1.6.0:
+  version "1.6.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/concat-stream/-/concat-stream-1.6.0.tgz#0aac662fd52be78964d5532f694784e70110acf7"
+  integrity sha1-CqxmL9Ur54lk1VMvaUeE5wEQrPc=
+  dependencies:
+    inherits "^2.0.3"
+    readable-stream "^2.2.2"
+    typedarray "^0.0.6"
+
+concat-stream@1.6.2, concat-stream@^1.5.0:
   version "1.6.2"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/concat-stream/-/concat-stream-1.6.2.tgz#904bdf194cd3122fc675c77fc4ac3d4ff0fd1a34"
   integrity sha1-kEvfGUzTEi/Gdcd/xKw9T/D9GjQ=
@@ -1124,6 +1571,14 @@ convert-source-map@^1.4.0, convert-source-map@^1.5.1:
   dependencies:
     safe-buffer "~5.1.1"
 
+cookie-parser@1.4.3:
+  version "1.4.3"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/cookie-parser/-/cookie-parser-1.4.3.tgz#0fe31fa19d000b95f4aadf1f53fdc2b8a203baa5"
+  integrity sha1-D+MfoZ0AC5X0qt8fU/3CuKIDuqU=
+  dependencies:
+    cookie "0.3.1"
+    cookie-signature "1.0.6"
+
 cookie-signature@1.0.6:
   version "1.0.6"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/cookie-signature/-/cookie-signature-1.0.6.tgz#e303a882b342cc3ee8ca513a79999734dab3ae2c"
@@ -1138,6 +1593,14 @@ cookiejar@^2.1.0:
   version "2.1.2"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/cookiejar/-/cookiejar-2.1.2.tgz#dd8a235530752f988f9a0844f3fc589e3111125c"
   integrity sha1-3YojVTB1L5iPmghE8/xYnjERElw=
+
+cookies@^0.7.0:
+  version "0.7.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/cookies/-/cookies-0.7.2.tgz#52736976126658af7713d7f858f7d21f99dab486"
+  integrity sha1-UnNpdhJmWK93E9f4WPfSH5natIY=
+  dependencies:
+    depd "~1.1.2"
+    keygrip "~1.0.2"
 
 copy-concurrently@^1.0.0:
   version "1.0.5"
@@ -1165,6 +1628,29 @@ core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
   integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
+
+cors@2.8.4:
+  version "2.8.4"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/cors/-/cors-2.8.4.tgz#2bd381f2eb201020105cd50ea59da63090694686"
+  integrity sha1-K9OB8usgECAQXNUOpZ2mMJBpRoY=
+  dependencies:
+    object-assign "^4"
+    vary "^1"
+
+crc32-stream@^2.0.0:
+  version "2.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/crc32-stream/-/crc32-stream-2.0.0.tgz#e3cdd3b4df3168dd74e3de3fbbcb7b297fe908f4"
+  integrity sha1-483TtN8xaN10494/u8t7KX/pCPQ=
+  dependencies:
+    crc "^3.4.4"
+    readable-stream "^2.0.0"
+
+crc@^3.4.4:
+  version "3.8.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/crc/-/crc-3.8.0.tgz#ad60269c2c856f8c299e2c4cc0de4556914056c6"
+  integrity sha1-rWAmnCyFb4wpnixMwN5FVpFAVsY=
+  dependencies:
+    buffer "^5.1.0"
 
 create-ecdh@^4.0.0:
   version "4.0.3"
@@ -1197,6 +1683,14 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
+cron-parser@2.5.0:
+  version "2.5.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/cron-parser/-/cron-parser-2.5.0.tgz#ec1385a3aa8c63624256789ce2ecfa338384676a"
+  integrity sha1-7BOFo6qMY2JCVnic4uz6M4OEZ2o=
+  dependencies:
+    is-nan "^1.2.1"
+    moment-timezone "^0.5.0"
+
 cross-spawn@^5.0.1:
   version "5.1.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/cross-spawn/-/cross-spawn-5.1.0.tgz#e8bd0efee58fcff6f8f94510a0a554bbfa235449"
@@ -1216,6 +1710,13 @@ cross-spawn@^6.0.0, cross-spawn@^6.0.5:
     semver "^5.5.0"
     shebang-command "^1.2.0"
     which "^1.2.9"
+
+cryptiles@3.x.x:
+  version "3.1.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/cryptiles/-/cryptiles-3.1.2.tgz#a89fbb220f5ce25ec56e8c4aa8a4fd7b5b0d29fe"
+  integrity sha1-qJ+7Ig9c4l7FboxKqKT9e1sNKf4=
+  dependencies:
+    boom "5.x.x"
 
 crypto-browserify@^3.11.0:
   version "3.12.0"
@@ -1245,6 +1746,11 @@ cssstyle@^1.0.0:
   integrity sha1-GLA4qcRNZfeo5CimU7n2/kL69fs=
   dependencies:
     cssom "0.3.x"
+
+cycle@1.0.x:
+  version "1.0.3"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/cycle/-/cycle-1.0.3.tgz#21e80b2be8580f98b468f379430662b046c34ad2"
+  integrity sha1-IegLK+hYD5i0aPN5QwZisEbDStI=
 
 cyclist@~0.2.2:
   version "0.2.2"
@@ -1277,10 +1783,24 @@ debug-log@^1.0.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/debug-log/-/debug-log-1.0.1.tgz#2307632d4c04382b8df8a32f70b895046d52745f"
   integrity sha1-IwdjLUwEOCuN+KMvcLiVBG1SdF8=
 
+debug@*:
+  version "4.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/debug/-/debug-4.1.0.tgz#373687bffa678b38b1cd91f861b63850035ddc87"
+  integrity sha1-NzaHv/pnizixzZH4YbY4UANd3Ic=
+  dependencies:
+    ms "^2.1.1"
+
 debug@2.6.9, debug@^2.1.2, debug@^2.2.0, debug@^2.3.3, debug@^2.6.8, debug@^2.6.9:
   version "2.6.9"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   integrity sha1-XRKFFd8TT/Mn6QpMk/Tgd6U2NB8=
+  dependencies:
+    ms "2.0.0"
+
+debug@3.1.0, debug@~3.1.0:
+  version "3.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
+  integrity sha1-W7WgZyYotkFJVmuhaBnmFRjGcmE=
   dependencies:
     ms "2.0.0"
 
@@ -1291,22 +1811,34 @@ debug@^3.1.0:
   dependencies:
     ms "^2.1.1"
 
-decamelize@^1.1.1:
-  version "1.2.0"
-  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
-  integrity sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=
+debug@~2.2.0:
+  version "2.2.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/debug/-/debug-2.2.0.tgz#f87057e995b1a1f6ae6a4960664137bc56f039da"
+  integrity sha1-+HBX6ZWxofauaklgZkE3vFbwOdo=
+  dependencies:
+    ms "0.7.1"
 
-decamelize@^2.0.0:
+decamelize@2.0.0, decamelize@^2.0.0:
   version "2.0.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/decamelize/-/decamelize-2.0.0.tgz#656d7bbc8094c4c788ea53c5840908c9c7d063c7"
   integrity sha1-ZW17vICUxMeI6lPFhAkIycfQY8c=
   dependencies:
     xregexp "4.0.0"
 
+decamelize@^1.0.0, decamelize@^1.1.1:
+  version "1.2.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
+  integrity sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=
+
 decode-uri-component@^0.2.0:
   version "0.2.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
   integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
+
+deep-equal@~0.2.1:
+  version "0.2.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/deep-equal/-/deep-equal-0.2.2.tgz#84b745896f34c684e98f2ce0e42abaf43bba017d"
+  integrity sha1-hLdFiW80xoTpjyzg5Cq69Du6AX0=
 
 deep-extend@^0.6.0:
   version "0.6.0"
@@ -1318,6 +1850,11 @@ deep-is@~0.1.3:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/deep-is/-/deep-is-0.1.3.tgz#b369d6fb5dbc13eecf524f91b070feedc357cf34"
   integrity sha1-s2nW+128E+7PUk+RsHD+7cNXzzQ=
 
+deepmerge@2.1.0:
+  version "2.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/deepmerge/-/deepmerge-2.1.0.tgz#511a54fff405fc346f0240bb270a3e9533a31102"
+  integrity sha1-URpU//QF/DRvAkC7Jwo+lTOjEQI=
+
 default-require-extensions@^1.0.0:
   version "1.0.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/default-require-extensions/-/default-require-extensions-1.0.0.tgz#f37ea15d3e13ffd9b437d33e1a75b5fb97874cb8"
@@ -1325,7 +1862,7 @@ default-require-extensions@^1.0.0:
   dependencies:
     strip-bom "^2.0.0"
 
-define-properties@^1.1.2:
+define-properties@^1.1.1, define-properties@^1.1.2:
   version "1.1.3"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/define-properties/-/define-properties-1.1.3.tgz#cf88da6cbee26fe6db7094f61d870cbd84cee9f1"
   integrity sha1-z4jabL7ib+bbcJT2HYcMvYTO6fE=
@@ -1389,7 +1926,12 @@ delegates@^1.0.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
   integrity sha1-hMbhWbgZBP3KWaDvRM2HDTElD5o=
 
-depd@~1.1.2:
+depd@1.1.1:
+  version "1.1.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/depd/-/depd-1.1.1.tgz#5783b4e1c459f06fa5ca27f991f3d06e7a310359"
+  integrity sha1-V4O04cRZ8G+lyif5kfPQbnoxA1k=
+
+depd@~1.1.1, depd@~1.1.2:
   version "1.1.2"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/depd/-/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"
   integrity sha1-m81S4UwJd2PnSbJ0xDRu0uVgtak=
@@ -1406,6 +1948,11 @@ destroy@~1.0.4:
   version "1.0.4"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/destroy/-/destroy-1.0.4.tgz#978857442c44749e4206613e37946205826abd80"
   integrity sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA=
+
+detect-file@^1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/detect-file/-/detect-file-1.0.0.tgz#f0d66d03672a825cb1b73bdb3fe62310c8e552b7"
+  integrity sha1-8NZtA2cqglyxtzvbP+YjEMjlUrc=
 
 detect-indent@^4.0.0:
   version "4.0.0"
@@ -1424,7 +1971,30 @@ detect-newline@^2.1.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/detect-newline/-/detect-newline-2.1.0.tgz#f41f1c10be4b00e87b5f13da680759f2c5bfd3e2"
   integrity sha1-9B8cEL5LAOh7XxPaaAdZ8sW/0+I=
 
-diff@^3.2.0:
+dicer@0.2.5:
+  version "0.2.5"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/dicer/-/dicer-0.2.5.tgz#5996c086bb33218c812c090bddc09cd12facb70f"
+  integrity sha1-WZbAhrszIYyBLAkL3cCc0S+stw8=
+  dependencies:
+    readable-stream "1.1.x"
+    streamsearch "0.1.2"
+
+diff2html@2.3.2:
+  version "2.3.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/diff2html/-/diff2html-2.3.2.tgz#1c5864266d437148bc66fdd66d4ad750102d7fed"
+  integrity sha1-HFhkJm1DcUi8Zv3WbUrXUBAtf+0=
+  dependencies:
+    diff "^3.3.1"
+    hogan.js "^3.0.2"
+    lodash "^4.17.4"
+    whatwg-fetch "^2.0.3"
+
+diff@3.4.0:
+  version "3.4.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/diff/-/diff-3.4.0.tgz#b1d85507daf3964828de54b37d0d73ba67dda56c"
+  integrity sha1-sdhVB9rzlkgo3lSzfQ1zumfdpWw=
+
+diff@^3.2.0, diff@^3.3.1:
   version "3.5.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/diff/-/diff-3.5.0.tgz#800c0dd1e0a8bfbc95835c202ad220fe317e5a12"
   integrity sha1-gAwN0eCov7yVg1wgKtIg/jF+WhI=
@@ -1475,6 +2045,13 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
 
+easy-zip@0.0.4:
+  version "0.0.4"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/easy-zip/-/easy-zip-0.0.4.tgz#b2da37d6750221860aaef0168de912ebfe957d93"
+  integrity sha1-sto31nUCIYYKrvAWjekS6/6VfZM=
+  dependencies:
+    async latest
+
 ecc-jsbn@~0.1.1:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/ecc-jsbn/-/ecc-jsbn-0.1.2.tgz#3a83a904e54353287874c564b7549386849a98c9"
@@ -1487,6 +2064,11 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
+
+ejs@2.5.7:
+  version "2.5.7"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/ejs/-/ejs-2.5.7.tgz#cc872c168880ae3c7189762fd5ffc00896c9518a"
+  integrity sha1-zIcsFoiArjxxiXYv1f/ACJbJUYo=
 
 ejs@2.6.1:
   version "2.6.1"
@@ -1511,7 +2093,7 @@ emojis-list@^2.0.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/emojis-list/-/emojis-list-2.1.0.tgz#4daa4d9db00f9819880c79fa457ae5b09a1fd389"
   integrity sha1-TapNnbAPmBmIDHn6RXrlsJof04k=
 
-encodeurl@~1.0.2:
+encodeurl@~1.0.1, encodeurl@~1.0.2:
   version "1.0.2"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/encodeurl/-/encodeurl-1.0.2.tgz#ad3ff4c86ec2d029322f5a02c3a9a606c95b3f59"
   integrity sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=
@@ -1522,6 +2104,46 @@ end-of-stream@^1.0.0, end-of-stream@^1.1.0:
   integrity sha1-7SljTRm6ukY7bOa4CjchPqtx7EM=
   dependencies:
     once "^1.4.0"
+
+engine.io-client@~3.2.0:
+  version "3.2.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/engine.io-client/-/engine.io-client-3.2.1.tgz#6f54c0475de487158a1a7c77d10178708b6add36"
+  integrity sha1-b1TAR13khxWKGnx30QF4cItq3TY=
+  dependencies:
+    component-emitter "1.2.1"
+    component-inherit "0.0.3"
+    debug "~3.1.0"
+    engine.io-parser "~2.1.1"
+    has-cors "1.1.0"
+    indexof "0.0.1"
+    parseqs "0.0.5"
+    parseuri "0.0.5"
+    ws "~3.3.1"
+    xmlhttprequest-ssl "~1.5.4"
+    yeast "0.1.2"
+
+engine.io-parser@~2.1.0, engine.io-parser@~2.1.1:
+  version "2.1.3"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/engine.io-parser/-/engine.io-parser-2.1.3.tgz#757ab970fbf2dfb32c7b74b033216d5739ef79a6"
+  integrity sha1-dXq5cPvy37Mse3SwMyFtVznveaY=
+  dependencies:
+    after "0.8.2"
+    arraybuffer.slice "~0.0.7"
+    base64-arraybuffer "0.1.5"
+    blob "0.0.5"
+    has-binary2 "~1.0.2"
+
+engine.io@~3.2.0:
+  version "3.2.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/engine.io/-/engine.io-3.2.0.tgz#54332506f42f2edc71690d2f2a42349359f3bf7d"
+  integrity sha1-VDMlBvQvLtxxaQ0vKkI0k1nzv30=
+  dependencies:
+    accepts "~1.3.4"
+    base64id "1.0.0"
+    cookie "0.3.1"
+    debug "~3.1.0"
+    engine.io-parser "~2.1.0"
+    ws "~3.3.1"
 
 enhanced-resolve@^4.1.0:
   version "4.1.0"
@@ -1565,6 +2187,18 @@ es-to-primitive@^1.1.1:
     is-callable "^1.1.4"
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
+
+es6-promise@^4.0.3:
+  version "4.2.5"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/es6-promise/-/es6-promise-4.2.5.tgz#da6d0d5692efb461e082c14817fe2427d8f5d054"
+  integrity sha1-2m0NVpLvtGHggsFIF/4kJ9j10FQ=
+
+es6-promisify@^5.0.0:
+  version "5.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/es6-promisify/-/es6-promisify-5.0.0.tgz#5109d62f3e56ea967c4b63505aef08291c8a5203"
+  integrity sha1-UQnWLz5W6pZ8S2NQWu8IKRyKUgM=
+  dependencies:
+    es6-promise "^4.0.3"
 
 escape-html@~1.0.3:
   version "1.0.3"
@@ -1775,10 +2409,15 @@ esutils@^2.0.2:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/esutils/-/esutils-2.0.2.tgz#0abf4f1caa5bcb1f7a9d8acc6dea4faaa04bac9b"
   integrity sha1-Cr9PHKpbyx96nYrMbepPqqBLrJs=
 
-etag@~1.8.1:
+etag@1.8.1, etag@~1.8.1:
   version "1.8.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
   integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
+
+eventemitter2@~0.4.14:
+  version "0.4.14"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/eventemitter2/-/eventemitter2-0.4.14.tgz#8f61b75cde012b2e9eb284d4545583b5643b61ab"
+  integrity sha1-j2G3XN4BKy6esoTUVFWDtWQ7Yas=
 
 events@^1.0.0:
   version "1.1.1"
@@ -1858,6 +2497,13 @@ expand-range@^1.8.1:
   dependencies:
     fill-range "^2.1.0"
 
+expand-tilde@^2.0.0, expand-tilde@^2.0.2:
+  version "2.0.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/expand-tilde/-/expand-tilde-2.0.2.tgz#97e801aa052df02454de46b02bf621642cdc8502"
+  integrity sha1-l+gBqgUt8CRU3kawK/YhZCzchQI=
+  dependencies:
+    homedir-polyfill "^1.0.1"
+
 expect@^23.6.0:
   version "23.6.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/expect/-/expect-23.6.0.tgz#1e0c8d3ba9a581c87bd71fb9bc8862d443425f98"
@@ -1869,6 +2515,42 @@ expect@^23.6.0:
     jest-matcher-utils "^23.6.0"
     jest-message-util "^23.4.0"
     jest-regex-util "^23.3.0"
+
+express@4.16.2:
+  version "4.16.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/express/-/express-4.16.2.tgz#e35c6dfe2d64b7dca0a5cd4f21781be3299e076c"
+  integrity sha1-41xt/i1kt9ygpc1PIXgb4ymeB2w=
+  dependencies:
+    accepts "~1.3.4"
+    array-flatten "1.1.1"
+    body-parser "1.18.2"
+    content-disposition "0.5.2"
+    content-type "~1.0.4"
+    cookie "0.3.1"
+    cookie-signature "1.0.6"
+    debug "2.6.9"
+    depd "~1.1.1"
+    encodeurl "~1.0.1"
+    escape-html "~1.0.3"
+    etag "~1.8.1"
+    finalhandler "1.1.0"
+    fresh "0.5.2"
+    merge-descriptors "1.0.1"
+    methods "~1.1.2"
+    on-finished "~2.3.0"
+    parseurl "~1.3.2"
+    path-to-regexp "0.1.7"
+    proxy-addr "~2.0.2"
+    qs "6.5.1"
+    range-parser "~1.2.0"
+    safe-buffer "5.1.1"
+    send "0.16.1"
+    serve-static "1.13.1"
+    setprototypeof "1.1.0"
+    statuses "~1.3.1"
+    type-is "~1.6.15"
+    utils-merge "1.0.1"
+    vary "~1.1.2"
 
 express@4.16.4:
   version "4.16.4"
@@ -1921,7 +2603,7 @@ extend-shallow@^3.0.0, extend-shallow@^3.0.2:
     assign-symbols "^1.0.0"
     is-extendable "^1.0.1"
 
-extend@^3.0.0, extend@~3.0.2:
+extend@^3.0.0, extend@~3.0.1, extend@~3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.2.tgz#f8b1136b4071fbd8eb140aff858b1019ec2915fa"
   integrity sha1-+LETa0Bx+9jrFAr/hYsQGewpFfo=
@@ -1956,6 +2638,16 @@ extglob@^2.0.4:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
+extract-zip@^1.6.6:
+  version "1.6.7"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/extract-zip/-/extract-zip-1.6.7.tgz#a840b4b8af6403264c8db57f4f1a74333ef81fe9"
+  integrity sha1-qEC0uK9kAyZMjbV/Txp0Mz74H+k=
+  dependencies:
+    concat-stream "1.6.2"
+    debug "2.6.9"
+    mkdirp "0.5.1"
+    yauzl "2.4.1"
+
 extsprintf@1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.3.0.tgz#96918440e3041a7a414f8c52e3c574eb3c3e1e05"
@@ -1965,6 +2657,11 @@ extsprintf@^1.2.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
   integrity sha1-4mifjzVvrWLMplo6kcXfX5VRaS8=
+
+eyes@0.1.x:
+  version "0.1.8"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/eyes/-/eyes-0.1.8.tgz#62cf120234c683785d902348a800ef3e0cc20bc0"
+  integrity sha1-Ys8SAjTGg3hdkCNIqADvPgzCC8A=
 
 fast-deep-equal@^1.0.0:
   version "1.1.0"
@@ -1993,6 +2690,13 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "^2.0.0"
 
+fd-slicer@~1.0.1:
+  version "1.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/fd-slicer/-/fd-slicer-1.0.1.tgz#8b5bcbd9ec327c5041bf9ab023fd6750f1177e65"
+  integrity sha1-i1vL2ewyfFBBv5qwI/1nUPEXfmU=
+  dependencies:
+    pend "~1.2.0"
+
 figures@^2.0.0:
   version "2.0.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/figures/-/figures-2.0.0.tgz#3ab1a2d2a62c8bfb431a0c94cb797a2fce27c962"
@@ -2007,6 +2711,11 @@ file-entry-cache@^2.0.0:
   dependencies:
     flat-cache "^1.2.1"
     object-assign "^4.0.1"
+
+file-type@7.6.0:
+  version "7.6.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/file-type/-/file-type-7.6.0.tgz#b3dbfc8029148e86f30761b21253562943d21f06"
+  integrity sha1-s9v8gCkUjobzB2GyElNWKUPSHwY=
 
 filename-regex@^2.0.0:
   version "2.0.1"
@@ -2041,6 +2750,19 @@ fill-range@^4.0.0:
     is-number "^3.0.0"
     repeat-string "^1.6.1"
     to-regex-range "^2.1.0"
+
+finalhandler@1.1.0:
+  version "1.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/finalhandler/-/finalhandler-1.1.0.tgz#ce0b6855b45853e791b2fcc680046d88253dd7f5"
+  integrity sha1-zgtoVbRYU+eRsvzGgARtiCU91/U=
+  dependencies:
+    debug "2.6.9"
+    encodeurl "~1.0.1"
+    escape-html "~1.0.3"
+    on-finished "~2.3.0"
+    parseurl "~1.3.2"
+    statuses "~1.3.1"
+    unpipe "~1.0.0"
 
 finalhandler@1.1.1:
   version "1.1.1"
@@ -2091,6 +2813,32 @@ find-up@^3.0.0:
   dependencies:
     locate-path "^3.0.0"
 
+findup-sync@^2.0.0:
+  version "2.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/findup-sync/-/findup-sync-2.0.0.tgz#9326b1488c22d1a6088650a86901b2d9a90a2cbc"
+  integrity sha1-kyaxSIwi0aYIhlCoaQGy2akKLLw=
+  dependencies:
+    detect-file "^1.0.0"
+    is-glob "^3.1.0"
+    micromatch "^3.0.4"
+    resolve-dir "^1.0.1"
+
+fined@^1.0.1:
+  version "1.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/fined/-/fined-1.1.0.tgz#b37dc844b76a2f5e7081e884f7c0ae344f153476"
+  integrity sha1-s33IRLdqL15wgeiE98CuNE8VNHY=
+  dependencies:
+    expand-tilde "^2.0.2"
+    is-plain-object "^2.0.3"
+    object.defaults "^1.1.0"
+    object.pick "^1.2.0"
+    parse-filepath "^1.0.1"
+
+flagged-respawn@^1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/flagged-respawn/-/flagged-respawn-1.0.0.tgz#4e79ae9b2eb38bf86b3bb56bf3e0a56aa5fcabd7"
+  integrity sha1-Tnmumy6zi/hrO7Vr8+ClaqX8q9c=
+
 flat-cache@^1.2.1:
   version "1.3.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/flat-cache/-/flat-cache-1.3.0.tgz#d3030b32b38154f4e3b7e9c709f490f7ef97c481"
@@ -2121,6 +2869,13 @@ for-own@^0.1.4:
   dependencies:
     for-in "^1.0.1"
 
+for-own@^1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/for-own/-/for-own-1.0.0.tgz#c63332f415cedc4b04dbfe70cf836494c53cb44b"
+  integrity sha1-xjMy9BXO3EsE2/5wz4NklMU8tEs=
+  dependencies:
+    for-in "^1.0.1"
+
 forever-agent@~0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/forever-agent/-/forever-agent-0.6.1.tgz#fbc71f0c41adeb37f96c577ad1ed42d8fdacca91"
@@ -2133,6 +2888,15 @@ form-data@^2.3.1, form-data@~2.3.2:
   dependencies:
     asynckit "^0.4.0"
     combined-stream "1.0.6"
+    mime-types "^2.1.12"
+
+form-data@~2.3.1:
+  version "2.3.3"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/form-data/-/form-data-2.3.3.tgz#dcce52c05f644f298c6a7ab936bd724ceffbf3a6"
+  integrity sha1-3M5SwF9kTymManq5Nr1yTO/786Y=
+  dependencies:
+    asynckit "^0.4.0"
+    combined-stream "^1.0.6"
     mime-types "^2.1.12"
 
 formidable@^1.2.0:
@@ -2165,6 +2929,20 @@ from2@^2.1.0:
     inherits "^2.0.1"
     readable-stream "^2.0.0"
 
+fs-constants@^1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/fs-constants/-/fs-constants-1.0.0.tgz#6be0de9be998ce16af8afc24497b9ee9b7ccd9ad"
+  integrity sha1-a+Dem+mYzhavivwkSXue6bfM2a0=
+
+fs-extra@1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/fs-extra/-/fs-extra-1.0.0.tgz#cd3ce5f7e7cb6145883fcae3191e9877f8587950"
+  integrity sha1-zTzl9+fLYUWIP8rjGR6Yd/hYeVA=
+  dependencies:
+    graceful-fs "^4.1.2"
+    jsonfile "^2.1.0"
+    klaw "^1.0.0"
+
 fs-minipass@^1.2.5:
   version "1.2.5"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/fs-minipass/-/fs-minipass-1.2.5.tgz#06c277218454ec288df77ada54a03b8702aacb9d"
@@ -2187,7 +2965,7 @@ fs.realpath@^1.0.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
 
-fsevents@^1.2.2, fsevents@^1.2.3:
+fsevents@^1.0.0, fsevents@^1.2.2, fsevents@^1.2.3:
   version "1.2.4"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/fsevents/-/fsevents-1.2.4.tgz#f41dcb1af2582af3692da36fc55cbd8e1041c426"
   integrity sha1-9B3LGvJYKvNpLaNvxVy9jhBBxCY=
@@ -2229,7 +3007,7 @@ get-stdin@^6.0.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/get-stdin/-/get-stdin-6.0.0.tgz#9e09bf712b360ab9225e812048f71fde9c89657b"
   integrity sha1-ngm/cSs2CrkiXoEgSPcf3pyJZXs=
 
-get-stream@^3.0.0:
+get-stream@3.0.0, get-stream@^3.0.0:
   version "3.0.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/get-stream/-/get-stream-3.0.0.tgz#8e943d1358dc37555054ecbe2edb05aa174ede14"
   integrity sha1-jpQ9E1jcN1VQVOy+LtsFqhdO3hQ=
@@ -2269,7 +3047,7 @@ glob-parent@^3.1.0:
     is-glob "^3.1.0"
     path-dirname "^1.0.0"
 
-glob@^7.0.3, glob@^7.0.5, glob@^7.1.1, glob@^7.1.2:
+glob@^7.0.0, glob@^7.0.3, glob@^7.0.5, glob@^7.1.1, glob@^7.1.2:
   version "7.1.3"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/glob/-/glob-7.1.3.tgz#3960832d3f1574108342dafd3a67b332c0969df1"
   integrity sha1-OWCDLT8VdBCDQtr9OmezMsCWnfE=
@@ -2285,6 +3063,26 @@ global-modules-path@^2.3.0:
   version "2.3.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/global-modules-path/-/global-modules-path-2.3.0.tgz#b0e2bac6beac39745f7db5c59d26a36a0b94f7dc"
   integrity sha1-sOK6xr6sOXRffbXFnSajaguU99w=
+
+global-modules@^1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/global-modules/-/global-modules-1.0.0.tgz#6d770f0eb523ac78164d72b5e71a8877265cc3ea"
+  integrity sha1-bXcPDrUjrHgWTXK15xqIdyZcw+o=
+  dependencies:
+    global-prefix "^1.0.1"
+    is-windows "^1.0.1"
+    resolve-dir "^1.0.0"
+
+global-prefix@^1.0.1:
+  version "1.0.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/global-prefix/-/global-prefix-1.0.2.tgz#dbf743c6c14992593c655568cb66ed32c0122ebe"
+  integrity sha1-2/dDxsFJklk8ZVVoy2btMsASLr4=
+  dependencies:
+    expand-tilde "^2.0.2"
+    homedir-polyfill "^1.0.1"
+    ini "^1.3.4"
+    is-windows "^1.0.1"
+    which "^1.2.14"
 
 globals@^11.7.0:
   version "11.8.0"
@@ -2308,7 +3106,7 @@ globby@^5.0.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
 
-graceful-fs@^4.1.11, graceful-fs@^4.1.2:
+graceful-fs@^4.1.0, graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
   version "4.1.11"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
   integrity sha1-Dovf5NHduIVNZOBOp8AOKgJuVlg=
@@ -2317,6 +3115,17 @@ growly@^1.3.0:
   version "1.3.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
   integrity sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
+
+handlebars@4.0.11:
+  version "4.0.11"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/handlebars/-/handlebars-4.0.11.tgz#630a35dfe0294bc281edae6ffc5d329fc7982dcc"
+  integrity sha1-Ywo13+ApS8KB7a5v/F0yn8eYLcw=
+  dependencies:
+    async "^1.4.0"
+    optimist "^0.6.1"
+    source-map "^0.4.4"
+  optionalDependencies:
+    uglify-js "^2.6"
 
 handlebars@^4.0.3:
   version "4.0.12"
@@ -2334,6 +3143,14 @@ har-schema@^2.0.0:
   resolved "https://registry.yarnpkg.com/har-schema/-/har-schema-2.0.0.tgz#a94c2224ebcac04782a0d9035521f24735b7ec92"
   integrity sha1-qUwiJOvKwEeCoNkDVSHyRzW37JI=
 
+har-validator@~5.0.3:
+  version "5.0.3"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/har-validator/-/har-validator-5.0.3.tgz#ba402c266194f15956ef15e0fcf242993f6a7dfd"
+  integrity sha1-ukAsJmGU8VlW7xXg/PJCmT9qff0=
+  dependencies:
+    ajv "^5.1.0"
+    har-schema "^2.0.0"
+
 har-validator@~5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/har-validator/-/har-validator-5.1.0.tgz#44657f5688a22cfd4b72486e81b3a3fb11742c29"
@@ -2349,6 +3166,18 @@ has-ansi@^2.0.0:
   dependencies:
     ansi-regex "^2.0.0"
 
+has-binary2@~1.0.2:
+  version "1.0.3"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/has-binary2/-/has-binary2-1.0.3.tgz#7776ac627f3ea77250cfc332dab7ddf5e4f5d11d"
+  integrity sha1-d3asYn8+p3JQz8My2rfd9eT10R0=
+  dependencies:
+    isarray "2.0.1"
+
+has-cors@1.1.0:
+  version "1.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/has-cors/-/has-cors-1.1.0.tgz#5e474793f7ea9843d1bb99c23eef49ff126fff39"
+  integrity sha1-XkdHk/fqmEPRu5nCPu9J/xJv/zk=
+
 has-flag@^1.0.0:
   version "1.0.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/has-flag/-/has-flag-1.0.0.tgz#9d9e793165ce017a00f00418c43f942a7b1d11fa"
@@ -2358,6 +3187,13 @@ has-flag@^3.0.0:
   version "3.0.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/has-flag/-/has-flag-3.0.0.tgz#b5d454dc2199ae225699f3467e5a07f3b955bafd"
   integrity sha1-tdRU3CGZriJWmfNGfloH87lVuv0=
+
+has-own-deep@1.1.0:
+  version "1.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/has-own-deep/-/has-own-deep-1.1.0.tgz#993e2da6186852456946dca38c395b002ddded2d"
+  integrity sha1-mT4tphhoUkVpRtyjjDlbAC3d7S0=
+  dependencies:
+    isobject "^3.0.1"
 
 has-symbols@^1.0.0:
   version "1.0.0"
@@ -2423,6 +3259,16 @@ hash.js@^1.0.0, hash.js@^1.0.3:
     inherits "^2.0.3"
     minimalistic-assert "^1.0.1"
 
+hawk@~6.0.2:
+  version "6.0.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/hawk/-/hawk-6.0.2.tgz#af4d914eb065f9b5ce4d9d11c1cb2126eecc3038"
+  integrity sha1-r02RTrBl+bXOTZ0RwcshJu7MMDg=
+  dependencies:
+    boom "4.x.x"
+    cryptiles "3.x.x"
+    hoek "4.x.x"
+    sntp "2.x.x"
+
 hmac-drbg@^1.0.0:
   version "1.0.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/hmac-drbg/-/hmac-drbg-1.0.1.tgz#d2745701025a6c775a6c545793ed502fc0c649a1"
@@ -2432,6 +3278,19 @@ hmac-drbg@^1.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
 
+hoek@4.x.x:
+  version "4.2.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/hoek/-/hoek-4.2.1.tgz#9634502aa12c445dd5a7c5734b572bb8738aacbb"
+  integrity sha1-ljRQKqEsRF3Vp8VzS1cruHOKrLs=
+
+hogan.js@^3.0.2:
+  version "3.0.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/hogan.js/-/hogan.js-3.0.2.tgz#4cd9e1abd4294146e7679e41d7898732b02c7bfd"
+  integrity sha1-TNnhq9QpQUbnZ55B14mHMrAse/0=
+  dependencies:
+    mkdirp "0.3.0"
+    nopt "1.0.10"
+
 home-or-tmp@^2.0.0:
   version "2.0.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/home-or-tmp/-/home-or-tmp-2.0.0.tgz#e36c3f2d2cae7d746a857e38d18d5f32a7882db8"
@@ -2439,6 +3298,13 @@ home-or-tmp@^2.0.0:
   dependencies:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.1"
+
+homedir-polyfill@^1.0.1:
+  version "1.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/homedir-polyfill/-/homedir-polyfill-1.0.1.tgz#4c2bbc8a758998feebf5ed68580f76d46768b4bc"
+  integrity sha1-TCu8inWJmP7r9e1oWA921GdotLw=
+  dependencies:
+    parse-passwd "^1.0.0"
 
 hosted-git-info@^2.1.4:
   version "2.7.1"
@@ -2451,6 +3317,24 @@ html-encoding-sniffer@^1.0.2:
   integrity sha1-5w2EuU2lOqN14R/jo1G+ZkLKRvg=
   dependencies:
     whatwg-encoding "^1.0.1"
+
+html-to-xlsx@1.0.1:
+  version "1.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/html-to-xlsx/-/html-to-xlsx-1.0.1.tgz#8a211dcf06229434c8bad16fd8ebb2df01206dea"
+  integrity sha1-iiEdzwYilDTIutFv2Ouy3wEgbeo=
+  dependencies:
+    msexcel-builder-extended "0.0.8"
+    uuid "3.2.1"
+
+http-errors@1.6.2:
+  version "1.6.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/http-errors/-/http-errors-1.6.2.tgz#0a002cc85707192a7e7946ceedc11155f60ec736"
+  integrity sha1-CgAsyFcHGSp+eUbO7cERVfYOxzY=
+  dependencies:
+    depd "1.1.1"
+    inherits "2.0.3"
+    setprototypeof "1.0.3"
+    statuses ">= 1.3.1 < 2"
 
 http-errors@1.6.3, http-errors@~1.6.2, http-errors@~1.6.3:
   version "1.6.3"
@@ -2475,6 +3359,24 @@ https-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
   integrity sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
+
+https-proxy-agent@^2.2.1:
+  version "2.2.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/https-proxy-agent/-/https-proxy-agent-2.2.1.tgz#51552970fa04d723e04c56d04178c3f92592bbc0"
+  integrity sha1-UVUpcPoE1yPgTFbQQXjD+SWSu8A=
+  dependencies:
+    agent-base "^4.1.0"
+    debug "^3.1.0"
+
+i@0.3.x:
+  version "0.3.6"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/i/-/i-0.3.6.tgz#d96c92732076f072711b6b10fd7d4f65ad8ee23d"
+  integrity sha1-2WyScyB28HJxG2sQ/X1PZa2O4j0=
+
+iconv-lite@0.4.19:
+  version "0.4.19"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/iconv-lite/-/iconv-lite-0.4.19.tgz#f7468f60135f5e5dad3399c0a81be9a1603a082b"
+  integrity sha1-90aPYBNfXl2tM5nAqBvpoWA6CCs=
 
 iconv-lite@0.4.23:
   version "0.4.23"
@@ -2561,10 +3463,29 @@ inherits@2.0.1:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/inherits/-/inherits-2.0.1.tgz#b17d08d326b4423e568eff719f91b0b1cbdf69f1"
   integrity sha1-sX0I0ya0Qj5Wjv9xn5GwscvfafE=
 
-ini@~1.3.0:
+ini@^1.3.0, ini@^1.3.4, ini@~1.3.0:
   version "1.3.5"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/ini/-/ini-1.3.5.tgz#eee25f56db1c9ec6085e0c22778083f596abf927"
   integrity sha1-7uJfVtscnsYIXgwid4CD9Zar+Sc=
+
+inquirer@5.1.0:
+  version "5.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/inquirer/-/inquirer-5.1.0.tgz#19da508931892328abbbdd4c477f1efc65abfd67"
+  integrity sha1-GdpQiTGJIyiru91MR38e/GWr/Wc=
+  dependencies:
+    ansi-escapes "^3.0.0"
+    chalk "^2.0.0"
+    cli-cursor "^2.1.0"
+    cli-width "^2.0.0"
+    external-editor "^2.1.0"
+    figures "^2.0.0"
+    lodash "^4.3.0"
+    mute-stream "0.0.7"
+    run-async "^2.2.0"
+    rxjs "^5.5.2"
+    string-width "^2.1.0"
+    strip-ansi "^4.0.0"
+    through "^2.3.6"
 
 inquirer@^5.2.0:
   version "5.2.0"
@@ -2607,10 +3528,36 @@ invert-kv@^2.0.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/invert-kv/-/invert-kv-2.0.0.tgz#7393f5afa59ec9ff5f67a27620d11c226e3eec02"
   integrity sha1-c5P1r6Weyf9fZ6J2INEcIm4+7AI=
 
+ip-address@5.8.9:
+  version "5.8.9"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/ip-address/-/ip-address-5.8.9.tgz#6379277c23fc5adb20511e4d23ec2c1bde105dfd"
+  integrity sha1-Y3knfCP8WtsgUR5NI+wsG94QXf0=
+  dependencies:
+    jsbn "1.1.0"
+    lodash.find "^4.6.0"
+    lodash.max "^4.0.1"
+    lodash.merge "^4.6.0"
+    lodash.padstart "^4.6.1"
+    lodash.repeat "^4.1.0"
+    sprintf-js "1.1.0"
+
 ipaddr.js@1.8.0:
   version "1.8.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/ipaddr.js/-/ipaddr.js-1.8.0.tgz#eaa33d6ddd7ace8f7f6fe0c9ca0440e706738b1e"
   integrity sha1-6qM9bd16zo9/b+DJygRA5wZzix4=
+
+is-absolute-url@2.1.0:
+  version "2.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/is-absolute-url/-/is-absolute-url-2.1.0.tgz#50530dfb84fcc9aa7dbe7852e83a37b93b9f2aa6"
+  integrity sha1-UFMN+4T8yap9vnhS6Do3uTufKqY=
+
+is-absolute@^1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/is-absolute/-/is-absolute-1.0.0.tgz#395e1ae84b11f26ad1795e73c17378e48a301576"
+  integrity sha1-OV4a6EsR8mrReV5zwXN45IowFXY=
+  dependencies:
+    is-relative "^1.0.0"
+    is-windows "^1.0.1"
 
 is-accessor-descriptor@^0.1.6:
   version "0.1.6"
@@ -2778,6 +3725,20 @@ is-glob@^4.0.0:
   dependencies:
     is-extglob "^2.1.1"
 
+is-nan@^1.2.1:
+  version "1.2.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/is-nan/-/is-nan-1.2.1.tgz#9faf65b6fb6db24b7f5c0628475ea71f988401e2"
+  integrity sha1-n69ltvttskt/XAYoR16nH5iEAeI=
+  dependencies:
+    define-properties "^1.1.1"
+
+is-number-like@^1.0.3:
+  version "1.0.8"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/is-number-like/-/is-number-like-1.0.8.tgz#2e129620b50891042e44e9bbbb30593e75cfbbe3"
+  integrity sha1-LhKWILUIkQQuROm7uzBZPnXPu+M=
+  dependencies:
+    lodash.isfinite "^3.3.2"
+
 is-number@^2.1.0:
   version "2.1.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/is-number/-/is-number-2.1.0.tgz#01fcbbb393463a548f2f466cce16dece49db908f"
@@ -2833,7 +3794,7 @@ is-primitive@^2.0.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/is-primitive/-/is-primitive-2.0.0.tgz#207bab91638499c07b2adf240a41a87210034575"
   integrity sha1-IHurkWOEmcB7Kt8kCkGochADRXU=
 
-is-promise@^2.1.0:
+is-promise@2.1.0, is-promise@^2.1.0:
   version "2.1.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/is-promise/-/is-promise-2.1.0.tgz#79a2a9ece7f096e80f36d2b2f3bc16c1ff4bf3fa"
   integrity sha1-eaKp7OfwlugPNtKy87wWwf9L8/o=
@@ -2844,6 +3805,13 @@ is-regex@^1.0.4:
   integrity sha1-VRdIm1RwkbCTDglWVM7SXul+lJE=
   dependencies:
     has "^1.0.1"
+
+is-relative@^1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/is-relative/-/is-relative-1.0.0.tgz#a1bb6935ce8c5dba1e8b9754b9b2dcc020e2260d"
+  integrity sha1-obtpNc6MXboei5dUubLcwCDiJg0=
+  dependencies:
+    is-unc-path "^1.0.0"
 
 is-resolvable@^1.1.0:
   version "1.1.0"
@@ -2867,20 +3835,42 @@ is-typedarray@~1.0.0:
   resolved "https://registry.yarnpkg.com/is-typedarray/-/is-typedarray-1.0.0.tgz#e479c80858df0c1b11ddda6940f96011fcda4a9a"
   integrity sha1-5HnICFjfDBsR3dppQPlgEfzaSpo=
 
-is-utf8@^0.2.0:
+is-unc-path@^1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/is-unc-path/-/is-unc-path-1.0.0.tgz#d731e8898ed090a12c352ad2eaed5095ad322c9d"
+  integrity sha1-1zHoiY7QkKEsNSrS6u1Qla0yLJ0=
+  dependencies:
+    unc-path-regex "^0.1.2"
+
+is-utf8@^0.2.0, is-utf8@^0.2.1:
   version "0.2.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/is-utf8/-/is-utf8-0.2.1.tgz#4b0da1442104d1b336340e80797e865cf39f7d72"
   integrity sha1-Sw2hRCEE0bM2NA6AeX6GXPOffXI=
 
-is-windows@^1.0.2:
+is-windows@^1.0.1, is-windows@^1.0.2:
   version "1.0.2"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/is-windows/-/is-windows-1.0.2.tgz#d1850eb9791ecd18e6182ce12a30f396634bb19d"
   integrity sha1-0YUOuXkezRjmGCzhKjDzlmNLsZ0=
+
+is@^3.1.0, is@^3.2.1:
+  version "3.2.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/is/-/is-3.2.1.tgz#d0ac2ad55eb7b0bec926a5266f6c662aaa83dca5"
+  integrity sha1-0Kwq1V63sL7JJqUmb2xmKqqD3KU=
+
+isarray@0.0.1:
+  version "0.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/isarray/-/isarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf"
+  integrity sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8=
 
 isarray@1.0.0, isarray@^1.0.0, isarray@~1.0.0:
   version "1.0.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
   integrity sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE=
+
+isarray@2.0.1:
+  version "2.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/isarray/-/isarray-2.0.1.tgz#a37d94ed9cda2d59865c9f76fe596ee1f338741e"
+  integrity sha1-o32U7ZzaLVmGXJ92/llu4fM4dB4=
 
 isexe@^2.0.0:
   version "2.0.0"
@@ -2899,7 +3889,7 @@ isobject@^3.0.0, isobject@^3.0.1:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
   integrity sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
 
-isstream@~0.1.2:
+isstream@0.1.x, isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
@@ -3291,15 +4281,20 @@ jest@23.6.0:
     import-local "^1.0.0"
     jest-cli "^23.6.0"
 
+js-string-escape@1.0.1:
+  version "1.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/js-string-escape/-/js-string-escape-1.0.1.tgz#e2625badbc0d67c7533e9edc1068c587ae4137ef"
+  integrity sha1-4mJbrbwNZ8dTPp7cEGjFh65BN+8=
+
+js-tokens@^3.0.0, js-tokens@^3.0.2:
+  version "3.0.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
+  integrity sha1-mGbfOVECEw449/mWvOtlRDIJwls=
+
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha1-GSA/tZmR35jjoocFDUZHzerzJJk=
-
-js-tokens@^3.0.2:
-  version "3.0.2"
-  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
-  integrity sha1-mGbfOVECEw449/mWvOtlRDIJwls=
 
 js-yaml@^3.11.0, js-yaml@^3.7.0:
   version "3.12.0"
@@ -3308,6 +4303,11 @@ js-yaml@^3.11.0, js-yaml@^3.7.0:
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"
+
+jsbn@1.1.0:
+  version "1.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsbn/-/jsbn-1.1.0.tgz#b01307cb29b618a1ed26ec79e911f803c4da0040"
+  integrity sha1-sBMHyym2GKHtJux56RH4A8TaAEA=
 
 jsbn@~0.1.0:
   version "0.1.1"
@@ -3386,6 +4386,13 @@ json5@^0.5.0, json5@^0.5.1:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/json5/-/json5-0.5.1.tgz#1eade7acc012034ad84e2396767ead9fa5495821"
   integrity sha1-Hq3nrMASA0rYTiOWdn6tn6VJWCE=
 
+jsonfile@^2.1.0:
+  version "2.4.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsonfile/-/jsonfile-2.4.0.tgz#3736a2b428b87bbda0cc83b53fa3d633a35c2ae8"
+  integrity sha1-NzaitCi4e72gzIO1P6PWM6NcKug=
+  optionalDependencies:
+    graceful-fs "^4.1.6"
+
 jsprim@^1.2.2:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/jsprim/-/jsprim-1.4.1.tgz#313e66bc1e5cc06e438bc1b7499c2e5c56acb6a2"
@@ -3396,12 +4403,437 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
+jsrender@0.9.90:
+  version "0.9.90"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsrender/-/jsrender-0.9.90.tgz#be17d6bfb031c5541a604fd2bda88b4271b53ef5"
+  integrity sha1-vhfWv7AxxVQaYE/SvaiLQnG1PvU=
+  dependencies:
+    through2 "^2.0.0"
+
+jsreport-assets@1.0.1:
+  version "1.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-assets/-/jsreport-assets-1.0.1.tgz#2d72cc3656af88b48f9f1fe77163bbe559077dc5"
+  integrity sha1-LXLMNlaviLSPnx/ncWO75VkHfcU=
+  dependencies:
+    async-replace "1.0.1"
+    bluebird "3.5.1"
+    etag "1.8.1"
+    js-string-escape "1.0.1"
+    mime "2.2.0"
+    minimatch "3.0.4"
+    nanoid "1.0.1"
+    strip-bom-buf "1.0.0"
+
+jsreport-authentication@2.1.0:
+  version "2.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-authentication/-/jsreport-authentication-2.1.0.tgz#b89ba140b17e7d857de73a14bc5581e1371d631c"
+  integrity sha1-uJuhQLF+fYV95zoUvFWB4TcdYxw=
+  dependencies:
+    bluebird "3.5.1"
+    body-parser "1.18.2"
+    client-sessions "0.8.0"
+    ejs "2.5.7"
+    passport "0.4.0"
+    passport-http "0.3.0"
+    passport-http-bearer "1.0.1"
+    passport-local "1.0.0"
+    password-hash "1.2.2"
+    request "2.83.0"
+    shortid "2.2.8"
+
+jsreport-authorization@2.0.0:
+  version "2.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-authorization/-/jsreport-authorization-2.0.0.tgz#382363d116b0d0a75a5da97a313335619439ce3f"
+  integrity sha1-OCNj0Raw0KdaXal6MTM1YZQ5zj8=
+  dependencies:
+    bluebird "3.5.1"
+
+jsreport-base@2.0.2:
+  version "2.0.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-base/-/jsreport-base-2.0.2.tgz#2440532ed9a013159c9e00bccd690685b41d0d11"
+  integrity sha1-JEBTLtmgExWcngC8zWkGhbQdDRE=
+
+jsreport-browser-client-dist@1.1.0:
+  version "1.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-browser-client-dist/-/jsreport-browser-client-dist-1.1.0.tgz#e59fd794985839f22f8732794675f203f83f0e32"
+  integrity sha1-5Z/XlJhYOfIvhzJ5RnXyA/g/DjI=
+
+jsreport-browser-client@2.0.0:
+  version "2.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-browser-client/-/jsreport-browser-client-2.0.0.tgz#6b78594f5a7f41cbcbacf333cd8fd636f2a4da80"
+  integrity sha1-a3hZT1p/QcvLrPMzzY/WNvKk2oA=
+  dependencies:
+    jsreport-browser-client-dist "1.1.0"
+
+jsreport-child-templates@1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-child-templates/-/jsreport-child-templates-1.0.0.tgz#b0bc31916f91a4fe0aad17bccd8b901919cf2828"
+  integrity sha1-sLwxkW+RpP4KrRe8zYuQGRnPKCg=
+  dependencies:
+    async-replace "1.0.1"
+    bluebird "3.5.1"
+    node.extend "2.0.0"
+
+jsreport-chrome-pdf@1.1.5:
+  version "1.1.5"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-chrome-pdf/-/jsreport-chrome-pdf-1.1.5.tgz#26c266353179fcbe4b98e54723b681117a6406e6"
+  integrity sha1-JsJmNTF5/L5LmOVHI7aBEXpkBuY=
+  dependencies:
+    node.extend "2.0.0"
+    uuid "3.2.1"
+
+jsreport-cli@2.0.3:
+  version "2.0.3"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-cli/-/jsreport-cli-2.0.3.tgz#f5928de44564c5febb070218cd57c714780e383f"
+  integrity sha1-9ZKN5EVkxf67BwIYzVfHFHgOOD8=
+  dependencies:
+    chalk "2.3.2"
+    cliui "4.0.0"
+    inquirer "5.1.0"
+    ip-address "5.8.9"
+    is-absolute-url "2.1.0"
+    is-promise "2.1.0"
+    jsreport-client "1.0.0"
+    liftoff "2.5.0"
+    lodash.omit "4.5.0"
+    map-async "0.1.1"
+    nanoid "1.0.2"
+    npm-install-package "2.1.0"
+    nssocket "0.6.0"
+    once "1.4.0"
+    prompt-tmp "1.0.0"
+    semver "5.5.0"
+    silent-spawn "0.4.0"
+    yargs "6.6.0"
+  optionalDependencies:
+    winser-with-api "1.0.1"
+
+jsreport-client@1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-client/-/jsreport-client-1.0.0.tgz#857bfc1ed92b88ed12ed67b65a1a4fd9833bb7a0"
+  integrity sha1-hXv8HtkriO0S7We2WhpP2YM7t6A=
+  dependencies:
+    concat-stream "1.6.0"
+    mimic-response "1.0.0"
+    request "2.83.0"
+
+jsreport-core@2.1.1:
+  version "2.1.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-core/-/jsreport-core-2.1.1.tgz#42e5b65ffa5d9484da8cef26145783ec19f761e4"
+  integrity sha1-QuW2X/pdlITajO8mFFeD7Bn3YeQ=
+  dependencies:
+    "@babel/code-frame" "7.0.0-beta.46"
+    ajv "6.4.0"
+    app-root-path "2.0.1"
+    bluebird "3.5.1"
+    camelcase "5.0.0"
+    debug "3.1.0"
+    decamelize "2.0.0"
+    deepmerge "2.1.0"
+    has-own-deep "1.1.0"
+    listener-collection "1.2.0"
+    lodash.get "4.4.2"
+    lodash.groupby "4.6.0"
+    lodash.omit "4.5.0"
+    lodash.set "4.3.2"
+    lru-cache "4.1.1"
+    mingo "2.1.1"
+    mkdirp "0.5.1"
+    nconf "0.10.0"
+    node.extend "2.0.0"
+    reap2 "1.0.1"
+    script-manager "0.7.1"
+    stack-trace "0.0.10"
+    streamifier "0.1.1"
+    unset-value "1.0.0"
+    vm2 "3.5.2"
+    winston "2.4.0"
+    winston-transport "3.0.1"
+
+jsreport-data@2.0.1:
+  version "2.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-data/-/jsreport-data-2.0.1.tgz#8eee46ba75df54acee0c08e377f781e99b643f10"
+  integrity sha1-ju5GunXfVKzuDAjjd/eB6ZtkPxA=
+  dependencies:
+    nanoid "1.0.2"
+
+jsreport-debug@2.0.1:
+  version "2.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-debug/-/jsreport-debug-2.0.1.tgz#0d004c7d13983a9e03bbe92ea8785dd79ceb6a7e"
+  integrity sha1-DQBMfROYOp4Du+kuqHhd15zran4=
+
+jsreport-express@2.2.0:
+  version "2.2.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-express/-/jsreport-express-2.2.0.tgz#282d8d87150a993e4929ee8b093a77227095d004"
+  integrity sha1-KC2NhxUKmT5JKe6LCTp3InCV0AQ=
+  dependencies:
+    bluebird "3.5.1"
+    body-parser "1.18.2"
+    cookie-parser "1.4.3"
+    cors "2.8.4"
+    express "4.16.2"
+    lodash.omit "^4.5.0"
+    node.extend "2.0.0"
+    serve-static "1.13.1"
+    simple-odata-server "1.0.1"
+
+jsreport-freeze@2.0.0:
+  version "2.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-freeze/-/jsreport-freeze-2.0.0.tgz#3e20edad68d512cedfd27d1867fed2c16412ff76"
+  integrity sha1-PiDtrWjVEs7f0n0YZ/7SwWQS/3Y=
+
+jsreport-fs-store@2.1.6:
+  version "2.1.6"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-fs-store/-/jsreport-fs-store-2.1.6.tgz#88b0cb58ad60429700338c12fb08123330ea34ae"
+  integrity sha1-iLDLWK1gQpcAM4wS+wgSMzDqNK4=
+  dependencies:
+    chokidar "2.0.2"
+    lockfile "1.0.3"
+    lodash.omit "4.5.0"
+    mingo "2.2.0"
+    mkdirp "0.5.1"
+    node.extend "2.0.0"
+    rimraf "2.6.2"
+    socket.io "2.1.1"
+    uuid "3.2.1"
+
+jsreport-handlebars@2.0.0:
+  version "2.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-handlebars/-/jsreport-handlebars-2.0.0.tgz#f466192da717645c256195636f30dc6e23546a61"
+  integrity sha1-9GYZLacXZFwlYZVjbzDcbiNUamE=
+  dependencies:
+    handlebars "4.0.11"
+
+jsreport-html-to-xlsx@2.1.1:
+  version "2.1.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-html-to-xlsx/-/jsreport-html-to-xlsx-2.1.1.tgz#6f380fb0660de76f9de38e04c91b3c147694fbbb"
+  integrity sha1-bzgPsGYN52+d444EyRs8FHaU+7s=
+  dependencies:
+    chrome-page-eval "1.0.1"
+    html-to-xlsx "1.0.1"
+    node.extend "2.0.0"
+    phantom-page-eval "1.0.0"
+    request "2.83.0"
+    stream-to-array "2.3.0"
+
+jsreport-import-export@1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-import-export/-/jsreport-import-export-1.0.0.tgz#59ebed2a6f3ec255ce526ac54d394834ab33d5f1"
+  integrity sha1-WevtKm8+wlXOUmrFTTlINKsz1fE=
+  dependencies:
+    archiver "2.1.1"
+    bluebird "3.5.1"
+    multer "1.3.0"
+    stream-to-array "2.3.0"
+    yauzl "2.9.1"
+
+jsreport-jsrender@2.0.0:
+  version "2.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-jsrender/-/jsreport-jsrender-2.0.0.tgz#977499a36db733940ba8b99a3aef38455a10d29c"
+  integrity sha1-l3SZo223M5QLqLmaOu84RVoQ0pw=
+  dependencies:
+    jsrender "0.9.90"
+
+jsreport-licensing@2.0.0:
+  version "2.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-licensing/-/jsreport-licensing-2.0.0.tgz#40f9bb91c6a1f817800730e6cda5eb82d854dc93"
+  integrity sha1-QPm7kcah+BeABzDmzaXrgthU3JM=
+  dependencies:
+    bluebird "3.5.1"
+    mkdirp "0.5.1"
+    request "2.85.0"
+
+jsreport-pdf-utils@1.0.5:
+  version "1.0.5"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-pdf-utils/-/jsreport-pdf-utils-1.0.5.tgz#00f3d12a40f6f1f00b08a170b99e1faad89cf3ea"
+  integrity sha1-APPRKkD28fALCKFwuZ4fqtic8+o=
+  dependencies:
+    bluebird "3.5.1"
+    jsreport-pdfjs "0.2.0"
+    pdfjs-dist "2.0.457"
+
+jsreport-pdfjs@0.2.0:
+  version "0.2.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-pdfjs/-/jsreport-pdfjs-0.2.0.tgz#ad19d9f17faaf20c595c083300527bef2d60d32d"
+  integrity sha1-rRnZ8X+q8gxZXAgzAFJ77y1g0y0=
+  dependencies:
+    "@rkusa/linebreak" "^1.0.0"
+    opentype.js "^0.7.3"
+    pako "^1.0.6"
+    unorm "^1.4.1"
+    uuid "^3.0.1"
+
+jsreport-public-templates@2.0.0:
+  version "2.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-public-templates/-/jsreport-public-templates-2.0.0.tgz#3ccef8b75f52f141c98951b80b8f66cafe67f9b3"
+  integrity sha1-PM74t19S8UHJiVG4C49myv5n+bM=
+  dependencies:
+    uuid "3.2.1"
+
+jsreport-reports@2.1.0:
+  version "2.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-reports/-/jsreport-reports-2.1.0.tgz#b3bf617f5bfb41d54f2e14e3df5c08a64a044be4"
+  integrity sha1-s79hf1v7QdVPLhTj31wIpkoES+Q=
+  dependencies:
+    bluebird "3.5.1"
+    lodash.omit "4.5.0"
+    node.extend "2.0.0"
+    parse-duration "0.1.1"
+
+jsreport-resources@2.0.0:
+  version "2.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-resources/-/jsreport-resources-2.0.0.tgz#f3b2f7a96bb8b6547b7177e0606972cf73d4564a"
+  integrity sha1-87L3qWu4tlR7cXfgYGlyz3PUVko=
+  dependencies:
+    bluebird "3.5.1"
+
+jsreport-sample-template@2.1.0:
+  version "2.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-sample-template/-/jsreport-sample-template-2.1.0.tgz#c3f65975ec9a5901d36bb0859d6268a04c6740bb"
+  integrity sha1-w/ZZdeyaWQHTa7CFnWJooExnQLs=
+  dependencies:
+    bluebird "3.5.1"
+    lodash.omit "4.5.0"
+
+jsreport-scheduling@2.0.2:
+  version "2.0.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-scheduling/-/jsreport-scheduling-2.0.2.tgz#17164c5289645fa731cdc54271ed0aa9cd3c519c"
+  integrity sha1-FxZMUolkX6cxzcVCce0Kqc08UZw=
+  dependencies:
+    cron-parser "2.5.0"
+    moment "2.22.1"
+    nanoid "1.0.2"
+
+jsreport-scripts@2.0.3:
+  version "2.0.3"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-scripts/-/jsreport-scripts-2.0.3.tgz#0f493cd5c1449e6351ba23243ac2671cb8c0cd93"
+  integrity sha1-D0k81cFEnmNRuiMkOsJnHLjAzZM=
+  dependencies:
+    bluebird "3.5.1"
+    nanoid "1.0.1"
+
+jsreport-studio@2.1.1:
+  version "2.1.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-studio/-/jsreport-studio-2.1.1.tgz#683d68f9dd3dcbed3c61a17b050a5805812872a4"
+  integrity sha1-aD1o+d09y+08YaF7BQpYBYEocqQ=
+  dependencies:
+    bluebird "3.5.1"
+    compression "1.6.2"
+    lodash "4.17.5"
+    serve-favicon "2.4.5"
+    serve-static "1.13.2"
+
+jsreport-tags@2.0.0:
+  version "2.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-tags/-/jsreport-tags-2.0.0.tgz#5e2f2c2dc0f3930cd39545eb477113133be596a5"
+  integrity sha1-Xi8sLcDzkwzTlUXrR3ETEzvllqU=
+  dependencies:
+    lodash.debounce "4.0.8"
+    mitt "1.1.3"
+    nanoid "1.0.2"
+    object-assign "4.1.1"
+
+jsreport-templates@2.0.0:
+  version "2.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-templates/-/jsreport-templates-2.0.0.tgz#1dc6fbbe529694de4928508aa4d6802d404848fe"
+  integrity sha1-Hcb7vlKWlN5JKFCKpNaALUBISP4=
+  dependencies:
+    bluebird "3.5.1"
+    nanoid "1.0.1"
+    node.extend.without.arrays "1.1.5"
+
+jsreport-text@2.0.0:
+  version "2.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-text/-/jsreport-text-2.0.0.tgz#d4b5b60cc451ce8f08513ae54f3b5cc988d567ce"
+  integrity sha1-1LW2DMRRzo8IUTrlTztcyYjVZ84=
+
+jsreport-version-control@1.0.6:
+  version "1.0.6"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-version-control/-/jsreport-version-control-1.0.6.tgz#23edc8ea19fe7d1683d7b38519b9cd7656a36bb3"
+  integrity sha1-I+3I6hn+fRaD17OFGbnNdlaja7M=
+  dependencies:
+    bluebird "3.5.1"
+    diff "3.4.0"
+    diff2html "2.3.2"
+    node.extend "2.0.0"
+
+jsreport-xlsx@2.0.1:
+  version "2.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport-xlsx/-/jsreport-xlsx-2.0.1.tgz#db7179c4ad6f1c78a11b47b5827b07731cd3e26e"
+  integrity sha1-23F5xK1vHHihG0e1gnsHcxzT4m4=
+  dependencies:
+    archiver "2.1.1"
+    bluebird "3.5.1"
+    file-type "7.6.0"
+    get-stream "3.0.0"
+    lodash "4.17.5"
+    merge2 "1.2.1"
+    msexcel-builder-extended "0.0.7"
+    pify "3.0.0"
+    request "2.83.0"
+    shortid "2.2.8"
+    stream-to-array "2.3.0"
+    uuid "3.2.1"
+    xml2js "0.4.19"
+    yauzl "2.9.1"
+
+jsreport@2.2.0:
+  version "2.2.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsreport/-/jsreport-2.2.0.tgz#ecd7eb6ad14373380c41c3361f0c4bf4e03cd67f"
+  integrity sha1-7NfratFDczgMQcM2HwxL9OA81n8=
+  dependencies:
+    jsreport-assets "1.0.1"
+    jsreport-authentication "2.1.0"
+    jsreport-authorization "2.0.0"
+    jsreport-base "2.0.2"
+    jsreport-browser-client "2.0.0"
+    jsreport-child-templates "1.0.0"
+    jsreport-chrome-pdf "1.1.5"
+    jsreport-cli "2.0.3"
+    jsreport-core "2.1.1"
+    jsreport-data "2.0.1"
+    jsreport-debug "2.0.1"
+    jsreport-express "2.2.0"
+    jsreport-freeze "2.0.0"
+    jsreport-fs-store "2.1.6"
+    jsreport-handlebars "2.0.0"
+    jsreport-html-to-xlsx "2.1.1"
+    jsreport-import-export "1.0.0"
+    jsreport-jsrender "2.0.0"
+    jsreport-licensing "2.0.0"
+    jsreport-pdf-utils "1.0.5"
+    jsreport-public-templates "2.0.0"
+    jsreport-reports "2.1.0"
+    jsreport-resources "2.0.0"
+    jsreport-sample-template "2.1.0"
+    jsreport-scheduling "2.0.2"
+    jsreport-scripts "2.0.3"
+    jsreport-studio "2.1.1"
+    jsreport-tags "2.0.0"
+    jsreport-templates "2.0.0"
+    jsreport-text "2.0.0"
+    jsreport-version-control "1.0.6"
+    jsreport-xlsx "2.0.1"
+    mkdirp "0.5.1"
+    puppeteer "1.7.0"
+    semver "5.5.1"
+
 jsx-ast-utils@^2.0.1:
   version "2.0.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/jsx-ast-utils/-/jsx-ast-utils-2.0.1.tgz#e801b1b39985e20fffc87b40e3748080e2dcac7f"
   integrity sha1-6AGxs5mF4g//yHtA43SAgOLcrH8=
   dependencies:
     array-includes "^3.0.3"
+
+keygrip@~1.0.2:
+  version "1.0.3"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/keygrip/-/keygrip-1.0.3.tgz#399d709f0aed2bab0a059e0cdd3a5023a053e1dc"
+  integrity sha1-OZ1wnwrtK6sKBZ4M3TpQI6BT4dw=
+
+keypress@0.1.x:
+  version "0.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/keypress/-/keypress-0.1.0.tgz#4a3188d4291b66b4f65edb99f806aa9ae293592a"
+  integrity sha1-SjGI1CkbZrT2XtuZ+AaqmuKTWSo=
 
 kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
   version "3.2.2"
@@ -3427,10 +4859,34 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
   integrity sha1-ARRrNqYhjmTljzqNZt5df8b20FE=
 
+klaw@^1.0.0:
+  version "1.3.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/klaw/-/klaw-1.3.1.tgz#4088433b46b3b1ba259d78785d8e96f73ba02439"
+  integrity sha1-QIhDO0azsbolnXh4XY6W9zugJDk=
+  optionalDependencies:
+    graceful-fs "^4.1.9"
+
 kleur@^2.0.1:
   version "2.0.2"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/kleur/-/kleur-2.0.2.tgz#b704f4944d95e255d038f0cb05fb8a602c55a300"
   integrity sha1-twT0lE2V4lXQOPDLBfuKYCxVowA=
+
+lazy-cache@^1.0.3:
+  version "1.0.4"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/lazy-cache/-/lazy-cache-1.0.4.tgz#a1d78fc3a50474cb80845d3b3b6e1da49a446e8e"
+  integrity sha1-odePw6UEdMuAhF07O24dpJpEbo4=
+
+lazy@~1.0.11:
+  version "1.0.11"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/lazy/-/lazy-1.0.11.tgz#daa068206282542c088288e975c297c1ae77b690"
+  integrity sha1-2qBoIGKCVCwIgojpdcKXwa53tpA=
+
+lazystream@^1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/lazystream/-/lazystream-1.0.0.tgz#f6995fe0f820392f61396be89462407bb77168e4"
+  integrity sha1-9plf4PggOS9hOWvolGJAe7dxaOQ=
+  dependencies:
+    readable-stream "^2.0.5"
 
 lcid@^1.0.0:
   version "1.0.0"
@@ -3463,6 +4919,28 @@ levn@^0.3.0, levn@~0.3.0:
   dependencies:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
+
+liftoff@2.5.0:
+  version "2.5.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/liftoff/-/liftoff-2.5.0.tgz#2009291bb31cea861bbf10a7c15a28caf75c31ec"
+  integrity sha1-IAkpG7Mc6oYbvxCnwVooyvdcMew=
+  dependencies:
+    extend "^3.0.0"
+    findup-sync "^2.0.0"
+    fined "^1.0.1"
+    flagged-respawn "^1.0.0"
+    is-plain-object "^2.0.4"
+    object.map "^1.0.0"
+    rechoir "^0.6.2"
+    resolve "^1.1.7"
+
+listener-collection@1.2.0:
+  version "1.2.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/listener-collection/-/listener-collection-1.2.0.tgz#23c513c28d6ebc7f01cb416d9e2a7a0da7890eab"
+  integrity sha1-I8UTwo1uvH8By0Ftnip6DaeJDqs=
+  dependencies:
+    async "2.6.0"
+    bluebird "3.5.1"
 
 load-json-file@^1.0.0:
   version "1.1.0"
@@ -3500,7 +4978,7 @@ loader-runner@^2.3.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/loader-runner/-/loader-runner-2.3.1.tgz#026f12fe7c3115992896ac02ba022ba92971b979"
   integrity sha1-Am8S/nwxFZkolqwCugIrqSlxuXk=
 
-loader-utils@^1.1.0:
+loader-utils@^1.0.0, loader-utils@^1.1.0:
   version "1.1.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/loader-utils/-/loader-utils-1.1.0.tgz#c98aef488bcceda2ffb5e2de646d6a754429f5cd"
   integrity sha1-yYrvSIvM7aL/teLeZG1qdUQp9c0=
@@ -3525,20 +5003,85 @@ locate-path@^3.0.0:
     p-locate "^3.0.0"
     path-exists "^3.0.0"
 
-lodash.debounce@^4.0.8:
+lockfile@1.0.3:
+  version "1.0.3"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/lockfile/-/lockfile-1.0.3.tgz#2638fc39a0331e9cac1a04b71799931c9c50df79"
+  integrity sha1-Jjj8OaAzHpysGgS3F5mTHJxQ33k=
+
+lodash.debounce@4.0.8, lodash.debounce@^4.0.8:
   version "4.0.8"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
   integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
+
+lodash.find@^4.6.0:
+  version "4.6.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/lodash.find/-/lodash.find-4.6.0.tgz#cb0704d47ab71789ffa0de8b97dd926fb88b13b1"
+  integrity sha1-ywcE1Hq3F4n/oN6Ll92Sb7iLE7E=
+
+lodash.get@4.4.2:
+  version "4.4.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
+  integrity sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=
+
+lodash.groupby@4.6.0:
+  version "4.6.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/lodash.groupby/-/lodash.groupby-4.6.0.tgz#0b08a1dcf68397c397855c3239783832df7403d1"
+  integrity sha1-Cwih3PaDl8OXhVwyOXg4Mt90A9E=
+
+lodash.isfinite@^3.3.2:
+  version "3.3.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/lodash.isfinite/-/lodash.isfinite-3.3.2.tgz#fb89b65a9a80281833f0b7478b3a5104f898ebb3"
+  integrity sha1-+4m2WpqAKBgz8LdHizpRBPiY67M=
+
+lodash.max@^4.0.1:
+  version "4.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/lodash.max/-/lodash.max-4.0.1.tgz#8735566c618b35a9f760520b487ae79658af136a"
+  integrity sha1-hzVWbGGLNan3YFILSHrnllivE2o=
+
+lodash.merge@^4.6.0:
+  version "4.6.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/lodash.merge/-/lodash.merge-4.6.1.tgz#adc25d9cb99b9391c59624f379fbba60d7111d54"
+  integrity sha1-rcJdnLmbk5HFliTzefu6YNcRHVQ=
+
+lodash.omit@4.5.0, lodash.omit@^4.5.0:
+  version "4.5.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/lodash.omit/-/lodash.omit-4.5.0.tgz#6eb19ae5a1ee1dd9df0b969e66ce0b7fa30b5e60"
+  integrity sha1-brGa5aHuHdnfC5aeZs4Lf6MLXmA=
+
+lodash.padstart@^4.6.1:
+  version "4.6.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/lodash.padstart/-/lodash.padstart-4.6.1.tgz#d2e3eebff0d9d39ad50f5cbd1b52a7bce6bb611b"
+  integrity sha1-0uPuv/DZ05rVD1y9G1KnvOa7YRs=
+
+lodash.repeat@^4.1.0:
+  version "4.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/lodash.repeat/-/lodash.repeat-4.1.0.tgz#fc7de8131d8c8ac07e4b49f74ffe829d1f2bec44"
+  integrity sha1-/H3oEx2MisB+S0n3T/6CnR8r7EQ=
+
+lodash.set@4.3.2:
+  version "4.3.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/lodash.set/-/lodash.set-4.3.2.tgz#d8757b1da807dde24816b0d6a84bea1a76230b23"
+  integrity sha1-2HV7HagH3eJIFrDWqEvqGnYjCyM=
 
 lodash.sortby@^4.7.0:
   version "4.7.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
   integrity sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
 
-lodash@^4.13.1, lodash@^4.17.10, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0:
+lodash@4.17.5:
+  version "4.17.5"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
+  integrity sha1-maktZcAnLevoyWtgV7yPv6O+1RE=
+
+lodash@^4.13.1, lodash@^4.14.0, lodash@^4.17.10, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0, lodash@^4.8.0:
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
   integrity sha1-s56mIp72B+zYniyN8SU2iRysm40=
+
+longest@^1.0.1:
+  version "1.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/longest/-/longest-1.0.1.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"
+  integrity sha1-MKCy2jj3N3DoKUoNIuZiXtd9AJc=
 
 loose-envify@^1.0.0, loose-envify@^1.3.1:
   version "1.4.0"
@@ -3546,6 +5089,14 @@ loose-envify@^1.0.0, loose-envify@^1.3.1:
   integrity sha1-ce5R+nvkyuwaY4OffmgtgTLTDK8=
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
+
+lru-cache@4.1.1:
+  version "4.1.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/lru-cache/-/lru-cache-4.1.1.tgz#622e32e82488b49279114a4f9ecf45e7cd6bba55"
+  integrity sha1-Yi4y6CSItJJ5EUpPns9F581rulU=
+  dependencies:
+    pseudomap "^1.0.2"
+    yallist "^2.1.2"
 
 lru-cache@^4.0.1, lru-cache@^4.1.1:
   version "4.1.3"
@@ -3562,6 +5113,13 @@ make-dir@^1.0.0:
   dependencies:
     pify "^3.0.0"
 
+make-iterator@^1.0.0:
+  version "1.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/make-iterator/-/make-iterator-1.0.1.tgz#29b33f312aa8f547c4a5e490f56afcec99133ad6"
+  integrity sha1-KbM/MSqo9UfEpeSQ9Wr87JkTOtY=
+  dependencies:
+    kind-of "^6.0.2"
+
 makeerror@1.0.x:
   version "1.0.11"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/makeerror/-/makeerror-1.0.11.tgz#e01a5c9109f2af79660e4e8b9587790184f5a96c"
@@ -3576,7 +5134,12 @@ map-age-cleaner@^0.1.1:
   dependencies:
     p-defer "^1.0.0"
 
-map-cache@^0.2.2:
+map-async@0.1.1:
+  version "0.1.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/map-async/-/map-async-0.1.1.tgz#c897c0449f85864c74b5a3f196edb42156431745"
+  integrity sha1-yJfARJ+Fhkx0taPxlu20IVZDF0U=
+
+map-cache@^0.2.0, map-cache@^0.2.2:
   version "0.2.2"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/map-cache/-/map-cache-0.2.2.tgz#c32abd0bd6525d9b051645bb4f26ac5dc98a0dbf"
   integrity sha1-wyq9C9ZSXZsFFkW7TyasXcmKDb8=
@@ -3643,12 +5206,17 @@ merge-stream@^1.0.1:
   dependencies:
     readable-stream "^2.0.1"
 
+merge2@1.2.1:
+  version "1.2.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/merge2/-/merge2-1.2.1.tgz#271d2516ff52d4af7f7b710b8bf3e16e183fef66"
+  integrity sha1-Jx0lFv9S1K9/e3ELi/Phbhg/72Y=
+
 merge@^1.2.0:
   version "1.2.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/merge/-/merge-1.2.0.tgz#7531e39d4949c281a66b8c5a6e0265e8b05894da"
   integrity sha1-dTHjnUlJwoGma4xabgJl6LBYlNo=
 
-methods@^1.1.1, methods@^1.1.2, methods@~1.1.2:
+methods@1.1.2, methods@^1.1.1, methods@^1.1.2, methods@~1.1.2:
   version "1.1.2"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/methods/-/methods-1.1.2.tgz#5529a4d67654134edcc5266656835b0f851afcee"
   integrity sha1-VSmk1nZUE07cxSZmVoNbD4Ua/O4=
@@ -3672,7 +5240,7 @@ micromatch@^2.3.11:
     parse-glob "^3.0.4"
     regex-cache "^0.4.2"
 
-micromatch@^3.1.10, micromatch@^3.1.4, micromatch@^3.1.8:
+micromatch@^3.0.4, micromatch@^3.1.10, micromatch@^3.1.4, micromatch@^3.1.8:
   version "3.1.10"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/micromatch/-/micromatch-3.1.10.tgz#70859bc95c9840952f359a068a3fc49f9ecfac23"
   integrity sha1-cIWbyVyYQJUvNZoGij/En57PrCM=
@@ -3699,6 +5267,11 @@ miller-rabin@^4.0.0:
     bn.js "^4.0.0"
     brorand "^1.0.1"
 
+"mime-db@>= 1.36.0 < 2", mime-db@~1.37.0:
+  version "1.37.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/mime-db/-/mime-db-1.37.0.tgz#0b6a0ce6fdbe9576e25f1f2d2fde8830dc0ad0d8"
+  integrity sha1-C2oM5v2+lXbiXx8tL96IMNwK0Ng=
+
 mime-db@~1.36.0:
   version "1.36.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/mime-db/-/mime-db-1.36.0.tgz#5020478db3c7fe93aad7bbcc4dcf869c43363397"
@@ -3711,20 +5284,52 @@ mime-types@^2.1.12, mime-types@~2.1.18, mime-types@~2.1.19:
   dependencies:
     mime-db "~1.36.0"
 
+mime-types@~2.1.17:
+  version "2.1.21"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/mime-types/-/mime-types-2.1.21.tgz#28995aa1ecb770742fe6ae7e58f9181c744b3f96"
+  integrity sha1-KJlaoey3cHQv5q5+WPkYHHRLP5Y=
+  dependencies:
+    mime-db "~1.37.0"
+
 mime@1.4.1:
   version "1.4.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/mime/-/mime-1.4.1.tgz#121f9ebc49e3766f311a76e1fa1c8003c4b03aa6"
   integrity sha1-Eh+evEnjdm8xGnbh+hyAA8SwOqY=
+
+mime@2.2.0:
+  version "2.2.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/mime/-/mime-2.2.0.tgz#161e541965551d3b549fa1114391e3a3d55b923b"
+  integrity sha1-Fh5UGWVVHTtUn6ERQ5Hjo9Vbkjs=
 
 mime@^1.4.1:
   version "1.6.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/mime/-/mime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
   integrity sha1-Ms2eXGRVO9WNGaVor0Uqz/BJgbE=
 
+mime@^2.0.3:
+  version "2.3.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/mime/-/mime-2.3.1.tgz#b1621c54d63b97c47d3cfe7f7215f7d64517c369"
+  integrity sha1-sWIcVNY7l8R9PP5/chX31kUXw2k=
+
 mimic-fn@^1.0.0:
   version "1.2.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/mimic-fn/-/mimic-fn-1.2.0.tgz#820c86a39334640e99516928bd03fca88057d022"
   integrity sha1-ggyGo5M0ZA6ZUWkovQP8qIBX0CI=
+
+mimic-response@1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/mimic-response/-/mimic-response-1.0.0.tgz#df3d3652a73fded6b9b0b24146e6fd052353458e"
+  integrity sha1-3z02Uqc/3ta5sLJBRub9BSNTRY4=
+
+mingo@2.1.1:
+  version "2.1.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/mingo/-/mingo-2.1.1.tgz#0d4fa2b83cf3c1a501d5d01226b2e3c73685d4d7"
+  integrity sha1-DU+iuDzzwaUB1dASJrLjxzaF1Nc=
+
+mingo@2.2.0:
+  version "2.2.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/mingo/-/mingo-2.2.0.tgz#e7e7c209b79d1e82a5f41c5f789a7566bdea9a3f"
+  integrity sha1-5+fCCbedHoKl9BxfeJp1Zr3qmj8=
 
 minimalistic-assert@^1.0.0, minimalistic-assert@^1.0.1:
   version "1.0.1"
@@ -3736,7 +5341,7 @@ minimalistic-crypto-utils@^1.0.0, minimalistic-crypto-utils@^1.0.1:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/minimalistic-crypto-utils/-/minimalistic-crypto-utils-1.0.1.tgz#f6c00c1c0b082246e5c4d99dfb8c7c083b2b582a"
   integrity sha1-9sAMHAsIIkblxNmd+4x8CDsrWCo=
 
-minimatch@^3.0.3, minimatch@^3.0.4:
+minimatch@3.0.4, minimatch@^3.0.3, minimatch@^3.0.4:
   version "3.0.4"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
   integrity sha1-UWbihkV/AzBgZL5Ul+jbsMPTIIM=
@@ -3789,6 +5394,11 @@ mississippi@^2.0.0:
     stream-each "^1.1.0"
     through2 "^2.0.0"
 
+mitt@1.1.3:
+  version "1.1.3"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/mitt/-/mitt-1.1.3.tgz#528c506238a05dce11cd914a741ea2cc332da9b8"
+  integrity sha1-UoxQYjigXc4RzZFKdB6izDMtqbg=
+
 mixin-deep@^1.2.0:
   version "1.3.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/mixin-deep/-/mixin-deep-1.3.1.tgz#a49e7268dce1a0d9698e45326c5626df3543d0fe"
@@ -3797,12 +5407,34 @@ mixin-deep@^1.2.0:
     for-in "^1.0.2"
     is-extendable "^1.0.1"
 
-mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0:
+mkdirp@0.3.0:
+  version "0.3.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/mkdirp/-/mkdirp-0.3.0.tgz#1bbf5ab1ba827af23575143490426455f481fe1e"
+  integrity sha1-G79asbqCevI1dRQ0kEJkVfSB/h4=
+
+mkdirp@0.5.1, mkdirp@0.x.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0:
   version "0.5.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   integrity sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
   dependencies:
     minimist "0.0.8"
+
+moment-timezone@^0.5.0:
+  version "0.5.23"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/moment-timezone/-/moment-timezone-0.5.23.tgz#7cbb00db2c14c71b19303cb47b0fb0a6d8651463"
+  integrity sha1-fLsA2ywUxxsZMDy0ew+wpthlFGM=
+  dependencies:
+    moment ">= 2.9.0"
+
+moment@2.22.1:
+  version "2.22.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/moment/-/moment-2.22.1.tgz#529a2e9bf973f259c9643d237fda84de3a26e8ad"
+  integrity sha1-Upoum/lz8lnJZD0jf9qE3jom6K0=
+
+"moment@>= 2.9.0":
+  version "2.22.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
+  integrity sha1-PCV/mDn8DpP/UxSWMiOeuQeD/2Y=
 
 move-concurrently@^1.0.1:
   version "1.0.1"
@@ -3816,6 +5448,11 @@ move-concurrently@^1.0.1:
     rimraf "^2.5.4"
     run-queue "^1.0.3"
 
+ms@0.7.1:
+  version "0.7.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/ms/-/ms-0.7.1.tgz#9cd13c03adbff25b65effde7ce864ee952017098"
+  integrity sha1-nNE8A62/8ltl7/3nzoZO6VIBcJg=
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -3826,7 +5463,41 @@ ms@^2.1.1:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/ms/-/ms-2.1.1.tgz#30a5864eb3ebb0a66f2ebe6d727af06a09d86e0a"
   integrity sha1-MKWGTrPrsKZvLr5tcnrwagnYbgo=
 
-mute-stream@0.0.7:
+msexcel-builder-extended@0.0.7:
+  version "0.0.7"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/msexcel-builder-extended/-/msexcel-builder-extended-0.0.7.tgz#c0495a6df302cca29e27dd0dc682622decaa175d"
+  integrity sha1-wElabfMCzKKeJ90NxoJiLeyqF10=
+  dependencies:
+    async "2.1.2"
+    easy-zip "0.0.4"
+    fs-extra "1.0.0"
+    xmlbuilder "8.2.2"
+
+msexcel-builder-extended@0.0.8:
+  version "0.0.8"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/msexcel-builder-extended/-/msexcel-builder-extended-0.0.8.tgz#0c3f8ce31db17acc8870a202e7bf0d6cd62777f9"
+  integrity sha1-DD+M4x2xesyIcKIC578NbNYnd/k=
+  dependencies:
+    archiver "2.1.1"
+    async "2.1.2"
+    fs-extra "1.0.0"
+    xmlbuilder "8.2.2"
+
+multer@1.3.0:
+  version "1.3.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/multer/-/multer-1.3.0.tgz#092b2670f6846fa4914965efc8cf94c20fec6cd2"
+  integrity sha1-CSsmcPaEb6SRSWXvyM+Uwg/sbNI=
+  dependencies:
+    append-field "^0.1.0"
+    busboy "^0.2.11"
+    concat-stream "^1.5.0"
+    mkdirp "^0.5.1"
+    object-assign "^3.0.0"
+    on-finished "^2.3.0"
+    type-is "^1.6.4"
+    xtend "^4.0.0"
+
+mute-stream@0.0.7, mute-stream@~0.0.4:
   version "0.0.7"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
   integrity sha1-MHXOk7whuPq0PhvE2n6BFe0ee6s=
@@ -3835,6 +5506,16 @@ nan@^2.9.2:
   version "2.11.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/nan/-/nan-2.11.1.tgz#90e22bccb8ca57ea4cd37cc83d3819b52eea6766"
   integrity sha1-kOIrzLjKV+pM03zIPTgZtS7qZ2Y=
+
+nanoid@1.0.1:
+  version "1.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/nanoid/-/nanoid-1.0.1.tgz#58a8e0577d9db07ae4f231a3afa59af94e4fc439"
+  integrity sha1-WKjgV32dsHrk8jGjr6Wa+U5PxDk=
+
+nanoid@1.0.2:
+  version "1.0.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/nanoid/-/nanoid-1.0.2.tgz#15d2b5e76b6dbfb15cac1000cb457d4bfc845bdb"
+  integrity sha1-FdK152ttv7FcrBAAy0V9S/yEW9s=
 
 nanomatch@^1.2.9:
   version "1.2.13"
@@ -3858,6 +5539,21 @@ natural-compare@^1.4.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
+nconf@0.10.0:
+  version "0.10.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/nconf/-/nconf-0.10.0.tgz#da1285ee95d0a922ca6cee75adcf861f48205ad2"
+  integrity sha1-2hKF7pXQqSLKbO51rc+GH0ggWtI=
+  dependencies:
+    async "^1.4.0"
+    ini "^1.3.0"
+    secure-keys "^1.0.0"
+    yargs "^3.19.0"
+
+ncp@1.0.x:
+  version "1.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/ncp/-/ncp-1.0.1.tgz#d15367e5cb87432ba117d2bf80fdf45aecfb4246"
+  integrity sha1-0VNn5cuHQyuhF9K/gP30Wuz7QkY=
+
 needle@^2.2.1:
   version "2.2.4"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/needle/-/needle-2.2.4.tgz#51931bff82533b1928b7d1d69e01f1b00ffd2a4e"
@@ -3877,10 +5573,20 @@ neo-async@^2.5.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/neo-async/-/neo-async-2.5.2.tgz#489105ce7bc54e709d736b195f82135048c50fcc"
   integrity sha1-SJEFznvFTnCdc2sZX4ITUEjFD8w=
 
+net-cluster@0.0.2:
+  version "0.0.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/net-cluster/-/net-cluster-0.0.2.tgz#23c50db8dc046ae79b9dddfe9a56c73aee9255b8"
+  integrity sha1-I8UNuNwEauebnd3+mlbHOu6SVbg=
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
   integrity sha1-ozeKdpbOfSI+iPybdkvX7xCJ42Y=
+
+node-ensure@^0.0.0:
+  version "0.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/node-ensure/-/node-ensure-0.0.0.tgz#ecae764150de99861ec5c810fd5d096b183932a7"
+  integrity sha1-7K52QVDemYYexcgQ/V0Jaxg5Mqc=
 
 node-int64@^0.4.0:
   version "0.4.0"
@@ -3942,6 +5648,27 @@ node-pre-gyp@^0.10.0:
     semver "^5.3.0"
     tar "^4"
 
+node.extend.without.arrays@1.1.5:
+  version "1.1.5"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/node.extend.without.arrays/-/node.extend.without.arrays-1.1.5.tgz#87fce52a5ba24ff6268ce2012d89d36bf48fe894"
+  integrity sha1-h/zlKluiT/YmjOIBLYnTa/SP6JQ=
+  dependencies:
+    is "^3.1.0"
+
+node.extend@2.0.0:
+  version "2.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/node.extend/-/node.extend-2.0.0.tgz#7525a2875677ea534784a5e10ac78956139614df"
+  integrity sha1-dSWih1Z36lNHhKXhCseJVhOWFN8=
+  dependencies:
+    is "^3.2.1"
+
+nopt@1.0.10:
+  version "1.0.10"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/nopt/-/nopt-1.0.10.tgz#6ddd21bd2a31417b92727dd585f8a6f37608ebee"
+  integrity sha1-bd0hvSoxQXuScn3Vhfim83YI6+4=
+  dependencies:
+    abbrev "1"
+
 nopt@^4.0.1:
   version "4.0.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/nopt/-/nopt-4.0.1.tgz#d0d4685afd5415193c8c7505602d0d17cd64474d"
@@ -3960,7 +5687,7 @@ normalize-package-data@^2.3.2:
     semver "2 || 3 || 4 || 5"
     validate-npm-package-license "^3.0.1"
 
-normalize-path@^2.0.1, normalize-path@^2.1.1:
+normalize-path@^2.0.0, normalize-path@^2.0.1, normalize-path@^2.1.1:
   version "2.1.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/normalize-path/-/normalize-path-2.1.1.tgz#1ab28b556e198363a8c1a6f7e6fa20137fe6aed9"
   integrity sha1-GrKLVW4Zg2Oowab35vogE3/mrtk=
@@ -3971,6 +5698,11 @@ npm-bundled@^1.0.1:
   version "1.0.5"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/npm-bundled/-/npm-bundled-1.0.5.tgz#3c1732b7ba936b3a10325aef616467c0ccbcc979"
   integrity sha1-PBcyt7qTazoQMlrvYWRnwMy8yXk=
+
+npm-install-package@2.1.0:
+  version "2.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/npm-install-package/-/npm-install-package-2.1.0.tgz#d7efe3cfcd7ab00614b896ea53119dc9ab259125"
+  integrity sha1-1+/jz816sAYUuJbqUxGdyaslkSU=
 
 npm-packlist@^1.1.6:
   version "1.1.12"
@@ -3997,6 +5729,14 @@ npmlog@^4.0.2:
     gauge "~2.7.3"
     set-blocking "~2.0.0"
 
+nssocket@0.6.0:
+  version "0.6.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/nssocket/-/nssocket-0.6.0.tgz#59f96f6ff321566f33c70f7dbeeecdfdc07154fa"
+  integrity sha1-Wflvb/MhVm8zxw99vu7N/cBxVPo=
+  dependencies:
+    eventemitter2 "~0.4.14"
+    lazy "~1.0.11"
+
 number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
@@ -4007,15 +5747,30 @@ nwsapi@^2.0.7:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/nwsapi/-/nwsapi-2.0.9.tgz#77ac0cdfdcad52b6a1151a84e73254edc33ed016"
   integrity sha1-d6wM39ytUrahFRqE5zJU7cM+0BY=
 
+oauth-sign@~0.8.2:
+  version "0.8.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/oauth-sign/-/oauth-sign-0.8.2.tgz#46a6ab7f0aead8deae9ec0565780b7d4efeb9d43"
+  integrity sha1-Rqarfwrq2N6unsBWV4C31O/rnUM=
+
 oauth-sign@~0.9.0:
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.9.0.tgz#47a7b016baa68b5fa0ecf3dee08a85c679ac6455"
   integrity sha1-R6ewFrqmi1+g7PPe4IqFxnmsZFU=
 
-object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
+object-assign@4.1.1, object-assign@^4, object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
   version "4.1.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
   integrity sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
+
+object-assign@^3.0.0:
+  version "3.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/object-assign/-/object-assign-3.0.0.tgz#9bedd5ca0897949bca47e7ff408062d549f587f2"
+  integrity sha1-m+3VygiXlJvKR+f/QIBi1Un1h/I=
+
+object-component@0.0.3:
+  version "0.0.3"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/object-component/-/object-component-0.0.3.tgz#f0c69aa50efc95b866c186f400a33769cb2f1291"
+  integrity sha1-8MaapQ78lbhmwYb0AKM3acsvEpE=
 
 object-copy@^0.1.0:
   version "0.1.0"
@@ -4038,6 +5793,16 @@ object-visit@^1.0.0:
   dependencies:
     isobject "^3.0.0"
 
+object.defaults@^1.1.0:
+  version "1.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/object.defaults/-/object.defaults-1.1.0.tgz#3a7f868334b407dea06da16d88d5cd29e435fecf"
+  integrity sha1-On+GgzS0B96gbaFtiNXNKeQ1/s8=
+  dependencies:
+    array-each "^1.0.1"
+    array-slice "^1.0.0"
+    for-own "^1.0.0"
+    isobject "^3.0.0"
+
 object.getownpropertydescriptors@^2.0.3:
   version "2.0.3"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/object.getownpropertydescriptors/-/object.getownpropertydescriptors-2.0.3.tgz#8758c846f5b407adab0f236e0986f14b051caa16"
@@ -4045,6 +5810,14 @@ object.getownpropertydescriptors@^2.0.3:
   dependencies:
     define-properties "^1.1.2"
     es-abstract "^1.5.1"
+
+object.map@^1.0.0:
+  version "1.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/object.map/-/object.map-1.0.1.tgz#cf83e59dc8fcc0ad5f4250e1f78b3b81bd801d37"
+  integrity sha1-z4Plncj8wK1fQlDh94s7gb2AHTc=
+  dependencies:
+    for-own "^1.0.0"
+    make-iterator "^1.0.0"
 
 object.omit@^2.0.0:
   version "2.0.1"
@@ -4054,21 +5827,31 @@ object.omit@^2.0.0:
     for-own "^0.1.4"
     is-extendable "^0.1.1"
 
-object.pick@^1.3.0:
+object.pick@^1.2.0, object.pick@^1.3.0:
   version "1.3.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/object.pick/-/object.pick-1.3.0.tgz#87a10ac4c1694bd2e1cbf53591a66141fb5dd747"
   integrity sha1-h6EKxMFpS9Lhy/U1kaZhQftd10c=
   dependencies:
     isobject "^3.0.1"
 
-on-finished@~2.3.0:
+odata-parser@1.4.1:
+  version "1.4.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/odata-parser/-/odata-parser-1.4.1.tgz#a2224bc749e76a6205bd47f47acd50eb1e71ed99"
+  integrity sha1-oiJLx0nnamIFvUf0es1Q6x5x7Zk=
+
+on-finished@^2.3.0, on-finished@~2.3.0:
   version "2.3.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/on-finished/-/on-finished-2.3.0.tgz#20f1336481b083cd75337992a16971aa2d906947"
   integrity sha1-IPEzZIGwg811M3mSoWlxqi2QaUc=
   dependencies:
     ee-first "1.1.1"
 
-once@^1.3.0, once@^1.3.1, once@^1.4.0:
+on-headers@~1.0.1:
+  version "1.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/on-headers/-/on-headers-1.0.1.tgz#928f5d0f470d49342651ea6794b0857c100693f7"
+  integrity sha1-ko9dD0cNSTQmUepnlLCFfBAGk/c=
+
+once@1.4.0, once@^1.3.0, once@^1.3.1, once@^1.4.0:
   version "1.4.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/once/-/once-1.4.0.tgz#583b1aa775961d4b113ac17d9c50baef9dd76bd1"
   integrity sha1-WDsap3WWHUsROsF9nFC6753Xa9E=
@@ -4081,6 +5864,13 @@ onetime@^2.0.0:
   integrity sha1-BnQoIw/WdEOyeUsiu6UotoZ5YtQ=
   dependencies:
     mimic-fn "^1.0.0"
+
+opentype.js@^0.7.3:
+  version "0.7.3"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/opentype.js/-/opentype.js-0.7.3.tgz#40fb8ce18bfd60e74448efdfe442834098397aab"
+  integrity sha1-QPuM4Yv9YOdESO/f5EKDQJg5eqs=
+  dependencies:
+    tiny-inflate "^1.0.2"
 
 optimist@^0.6.1:
   version "0.6.1"
@@ -4111,6 +5901,13 @@ os-homedir@^1.0.0:
   version "1.0.2"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/os-homedir/-/os-homedir-1.0.2.tgz#ffbc4988336e0e833de0c168c7ef152121aa7fb3"
   integrity sha1-/7xJiDNuDoM94MFox+8VISGqf7M=
+
+os-locale@^1.4.0:
+  version "1.4.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/os-locale/-/os-locale-1.4.0.tgz#20f9f17ae29ed345e8bde583b13d2009803c14d9"
+  integrity sha1-IPnxeuKe00XoveWDsT0gCYA8FNk=
+  dependencies:
+    lcid "^1.0.0"
 
 os-locale@^2.0.0:
   version "2.1.0"
@@ -4196,7 +5993,12 @@ p-try@^2.0.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/p-try/-/p-try-2.0.0.tgz#85080bb87c64688fa47996fe8f7dfbe8211760b1"
   integrity sha1-hQgLuHxkaI+keZb+j3376CEXYLE=
 
-pako@~1.0.5:
+pako@^0.2.5:
+  version "0.2.9"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/pako/-/pako-0.2.9.tgz#f3f7522f4ef782348da8161bad9ecfd51bf83a75"
+  integrity sha1-8/dSL073gjSNqBYbrZ7P1Rv4OnU=
+
+pako@^1.0.6, pako@~1.0.5:
   version "1.0.6"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/pako/-/pako-1.0.6.tgz#0101211baa70c4bca4a0f63f2206e97b7dfaf258"
   integrity sha1-AQEhG6pwxLykoPY/Igbpe3368lg=
@@ -4220,6 +6022,20 @@ parse-asn1@^5.0.0:
     create-hash "^1.1.0"
     evp_bytestokey "^1.0.0"
     pbkdf2 "^3.0.3"
+
+parse-duration@0.1.1:
+  version "0.1.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/parse-duration/-/parse-duration-0.1.1.tgz#13114ddc9891c1ecd280036244554de43647a226"
+  integrity sha1-ExFN3JiRwezSgANiRFVN5DZHoiY=
+
+parse-filepath@^1.0.1:
+  version "1.0.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/parse-filepath/-/parse-filepath-1.0.2.tgz#a632127f53aaf3d15876f5872f3ffac763d6c891"
+  integrity sha1-pjISf1Oq89FYdvWHLz/6x2PWyJE=
+  dependencies:
+    is-absolute "^1.0.0"
+    map-cache "^0.2.0"
+    path-root "^0.1.1"
 
 parse-glob@^3.0.4:
   version "3.0.4"
@@ -4246,10 +6062,29 @@ parse-json@^4.0.0:
     error-ex "^1.3.1"
     json-parse-better-errors "^1.0.1"
 
+parse-passwd@^1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/parse-passwd/-/parse-passwd-1.0.0.tgz#6d5b934a456993b23d37f40a382d6f1666a8e5c6"
+  integrity sha1-bVuTSkVpk7I9N/QKOC1vFmao5cY=
+
 parse5@4.0.0:
   version "4.0.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/parse5/-/parse5-4.0.0.tgz#6d78656e3da8d78b4ec0b906f7c08ef1dfe3f608"
   integrity sha1-bXhlbj2o14tOwLkG98CO8d/j9gg=
+
+parseqs@0.0.5:
+  version "0.0.5"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/parseqs/-/parseqs-0.0.5.tgz#d5208a3738e46766e291ba2ea173684921a8b89d"
+  integrity sha1-1SCKNzjkZ2bikbouoXNoSSGouJ0=
+  dependencies:
+    better-assert "~1.0.0"
+
+parseuri@0.0.5:
+  version "0.0.5"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/parseuri/-/parseuri-0.0.5.tgz#80204a50d4dbb779bfdc6ebe2778d90e4bce320a"
+  integrity sha1-gCBKUNTbt3m/3G6+J3jZDkvOMgo=
+  dependencies:
+    better-assert "~1.0.0"
 
 parseurl@~1.3.2:
   version "1.3.2"
@@ -4260,6 +6095,45 @@ pascalcase@^0.1.1:
   version "0.1.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/pascalcase/-/pascalcase-0.1.1.tgz#b363e55e8006ca6fe21784d2db22bd15d7917f14"
   integrity sha1-s2PlXoAGym/iF4TS2yK9FdeRfxQ=
+
+passport-http-bearer@1.0.1:
+  version "1.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/passport-http-bearer/-/passport-http-bearer-1.0.1.tgz#147469ea3669e2a84c6167ef99dbb77e1f0098a8"
+  integrity sha1-FHRp6jZp4qhMYWfvmdu3fh8AmKg=
+  dependencies:
+    passport-strategy "1.x.x"
+
+passport-http@0.3.0:
+  version "0.3.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/passport-http/-/passport-http-0.3.0.tgz#8ee53d4380be9c60df2151925029826f77115603"
+  integrity sha1-juU9Q4C+nGDfIVGSUCmCb3cRVgM=
+  dependencies:
+    passport-strategy "1.x.x"
+
+passport-local@1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/passport-local/-/passport-local-1.0.0.tgz#1fe63268c92e75606626437e3b906662c15ba6ee"
+  integrity sha1-H+YyaMkudWBmJkN+O5BmYsFbpu4=
+  dependencies:
+    passport-strategy "1.x.x"
+
+passport-strategy@1.x.x:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/passport-strategy/-/passport-strategy-1.0.0.tgz#b5539aa8fc225a3d1ad179476ddf236b440f52e4"
+  integrity sha1-tVOaqPwiWj0a0XlHbd8ja0QPUuQ=
+
+passport@0.4.0:
+  version "0.4.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/passport/-/passport-0.4.0.tgz#c5095691347bd5ad3b5e180238c3914d16f05811"
+  integrity sha1-xQlWkTR71a07XhgCOMORTRbwWBE=
+  dependencies:
+    passport-strategy "1.x.x"
+    pause "0.0.1"
+
+password-hash@1.2.2:
+  version "1.2.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/password-hash/-/password-hash-1.2.2.tgz#3b451f014de4b2e1ebfa0e5493b9517b1063af1d"
+  integrity sha1-O0UfAU3ksuHr+g5Uk7lRexBjrx0=
 
 path-browserify@0.0.0:
   version "0.0.0"
@@ -4303,10 +6177,27 @@ path-parse@^1.0.5:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
   integrity sha1-1i27VnlAXXLEc37FhgDp3c8G0kw=
 
+path-root-regex@^0.1.0:
+  version "0.1.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/path-root-regex/-/path-root-regex-0.1.2.tgz#bfccdc8df5b12dc52c8b43ec38d18d72c04ba96d"
+  integrity sha1-v8zcjfWxLcUsi0PsONGNcsBLqW0=
+
+path-root@^0.1.1:
+  version "0.1.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/path-root/-/path-root-0.1.1.tgz#9a4a6814cac1c0cd73360a95f32083c8ea4745b7"
+  integrity sha1-mkpoFMrBwM1zNgqV8yCDyOpHRbc=
+  dependencies:
+    path-root-regex "^0.1.0"
+
 path-to-regexp@0.1.7:
   version "0.1.7"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/path-to-regexp/-/path-to-regexp-0.1.7.tgz#df604178005f522f15eb4490e7247a1bfaa67f8c"
   integrity sha1-32BBeABfUi8V60SQ5yR6G/qmf4w=
+
+path-to-regexp@2.1.0:
+  version "2.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/path-to-regexp/-/path-to-regexp-2.1.0.tgz#7e30f9f5b134bd6a28ffc2e3ef1e47075ac5259b"
+  integrity sha1-fjD59bE0vWoo/8Lj7x5HB1rFJZs=
 
 path-type@^1.0.0:
   version "1.1.0"
@@ -4324,6 +6215,11 @@ path-type@^2.0.0:
   dependencies:
     pify "^2.0.0"
 
+pause@0.0.1:
+  version "0.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/pause/-/pause-0.0.1.tgz#1d408b3fdb76923b9543d96fb4c9dfd535d9cb5d"
+  integrity sha1-HUCLP9t2kjuVQ9lvtMnf1TXZy10=
+
 pbkdf2@^3.0.3:
   version "3.0.17"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/pbkdf2/-/pbkdf2-3.0.17.tgz#976c206530617b14ebb32114239f7b09336e93a6"
@@ -4335,20 +6231,41 @@ pbkdf2@^3.0.3:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
+pdfjs-dist@2.0.457:
+  version "2.0.457"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/pdfjs-dist/-/pdfjs-dist-2.0.457.tgz#ecf6be4b9d153de4ebdf0a3d7052d26f0377c204"
+  integrity sha1-7Pa+S50VPeTr3wo9cFLSbwN3wgQ=
+  dependencies:
+    node-ensure "^0.0.0"
+    worker-loader "^1.1.1"
+
+pend@~1.2.0:
+  version "1.2.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/pend/-/pend-1.2.0.tgz#7a57eb550a6783f9115331fcf4663d5c8e007a50"
+  integrity sha1-elfrVQpng/kRUzH89GY9XI4AelA=
+
 performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
 
+phantom-page-eval@1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/phantom-page-eval/-/phantom-page-eval-1.0.0.tgz#73eeb2625b1b8dcc163843c49b7af6b117229bfd"
+  integrity sha1-c+6yYlsbjcwWOEPEm3r2sRcim/0=
+  dependencies:
+    debug "3.1.0"
+    nanoid "1.0.2"
+
+pify@3.0.0, pify@^3.0.0:
+  version "3.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/pify/-/pify-3.0.0.tgz#e5a4acd2c101fdf3d9a4d07f0dbc4db49dd28176"
+  integrity sha1-5aSs0sEB/fPZpNB/DbxNtJ3SgXY=
+
 pify@^2.0.0:
   version "2.3.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
   integrity sha1-7RQaasBDqEnqWISY59yosVMw6Qw=
-
-pify@^3.0.0:
-  version "3.0.0"
-  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/pify/-/pify-3.0.0.tgz#e5a4acd2c101fdf3d9a4d07f0dbc4db49dd28176"
-  integrity sha1-5aSs0sEB/fPZpNB/DbxNtJ3SgXY=
 
 pinkie-promise@^2.0.0:
   version "2.0.1"
@@ -4410,6 +6327,14 @@ pn@^1.1.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/pn/-/pn-1.1.0.tgz#e2f4cef0e219f463c179ab37463e4e1ecdccbafb"
   integrity sha1-4vTO8OIZ9GPBeas3Rj5OHs3Muvs=
 
+portscanner@2.1.1:
+  version "2.1.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/portscanner/-/portscanner-2.1.1.tgz#eabb409e4de24950f5a2a516d35ae769343fbb96"
+  integrity sha1-6rtAnk3iSVD1oqUW01rnaTQ/u5Y=
+  dependencies:
+    async "1.5.2"
+    is-number-like "^1.0.3"
+
 posix-character-classes@^0.1.0:
   version "0.1.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
@@ -4458,6 +6383,17 @@ promise-inflight@^1.0.1:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/promise-inflight/-/promise-inflight-1.0.1.tgz#98472870bf228132fcbdd868129bad12c3c029e3"
   integrity sha1-mEcocL8igTL8vdhoEputEsPAKeM=
 
+prompt-tmp@1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/prompt-tmp/-/prompt-tmp-1.0.0.tgz#ef89b90d86a94316695f370776c76b09122f2bf3"
+  integrity sha1-74m5DYapQxZpXzcHdsdrCRIvK/M=
+  dependencies:
+    colors "^1.1.2"
+    read "1.0.x"
+    revalidator "0.1.x"
+    utile "0.3.x"
+    winston "2.x"
+
 prompts@^0.1.9:
   version "0.1.14"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/prompts/-/prompts-0.1.14.tgz#a8e15c612c5c9ec8f8111847df3337c9cbd443b2"
@@ -4474,13 +6410,18 @@ prop-types@^15.6.2:
     loose-envify "^1.3.1"
     object-assign "^4.1.1"
 
-proxy-addr@~2.0.4:
+proxy-addr@~2.0.2, proxy-addr@~2.0.4:
   version "2.0.4"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/proxy-addr/-/proxy-addr-2.0.4.tgz#ecfc733bf22ff8c6f407fa275327b9ab67e48b93"
   integrity sha1-7PxzO/Iv+Mb0B/onUye5q2fki5M=
   dependencies:
     forwarded "~0.1.2"
     ipaddr.js "1.8.0"
+
+proxy-from-env@^1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/proxy-from-env/-/proxy-from-env-1.0.0.tgz#33c50398f70ea7eb96d21f7b817630a55791c7ee"
+  integrity sha1-M8UDmPcOp+uW0h97gXYwpVeRx+4=
 
 prr@~1.0.1:
   version "1.0.1"
@@ -4541,7 +6482,26 @@ punycode@^2.1.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha1-tYsBCsQMIsVldhbI0sLALHv0eew=
 
-qs@6.5.2, qs@^6.5.1, qs@~6.5.2:
+puppeteer@1.7.0:
+  version "1.7.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/puppeteer/-/puppeteer-1.7.0.tgz#edcba2300a50847202c0f19fd15e7a96171ff3bd"
+  integrity sha1-7cuiMApQhHICwPGf0V56lhcf870=
+  dependencies:
+    debug "^3.1.0"
+    extract-zip "^1.6.6"
+    https-proxy-agent "^2.2.1"
+    mime "^2.0.3"
+    progress "^2.0.0"
+    proxy-from-env "^1.0.0"
+    rimraf "^2.6.1"
+    ws "^5.1.1"
+
+qs@6.5.1:
+  version "6.5.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/qs/-/qs-6.5.1.tgz#349cdf6eef89ec45c12d7d5eb3fc0c870343a6d8"
+  integrity sha1-NJzfbu+J7EXBLX1es/wMhwNDptg=
+
+qs@6.5.2, qs@^6.5.1, qs@~6.5.1, qs@~6.5.2:
   version "6.5.2"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha1-yzroBuh0BERYTvFUzo7pjUA/PjY=
@@ -4584,6 +6544,16 @@ range-parser@~1.2.0:
   version "1.2.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/range-parser/-/range-parser-1.2.0.tgz#f49be6b487894ddc40dcc94a322f611092e00d5e"
   integrity sha1-9JvmtIeJTdxA3MlKMi9hEJLgDV4=
+
+raw-body@2.3.2:
+  version "2.3.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/raw-body/-/raw-body-2.3.2.tgz#bcd60c77d3eb93cde0050295c3f379389bc88f89"
+  integrity sha1-vNYMd9Prk83gBQKVw/N5OJvIj4k=
+  dependencies:
+    bytes "3.0.0"
+    http-errors "1.6.2"
+    iconv-lite "0.4.19"
+    unpipe "1.0.0"
 
 raw-body@2.3.3:
   version "2.3.3"
@@ -4639,7 +6609,14 @@ read-pkg@^2.0.0:
     normalize-package-data "^2.3.2"
     path-type "^2.0.0"
 
-"readable-stream@1 || 2", readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.4, readable-stream@^2.0.6, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.3.3, readable-stream@^2.3.5, readable-stream@^2.3.6:
+read@1.0.x:
+  version "1.0.7"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/read/-/read-1.0.7.tgz#b3da19bd052431a97671d44a42634adf710b40c4"
+  integrity sha1-s9oZvQUkMal2cdRKQmNK33ELQMQ=
+  dependencies:
+    mute-stream "~0.0.4"
+
+"readable-stream@1 || 2", readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.4, readable-stream@^2.0.5, readable-stream@^2.0.6, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.3.0, readable-stream@^2.3.3, readable-stream@^2.3.5, readable-stream@^2.3.6:
   version "2.3.6"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/readable-stream/-/readable-stream-2.3.6.tgz#b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
   integrity sha1-sRwn2IuP8fvgcGQ8+UsMea4bCq8=
@@ -4651,6 +6628,16 @@ read-pkg@^2.0.0:
     safe-buffer "~5.1.1"
     string_decoder "~1.1.1"
     util-deprecate "~1.0.1"
+
+readable-stream@1.1.x:
+  version "1.1.14"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/readable-stream/-/readable-stream-1.1.14.tgz#7cf4c54ef648e3813084c636dd2079e166c081d9"
+  integrity sha1-fPTFTvZI44EwhMY23SB54WbAgdk=
+  dependencies:
+    core-util-is "~1.0.0"
+    inherits "~2.0.1"
+    isarray "0.0.1"
+    string_decoder "~0.10.x"
 
 readdirp@^2.0.0:
   version "2.2.1"
@@ -4667,6 +6654,24 @@ realpath-native@^1.0.0:
   integrity sha1-zVHOCJtRO0XPmxUWyCmJtRzMZWA=
   dependencies:
     util.promisify "^1.0.0"
+
+reap2@1.0.1:
+  version "1.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/reap2/-/reap2-1.0.1.tgz#d5b419192b30a3150042935268ae81fd76a7e98a"
+  integrity sha1-1bQZGSswoxUAQpNSaK6B/Xan6Yo=
+  dependencies:
+    batch "~0.4.0"
+    bytes "~0.2.1"
+    commander "~1.2.0"
+    debug "*"
+    ms "0.7.1"
+
+rechoir@^0.6.2:
+  version "0.6.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/rechoir/-/rechoir-0.6.2.tgz#85204b54dba82d5742e28c96756ef43af50e3384"
+  integrity sha1-hSBLVNuoLVdC4oyWdW70OvUOM4Q=
+  dependencies:
+    resolve "^1.1.6"
 
 regenerator-runtime@^0.11.0:
   version "0.11.1"
@@ -4741,6 +6746,62 @@ request-promise@4.2.2:
     stealthy-require "^1.1.0"
     tough-cookie ">=2.3.3"
 
+request@2.83.0:
+  version "2.83.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/request/-/request-2.83.0.tgz#ca0b65da02ed62935887808e6f510381034e3356"
+  integrity sha1-ygtl2gLtYpNYh4COb1EDgQNOM1Y=
+  dependencies:
+    aws-sign2 "~0.7.0"
+    aws4 "^1.6.0"
+    caseless "~0.12.0"
+    combined-stream "~1.0.5"
+    extend "~3.0.1"
+    forever-agent "~0.6.1"
+    form-data "~2.3.1"
+    har-validator "~5.0.3"
+    hawk "~6.0.2"
+    http-signature "~1.2.0"
+    is-typedarray "~1.0.0"
+    isstream "~0.1.2"
+    json-stringify-safe "~5.0.1"
+    mime-types "~2.1.17"
+    oauth-sign "~0.8.2"
+    performance-now "^2.1.0"
+    qs "~6.5.1"
+    safe-buffer "^5.1.1"
+    stringstream "~0.0.5"
+    tough-cookie "~2.3.3"
+    tunnel-agent "^0.6.0"
+    uuid "^3.1.0"
+
+request@2.85.0:
+  version "2.85.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/request/-/request-2.85.0.tgz#5a03615a47c61420b3eb99b7dba204f83603e1fa"
+  integrity sha1-WgNhWkfGFCCz65m326IE+DYD4fo=
+  dependencies:
+    aws-sign2 "~0.7.0"
+    aws4 "^1.6.0"
+    caseless "~0.12.0"
+    combined-stream "~1.0.5"
+    extend "~3.0.1"
+    forever-agent "~0.6.1"
+    form-data "~2.3.1"
+    har-validator "~5.0.3"
+    hawk "~6.0.2"
+    http-signature "~1.2.0"
+    is-typedarray "~1.0.0"
+    isstream "~0.1.2"
+    json-stringify-safe "~5.0.1"
+    mime-types "~2.1.17"
+    oauth-sign "~0.8.2"
+    performance-now "^2.1.0"
+    qs "~6.5.1"
+    safe-buffer "^5.1.1"
+    stringstream "~0.0.5"
+    tough-cookie "~2.3.3"
+    tunnel-agent "^0.6.0"
+    uuid "^3.1.0"
+
 request@2.88.0, request@^2.87.0:
   version "2.88.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/request/-/request-2.88.0.tgz#9c2fca4f7d35b592efe57c7f0a55e81052124fef"
@@ -4792,6 +6853,14 @@ resolve-cwd@^2.0.0:
   dependencies:
     resolve-from "^3.0.0"
 
+resolve-dir@^1.0.0, resolve-dir@^1.0.1:
+  version "1.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/resolve-dir/-/resolve-dir-1.0.1.tgz#79a40644c362be82f26effe739c9bb5382046f43"
+  integrity sha1-eaQGRMNivoLybv/nOcm7U4IEb0M=
+  dependencies:
+    expand-tilde "^2.0.0"
+    global-modules "^1.0.0"
+
 resolve-from@^1.0.0:
   version "1.0.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/resolve-from/-/resolve-from-1.0.1.tgz#26cbfe935d1aeeeabb29bc3fe5aeb01e93d44226"
@@ -4812,7 +6881,7 @@ resolve@1.1.7:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/resolve/-/resolve-1.1.7.tgz#203114d82ad2c5ed9e8e0411b3932875e889e97b"
   integrity sha1-IDEU2CrSxe2ejgQRs5ModeiJ6Xs=
 
-resolve@^1.5.0, resolve@^1.6.0, resolve@^1.8.1:
+resolve@^1.1.6, resolve@^1.1.7, resolve@^1.5.0, resolve@^1.6.0, resolve@^1.8.1:
   version "1.8.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/resolve/-/resolve-1.8.1.tgz#82f1ec19a423ac1fbd080b0bab06ba36e84a7a26"
   integrity sha1-gvHsGaQjrB+9CAsLqwa6NuhKeiY=
@@ -4832,7 +6901,19 @@ ret@~0.1.10:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/ret/-/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
   integrity sha1-uKSCXVvbH8P29Twrwz+BOIaBx7w=
 
-rimraf@^2.2.8, rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.2:
+revalidator@0.1.x:
+  version "0.1.8"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/revalidator/-/revalidator-0.1.8.tgz#fece61bfa0c1b52a206bd6b18198184bdd523a3b"
+  integrity sha1-/s5hv6DBtSoga9axgZgYS91SOjs=
+
+right-align@^0.1.1:
+  version "0.1.3"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/right-align/-/right-align-0.1.3.tgz#61339b722fe6a3515689210d24e14c96148613ef"
+  integrity sha1-YTObci/mo1FWiSENJOFMlhSGE+8=
+  dependencies:
+    align-text "^0.1.1"
+
+rimraf@2.6.2, rimraf@2.x.x, rimraf@^2.2.8, rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.2:
   version "2.6.2"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/rimraf/-/rimraf-2.6.2.tgz#2ed8150d24a16ea8651e6d6ef0f47c4158ce7a36"
   integrity sha1-LtgVDSShbqhlHm1u8PR8QVjOejY=
@@ -4878,6 +6959,11 @@ rxjs@^5.5.2:
   dependencies:
     symbol-observable "1.0.1"
 
+safe-buffer@5.1.1:
+  version "5.1.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/safe-buffer/-/safe-buffer-5.1.1.tgz#893312af69b2123def71f57889001671eeb2c853"
+  integrity sha1-iTMSr2myEj3vcfV4iQAWce6yyFM=
+
 safe-buffer@5.1.2, safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@^5.1.1, safe-buffer@^5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
@@ -4911,12 +6997,12 @@ sane@^2.0.0:
   optionalDependencies:
     fsevents "^1.2.3"
 
-sax@^1.2.4:
+sax@>=0.6.0, sax@^1.2.4:
   version "1.2.4"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
   integrity sha1-KBYjTiN4vdxOU1T6tcqold9xANk=
 
-schema-utils@^0.4.4, schema-utils@^0.4.5:
+schema-utils@^0.4.0, schema-utils@^0.4.4, schema-utils@^0.4.5:
   version "0.4.7"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/schema-utils/-/schema-utils-0.4.7.tgz#ba74f597d2be2ea880131746ee17d0a093c68187"
   integrity sha1-unT1l9K+LqiAExdG7hfQoJPGgYc=
@@ -4924,10 +7010,56 @@ schema-utils@^0.4.4, schema-utils@^0.4.5:
     ajv "^6.1.0"
     ajv-keywords "^3.1.0"
 
+script-manager@0.7.1:
+  version "0.7.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/script-manager/-/script-manager-0.7.1.tgz#e5f0aacf0f5239f0477337fa67656d7fe27c52cc"
+  integrity sha1-5fCqzw9SOfBHczf6Z2Vtf+J8Usw=
+  dependencies:
+    net-cluster "0.0.2"
+    portscanner "2.1.1"
+    request "2.83.0"
+    string "3.3.3"
+    underscore "1.8.3"
+    uuid "3.1.0"
+
+secure-keys@^1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/secure-keys/-/secure-keys-1.0.0.tgz#f0c82d98a3b139a8776a8808050b824431087fca"
+  integrity sha1-8MgtmKOxOah3aogIBQuCRDEIf8o=
+
 "semver@2 || 3 || 4 || 5", semver@^5.3.0, semver@^5.4.1, semver@^5.5.0:
   version "5.6.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/semver/-/semver-5.6.0.tgz#7e74256fbaa49c75aa7c7a205cc22799cac80004"
   integrity sha1-fnQlb7qknHWqfHogXMInmcrIAAQ=
+
+semver@5.5.0:
+  version "5.5.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
+  integrity sha1-3Eu8emyp2Rbe5dQ1FvAJK1j3uKs=
+
+semver@5.5.1:
+  version "5.5.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/semver/-/semver-5.5.1.tgz#7dfdd8814bdb7cabc7be0fb1d734cfb66c940477"
+  integrity sha1-ff3YgUvbfKvHvg+x1zTPtmyUBHc=
+
+send@0.16.1:
+  version "0.16.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/send/-/send-0.16.1.tgz#a70e1ca21d1382c11d0d9f6231deb281080d7ab3"
+  integrity sha1-pw4coh0TgsEdDZ9iMd6ygQgNerM=
+  dependencies:
+    debug "2.6.9"
+    depd "~1.1.1"
+    destroy "~1.0.4"
+    encodeurl "~1.0.1"
+    escape-html "~1.0.3"
+    etag "~1.8.1"
+    fresh "0.5.2"
+    http-errors "~1.6.2"
+    mime "1.4.1"
+    ms "2.0.0"
+    on-finished "~2.3.0"
+    range-parser "~1.2.0"
+    statuses "~1.3.1"
 
 send@0.16.2:
   version "0.16.2"
@@ -4952,6 +7084,27 @@ serialize-javascript@^1.4.0:
   version "1.5.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/serialize-javascript/-/serialize-javascript-1.5.0.tgz#1aa336162c88a890ddad5384baebc93a655161fe"
   integrity sha1-GqM2FiyIqJDdrVOEuuvJOmVRYf4=
+
+serve-favicon@2.4.5:
+  version "2.4.5"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/serve-favicon/-/serve-favicon-2.4.5.tgz#49d9a46863153a9240691c893d2b0e7d85d6d436"
+  integrity sha1-SdmkaGMVOpJAaRyJPSsOfYXW1DY=
+  dependencies:
+    etag "~1.8.1"
+    fresh "0.5.2"
+    ms "2.0.0"
+    parseurl "~1.3.2"
+    safe-buffer "5.1.1"
+
+serve-static@1.13.1:
+  version "1.13.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/serve-static/-/serve-static-1.13.1.tgz#4c57d53404a761d8f2e7c1e8a18a47dbf278a719"
+  integrity sha1-TFfVNASnYdjy58HooYpH2/J4pxk=
+  dependencies:
+    encodeurl "~1.0.1"
+    escape-html "~1.0.3"
+    parseurl "~1.3.2"
+    send "0.16.1"
 
 serve-static@1.13.2:
   version "1.13.2"
@@ -4993,6 +7146,11 @@ setimmediate@^1.0.4:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/setimmediate/-/setimmediate-1.0.5.tgz#290cbb232e306942d7d7ea9b83732ab7856f8285"
   integrity sha1-KQy7Iy4waULX1+qbg3Mqt4VvgoU=
 
+setprototypeof@1.0.3:
+  version "1.0.3"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/setprototypeof/-/setprototypeof-1.0.3.tgz#66567e37043eeb4f04d91bd658c0cbefb55b8e04"
+  integrity sha1-ZlZ+NwQ+608E2RvWWMDL77VbjgQ=
+
 setprototypeof@1.1.0:
   version "1.1.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/setprototypeof/-/setprototypeof-1.1.0.tgz#d0bd85536887b6fe7c0d818cb962d9d91c54e656"
@@ -5023,10 +7181,33 @@ shellwords@^0.1.1:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/shellwords/-/shellwords-0.1.1.tgz#d6b9181c1a48d397324c84871efbcfc73fc0654b"
   integrity sha1-1rkYHBpI05cyTISHHvvPxz/AZUs=
 
+shortid@2.2.8:
+  version "2.2.8"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/shortid/-/shortid-2.2.8.tgz#033b117d6a2e975804f6f0969dbe7d3d0b355131"
+  integrity sha1-AzsRfWoul1gE9vCWnb59PQs1UTE=
+
 signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
   integrity sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0=
+
+silent-spawn@0.4.0:
+  version "0.4.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/silent-spawn/-/silent-spawn-0.4.0.tgz#90c158da5efe8c85ef2009a3c8393c622a04a925"
+  integrity sha1-kMFY2l7+jIXvIAmjyDk8YioEqSU=
+  dependencies:
+    object-assign "4.1.1"
+
+simple-odata-server@1.0.1:
+  version "1.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/simple-odata-server/-/simple-odata-server-1.0.1.tgz#6497d66e38bdb53110d6a2b62e0084171134124e"
+  integrity sha1-ZJfWbji9tTEQ1qK2LgCEFxE0Ek4=
+  dependencies:
+    methods "1.1.2"
+    odata-parser "1.4.1"
+    path-to-regexp "2.1.0"
+    safe-buffer "5.1.1"
+    xmlbuilder "9.0.4"
 
 sisteransi@^0.1.1:
   version "0.1.1"
@@ -5075,6 +7256,59 @@ snapdragon@^0.8.1:
     source-map-resolve "^0.5.0"
     use "^3.1.0"
 
+sntp@2.x.x:
+  version "2.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/sntp/-/sntp-2.1.0.tgz#2c6cec14fedc2222739caf9b5c3d85d1cc5a2cc8"
+  integrity sha1-LGzsFP7cIiJznK+bXD2F0cxaLMg=
+  dependencies:
+    hoek "4.x.x"
+
+socket.io-adapter@~1.1.0:
+  version "1.1.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/socket.io-adapter/-/socket.io-adapter-1.1.1.tgz#2a805e8a14d6372124dd9159ad4502f8cb07f06b"
+  integrity sha1-KoBeihTWNyEk3ZFZrUUC+MsH8Gs=
+
+socket.io-client@2.1.1:
+  version "2.1.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/socket.io-client/-/socket.io-client-2.1.1.tgz#dcb38103436ab4578ddb026638ae2f21b623671f"
+  integrity sha1-3LOBA0NqtFeN2wJmOK4vIbYjZx8=
+  dependencies:
+    backo2 "1.0.2"
+    base64-arraybuffer "0.1.5"
+    component-bind "1.0.0"
+    component-emitter "1.2.1"
+    debug "~3.1.0"
+    engine.io-client "~3.2.0"
+    has-binary2 "~1.0.2"
+    has-cors "1.1.0"
+    indexof "0.0.1"
+    object-component "0.0.3"
+    parseqs "0.0.5"
+    parseuri "0.0.5"
+    socket.io-parser "~3.2.0"
+    to-array "0.1.4"
+
+socket.io-parser@~3.2.0:
+  version "3.2.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/socket.io-parser/-/socket.io-parser-3.2.0.tgz#e7c6228b6aa1f814e6148aea325b51aa9499e077"
+  integrity sha1-58Yii2qh+BTmFIrqMltRqpSZ4Hc=
+  dependencies:
+    component-emitter "1.2.1"
+    debug "~3.1.0"
+    isarray "2.0.1"
+
+socket.io@2.1.1:
+  version "2.1.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/socket.io/-/socket.io-2.1.1.tgz#a069c5feabee3e6b214a75b40ce0652e1cfb9980"
+  integrity sha1-oGnF/qvuPmshSnW0DOBlLhz7mYA=
+  dependencies:
+    debug "~3.1.0"
+    engine.io "~3.2.0"
+    has-binary2 "~1.0.2"
+    socket.io-adapter "~1.1.0"
+    socket.io-client "2.1.1"
+    socket.io-parser "~3.2.0"
+
 source-list-map@^2.0.0:
   version "2.0.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/source-list-map/-/source-list-map-2.0.1.tgz#3993bd873bfc48479cca9ea3a547835c7c154b34"
@@ -5111,7 +7345,14 @@ source-map-url@^0.4.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/source-map-url/-/source-map-url-0.4.0.tgz#3e935d7ddd73631b97659956d55128e87b5084a3"
   integrity sha1-PpNdfd1zYxuXZZlW1VEo6HtQhKM=
 
-source-map@^0.5.3, source-map@^0.5.6, source-map@^0.5.7:
+source-map@^0.4.4:
+  version "0.4.4"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/source-map/-/source-map-0.4.4.tgz#eba4f5da9c0dc999de68032d8b4f76173652036b"
+  integrity sha1-66T12pwNyZneaAMti092FzZSA2s=
+  dependencies:
+    amdefine ">=0.0.4"
+
+source-map@^0.5.3, source-map@^0.5.6, source-map@^0.5.7, source-map@~0.5.1:
   version "0.5.7"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
   integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
@@ -5154,6 +7395,11 @@ split-string@^3.0.1, split-string@^3.0.2:
   dependencies:
     extend-shallow "^3.0.0"
 
+sprintf-js@1.1.0:
+  version "1.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/sprintf-js/-/sprintf-js-1.1.0.tgz#cffcaf702daf65ea39bb4e0fa2b299cec1a1be46"
+  integrity sha1-z/yvcC2vZeo5u04PorKZzsGhvkY=
+
 sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
@@ -5180,6 +7426,11 @@ ssri@^5.2.4:
   integrity sha1-ujhyycbTOgcEp9cf8EXl7EiZnQY=
   dependencies:
     safe-buffer "^5.1.1"
+
+stack-trace@0.0.10, stack-trace@0.0.x:
+  version "0.0.10"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/stack-trace/-/stack-trace-0.0.10.tgz#547c70b347e8d32b4e108ea1a2a159e5fdde19c0"
+  integrity sha1-VHxws0fo0ytOEI6hoqFZ5f3eGcA=
 
 stack-utils@^1.0.1:
   version "1.0.1"
@@ -5219,15 +7470,25 @@ static-extend@^0.1.1:
     define-property "^0.2.5"
     object-copy "^0.1.0"
 
-"statuses@>= 1.4.0 < 2":
+"statuses@>= 1.3.1 < 2", "statuses@>= 1.4.0 < 2":
   version "1.5.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=
+
+statuses@~1.3.1:
+  version "1.3.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/statuses/-/statuses-1.3.1.tgz#faf51b9eb74aaef3b3acf4ad5f61abf24cb7b93e"
+  integrity sha1-+vUbnrdKrvOzrPStX2Gr8ky3uT4=
 
 statuses@~1.4.0:
   version "1.4.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/statuses/-/statuses-1.4.0.tgz#bb73d446da2796106efcc1b601a253d6c46bd087"
   integrity sha1-u3PURtonlhBu/MG2AaJT1sRr0Ic=
+
+stdio@0.2.2:
+  version "0.2.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/stdio/-/stdio-0.2.2.tgz#3a2259ee1644fb8578e5f6866fe872a03bbb3cce"
+  integrity sha1-OiJZ7hZE+4V45faGb+hyoDu7PM4=
 
 stealthy-require@^1.1.0:
   version "1.1.1"
@@ -5266,6 +7527,23 @@ stream-shift@^1.0.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/stream-shift/-/stream-shift-1.0.0.tgz#d5c752825e5367e786f78e18e445ea223a155952"
   integrity sha1-1cdSgl5TZ+eG944Y5EXqIjoVWVI=
 
+stream-to-array@2.3.0:
+  version "2.3.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/stream-to-array/-/stream-to-array-2.3.0.tgz#bbf6b39f5f43ec30bc71babcb37557acecf34353"
+  integrity sha1-u/azn19D7DC8cbq8s3VXrOzzQ1M=
+  dependencies:
+    any-promise "^1.1.0"
+
+streamifier@0.1.1:
+  version "0.1.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/streamifier/-/streamifier-0.1.1.tgz#97e98d8fa4d105d62a2691d1dc07e820db8dfc4f"
+  integrity sha1-l+mNj6TRBdYqJpHR3AfoINuN/E8=
+
+streamsearch@0.1.2:
+  version "0.1.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/streamsearch/-/streamsearch-0.1.2.tgz#808b9d0e56fc273d809ba57338e929919a1a9f1a"
+  integrity sha1-gIudDlb8Jz2Am6VzOOkpkZoanxo=
+
 string-length@^2.0.0:
   version "2.0.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/string-length/-/string-length-2.0.0.tgz#d40dbb686a3ace960c1cffca562bf2c45f8363ed"
@@ -5274,7 +7552,7 @@ string-length@^2.0.0:
     astral-regex "^1.0.0"
     strip-ansi "^4.0.0"
 
-string-width@^1.0.1:
+string-width@^1.0.1, string-width@^1.0.2:
   version "1.0.2"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/string-width/-/string-width-1.0.2.tgz#118bdf5b8cdc51a2a7e70d211e07e2b0b9b107d3"
   integrity sha1-EYvfW4zcUaKn5w0hHgfisLmxB9M=
@@ -5291,12 +7569,27 @@ string-width@^1.0.1:
     is-fullwidth-code-point "^2.0.0"
     strip-ansi "^4.0.0"
 
+string@3.3.3:
+  version "3.3.3"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/string/-/string-3.3.3.tgz#5ea211cd92d228e184294990a6cc97b366a77cb0"
+  integrity sha1-XqIRzZLSKOGEKUmQpsyXs2anfLA=
+
 string_decoder@^1.0.0, string_decoder@~1.1.1:
   version "1.1.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/string_decoder/-/string_decoder-1.1.1.tgz#9cf1611ba62685d7030ae9e4ba34149c3af03fc8"
   integrity sha1-nPFhG6YmhdcDCunkujQUnDrwP8g=
   dependencies:
     safe-buffer "~5.1.0"
+
+string_decoder@~0.10.x:
+  version "0.10.31"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/string_decoder/-/string_decoder-0.10.31.tgz#62e203bc41766c6c28c9fc84301dab1c5310fa94"
+  integrity sha1-YuIDvEF2bGwoyfyEMB2rHFMQ+pQ=
+
+stringstream@~0.0.5:
+  version "0.0.6"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/stringstream/-/stringstream-0.0.6.tgz#7880225b0d4ad10e30927d167a1d6f2fd3b33a72"
+  integrity sha1-eIAiWw1K0Q4wkn0Weh1vL9OzOnI=
 
 strip-ansi@^3.0.0, strip-ansi@^3.0.1:
   version "3.0.1"
@@ -5311,6 +7604,13 @@ strip-ansi@^4.0.0:
   integrity sha1-qEeQIusaw2iocTibY1JixQXuNo8=
   dependencies:
     ansi-regex "^3.0.0"
+
+strip-bom-buf@1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/strip-bom-buf/-/strip-bom-buf-1.0.0.tgz#1cb45aaf57530f4caf86c7f75179d2c9a51dd572"
+  integrity sha1-HLRar1dTD0yvhsf3UXnSyaUd1XI=
+  dependencies:
+    is-utf8 "^0.2.1"
 
 strip-bom@3.0.0, strip-bom@^3.0.0:
   version "3.0.0"
@@ -5404,6 +7704,19 @@ tapable@^1.0.0, tapable@^1.1.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/tapable/-/tapable-1.1.0.tgz#0d076a172e3d9ba088fd2272b2668fb8d194b78c"
   integrity sha1-DQdqFy49m6CI/SJysmaPuNGUt4w=
 
+tar-stream@^1.5.0:
+  version "1.6.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/tar-stream/-/tar-stream-1.6.2.tgz#8ea55dab37972253d9a9af90fdcd559ae435c555"
+  integrity sha1-jqVdqzeXIlPZqa+Q/c1VmuQ1xVU=
+  dependencies:
+    bl "^1.0.0"
+    buffer-alloc "^1.2.0"
+    end-of-stream "^1.0.0"
+    fs-constants "^1.0.0"
+    readable-stream "^2.3.0"
+    to-buffer "^1.1.1"
+    xtend "^4.0.0"
+
 tar@^4:
   version "4.4.6"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/tar/-/tar-4.4.6.tgz#63110f09c00b4e60ac8bcfe1bf3c8660235fbc9b"
@@ -5458,6 +7771,11 @@ timers-browserify@^2.0.4:
   dependencies:
     setimmediate "^1.0.4"
 
+tiny-inflate@^1.0.0, tiny-inflate@^1.0.2:
+  version "1.0.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/tiny-inflate/-/tiny-inflate-1.0.2.tgz#93d9decffc8805bd57eae4310f0b745e9b6fb3a7"
+  integrity sha1-k9nez/yIBb1X6uQxDwt0Xptvs6c=
+
 tmp@^0.0.33:
   version "0.0.33"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/tmp/-/tmp-0.0.33.tgz#6d34335889768d21b2bcda0aa277ced3b1bfadf9"
@@ -5470,10 +7788,20 @@ tmpl@1.0.x:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/tmpl/-/tmpl-1.0.4.tgz#23640dd7b42d00433911140820e5cf440e521dd1"
   integrity sha1-I2QN17QtAEM5ERQIIOXPRA5SHdE=
 
+to-array@0.1.4:
+  version "0.1.4"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/to-array/-/to-array-0.1.4.tgz#17e6c11f73dd4f3d74cda7a4ff3238e9ad9bf890"
+  integrity sha1-F+bBH3PdTz10zaek/zI46a2b+JA=
+
 to-arraybuffer@^1.0.0:
   version "1.0.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/to-arraybuffer/-/to-arraybuffer-1.0.1.tgz#7d229b1fcc637e466ca081180836a7aabff83f43"
   integrity sha1-fSKbH8xjfkZsoIEYCDanqr/4P0M=
+
+to-buffer@^1.1.1:
+  version "1.1.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/to-buffer/-/to-buffer-1.1.1.tgz#493bd48f62d7c43fcded313a03dcadb2e1213a80"
+  integrity sha1-STvUj2LXxD/N7TE6A9ytsuEhOoA=
 
 to-fast-properties@^1.0.3:
   version "1.0.3"
@@ -5511,6 +7839,13 @@ tough-cookie@>=2.3.3, tough-cookie@^2.3.4, tough-cookie@~2.4.3:
   integrity sha1-U/Nto/R3g7CSWvoG/587FlKA94E=
   dependencies:
     psl "^1.1.24"
+    punycode "^1.4.1"
+
+tough-cookie@~2.3.3:
+  version "2.3.4"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/tough-cookie/-/tough-cookie-2.3.4.tgz#ec60cee38ac675063ffc97a5c18970578ee83655"
+  integrity sha1-7GDO44rGdQY//JelwYlwV47oNlU=
+  dependencies:
     punycode "^1.4.1"
 
 tr46@^1.0.1:
@@ -5554,7 +7889,7 @@ type-check@~0.3.2:
   dependencies:
     prelude-ls "~1.1.2"
 
-type-is@~1.6.16:
+type-is@^1.6.4, type-is@~1.6.15, type-is@~1.6.16:
   version "1.6.16"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/type-is/-/type-is-1.6.16.tgz#f89ce341541c672b25ee7ae3c73dee3b2be50194"
   integrity sha1-+JzjQVQcZysl7nrjxz3uOyvlAZQ=
@@ -5575,6 +7910,16 @@ uglify-es@^3.3.4:
     commander "~2.13.0"
     source-map "~0.6.1"
 
+uglify-js@^2.6:
+  version "2.8.29"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/uglify-js/-/uglify-js-2.8.29.tgz#29c5733148057bb4e1f75df35b7a9cb72e6a59dd"
+  integrity sha1-KcVzMUgFe7Th913zW3qcty5qWd0=
+  dependencies:
+    source-map "~0.5.1"
+    yargs "~3.10.0"
+  optionalDependencies:
+    uglify-to-browserify "~1.0.0"
+
 uglify-js@^3.1.4:
   version "3.4.9"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/uglify-js/-/uglify-js-3.4.9.tgz#af02f180c1207d76432e473ed24a28f4a782bae3"
@@ -5582,6 +7927,11 @@ uglify-js@^3.1.4:
   dependencies:
     commander "~2.17.1"
     source-map "~0.6.1"
+
+uglify-to-browserify@~1.0.0:
+  version "1.0.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/uglify-to-browserify/-/uglify-to-browserify-1.0.2.tgz#6e0924d6bda6b5afe349e39a6d632850a0f882b7"
+  integrity sha1-bgkk1r2mta/jSeOabWMoUKD4grc=
 
 uglifyjs-webpack-plugin@^1.2.4:
   version "1.3.0"
@@ -5596,6 +7946,29 @@ uglifyjs-webpack-plugin@^1.2.4:
     uglify-es "^3.3.4"
     webpack-sources "^1.1.0"
     worker-farm "^1.5.2"
+
+ultron@~1.1.0:
+  version "1.1.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/ultron/-/ultron-1.1.1.tgz#9fe1536a10a664a65266a1e3ccf85fd36302bc9c"
+  integrity sha1-n+FTahCmZKZSZqHjzPhf02MCvJw=
+
+unc-path-regex@^0.1.2:
+  version "0.1.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/unc-path-regex/-/unc-path-regex-0.1.2.tgz#e73dd3d7b0d7c5ed86fbac6b0ae7d8c6a69d50fa"
+  integrity sha1-5z3T17DXxe2G+6xrCufYxqadUPo=
+
+underscore@1.8.3:
+  version "1.8.3"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/underscore/-/underscore-1.8.3.tgz#4f3fb53b106e6097fcf9cb4109f2a5e9bdfa5022"
+  integrity sha1-Tz+1OxBuYJf8+ctBCfKl6b36UCI=
+
+unicode-trie@^0.3.0:
+  version "0.3.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/unicode-trie/-/unicode-trie-0.3.1.tgz#d671dddd89101a08bac37b6a5161010602052085"
+  integrity sha1-1nHd3YkQGgi6w3tqUWEBBgIFIIU=
+  dependencies:
+    pako "^0.2.5"
+    tiny-inflate "^1.0.0"
 
 union-value@^1.0.0:
   version "1.0.0"
@@ -5626,12 +7999,17 @@ unique-slug@^2.0.0:
   dependencies:
     imurmurhash "^0.1.4"
 
+unorm@^1.4.1:
+  version "1.4.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/unorm/-/unorm-1.4.1.tgz#364200d5f13646ca8bcd44490271335614792300"
+  integrity sha1-NkIA1fE2RsqLzURJAnEzVhR5IwA=
+
 unpipe@1.0.0, unpipe@~1.0.0:
   version "1.0.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/unpipe/-/unpipe-1.0.0.tgz#b2bf4ee8514aae6165b4817829d21b2ef49904ec"
   integrity sha1-sr9O6FFKrmFltIF4KdIbLvSZBOw=
 
-unset-value@^1.0.0:
+unset-value@1.0.0, unset-value@^1.0.0:
   version "1.0.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/unset-value/-/unset-value-1.0.0.tgz#8376873f7d2335179ffb1e6fc3a8ed0dfc8ab559"
   integrity sha1-g3aHP30jNRef+x5vw6jtDfyKtVk=
@@ -5639,10 +8017,17 @@ unset-value@^1.0.0:
     has-value "^0.3.1"
     isobject "^3.0.0"
 
-upath@^1.0.5:
+upath@^1.0.0, upath@^1.0.5:
   version "1.1.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/upath/-/upath-1.1.0.tgz#35256597e46a581db4793d0ce47fa9aebfc9fabd"
   integrity sha1-NSVll+RqWB20eT0M5H+prr/J+r0=
+
+uri-js@^3.0.2:
+  version "3.0.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/uri-js/-/uri-js-3.0.2.tgz#f90b858507f81dea4dcfbb3c4c3dbfa2b557faaa"
+  integrity sha1-+QuFhQf4HepNz7s8TD2/orVX+qo=
+  dependencies:
+    punycode "^2.1.0"
 
 uri-js@^4.2.2:
   version "4.2.2"
@@ -5696,12 +8081,34 @@ util@^0.10.3:
   dependencies:
     inherits "2.0.3"
 
+utile@0.3.x:
+  version "0.3.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/utile/-/utile-0.3.0.tgz#1352c340eb820e4d8ddba039a4fbfaa32ed4ef3a"
+  integrity sha1-E1LDQOuCDk2N26A5pPv6oy7U7zo=
+  dependencies:
+    async "~0.9.0"
+    deep-equal "~0.2.1"
+    i "0.3.x"
+    mkdirp "0.x.x"
+    ncp "1.0.x"
+    rimraf "2.x.x"
+
 utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
 
-uuid@3.3.2, uuid@^3.3.2:
+uuid@3.1.0:
+  version "3.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/uuid/-/uuid-3.1.0.tgz#3dd3d3e790abc24d7b0d3a034ffababe28ebbc04"
+  integrity sha1-PdPT55Crwk17DToDT/q6vijrvAQ=
+
+uuid@3.2.1:
+  version "3.2.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/uuid/-/uuid-3.2.1.tgz#12c528bb9d58d0b9265d9a2f6f0fe8be17ff1f14"
+  integrity sha1-EsUou51Y0LkmXZovbw/ovhf/HxQ=
+
+uuid@3.3.2, uuid@^3.0.1, uuid@^3.1.0, uuid@^3.3.2:
   version "3.3.2"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
   integrity sha1-G0r0lV6zB3xQHCOHL8ZROBFYcTE=
@@ -5719,7 +8126,7 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-vary@~1.1.2:
+vary@^1, vary@~1.1.0, vary@~1.1.2:
   version "1.1.2"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
@@ -5739,6 +8146,11 @@ vm-browserify@0.0.4:
   integrity sha1-XX6kW7755Kb/ZflUOOCofDV9WnM=
   dependencies:
     indexof "0.0.1"
+
+vm2@3.5.2:
+  version "3.5.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/vm2/-/vm2-3.5.2.tgz#6ae7c75a867775946e1d4a66623374e0245150e0"
+  integrity sha1-aufHWoZ3dZRuHUpmYjN04CRRUOA=
 
 w3c-hr-time@^1.0.1:
   version "1.0.1"
@@ -5837,6 +8249,11 @@ whatwg-encoding@^1.0.1, whatwg-encoding@^1.0.3:
   dependencies:
     iconv-lite "0.4.24"
 
+whatwg-fetch@^2.0.3:
+  version "2.0.4"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/whatwg-fetch/-/whatwg-fetch-2.0.4.tgz#dde6a5df315f9d39991aa17621853d720b85566f"
+  integrity sha1-3eal3zFfnTmZGqF2IYU9cguFVm8=
+
 whatwg-mimetype@^2.1.0:
   version "2.2.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/whatwg-mimetype/-/whatwg-mimetype-2.2.0.tgz#a3d58ef10b76009b042d03e25591ece89b88d171"
@@ -5860,12 +8277,17 @@ whatwg-url@^7.0.0:
     tr46 "^1.0.1"
     webidl-conversions "^4.0.2"
 
+which-module@^1.0.0:
+  version "1.0.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/which-module/-/which-module-1.0.0.tgz#bba63ca861948994ff307736089e3b96026c2a4f"
+  integrity sha1-u6Y8qGGUiZT/MHc2CJ47lgJsKk8=
+
 which-module@^2.0.0:
   version "2.0.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/which-module/-/which-module-2.0.0.tgz#d9ef07dce77b9902b8a3a8fa4b31c3e3f7e6e87a"
   integrity sha1-2e8H3Od7mQK4o6j6SzHD4/fm6Ho=
 
-which@^1.2.12, which@^1.2.9, which@^1.3.0:
+which@^1.2.12, which@^1.2.14, which@^1.2.9, which@^1.3.0:
   version "1.3.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/which/-/which-1.3.1.tgz#a45043d54f5805316da8d62f9f50918d3da70b0a"
   integrity sha1-pFBD1U9YBTFtqNYvn1CRjT2nCwo=
@@ -5878,6 +8300,59 @@ wide-align@^1.1.0:
   integrity sha1-rgdOa9wMFKQx6ATmJFScYzsABFc=
   dependencies:
     string-width "^1.0.2 || 2"
+
+window-size@0.1.0:
+  version "0.1.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/window-size/-/window-size-0.1.0.tgz#5438cd2ea93b202efa3a19fe8887aee7c94f9c9d"
+  integrity sha1-VDjNLqk7IC76Ohn+iIeu58lPnJ0=
+
+window-size@^0.1.4:
+  version "0.1.4"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/window-size/-/window-size-0.1.4.tgz#f8e1aa1ee5a53ec5bf151ffa09742a6ad7697876"
+  integrity sha1-+OGqHuWlPsW/FR/6CXQqatdpeHY=
+
+winser-with-api@1.0.1:
+  version "1.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/winser-with-api/-/winser-with-api-1.0.1.tgz#df5a9c6a722069415265e1a58459934e1fb6ed8f"
+  integrity sha1-31qcanIgaUFSZeGlhFmTTh+27Y8=
+  dependencies:
+    async "0.9.0"
+    object-assign "4.1.1"
+    stdio "0.2.2"
+
+winston-transport@3.0.1:
+  version "3.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/winston-transport/-/winston-transport-3.0.1.tgz#8008b15eef5660c4fb3fa094d58ccbd08528c58d"
+  integrity sha1-gAixXu9WYMT7P6CU1YzL0IUoxY0=
+
+winston@2.4.0:
+  version "2.4.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/winston/-/winston-2.4.0.tgz#808050b93d52661ed9fb6c26b3f0c826708b0aee"
+  integrity sha1-gIBQuT1SZh7Z+2wms/DIJnCLCu4=
+  dependencies:
+    async "~1.0.0"
+    colors "1.0.x"
+    cycle "1.0.x"
+    eyes "0.1.x"
+    isstream "0.1.x"
+    stack-trace "0.0.x"
+
+winston@2.x:
+  version "2.4.4"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/winston/-/winston-2.4.4.tgz#a01e4d1d0a103cf4eada6fc1f886b3110d71c34b"
+  integrity sha1-oB5NHQoQPPTq2m/B+IazEQ1xw0s=
+  dependencies:
+    async "~1.0.0"
+    colors "1.0.x"
+    cycle "1.0.x"
+    eyes "0.1.x"
+    isstream "0.1.x"
+    stack-trace "0.0.x"
+
+wordwrap@0.0.2:
+  version "0.0.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/wordwrap/-/wordwrap-0.0.2.tgz#b79669bb42ecb409f83d583cad52ca17eaa1643f"
+  integrity sha1-t5Zpu0LstAn4PVg8rVLKF+qhZD8=
 
 wordwrap@~0.0.2:
   version "0.0.3"
@@ -5895,6 +8370,14 @@ worker-farm@^1.5.2:
   integrity sha1-rsxAWXb6talVJhgIRvDboojzpKA=
   dependencies:
     errno "~0.1.7"
+
+worker-loader@^1.1.1:
+  version "1.1.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/worker-loader/-/worker-loader-1.1.1.tgz#920d74ddac6816fc635392653ed8b4af1929fd92"
+  integrity sha1-kg103axoFvxjU5JlPti0rxkp/ZI=
+  dependencies:
+    loader-utils "^1.0.0"
+    schema-utils "^0.4.0"
 
 wrap-ansi@^2.0.0:
   version "2.1.0"
@@ -5925,17 +8408,54 @@ write@^0.2.1:
   dependencies:
     mkdirp "^0.5.1"
 
-ws@^5.2.0:
+ws@^5.1.1, ws@^5.2.0:
   version "5.2.2"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/ws/-/ws-5.2.2.tgz#dffef14866b8e8dc9133582514d1befaf96e980f"
   integrity sha1-3/7xSGa46NyRM1glFNG++vlumA8=
   dependencies:
     async-limiter "~1.0.0"
 
+ws@~3.3.1:
+  version "3.3.3"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/ws/-/ws-3.3.3.tgz#f1cf84fe2d5e901ebce94efaece785f187a228f2"
+  integrity sha1-8c+E/i1ekB686U767OeF8YeiKPI=
+  dependencies:
+    async-limiter "~1.0.0"
+    safe-buffer "~5.1.0"
+    ultron "~1.1.0"
+
 xml-name-validator@^3.0.0:
   version "3.0.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/xml-name-validator/-/xml-name-validator-3.0.0.tgz#6ae73e06de4d8c6e47f9fb181f78d648ad457c6a"
   integrity sha1-auc+Bt5NjG5H+fsYH3jWSK1FfGo=
+
+xml2js@0.4.19:
+  version "0.4.19"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/xml2js/-/xml2js-0.4.19.tgz#686c20f213209e94abf0d1bcf1efaa291c7827a7"
+  integrity sha1-aGwg8hMgnpSr8NG88e+qKRx4J6c=
+  dependencies:
+    sax ">=0.6.0"
+    xmlbuilder "~9.0.1"
+
+xmlbuilder@8.2.2:
+  version "8.2.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/xmlbuilder/-/xmlbuilder-8.2.2.tgz#69248673410b4ba42e1a6136551d2922335aa773"
+  integrity sha1-aSSGc0ELS6QuGmE2VR0pIjNap3M=
+
+xmlbuilder@9.0.4:
+  version "9.0.4"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/xmlbuilder/-/xmlbuilder-9.0.4.tgz#519cb4ca686d005a8420d3496f3f0caeecca580f"
+  integrity sha1-UZy0ymhtAFqEINNJbz8MruzKWA8=
+
+xmlbuilder@~9.0.1:
+  version "9.0.7"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/xmlbuilder/-/xmlbuilder-9.0.7.tgz#132ee63d2ec5565c557e20f4c22df9aca686b10d"
+  integrity sha1-Ey7mPS7FVlxVfiD0wi35rKaGsQ0=
+
+xmlhttprequest-ssl@~1.5.4:
+  version "1.5.5"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/xmlhttprequest-ssl/-/xmlhttprequest-ssl-1.5.5.tgz#c2876b06168aadc40e57d97e81191ac8f4398b3e"
+  integrity sha1-wodrBhaKrcQOV9l+gRkayPQ5iz4=
 
 xregexp@4.0.0:
   version "4.0.0"
@@ -5947,7 +8467,7 @@ xtend@^4.0.0, xtend@^4.0.1, xtend@~4.0.1:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
   integrity sha1-pcbVMr5lbiPbgg77lDofBJmNY68=
 
-y18n@^3.2.1:
+y18n@^3.2.0, y18n@^3.2.1:
   version "3.2.1"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/y18n/-/y18n-3.2.1.tgz#6d15fba884c08679c0d77e88e7759e811e07fa41"
   integrity sha1-bRX7qITAhnnA136I53WegR4H+kE=
@@ -5974,12 +8494,38 @@ yargs-parser@^10.1.0:
   dependencies:
     camelcase "^4.1.0"
 
+yargs-parser@^4.2.0:
+  version "4.2.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/yargs-parser/-/yargs-parser-4.2.1.tgz#29cceac0dc4f03c6c87b4a9f217dd18c9f74871c"
+  integrity sha1-KczqwNxPA8bIe0qfIX3RjJ90hxw=
+  dependencies:
+    camelcase "^3.0.0"
+
 yargs-parser@^9.0.2:
   version "9.0.2"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/yargs-parser/-/yargs-parser-9.0.2.tgz#9ccf6a43460fe4ed40a9bb68f48d43b8a68cc077"
   integrity sha1-nM9qQ0YP5O1Aqbto9I1DuKaMwHc=
   dependencies:
     camelcase "^4.1.0"
+
+yargs@6.6.0:
+  version "6.6.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/yargs/-/yargs-6.6.0.tgz#782ec21ef403345f830a808ca3d513af56065208"
+  integrity sha1-eC7CHvQDNF+DCoCMo9UTr1YGUgg=
+  dependencies:
+    camelcase "^3.0.0"
+    cliui "^3.2.0"
+    decamelize "^1.1.1"
+    get-caller-file "^1.0.1"
+    os-locale "^1.4.0"
+    read-pkg-up "^1.0.1"
+    require-directory "^2.1.1"
+    require-main-filename "^1.0.1"
+    set-blocking "^2.0.0"
+    string-width "^1.0.2"
+    which-module "^1.0.0"
+    y18n "^3.2.1"
+    yargs-parser "^4.2.0"
 
 yargs@^11.0.0:
   version "11.1.0"
@@ -6016,3 +8562,56 @@ yargs@^12.0.2:
     which-module "^2.0.0"
     y18n "^3.2.1 || ^4.0.0"
     yargs-parser "^10.1.0"
+
+yargs@^3.19.0:
+  version "3.32.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/yargs/-/yargs-3.32.0.tgz#03088e9ebf9e756b69751611d2a5ef591482c995"
+  integrity sha1-AwiOnr+edWtpdRYR0qXvWRSCyZU=
+  dependencies:
+    camelcase "^2.0.1"
+    cliui "^3.0.3"
+    decamelize "^1.1.1"
+    os-locale "^1.4.0"
+    string-width "^1.0.1"
+    window-size "^0.1.4"
+    y18n "^3.2.0"
+
+yargs@~3.10.0:
+  version "3.10.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/yargs/-/yargs-3.10.0.tgz#f7ee7bd857dd7c1d2d38c0e74efbd681d1431fd1"
+  integrity sha1-9+572FfdfB0tOMDnTvvWgdFDH9E=
+  dependencies:
+    camelcase "^1.0.2"
+    cliui "^2.1.0"
+    decamelize "^1.0.0"
+    window-size "0.1.0"
+
+yauzl@2.4.1:
+  version "2.4.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/yauzl/-/yauzl-2.4.1.tgz#9528f442dab1b2284e58b4379bb194e22e0c4005"
+  integrity sha1-lSj0QtqxsihOWLQ3m7GU4i4MQAU=
+  dependencies:
+    fd-slicer "~1.0.1"
+
+yauzl@2.9.1:
+  version "2.9.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/yauzl/-/yauzl-2.9.1.tgz#a81981ea70a57946133883f029c5821a89359a7f"
+  integrity sha1-qBmB6nCleUYTOIPwKcWCGok1mn8=
+  dependencies:
+    buffer-crc32 "~0.2.3"
+    fd-slicer "~1.0.1"
+
+yeast@0.1.2:
+  version "0.1.2"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/yeast/-/yeast-0.1.2.tgz#008e06d8094320c372dbc2f8ed76a0ca6c8ac419"
+  integrity sha1-AI4G2AlDIMNy28L47XagymyKxBk=
+
+zip-stream@^1.2.0:
+  version "1.2.0"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/zip-stream/-/zip-stream-1.2.0.tgz#a8bc45f4c1b49699c6b90198baacaacdbcd4ba04"
+  integrity sha1-qLxF9MG0lpnGuQGYuqyqzbzUugQ=
+  dependencies:
+    archiver-utils "^1.3.0"
+    compress-commons "^1.2.0"
+    lodash "^4.8.0"
+    readable-stream "^2.0.0"
