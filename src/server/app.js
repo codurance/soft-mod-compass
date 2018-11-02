@@ -45,7 +45,7 @@ app.get('/report/:uuid', (req, res) => {
     template: {
       name: 'Compass',
       engine: 'handlebars',
-      recipe: 'chrome-pdf',
+      recipe: 'chrome-pdf'
     },
     data: {
       uuid: req.params.uuid
