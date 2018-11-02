@@ -12,12 +12,30 @@
             height: 600px;
             width: 600px;
         }
+
+        @media print {
+            .page-break-before {
+                page-break-before: always;
+            }
+            .page-break-after {
+                page-break-after: always;
+            }
+        }
     </style>
 </head>
 <body>
+<div class="page-break-after">
+    <img src="{#asset codurance.png @encoding=dataURI}" style="height: 150px; width: 700px;" />
+</div>
 <div class="container">
     <canvas id="myChart" width="600" height="600"></canvas>
 </div>
+{{#each categories}}
+    <div class="page-break-before">
+        <p>{{this.name}} - {{this.score}}</p>
+        <p>{{this.content}}</p>
+    </div>
+{{/each}}
 <script>
   var ctx = document.getElementById('myChart')
   Chart.defaults.global.defaultFontFamily = '\'Open Sans\', sans-serif'
