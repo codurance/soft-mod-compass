@@ -26,6 +26,11 @@ const jsreport = require('jsreport')({
       sync: {
         usePolling: true
       }
+    },
+    'chrome-pdf': {
+      launchOptions: {
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
+      }
     }
   },
   appPath: '/reporting'
