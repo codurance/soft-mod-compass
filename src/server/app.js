@@ -7,7 +7,6 @@ const app = express()
 
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, '/views'))
-app.use(stripHubspotSubmissionGuid)
 app.use(express.static('dist'))
 
 app.get('/', (req, res) => {
