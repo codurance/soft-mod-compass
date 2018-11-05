@@ -2,10 +2,12 @@ const path = require('path')
 const rp = require('request-promise')
 const jsreport = require('jsreport')
 const express = require('express')
+const stripHubspotSubmissionGuid = require('./middleware/stripHubspotSubmissionGuid')
 const app = express()
 
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, '/views'))
+app.use(stripHubspotSubmissionGuid)
 app.use(express.static('dist'))
 
 app.get('/', (req, res) => {
