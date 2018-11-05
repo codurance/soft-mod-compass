@@ -31,7 +31,9 @@
     "globals": [
       "describe",
       "it",
-      "typeformEmbed"
+      "typeformEmbed",
+      "jest",
+      "expect"
     ]
   }
 }
