@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "dev": "webpack && npm start",
+    "dev": "webpack --mode=development && npm start",
+    "watch": "nodemon",
     "start": "node index.js",
     "test": "jest && npm run lint",
     "lint": "standard"
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "jest": "23.6.0",
+    "nodemon": "1.18.6",
     "standard": "12.0.1",
     "supertest": "3.3.0",
     "webpack": "4.20.2",
@@ -35,5 +37,10 @@
       "jest",
       "expect"
     ]
+  },
+  "nodemonConfig": {
+    "exec": "yarn dev",
+    "ignore": ["dist/*", "data/*", "logs/*"],
+    "delay": 1000
   }
 }
