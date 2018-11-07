@@ -25,4 +25,35 @@ describe('typeformClient', () => {
       })
       .catch(done)
   })
+
+  it('gets survey schema from typeform', (done) => {
+    const questions = [
+      { properties: { choices: choicesData() } },
+      { properties: { choices: choicesData() } }
+    ]
+
+    nock('https://danparkin.typeform.com')
+      .get(`/forms/Lks1RA`)
+      .reply(200, {
+        fields: questions
+      })
+
+    typeformClient.getQuestionChoices()
+      .then(questions => {
+        expect(questions).toEqual([
+          ['one', 'two', 'three'],
+          ['one', 'two', 'three']
+        ])
+        done()
+      })
+      .catch(done)
+  })
 })
+
+function choicesData () {
+  return [
+    { label: 'one' },
+    { label: 'two' },
+    { label: 'three' }
+  ]
+}
