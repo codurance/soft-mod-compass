@@ -18,6 +18,6 @@ function surveyAnswersFor (uuid) {
 
   return rp(options)
     .then(results => {
-      return results.items[0].answers[0].choice.label
+      return results.items[0]
     })
 }
