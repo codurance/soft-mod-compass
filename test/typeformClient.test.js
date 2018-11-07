@@ -10,7 +10,7 @@ describe('typeformClient', () => {
         'authorization': 'Bearer A4ertXpQ7ieS26cUM5H1odoeaBR8NTnMSGCkSDKPcsNZ'
       }
     })
-      .get(`/forms/Lks1RA/responses?query=${uuid}`)
+      .get(`/forms/GCIHgH/responses?query=${uuid}`)
       .reply(200, {
         items: [{
           answers: [
@@ -35,7 +35,7 @@ describe('typeformClient', () => {
     ]
 
     nock('https://danparkin.typeform.com')
-      .get(`/forms/Lks1RA`)
+      .get(`/forms/GCIHgH`)
       .reply(200, {
         fields: questions
       })
