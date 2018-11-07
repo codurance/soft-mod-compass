@@ -18,9 +18,7 @@ function surveyAnswersFor (uuid) {
   }
 
   return rp(options)
-    .then(results => {
-      return results.items[0]
-    })
+    .then(results => results.items[0].answers.map(answer => answer.choice.label))
 }
 
 function getQuestionChoices () {
