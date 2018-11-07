@@ -14,8 +14,8 @@ describe('typeformClient', () => {
       .reply(200, {
         items: [{
           answers: [
-            {choice: {label: 'one'}},
-            {choice: {label: 'three'}}
+            { choice: { label: 'one' } },
+            { choice: { label: 'three' } }
           ]
         }]
       })
