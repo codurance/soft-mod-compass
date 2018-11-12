@@ -19,8 +19,8 @@ app.get('/', (req, res) => {
 
 app.get('/results', (req, res) => {
   const respondentId = req.query.id
-  const formId = 'GCIHgH'
-  const authToken = 'A4ertXpQ7ieS26cUM5H1odoeaBR8NTnMSGCkSDKPcsNZ'
+  const formId = 'yiRLeY'
+  const authToken = '3U8FHS7YZV4GCpbwyxNUybKaAQAQZAzFyXoqCFeGqYRk'
 
   const options = {
     uri: `https://api.typeform.com/forms/${formId}/responses`,
@@ -46,7 +46,7 @@ app.get('/results', (req, res) => {
 })
 
 app.get('/report/:uuid', (req, res) => {
-  Promise.all([typeformClient.getQuestionChoices, typeformClient.surveyAnswersFor])
+  Promise.all([typeformClient.getQuestionChoices(), typeformClient.surveyAnswersFor(req.params.uuid)])
     .then(([choices, answers]) => {
       const data = surveyResults(fakeCategoryData(), choices, answers)
 
@@ -82,16 +82,34 @@ function randomScores () {
 function fakeCategoryData () {
   return [
     {
-      name: 'cat 1',
-      low: 'hello lowww',
-      medium: 'hello mediums',
-      high: 'hello you did well'
+      name: 'Organisational Maturity',
+      low: 'low - organisatonal maturity',
+      medium: 'medium - organisatonal maturity',
+      high: 'high - organisatonal maturity'
     },
     {
-      name: 'cat 2',
-      low: 'hello this is still low',
-      medium: 'hello mediums is ok',
-      high: 'HELLO YOU DID WELL'
+      name: 'Continuous Deployment',
+      low: 'low - CD',
+      medium: 'medium - CD',
+      high: 'high - CD'
+    },
+    {
+      name: 'Culture',
+      low: 'low - culture',
+      medium: 'medium - culture',
+      high: 'high - culture'
+    },
+    {
+      name: 'Cross-Functional Teams',
+      low: 'low -  cross functional teams',
+      medium: 'medium - cross functional teams',
+      high: 'high - cross functional teams'
+    },
+    {
+      name: 'XP Practices',
+      low: 'low -  XP',
+      medium: 'medium - XP',
+      high: 'high - XP'
     }
   ]
 }

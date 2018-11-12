@@ -3,7 +3,7 @@ const generateUuid = require('uuid/v4')
 const surveyElement = document.getElementById('typeform-survey')
 
 const uuid = generateUuid()
-const surveyUrl = `https://danparkin.typeform.com/to/GCIHgH?uuid=${uuid}`
+const surveyUrl = `https://mashooqbadar.typeform.com/to/yiRLeY?uuid=${uuid}`
 
 typeformEmbed.makeWidget(
   surveyElement,

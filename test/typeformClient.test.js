@@ -5,12 +5,12 @@ describe('typeformClient', () => {
   it('get survey answers for a particular uuid', (done) => {
     const uuid = '001c1057-7686-49ff-8691-cb7f8de44124'
 
-    nock('https://danparkin.typeform.com', {
+    nock('https://mashooqbadar.typeform.com', {
       reqheaders: {
-        'authorization': 'Bearer A4ertXpQ7ieS26cUM5H1odoeaBR8NTnMSGCkSDKPcsNZ'
+        'authorization': 'Bearer 3U8FHS7YZV4GCpbwyxNUybKaAQAQZAzFyXoqCFeGqYRk'
       }
     })
-      .get(`/forms/GCIHgH/responses?query=${uuid}`)
+      .get(`/forms/yiRLeY/responses?query=${uuid}`)
       .reply(200, {
         items: [{
           answers: [
@@ -34,8 +34,8 @@ describe('typeformClient', () => {
       { properties: { choices: choicesData() } }
     ]
 
-    nock('https://danparkin.typeform.com')
-      .get(`/forms/GCIHgH`)
+    nock('https://mashooqbadar.typeform.com')
+      .get(`/forms/yiRLeY`)
       .reply(200, {
         fields: questions
       })
