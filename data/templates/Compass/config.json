@@ -7,11 +7,14 @@
         "printBackground": true
     },
     "modificationDate": {
-        "$$date": 1542036105159
+        "$$date": 1542041239244
     },
     "_id": "bUe0ZtrZKts6vwCZ",
     "$entitySet": "templates",
     "data": {
         "shortid": "BJZFwid3m"
+    },
+    "resources": {
+        "items": []
     }
 }

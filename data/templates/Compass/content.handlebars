@@ -7,10 +7,24 @@
         body {
             font-family: 'Open Sans', sans-serif;
         }
+        
+        .logo {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 400px;
+        }
 
-        .container {
-            height: 600px;
-            width: 600px;
+        .radial-container {
+            height: 750px;
+            width: 750px;
+            margin: auto;
+        }
+        
+        .subradial-container {
+            height: 400px;
+            width: 400px;
+            margin: auto;
         }
 
         @media print {
@@ -25,35 +39,33 @@
 </head>
 <body>
 <div class="page-break-after">
-    <img src="{#asset codurance.png @encoding=dataURI}" style="height: 150px; width: 700px;" />
+    <img class="logo" src="{#asset codurance.png @encoding=dataURI}" style="height: 150px; width: 700px;" />
 </div>
-<div class="container">
+<div class="radial-container">
     <canvas id="myChart" width="600" height="600"></canvas>
 </div>
 {{#each categories}}
     <div class="page-break-before">
+        <div class="subradial-container">
+            <canvas id="{{this.name}}" width="200" height="200"></canvas>
+        </div>
         <p>{{this.name}} - {{this.score}}</p>
         <p>{{this.content}}</p>
     </div>
 {{/each}}
 <script>
+  var labels = "{{summaryRadial.labels}}".split(',')
   var ctx = document.getElementById('myChart')
   Chart.defaults.global.defaultFontFamily = '\'Open Sans\', sans-serif'
   Chart.defaults.global.defaultFontSize = 12
   var myChart = new Chart(ctx, {
     type: 'radar',
     data: {
-      labels: [
-            'Organisational Maturity', 
-            'Continuous Deployment', 
-            'Culture', 
-            'Cross-Functional Teams', 
-            'XP Practices'
-      ],
+      labels: labels,
       datasets: [
         {
           label: 'Performance',
-          data: [{{scores}}],
+          data: [{{summaryRadial.scores}}],
           backgroundColor: [
             'rgba(219, 73, 0, 0.6)',
           ],
@@ -70,6 +82,38 @@
       }
     }
   })
+</script>
+<script>
+{{#each categories}}
+  var labels = "{{this.subCategoryLabels}}".split(',')
+  var ctx = document.getElementById('{{this.name}}')
+  Chart.defaults.global.defaultFontFamily = '\'Open Sans\', sans-serif'
+  Chart.defaults.global.defaultFontSize = 12
+  var myChart = new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Performance',
+          data: [{{this.subCategoryScores}}],
+          backgroundColor: [
+            'rgba(254, 191, 39, 0.6)',
+          ],
+          borderColor: [
+            'rgba(254, 191, 39,1)',
+          ],
+          borderWidth: 1
+        }
+      ]
+    },
+    options: {
+      animation: {
+        duration: 0
+      }
+    }
+  })
+{{/each}}
 </script>
 </body>
 </html>
