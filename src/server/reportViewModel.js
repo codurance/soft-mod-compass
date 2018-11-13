@@ -1,13 +1,28 @@
-module.exports = surveyResults
+module.exports = reportViewModel
 
-function surveyResults (categories, questionChoices, answers) {
+function reportViewModel (categories, questionChoices, answers) {
   const categoriesWithContentAndScore = createCategoriesFrom(categories, questionChoices, answers)
     .map(addScore)
     .map(addContent)
 
   return {
-    'scores': categoriesWithContentAndScore.map(c => c.score),
-    'categories': categoriesWithContentAndScore.map(({ name, content, score }) => ({ name, content, score }))
+    summaryRadial: {
+      scores: categoriesWithContentAndScore.map(c => c.score),
+      labels: categoriesWithContentAndScore.map(c => c.name)
+    },
+    categories: categoriesWithContentAndScore.map(({
+      name,
+      content,
+      score,
+      subCategoryNames,
+      subCategoryScores
+    }) => (
+      { name,
+        content,
+        score,
+        subCategoryLabels: subCategoryNames,
+        subCategoryScores
+      }))
   }
 }
 
@@ -23,13 +38,18 @@ function createCategoriesFrom (categories, allSelectableChoices, allChosenAnswer
 }
 
 function addScore (category) {
-  return Object.assign({}, category, { score: calculateScoreFor(category) })
+  const scores = calculateScoreFor(category)
+  return Object.assign({}, category, scores)
 }
 
 function calculateScoreFor ({ choices, answers }) {
-  return choices
+  const subCategoryScores = choices
     .map((choiceList, index) => (choiceList.indexOf(answers[index]) + 1) * 20)
-    .reduce((a, b) => a + b) / answers.length
+  
+  return {
+    score: subCategoryScores.reduce((a, b) => a + b) / answers.length,
+    subCategoryScores
+  }
 }
 
 function addContent (category) {

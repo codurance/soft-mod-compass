@@ -3,7 +3,7 @@ const rp = require('request-promise')
 const jsreport = require('jsreport')
 const express = require('express')
 const stripHubspotSubmissionGuid = require('./middleware/stripHubspotSubmissionGuid')
-const surveyResults = require('./surveyResults')
+const reportViewModel = require('./reportViewModel')
 const typeformClient = require('./typeformClient')
 
 const app = express()
@@ -48,7 +48,7 @@ app.get('/results', (req, res) => {
 app.get('/report/:uuid', (req, res) => {
   Promise.all([typeformClient.getQuestionChoices(), typeformClient.surveyAnswersFor(req.params.uuid)])
     .then(([choices, answers]) => {
-      const data = surveyResults(fakeCategoryData(), choices, answers)
+      const data = reportViewModel(categoryData(), choices, answers)
 
       jsreport.render({
         template: {
@@ -79,7 +79,7 @@ function randomScores () {
   return [...Array(5)].map(i => Math.round(Math.random() * 100))
 }
 
-function fakeCategoryData () {
+function categoryData () {
   return [
     {
       name: 'Organisational Maturity',
