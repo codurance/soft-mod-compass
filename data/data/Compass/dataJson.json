@@ -1,6 +1,6 @@
 {
     "summaryRadial": {
-        "scores": [10, 40, 90, 30, 50],
+        "scores": [20, 40, 90, 30, 50],
         "labels": [
             "Organisational Maturity", 
             "Continuous Deployment",
