@@ -42,7 +42,7 @@
     <img class="logo" src="{#asset codurance.png @encoding=dataURI}" style="height: 150px; width: 700px;" />
 </div>
 <div class="radial-container">
-    <canvas id="myChart" width="600" height="600"></canvas>
+    <canvas id="SummaryRadial" width="600" height="600"></canvas>
 </div>
 {{#each categories}}
     <div class="page-break-before">
@@ -55,10 +55,10 @@
 {{/each}}
 <script>
   var labels = "{{summaryRadial.labels}}".split(',')
-  var ctx = document.getElementById('myChart')
+  var ctx = document.getElementById('SummaryRadial')
   Chart.defaults.global.defaultFontFamily = '\'Open Sans\', sans-serif'
   Chart.defaults.global.defaultFontSize = 12
-  var myChart = new Chart(ctx, {
+  var summaryRadial = new Chart(ctx, {
     type: 'radar',
     data: {
       labels: labels,
@@ -89,7 +89,7 @@
   var ctx = document.getElementById('{{this.name}}')
   Chart.defaults.global.defaultFontFamily = '\'Open Sans\', sans-serif'
   Chart.defaults.global.defaultFontSize = 12
-  var myChart = new Chart(ctx, {
+  var subcategoryRadial = new Chart(ctx, {
     type: 'radar',
     data: {
       labels: labels,
