@@ -8,14 +8,14 @@ describe('survey results', () => {
         low: 'hello lowww',
         medium: 'hello mediums',
         high: 'hello you did well',
-        subCategoryNames: ['1 sub1', '1 sub2', '1 sub3', '1 sub4'],
+        subCategoryNames: ['1 sub1', '1 sub2', '1 sub3', '1 sub4']
       },
       {
         name: 'cat 2',
         low: 'hello this is still low',
         medium: 'hello mediums is ok',
         high: 'HELLO YOU DID WELL',
-        subCategoryNames: ['2 sub1', '2 sub2', '2 sub3', '2 sub4'],
+        subCategoryNames: ['2 sub1', '2 sub2', '2 sub3', '2 sub4']
       }
     ]
     const questionChoices = [
@@ -33,7 +33,7 @@ describe('survey results', () => {
     expect(reportViewModel(categories, questionChoices, answers)).toEqual({
       'summaryRadial': {
         'scores': [55, 70],
-        'labels': ['cat 1', 'cat 2'],
+        'labels': ['cat 1', 'cat 2']
       },
       'categories': [
         {
