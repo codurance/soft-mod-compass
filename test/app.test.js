@@ -1,7 +1,7 @@
 const nock = require('nock')
 const request = require('supertest')
-const mockSurveyQuestionsResponse = require('./mockData/SurveyQuestionsResponse')
-const mockSurveyAnswersResponse = require('./mockData/SurveyAnswersResponse')
+const mockSurveyQuestionsResponse = require('./mockData/surveyQuestionsResponse')
+const mockSurveyAnswersResponse = require('./mockData/surveyAnswersResponse')
 
 const app = require('../src/server/app')
 
