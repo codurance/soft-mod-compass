@@ -1,0 +1,50 @@
+<script>
+    function drawChart() {
+        var container = document.getElementById('container')
+        var canv = document.createElement('canvas')
+        canv.id = 'myChart'
+        canv.height = 600
+        canv.width = 600
+        container.appendChild(canv)
+
+        console.log('test')
+
+        var ctx = document.getElementById("myChart");
+        Chart.defaults.global.defaultFontFamily = "'Open Sans', sans-serif";
+        Chart.defaults.global.defaultFontSize = 12;
+        var myChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: [
+                    "Organisational Maturity",
+                    "Continuous Deployment",
+                    "Culture",
+                    "Cross-Functional Teams",
+                    "XP Practices",
+                ],
+                datasets: [
+                    {
+                        label: 'Performance',
+                        data: atob("{{request.query_dict.scores}}").split(','),
+                        backgroundColor: [
+                            'rgba(219, 73, 0, 0.6)',
+                        ],
+                        borderColor: [
+                            'rgba(168, 25, 0,1)',
+                        ],
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                scale: {
+                    ticks: {
+                        min: 0,
+                        max: 100
+                    }
+                }
+            }
+        });
+    }
+    drawChart();
+</script>
