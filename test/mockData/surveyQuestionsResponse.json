@@ -1,0 +1,893 @@
+{
+    "id": "yiRLeY",
+    "title": "Codurance Compass",
+    "theme": {
+        "href": "https://api.typeform.com/themes/iUXQv9"
+    },
+    "workspace": {
+        "href": "https://api.typeform.com/workspaces/Kf5k4k"
+    },
+    "settings": {
+        "is_public": true,
+        "is_trial": false,
+        "language": "en",
+        "progress_bar": "proportion",
+        "show_progress_bar": true,
+        "show_typeform_branding": false,
+        "meta": {
+            "allow_indexing": false
+        }
+    },
+    "welcome_screens": [
+        {
+            "ref": "0350b850-d0e1-4d62-8954-0b05e97910df",
+            "title": "",
+            "properties": {
+                "show_button": true,
+                "button_text": "Start"
+            },
+            "attachment": {
+                "type": "image",
+                "href": "https://images.typeform.com/images/8rasFqJVGC8W"
+            }
+        }
+    ],
+    "thankyou_screens": [
+        {
+            "ref": "default_tys",
+            "title": "Done! Your information was sent perfectly.",
+            "properties": {
+                "show_button": false,
+                "share_icons": false
+            }
+        }
+    ],
+    "fields": [
+        {
+            "id": "fnEDLIhT8tkb",
+            "title": "Operations and security stakeholders are actively engaged throughout the development lifecycle.",
+            "ref": "52fa30c7-8ba8-47a9-b810-176a09e78bb5",
+            "properties": {
+                "randomize": false,
+                "allow_multiple_selection": false,
+                "allow_other_choice": false,
+                "vertical_alignment": false,
+                "choices": [
+                    {
+                        "id": "gVx8QpM1qpFB",
+                        "ref": "011c432b-d7ed-460b-b78a-30300c81bc02",
+                        "label": "Strongly disagree"
+                    },
+                    {
+                        "id": "l8Sol3fGSRgz",
+                        "ref": "54f469a6-93eb-47c6-a8ad-7c11927d538a",
+                        "label": "Option 2"
+                    },
+                    {
+                        "id": "gyad4wNueqE5",
+                        "ref": "e4d136d9-cabc-4d55-b3f9-db7d58aa8b4e",
+                        "label": "Option 3"
+                    },
+                    {
+                        "id": "rxNyW2RNkvxJ",
+                        "ref": "1898b585-01d4-4007-9fb8-54ae7d658e62",
+                        "label": "Option 4"
+                    },
+                    {
+                        "id": "jGT3lEANPJ1i",
+                        "ref": "5f069a15-e5dd-478d-aeb0-89d8adc7516d",
+                        "label": "Strongly agree"
+                    }
+                ]
+            },
+            "validations": {
+                "required": true
+            },
+            "type": "multiple_choice"
+        },
+        {
+            "id": "bW1XU39pCMJP",
+            "title": "Decision making for IT product and projects is based on what will carry the most value for the business.",
+            "ref": "b6361b9a-2297-4f36-bb30-95d541cb0e8b",
+            "properties": {
+                "randomize": false,
+                "allow_multiple_selection": false,
+                "allow_other_choice": false,
+                "vertical_alignment": false,
+                "choices": [
+                    {
+                        "id": "aqKwyaxgwhZV",
+                        "ref": "011c432b-d7ed-460b-b78a-30300c81bc02",
+                        "label": "Strongly disagree"
+                    },
+                    {
+                        "id": "qsW1zWY65EpH",
+                        "ref": "54f469a6-93eb-47c6-a8ad-7c11927d538a",
+                        "label": "Option 2"
+                    },
+                    {
+                        "id": "Wjy7H0V65TBW",
+                        "ref": "e4d136d9-cabc-4d55-b3f9-db7d58aa8b4e",
+                        "label": "Option 3"
+                    },
+                    {
+                        "id": "x1CKveG51GST",
+                        "ref": "1898b585-01d4-4007-9fb8-54ae7d658e62",
+                        "label": "Option 4"
+                    },
+                    {
+                        "id": "f0CHG3WLO4OJ",
+                        "ref": "5f069a15-e5dd-478d-aeb0-89d8adc7516d",
+                        "label": "Strongly agree"
+                    }
+                ]
+            },
+            "validations": {
+                "required": true
+            },
+            "type": "multiple_choice"
+        },
+        {
+            "id": "ZqT4kNGjOZH9",
+            "title": "We measure the accumulation of technical debt, with technical debt prioritised alongside new feature development within the same backlog.",
+            "ref": "a1e89b12-df51-42f8-9cdd-7575ef60434b",
+            "properties": {
+                "randomize": false,
+                "allow_multiple_selection": false,
+                "allow_other_choice": false,
+                "vertical_alignment": false,
+                "choices": [
+                    {
+                        "id": "OAc8Jp8cbguK",
+                        "ref": "011c432b-d7ed-460b-b78a-30300c81bc02",
+                        "label": "Strongly disagree"
+                    },
+                    {
+                        "id": "x26RTLE2UPtH",
+                        "ref": "54f469a6-93eb-47c6-a8ad-7c11927d538a",
+                        "label": "Option 2"
+                    },
+                    {
+                        "id": "oL1UJryHdy0z",
+                        "ref": "e4d136d9-cabc-4d55-b3f9-db7d58aa8b4e",
+                        "label": "Option 3"
+                    },
+                    {
+                        "id": "NjFm4od1ZKai",
+                        "ref": "1898b585-01d4-4007-9fb8-54ae7d658e62",
+                        "label": "Option 4"
+                    },
+                    {
+                        "id": "aGGyrUzuN453",
+                        "ref": "5f069a15-e5dd-478d-aeb0-89d8adc7516d",
+                        "label": "Strongly agree"
+                    }
+                ]
+            },
+            "validations": {
+                "required": true
+            },
+            "type": "multiple_choice"
+        },
+        {
+            "id": "q14MwFpW25s2",
+            "title": "We have a well-defined methodology for releasing new features to market which involves all areas of the business.",
+            "ref": "d58663b1-d968-4724-ac9a-9f28a7470741",
+            "properties": {
+                "randomize": false,
+                "allow_multiple_selection": false,
+                "allow_other_choice": false,
+                "vertical_alignment": false,
+                "choices": [
+                    {
+                        "id": "k6zCYHQIRTJr",
+                        "ref": "011c432b-d7ed-460b-b78a-30300c81bc02",
+                        "label": "Strongly disagree"
+                    },
+                    {
+                        "id": "qc3gD3mwQ9Mc",
+                        "ref": "54f469a6-93eb-47c6-a8ad-7c11927d538a",
+                        "label": "Option 2"
+                    },
+                    {
+                        "id": "sZ9q9kpY1boa",
+                        "ref": "e4d136d9-cabc-4d55-b3f9-db7d58aa8b4e",
+                        "label": "Option 3"
+                    },
+                    {
+                        "id": "BgBOs3GMLDOy",
+                        "ref": "1898b585-01d4-4007-9fb8-54ae7d658e62",
+                        "label": "Option 4"
+                    },
+                    {
+                        "id": "gKaa6wfmQR7O",
+                        "ref": "5f069a15-e5dd-478d-aeb0-89d8adc7516d",
+                        "label": "Strongly agree"
+                    }
+                ]
+            },
+            "validations": {
+                "required": true
+            },
+            "type": "multiple_choice"
+        },
+        {
+            "id": "H3cSPfSarYWR",
+            "title": "We deploy working code to a production-like environment:",
+            "ref": "8cfde6db-14d6-4175-8e6f-ae325e93e1bb",
+            "properties": {
+                "randomize": false,
+                "allow_multiple_selection": false,
+                "allow_other_choice": false,
+                "vertical_alignment": false,
+                "choices": [
+                    {
+                        "id": "uldmT2Jz6RWB",
+                        "ref": "011c432b-d7ed-460b-b78a-30300c81bc02",
+                        "label": "Hourly"
+                    },
+                    {
+                        "id": "QOqWwDjbhaq5",
+                        "ref": "d8511ce5-4593-45f8-b795-7761076b9ad6",
+                        "label": "Daily"
+                    },
+                    {
+                        "id": "Fs1G3sSWbph3",
+                        "ref": "569b6f52-b2e3-4647-a291-ae07812ffb6a",
+                        "label": "Weekly"
+                    },
+                    {
+                        "id": "jRbncgR5QEkr",
+                        "ref": "00b158c5-b652-4353-beab-b5c6c14772bd",
+                        "label": "Monthly"
+                    },
+                    {
+                        "id": "ZWpkKmDWw4A7",
+                        "ref": "17f0a006-3791-4cd3-b828-21f3251b1ea6",
+                        "label": "Less often than monthly"
+                    }
+                ]
+            },
+            "validations": {
+                "required": true
+            },
+            "type": "multiple_choice"
+        },
+        {
+            "id": "rVkprkWWpLYT",
+            "title": "We rarely have to rework deployed code to fix bugs and issues.",
+            "ref": "0590e023-b9d9-42b5-92b8-a2c2251a1bd3",
+            "properties": {
+                "randomize": false,
+                "allow_multiple_selection": false,
+                "allow_other_choice": false,
+                "vertical_alignment": false,
+                "choices": [
+                    {
+                        "id": "yMa2xC06KdbS",
+                        "ref": "011c432b-d7ed-460b-b78a-30300c81bc02",
+                        "label": "Strongly disagree"
+                    },
+                    {
+                        "id": "qqfzRMtHhbl4",
+                        "ref": "54f469a6-93eb-47c6-a8ad-7c11927d538a",
+                        "label": "Option 2"
+                    },
+                    {
+                        "id": "gDLbf00ZaCQF",
+                        "ref": "e4d136d9-cabc-4d55-b3f9-db7d58aa8b4e",
+                        "label": "Option 3"
+                    },
+                    {
+                        "id": "RaU9IxLmUMqI",
+                        "ref": "1898b585-01d4-4007-9fb8-54ae7d658e62",
+                        "label": "Option 4"
+                    },
+                    {
+                        "id": "gCyo7JgiBJPH",
+                        "ref": "5f069a15-e5dd-478d-aeb0-89d8adc7516d",
+                        "label": "Strongly agree"
+                    }
+                ]
+            },
+            "validations": {
+                "required": true
+            },
+            "type": "multiple_choice"
+        },
+        {
+            "id": "b0D3EL3FyLgl",
+            "title": "Developers can deploy to a production-like environment using a fully automated pipeline.",
+            "ref": "c4e29abb-ac80-4885-abe8-6190bfb18076",
+            "properties": {
+                "randomize": false,
+                "allow_multiple_selection": false,
+                "allow_other_choice": false,
+                "vertical_alignment": false,
+                "choices": [
+                    {
+                        "id": "uJYEpT1bcOV6",
+                        "ref": "011c432b-d7ed-460b-b78a-30300c81bc02",
+                        "label": "Strongly disagree"
+                    },
+                    {
+                        "id": "UrztrQcZ4mHA",
+                        "ref": "54f469a6-93eb-47c6-a8ad-7c11927d538a",
+                        "label": "Option 2"
+                    },
+                    {
+                        "id": "bKxTDtjFDCWm",
+                        "ref": "e4d136d9-cabc-4d55-b3f9-db7d58aa8b4e",
+                        "label": "Option 3"
+                    },
+                    {
+                        "id": "aBQPY3MxfGKg",
+                        "ref": "1898b585-01d4-4007-9fb8-54ae7d658e62",
+                        "label": "Option 4"
+                    },
+                    {
+                        "id": "swAG6kQdzTyv",
+                        "ref": "5f069a15-e5dd-478d-aeb0-89d8adc7516d",
+                        "label": "Strongly agree"
+                    }
+                ]
+            },
+            "validations": {
+                "required": true
+            },
+            "type": "multiple_choice"
+        },
+        {
+            "id": "qOPPiuEeaskQ",
+            "title": "We can confidently make changes to our entire codebase, without the risk of unexpected side-effects.",
+            "ref": "0a0e70bf-48e5-4b26-b672-35413c88b4e8",
+            "properties": {
+                "randomize": false,
+                "allow_multiple_selection": false,
+                "allow_other_choice": false,
+                "vertical_alignment": false,
+                "choices": [
+                    {
+                        "id": "ll8Nr5TKaK0a",
+                        "ref": "011c432b-d7ed-460b-b78a-30300c81bc02",
+                        "label": "Strongly disagree"
+                    },
+                    {
+                        "id": "KO85RwN2cJ1b",
+                        "ref": "54f469a6-93eb-47c6-a8ad-7c11927d538a",
+                        "label": "Option 2"
+                    },
+                    {
+                        "id": "Aq9y23HUlCDH",
+                        "ref": "e4d136d9-cabc-4d55-b3f9-db7d58aa8b4e",
+                        "label": "Option 3"
+                    },
+                    {
+                        "id": "eMuGU9R1LtyW",
+                        "ref": "1898b585-01d4-4007-9fb8-54ae7d658e62",
+                        "label": "Option 4"
+                    },
+                    {
+                        "id": "Ah5Aaju5pywm",
+                        "ref": "5f069a15-e5dd-478d-aeb0-89d8adc7516d",
+                        "label": "Strongly agree"
+                    }
+                ]
+            },
+            "validations": {
+                "required": true
+            },
+            "type": "multiple_choice"
+        },
+        {
+            "id": "OsYX7t74Jwkn",
+            "title": "We are an open, transparent organisation which shares all information internally.",
+            "ref": "cc621efb-e3ec-4761-a8d4-c30cbae7386d",
+            "properties": {
+                "randomize": false,
+                "allow_multiple_selection": false,
+                "allow_other_choice": false,
+                "vertical_alignment": false,
+                "choices": [
+                    {
+                        "id": "ZJAJkTtACBcP",
+                        "ref": "011c432b-d7ed-460b-b78a-30300c81bc02",
+                        "label": "Strongly disagree"
+                    },
+                    {
+                        "id": "JfXQhK9ru4BA",
+                        "ref": "54f469a6-93eb-47c6-a8ad-7c11927d538a",
+                        "label": "Option 2"
+                    },
+                    {
+                        "id": "mzlmsZyWifJK",
+                        "ref": "e4d136d9-cabc-4d55-b3f9-db7d58aa8b4e",
+                        "label": "Option 3"
+                    },
+                    {
+                        "id": "Z1ossZbv68gQ",
+                        "ref": "1898b585-01d4-4007-9fb8-54ae7d658e62",
+                        "label": "Option 4"
+                    },
+                    {
+                        "id": "So3WQ1jttkW7",
+                        "ref": "5f069a15-e5dd-478d-aeb0-89d8adc7516d",
+                        "label": "Strongly agree"
+                    }
+                ]
+            },
+            "validations": {
+                "required": true
+            },
+            "type": "multiple_choice"
+        },
+        {
+            "id": "AGyQI6LRK6rD",
+            "title": "We have a well-established culture of learning and the company invests in educating its employees.",
+            "ref": "f2f81a06-b043-4b20-905b-5dc6a27d9df9",
+            "properties": {
+                "randomize": false,
+                "allow_multiple_selection": false,
+                "allow_other_choice": false,
+                "vertical_alignment": false,
+                "choices": [
+                    {
+                        "id": "GEnQkbX59AwW",
+                        "ref": "011c432b-d7ed-460b-b78a-30300c81bc02",
+                        "label": "Strongly disagree"
+                    },
+                    {
+                        "id": "VT5uORpB6nQq",
+                        "ref": "54f469a6-93eb-47c6-a8ad-7c11927d538a",
+                        "label": "Option 2"
+                    },
+                    {
+                        "id": "l4oeNMqd8NOf",
+                        "ref": "e4d136d9-cabc-4d55-b3f9-db7d58aa8b4e",
+                        "label": "Option 3"
+                    },
+                    {
+                        "id": "sq39yMlspsAd",
+                        "ref": "1898b585-01d4-4007-9fb8-54ae7d658e62",
+                        "label": "Option 4"
+                    },
+                    {
+                        "id": "w5768bWFoK6b",
+                        "ref": "5f069a15-e5dd-478d-aeb0-89d8adc7516d",
+                        "label": "Strongly agree"
+                    }
+                ]
+            },
+            "validations": {
+                "required": true
+            },
+            "type": "multiple_choice"
+        },
+        {
+            "id": "td58wunSm4il",
+            "title": "We are open and honest about our failings and treat them as an opportunity to learn, without assigning blame.",
+            "ref": "7c3ca50c-1470-4af8-a2cf-9d9894d05132",
+            "properties": {
+                "randomize": false,
+                "allow_multiple_selection": false,
+                "allow_other_choice": false,
+                "vertical_alignment": false,
+                "choices": [
+                    {
+                        "id": "K6EMSQ8P2Ltg",
+                        "ref": "011c432b-d7ed-460b-b78a-30300c81bc02",
+                        "label": "Strongly disagree"
+                    },
+                    {
+                        "id": "Zlk8yyKFfNzK",
+                        "ref": "54f469a6-93eb-47c6-a8ad-7c11927d538a",
+                        "label": "Option 2"
+                    },
+                    {
+                        "id": "nRZN7oPV00JO",
+                        "ref": "e4d136d9-cabc-4d55-b3f9-db7d58aa8b4e",
+                        "label": "Option 3"
+                    },
+                    {
+                        "id": "oNWgekefiYe5",
+                        "ref": "1898b585-01d4-4007-9fb8-54ae7d658e62",
+                        "label": "Option 4"
+                    },
+                    {
+                        "id": "Zf8MLxpsOJkH",
+                        "ref": "5f069a15-e5dd-478d-aeb0-89d8adc7516d",
+                        "label": "Strongly agree"
+                    }
+                ]
+            },
+            "validations": {
+                "required": true
+            },
+            "type": "multiple_choice"
+        },
+        {
+            "id": "Kuau9GUgwpu6",
+            "title": "We have a well-defined career path and employees are given the support and guidance they need to grow within the organisation.",
+            "ref": "cd4440e6-62d9-47ff-bd41-11c7f103b2d9",
+            "properties": {
+                "randomize": false,
+                "allow_multiple_selection": false,
+                "allow_other_choice": false,
+                "vertical_alignment": false,
+                "choices": [
+                    {
+                        "id": "s5mDgEBVb6nG",
+                        "ref": "011c432b-d7ed-460b-b78a-30300c81bc02",
+                        "label": "Strongly disagree"
+                    },
+                    {
+                        "id": "UrIodUnglppx",
+                        "ref": "54f469a6-93eb-47c6-a8ad-7c11927d538a",
+                        "label": "Option 2"
+                    },
+                    {
+                        "id": "sbm4Vwx3Lghc",
+                        "ref": "e4d136d9-cabc-4d55-b3f9-db7d58aa8b4e",
+                        "label": "Option 3"
+                    },
+                    {
+                        "id": "SQFgWpgMneTd",
+                        "ref": "1898b585-01d4-4007-9fb8-54ae7d658e62",
+                        "label": "Option 4"
+                    },
+                    {
+                        "id": "UuNT9xDkszPk",
+                        "ref": "5f069a15-e5dd-478d-aeb0-89d8adc7516d",
+                        "label": "Strongly agree"
+                    }
+                ]
+            },
+            "validations": {
+                "required": true
+            },
+            "type": "multiple_choice"
+        },
+        {
+            "id": "m9WFiC3RaWQa",
+            "title": "We are a diverse organisation with people from a wide range of backgrounds and experiences",
+            "ref": "7e700445-5a35-491d-a35a-dfc179c8c039",
+            "properties": {
+                "randomize": false,
+                "allow_multiple_selection": false,
+                "allow_other_choice": false,
+                "vertical_alignment": false,
+                "choices": [
+                    {
+                        "id": "NNFIJrw1DXOO",
+                        "ref": "011c432b-d7ed-460b-b78a-30300c81bc02",
+                        "label": "Strongly disagree"
+                    },
+                    {
+                        "id": "fngtsbvt5LGU",
+                        "ref": "54f469a6-93eb-47c6-a8ad-7c11927d538a",
+                        "label": "Option 2"
+                    },
+                    {
+                        "id": "FOEgNYVFhnyf",
+                        "ref": "e4d136d9-cabc-4d55-b3f9-db7d58aa8b4e",
+                        "label": "Option 3"
+                    },
+                    {
+                        "id": "XSVaPu8JRuLq",
+                        "ref": "1898b585-01d4-4007-9fb8-54ae7d658e62",
+                        "label": "Option 4"
+                    },
+                    {
+                        "id": "uMRLeORiPgzT",
+                        "ref": "5f069a15-e5dd-478d-aeb0-89d8adc7516d",
+                        "label": "Strongly agree"
+                    }
+                ]
+            },
+            "validations": {
+                "required": true
+            },
+            "type": "multiple_choice"
+        },
+        {
+            "id": "eaW1sDa1kFMK",
+            "title": "Teams have autonomy to decide on the tools, technologies, practices and methodologies they use to complete their tasks.",
+            "ref": "53fbe5c1-3f8d-46dd-a7ad-49c27121be5b",
+            "properties": {
+                "randomize": false,
+                "allow_multiple_selection": false,
+                "allow_other_choice": false,
+                "vertical_alignment": false,
+                "choices": [
+                    {
+                        "id": "kSAlLy8CxW8d",
+                        "ref": "011c432b-d7ed-460b-b78a-30300c81bc02",
+                        "label": "Strongly disagree"
+                    },
+                    {
+                        "id": "pQF2c5RTJYnD",
+                        "ref": "54f469a6-93eb-47c6-a8ad-7c11927d538a",
+                        "label": "Option 2"
+                    },
+                    {
+                        "id": "IaXyUezSC6WH",
+                        "ref": "e4d136d9-cabc-4d55-b3f9-db7d58aa8b4e",
+                        "label": "Option 3"
+                    },
+                    {
+                        "id": "EEMRuKHzVU46",
+                        "ref": "1898b585-01d4-4007-9fb8-54ae7d658e62",
+                        "label": "Option 4"
+                    },
+                    {
+                        "id": "rliVTgcan0Xo",
+                        "ref": "5f069a15-e5dd-478d-aeb0-89d8adc7516d",
+                        "label": "Strongly agree"
+                    }
+                ]
+            },
+            "validations": {
+                "required": true
+            },
+            "type": "multiple_choice"
+        },
+        {
+            "id": "bqaryVY8br9s",
+            "title": "The team have immediate access to all the people and knowledge they require to complete their work.",
+            "ref": "ff664b69-9623-4eff-aa00-af0bacb95bee",
+            "properties": {
+                "randomize": false,
+                "allow_multiple_selection": false,
+                "allow_other_choice": false,
+                "vertical_alignment": false,
+                "choices": [
+                    {
+                        "id": "pHGehaLYhVYS",
+                        "ref": "011c432b-d7ed-460b-b78a-30300c81bc02",
+                        "label": "Strongly disagree"
+                    },
+                    {
+                        "id": "yH3M4g8Zc7K7",
+                        "ref": "54f469a6-93eb-47c6-a8ad-7c11927d538a",
+                        "label": "Option 2"
+                    },
+                    {
+                        "id": "UF3wirlL0VJ7",
+                        "ref": "e4d136d9-cabc-4d55-b3f9-db7d58aa8b4e",
+                        "label": "Option 3"
+                    },
+                    {
+                        "id": "WxqPZAQFZ5Ii",
+                        "ref": "1898b585-01d4-4007-9fb8-54ae7d658e62",
+                        "label": "Option 4"
+                    },
+                    {
+                        "id": "Lulr8oMVYGwh",
+                        "ref": "5f069a15-e5dd-478d-aeb0-89d8adc7516d",
+                        "label": "Strongly agree"
+                    }
+                ]
+            },
+            "validations": {
+                "required": true
+            },
+            "type": "multiple_choice"
+        },
+        {
+            "id": "HycH7IEo2Vkh",
+            "title": "Knowledge is shared at all levels throughout the team and each member can perform any required task.",
+            "ref": "f9f55688-bb88-4d38-becb-be323a0a5f0d",
+            "properties": {
+                "randomize": false,
+                "allow_multiple_selection": false,
+                "allow_other_choice": false,
+                "vertical_alignment": false,
+                "choices": [
+                    {
+                        "id": "GUMrx9jDvbun",
+                        "ref": "011c432b-d7ed-460b-b78a-30300c81bc02",
+                        "label": "Strongly disagree"
+                    },
+                    {
+                        "id": "J9Zhjry0xo0Z",
+                        "ref": "54f469a6-93eb-47c6-a8ad-7c11927d538a",
+                        "label": "Option 2"
+                    },
+                    {
+                        "id": "ctLUyvk7MIRp",
+                        "ref": "e4d136d9-cabc-4d55-b3f9-db7d58aa8b4e",
+                        "label": "Option 3"
+                    },
+                    {
+                        "id": "DeiZyr3aS7UI",
+                        "ref": "1898b585-01d4-4007-9fb8-54ae7d658e62",
+                        "label": "Option 4"
+                    },
+                    {
+                        "id": "heAPqoXqH0k6",
+                        "ref": "5f069a15-e5dd-478d-aeb0-89d8adc7516d",
+                        "label": "Strongly agree"
+                    }
+                ]
+            },
+            "validations": {
+                "required": true
+            },
+            "type": "multiple_choice"
+        },
+        {
+            "id": "pmB4swG6nrDE",
+            "title": "We value TDD and never write production code without first writing a test.",
+            "ref": "2429f519-ed95-4d89-be2b-a543b99a2dcf",
+            "properties": {
+                "randomize": false,
+                "allow_multiple_selection": false,
+                "allow_other_choice": false,
+                "vertical_alignment": false,
+                "choices": [
+                    {
+                        "id": "jgZtR4DwVqkn",
+                        "ref": "011c432b-d7ed-460b-b78a-30300c81bc02",
+                        "label": "Strongly disagree"
+                    },
+                    {
+                        "id": "kH0Rxe2mmeMo",
+                        "ref": "54f469a6-93eb-47c6-a8ad-7c11927d538a",
+                        "label": "Option 2"
+                    },
+                    {
+                        "id": "HqgSbgY3XXxz",
+                        "ref": "e4d136d9-cabc-4d55-b3f9-db7d58aa8b4e",
+                        "label": "Option 3"
+                    },
+                    {
+                        "id": "Mg59aG0N5qvG",
+                        "ref": "1898b585-01d4-4007-9fb8-54ae7d658e62",
+                        "label": "Option 4"
+                    },
+                    {
+                        "id": "YhRYleDFV0Cp",
+                        "ref": "5f069a15-e5dd-478d-aeb0-89d8adc7516d",
+                        "label": "Strongly agree"
+                    }
+                ]
+            },
+            "validations": {
+                "required": true
+            },
+            "type": "multiple_choice"
+        },
+        {
+            "id": "rGuAXTFm5mzs",
+            "title": "We ensure that sustainable pace is maintained and never “crunch” towards the end of projects.",
+            "ref": "d632ff8f-9845-487f-9922-2cd76c86141a",
+            "properties": {
+                "randomize": false,
+                "allow_multiple_selection": false,
+                "allow_other_choice": false,
+                "vertical_alignment": false,
+                "choices": [
+                    {
+                        "id": "qmmcy8ArPuAo",
+                        "ref": "011c432b-d7ed-460b-b78a-30300c81bc02",
+                        "label": "Strongly disagree"
+                    },
+                    {
+                        "id": "FR83bNR46o1x",
+                        "ref": "54f469a6-93eb-47c6-a8ad-7c11927d538a",
+                        "label": "Option 2"
+                    },
+                    {
+                        "id": "M2ksiVBAHyNq",
+                        "ref": "e4d136d9-cabc-4d55-b3f9-db7d58aa8b4e",
+                        "label": "Option 3"
+                    },
+                    {
+                        "id": "pQG773D2FkMR",
+                        "ref": "1898b585-01d4-4007-9fb8-54ae7d658e62",
+                        "label": "Option 4"
+                    },
+                    {
+                        "id": "ewogzTxTRN0P",
+                        "ref": "5f069a15-e5dd-478d-aeb0-89d8adc7516d",
+                        "label": "Strongly agree"
+                    }
+                ]
+            },
+            "validations": {
+                "required": true
+            },
+            "type": "multiple_choice"
+        },
+        {
+            "id": "nZmNBqgvKreD",
+            "title": "We value and encourage pair-programming on all production code.",
+            "ref": "b4b161c0-f4b1-4113-bc2f-dd423ef28637",
+            "properties": {
+                "randomize": false,
+                "allow_multiple_selection": false,
+                "allow_other_choice": false,
+                "vertical_alignment": false,
+                "choices": [
+                    {
+                        "id": "IwfSR4ELBT4U",
+                        "ref": "011c432b-d7ed-460b-b78a-30300c81bc02",
+                        "label": "Strongly disagree"
+                    },
+                    {
+                        "id": "QSQ2vERaW3LS",
+                        "ref": "54f469a6-93eb-47c6-a8ad-7c11927d538a",
+                        "label": "Option 2"
+                    },
+                    {
+                        "id": "t3eP43Vr3RLb",
+                        "ref": "e4d136d9-cabc-4d55-b3f9-db7d58aa8b4e",
+                        "label": "Option 3"
+                    },
+                    {
+                        "id": "qMdUmTO0I6Fn",
+                        "ref": "1898b585-01d4-4007-9fb8-54ae7d658e62",
+                        "label": "Option 4"
+                    },
+                    {
+                        "id": "ZJqPV3W4MaCV",
+                        "ref": "5f069a15-e5dd-478d-aeb0-89d8adc7516d",
+                        "label": "Strongly agree"
+                    }
+                ]
+            },
+            "validations": {
+                "required": true
+            },
+            "type": "multiple_choice"
+        },
+        {
+            "id": "e9ddQ7EPvOI1",
+            "title": "All production code is peer-reviewed comprehensively before it is considered “done”.",
+            "ref": "a3b19159-f0e0-4634-8cc0-c0f8bdb898b1",
+            "properties": {
+                "randomize": false,
+                "allow_multiple_selection": false,
+                "allow_other_choice": false,
+                "vertical_alignment": false,
+                "choices": [
+                    {
+                        "id": "DN9lgsR54Suw",
+                        "ref": "011c432b-d7ed-460b-b78a-30300c81bc02",
+                        "label": "Strongly disagree"
+                    },
+                    {
+                        "id": "ECyeWqMQlzKa",
+                        "ref": "54f469a6-93eb-47c6-a8ad-7c11927d538a",
+                        "label": "Option 2"
+                    },
+                    {
+                        "id": "AYn0TpyDW6JR",
+                        "ref": "e4d136d9-cabc-4d55-b3f9-db7d58aa8b4e",
+                        "label": "Option 3"
+                    },
+                    {
+                        "id": "H4bFTsLfCvLu",
+                        "ref": "1898b585-01d4-4007-9fb8-54ae7d658e62",
+                        "label": "Option 4"
+                    },
+                    {
+                        "id": "HmtIQOjcfh1i",
+                        "ref": "5f069a15-e5dd-478d-aeb0-89d8adc7516d",
+                        "label": "Strongly agree"
+                    }
+                ]
+            },
+            "validations": {
+                "required": true
+            },
+            "type": "multiple_choice"
+        }
+    ],
+    "hidden": [
+        "uuid"
+    ],
+    "_links": {
+        "display": "https://mashooqbadar.typeform.com/to/yiRLeY"
+    }
+}

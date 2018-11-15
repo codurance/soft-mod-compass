@@ -10,11 +10,11 @@ typeformEmbed.makeWidget(
   surveyUrl,
   {
     onSubmit: () => {
-      const Http = new XMLHttpRequest();
-      const url=`/scores/${uuid}`;
-      Http.open("GET", url);
-      Http.send();
-      Http.onreadystatechange=(e)=>{
+      const Http = new XMLHttpRequest()
+      const url = `/scores/${uuid}`
+      Http.open('GET', url)
+      Http.send()
+      Http.onreadystatechange = (e) => {
         const scores = Http.responseText
         window.location = `https://info.codurance.com/compass-test?uuid=${uuid}&scores=${scores}`
       }

@@ -36,12 +36,17 @@
       "it",
       "typeformEmbed",
       "jest",
-      "expect"
+      "expect",
+      "XMLHttpRequest"
     ]
   },
   "nodemonConfig": {
     "exec": "yarn dev",
-    "ignore": ["dist/*", "data/*", "logs/*"],
+    "ignore": [
+      "dist/*",
+      "data/*",
+      "logs/*"
+    ],
     "delay": 1000
   }
 }

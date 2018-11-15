@@ -3,6 +3,7 @@ const jsreport = require('jsreport')
 const express = require('express')
 const stripHubspotSubmissionGuid = require('./middleware/stripHubspotSubmissionGuid')
 const buildReportViewModelFor = require('./reportViewModelBuilder')
+const base64Encode = require('./encoding/base64')
 
 const app = express()
 
@@ -18,7 +19,7 @@ app.get('/', (req, res) => {
 app.get('/scores/:uuid', (req, res) => {
   buildReportViewModelFor(req.params.uuid)
     .then(viewModel => {
-      res.send(viewModel.summaryRadial.scores)
+      res.send(base64Encode(viewModel.summaryRadial.scores.toString()))
     })
 })
 
