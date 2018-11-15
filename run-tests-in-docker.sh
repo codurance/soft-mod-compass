@@ -2,3 +2,4 @@
 
 docker build -t codurance-compass .
 docker run --rm codurance-compass yarn test
+docker run --rm codurance-compass yarn deploy:hubspot

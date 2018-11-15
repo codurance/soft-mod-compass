@@ -4,7 +4,6 @@ phases:
   pre_build:
     commands:
       - sh ./run-tests-in-docker.sh
-      - node ./src/hubspot/deploy.js
 
 artifacts:
   files:
