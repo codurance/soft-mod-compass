@@ -2,9 +2,7 @@ const path = require('path')
 const jsreport = require('jsreport')
 const express = require('express')
 const stripHubspotSubmissionGuid = require('./middleware/stripHubspotSubmissionGuid')
-const reportViewModel = require('./reportViewModel')
-const typeformClient = require('./typeformClient')
-const categoryData = require('./categoryData')
+const buildReportViewModelFor = require('./reportViewModelBuilder')
 
 const app = express()
 
@@ -17,27 +15,28 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 
-app.get('/report/:uuid', (req, res) => {
-  Promise.all([typeformClient.getQuestionChoices(), typeformClient.surveyAnswersFor(req.params.uuid)])
-    .then(([choices, answers]) => {
-      const data = reportViewModel(categoryData, choices, answers)
+app.get('/scores/:uuid', (req, res) => {
+  buildReportViewModelFor(req.params.uuid)
+    .then(viewModel => {
+      res.send(viewModel.summaryRadial.scores)
+    })
+})
 
+app.get('/report/:uuid', (req, res) => {
+  buildReportViewModelFor(req.params.uuid)
+    .then(viewModel => {
       jsreport.render({
         template: {
           name: 'Compass',
           engine: 'handlebars',
           recipe: 'chrome-pdf'
         },
-        data
+        data: viewModel
       }).then((out) => {
         out.stream.pipe(res)
       }).catch((e) => {
         res.end(e.message)
       })
-    })
-    .catch(err => {
-      console.error(err)
-      res.sendStatus(500)
     })
 })
 
