@@ -2,17 +2,33 @@ const nock = require('nock')
 const deploy = require('../../src/hubspot/deploy')
 
 describe('HubSpot deploy', () => {
+  const apiKey = 'im-an-api-key'
+  const fakeArtifact = '<p>fake artifact</p>'
+
+  const putTemplateChangesWithStatus = (httpStatusCode) => {
+    nock('http://api.hubapi.com')
+      .put(
+        `/content/api/v2/pages/6346726331?hapikey=${apiKey}`,
+        JSON.stringify(fakeArtifact))
+      .reply(httpStatusCode)
+  }
+
+  const postGoLiveRequestWithStatus = (httpStatusCode) => {
+    nock('http://api.hubapi.com')
+      .post(
+        `/content/api/v2/pages/6346726331/publish-action?hapikey=${apiKey}`,
+        { action: 'schedule-publish' })
+      .reply(httpStatusCode)
+  }
+
+  const putTemplateChangesWithSuccessResponse = () => putTemplateChangesWithStatus(200)
+  const putTemplateChangesWithErrorResponse = () => putTemplateChangesWithStatus(500)
+  const postGoLiveRequestWithSuccessResponse = () => postGoLiveRequestWithStatus(200)
+  const postGoLiveRequestWithErrorResponse = () => postGoLiveRequestWithStatus(500)
+
   it('deploys template changes through to live when both deploy to staging and push live both succeed', async () => {
-    const apiKey = 'im-an-api-key'
-    const fakeArtifact = '<p>fake artifact</p>'
-
-    nock('http://api.hubapi.com')
-      .put(`/content/api/v2/pages/6346726331?hapikey=${apiKey}`, JSON.stringify(fakeArtifact))
-      .reply(200)
-
-    nock('http://api.hubapi.com')
-      .post(`/content/api/v2/pages/6346726331/publish-action?hapikey=${apiKey}`, { action: 'schedule-publish' })
-      .reply(200)
+    putTemplateChangesWithSuccessResponse()
+    postGoLiveRequestWithSuccessResponse()
 
     let loggedMessages = []
 
@@ -23,16 +39,8 @@ describe('HubSpot deploy', () => {
   })
 
   it('fails when unable to PUT template changes to staging buffer', async () => {
-    const apiKey = 'im-an-api-key'
-    const fakeArtifact = '<p>fake artifact</p>'
-
-    nock('http://api.hubapi.com')
-      .put(`/content/api/v2/pages/6346726331?hapikey=${apiKey}`, JSON.stringify(fakeArtifact))
-      .reply(500)
-
-    nock('http://api.hubapi.com')
-      .post(`/content/api/v2/pages/6346726331/publish-action?hapikey=${apiKey}`, { action: 'schedule-publish' })
-      .reply(500)
+    putTemplateChangesWithErrorResponse()
+    postGoLiveRequestWithErrorResponse()
 
     let loggedMessages = []
 
@@ -43,16 +51,8 @@ describe('HubSpot deploy', () => {
   })
 
   it('fails when unable to POST request to make staging changes go live', async () => {
-    const apiKey = 'im-an-api-key'
-    const fakeArtifact = '<p>fake artifact</p>'
-
-    nock('http://api.hubapi.com')
-      .put(`/content/api/v2/pages/6346726331?hapikey=${apiKey}`, JSON.stringify(fakeArtifact))
-      .reply(200)
-
-    nock('http://api.hubapi.com')
-      .post(`/content/api/v2/pages/6346726331/publish-action?hapikey=${apiKey}`, { action: 'schedule-publish' })
-      .reply(500)
+    putTemplateChangesWithSuccessResponse()
+    postGoLiveRequestWithErrorResponse()
 
     let loggedMessages = []
 
