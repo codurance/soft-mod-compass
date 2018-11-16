@@ -24,8 +24,8 @@ typeformEmbed.makeWidget(
 
 function checkSurveyHasFocus() {
   const surveyIframe = document.getElementsByTagName("iframe")[0]
-  const iframeDoesNotHaveFocus = document.activeElement === surveyIframe
-  if(iframeDoesNotHaveFocus) {
+  const iframeHasFocus = document.activeElement === surveyIframe
+  if(iframeHasFocus) {
     clearInterval(checkSurveyHasFocusInterval)
   } else {
     surveyIframe.focus()
