@@ -10,22 +10,27 @@ typeformEmbed.makeWidget(
   surveyUrl,
   {
     onSubmit: () => {
-      const Http = new XMLHttpRequest()
-      const url = `/scores/${uuid}`
-      Http.open('GET', url)
-      Http.send()
-      Http.onreadystatechange = (e) => {
-        const scores = Http.responseText
-        window.location = `https://info.codurance.com/compass-test?uuid=${uuid}&scores=${scores}`
-      }
+      redirectToReport()
     }
   }
 )
 
-function checkSurveyHasFocus() {
-  const surveyIframe = document.getElementsByTagName("iframe")[0]
+function redirectToReport () {
+  const http = new XMLHttpRequest()
+  const surveyScoresEndpoint = `/scores/${uuid}`
+  http.open('GET', surveyScoresEndpoint)
+  http.send()
+  http.onreadystatechange = (e) => {
+    const scores = http.responseText
+    const reportLandingPageUrl = `https://info.codurance.com/compass-test?uuid=${uuid}&scores=${scores}`
+    window.location = reportLandingPageUrl
+  }
+}
+
+function checkSurveyHasFocus () {
+  const surveyIframe = document.getElementsByTagName('iframe')[0]
   const iframeHasFocus = document.activeElement === surveyIframe
-  if(iframeHasFocus) {
+  if (iframeHasFocus) {
     clearInterval(checkSurveyHasFocusInterval)
   } else {
     surveyIframe.focus()
