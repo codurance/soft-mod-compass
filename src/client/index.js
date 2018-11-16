@@ -21,3 +21,15 @@ typeformEmbed.makeWidget(
     }
   }
 )
+
+function checkSurveyHasFocus() {
+  const surveyIframe = document.getElementsByTagName("iframe")[0]
+  const iframeDoesNotHaveFocus = document.activeElement === surveyIframe
+  if(iframeDoesNotHaveFocus) {
+    clearInterval(checkSurveyHasFocusInterval)
+  } else {
+    surveyIframe.focus()
+  }
+}
+
+const checkSurveyHasFocusInterval = window.setInterval(checkSurveyHasFocus, 100)
