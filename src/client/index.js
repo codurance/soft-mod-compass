@@ -1,3 +1,4 @@
+const getReportUrl = require('./getReportUrl')
 const generateUuid = require('uuid/v4')
 
 const surveyElement = document.getElementById('typeform-survey')
@@ -10,22 +11,13 @@ typeformEmbed.makeWidget(
   surveyUrl,
   {
     onSubmit: () => {
-      redirectToReport()
+      getReportUrl(uuid)
+        .then(url => {
+          window.location = url
+        })
     }
   }
 )
-
-function redirectToReport () {
-  const http = new XMLHttpRequest()
-  const surveyScoresEndpoint = `/scores/${uuid}`
-  http.open('GET', surveyScoresEndpoint)
-  http.send()
-  http.onreadystatechange = (e) => {
-    const scores = http.responseText
-    const reportLandingPageUrl = `https://info.codurance.com/compass-test?uuid=${uuid}&scores=${scores}`
-    window.location = reportLandingPageUrl
-  }
-}
 
 function checkSurveyHasFocus () {
   const surveyIframe = document.getElementsByTagName('iframe')[0]
