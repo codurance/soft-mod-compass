@@ -1,17 +1,14 @@
 const build = require('../../src/hubspot/build')
-const fs = require('fs')
 
 describe('HubSpot build', () => {
   it('substitues header, footer and body html correctly', () => {
-    jest.mock('fs')
-
-    fs.readFileSync = jest
+    const mockFileReader = jest
       .fn()
       .mockImplementationOnce(() => 'header html')
       .mockImplementationOnce(() => 'body html')
       .mockImplementationOnce(() => 'footer html')
 
-    const landingPage = build()
+    const landingPage = build(mockFileReader)
 
     expect(landingPage.head_html).toBe('header html')
     expect(landingPage.footer_html).toBe('footer html')
