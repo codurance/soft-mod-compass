@@ -3,7 +3,9 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - sh ./run-tests-in-docker.sh
+      - sh ./scripts/docker/build-image.sh
+      - sh ./scripts/docker/run-tests.sh
+      - sh ./scripts/docker/deploy-hubspot.sh
 
 artifacts:
   files:
