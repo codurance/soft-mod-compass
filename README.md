@@ -38,7 +38,7 @@ yarn install
 yarn start # go to localhost:8080
 ```
 
-## Running with docker
+## Running with Docker
 
 ```
 docker build -t codurance-compass .
@@ -51,17 +51,19 @@ docker run codurance-compass
 yarn test
 ```
 
-## Testing with docker
+## Testing with Docker
 
 ```
-./run-tests-in-docker.sh
+./scripts/docker/run-tests-in-docker.sh
 ```
 
-## HubSpot landing page deployment
+## HubSpot landing page deployment with Docker
 
 For an explanation of how HubSpot is leveraged in the solution see the _integrations_ section above.
 
-`src\hubspot\index.js`
+```
+./scripts/docker/deploy-hubspot.sh
+```
 
 ## Continuous Delivery
 
