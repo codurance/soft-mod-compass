@@ -54,7 +54,7 @@ yarn test
 ## Testing with Docker
 
 ```
-./scripts/docker/run-tests-in-docker.sh
+./scripts/docker/run-tests.sh
 ```
 
 ## HubSpot landing page deployment with Docker
