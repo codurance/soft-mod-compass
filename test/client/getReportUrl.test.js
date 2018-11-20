@@ -7,7 +7,6 @@ describe('getReportUrl', () => {
     const scores = 'base64 encoded string'
 
     nock('http://localhost')
-      .log(console.log)
       .get(`/scores/${uuid}`)
       .reply(200, scores)
 
