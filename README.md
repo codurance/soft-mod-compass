@@ -22,7 +22,7 @@ Scores that generate the radial chart: `atob("{{request.query_dict.scores}}").sp
 
 Redirect URL to download the report: `http://codurance-compass.eu-west-1.elasticbeanstalk.com/report/{{request.query_dict.uuid}}` in `src/hubspot/assets/compassLandingPage.json`
 
-## Reporting (jsreport)
+### Reporting (jsreport)
 
 The `/report/:UUID` endpoint of the Node app uses the UUID to query the TypeForm Responses API to retrieve the user's answers, generate their scores and then creates a view model for the report which is piped into [jsreport](https://jsreport.net/learn/adapting-jsreport). jsreport combines the view model with a Handlebars template and returns a pdf file download.
 
