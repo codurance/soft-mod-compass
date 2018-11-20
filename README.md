@@ -8,13 +8,13 @@ Compass integrates with the following services:
 
 TypeForm is used to build and deliver the survey itself. It is a paid service and we have a subscription for the PRO+ tier. Login credentials can be found on the wiki. TypeForm has support for hidden fields and every user who takes the survey is issued with a UUID that we provide when the form is created. 
 
-When a user completes the survey the UUID from the hidden field is saved along with their answers. We then use the UUID to query the TypeForm responses API for a specific user's answers. We use the answers to calculate scores which are fed into the various charts and the report.
+When a user completes the survey the UUID from the hidden field is saved along with their answers. We then use the UUID to query the TypeForm Responses API for a specific user's answers. We use the answers to calculate scores which are fed into various charts using [chartjs](https://www.chartjs.org/) and the report.
 
-The UUID is also passed along in the query string when we redirect the user to HubSpot so that we can unique identify them.
+The UUID is also passed along in the query string when we redirect the user to HubSpot so that we can uniquely identify them.
 
 ## HubSpot
 
-HubSpot is a CRM service used to host the landing page that captures user contact information once they have downloaded their report. After a user has completed the survey they are redirect to HubSpot with their UUID and a base64 comma separated list of scores for each survey category in the query string. We use the UUID to build a report download URL that points back to the `/report/:UUID` endpoint of the Node app. Note we also store the UUID in a hidden field on the HubSpot report download form, this is then saved along with their interaction so that we can refer back to their scores or report.
+HubSpot is a CRM service used to host the landing page that captures user contact information once they have downloaded their report. After a user has completed the survey they are redirected to HubSpot with their UUID and a base64 comma separated list of scores for each survey category in the query string. We use the UUID to build a report download URL that points back to the `/report/:UUID` endpoint of the Node app. Note we also store the UUID in a hidden field on the HubSpot report download form, this is then saved along with their interaction so that we can refer back to their scores or report.
 
 HubSpot provides tokens (`{{request.query_dict.XXX}}`) that can be embedded into any input field or script that are replaced with query string parameters when the form is rendered:
 
@@ -24,7 +24,7 @@ Redirect URL to download the report: `http://codurance-compass.eu-west-1.elastic
 
 ## Reporting (jsreport)
 
-The `/report/:UUID` endpoint of the Node app uses the UUID to query the TypeForm responses API to retrieve the user's answers, generate their scores and then creates a view model for the report and pipes it into [jsreport](https://jsreport.net/learn/adapting-jsreport). jsreport combines the view model with a template and returns a pdf file download.
+The `/report/:UUID` endpoint of the Node app uses the UUID to query the TypeForm Responses API to retrieve the user's answers, generate their scores and then creates a view model for the report which is piped into [jsreport](https://jsreport.net/learn/adapting-jsreport). jsreport combines the view model with a Handlebars template and returns a pdf file download.
 
 The jsreport console can be found at `/reporting`. This is where you will find the jsreport development environment for updating the report template.
 
