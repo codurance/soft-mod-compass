@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "dev": "webpack --mode=development && npm start",
+    "dev": ". ./scripts/default-env.sh && webpack --mode=development && npm start",
     "watch": "nodemon",
     "start": "node index.js",
     "test": "jest && npm run lint",

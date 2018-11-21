@@ -1,16 +1,24 @@
 const nock = require('nock')
-const typeformClient = require('../src/server/typeformClient')
+
+const config = {
+  typeform: {
+    url: 'https://typeform-url.com',
+    formId: 'formId',
+    authToken: 'encoded auth token'
+  }
+}
+const typeformClient = require('../src/server/typeformClient')(config)
 
 describe('typeformClient', () => {
   it('get survey answers for a particular uuid', (done) => {
     const uuid = '001c1057-7686-49ff-8691-cb7f8de44124'
 
-    nock('https://mashooqbadar.typeform.com', {
+    nock(config.typeform.url, {
       reqheaders: {
-        'authorization': 'Bearer 3U8FHS7YZV4GCpbwyxNUybKaAQAQZAzFyXoqCFeGqYRk'
+        'authorization': `Bearer ${config.typeform.authToken}`
       }
     })
-      .get(`/forms/yiRLeY/responses?query=${uuid}`)
+      .get(`/forms/${config.typeform.formId}/responses?query=${uuid}`)
       .reply(200, {
         items: [{
           answers: [
@@ -34,8 +42,8 @@ describe('typeformClient', () => {
       { properties: { choices: choicesData() } }
     ]
 
-    nock('https://mashooqbadar.typeform.com')
-      .get(`/forms/yiRLeY`)
+    nock(config.typeform.url)
+      .get(`/forms/${config.typeform.formId}`)
       .reply(200, {
         fields: questions
       })

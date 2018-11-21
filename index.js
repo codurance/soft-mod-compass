@@ -1,6 +1,7 @@
 const express = require('express')
 
-const app = require('./src/server/app')
+const config = require('./src/server/config')
+const app = require('./src/server/app')(config)
 const port = 8080
 
 const reportingApp = express()
