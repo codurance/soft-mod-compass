@@ -1,5 +1,9 @@
 version: 0.2
 
+env:
+  parameter-store:
+    COMPASS_CONFIG: '/aws/reference/secretsmanager/codurance-compass-config'
+
 phases:
   pre_build:
     commands:
@@ -9,4 +13,3 @@ phases:
 artifacts:
   files:
     - '**/*'
-
