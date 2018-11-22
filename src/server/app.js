@@ -7,7 +7,7 @@ const base64Encode = require('./encoding/base64')
 const getTypeformClient = require('./typeformClient')
 const reportViewModelBuilder = require('./reportViewModelBuilder')
 
-module.exports = config => {
+module.exports = (config, reportingApp) => {
   const typeformClient = getTypeformClient(config)
   const buildReportViewModelFor = reportViewModelBuilder(typeformClient)
 
@@ -17,6 +17,10 @@ module.exports = config => {
   app.set('views', path.join(__dirname, '/views'))
   app.use(stripHubspotSubmissionGuid)
   app.use(express.static('dist'))
+
+  if (config.environment.development) {
+    app.use('/reporting', reportingApp)
+  }
 
   app.get('/', (req, res) => {
     res.render('index')

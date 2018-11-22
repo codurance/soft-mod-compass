@@ -1,12 +1,9 @@
 const express = require('express')
-
-const config = require('./src/server/config')
-const app = require('./src/server/app')(config)
-const port = 8080
-
 const reportingApp = express()
 
-app.use('/reporting', reportingApp)
+const config = require('./src/server/config')
+const app = require('./src/server/app')(config, reportingApp)
+const port = 8080
 
 const server = app.listen(port, () => {
   console.log(`ready at http://localhost:${port}`)

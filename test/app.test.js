@@ -4,13 +4,21 @@ const mockSurveyQuestionsResponse = require('./mockData/surveyQuestionsResponse'
 const mockSurveyAnswersResponse = require('./mockData/surveyAnswersResponse')
 
 const config = {
+  environment: {
+    development: true
+  },
   typeform: {
     url: 'https://typeform-url.com',
     formId: 'formId',
     authToken: 'encoded auth token'
   }
 }
-const app = require('../src/server/app')(config)
+
+const fakeReportingApp = (req, res, next) => {
+  return res.send('<p>jsreport studio</p>')
+}
+
+const app = require('../src/server/app')(config, fakeReportingApp)
 
 describe('app', () => {
   it('responds with html on homepage', (done) => {
@@ -18,6 +26,27 @@ describe('app', () => {
       .get('/')
       .expect('Content-Type', /html/)
       .expect(200, done)
+  })
+
+  it('allows access to jsreport studio locally in development', (done) => {
+    request(app)
+      .get('/reporting')
+      .expect('Content-Type', /html/)
+      .expect(200, done)
+  })
+
+  it('does not allow access to jsreport studio in production', (done) => {
+    const fakeProdConfig = {
+      ...config,
+      environment: {
+        development: false
+      }
+    }
+    const app = require('../src/server/app')(fakeProdConfig, fakeReportingApp)
+    request(app)
+      .get('/reporting')
+      .expect('Content-Type', /html/)
+      .expect(404, done)
   })
 
   it('returns survey scores base64 encoded for transport to hubspot in query string', (done) => {
