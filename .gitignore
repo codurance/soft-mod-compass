@@ -4,3 +4,4 @@ yarn-error.log
 dist
 logs
 data/settings
+scripts/default-env.sh
