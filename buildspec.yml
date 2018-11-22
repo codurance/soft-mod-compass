@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   parameter-store:
-    HUBSPOT_AUTH_TOKEN: '/aws/reference/secretsmanager/HUBSPOT_AUTH_TOKEN'
+    HUBSPOT_AUTH_TOKEN: '/aws/reference/secretsmanager/HubSpot'
 
 phases:
   pre_build:
