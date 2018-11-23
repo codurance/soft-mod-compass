@@ -7,7 +7,7 @@ const config = {
     authToken: 'encoded auth token'
   }
 }
-const typeformClient = require('../src/server/typeformClient')(config)
+const typeformClient = require('../../src/server/survey/typeformClient')(config)
 
 describe('typeformClient', () => {
   it('get survey answers for a particular uuid', (done) => {
