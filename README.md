@@ -28,6 +28,12 @@ The `/report/:UUID` endpoint of the Node app uses the UUID to query the TypeForm
 
 The jsreport console can be found at `/reporting`. This is where you will find the jsreport development environment for updating the report template.
 
+## User Journey
+
+![compass sequence diagram](/docs/compass-sequence-diagram.png?raw=true)
+
+The above diagram in the `docs` folder can be opened with [draw.io](https://www.draw.io/).
+
 ## Running locally
 
 :large_blue_diamond: Note that `yarn` can be substituted for `npm`/`npm run` if you don't have yarn. (Yarn is easily installed on mac with `brew install yarn`)
