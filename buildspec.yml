@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   parameter-store:
-    HUBSPOT_AUTH_TOKEN: "HubSpot"
+    HUBSPOT_AUTH_TOKEN: "/Prod/Compass/hubspot-auth-token"
 
 phases:
   pre_build:
