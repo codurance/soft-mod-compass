@@ -18,7 +18,7 @@ module.exports = (config, reportingApp) => {
   app.use(stripHubspotSubmissionGuid)
   app.use(express.static('dist'))
 
-  if (config.environment.development) {
+  if (config.jsreport.studioEditorEnabled) {
     app.use('/reporting', reportingApp)
   }
 

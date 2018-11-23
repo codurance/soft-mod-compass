@@ -4,8 +4,8 @@ const mockSurveyQuestionsResponse = require('./mockData/surveyQuestionsResponse'
 const mockSurveyAnswersResponse = require('./mockData/surveyAnswersResponse')
 
 const config = {
-  environment: {
-    development: true
+  jsreport: {
+    studioEditorEnabled: true
   },
   typeform: {
     url: 'https://typeform-url.com',
@@ -38,8 +38,8 @@ describe('app', () => {
   it('does not allow access to jsreport studio in production', (done) => {
     const fakeProdConfig = {
       ...config,
-      environment: {
-        development: false
+      jsreport: {
+        studioEditorEnabled: false
       }
     }
     const app = require('../src/server/app')(fakeProdConfig, fakeReportingApp)

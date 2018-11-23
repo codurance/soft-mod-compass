@@ -1,6 +1,8 @@
+const environmentIsDevelopment = process.env.NODE_ENV !== 'production' || false
+
 module.exports = {
-  environment: {
-    development: process.env.NODE_ENV !== 'production' || false
+  jsreport: {
+    studioEditorEnabled: environmentIsDevelopment
   },
   typeform: {
     url: process.env.TYPEFORM_URL,
