@@ -9,6 +9,7 @@
     "start": "node index.js",
     "test": "jest && npm run lint",
     "lint": "standard",
+    "deploy:hubspot-dev": ". ./scripts/default-env.sh && yarn deploy:hubspot",
     "deploy:hubspot": "node ./src/hubspot/index.js"
   },
   "author": "Codurance",
