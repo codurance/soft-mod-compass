@@ -9,7 +9,7 @@
     "start": "node index.js",
     "test": "jest && npm run lint",
     "lint": "standard",
-    "deploy:hubspot": ". ./scripts/docker/param-store-test.sh && node ./src/hubspot/index.js"
+    "deploy:hubspot": "node ./src/hubspot/index.js"
   },
   "author": "Codurance",
   "license": "MIT",
