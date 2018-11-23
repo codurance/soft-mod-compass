@@ -10,7 +10,7 @@
     "test": "jest && npm run lint",
     "lint": "standard",
     "deploy:hubspot-dev": ". ./scripts/default-env.sh && yarn deploy:hubspot",
-    "deploy:hubspot": "node ./src/hubspot/index.js"
+    "deploy:hubspot": "node ./scripts/hubspot/index.js"
   },
   "author": "Codurance",
   "license": "MIT",

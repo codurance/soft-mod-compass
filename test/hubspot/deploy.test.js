@@ -1,5 +1,5 @@
 const nock = require('nock')
-const deploy = require('../../src/hubspot/deploy')
+const deploy = require('../../scripts/hubspot/deploy')
 
 describe('HubSpot deploy', () => {
   const apiKey = 'im-an-api-key'

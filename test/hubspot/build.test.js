@@ -1,4 +1,4 @@
-const build = require('../../src/hubspot/build')
+const build = require('../../scripts/hubspot/build')
 
 describe('HubSpot build', () => {
   it('substitues header, footer and body html correctly', () => {
