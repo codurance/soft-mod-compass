@@ -5,9 +5,12 @@ function reportViewModel (categories, questionChoices, answers) {
     .map(addScore)
     .map(addContent)
 
+  const scores = categoriesWithContentAndScore.map(c => c.score)
+
   return {
+    scores,
     summaryRadial: {
-      scores: categoriesWithContentAndScore.map(c => c.score),
+      scores,
       labels: categoriesWithContentAndScore.map(c => c.name)
     },
     categories: categoriesWithContentAndScore.map(({

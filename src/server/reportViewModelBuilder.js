@@ -2,8 +2,6 @@ const reportViewModel = require('./reportViewModel')
 const categoryData = require('./categoryData')
 
 const reportViewModelBuilder = (typeformClient) => {
-  return buildReportViewModelFor
-
   function buildReportViewModelFor (submissionId) {
     return getSurveySubmissionFor(submissionId)
       .then(([choices, answers]) => {
@@ -18,6 +16,8 @@ const reportViewModelBuilder = (typeformClient) => {
         typeformClient.surveyAnswersFor(submissionId)
       ])
   }
+
+  return buildReportViewModelFor
 }
 
 module.exports = reportViewModelBuilder

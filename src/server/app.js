@@ -29,7 +29,7 @@ module.exports = (config, reportingApp) => {
   app.get('/scores/:uuid', (req, res) => {
     buildReportViewModelFor(req.params.uuid)
       .then(viewModel => {
-        res.send(base64Encode(viewModel.summaryRadial.scores.toString()))
+        res.send(base64Encode(viewModel.scores.toString()))
       })
   })
 

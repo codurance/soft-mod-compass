@@ -31,6 +31,7 @@ describe('survey results', () => {
     const answers = ['three', 'one', 'two', 'five', 'two', 'five', 'two', 'five']
 
     expect(reportViewModel(categories, questionChoices, answers)).toEqual({
+      'scores': [55, 70],
       'summaryRadial': {
         'scores': [55, 70],
         'labels': ['cat 1', 'cat 2']
