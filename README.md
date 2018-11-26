@@ -17,12 +17,19 @@ The UUID is also passed along in the query string when we redirect the user to H
 Unfortunatley TypeForm has no concept of categories, giving this the questions are grouped into categories in the Node app. A category consists of 4 questions, with each of those questions relating to a subcategory within the parent category. For example:
 
 Questions 1 - 4 relate to the category `Organisational Maturity`, which encompasses:
+
   Q1: question regarding `DevSecOps`
+  
   Q2: question regarding `Delivering Value`
+  
   Q3: question regarding `Technical Debt`
+  
   Q4: question regarding `Well Defined Methodology`
   
+  
+
 Questions 5 - 8: relate to the category `Continuous Deployment`
+
 ... etc
 
 There are 20 questions in total, covering 5 categories with 4 questions in each.
