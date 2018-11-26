@@ -4,13 +4,8 @@ const express = require('express')
 
 const stripHubspotSubmissionGuid = require('./middleware/stripHubspotSubmissionGuid')
 const base64Encode = require('./encoding/base64')
-const getTypeformClient = require('./survey/typeformClient')
-const reportViewModelBuilder = require('./report/reportViewModelBuilder')
 
-module.exports = (config, reportingApp) => {
-  const typeformClient = getTypeformClient(config)
-  const buildReportViewModelFor = reportViewModelBuilder(typeformClient)
-
+module.exports = (config, reportingApp, buildReportViewModelFor) => {
   const app = express()
 
   app.set('view engine', 'ejs')

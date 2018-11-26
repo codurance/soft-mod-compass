@@ -1,8 +1,3 @@
-const nock = require('nock')
-const request = require('supertest')
-const mockSurveyQuestionsResponse = require('./mockData/surveyQuestionsResponse')
-const mockSurveyAnswersResponse = require('./mockData/surveyAnswersResponse')
-
 const config = {
   jsreport: {
     studioEditorEnabled: true
@@ -14,11 +9,19 @@ const config = {
   }
 }
 
+const typeformClient = require('../src/server/survey/typeformClient')(config)
+const reportViewModelBuilder = require('../src/server/report/reportViewModelBuilder')(typeformClient)
+
+const nock = require('nock')
+const request = require('supertest')
+const mockSurveyQuestionsResponse = require('./mockData/surveyQuestionsResponse')
+const mockSurveyAnswersResponse = require('./mockData/surveyAnswersResponse')
+
 const fakeReportingApp = (req, res, next) => {
   return res.send('<p>jsreport studio</p>')
 }
 
-const app = require('../src/server/app')(config, fakeReportingApp)
+const app = require('../src/server/app')(config, fakeReportingApp, reportViewModelBuilder)
 
 describe('app', () => {
   it('responds with html on homepage', (done) => {

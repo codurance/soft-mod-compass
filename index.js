@@ -2,7 +2,10 @@ const express = require('express')
 const reportingApp = express()
 
 const config = require('./src/server/config')
-const app = require('./src/server/app')(config, reportingApp)
+const typeformClient = require('./src/server/survey/typeformClient')(config)
+const reportViewModelBuilder = require('./src/server/report/reportViewModelBuilder')(typeformClient)
+const app = require('./src/server/app')(config, reportingApp, reportViewModelBuilder)
+
 const port = 8080
 
 const server = app.listen(port, () => {
