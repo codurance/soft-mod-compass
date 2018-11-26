@@ -12,6 +12,23 @@ When a user completes the survey the UUID from the hidden field is saved along w
 
 The UUID is also passed along in the query string when we redirect the user to HubSpot so that we can uniquely identify them.
 
+#### Question categories
+
+Unfortunatley TypeForm has no concept of categories, giving this the questions are grouped into categories in the Node app. A category consists of 4 questions, with each of those questions relating to a subcategory within the parent category. For example:
+
+Questions 1 - 4 relate to the category `Organisational Maturity`, which encompasses:
+  Q1: question regarding `DevSecOps`
+  Q2: question regarding `Delivering Value`
+  Q3: question regarding `Technical Debt`
+  Q4: question regarding `Well Defined Methodology`
+  
+Questions 5 - 8: relate to the category `Continuous Deployment`
+... etc
+
+There are 20 questions in total, covering 5 categories with 4 questions in each.
+
+You can find the information for categories in `src/server/report/categoryData.js`. 
+
 ### HubSpot
 
 HubSpot is a CRM service used to host the landing page that captures user contact information once they have downloaded their report. After a user has completed the survey they are redirected to HubSpot with their UUID and a base64 comma separated list of scores for each survey category in the query string. We use the UUID to build a report download URL that points back to the `/report/:UUID` endpoint of the Node app. Note we also store the UUID in a hidden field on the HubSpot report download form, this is then saved along with their interaction so that we can refer back to their scores or report.
