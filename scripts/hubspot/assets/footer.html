@@ -3,13 +3,12 @@
         var container = document.getElementById('container')
         var canv = document.createElement('canvas')
         canv.id = 'myChart'
-        canv.height = 600
-        canv.width = 600
         container.appendChild(canv)
 
         var ctx = document.getElementById("myChart");
         Chart.defaults.global.defaultFontFamily = "'Open Sans', sans-serif";
         Chart.defaults.global.defaultFontSize = 12;
+      	Chart.defaults.global.legend.display = false
         var myChart = new Chart(ctx, {
             type: 'radar',
             data: {
@@ -40,6 +39,9 @@
                         min: 0,
                         max: 100
                     }
+                },
+               	legend: {
+                	display: false,
                 }
             }
         });
