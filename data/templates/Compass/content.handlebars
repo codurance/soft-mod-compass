@@ -35,6 +35,10 @@
                 page-break-after: always;
             }
         }
+        
+        section {
+            page-break-inside: avoid;
+        }
     </style>
 </head>
 <body>
@@ -50,7 +54,7 @@
             <canvas id="{{this.name}}" width="200" height="200"></canvas>
         </div>
         <p>{{this.name}} - {{this.score}}</p>
-        <p>{{this.content}}</p>
+        <p>{{{this.content}}}</p>
     </div>
 {{/each}}
 <script>
