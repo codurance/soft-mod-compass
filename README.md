@@ -65,8 +65,17 @@ The above diagram in the `docs` folder can be opened with [draw.io](https://www.
 ```
 yarn install
 
-yarn start # go to localhost:8080
+yarn dev # go to localhost:8080
 ```
+
+If you see this error:
+```
+sh: ./scripts/default-env.sh: No such file or directory
+```
+
+It's because you need a `scripts/default-env.sh` file, which contains the environment variables to connect to typeform and hubspot.
+
+The file contents are stored in Bitwarden, in a note titled `[Compass] default-env.sh contents`. Create the file, paste the contents and then make it executable (on unix this is `chmod +x scripts/default-env.sh`)
 
 ## Running with Docker
 
