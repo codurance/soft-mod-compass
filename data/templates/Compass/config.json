@@ -4,10 +4,15 @@
     "recipe": "chrome-pdf",
     "engine": "handlebars",
     "chrome": {
-        "printBackground": true
+        "printBackground": true,
+        "format": "A4",
+        "marginTop": "2cm",
+        "marginRight": "2cm",
+        "marginBottom": "2cm",
+        "marginLeft": "2cm"
     },
     "modificationDate": {
-        "$$date": 1542108352513
+        "$$date": 1548260584950
     },
     "_id": "bUe0ZtrZKts6vwCZ",
     "$entitySet": "templates",

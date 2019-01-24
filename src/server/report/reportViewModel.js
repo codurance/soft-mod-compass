@@ -1,9 +1,9 @@
 module.exports = reportViewModel
 
-function reportViewModel (categories, questionChoices, answers) {
+function reportViewModel (loadContent, categories, questionChoices, answers) {
   const categoriesWithContentAndScore = createCategoriesFrom(categories, questionChoices, answers)
     .map(addScore)
-    .map(addContent)
+    .map(x => addContent(loadContent, x))
 
   const scores = categoriesWithContentAndScore.map(c => c.score)
 
@@ -55,15 +55,7 @@ function calculateScoreFor ({ choices, answers }) {
   }
 }
 
-function addContent (category) {
-  let content
-  if (category.score < 33) {
-    content = category.low
-  } else if (category.score < 66) {
-    content = category.medium
-  } else {
-    content = category.high
-  }
-
+function addContent (loadContent, category) {
+  const content = loadContent(category.name, category.score)
   return Object.assign({}, category, { content })
 }

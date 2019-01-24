@@ -2,9 +2,9 @@ module.exports = [
   {
     name: 'Organisational Maturity',
     subCategoryNames: ['DevSecOps', 'Delivering Value', 'Technical Debt', 'Well Defined Methodology'],
-    low: 'low - organisatonal maturity',
-    medium: 'medium - organisatonal maturity',
-    high: 'high - organisatonal maturity'
+    low: 'low - organisational maturity',
+    medium: 'medium - organisational maturity',
+    high: 'high - organisational maturity'
   },
   {
     name: 'Continuous Deployment',

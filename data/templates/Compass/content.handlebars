@@ -35,23 +35,27 @@
                 page-break-after: always;
             }
         }
+        
+        p {
+            page-break-inside: avoid;
+        }
     </style>
 </head>
 <body>
-<div class="page-break-after">
+<figure class="page-break-after">
     <img class="logo" src="{#asset codurance.png @encoding=dataURI}" style="height: 150px; width: 700px;" />
-</div>
-<div class="radial-container">
+</figure>
+<figure class="radial-container">
     <canvas id="SummaryRadial" width="600" height="600"></canvas>
-</div>
+</figure>
 {{#each categories}}
-    <div class="page-break-before">
-        <div class="subradial-container">
+    <article class="page-break-before">
+        <figure class="subradial-container">
             <canvas id="{{this.name}}" width="200" height="200"></canvas>
-        </div>
-        <p>{{this.name}} - {{this.score}}</p>
-        <p>{{this.content}}</p>
-    </div>
+        </figure>
+        <h1>{{this.name}}</h1>
+        {{{this.content}}}
+    </article>
 {{/each}}
 <script>
   var labels = "{{summaryRadial.labels}}".split(',')
@@ -83,7 +87,8 @@
         scale: {
             ticks: {
                 min: 0,
-                max: 100
+                max: 100,
+                display: false
             }
         }
     }
@@ -120,7 +125,8 @@
       scale: {
           ticks: {
               min: 0,
-              max: 100
+              max: 100,
+              display: false
           }
       }
     }
