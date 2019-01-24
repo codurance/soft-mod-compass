@@ -1,5 +1,7 @@
 module.exports = reportViewModel
 
+const loadContentFor = require('./contentRepository')
+
 function reportViewModel (categories, questionChoices, answers) {
   const categoriesWithContentAndScore = createCategoriesFrom(categories, questionChoices, answers)
     .map(addScore)
@@ -56,14 +58,7 @@ function calculateScoreFor ({ choices, answers }) {
 }
 
 function addContent (category) {
-  let content
-  if (category.score < 33) {
-    content = category.low
-  } else if (category.score < 66) {
-    content = category.medium
-  } else {
-    content = category.high
-  }
-
+  let content = ''
+  content = loadContentFor(category.name, category.score)
   return Object.assign({}, category, { content })
 }
