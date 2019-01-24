@@ -6,3 +6,4 @@ dist
 logs
 data/settings
 scripts/default-env.sh
+npm-debug.log
