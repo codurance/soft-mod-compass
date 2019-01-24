@@ -12,7 +12,7 @@ const loadContentFor = (categoryName, score) => {
 }
 
 function fileNameFor(categoryName, level) {
-    let safeCategoryName = categoryName.toLowerCase().replace(/ /g,"_")
+    let safeCategoryName = categoryName.toLowerCase().replace(/ /g,"_").replace("-", "_")
     return `${__dirname}/../../../data/content/${safeCategoryName}_${level}.html`
 }
 
