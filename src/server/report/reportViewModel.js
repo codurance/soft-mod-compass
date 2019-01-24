@@ -1,11 +1,9 @@
 module.exports = reportViewModel
 
-const loadContentFor = require('./contentRepository')
-
-function reportViewModel (categories, questionChoices, answers) {
+function reportViewModel (loadContent, categories, questionChoices, answers) {
   const categoriesWithContentAndScore = createCategoriesFrom(categories, questionChoices, answers)
     .map(addScore)
-    .map(addContent)
+    .map(x => addContent(loadContent, x))
 
   const scores = categoriesWithContentAndScore.map(c => c.score)
 
@@ -57,8 +55,7 @@ function calculateScoreFor ({ choices, answers }) {
   }
 }
 
-function addContent (category) {
-  let content = ''
-  content = loadContentFor(category.name, category.score)
+function addContent (loadContent, category) {
+  const content = loadContent(category.name, category.score)
   return Object.assign({}, category, { content })
 }

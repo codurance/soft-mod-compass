@@ -37,6 +37,7 @@
     "globals": [
       "describe",
       "it",
+      "test",
       "typeformEmbed",
       "jest",
       "expect",

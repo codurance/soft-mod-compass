@@ -1,7 +1,15 @@
 const reportViewModel = require('../../src/server/report/reportViewModel')
+const loadContentStub = category => {
+  if (category === 'cat 1') {
+    return 'hello mediums'
+  }
+  if (category === 'cat 2') {
+    return 'HELLO YOU DID WELL'
+  }
+}
 
 describe('survey results', () => {
-  it('creates survey results', () => {
+  test('creates survey results', () => {
     const categories = [
       {
         name: 'cat 1',
@@ -30,7 +38,7 @@ describe('survey results', () => {
     ]
     const answers = ['three', 'one', 'two', 'five', 'two', 'five', 'two', 'five']
 
-    expect(reportViewModel(categories, questionChoices, answers)).toEqual({
+    expect(reportViewModel(loadContentStub, categories, questionChoices, answers)).toEqual({
       'scores': [55, 70],
       'summaryRadial': {
         'scores': [55, 70],

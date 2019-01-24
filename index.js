@@ -3,7 +3,8 @@ const reportingApp = express()
 
 const config = require('./src/server/config')
 const typeformClient = require('./src/server/survey/typeformClient')(config)
-const reportViewModelBuilder = require('./src/server/report/reportViewModelBuilder')(typeformClient)
+const contentRepository = require('./src/server/report/contentRepository')
+const reportViewModelBuilder = require('./src/server/report/reportViewModelBuilder')(typeformClient, contentRepository)
 const app = require('./src/server/app')(config, reportingApp, reportViewModelBuilder)
 
 const port = 8080
