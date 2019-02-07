@@ -38,6 +38,7 @@
       "describe",
       "it",
       "test",
+      "afterEach",
       "typeformEmbed",
       "jest",
       "expect",

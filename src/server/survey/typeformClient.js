@@ -10,7 +10,7 @@ module.exports = config => {
     getQuestionChoices
   }
 
-  function surveyAnswersFor (uuid) {
+  function surveyAnswersFor (uuid, retries = 3) {
     const options = {
       uri: `${config.typeform.url}/forms/${config.typeform.formId}/responses?query=${uuid}`,
       headers,
@@ -18,7 +18,16 @@ module.exports = config => {
     }
 
     return rp(options)
-      .then(results => results.items[0].answers.map(answer => answer.choice.label))
+      .then(results => {
+        if (results.items.length > 0) {
+          return results.items[0].answers.map(answer => answer.choice.label)
+        } else {
+          const retriesLeft = retries - 1
+          if (retriesLeft === 0) throw Error(`no survey answers for ${uuid} after three attempts`)
+
+          return surveyAnswersFor(uuid, retriesLeft)
+        }
+      })
   }
 
   function getQuestionChoices () {
