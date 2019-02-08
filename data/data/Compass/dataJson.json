@@ -3,7 +3,7 @@
         "scores": [20, 40, 90, 30, 50],
         "labels": [
             "Organisational Maturity", 
-            "Continuous Deployment",
+            "Continuous Delivery",
             "Culture",
             "Cross-Functional Teams",
             "XP Practices"
@@ -18,7 +18,7 @@
             "subCategoryScores": [20, 40, 60, 80]
         },
         {
-            "name": "Continuous Deployment",
+            "name": "Continuous Delivery",
             "content": "Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.",
             "score": 40,
             "subCategoryLabels": ["sub1", "sub2", "sub3", "sub4"],

@@ -7,7 +7,7 @@ module.exports = [
     high: 'high - organisational maturity'
   },
   {
-    name: 'Continuous Deployment',
+    name: 'Continuous Delivery',
     subCategoryNames: ['Deployment cadence', 'Rework', 'Automated Pipeline', 'Confidence to develop without side effects'],
     low: 'low - CD',
     medium: 'medium - CD',

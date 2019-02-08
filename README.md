@@ -28,7 +28,7 @@ Questions 1 - 4 relate to the category `Organisational Maturity`, which encompas
   
   
 
-Questions 5 - 8: relate to the category `Continuous Deployment`
+Questions 5 - 8: relate to the category `Continuous Delivery`
 
 ... etc
 
