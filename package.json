@@ -22,6 +22,7 @@
     "jsreport": "2.2.0",
     "request": "2.88.0",
     "request-promise": "4.2.2",
+    "sleep-promise": "8.0.1",
     "uuid": "3.3.2"
   },
   "devDependencies": {

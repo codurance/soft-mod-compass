@@ -7531,6 +7531,11 @@ slash@^1.0.0:
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/slash/-/slash-1.0.0.tgz#c41f2f6c39fc16d1cd17ad4b5d896114ae470d55"
   integrity sha1-xB8vbDn8FtHNF61LXYlhFK5HDVU=
 
+sleep-promise@8.0.1:
+  version "8.0.1"
+  resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/sleep-promise/-/sleep-promise-8.0.1.tgz#8d795a27ea23953df6b52b91081e5e22665993c5"
+  integrity sha1-jXlaJ+ojlT32tSuRCB5eImZZk8U=
+
 slice-ansi@1.0.0:
   version "1.0.0"
   resolved "https://mmrepo.jfrog.io/mmrepo/api/npm/npm-virtual/slice-ansi/-/slice-ansi-1.0.0.tgz#044f1a49d8842ff307aad6b505ed178bd950134d"
