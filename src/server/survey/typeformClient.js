@@ -1,4 +1,5 @@
 const rp = require('request-promise')
+const sleep = require('sleep-promise')
 
 module.exports = config => {
   const headers = {
@@ -25,7 +26,8 @@ module.exports = config => {
           const retriesLeft = retries - 1
           if (retriesLeft === 0) throw Error(`no survey answers for ${uuid} after three attempts`)
 
-          return surveyAnswersFor(uuid, retriesLeft)
+          return sleep(250)
+            .then(() => surveyAnswersFor(uuid, retriesLeft))
         }
       })
   }
