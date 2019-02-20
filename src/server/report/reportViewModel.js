@@ -47,12 +47,16 @@ function addScore (category) {
 
 function calculateScoreFor ({ choices, answers }) {
   const subCategoryScores = choices
-    .map((choiceList, index) => (choiceList.indexOf(answers[index]) + 1) * 20)
+    .map((choiceList, index) => calculateScoreForAnswer(choiceList, answers[index]))
 
   return {
     score: subCategoryScores.reduce((a, b) => a + b) / answers.length,
     subCategoryScores
   }
+}
+
+function calculateScoreForAnswer (choices, answer) {
+  return 100 - choices.indexOf(answer) * 20
 }
 
 function addContent (loadContent, category) {

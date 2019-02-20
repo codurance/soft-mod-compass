@@ -54,7 +54,7 @@ describe('app', () => {
   })
 
   it('returns survey scores base64 encoded for transport to hubspot in query string', (done) => {
-    const testUuid = '131696db-7092-45eb-a39d-79dc81e1f77f'
+    const testUuid = '30749000-5a7b-4de7-b76f-297a84a6c72e'
 
     nock(config.typeform.url, {
       reqheaders: {
@@ -74,6 +74,6 @@ describe('app', () => {
 
     request(app)
       .get(`/scores/${testUuid}`)
-      .expect(200, 'MjAsNDAsNjAsODAsMTAw', done)
+      .expect(200, 'MTAwLDEwMCwxMDAsMTAwLDEwMA==', done)
   })
 })

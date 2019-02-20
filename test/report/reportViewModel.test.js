@@ -6,6 +6,9 @@ const loadContentStub = category => {
   if (category === 'cat 2') {
     return 'HELLO YOU DID WELL'
   }
+  if (category === 'cat 3') {
+    return 'hello this is still low, again'
+  }
 }
 
 describe('survey results', () => {
@@ -13,36 +16,38 @@ describe('survey results', () => {
     const categories = [
       {
         name: 'cat 1',
-        low: 'hello lowww',
-        medium: 'hello mediums',
-        high: 'hello you did well',
         subCategoryNames: ['1 sub1', '1 sub2', '1 sub3', '1 sub4']
       },
       {
         name: 'cat 2',
-        low: 'hello this is still low',
-        medium: 'hello mediums is ok',
-        high: 'HELLO YOU DID WELL',
         subCategoryNames: ['2 sub1', '2 sub2', '2 sub3', '2 sub4']
+      },
+      {
+        name: 'cat 3',
+        subCategoryNames: ['3 sub1', '3 sub2', '3 sub3', '3 sub4']
       }
     ]
     const questionChoices = [
-      ['one', 'two', 'three', 'four', 'five'],
-      ['one', 'two', 'three', 'four', 'five'],
-      ['one', 'two', 'three', 'four', 'five'],
-      ['one', 'two', 'three', 'four', 'five'],
-      ['one', 'two', 'three', 'four', 'five'],
-      ['one', 'two', 'three', 'four', 'five'],
-      ['one', 'two', 'three', 'four', 'five'],
-      ['one', 'two', 'three', 'four', 'five']
+      ['five', 'four', 'three', 'two', 'one'],
+      ['five', 'four', 'three', 'two', 'one'],
+      ['five', 'four', 'three', 'two', 'one'],
+      ['five', 'four', 'three', 'two', 'one'],
+      ['five', 'four', 'three', 'two', 'one'],
+      ['five', 'four', 'three', 'two', 'one'],
+      ['five', 'four', 'three', 'two', 'one'],
+      ['five', 'four', 'three', 'two', 'one'],
+      ['five', 'four', 'three', 'two', 'one'],
+      ['five', 'four', 'three', 'two', 'one'],
+      ['five', 'four', 'three', 'two', 'one'],
+      ['five', 'four', 'three', 'two', 'one']
     ]
-    const answers = ['three', 'one', 'two', 'five', 'two', 'five', 'two', 'five']
+    const answers = ['three', 'one', 'two', 'five', 'two', 'five', 'two', 'five', 'one', 'two', 'one', 'two']
 
     expect(reportViewModel(loadContentStub, categories, questionChoices, answers)).toEqual({
-      'scores': [55, 70],
+      'scores': [55, 70, 30],
       'summaryRadial': {
-        'scores': [55, 70],
-        'labels': ['cat 1', 'cat 2']
+        'scores': [55, 70, 30],
+        'labels': ['cat 1', 'cat 2', 'cat 3']
       },
       'categories': [
         {
@@ -58,6 +63,13 @@ describe('survey results', () => {
           'score': 70,
           'subCategoryLabels': ['2 sub1', '2 sub2', '2 sub3', '2 sub4'],
           'subCategoryScores': [40, 100, 40, 100]
+        },
+        {
+          'name': 'cat 3',
+          'content': 'hello this is still low, again',
+          'score': 30,
+          'subCategoryLabels': ['3 sub1', '3 sub2', '3 sub3', '3 sub4'],
+          'subCategoryScores': [20, 40, 20, 40]
         }
       ]
     })
