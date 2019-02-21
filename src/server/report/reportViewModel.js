@@ -1,8 +1,9 @@
 module.exports = reportViewModel
 
-function reportViewModel (loadContent, categories, questionChoices, answers) {
+function reportViewModel (loadContent, categories, questionChoices, answers, loadStaticContent) {
   const categoriesWithContentAndScore = createCategoriesFrom(categories, questionChoices, answers)
     .map(addScore)
+    .map(x => addStaticContent(loadStaticContent, x))
     .map(x => addContent(loadContent, x))
 
   const scores = categoriesWithContentAndScore.map(c => c.score)
@@ -16,12 +17,14 @@ function reportViewModel (loadContent, categories, questionChoices, answers) {
     categories: categoriesWithContentAndScore.map(({
       name,
       content,
+      staticContent,
       score,
       subCategoryNames,
       subCategoryScores
     }) => (
       { name,
         content,
+        staticContent,
         score,
         subCategoryLabels: subCategoryNames,
         subCategoryScores
@@ -62,4 +65,9 @@ function calculateScoreForAnswer (choices, answer) {
 function addContent (loadContent, category) {
   const content = loadContent(category.name, category.score)
   return Object.assign({}, category, { content })
+}
+
+function addStaticContent (loadStaticContent, category) {
+  const staticContent = loadStaticContent(category.name)
+  return Object.assign({}, category, { staticContent })
 }

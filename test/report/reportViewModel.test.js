@@ -10,6 +10,17 @@ const loadContentStub = category => {
     return 'hello this is still low, again'
   }
 }
+const loadStaticContentStub = category => {
+  if (category === 'cat 1') {
+    return 'static content 1'
+  }
+  if (category === 'cat 2') {
+    return 'static content 2'
+  }
+  if (category === 'cat 3') {
+    return 'static content 3'
+  }
+}
 
 describe('survey results', () => {
   test('creates survey results', () => {
@@ -43,7 +54,9 @@ describe('survey results', () => {
     ]
     const answers = ['three', 'one', 'two', 'five', 'two', 'five', 'two', 'five', 'one', 'two', 'one', 'two']
 
-    expect(reportViewModel(loadContentStub, categories, questionChoices, answers)).toEqual({
+    const result = reportViewModel(loadContentStub, categories, questionChoices, answers, loadStaticContentStub)
+
+    expect(result).toEqual({
       'scores': [55, 70, 30],
       'summaryRadial': {
         'scores': [55, 70, 30],
@@ -53,6 +66,7 @@ describe('survey results', () => {
         {
           'name': 'cat 1',
           'content': 'hello mediums',
+          'staticContent': 'static content 1',
           'score': 55,
           'subCategoryLabels': ['1 sub1', '1 sub2', '1 sub3', '1 sub4'],
           'subCategoryScores': [60, 20, 40, 100]
@@ -60,6 +74,7 @@ describe('survey results', () => {
         {
           'name': 'cat 2',
           'content': 'HELLO YOU DID WELL',
+          'staticContent': 'static content 2',
           'score': 70,
           'subCategoryLabels': ['2 sub1', '2 sub2', '2 sub3', '2 sub4'],
           'subCategoryScores': [40, 100, 40, 100]
@@ -67,6 +82,7 @@ describe('survey results', () => {
         {
           'name': 'cat 3',
           'content': 'hello this is still low, again',
+          'staticContent': 'static content 3',
           'score': 30,
           'subCategoryLabels': ['3 sub1', '3 sub2', '3 sub3', '3 sub4'],
           'subCategoryScores': [20, 40, 20, 40]

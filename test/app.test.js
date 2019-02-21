@@ -11,7 +11,8 @@ const config = {
 
 const typeformClient = require('../src/server/survey/typeformClient')(config)
 const loadContent = require('../src/server/report/contentRepository')
-const reportViewModelBuilder = require('../src/server/report/reportViewModelBuilder')(typeformClient, loadContent)
+const loadStaticContent = require('../src/server/report/staticContentRepository')
+const reportViewModelBuilder = require('../src/server/report/reportViewModelBuilder')(typeformClient, loadContent, loadStaticContent)
 
 const nock = require('nock')
 const request = require('supertest')
