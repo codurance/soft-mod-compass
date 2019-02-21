@@ -6,13 +6,13 @@
     "chrome": {
         "printBackground": true,
         "format": "A4",
-        "marginTop": "2cm",
-        "marginRight": "2cm",
-        "marginBottom": "2cm",
-        "marginLeft": "2cm"
+        "marginTop": "0cm",
+        "marginRight": "0cm",
+        "marginBottom": "0cm",
+        "marginLeft": "0cm"
     },
     "modificationDate": {
-        "$$date": 1550754506762
+        "$$date": 1550768126204
     },
     "_id": "bUe0ZtrZKts6vwCZ",
     "$entitySet": "templates",
