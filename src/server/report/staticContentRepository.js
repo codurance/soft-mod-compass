@@ -10,7 +10,7 @@ const loadContentFor = (categoryName) => {
 
 function fileNameFor (categoryName) {
   let safeCategoryName = categoryName.toLowerCase().replace(/ /g, '_').replace('-', '_')
-  return `${__dirname}/../../../data/content/${safeCategoryName}_headerContent}.html`
+  return `${__dirname}/../../../data/staticContent/${safeCategoryName}_headerContent.html`
 }
 
 module.exports = loadContentFor
