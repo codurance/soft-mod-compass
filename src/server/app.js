@@ -1,6 +1,7 @@
 const path = require('path')
 const jsreport = require('jsreport')
 const express = require('express')
+const favicon = require('serve-favicon')
 
 const stripHubspotSubmissionGuid = require('./middleware/stripHubspotSubmissionGuid')
 const base64Encode = require('./encoding/base64')
@@ -12,6 +13,7 @@ module.exports = (config, reportingApp, buildReportViewModelFor) => {
   app.set('views', path.join(__dirname, '/views'))
   app.use(stripHubspotSubmissionGuid)
   app.use(express.static('dist'))
+  app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 
   if (config.jsreport.studioEditorEnabled) {
     app.use('/reporting', reportingApp)
