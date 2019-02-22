@@ -46,7 +46,7 @@
         }
 
         .radar-legend {
-          margin-left: 30px;
+          margin-left: 70px;
           font-size: 12px;
         }
 
@@ -57,6 +57,11 @@
 
         .radar-legend-data {
           padding-right: 20px;
+        }
+
+        .section-divider {
+          border-top: 1px solid #185466;
+          margin: 30px 60px 0 60px;          
         }
 
         .category-description {
@@ -77,9 +82,9 @@
         }
 
         .main-content {
-          padding: 20px 60px 0 60px;
-          height: 570px;
-          overflow: hidden;          
+          padding: 15px 60px 0 60px;
+          height: 550px;
+          overflow: hidden;
         }
 
         @media print {
@@ -121,21 +126,7 @@
           <section class="subradial-container">
             <figure>
               <canvas id="{{this.name}}" width="200" height="200"></canvas>
-            </figure>
-            <section class="radar-legend dt">
-              <div class="tr">
-                <div class="td radar-legend-index">A</div>
-                <div class="td radar-legend-data">{{this.subCategoryLabel1}}</div>
-                <div class="td radar-legend-index">B</div>
-                <div class="td radar-legend-data">{{this.subCategoryLabel2}}</div>
-              </div>
-              <div class="tr">
-                <div class="td radar-legend-index">C</div>
-                <div class="td radar-legend-data">{{this.subCategoryLabel3}}</div>
-                <div class="td radar-legend-index">D</div>
-                <div class="td radar-legend-data">{{this.subCategoryLabel4}}</div>
-              </div>
-            </section>
+            </figure>            
           </section>
           <aside class="category-description">
             <h1>{{this.name}}</h1>
@@ -144,7 +135,23 @@
             </div>
           </aside>
       </section>
-        
+      <section class="radar-legend dt">
+        <div class="tr">
+          <div class="td radar-legend-index">A</div>
+          <div class="td radar-legend-data">{{this.subCategoryLabel1}}</div>
+          <div class="td radar-legend-index">B</div>
+          <div class="td radar-legend-data">{{this.subCategoryLabel2}}</div>
+        </div>
+        <div class="tr">
+          <div class="td radar-legend-index">C</div>
+          <div class="td radar-legend-data">{{this.subCategoryLabel3}}</div>
+          <div class="td radar-legend-index">D</div>
+          <div class="td radar-legend-data">{{this.subCategoryLabel4}}</div>
+        </div>
+      </section>
+      <section class="section-divider">
+
+      </section>
       <section class="main-content">
         {{{this.content.page1}}}
       </section>
