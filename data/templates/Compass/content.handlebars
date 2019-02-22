@@ -50,6 +50,15 @@
           font-size: 12px;
         }
 
+        .radar-legend-index {
+          font-weight: 600;
+          padding-right: 10px;
+        }
+
+        .radar-legend-data {
+          padding-right: 20px;
+        }
+
         .category-description {
             width: 43%;
             display: inline-block;
@@ -60,7 +69,7 @@
         }
 
         .main-content {
-          padding: 10px 10px 10px 10px;
+          padding: 30px;
         }
 
         @media print {
@@ -74,6 +83,17 @@
         
         p {
             page-break-inside: avoid;
+        }
+
+        .dt { 
+          display: table;
+        }
+
+        .tr { 
+            display: table-row;            
+        }
+        .td { 
+            display: table-cell;
         }
     </style>
 </head>
@@ -92,11 +112,19 @@
               <figure>
                 <canvas id="{{this.name}}" width="200" height="200"></canvas>
               </figure>
-              <section class="radar-legend">
-                <div>A: {{this.subCategoryLabel1}}</div>
-                <div>B: {{this.subCategoryLabel2}}</div>
-                <div>C: {{this.subCategoryLabel3}}</div>
-                <div>D: {{this.subCategoryLabel4}}</div>
+              <section class="radar-legend dt">
+                <div class="tr">
+                  <div class="td radar-legend-index">A</div>
+                  <div class="td radar-legend-data">{{this.subCategoryLabel1}}</div>
+                  <div class="td radar-legend-index">B</div>
+                  <div class="td radar-legend-data">{{this.subCategoryLabel2}}</div>
+                </div>
+                <div class="tr">
+                  <div class="td radar-legend-index">C</div>
+                  <div class="td radar-legend-data">{{this.subCategoryLabel3}}</div>
+                  <div class="td radar-legend-index">D</div>
+                  <div class="td radar-legend-data">{{this.subCategoryLabel4}}</div>
+                </div>
               </section>
             </section>
             <aside class="category-description">
