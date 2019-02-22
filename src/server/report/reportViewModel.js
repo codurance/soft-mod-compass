@@ -27,6 +27,10 @@ function reportViewModel (loadContent, categories, questionChoices, answers, loa
         staticContent,
         score,
         subCategoryLabels: subCategoryNames,
+        subCategoryLabel1: subCategoryNames[0],
+        subCategoryLabel2: subCategoryNames[1],
+        subCategoryLabel3: subCategoryNames[2],
+        subCategoryLabel4: subCategoryNames[3],
         subCategoryScores
       }))
   }

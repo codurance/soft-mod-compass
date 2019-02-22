@@ -69,6 +69,10 @@ describe('survey results', () => {
           'staticContent': 'static content 1',
           'score': 55,
           'subCategoryLabels': ['1 sub1', '1 sub2', '1 sub3', '1 sub4'],
+          'subCategoryLabel1': '1 sub1',
+          'subCategoryLabel2': '1 sub2',
+          'subCategoryLabel3': '1 sub3',
+          'subCategoryLabel4': '1 sub4',
           'subCategoryScores': [60, 20, 40, 100]
         },
         {
@@ -77,6 +81,10 @@ describe('survey results', () => {
           'staticContent': 'static content 2',
           'score': 70,
           'subCategoryLabels': ['2 sub1', '2 sub2', '2 sub3', '2 sub4'],
+          'subCategoryLabel1': '2 sub1',
+          'subCategoryLabel2': '2 sub2',
+          'subCategoryLabel3': '2 sub3',
+          'subCategoryLabel4': '2 sub4',
           'subCategoryScores': [40, 100, 40, 100]
         },
         {
@@ -85,6 +93,10 @@ describe('survey results', () => {
           'staticContent': 'static content 3',
           'score': 30,
           'subCategoryLabels': ['3 sub1', '3 sub2', '3 sub3', '3 sub4'],
+          'subCategoryLabel1': '3 sub1',
+          'subCategoryLabel2': '3 sub2',
+          'subCategoryLabel3': '3 sub3',
+          'subCategoryLabel4': '3 sub4',
           'subCategoryScores': [20, 40, 20, 40]
         }
       ]
