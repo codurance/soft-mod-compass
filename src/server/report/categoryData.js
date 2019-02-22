@@ -8,14 +8,14 @@ module.exports = [
   },
   {
     name: 'Continuous Delivery',
-    subCategoryNames: ['Deployment cadence', 'Rework', 'Automated Pipeline', 'Confidence to develop without side effects'],
+    subCategoryNames: ['Deployment Cadence', 'Rework', 'Automated Pipeline', 'Confidence to Develop Without Side Effects'],
     low: 'low - CD',
     medium: 'medium - CD',
     high: 'high - CD'
   },
   {
     name: 'Culture',
-    subCategoryNames: ['Transparency', 'Learning', 'Failure Is An opportunity to learn', 'Career Path'],
+    subCategoryNames: ['Transparency', 'Learning', 'Failure Is an Opportunity to Learn', 'Career Path'],
     low: 'low - culture',
     medium: 'medium - culture',
     high: 'high - culture'
@@ -29,7 +29,7 @@ module.exports = [
   },
   {
     name: 'XP Practices',
-    subCategoryNames: ['TDD', 'Sustainable Pace', 'Pairing', 'Peer Review'],
+    subCategoryNames: ['Test-Driven Development', 'Sustainable Pace', 'Pairing', 'Peer Review'],
     low: 'low -  XP',
     medium: 'medium - XP',
     high: 'high - XP'
