@@ -17,6 +17,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "easy-pdf-merge": "^0.2.0",
     "ejs": "2.6.1",
     "express": "4.16.4",
     "jsreport": "2.2.0",
