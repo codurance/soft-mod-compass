@@ -115,11 +115,19 @@
         .td { 
             display: table-cell;
         }
+
+        .front-page-container {
+          margin: 0;
+        }
+
+        .banana {
+          width: 100%; height: 100%; position: absolute;
+        }
     </style>
 </head>
 <body>
-<figure class="page-break-after">
-    <img class="logo" src="{#asset codurance.png @encoding=dataURI}" style="height: 150px; width: 700px;" />
+<figure class="page-break-after front-page-container">
+    <img src="{#asset FrontPage.png @encoding=dataURI}" class="banana"/>
 </figure>
 <figure class="radial-container">
     <canvas id="SummaryRadial" width="600" height="600"></canvas>
