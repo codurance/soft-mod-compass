@@ -7,6 +7,7 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
+            font-size: 18pt;
             padding: 0;
             margin: 0;
         }
@@ -99,6 +100,10 @@
             .page-break-after {
                 page-break-after: always;
             }
+            
+            .page {
+                margin: 3em 3em 3em 3em;
+            }
         }
         
         p {
@@ -120,21 +125,52 @@
           margin: 0;
         }
 
-        .banana {
+        .cover-page {
           width: 100%; height: 100%; position: absolute;
         }
     </style>
 </head>
 <body>
 <figure class="page-break-after front-page-container">
-    <img src="{#asset FrontPage.png @encoding=dataURI}" class="banana"/>
+    <img src="{#asset FrontPage.png @encoding=dataURI}" class="cover-page"/>
 </figure>
 <figure class="radial-container">
     <canvas id="SummaryRadial" width="600" height="600"></canvas>
 </figure>
 {{#each categories}}
-    <article class="page-break-before codurance-background">
-      <img src="{#asset reportBackground.png @encoding=dataURI}" style="width: 100%; height: 100%; position: absolute;" />
+    <article class="page page-break-before">
+        <header>
+            <h1>{{this.name}}</h1>
+            <section style="column-count: 2; height: 300px;">
+                <p>
+                    Your deployment processes are either entirely or mostly manual, 
+                    and that there tends to be a blurred line of accountability between operations 
+                    and development teams.
+                </p>
+                <figure>
+                    <canvas id="{{this.name}}" width="200" height="200"></canvas>
+                </figure> 
+            </section>
+        </header>
+        <hr />
+        <section style="column-count: 2; font-size: 16pt;">
+            <!--<p>Your deployment processes are either entirely or mostly manual, and that there tends to be a blurred line of accountability between operations and development teams. Deployments to non-production environments are often automated, but production deployments remain manual.</p>
+            <p>A large percentage of development time is spent reworking defects that escape into the production environment, pulling developers' attention away from newer, valuable components and features. This leads to risk-aversity amongst developers owing to unpredictable side effects.</p>
+            <p>Operational problems owing to human error are commonplace - important things may get missed or omitted owing to fuzzy accountability between development and operations teams.</p>
+            <p>Deployment issues and rollbacks typically lead to a lower deployment cadence and slower time to market. When promised features fail top appear to clients, reputational damage follows and clients may look to other vendors to meet their needs.</p>
+            <p>The combination of defect resolution and slow feature development lead times inevitably increases the cost of getting new features to market owing to fear-based over-engineering and risk-averse behaviour in development teams. This is a typical cause of developer frustration and staff turnover.</p>
+            <p>Spend some time focusing on deployment and delivery automation, especially for production deployments. You should make sure that all environments replicate your production environment as closely as practical. Choose a continuous delivery strategy that is appropriate to your current situation and implement it in collaboration with your development and operations teams. You should be aiming for the ability to both deploy easily and to recover easily if something goes wrong.</p>
+            <p>In addition, every time you experience defects, issues or other failures you should be performing an incident retrospective with a focus on root cause analysis. The outcome should result in a fix of the root cause so that it cannot occur again. Make sure that these issues and fixes are logged and visible.</p>
+            <p>Train and mentor your developers in Extreme Programming practices in order to minimise the risk of defects being introduced in the first place. Demonstrate to them how a good suite of unit, acceptance and smoke tests can give them the confidence they need to make required changes. You should foster and encourage a culture of technical quality, driven by tests.</p>
+            -->
+            {{{this.content.page1}}}
+        </section>
+        <footer style="text-align: center; font-size: 14pt;">
+            <p>&copy; Codurance 2019</p>
+        </footer>
+    </article>
+    <!--
+    <article class="page-break-before">
       <section class="page-header">
           <section class="subradial-container">
             <figure>
@@ -177,6 +213,7 @@
         </section>
       </article>
     {{/if}}
+    -->
 {{/each}}
 <script>
   var labels = "{{summaryRadial.labels}}".split(',')
