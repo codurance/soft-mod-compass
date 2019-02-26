@@ -2,7 +2,6 @@ const path = require('path')
 const jsreport = require('jsreport')
 const express = require('express')
 const favicon = require('serve-favicon')
-const merge = require('easy-pdf-merge');
 
 const stripHubspotSubmissionGuid = require('./middleware/stripHubspotSubmissionGuid')
 const base64Encode = require('./encoding/base64')
@@ -32,14 +31,6 @@ module.exports = (config, reportingApp, buildReportViewModelFor) => {
   })
 
   app.get('/report/:uuid', (req, res) => {
-    merge([`${__dirname}/../../data/pdf/Document A.pdf`,`${__dirname}/../../data/pdf/Document B.pdf`, `${__dirname}/../../data/pdf/Document C.pdf`],`${__dirname}/../../data/pdf/Test Output.pdf`,function(err){
-      if(err) {
-        return console.log(err);
-      }
-
-      console.log('Successfully merged!');
-    });
-
     buildReportViewModelFor(req.params.uuid)
       .then(viewModel => {
         jsreport.render({
