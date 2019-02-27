@@ -91,6 +91,11 @@
           padding-top: 80px;
         }
 
+        .top-section {
+          column-count: 2;
+          height: 300px;
+        }
+
         @media print {
             .page-break-before {
                 page-break-before: always;
@@ -142,7 +147,7 @@
     <article class="page page-break-before">
         <header>
             <h1>{{this.name}}</h1>
-            <section style="column-count: 2; height: 300px;">
+            <section class="top-section">
                 <p>
                     Your deployment processes are either entirely or mostly manual, 
                     and that there tends to be a blurred line of accountability between operations 
