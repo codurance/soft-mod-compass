@@ -38,12 +38,10 @@
           padding: 0;
           margin: 0;
         }
-        
+
         .subradial-container {
-            width: 43%;
-            display: inline-block;
-            padding: 0;
-            margin: 40px 10px 0 30px;
+            width: 100%; 
+            height: 100%
         }
 
         .radar-legend {
@@ -150,9 +148,23 @@
                     and that there tends to be a blurred line of accountability between operations 
                     and development teams.
                 </p>
-                <figure>
-                    <canvas id="{{this.name}}" width="200" height="200"></canvas>
-                </figure> 
+                <figure class="subradial-container">
+                  <canvas id="{{this.name}}"></canvas>
+                  <section class="radar-legend dt">
+                    <div class="tr">
+                      <div class="td radar-legend-index">A</div>
+                      <div class="td radar-legend-data">{{this.subCategoryLabel1}}</div>
+                      <div class="td radar-legend-index">B</div>
+                      <div class="td radar-legend-data">{{this.subCategoryLabel2}}</div>
+                    </div>
+                    <div class="tr">
+                      <div class="td radar-legend-index">C</div>
+                      <div class="td radar-legend-data">{{this.subCategoryLabel3}}</div>
+                      <div class="td radar-legend-index">D</div>
+                      <div class="td radar-legend-data">{{this.subCategoryLabel4}}</div>
+                    </div>
+                  </section>
+                </figure>                
             </section>
         </header>
         <hr />
