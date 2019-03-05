@@ -60,6 +60,7 @@
           column-count: 2;
           font-size: 16pt;
           padding-top: 25px;
+          height: 1050px;
         }
 
         .main-content-area p {
@@ -189,6 +190,14 @@
         <section class="content-container">
             {{{this.content.page1}}}
         </section>
+        {{#if this.content.page2}}
+          <section class="content-container page-break-before">
+              {{{this.content.page2}}}
+          </section>
+          <footer>
+              <span>&copy; Codurance 2019</span>
+          </footer>
+        {{/if}}
         <footer>
             <span>&copy; Codurance 2019</span>
         </footer>
