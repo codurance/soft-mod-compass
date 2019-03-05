@@ -56,7 +56,12 @@
           height: 300px;
         }
 
-        p {
+        .content-container {
+          column-count: 2;
+          font-size: 16pt;
+        }
+
+        .main-content-area p {
           margin-top: 0;
         }
     
@@ -149,7 +154,7 @@
             </section>
         </header>
         <hr />
-        <section style="column-count: 2; font-size: 16pt;">
+        <section class="content-container">
             {{{this.content.page1}}}
         </section>
         <footer>
