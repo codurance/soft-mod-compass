@@ -2,7 +2,6 @@
 <head>
     <title>Chart</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
     <style>
         
@@ -157,7 +156,7 @@
 <script>
   var labels = "{{summaryRadial.labels}}".split(',')
   var ctx = document.getElementById('SummaryRadial')
-  Chart.defaults.global.defaultFontFamily = '\'Roboto\', sans-serif'
+  Chart.defaults.global.defaultFontFamily = '\'Proxima Nova\', sans-serif'
   Chart.defaults.global.defaultFontSize = 12
   var summaryRadial = new Chart(ctx, {
     type: 'radar',
@@ -196,7 +195,7 @@
 <script>
 {{#each categories}}
   var ctx = document.getElementById('{{this.name}}')
-  Chart.defaults.global.defaultFontFamily = '\'Roboto\', sans-serif'
+  Chart.defaults.global.defaultFontFamily = '\'Proxima Nova\', sans-serif'
   Chart.defaults.global.defaultFontSize = 12
   var subcategoryRadial = new Chart(ctx, {
     type: 'radar',
