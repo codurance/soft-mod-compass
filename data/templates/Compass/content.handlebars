@@ -4,28 +4,58 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
     <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
-        }
         
-        .logo {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 400px;
+        @font-face {
+            font-family: 'Proxima Nova';
+            src: url("{#asset ProximaNova-Regular.otf @encoding=dataURI}") format("opentype");
+        }
+    
+        body {
+            font-family: 'Proxima Nova';
+            font-size: 18pt;
+            padding: 0;
+            margin: 0;
         }
 
+        h1 {
+          text-align: left;
+          color: #185466;
+          font-size: 36px;
+          font-weight: normal;
+          margin-top: 0px;
+          margin-bottom: 10px;
+        }
+        
         .radial-container {
             height: 750px;
             width: 750px;
             margin: auto;
         }
-        
+
         .subradial-container {
-            height: 400px;
-            width: 400px;
-            margin: auto;
+            width: 100%; 
+            height: 100%
         }
+
+        .radar-legend {
+          margin-left: 70px;
+          font-size: 12px;
+        }
+
+        .radar-legend-index {
+          font-weight: 600;
+          padding-right: 10px;
+        }
+
+        .radar-legend-data {
+          padding-right: 20px;
+        }
+
+        .top-section {
+          column-count: 2;
+          height: 300px;
+        }
+    
 
         @media print {
             .page-break-before {
@@ -34,33 +64,99 @@
             .page-break-after {
                 page-break-after: always;
             }
-        }
+            
+            .page {
+                margin: 4% 4% 4% 4%;
+            }
+            
+            footer {
+                position: fixed;
+                bottom: 0;
+                text-align: center; 
+                font-size: 14pt;
+                width: 92%;
+            }
         
-        p {
-            page-break-inside: avoid;
+            p {
+                page-break-inside: avoid;
+            }
+    
+            .dt { 
+              display: table;
+            }
+    
+            .tr { 
+                display: table-row;            
+            }
+            .td { 
+                display: table-cell;
+            }
+    
+            .front-page-container {
+              margin: 0;
+            }
+    
+            .cover-page {
+              width: 100%; 
+              height: 100%; 
+              position: absolute;
+              z-index: 10;
+            }
         }
     </style>
 </head>
 <body>
-<figure class="page-break-after">
-    <img class="logo" src="{#asset codurance.png @encoding=dataURI}" style="height: 150px; width: 700px;" />
+<figure class="page-break-after front-page-container">
+    <img src="{#asset FrontPage.png @encoding=dataURI}" class="cover-page"/>
 </figure>
-<figure class="radial-container">
+<div class="page-break-before">
+  &nbsp;
+</div>
+<figure class="radial-container page-break-before">
     <canvas id="SummaryRadial" width="600" height="600"></canvas>
 </figure>
 {{#each categories}}
-    <article class="page-break-before">
-        <figure class="subradial-container">
-            <canvas id="{{this.name}}" width="200" height="200"></canvas>
-        </figure>
-        <h1>{{this.name}}</h1>
-        {{{this.content}}}
+    <article class="page page-break-before">
+        <header>
+            <h1>{{this.name}}</h1>
+            <section class="top-section">
+                <p>
+                    Your deployment processes are either entirely or mostly manual, 
+                    and that there tends to be a blurred line of accountability between operations 
+                    and development teams.
+                </p>
+                <figure class="subradial-container">
+                  <canvas id="{{this.name}}"></canvas>
+                  <section class="radar-legend dt">
+                    <div class="tr">
+                      <div class="td radar-legend-index">A</div>
+                      <div class="td radar-legend-data">{{this.subCategoryLabel1}}</div>
+                      <div class="td radar-legend-index">B</div>
+                      <div class="td radar-legend-data">{{this.subCategoryLabel2}}</div>
+                    </div>
+                    <div class="tr">
+                      <div class="td radar-legend-index">C</div>
+                      <div class="td radar-legend-data">{{this.subCategoryLabel3}}</div>
+                      <div class="td radar-legend-index">D</div>
+                      <div class="td radar-legend-data">{{this.subCategoryLabel4}}</div>
+                    </div>
+                  </section>
+                </figure>                
+            </section>
+        </header>
+        <hr />
+        <section style="column-count: 2; font-size: 16pt;">
+            {{{this.content.page1}}}
+        </section>
+        <footer>
+            <span>&copy; Codurance 2019</span>
+        </footer>
     </article>
 {{/each}}
 <script>
   var labels = "{{summaryRadial.labels}}".split(',')
   var ctx = document.getElementById('SummaryRadial')
-  Chart.defaults.global.defaultFontFamily = '\'Open Sans\', sans-serif'
+  Chart.defaults.global.defaultFontFamily = '\'Proxima Nova\', sans-serif'
   Chart.defaults.global.defaultFontSize = 12
   var summaryRadial = new Chart(ctx, {
     type: 'radar',
@@ -68,10 +164,9 @@
       labels: labels,
       datasets: [
         {
-          label: 'Performance',
           data: [{{summaryRadial.scores}}],
           backgroundColor: [
-            'rgba(219, 73, 0, 0.6)',
+            'rgba(239, 119, 38, 0.6)',
           ],
           borderColor: [
             'rgba(168, 25, 0,1)',
@@ -90,26 +185,27 @@
                 max: 100,
                 display: false
             }
+        },
+        legend: {
+          display: false,
         }
     }
   })
 </script>
 <script>
 {{#each categories}}
-  var labels = "{{this.subCategoryLabels}}".split(',')
   var ctx = document.getElementById('{{this.name}}')
-  Chart.defaults.global.defaultFontFamily = '\'Open Sans\', sans-serif'
+  Chart.defaults.global.defaultFontFamily = '\'Proxima Nova\', sans-serif'
   Chart.defaults.global.defaultFontSize = 12
   var subcategoryRadial = new Chart(ctx, {
     type: 'radar',
     data: {
-      labels: labels,
+      labels: [ "A", "B", "C", "D" ],
       datasets: [
         {
-          label: 'Performance',
           data: [{{this.subCategoryScores}}],
           backgroundColor: [
-            'rgba(254, 191, 39, 0.6)',
+            'rgba(255, 208, 0, 0.6)',
           ],
           borderColor: [
             'rgba(254, 191, 39,1)',
@@ -128,6 +224,9 @@
               max: 100,
               display: false
           }
+      },
+      legend: {
+        display: false
       }
     }
   })

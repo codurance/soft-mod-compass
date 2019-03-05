@@ -1,11 +1,11 @@
 const reportViewModel = require('./reportViewModel')
 const categoryData = require('./categoryData')
 
-const reportViewModelBuilder = (typeformClient, loadContent) => {
+const reportViewModelBuilder = (typeformClient, loadContent, loadStaticContent) => {
   function buildReportViewModelFor (submissionId) {
     return getSurveySubmissionFor(submissionId)
       .then(([choices, answers]) => {
-        return reportViewModel(loadContent, categoryData, choices, answers)
+        return reportViewModel(loadContent, categoryData, choices, answers, loadStaticContent)
       })
   }
 
