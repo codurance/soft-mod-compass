@@ -118,6 +118,15 @@
               position: absolute;
               z-index: 10;
             }
+            
+            .category-grid {
+                display: grid;
+                grid-template-columns: auto auto;
+                grid-template-rows: auto auto auto auto auto;
+                grid-column-gap: 1em;
+                grid-row-gap: 1em;
+            }
+
         }
     </style>
 </head>
@@ -128,9 +137,25 @@
 <div class="page-break-before">
   &nbsp;
 </div>
-<figure class="radial-container page-break-before">
-    <canvas id="SummaryRadial" width="600" height="600"></canvas>
-</figure>
+<article class="page page-break-before">
+    <h1>Your Assessment</h1>
+    <figure class="radial-container">
+        <canvas id="SummaryRadial" width="600" height="600"></canvas>
+    </figure>
+    <section class="category-grid">
+        {{#each categories}}
+            <section>{{this.name}}</section>
+            <section>
+                This is where the category description would go.
+                <br />
+                These are stacked vertically because stacking them
+                horizontally did not really give us enough space.
+                <br />
+                We could go for a row of 3 followed by a row of 2 instead?
+            </section>
+        {{/each}}
+    </section>
+</article>
 {{#each categories}}
     <article class="page page-break-before">
         <header>
