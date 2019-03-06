@@ -71,7 +71,11 @@
           background-color: #185466;
           height: 150px;
           color: #ffffff;
-        }    
+        }
+
+        .main-radial-static-content p:first-child {
+          margin-top: 0;
+        }
 
         @media print {
             .page-break-before {
@@ -164,13 +168,8 @@
     <section class="category-grid">
         {{#each categories}}
             <section>{{this.name}}</section>
-            <section>
-                This is where the category description would go.
-                <br />
-                These are stacked vertically because stacking them
-                horizontally did not really give us enough space.
-                <br />
-                We could go for a row of 3 followed by a row of 2 instead?
+            <section class="main-radial-static-content">
+                {{{this.staticContent}}}
             </section>
         {{/each}}
     </section>
@@ -180,11 +179,9 @@
         <header>
             <h1>{{this.name}}</h1>
             <section class="top-section">
-                <p>
-                    Your deployment processes are either entirely or mostly manual, 
-                    and that there tends to be a blurred line of accountability between operations 
-                    and development teams.
-                </p>
+                <section>
+                    {{{this.staticContent}}}
+                </section>
                 <figure class="subradial-container">
                   <canvas id="{{this.name}}"></canvas>
                   <section class="radar-legend dt">
