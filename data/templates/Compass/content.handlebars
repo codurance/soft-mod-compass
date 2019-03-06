@@ -63,6 +63,12 @@
           height: 1050px;
         }
 
+        .content-container.page-2 {
+          column-count: 1;
+          margin-top: 100px;
+          width: 50%;
+        }
+
         .main-content-area p {
           margin-top: 0;
         }
@@ -71,6 +77,11 @@
           background-color: #185466;
           height: 150px;
           color: #ffffff;
+        }
+
+        .main-radial-static-content p {
+          margin-bottom: 0;
+          font-size: 16pt;
         }
 
         .main-radial-static-content p:first-child {
@@ -206,7 +217,7 @@
             {{{this.content.page1}}}
         </section>
         {{#if this.content.page2}}
-          <section class="content-container page-break-before">
+          <section class="content-container page-2 page-break-before">
               {{{this.content.page2}}}
           </section>
           <footer>
