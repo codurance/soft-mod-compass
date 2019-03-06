@@ -30,7 +30,7 @@ module.exports = (config, reportingApp, buildReportViewModelFor) => {
       })
   })
 
-  app.get('/report/:uuid', (req, res) => {
+  app.get('/report/:uuid/Codurance%20Compass.pdf', (req, res) => {
     buildReportViewModelFor(req.params.uuid)
       .then(viewModel => {
         jsreport.render({
