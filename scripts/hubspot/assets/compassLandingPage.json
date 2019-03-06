@@ -36,7 +36,7 @@
                 "notifications_override_email_addresses": [],
                 "response_message": "Thanks for submitting the form",
                 "response_redirect_id": null,
-                "response_redirect_url": "http://codurance-compass.eu-west-1.elasticbeanstalk.com/report/{{request.query_dict.uuid}}",
+                "response_redirect_url": "http://codurance-compass.eu-west-1.elasticbeanstalk.com/report/{{request.query_dict.uuid}}/Codurance%20Compass.pdf",
                 "response_response_type": "redirect",
                 "sfdc_campaign": "",
                 "simple_email_for_buffer_id": "",

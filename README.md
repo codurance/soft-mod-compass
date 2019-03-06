@@ -44,7 +44,7 @@ HubSpot provides tokens (`{{request.query_dict.XXX}}`) that can be embedded into
 
 Scores that generate the radial chart: `atob("{{request.query_dict.scores}}").split(',')` in `src/hubspot/assets/footer.html`
 
-Redirect URL to download the report: `http://codurance-compass.eu-west-1.elasticbeanstalk.com/report/{{request.query_dict.uuid}}` in `src/hubspot/assets/compassLandingPage.json`
+Redirect URL to download the report: `http://codurance-compass.eu-west-1.elasticbeanstalk.com/report/{{request.query_dict.uuid}}/Codurance%20Compass.pdf` in `src/hubspot/assets/compassLandingPage.json`
 
 ### Reporting (jsreport)
 
