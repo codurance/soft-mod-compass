@@ -75,8 +75,9 @@
 
         footer {
           background-color: #185466;
-          height: 150px;
+          height: 200px;
           color: #ffffff;
+          padding-top: 15px;
         }
 
         .main-radial-static-content p {
@@ -146,7 +147,7 @@
         }
     </style>
 </head>
-<body>
+<body>  
 <figure class="page-break-after front-page-container">
     <img src="{#asset FrontPage.png @encoding=dataURI}" class="cover-page"/>
 </figure>
@@ -155,7 +156,7 @@
 </div>
 <article class="page page-break-before">
     <h1>Hello Report Viewer!</h1>
-
+    
     <p>
       Thank you for taking the time to complete the Codurance Compass survey.
       This report is designed to assist you in adopting the core behaviours 
@@ -222,7 +223,7 @@
                       <div class="td radar-legend-data">{{this.subCategoryLabel4}}</div>
                     </div>
                   </section>
-                </figure>                
+                </figure>
             </section>
         </header>
         <hr />
@@ -233,12 +234,12 @@
           <section class="content-container page-2 page-break-before">
               {{{this.content.page2}}}
           </section>
-          <footer>
-              <span>&copy; Codurance 2019</span>
+          <footer>              
+              {#asset footer.html @encoding=utf8}           
           </footer>
         {{/if}}
         <footer>
-            <span>&copy; Codurance 2019</span>
+            {#asset footer.html @encoding=utf8}
         </footer>
     </article>
 {{/each}}
