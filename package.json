@@ -19,16 +19,16 @@
   "dependencies": {
     "ejs": "2.6.1",
     "express": "4.16.4",
-    "jsreport": "2.2.0",
+    "jsreport": "2.4.0",
     "request": "2.88.0",
     "request-promise": "4.2.2",
     "sleep-promise": "8.0.1",
     "uuid": "3.3.2"
   },
   "devDependencies": {
-    "jest": "23.6.0",
+    "jest": "24.3.1",
     "nock": "10.0.2",
-    "nodemon": "1.18.6",
+    "nodemon": "1.18.10",
     "standard": "12.0.1",
     "supertest": "3.3.0",
     "webpack": "4.20.2",
