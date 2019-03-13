@@ -82,6 +82,12 @@
           margin-top: 0;
         }
 
+        .category-page-padding {
+          padding-top: 100px;
+          padding-left: 100px;
+          padding-right: 100px;
+        }
+
         @media print {
             .page-break-before {
                 page-break-before: always;
@@ -219,7 +225,7 @@
     
 </article>
 {{#each categories}}
-    <article class="page page-break-before">
+    <article class="page page-break-before category-page-padding">
         <header>
             <h1>{{this.name}}</h1>
             <section class="top-section">
