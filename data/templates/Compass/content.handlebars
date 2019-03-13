@@ -44,19 +44,6 @@
           height: 400px;
         }
 
-        .radar-legend {
-
-        }
-
-        .radar-legend-index {
-          font-weight: 600;
-          padding-right: 10px;
-        }
-
-        .radar-legend-data {
-          padding-right: 20px;
-        }
-
         .top-section {
           height: 400px;
           vertical-align: top; 
@@ -97,8 +84,8 @@
           height: 200px;
           vertical-align: top;
           padding: 0;
-          top: -100px;
-          left: 500px;
+          top: -120px;
+          left: 600px;
         }
 
         .content-container {
@@ -146,17 +133,6 @@
             
             p {
                 page-break-inside: avoid;
-            }
-    
-            .dt { 
-              display: table;              
-            }
-    
-            .tr { 
-                display: table-row;            
-            }
-            .td { 
-                display: table-cell;
             }
     
             .front-page-container {
@@ -281,22 +257,32 @@
                 </figure>
                 </div>
                 <div class="top-right">
-                  <section class="radar-legend">
-                    <div class="dt">
-                      <div class="tr">
-                        <div class="td radar-legend-index">A</div>
-                        <div class="td radar-legend-data">{{this.subCategoryLabel1}}</div>
-                        <div class="td radar-legend-index">B</div>
-                        <div class="td radar-legend-data">{{this.subCategoryLabel2}}</div>
-                      </div>
-                      <div class="tr">
-                        <div class="td radar-legend-index">C</div>
-                        <div class="td radar-legend-data">{{this.subCategoryLabel3}}</div>
-                        <div class="td radar-legend-index">D</div>
-                        <div class="td radar-legend-data">{{this.subCategoryLabel4}}</div>
-                      </div>
-                    </div>
-                  </section>
+                  <table>
+                    <thead>
+                      <tr>
+                        <td>Key</td>
+                        <td></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>A</td>
+                        <td>{{this.subCategoryLabel1}}</td>
+                      </tr>
+                      <tr>
+                        <td>B</td>
+                        <td>{{this.subCategoryLabel2}}</td>
+                      </tr>
+                      <tr>
+                        <td>C</td>
+                        <td>{{this.subCategoryLabel3}}</td>
+                      </tr>
+                      <tr>
+                        <td>D</td>
+                        <td>{{this.subCategoryLabel4}}</td>
+                      </tr>
+                    </tbody>
+                  </table>                    
                 </div>
             </section>
         </header>
