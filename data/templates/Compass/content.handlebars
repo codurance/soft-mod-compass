@@ -33,13 +33,19 @@
         }
 
         .subradial-container {
-            width: 100%; 
-            height: 100%;
+            width: 400px; 
+            height: 400px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .subradial-canvas {
+          width: 400px;
+          height: 400px;
         }
 
         .radar-legend {
-          margin-left: 70px;
-          font-size: 12px;
+
         }
 
         .radar-legend-index {
@@ -53,7 +59,9 @@
 
         .top-section {
           height: 400px;
-          vertical-align: top;          
+          vertical-align: top; 
+          padding: 0;
+          margin: 0;         
         }
 
         /* Fake (pseudo) element, that enables vertical-align */
@@ -64,23 +72,33 @@
           height: 100%;          
         }
 
-        .top-section, .top-section .top-left, .top-section .top-right {
+        .top-section, .top-section .top-left, .top-section .top-middle, .top-section .top-right {
           height: 400px;
           overflow-y: hidden;
         }
 
         .top-section .top-left {
           display: inline-block;
-          background-color: red;
-          width: 32%;
+          width: 42%;
           vertical-align: top;
         }
 
-        .top-section .top-right {
+        .top-section .top-middle {
           display: inline-block;
-          background-color: green;
-          width: 64%;
+          width: 54%;
           vertical-align: top;
+          padding: 0;
+        }
+
+        .top-section .top-right {
+          display: block;
+          position: relative;
+          width: 400px;
+          height: 200px;
+          vertical-align: top;
+          padding: 0;
+          top: -100px;
+          left: 500px;
         }
 
         .content-container {
@@ -115,7 +133,6 @@
           padding-right: 100px;
         }
 
-        @media print {
             .page-break-before {
                 page-break-before: always;
             }
@@ -132,7 +149,7 @@
             }
     
             .dt { 
-              display: table;
+              display: table;              
             }
     
             .tr { 
@@ -172,7 +189,6 @@
                 grid-column-gap: 1em;
                 grid-row-gap: 1em;
             }
-        }
     </style>
 </head>
 <body>
@@ -259,25 +275,29 @@
                 <div class="top-left">
                   {{{this.staticContent}}}
                 </div>
-                <div class="top-right">
+                <div class="top-middle">
                   <figure class="subradial-container">
-                  <canvas id="{{this.name}}"></canvas>
-                  <section class="radar-legend dt">
-                    <div class="tr">
-                      <div class="td radar-legend-index">A</div>
-                      <div class="td radar-legend-data">{{this.subCategoryLabel1}}</div>
-                      <div class="td radar-legend-index">B</div>
-                      <div class="td radar-legend-data">{{this.subCategoryLabel2}}</div>
-                    </div>
-                    <div class="tr">
-                      <div class="td radar-legend-index">C</div>
-                      <div class="td radar-legend-data">{{this.subCategoryLabel3}}</div>
-                      <div class="td radar-legend-index">D</div>
-                      <div class="td radar-legend-data">{{this.subCategoryLabel4}}</div>
+                  <canvas id="{{this.name}}" class="subradial-canvas" width="400" height="400"></canvas>                  
+                </figure>
+                </div>
+                <div class="top-right">
+                  <section class="radar-legend">
+                    <div class="dt">
+                      <div class="tr">
+                        <div class="td radar-legend-index">A</div>
+                        <div class="td radar-legend-data">{{this.subCategoryLabel1}}</div>
+                        <div class="td radar-legend-index">B</div>
+                        <div class="td radar-legend-data">{{this.subCategoryLabel2}}</div>
+                      </div>
+                      <div class="tr">
+                        <div class="td radar-legend-index">C</div>
+                        <div class="td radar-legend-data">{{this.subCategoryLabel3}}</div>
+                        <div class="td radar-legend-index">D</div>
+                        <div class="td radar-legend-data">{{this.subCategoryLabel4}}</div>
+                      </div>
                     </div>
                   </section>
-                </figure>
-                </div>                
+                </div>
             </section>
         </header>
         <hr />
