@@ -73,23 +73,6 @@
           margin-top: 0;
         }
 
-        footer {
-          background-color: #185466;
-          height: 200px;
-          color: #ffffff;
-          padding-top: 15px;
-        }
-
-        .foot-container {
-            background-color: #185466;    
-            text-align: center;     
-        }
-
-        .foot-container img {
-            width: auto;
-            height: auto;
-        }
-
         .main-radial-static-content p {
           margin-bottom: 0;
           font-size: 16pt;
@@ -100,15 +83,6 @@
         }
 
         @media print {
-            body {
-              counter-reset: sectionpagecounter;
-            }
-
-            footer .counter::before {
-              counter-increment: sectionpagecounter;
-              content: counter(sectionpagecounter);              
-            }
-            
             .page-break-before {
                 page-break-before: always;
             }
@@ -120,15 +94,6 @@
                 margin: 4% 4% 4% 4%;
             }
             
-            footer {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                text-align: center; 
-                font-size: 14pt;
-            }
-        
             p {
                 page-break-inside: avoid;
             }
@@ -154,6 +119,18 @@
               position: absolute;
               z-index: 10;
             }
+
+            footer {
+              position:fixed;
+              bottom:0;
+              width: 100%;
+              height: 100px;
+              text-align: right;              
+            }
+
+            .footer-container {
+              padding-right: 50px;
+            }
             
             .category-grid {
                 display: grid;
@@ -162,11 +139,16 @@
                 grid-column-gap: 1em;
                 grid-row-gap: 1em;
             }
-
         }
     </style>
 </head>
-<body>  
+<body>
+  
+  {{!-- Repeats on every page --}}
+  <footer>
+    {#asset footer.html @encoding=utf8}
+  </footer>
+
 <figure class="page-break-after front-page-container">
     <img src="{#asset FrontPage.png @encoding=dataURI}" class="cover-page"/>
 </figure>
@@ -189,7 +171,6 @@
     category you will be able to recognise elements of the current situation at your 
     organisation, and be able to find some actionable suggestions which you can use to improve.
   </p>
-
 
   <!--
     <h1>Hello Report Viewer!</h1>
@@ -235,6 +216,7 @@
             </section>
         {{/each}}
     </section>
+    
 </article>
 {{#each categories}}
     <article class="page page-break-before">
@@ -264,22 +246,16 @@
             </section>
         </header>
         <hr />
-        <section class="content-container">
-            {{{this.content.page1}}}
-        </section>
+        {{#if this.content.page1}}
+          <section class="content-container">
+              {{{this.content.page1}}}
+          </section>          
+        {{/if}}
         {{#if this.content.page2}}
           <section class="content-container page-2 page-break-before">
               {{{this.content.page2}}}
-          </section>
-          <footer>              
-              {#asset footer.html @encoding=utf8}
-              Page <span class="counter"></span>
-          </footer>
+          </section>          
         {{/if}}
-        <footer>
-            {#asset footer.html @encoding=utf8}
-            Page <span class="counter"></span>
-        </footer>
     </article>
 {{/each}}
 <script>
