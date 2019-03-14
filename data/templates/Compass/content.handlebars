@@ -85,12 +85,28 @@
         .top-section .top-right {
           display: block;
           position: relative;
-          width: 500px;
+          width: 230px;
           height: 200px;
           vertical-align: top;
           padding: 0;
           top: -200px;
-          left: 670px;
+          left: 660px;
+          font-size: 12pt;
+        }
+
+        .key-header {
+          font-weight: bold;
+        }
+
+        .key-ordinal {
+          display: inline-block;
+          vertical-align: top;
+        }
+
+        .key-data {
+          display: inline-block;
+          width: 205px;
+          padding-left: 5px;
         }
 
         .content-container {
@@ -174,7 +190,7 @@
 
             hr {
               border: 0.8px solid black;
-            }
+            }            
     </style>
 </head>
 <body>
@@ -269,32 +285,25 @@
                 </figure>
                 </div>
                 <div class="top-right">
-                  <table>
-                    <thead>
-                      <tr>
-                        <td>Key</td>
-                        <td></td>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>A</td>
-                        <td>{{this.subCategoryLabel1}}</td>
-                      </tr>
-                      <tr>
-                        <td>B</td>
-                        <td>{{this.subCategoryLabel2}}</td>
-                      </tr>
-                      <tr>
-                        <td>C</td>
-                        <td>{{this.subCategoryLabel3}}</td>
-                      </tr>
-                      <tr>
-                        <td>D</td>
-                        <td>{{this.subCategoryLabel4}}</td>
-                      </tr>
-                    </tbody>
-                  </table>                    
+                  <div class="key-header">
+                    Key
+                  </div>
+                  <div>
+                    <span class="key-ordinal">A</span>
+                    <span class="key-data">{{this.subCategoryLabel1}}</span>
+                  </div>
+                  <div>
+                    <span class="key-ordinal">B</span>
+                    <span class="key-data">{{this.subCategoryLabel2}}</span>
+                  </div>
+                  <div>
+                    <span class="key-ordinal">C</span>
+                    <span class="key-data">{{this.subCategoryLabel3}}</span>
+                  </div>
+                  <div>
+                    <span class="key-ordinal">D</span>
+                    <span class="key-data">{{this.subCategoryLabel4}}</span>
+                  </div>
                 </div>
             </section>
         </header>
