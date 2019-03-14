@@ -32,20 +32,24 @@
             margin: auto;
         }
 
+        .subradial-padding {
+          padding: 10px 0 0 10px;
+        }
+
         .subradial-container {
-            width: 400px; 
-            height: 400px;
+            width: 350px; 
+            height: 350px;
             padding: 0;
             margin: 0;
         }
 
         .subradial-canvas {
-          width: 400px;
-          height: 400px;
+          width: 350px;
+          height: 350px;
         }
 
         .top-section {
-          height: 400px;
+          height: 500px;
           vertical-align: top; 
           padding: 0;
           margin: 0;         
@@ -60,19 +64,20 @@
         }
 
         .top-section, .top-section .top-left, .top-section .top-middle, .top-section .top-right {
-          height: 400px;
+          height: 500px;
           overflow-y: hidden;
         }
 
         .top-section .top-left {
           display: inline-block;
-          width: 42%;
+          width: 38%;
           vertical-align: top;
+          font-size: 20pt;
         }
 
         .top-section .top-middle {
           display: inline-block;
-          width: 54%;
+          width: 58%;
           vertical-align: top;
           padding: 0;
         }
@@ -80,12 +85,12 @@
         .top-section .top-right {
           display: block;
           position: relative;
-          width: 400px;
+          width: 500px;
           height: 200px;
           vertical-align: top;
           padding: 0;
-          top: -120px;
-          left: 600px;
+          top: -150px;
+          left: 650px;
         }
 
         .content-container {
@@ -252,8 +257,10 @@
                   {{{this.staticContent}}}
                 </div>
                 <div class="top-middle">
-                  <figure class="subradial-container">
-                  <canvas id="{{this.name}}" class="subradial-canvas" width="400" height="400"></canvas>                  
+                  <div class="subradial-padding">
+                    <figure class="subradial-container">
+                    <canvas id="{{this.name}}" class="subradial-canvas" width="350" height="350"></canvas>
+                  </div>
                 </figure>
                 </div>
                 <div class="top-right">
