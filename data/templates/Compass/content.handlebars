@@ -350,7 +350,11 @@
             ticks: {
                 min: 0,
                 max: 100,
-                display: false
+                display: false,
+                maxTicksLimit: 5
+            },
+            pointLabels: {
+              fontSize: 20
             }
         },
         legend: {
@@ -389,13 +393,17 @@
           ticks: {
               min: 0,
               max: 100,
-              display: false
+              display: false,
+              maxTicksLimit: 5
+          },
+          pointLabels: {
+            fontSize: 20
           }
       },
       legend: {
         display: false
       }
-    }
+    }    
   })
 {{/each}}
 </script>
