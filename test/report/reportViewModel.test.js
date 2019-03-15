@@ -85,7 +85,7 @@ describe('survey results', () => {
           'name': 'cat 1',
           'content': {
             'page1': 'hello mediums',
-            'page1PageNumber': 1,
+            'page1PageNumber': 3,
             'page2': null,
             'page2PageNumber': null
           },
@@ -106,9 +106,9 @@ describe('survey results', () => {
           'name': 'cat 2',
           'content': {
             'page1': 'HELLO YOU DID WELL',
-            'page1PageNumber': 2,
+            'page1PageNumber': 4,
             'page2': 'Yet another page',
-            'page2PageNumber': 3
+            'page2PageNumber': 5
           },
           'staticContent':
           {
@@ -127,9 +127,9 @@ describe('survey results', () => {
           'name': 'cat 3',
           'content': {
             'page1': 'hello this is still low, again',
-            'page1PageNumber': 4,
+            'page1PageNumber': 6,
             'page2': 'Another low page',
-            'page2PageNumber': 5
+            'page2PageNumber': 7
           },
           'staticContent':
           {

@@ -79,7 +79,7 @@ function addStaticContent (loadStaticContent, category) {
 }
 
 function setPageNumbers (categoriesWithContentAndScore) {
-  let pageNumber = 0
+  let pageNumber = 2
   let i = 0
   for (i = 0; i < categoriesWithContentAndScore.length; i++) {
     const category = categoriesWithContentAndScore[i]

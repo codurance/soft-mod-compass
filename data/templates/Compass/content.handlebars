@@ -116,7 +116,6 @@
           font-size: 16pt;
           padding-top: 25px;
           height: 850px;
-          background-color: aquamarine;
         }
 
         .content-container.page-2 {
@@ -142,7 +141,6 @@
           padding-top: 100px;
           padding-left: 100px;
           padding-right: 100px;
-          background-color: plum;
         }
 
             .page-break-before {
@@ -215,14 +213,16 @@
             }  
 
             .page-number {
-              display: inline;
+              display: block;
               position: relative;
               padding: 0;
               margin: 0;
-              bottom: 20;
+              bottom: 29;
               left: 0;
-              font-size: 32pt;
-              background-color: orange;
+              right: 0;
+              width: auto;
+              text-align: center;
+              font-size: 14pt;
             }          
     </style>
 </head>
@@ -255,7 +255,6 @@
     category you will be able to recognise elements of the current situation at your 
     organisation, and be able to find some actionable suggestions which you can use to improve.
   </p>
-
   <!--
     <h1>Hello Report Viewer!</h1>
     
@@ -300,7 +299,7 @@
             </section>
         {{/each}}
     </section>
-    
+
 </article>
 {{#each categories}}
     <article class="page page-break-before category-page">
@@ -344,7 +343,7 @@
         {{#if this.content.page1}}
           <div>
             <section class="content-container">
-              {{{this.content.page1}}}            
+              {{{this.content.page1}}}
             </section>
             <div class="page-number">
               {{this.content.page1PageNumber}}
@@ -354,7 +353,7 @@
         {{#if this.content.page2}}
           <div class="page-break-before">
             <section class="content-container page-2">
-              {{{this.content.page2}}}            
+              {{{this.content.page2}}}
             </section>
             <div class="page-number">
               {{this.content.page2PageNumber}}
