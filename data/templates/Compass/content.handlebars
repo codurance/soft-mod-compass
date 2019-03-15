@@ -265,7 +265,7 @@
         {{#each categories}}
             <section>{{this.name}}</section>
             <section class="main-radial-static-content">
-                {{{this.staticContent}}}
+                {{{this.staticContent.contentWithNoLineBreaks}}}
             </section>
         {{/each}}
     </section>
@@ -277,7 +277,7 @@
             <h1>{{this.name}}</h1>
             <section class="top-section">
                 <div class="top-left">
-                  {{{this.staticContent}}}
+                  {{{this.staticContent.content}}}
                 </div>
                 <div class="top-middle">
                   <div class="subradial-padding">
