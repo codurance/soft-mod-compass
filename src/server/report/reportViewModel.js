@@ -8,6 +8,8 @@ function reportViewModel (loadContent, categories, questionChoices, answers, loa
 
   const scores = categoriesWithContentAndScore.map(c => c.score)
 
+  setPageNumbers(categoriesWithContentAndScore)
+
   return {
     scores,
     summaryRadial: {
@@ -74,4 +76,24 @@ function addContent (loadContent, category) {
 function addStaticContent (loadStaticContent, category) {
   const staticContent = loadStaticContent(category.name)
   return Object.assign({}, category, { staticContent })
+}
+
+function setPageNumbers (categoriesWithContentAndScore) {
+  let pageNumber = 0
+  let i = 0
+  for (i = 0; i < categoriesWithContentAndScore.length; i++) {
+    const category = categoriesWithContentAndScore[i]
+    if (category.content && category.content.page1) {
+      pageNumber++
+      category.content.page1PageNumber = pageNumber
+    } else {
+      category.content.page1PageNumber = null
+    }
+    if (category.content && category.content.page2) {
+      pageNumber++
+      category.content.page2PageNumber = pageNumber
+    } else {
+      category.content.page2PageNumber = null
+    }
+  }
 }

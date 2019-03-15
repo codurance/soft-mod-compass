@@ -1,13 +1,22 @@
 const reportViewModel = require('../../src/server/report/reportViewModel')
 const loadContentStub = category => {
   if (category === 'cat 1') {
-    return 'hello mediums'
+    return {
+      page1: 'hello mediums',
+      page2: null
+    }
   }
   if (category === 'cat 2') {
-    return 'HELLO YOU DID WELL'
+    return {
+      page1: 'HELLO YOU DID WELL',
+      page2: 'Yet another page'
+    }
   }
   if (category === 'cat 3') {
-    return 'hello this is still low, again'
+    return {
+      page1: 'hello this is still low, again',
+      page2: 'Another low page'
+    }
   }
 }
 const loadStaticContentStub = category => {
@@ -74,7 +83,12 @@ describe('survey results', () => {
       'categories': [
         {
           'name': 'cat 1',
-          'content': 'hello mediums',
+          'content': {
+            'page1': 'hello mediums',
+            'page1PageNumber': 1,
+            'page2': null,
+            'page2PageNumber': null
+          },
           'staticContent':
           {
             'content': 'static content 1\nstatic content 1 line 2',
@@ -90,7 +104,12 @@ describe('survey results', () => {
         },
         {
           'name': 'cat 2',
-          'content': 'HELLO YOU DID WELL',
+          'content': {
+            'page1': 'HELLO YOU DID WELL',
+            'page1PageNumber': 2,
+            'page2': 'Yet another page',
+            'page2PageNumber': 3
+          },
           'staticContent':
           {
             'content': 'static content 2\nstatic content 2 line 2',
@@ -106,7 +125,12 @@ describe('survey results', () => {
         },
         {
           'name': 'cat 3',
-          'content': 'hello this is still low, again',
+          'content': {
+            'page1': 'hello this is still low, again',
+            'page1PageNumber': 4,
+            'page2': 'Another low page',
+            'page2PageNumber': 5
+          },
           'staticContent':
           {
             'content': 'static content 3\nstatic content 3 line 2',
