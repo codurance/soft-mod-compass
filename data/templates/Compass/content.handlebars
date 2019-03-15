@@ -166,6 +166,12 @@
               padding-top: 100px;
               padding-left: 100px;
               padding-right: 100px;
+              height: 1480px;
+              position: relative;
+            }
+
+            .intro-page .page-number {
+              position: absolute;
             }
 
             .main-radial-page {
@@ -255,6 +261,9 @@
     category you will be able to recognise elements of the current situation at your 
     organisation, and be able to find some actionable suggestions which you can use to improve.
   </p>
+  <div class="page-number">
+    1
+  </div>
   <!--
     <h1>Hello Report Viewer!</h1>
     
@@ -299,7 +308,9 @@
             </section>
         {{/each}}
     </section>
-
+    <div class="page-number">
+      2
+    </div>
 </article>
 {{#each categories}}
     <article class="page page-break-before category-page">
