@@ -161,6 +161,18 @@
             .front-page-container {
               margin: 0;
             }
+
+            .intro-page {
+              padding-top: 100px;
+              padding-left: 100px;
+              padding-right: 100px;
+            }
+
+            .main-radial-page {
+              padding-top: 100px;
+              padding-left: 100px;
+              padding-right: 100px;
+            }
     
             .cover-page {
               width: 100%; 
@@ -190,6 +202,12 @@
                 grid-row-gap: 1em;
             }
 
+            .category-grid-heading {
+              color: #185466;
+              font-weight: bold;
+              font-size: 26px;
+            }
+
             hr {
               border: 0.8px solid black;
             }            
@@ -208,7 +226,7 @@
 <div class="page-break-before">
   &nbsp;
 </div>
-<article class="page page-break-before">
+<article class="page page-break-before intro-page">
   <h1>The Codurance Compass</h1>
   <p>
     Thank you for taking the time to complete the Codurance Compass. 
@@ -256,14 +274,14 @@
       <p>We focus on the application of Extreme Programming practices and Software Craftsmanship values in everything we do.</p>
   -->
 </article> 
-<article class="page page-break-before">
+<article class="page page-break-before main-radial-page">
     <h1>Your Assessment</h1>
     <figure class="radial-container">
         <canvas id="SummaryRadial" width="800" height="600"></canvas>
     </figure>
     <section class="category-grid">
         {{#each categories}}
-            <section>{{this.name}}</section>
+            <section class="category-grid-heading">{{this.name}}</section>
             <section class="main-radial-static-content">
                 {{{this.staticContent.contentWithNoLineBreaks}}}
             </section>
