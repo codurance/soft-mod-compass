@@ -12,7 +12,7 @@
         "marginLeft": "0cm"
     },
     "modificationDate": {
-        "$$date": 1551802817445
+        "$$date": 1552480198463
     },
     "_id": "bUe0ZtrZKts6vwCZ",
     "$entitySet": "templates",
@@ -21,5 +21,9 @@
     },
     "resources": {
         "items": []
-    }
+    },
+    "folder": {
+        "shortid": "X5TO6e"
+    },
+    "scripts": []
 }

@@ -1,24 +1,42 @@
 const reportViewModel = require('../../src/server/report/reportViewModel')
 const loadContentStub = category => {
   if (category === 'cat 1') {
-    return 'hello mediums'
+    return {
+      page1: 'hello mediums',
+      page2: null
+    }
   }
   if (category === 'cat 2') {
-    return 'HELLO YOU DID WELL'
+    return {
+      page1: 'HELLO YOU DID WELL',
+      page2: 'Yet another page'
+    }
   }
   if (category === 'cat 3') {
-    return 'hello this is still low, again'
+    return {
+      page1: 'hello this is still low, again',
+      page2: 'Another low page'
+    }
   }
 }
 const loadStaticContentStub = category => {
   if (category === 'cat 1') {
-    return 'static content 1'
+    return {
+      content: 'static content 1\nstatic content 1 line 2',
+      contentWithNoLineBreaks: 'static content 1 static content 1 line 2'
+    }
   }
   if (category === 'cat 2') {
-    return 'static content 2'
+    return {
+      content: 'static content 2\nstatic content 2 line 2',
+      contentWithNoLineBreaks: 'static content 2 static content 2 line 2'
+    }
   }
   if (category === 'cat 3') {
-    return 'static content 3'
+    return {
+      content: 'static content 3\nstatic content 3 line 2',
+      contentWithNoLineBreaks: 'static content 3 static content 3 line 2'
+    }
   }
 }
 
@@ -65,8 +83,17 @@ describe('survey results', () => {
       'categories': [
         {
           'name': 'cat 1',
-          'content': 'hello mediums',
-          'staticContent': 'static content 1',
+          'content': {
+            'page1': 'hello mediums',
+            'page1PageNumber': 3,
+            'page2': null,
+            'page2PageNumber': null
+          },
+          'staticContent':
+          {
+            'content': 'static content 1\nstatic content 1 line 2',
+            'contentWithNoLineBreaks': 'static content 1 static content 1 line 2'
+          },
           'score': 55,
           'subCategoryLabels': ['1 sub1', '1 sub2', '1 sub3', '1 sub4'],
           'subCategoryLabel1': '1 sub1',
@@ -77,8 +104,17 @@ describe('survey results', () => {
         },
         {
           'name': 'cat 2',
-          'content': 'HELLO YOU DID WELL',
-          'staticContent': 'static content 2',
+          'content': {
+            'page1': 'HELLO YOU DID WELL',
+            'page1PageNumber': 4,
+            'page2': 'Yet another page',
+            'page2PageNumber': 5
+          },
+          'staticContent':
+          {
+            'content': 'static content 2\nstatic content 2 line 2',
+            'contentWithNoLineBreaks': 'static content 2 static content 2 line 2'
+          },
           'score': 70,
           'subCategoryLabels': ['2 sub1', '2 sub2', '2 sub3', '2 sub4'],
           'subCategoryLabel1': '2 sub1',
@@ -89,8 +125,17 @@ describe('survey results', () => {
         },
         {
           'name': 'cat 3',
-          'content': 'hello this is still low, again',
-          'staticContent': 'static content 3',
+          'content': {
+            'page1': 'hello this is still low, again',
+            'page1PageNumber': 6,
+            'page2': 'Another low page',
+            'page2PageNumber': 7
+          },
+          'staticContent':
+          {
+            'content': 'static content 3\nstatic content 3 line 2',
+            'contentWithNoLineBreaks': 'static content 3 static content 3 line 2'
+          },
           'score': 30,
           'subCategoryLabels': ['3 sub1', '3 sub2', '3 sub3', '3 sub4'],
           'subCategoryLabel1': '3 sub1',

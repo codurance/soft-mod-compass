@@ -2,7 +2,12 @@ const fs = require('fs')
 
 const loadContentFor = (categoryName) => {
   try {
-    return fs.readFileSync(fileNameFor(categoryName), 'UTF-8')
+    const content = fs.readFileSync(fileNameFor(categoryName), 'UTF-8')
+    const contentWithNoLineBreaks = '<p>' + content.replace(/\n/g, ' ').replace(/<p>/g, '').replace(/<\/p>/g, '') + '</p>'
+    return {
+      content,
+      contentWithNoLineBreaks
+    }
   } catch (e) {
     return `No content available for ${categoryName}`
   }
