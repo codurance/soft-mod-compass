@@ -20,16 +20,17 @@
         h1 {
           text-align: left;
           color: #185466;
-          font-size: 44px;
+          font-size: 48px;
           font-weight: bold;
           margin-top: 0px;
           margin-bottom: 10px;
         }
         
         .radial-container {
-            height: 650px;
-            width: 850px;
+            height: 459px;
+            width: 720px;
             margin: auto;
+            margin-top: 50px;
         }
 
         .subradial-padding {
@@ -113,24 +114,26 @@
         .content-container {
           column-count: 2;
           column-fill: auto;
-          font-size: 16pt;
+          font-size: 18pt;
           padding-top: 25px;
-          height: 850px;
+          height: 830px;
         }
 
         .content-container.page-2 {
           margin-top: 100px;
           width: 100%;
-          height: 1485px;
+          height: 1479px;
         }
 
         .main-content-area p {
           margin-top: 0;
+          text-align: justify;
         }
 
         .main-radial-static-content p {
           margin-bottom: 0;
-          font-size: 16pt;
+          font-size: 18pt;
+          text-align: justify;
         }
 
         .main-radial-static-content p:first-child {
@@ -170,6 +173,11 @@
               position: relative;
             }
 
+            .intro-page p {
+              font-size: 18pt;
+              text-align: justify;
+            }
+
             .intro-page .page-number {
               position: absolute;
             }
@@ -203,7 +211,8 @@
 
             .footer-container {
               padding-right: 167px;
-              font-size: 14pt;
+              font-size: 14pt;              
+              padding-top: 36px;
             }
             
             .category-grid {
@@ -212,6 +221,7 @@
                 grid-template-rows: auto auto auto auto auto;
                 grid-column-gap: 1em;
                 grid-row-gap: 1em;
+                padding-top: 20px;
             }
 
             .category-grid-heading {
@@ -222,6 +232,7 @@
 
             hr {
               border: 0.8px solid black;
+              margin: 0 0 30px 0;
             }  
 
             .page-number {
@@ -229,13 +240,17 @@
               position: relative;
               padding: 0;
               margin: 0;
-              bottom: 27;
+              bottom: -10px;
               left: 0;
               right: 0;
               width: auto;
               text-align: center;
               font-size: 14pt;
-            }          
+            }
+
+            .page-number.page-number-repeat {
+              bottom: -20px;
+            }
     </style>
 </head>
 <body>
@@ -270,42 +285,13 @@
   <div class="page-number">
     1
   </div>
-  <!--
-    <h1>Hello Report Viewer!</h1>
-    
-    <p>
-      Thank you for taking the time to complete the Codurance Compass survey.
-      This report is designed to assist you in adopting the core behaviours 
-      and values that Codurance uses to consistently deliver high-quality crafted 
-      software.
-    </p>
-
-    <p>
-      <em>CB - Should this be in the call to action, at the end?</em>
-      If you would like more information on any of the information on this report or 
-      have any other burning questions, please feel free to contact us.
-      Our contact details can be found on the footers on each page of the report.
-    </p>
-
-    <p>Refer to it as "this" or "the" report?</p>
-
-    <h1>Overview</h1>
-      <p>The results of this report are split into 5 main categories, the scores for which can be seen on the next page.</p>
-      <p>You will find deeper insights into your score in each category on the ensuing category-detail pages.</p>
-      <p>You should find that the analyses on these pages capture the key facts about your current situation.</p>
-      <p>Along with each section analysis, we provide actionable suggestions which you can use to improve your current situation (need a better word here - repetition).</p>
-
-    <h1>About Codurance</h1>
-      <p>We build well-crafted software and help development teams to get better at continuously delivering software.</p>
-      <p>Our craftspeople are renowned for their technology expertise especially in Web, Devops, Big Data, Continuous Delivery, and Cloud Platforms.</p>
-      <p>We focus on the application of Extreme Programming practices and Software Craftsmanship values in everything we do.</p>
-  -->
 </article> 
 <article class="page page-break-before main-radial-page">
     <h1>Your Assessment</h1>
     <figure class="radial-container">
-        <canvas id="SummaryRadial" width="800" height="600"></canvas>
+        <canvas id="SummaryRadial" width="800" height="450"></canvas>
     </figure>
+    <hr />
     <section class="category-grid">
         {{#each categories}}
             <section class="category-grid-heading">{{this.name}}</section>
@@ -362,7 +348,7 @@
             <section class="content-container">
               {{{this.content.page1}}}
             </section>
-            <div class="page-number">
+            <div class="page-number page-number-repeat">
               {{this.content.page1PageNumber}}
             </div>
           </div>      
@@ -372,7 +358,7 @@
             <section class="content-container page-2">
               {{{this.content.page2}}}
             </section>
-            <div class="page-number">
+            <div class="page-number page-number-repeat">
               {{this.content.page2PageNumber}}
             </div>
           </div>          
