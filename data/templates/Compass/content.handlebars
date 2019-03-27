@@ -239,6 +239,10 @@
               text-align: center;
               font-size: 14pt;
             }
+
+            .page-number.page-number-repeat {
+              bottom: -20px;
+            }
     </style>
 </head>
 <body>
@@ -365,7 +369,7 @@
             <section class="content-container">
               {{{this.content.page1}}}
             </section>
-            <div class="page-number">
+            <div class="page-number page-number-repeat">
               {{this.content.page1PageNumber}}
             </div>
           </div>      
@@ -375,7 +379,7 @@
             <section class="content-container page-2">
               {{{this.content.page2}}}
             </section>
-            <div class="page-number">
+            <div class="page-number page-number-repeat">
               {{this.content.page2PageNumber}}
             </div>
           </div>          
