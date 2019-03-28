@@ -1,265 +1,270 @@
 <html>
+
 <head>
-    <title>Chart</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-    <style>
-        
-        @font-face {
-          font-family: 'ProximaNova-Regular';
-          src: url({#asset /assets/ProximaNova-Regular.otf @encoding=dataURI});
-          format('woff');
-        }
+  <title>Chart</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+  <style>
+    @font-face {
+      font-family: 'ProximaNova-Regular';
+      src: url({#asset /assets/ProximaNova-Regular.otf @encoding=dataURI});
+      format('woff');
+    }
 
-        * {
-          font-family: 'ProximaNova-Regular';
-        }
-    
-        body {
-            font-family: 'Proxima Nova';
-            font-size: 18pt;
-            padding: 0;
-            margin: 0;            
-        }
+    * {
+      font-family: 'ProximaNova-Regular';
+    }
 
-        h1 {
-          text-align: left;
-          color: #185466;
-          font-size: 48px;
-          font-weight: bold;
-          margin-top: 0px;
-          margin-bottom: 10px;
-        }
-        
-        .radial-container {
-            height: 459px;
-            width: 720px;
-            margin: auto;
-            margin-top: 50px;
-        }
+    body {
+      font-family: 'Proxima Nova';
+      font-size: 18pt;
+      padding: 0;
+      margin: 0;
+    }
 
-        .subradial-padding {
-          padding: 10px 0 0 0;
-        }
+    h1 {
+      text-align: left;
+      color: #185466;
+      font-size: 48px;
+      font-weight: bold;
+      margin-top: 0px;
+      margin-bottom: 10px;
+    }
 
-        .subradial-container {
-            width: 400px; 
-            height: 400px;
-            padding: 0;
-            margin: 0;
-        }
+    .radial-container {
+      height: 459px;
+      width: 720px;
+      margin: auto;
+      margin-top: 50px;
+    }
 
-        .subradial-canvas {
-          width: 400px;
-          height: 400px;
-        }
+    .subradial-padding {
+      padding: 10px 0 0 0;
+    }
 
-        .top-section {
-          height: 500px;
-          vertical-align: top; 
-          padding: 0;
-          margin: 0;         
-        }
+    .subradial-container {
+      width: 400px;
+      height: 400px;
+      padding: 0;
+      margin: 0;
+    }
 
-        /* Fake (pseudo) element, that enables vertical-align */
-        .top-section:before {
-          content: "";
-          display: inline-block;
-          vertical-align: middle;
-          height: 100%;          
-        }
+    .subradial-canvas {
+      width: 400px;
+      height: 400px;
+    }
 
-        .top-section, .top-section .top-left, .top-section .top-middle, .top-section .top-right {
-          height: 500px;
-          overflow-y: hidden;
-        }
+    .top-section {
+      height: 500px;
+      vertical-align: top;
+      padding: 0;
+      margin: 0;
+    }
 
-        .top-section .top-left {
-          display: inline-block;
-          width: 38%;
-          vertical-align: top;
-          font-size: 20pt;
-          letter-spacing: -1px;
-        }
+    /* Fake (pseudo) element, that enables vertical-align */
+    .top-section:before {
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%;
+    }
 
-        .top-section .top-middle {
-          display: inline-block;
-          width: 58%;
-          vertical-align: top;
-          padding: 0;
-        }
+    .top-section,
+    .top-section .top-left,
+    .top-section .top-middle,
+    .top-section .top-right {
+      height: 500px;
+      overflow-y: hidden;
+    }
 
-        .top-section .top-right {
-          display: block;
-          position: relative;
-          width: 230px;
-          height: 200px;
-          vertical-align: top;
-          padding: 0;
-          top: -200px;
-          left: 660px;
-          font-size: 12pt;
-        }
+    .top-section .top-left {
+      display: inline-block;
+      width: 38%;
+      vertical-align: top;
+      font-size: 20pt;
+      letter-spacing: -1px;
+    }
 
-        .key-header {
-          font-weight: bold;
-        }
+    .top-section .top-middle {
+      display: inline-block;
+      width: 58%;
+      vertical-align: top;
+      padding: 0;
+    }
 
-        .key-ordinal {
-          display: inline-block;
-          vertical-align: top;
-        }
+    .top-section .top-right {
+      display: block;
+      position: relative;
+      width: 230px;
+      height: 200px;
+      vertical-align: top;
+      padding: 0;
+      top: -200px;
+      left: 660px;
+      font-size: 12pt;
+    }
 
-        .key-data {
-          display: inline-block;
-          width: 205px;
-          padding-left: 5px;
-        }
+    .key-header {
+      font-weight: bold;
+    }
 
-        .content-container {
-          column-count: 2;
-          column-fill: auto;
-          font-size: 18pt;
-          padding-top: 25px;
-          height: 830px;
-        }
+    .key-ordinal {
+      display: inline-block;
+      vertical-align: top;
+    }
 
-        .content-container.page-2 {
-          margin-top: 100px;
-          width: 100%;
-          height: 1479px;
-        }
+    .key-data {
+      display: inline-block;
+      width: 205px;
+      padding-left: 5px;
+    }
 
-        .main-content-area p {
-          margin-top: 0;
-          text-align: justify;
-        }
+    .content-container {
+      column-count: 2;
+      column-fill: auto;
+      font-size: 18pt;
+      padding-top: 25px;
+      height: 830px;
+    }
 
-        .main-radial-static-content p {
-          margin-bottom: 0;
-          font-size: 18pt;
-          text-align: justify;
-        }
+    .content-container.page-2 {
+      margin-top: 100px;
+      width: 100%;
+      height: 1479px;
+    }
 
-        .main-radial-static-content p:first-child {
-          margin-top: 0;
-        }
+    .main-content-area p {
+      margin-top: 0;
+      text-align: justify;
+    }
 
-        .category-page {
-          padding-top: 100px;
-          padding-left: 100px;
-          padding-right: 100px;
-        }
+    .main-radial-static-content p {
+      margin-bottom: 0;
+      font-size: 18pt;
+      text-align: justify;
+    }
 
-            .page-break-before {
-                page-break-before: always;
-            }
-            .page-break-after {
-                page-break-after: always;
-            }
-            
-            .page {
-                margin: 4% 4% 4% 4%;
-            }
-            
-            p {
-                page-break-inside: avoid;
-            }
-    
-            .front-page-container {
-              margin: 0;
-            }
+    .main-radial-static-content p:first-child {
+      margin-top: 0;
+    }
 
-            .intro-page {
-              padding-top: 100px;
-              padding-left: 100px;
-              padding-right: 100px;
-              height: 1486px;
-              position: relative;
-            }
+    .category-page {
+      padding-top: 100px;
+      padding-left: 100px;
+      padding-right: 100px;
+    }
 
-            .intro-page p {
-              font-size: 18pt;
-              text-align: justify;
-            }
+    .page-break-before {
+      page-break-before: always;
+    }
 
-            .intro-page .page-number {
-              position: absolute;
-            }
+    .page-break-after {
+      page-break-after: always;
+    }
 
-            .main-radial-page {
-              padding-top: 100px;
-              padding-left: 100px;
-              padding-right: 100px;
-              height: 1486px;
-              position: relative;
-            }
-            
-            .main-radial-page .page-number {
-              position: absolute;
-            }
-    
-            .cover-page {
-              width: 100%; 
-              height: 100%; 
-              position: absolute;
-              z-index: 10;
-            }
+    .page {
+      margin: 4% 4% 4% 4%;
+    }
 
-            footer {
-              position:fixed;
-              bottom:0;
-              width: 100%;
-              height: 100px;
-              text-align: right;              
-            }
+    p {
+      page-break-inside: avoid;
+    }
 
-            .footer-container {
-              padding-right: 167px;
-              font-size: 14pt;              
-              padding-top: 36px;
-            }
-            
-            .category-grid {
-                display: grid;
-                grid-template-columns: auto auto;
-                grid-template-rows: auto auto auto auto auto;
-                grid-column-gap: 1em;
-                grid-row-gap: 1em;
-                padding-top: 20px;
-            }
+    .front-page-container {
+      margin: 0;
+    }
 
-            .category-grid-heading {
-              color: #185466;
-              font-weight: bold;
-              font-size: 26px;
-            }
+    .intro-page {
+      padding-top: 100px;
+      padding-left: 100px;
+      padding-right: 100px;
+      height: 1486px;
+      position: relative;
+    }
 
-            hr {
-              border: 0.8px solid black;
-              margin: 0 0 30px 0;
-            }  
+    .intro-page p {
+      font-size: 18pt;
+      text-align: justify;
+    }
 
-            .page-number {
-              display: block;
-              position: relative;
-              padding: 0;
-              margin: 0;
-              bottom: -10px;
-              left: 0;
-              right: 0;
-              width: auto;
-              text-align: center;
-              font-size: 14pt;
-            }
+    .intro-page .page-number {
+      position: absolute;
+    }
 
-            .page-number.page-number-repeat {
-              bottom: -20px;
-            }
-    </style>
+    .main-radial-page {
+      padding-top: 100px;
+      padding-left: 100px;
+      padding-right: 100px;
+      height: 1486px;
+      position: relative;
+    }
+
+    .main-radial-page .page-number {
+      position: absolute;
+    }
+
+    .cover-page {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: 10;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 100px;
+      text-align: right;
+    }
+
+    .footer-container {
+      padding-right: 167px;
+      font-size: 14pt;
+      padding-top: 36px;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-template-rows: auto auto auto auto auto;
+      grid-column-gap: 1em;
+      grid-row-gap: 1em;
+      padding-top: 20px;
+    }
+
+    .category-grid-heading {
+      color: #185466;
+      font-weight: bold;
+      font-size: 26px;
+    }
+
+    hr {
+      border: 0.8px solid black;
+      margin: 0 0 30px 0;
+    }
+
+    .page-number {
+      display: block;
+      position: relative;
+      padding: 0;
+      margin: 0;
+      bottom: -10px;
+      left: 0;
+      right: 0;
+      width: auto;
+      text-align: center;
+      font-size: 14pt;
+    }
+
+    .page-number.page-number-repeat {
+      bottom: -20px;
+    }
+  </style>
 </head>
+
 <body>
-  
+
   {{!-- Repeats on every page --}}
   <footer>
     {#asset footer.html @encoding=utf8}
@@ -382,80 +387,80 @@
       datasets: [
         {
           data: [{{summaryRadial.scores}}],
-          backgroundColor: [
-            'rgba(239, 119, 38, 0.6)',
-          ],
-          borderColor: [
-            'rgba(168, 25, 0,1)',
-          ],
-          borderWidth: 1
-        }
+      backgroundColor: [
+        'rgba(239, 119, 38, 0.6)',
+      ],
+      borderColor: [
+        'rgba(168, 25, 0,1)',
+      ],
+      borderWidth: 1
+    }
       ]
     },
-    options: {
-        animation: {
-            duration: 0
-        },
-        scale: {
-            ticks: {
-                min: 0,
-                max: 100,
-                display: false,
-                maxTicksLimit: 5
-            },
-            pointLabels: {
-              fontSize: 20
-            }
-        },
-        legend: {
-          display: false,
+  options: {
+    animation: {
+      duration: 0
+    },
+    scale: {
+      ticks: {
+        min: 0,
+          max: 100,
+            display: false,
+              maxTicksLimit: 5
+      },
+      pointLabels: {
+        fontSize: 20
+      }
+    },
+    legend: {
+      display: false,
         }
-    }
+  }
   })
 </script>
 <script>
-{{#each categories}}
+  {{#each categories}}
   var ctx = document.getElementById('{{this.name}}')
   Chart.defaults.global.defaultFontFamily = '\'Proxima Nova\', sans-serif'
   Chart.defaults.global.defaultFontSize = 12
   var subcategoryRadial = new Chart(ctx, {
     type: 'radar',
     data: {
-      labels: [ "A", "B", "C", "D" ],
+      labels: ["A", "B", "C", "D"],
       datasets: [
         {
           data: [{{this.subCategoryScores}}],
-          backgroundColor: [
-            'rgba(255, 208, 0, 0.6)',
-          ],
-          borderColor: [
-            'rgba(254, 191, 39,1)',
-          ],
-          borderWidth: 1
-        }
+      backgroundColor: [
+        'rgba(255, 208, 0, 0.6)',
+      ],
+      borderColor: [
+        'rgba(254, 191, 39,1)',
+      ],
+      borderWidth: 1
+    }
       ]
     },
-    options: {
-      animation: {
-        duration: 0
-      },
-      scale: {
-          ticks: {
-              min: 0,
-              max: 100,
-              display: false,
+  options: {
+    animation: {
+      duration: 0
+    },
+    scale: {
+      ticks: {
+        min: 0,
+          max: 100,
+            display: false,
               maxTicksLimit: 5
-          },
-          pointLabels: {
-            fontSize: 20
-          }
       },
-      legend: {
-        display: false
+      pointLabels: {
+        fontSize: 20
       }
-    }    
+    },
+    legend: {
+      display: false
+    }
+  }    
   })
-{{/each}}
+  {{/each}}
 </script>
 </body>
 </html>
