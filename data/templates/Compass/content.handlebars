@@ -6,8 +6,13 @@
     <style>
         
         @font-face {
-            font-family: 'Proxima Nova';
-            src: url("{#asset ProximaNova-Regular.otf @encoding=dataURI}") format("opentype");
+          font-family: 'ProximaNova-Regular';
+          src: url({#asset /assets/ProximaNova-Regular.otf @encoding=dataURI});
+          format('woff');
+        }
+
+        * {
+          font-family: 'ProximaNova-Regular';
         }
     
         body {
