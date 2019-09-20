@@ -11,6 +11,23 @@
     /*  src: url({#asset /assets/ProximaNova-Regular.otf @encoding=dataURI});*/
     /*  format('woff');*/
     /*}*/
+    
+    :root {
+        /* COLOURS */
+        --codurance-blue: #185466;
+        --codurance-turquoise: #61BFBB;
+        --text-black: #0E0E0E;
+        
+        /* TYPE */
+        --font-weight-regular: 400;
+        --font-weight-bold: 700;
+        
+        --font-size-page-header: 51pt;
+        --line-height-page-header: 1.15em;
+        
+        --font-size-body: 10pt;
+        --line-height-body: 1.5em;
+    }
 
     * {
       font-family: proxima-nova;
@@ -18,19 +35,36 @@
 
     body {
       font-family: proxima-nova;
-      font-size: 18pt;
+      font-size: var(--font-size-body);
       padding: 0;
       margin: 0;
+      line-height: var(--line-height-body);
+      color: var(--text-black);
     }
-
-    h1 {
-      text-align: left;
-      color: #185466;
-      font-size: 48px;
-      font-weight: bold;
-      margin-top: 0px;
-      margin-bottom: 10px;
+    
+    .page-header {
+        font-family: proxima-nova;
+        font-weight: var(--font-weight-bold);
+        font-style: normal;
+        text-align: left;
+        font-size: var(--font-size-page-header);
+        line-height: var(--line-height-page-header);
     }
+    .page-header.light {
+        color: var(--codurance-blue);
+    }
+    .page-header.dark {
+        color: var(--codurance-turquoise);
+    }
+    
+    /*h1 {*/
+    /*  text-align: left;*/
+    /*  color: #185466;*/
+    /*  font-size: 48px;*/
+    /*  font-weight: bold;*/
+    /*  margin-top: 0px;*/
+    /*  margin-bottom: 10px;*/
+    /*}*/
 
     .radial-container {
       height: 459px;
@@ -171,9 +205,9 @@
       page-break-inside: avoid;
     }
 
-    .front-page-container {
-      margin: 0;
-    }
+    /*.front-page-container {*/
+    /*  margin: 0;*/
+    /*}*/
 
     .intro-page {
       padding-top: 100px;
@@ -183,10 +217,10 @@
       position: relative;
     }
 
-    .intro-page p {
-      font-size: 18pt;
-      text-align: justify;
-    }
+    /*.intro-page p {*/
+    /*  font-size: 18pt;*/
+    /*  text-align: justify;*/
+    /*}*/
 
     .intro-page .page-number {
       position: absolute;
@@ -261,24 +295,161 @@
     .page-number.page-number-repeat {
       bottom: -20px;
     }
+    
   </style>
 </head>
 
 <body>
 
   {{!-- Repeats on every page --}}
-  <footer>
-    {#asset footer.html @encoding=utf8}
-  </footer>
+  {{!--<footer>--}}
+  {{!--  {#asset footer.html @encoding=utf8}--}}
+  {{!--</footer>--}}
 
+{{!-- BEGIN FRONT PAGE ------------------------------------------------------}}
+<style>
+    .front-page_left-margin {
+        position: absolute;
+        left: 28.8mm;
+    }
+    .front-page_subcopy {
+        font-size: 16pt;
+    }
+    #front-page_left-bar {
+        width: 12.7mm;
+        height: 100%;
+        background: var(--codurance-turquoise);
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    #front-page_logo-contact-container {
+        top: 13mm;
+        right: 16mm;
+        left: 29.5mm;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #front-page_logo {
+        width: 55.4mm;
+    }
+    #front-page_phone-icon {
+        display: inline-block;
+        background: url('{#asset phone-icon.svg @encoding=dataURI}') center no-repeat;
+        width: 4.3mm;
+        height: 4.3mm;
+        padding-right: 3.5mm;
+        vertical-align: middle;
+    }
+    #front-page_email-icon {
+        display: inline-block;
+        background: url('{#asset email-icon.svg @encoding=dataURI}') center no-repeat;
+        width: 4.3mm;
+        height: 4.3mm;
+        padding-right: 4mm;
+        vertical-align: middle;
+    }
+    #front-page_contact-info {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        align-items: center;
+    }
+    #front-page_contact-info a {
+        display: inline-block;
+        text-decoration: none;
+        padding-top: 4mm;
+        margin-left: 9.2mm;
+        color: var(--text-black);
+    }
+    #front-page_illustration {
+        width: 135.9mm;
+        position: absolute;
+        bottom: 16mm;
+        right: 16mm;
+    }
+    #front-page_header {
+        top: 30mm;
+        left: 28.5mm;
+    }
+    #front-page_subheader {
+        font-size: 24pt;
+        font-weight: 400;
+        color: var(--codurance-blue);
+        text-align: left;
+        top: 58mm;
+    }
+    #front-page_detailing {
+        color: var(--codurance-blue);
+        font-weight: 400;
+        font-size: 24pt;
+        line-height: 1.43em;
+        bottom: 71mm;
+    }
+    #front-page_detailing-var {
+        color: var(--codurance-blue);
+        font-weight: 700;
+    }
+    #front-page_date {
+        color: var(--codurance-blue);
+        bottom: 49mm;
+    }
+    #front-page_prepared {
+        color: var(--codurance-blue);
+        bottom: 38mm;
+    }
+    .front-page_date-name-vars {
+        font-weight: var(--font-weight-regular);
+    }
+    #front-page_copyright {
+        color: var(--codurance-blue);
+        bottom: 12.5mm;
+    }
+</style>
 <figure class="page-break-after front-page-container">
-    <img src="{#asset frontPage.png @encoding=dataURI}" class="cover-page"/>
+    <div id="front-page_left-bar"></div>
+    <div id="front-page_copyright" class="front-page_left-margin">
+        &copy; Codurance {{currentYear}}
+    </div>
+    
+    <div id="front-page_logo-contact-container" class="front-page_left-margin">
+        <a id="front-page_logo" href="https://codurance.com"><img alt="" src="{#asset codurance-logo.svg @encoding=dataURI}" /></a>
+        <ul id="front-page_contact-info">
+            <li>
+                <a href="tel:+442074902967"><i id="front-page_phone-icon"></i>+44 207 4902967</a></p>
+            </li>
+            <li>
+                <a href="mailto:contact@codurance.com"><i id="front-page_email-icon"></i>contact@codurance.com</a></p>
+            </li>
+        </ul>
+    </div>
+    
+    <img id="front-page_illustration" src="{#asset front-page-illustration.svg @encoding=dataURI}" />
+    
+    <h1 id="front-page_header" class="page-header light front-page_left-margin">Codurance Compass</h1>
+    <h2 id="front-page_subheader" class="front-page_left-margin">Guilding your way to software excellence</h2>
+    <h2 id="front-page_detailing" class="front-page_left-margin">
+        Detailing:<br>
+        <span id="front-page_detailing-var">Example Company</span>
+    </h2>
+    <h3 id="front-page_date" class="front-page_left-margin front-page_subcopy">
+        Date: <span class="front-page_date-name-vars">01 / 01 / 2019</span>
+    </h3>
+    <h3 id="front-page_prepared" class="front-page_left-margin front-page_subcopy">
+        Prepared for: <span class="front-page_date-name-vars">Jason Sanchez</span>
+    </h3>
 </figure>
+{{!-- END FRONT PAGE ---------------------------------------------------------}}
+
+
+
 <div class="page-break-before">
   &nbsp;
 </div>
 <article class="page page-break-before intro-page">
-  <h1>The Codurance Compass</h1>
+  <h1 class="page-header light">The Codurance Compass</h1>
   <p>
     Thank you for taking the time to complete the Codurance Compass. 
     Software Craftsmanship is at the heart of Codurance, and these values and the practices 
