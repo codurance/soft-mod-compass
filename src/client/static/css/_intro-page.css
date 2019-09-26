@@ -1,0 +1,13 @@
+#intro-page_contact-info {
+  list-style: none;
+  display: inline;
+  font-weight: var(--font-weight-bold);
+  position: absolute;
+  right: 46.3mm;
+  bottom: 76mm;
+}
+
+#intro-page_contact-info a {
+  text-decoration: none;
+  color: var(--text-black);
+}

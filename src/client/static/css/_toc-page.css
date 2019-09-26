@@ -1,0 +1,30 @@
+#toc-page_toc {
+  display: grid;
+  grid-template-columns: 14mm auto;
+  /* grid-template-rows: repeat(6, auto); */
+  grid-column-gap: 6mm;
+  /* grid-row-gap: 13.5mm; */
+  justify-items: start;
+  /* align-items: end; */
+  position: absolute;
+  top: 52mm;
+  left: 27.3mm;
+}
+#toc-page_toc span {
+  font-weight: var(--font-weight-bold);
+  line-height: 58.6pt;
+  font-size: 31pt;
+  color: var(--toc-font-color);
+  display: block;
+}
+#toc-page_toc a {
+  text-decoration: none;
+  color: inherit;
+}
+#toc-page_toc-names {
+  margin-top: 0.5mm;
+}
+
+#toc-page_toc-names span {
+  font-size: 24pt;
+}
