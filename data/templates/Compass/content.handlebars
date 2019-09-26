@@ -11,20 +11,20 @@
     /*  src: url({#asset /assets/ProximaNova-Regular.otf @encoding=dataURI});*/
     /*  format('woff');*/
     /*}*/
-    
+
     :root {
         /* COLOURS */
-        --codurance-blue: #185466;
-        --codurance-turquoise: #61BFBB;
+        --codurance-green: #185466;
+        --codurance-light-green: #61BFBB;
         --text-black: #0E0E0E;
-        
+
         /* TYPE */
         --font-weight-regular: 400;
         --font-weight-bold: 700;
-        
+
         --font-size-page-header: 51pt;
         --line-height-page-header: 1.15em;
-        
+
         --font-size-body: 10pt;
         --line-height-body: 1.5em;
     }
@@ -41,7 +41,7 @@
       line-height: var(--line-height-body);
       color: var(--text-black);
     }
-    
+
     .page-header {
         font-family: proxima-nova;
         font-weight: var(--font-weight-bold);
@@ -51,12 +51,12 @@
         line-height: var(--line-height-page-header);
     }
     .page-header.light {
-        color: var(--codurance-blue);
+        color: var(--codurance-green);
     }
     .page-header.dark {
-        color: var(--codurance-turquoise);
+        color: var(--codurance-light-green);
     }
-    
+
     /*h1 {*/
     /*  text-align: left;*/
     /*  color: #185466;*/
@@ -295,7 +295,7 @@
     .page-number.page-number-repeat {
       bottom: -20px;
     }
-    
+
   </style>
 </head>
 
@@ -318,7 +318,7 @@
     #front-page_left-bar {
         width: 12.7mm;
         height: 100%;
-        background: var(--codurance-turquoise);
+        background: var(--codurance-light-green);
         position: absolute;
         left: 0;
         top: 0;
@@ -377,34 +377,34 @@
     #front-page_subheader {
         font-size: 24pt;
         font-weight: 400;
-        color: var(--codurance-blue);
+        color: var(--codurance-green);
         text-align: left;
         top: 58mm;
     }
     #front-page_detailing {
-        color: var(--codurance-blue);
+        color: var(--codurance-green);
         font-weight: 400;
         font-size: 24pt;
         line-height: 1.43em;
         bottom: 71mm;
     }
     #front-page_detailing-var {
-        color: var(--codurance-blue);
+        color: var(--codurance-green);
         font-weight: 700;
     }
     #front-page_date {
-        color: var(--codurance-blue);
+        color: var(--codurance-green);
         bottom: 49mm;
     }
     #front-page_prepared {
-        color: var(--codurance-blue);
+        color: var(--codurance-green);
         bottom: 38mm;
     }
     .front-page_date-name-vars {
         font-weight: var(--font-weight-regular);
     }
     #front-page_copyright {
-        color: var(--codurance-blue);
+        color: var(--codurance-green);
         bottom: 12.5mm;
     }
 </style>
@@ -413,7 +413,7 @@
     <div id="front-page_copyright" class="front-page_left-margin">
         &copy; Codurance {{currentYear}}
     </div>
-    
+
     <div id="front-page_logo-contact-container" class="front-page_left-margin">
         <a id="front-page_logo" href="https://codurance.com"><img alt="" src="{#asset codurance-logo.svg @encoding=dataURI}" /></a>
         <ul id="front-page_contact-info">
@@ -425,9 +425,9 @@
             </li>
         </ul>
     </div>
-    
+
     <img id="front-page_illustration" src="{#asset front-page-illustration.svg @encoding=dataURI}" />
-    
+
     <h1 id="front-page_header" class="page-header light front-page_left-margin">Codurance Compass</h1>
     <h2 id="front-page_subheader" class="front-page_left-margin">Guilding your way to software excellence</h2>
     <h2 id="front-page_detailing" class="front-page_left-margin">
@@ -451,23 +451,23 @@
 <article class="page page-break-before intro-page">
   <h1 class="page-header light">The Codurance Compass</h1>
   <p>
-    Thank you for taking the time to complete the Codurance Compass. 
-    Software Craftsmanship is at the heart of Codurance, and these values and the practices 
-    that flow from them are how we can continuously deliver great software. 
-    Now we have taken these same values and used them to assess the answers you gave and 
+    Thank you for taking the time to complete the Codurance Compass.
+    Software Craftsmanship is at the heart of Codurance, and these values and the practices
+    that flow from them are how we can continuously deliver great software.
+    Now we have taken these same values and used them to assess the answers you gave and
     provide some practical advice you can take away and apply in your own organisation.
   </p>
   <p>
-    This report is divided into five categories that we believe capture the essense of 
+    This report is divided into five categories that we believe capture the essense of
     an effective software delivery organisation. The categories are summarised on the next page,
-    and then we drill deeper into each one in turn. Hopefully, in the detailed analysis of each 
-    category, you will be able to recognise elements of the current situation at your 
+    and then we drill deeper into each one in turn. Hopefully, in the detailed analysis of each
+    category, you will be able to recognise elements of the current situation at your
     organisation and be able to find some actionable suggestions which you can use to improve.
   </p>
   <div class="page-number">
     1
   </div>
-</article> 
+</article>
 <article class="page page-break-before main-radial-page">
     <h1>Your Assessment</h1>
     <figure class="radial-container">
@@ -533,7 +533,7 @@
             <div class="page-number page-number-repeat">
               {{this.content.page1PageNumber}}
             </div>
-          </div>      
+          </div>
         {{/if}}
         {{#if this.content.page2}}
           <div class="page-break-before">
@@ -543,7 +543,7 @@
             <div class="page-number page-number-repeat">
               {{this.content.page2PageNumber}}
             </div>
-          </div>          
+          </div>
         {{/if}}
     </article>
 {{/each}}
@@ -630,7 +630,7 @@
     legend: {
       display: false
     }
-  }    
+  }
   })
   {{/each}}
 </script>
