@@ -8,78 +8,78 @@
 
 /* PAGE BACKGROUNDS */
 #intro-page {
-  background: url('../img/pages/intro.jpg') no-repeat;
+  background: url('{#asset /assets/pageImgs/intro.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 
 #assessment-page {
-  background: url('../img/pages/assessment.jpg') no-repeat;
+  background: url('{#asset /assets/pageImgs/assessment.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 
 #toc-page {
-  background: url('../img/pages/toc.jpg') no-repeat;
+  background: url('{#asset /assets/pageImgs/toc.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 
 #om-results-page {
-  background: url('../img/pages/organisational-maturity.jpg') no-repeat;
+  background: url('{#asset /assets/pageImgs/organisational-maturity.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 #om-breakdown-page {
-  background: url('../img/pages/om-breakdownPage-avg.jpg') no-repeat;
+  background: url('{#asset /assets/pageImgs/om-breakdown-page-avg.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 
 #cd-results-page {
-  background: url('../img/pages/continuous-delivery.jpg') no-repeat;
+  background: url('{#asset /assets/pageImgs/continuous-delivery.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 #cd-results-page .graph-bar .graph-bar_result-bar {
   background: #5d66b6;
 }
 #cd-breakdown-page {
-  background: url('../img/pages/cd-breakdownPage-avg.jpg') no-repeat;
+  background: url('{#asset /assets/pageImgs/cd-breakdown-page-avg.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 
 #c-results-page {
-  background: url('../img/pages/culture.jpg') no-repeat;
+  background: url('{#asset /assets/pageImgs/culture.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 #c-results-page .graph-bar .graph-bar_result-bar {
   background: var(--small-text-on-dark-yellow);
 }
 #c-breakdown-page {
-  background: url('../img/pages/c-breakdownPage-avg.jpg') no-repeat;
+  background: url('{#asset /assets/pageImgs/c-breakdown-page-avg.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 
 #cft-results-page {
-  background: url('../img/pages/cross-functional-teams.jpg') no-repeat;
+  background: url('{#asset /assets/pageImgs/cross-functional-teams.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 #cft-results-page .graph-bar .graph-bar_result-bar {
   background: var(--small-text-on-dark-red);
 }
 #cft-breakdown-page {
-  background: url('../img/pages/cft-breakdownPage-avg.jpg') no-repeat;
+  background: url('{#asset /assets/pageImgs/cft-breakdown-page-avg.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 
 #xpp-results-page {
-  background: url('../img/pages/xp-practices.jpg') no-repeat;
+  background: url('{#asset /assets/pageImgs/xp-practices.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 #xpp-results-page .graph-bar .graph-bar_result-bar {
   background: var(--codurance-orange);
 }
 #xpp-breakdown-page {
-  background: url('../img/pages/xpp-breakdownPage-avg.jpg') no-repeat;
+  background: url('{#asset /assets/pageImgs/xpp-breakdown-page-avg.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 
 #summary-page {
-  background: url('../img/pages/summary.jpg') no-repeat;
+  background: url('{#asset /assets/pageImgs/summary.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }

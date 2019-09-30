@@ -1,5 +1,5 @@
 #front-page {
-    background: url('../img/pages/cover.jpg') no-repeat;
+    background: url('{#asset /assets/pageImgs/cover.jpg @encoding=dataURI}') no-repeat;
     background-size: cover;
 }
 
@@ -19,7 +19,7 @@
 }
 #front-page_phone-icon {
     display: inline-block;
-    background: url('../img/phone-icon.svg') center no-repeat;
+    background: url('{#asset /assets/phone-icon.svg @encoding=dataURI}') center no-repeat;
     width: 4.3mm;
     height: 4.3mm;
     padding-right: 3.5mm;
@@ -27,7 +27,7 @@
 }
 #front-page_email-icon {
     display: inline-block;
-    background: url('../img/email-icon.svg') center no-repeat;
+    background: url('{#asset /assets/email-icon.svg @encoding=dataURI}') center no-repeat;
     width: 4.3mm;
     height: 4.3mm;
     padding-right: 4mm;
