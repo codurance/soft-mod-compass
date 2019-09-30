@@ -58,16 +58,14 @@ body {
 
 /* LAYOUTS -------------------------------------- */
 .page {
-  background-color: white;
-  min-width: 297mm;
-  min-height: 210mm;
-  max-width: 297mm;
-  max-height: 210mm;
   display: block;
   position: relative;
   margin: 0 auto;
-  margin-bottom: 5mm;
   overflow: hidden;
+  min-width: 100%;
+  min-height: 209.55mm;
+  max-width: 100%;
+  max-height: 209.55mm;
 }
 .page-break-before {
   break-before: page;
