@@ -1,638 +1,238 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Chart</title>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-  <link href="https://use.typekit.net/gpw7xtk.css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-  <style>
-    /*@font-face {*/
-    /*  font-family: 'ProximaNova-Regular';*/
-    /*  src: url({#asset /assets/ProximaNova-Regular.otf @encoding=dataURI});*/
-    /*  format('woff');*/
-    /*}*/
-
-    :root {
-        /* COLOURS */
-        --codurance-green: #185466;
-        --codurance-light-green: #61BFBB;
-        --text-black: #0E0E0E;
-
-        /* TYPE */
-        --font-weight-regular: 400;
-        --font-weight-bold: 700;
-
-        --font-size-page-header: 51pt;
-        --line-height-page-header: 1.15em;
-
-        --font-size-body: 10pt;
-        --line-height-body: 1.5em;
-    }
-
-    * {
-      font-family: proxima-nova;
-    }
-
-    body {
-      font-family: proxima-nova;
-      font-size: var(--font-size-body);
-      padding: 0;
-      margin: 0;
-      line-height: var(--line-height-body);
-      color: var(--text-black);
-    }
-
-    .page-header {
-        font-family: proxima-nova;
-        font-weight: var(--font-weight-bold);
-        font-style: normal;
-        text-align: left;
-        font-size: var(--font-size-page-header);
-        line-height: var(--line-height-page-header);
-    }
-    .page-header.light {
-        color: var(--codurance-green);
-    }
-    .page-header.dark {
-        color: var(--codurance-light-green);
-    }
-
-    /*h1 {*/
-    /*  text-align: left;*/
-    /*  color: #185466;*/
-    /*  font-size: 48px;*/
-    /*  font-weight: bold;*/
-    /*  margin-top: 0px;*/
-    /*  margin-bottom: 10px;*/
-    /*}*/
-
-    .radial-container {
-      height: 459px;
-      width: 720px;
-      margin: auto;
-      margin-top: 50px;
-    }
-
-    .subradial-padding {
-      padding: 10px 0 0 0;
-    }
-
-    .subradial-container {
-      width: 400px;
-      height: 400px;
-      padding: 0;
-      margin: 0;
-    }
-
-    .subradial-canvas {
-      width: 400px;
-      height: 400px;
-    }
-
-    .top-section {
-      height: 500px;
-      vertical-align: top;
-      padding: 0;
-      margin: 0;
-    }
-
-    /* Fake (pseudo) element, that enables vertical-align */
-    .top-section:before {
-      content: "";
-      display: inline-block;
-      vertical-align: middle;
-      height: 100%;
-    }
-
-    .top-section,
-    .top-section .top-left,
-    .top-section .top-middle,
-    .top-section .top-right {
-      height: 500px;
-      overflow-y: hidden;
-    }
-
-    .top-section .top-left {
-      display: inline-block;
-      width: 38%;
-      vertical-align: top;
-      font-size: 20pt;
-      letter-spacing: -1px;
-    }
-
-    .top-section .top-middle {
-      display: inline-block;
-      width: 58%;
-      vertical-align: top;
-      padding: 0;
-    }
-
-    .top-section .top-right {
-      display: block;
-      position: relative;
-      width: 230px;
-      height: 200px;
-      vertical-align: top;
-      padding: 0;
-      top: -200px;
-      left: 660px;
-      font-size: 12pt;
-    }
-
-    .key-header {
-      font-weight: bold;
-    }
-
-    .key-ordinal {
-      display: inline-block;
-      vertical-align: top;
-    }
-
-    .key-data {
-      display: inline-block;
-      width: 205px;
-      padding-left: 5px;
-    }
-
-    .content-container {
-      column-count: 2;
-      column-fill: auto;
-      font-size: 18pt;
-      padding-top: 25px;
-      height: 830px;
-    }
-
-    .content-container.page-2 {
-      margin-top: 100px;
-      width: 100%;
-      height: 1479px;
-    }
-
-    .main-content-area p {
-      margin-top: 0;
-      text-align: justify;
-    }
-
-    .main-radial-static-content p {
-      margin-bottom: 0;
-      font-size: 18pt;
-      text-align: justify;
-    }
-
-    .main-radial-static-content p:first-child {
-      margin-top: 0;
-    }
-
-    .category-page {
-      padding-top: 100px;
-      padding-left: 100px;
-      padding-right: 100px;
-    }
-
-    .page-break-before {
-      page-break-before: always;
-    }
-
-    .page-break-after {
-      page-break-after: always;
-    }
-
-    .page {
-      margin: 4% 4% 4% 4%;
-    }
-
-    p {
-      page-break-inside: avoid;
-    }
-
-    /*.front-page-container {*/
-    /*  margin: 0;*/
-    /*}*/
-
-    .intro-page {
-      padding-top: 100px;
-      padding-left: 100px;
-      padding-right: 100px;
-      height: 1486px;
-      position: relative;
-    }
-
-    /*.intro-page p {*/
-    /*  font-size: 18pt;*/
-    /*  text-align: justify;*/
-    /*}*/
-
-    .intro-page .page-number {
-      position: absolute;
-    }
-
-    .main-radial-page {
-      padding-top: 100px;
-      padding-left: 100px;
-      padding-right: 100px;
-      height: 1486px;
-      position: relative;
-    }
-
-    .main-radial-page .page-number {
-      position: absolute;
-    }
-
-    .cover-page {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      z-index: 10;
-    }
-
-    footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      height: 100px;
-      text-align: right;
-    }
-
-    .footer-container {
-      padding-right: 167px;
-      font-size: 14pt;
-      padding-top: 36px;
-    }
-
-    .category-grid {
-      display: grid;
-      grid-template-columns: auto auto;
-      grid-template-rows: auto auto auto auto auto;
-      grid-column-gap: 1em;
-      grid-row-gap: 1em;
-      padding-top: 20px;
-    }
-
-    .category-grid-heading {
-      color: #185466;
-      font-weight: bold;
-      font-size: 26px;
-    }
-
-    hr {
-      border: 0.8px solid black;
-      margin: 0 0 30px 0;
-    }
-
-    .page-number {
-      display: block;
-      position: relative;
-      padding: 0;
-      margin: 0;
-      bottom: -10px;
-      left: 0;
-      right: 0;
-      width: auto;
-      text-align: center;
-      font-size: 14pt;
-    }
-
-    .page-number.page-number-repeat {
-      bottom: -20px;
-    }
-
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Proxima Nova font from Typekit -->
+  <link rel="stylesheet" href="https://use.typekit.net/gpw7xtk.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Codurance Compass</title>
 </head>
-
 <body>
 
-  {{!-- Repeats on every page --}}
-  {{!--<footer>--}}
-  {{!--  {#asset footer.html @encoding=utf8}--}}
-  {{!--</footer>--}}
+  <!-- BEGIN FRONT PAGE ---------------------------------------------------------- -->
+  <section id="front-page" class="page page-break-after">
+      <!-- <div id="front-page_left-bar"></div> -->
+      <!-- <div id="front-page_logo-contact-container" class="front-page_left-margin">
+          <a id="front-page_logo" href="https://codurance.com"><img alt="" src="./img/codurance-logo.svg" /></a>
+          <ul id="front-page_contact-info">
+              <li>
+                  <a href="tel:+442074902967">
+                    <i id="front-page_phone-icon"></i>+44 207 4902967
+                  </a>
+              </li>
+              <li>
+                  <a href="mailto:contact@codurance.com">
+                    <i id="front-page_email-icon"></i>contact@codurance.com
+                  </a>
+              </li>
+          </ul>
+      </div> -->
+      <!-- <img id="front-page_illustration" src="./img/front-page-illustration.svg" /> -->
+      <!-- <h1 id="front-page_header" class="page-header light front-page_left-margin">Codurance Compass</h1> -->
+      <!-- <h2 id="front-page_subheader" class="front-page_left-margin">Guilding your way to software excellence</h2> -->
 
-{{!-- BEGIN FRONT PAGE ------------------------------------------------------}}
-<style>
-    .front-page_left-margin {
-        position: absolute;
-        left: 28.8mm;
-    }
-    .front-page_subcopy {
-        font-size: 16pt;
-    }
-    #front-page_left-bar {
-        width: 12.7mm;
-        height: 100%;
-        background: var(--codurance-light-green);
-        position: absolute;
-        left: 0;
-        top: 0;
-    }
-    #front-page_logo-contact-container {
-        top: 13mm;
-        right: 16mm;
-        left: 29.5mm;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    #front-page_logo {
-        width: 55.4mm;
-    }
-    #front-page_phone-icon {
-        display: inline-block;
-        background: url('{#asset phone-icon.svg @encoding=dataURI}') center no-repeat;
-        width: 4.3mm;
-        height: 4.3mm;
-        padding-right: 3.5mm;
-        vertical-align: middle;
-    }
-    #front-page_email-icon {
-        display: inline-block;
-        background: url('{#asset email-icon.svg @encoding=dataURI}') center no-repeat;
-        width: 4.3mm;
-        height: 4.3mm;
-        padding-right: 4mm;
-        vertical-align: middle;
-    }
-    #front-page_contact-info {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        display: flex;
-        align-items: center;
-    }
-    #front-page_contact-info a {
-        display: inline-block;
-        text-decoration: none;
-        padding-top: 4mm;
-        margin-left: 9.2mm;
-        color: var(--text-black);
-    }
-    #front-page_illustration {
-        width: 135.9mm;
-        position: absolute;
-        bottom: 16mm;
-        right: 16mm;
-    }
-    #front-page_header {
-        top: 30mm;
-        left: 28.5mm;
-    }
-    #front-page_subheader {
-        font-size: 24pt;
-        font-weight: 400;
-        color: var(--codurance-green);
-        text-align: left;
-        top: 58mm;
-    }
-    #front-page_detailing {
-        color: var(--codurance-green);
-        font-weight: 400;
-        font-size: 24pt;
-        line-height: 1.43em;
-        bottom: 71mm;
-    }
-    #front-page_detailing-var {
-        color: var(--codurance-green);
-        font-weight: 700;
-    }
-    #front-page_date {
-        color: var(--codurance-green);
-        bottom: 49mm;
-    }
-    #front-page_prepared {
-        color: var(--codurance-green);
-        bottom: 38mm;
-    }
-    .front-page_date-name-vars {
-        font-weight: var(--font-weight-regular);
-    }
-    #front-page_copyright {
-        color: var(--codurance-green);
-        bottom: 12.5mm;
-    }
-</style>
-<figure class="page-break-after front-page-container">
-    <div id="front-page_left-bar"></div>
-    <div id="front-page_copyright" class="front-page_left-margin">
-        &copy; Codurance {{currentYear}}
-    </div>
-
-    <div id="front-page_logo-contact-container" class="front-page_left-margin">
-        <a id="front-page_logo" href="https://codurance.com"><img alt="" src="{#asset codurance-logo.svg @encoding=dataURI}" /></a>
+      <div id="front-page_contact-container">
         <ul id="front-page_contact-info">
-            <li>
-                <a href="tel:+442074902967"><i id="front-page_phone-icon"></i>+44 207 4902967</a></p>
-            </li>
-            <li>
-                <a href="mailto:contact@codurance.com"><i id="front-page_email-icon"></i>contact@codurance.com</a></p>
-            </li>
+          <li>
+              <a href="tel:+442074902967">
+                <i id="front-page_phone-icon"></i>+44 207 4902967
+              </a>
+          </li>
+          <li>
+              <a href="mailto:contact@codurance.com">
+                <i id="front-page_email-icon"></i>contact@codurance.com
+              </a>
+          </li>
         </ul>
+      </div>
+
+      <h2 id="front-page_detailing" class="front-page_left-margin">
+          Detailing:<br>
+          <span id="front-page_detailing-var">Example Company</span>
+      </h2>
+      <h3 id="front-page_date" class="front-page_left-margin front-page_subcopy">
+          Date: <span class="front-page_date-name-vars">01 / 01 / 2019</span>
+      </h3>
+      <h3 id="front-page_prepared" class="front-page_left-margin front-page_subcopy">
+          Prepared for: <span class="front-page_date-name-vars">Jason Sanchez</span>
+      </h3>
+  </section>
+  <!-- END FRONT PAGE ---------------------------------------------------------- -->
+
+  <!-- BEGIN INTRO PAGE ---------------------------------------------------------- -->
+  <section id="intro-page" class="page page-break-after">
+    <ul id="intro-page_contact-info">
+      <li>
+          Phone: <a href="tel:+442074902967">+44 207 4902967</a>
+      </li>
+      <li>
+          Email: <a href="mailto:contact@codurance.com">contact@codurance.com</a>
+      </li>
+    </ul>
+  </section>
+  <!-- END INTRO PAGE ---------------------------------------------------------- -->
+
+  <!-- BEGIN YOUR ASSESSMENT PAGE ---------------------------------------------------------- -->
+  <section id="assessment-page" class="page page-break-after dark">
+    <div class="assessment-page_graph om">
+      <span class="graph-bar_result-bar"></span>
+      <p class="assessment-page_result-text om">Example Text</p>
     </div>
-
-    <img id="front-page_illustration" src="{#asset front-page-illustration.svg @encoding=dataURI}" />
-
-    <h1 id="front-page_header" class="page-header light front-page_left-margin">Codurance Compass</h1>
-    <h2 id="front-page_subheader" class="front-page_left-margin">Guilding your way to software excellence</h2>
-    <h2 id="front-page_detailing" class="front-page_left-margin">
-        Detailing:<br>
-        <span id="front-page_detailing-var">Example Company</span>
-    </h2>
-    <h3 id="front-page_date" class="front-page_left-margin front-page_subcopy">
-        Date: <span class="front-page_date-name-vars">01 / 01 / 2019</span>
-    </h3>
-    <h3 id="front-page_prepared" class="front-page_left-margin front-page_subcopy">
-        Prepared for: <span class="front-page_date-name-vars">Jason Sanchez</span>
-    </h3>
-</figure>
-{{!-- END FRONT PAGE ---------------------------------------------------------}}
-
-
-
-<div class="page-break-before">
-  &nbsp;
-</div>
-<article class="page page-break-before intro-page">
-  <h1 class="page-header light">The Codurance Compass</h1>
-  <p>
-    Thank you for taking the time to complete the Codurance Compass.
-    Software Craftsmanship is at the heart of Codurance, and these values and the practices
-    that flow from them are how we can continuously deliver great software.
-    Now we have taken these same values and used them to assess the answers you gave and
-    provide some practical advice you can take away and apply in your own organisation.
-  </p>
-  <p>
-    This report is divided into five categories that we believe capture the essense of
-    an effective software delivery organisation. The categories are summarised on the next page,
-    and then we drill deeper into each one in turn. Hopefully, in the detailed analysis of each
-    category, you will be able to recognise elements of the current situation at your
-    organisation and be able to find some actionable suggestions which you can use to improve.
-  </p>
-  <div class="page-number">
-    1
-  </div>
-</article>
-<article class="page page-break-before main-radial-page">
-    <h1>Your Assessment</h1>
-    <figure class="radial-container">
-        <canvas id="SummaryRadial" width="800" height="450"></canvas>
-    </figure>
-    <hr />
-    <section class="category-grid">
-        {{#each categories}}
-            <section class="category-grid-heading">{{this.name}}</section>
-            <section class="main-radial-static-content">
-                {{{this.staticContent.contentWithNoLineBreaks}}}
-            </section>
-        {{/each}}
-    </section>
-    <div class="page-number">
-      2
+    <div class="assessment-page_graph cd">
+      <span class="graph-bar_result-bar"></span>
+      <p class="assessment-page_result-text cd">Example Text</p>
     </div>
-</article>
-{{#each categories}}
-    <article class="page page-break-before category-page">
-        <header>
-            <h1>{{this.name}}</h1>
-            <section class="top-section">
-                <div class="top-left">
-                  {{{this.staticContent.content}}}
-                </div>
-                <div class="top-middle">
-                  <div class="subradial-padding">
-                    <figure class="subradial-container">
-                    <canvas id="{{this.name}}" class="subradial-canvas" width="400" height="400"></canvas>
-                  </div>
-                </figure>
-                </div>
-                <div class="top-right">
-                  <div class="key-header">
-                    Key
-                  </div>
-                  <div>
-                    <span class="key-ordinal">A</span>
-                    <span class="key-data">{{this.subCategoryLabel1}}</span>
-                  </div>
-                  <div>
-                    <span class="key-ordinal">B</span>
-                    <span class="key-data">{{this.subCategoryLabel2}}</span>
-                  </div>
-                  <div>
-                    <span class="key-ordinal">C</span>
-                    <span class="key-data">{{this.subCategoryLabel3}}</span>
-                  </div>
-                  <div>
-                    <span class="key-ordinal">D</span>
-                    <span class="key-data">{{this.subCategoryLabel4}}</span>
-                  </div>
-                </div>
-            </section>
-        </header>
-        <hr />
-        {{#if this.content.page1}}
-          <div>
-            <section class="content-container">
-              {{{this.content.page1}}}
-            </section>
-            <div class="page-number page-number-repeat">
-              {{this.content.page1PageNumber}}
-            </div>
-          </div>
-        {{/if}}
-        {{#if this.content.page2}}
-          <div class="page-break-before">
-            <section class="content-container page-2">
-              {{{this.content.page2}}}
-            </section>
-            <div class="page-number page-number-repeat">
-              {{this.content.page2PageNumber}}
-            </div>
-          </div>
-        {{/if}}
-    </article>
-{{/each}}
-<script>
-  var labels = "{{summaryRadial.labels}}".split(',')
-  var ctx = document.getElementById('SummaryRadial')
-  Chart.defaults.global.defaultFontFamily = '\'Proxima Nova\', sans-serif'
-  Chart.defaults.global.defaultFontSize = 12
-  var summaryRadial = new Chart(ctx, {
-    type: 'radar',
-    data: {
-      labels: labels,
-      datasets: [
-        {
-          data: [{{summaryRadial.scores}}],
-      backgroundColor: [
-        'rgba(239, 119, 38, 0.6)',
-      ],
-      borderColor: [
-        'rgba(168, 25, 0,1)',
-      ],
-      borderWidth: 1
-    }
-      ]
-    },
-  options: {
-    animation: {
-      duration: 0
-    },
-    scale: {
-      ticks: {
-        min: 0,
-          max: 100,
-            display: false,
-              maxTicksLimit: 5
-      },
-      pointLabels: {
-        fontSize: 20
-      }
-    },
-    legend: {
-      display: false,
-        }
-  }
-  })
-</script>
-<script>
-  {{#each categories}}
-  var ctx = document.getElementById('{{this.name}}')
-  Chart.defaults.global.defaultFontFamily = '\'Proxima Nova\', sans-serif'
-  Chart.defaults.global.defaultFontSize = 12
-  var subcategoryRadial = new Chart(ctx, {
-    type: 'radar',
-    data: {
-      labels: ["A", "B", "C", "D"],
-      datasets: [
-        {
-          data: [{{this.subCategoryScores}}],
-      backgroundColor: [
-        'rgba(255, 208, 0, 0.6)',
-      ],
-      borderColor: [
-        'rgba(254, 191, 39,1)',
-      ],
-      borderWidth: 1
-    }
-      ]
-    },
-  options: {
-    animation: {
-      duration: 0
-    },
-    scale: {
-      ticks: {
-        min: 0,
-          max: 100,
-            display: false,
-              maxTicksLimit: 5
-      },
-      pointLabels: {
-        fontSize: 20
-      }
-    },
-    legend: {
-      display: false
-    }
-  }
-  })
-  {{/each}}
-</script>
+    <div class="assessment-page_graph c">
+      <span class="graph-bar_result-bar"></span>
+      <p class="assessment-page_result-text c">Example Text</p>
+    </div>
+    <div class="assessment-page_graph cft">
+      <span class="graph-bar_result-bar"></span>
+      <p class="assessment-page_result-text cft">Example Text</p>
+    </div>
+    <div class="assessment-page_graph xpp">
+      <span class="graph-bar_result-bar"></span>
+      <p class="assessment-page_result-text xpp">Example Text</p>
+    </div>
+  </section>
+  <!-- END YOUR ASSESSMENT PAGE ---------------------------------------------------------- -->
+
+  <!-- BEGIN TOC PAGE ---------------------------------------------------------- -->
+  <section id="toc-page" class="page page-break-after">
+    <ul id="toc-page_toc">
+      <li id="toc-page_toc-numbers">
+        <span><a href="#om-results-page">5</a></span>
+        <span><a href="#cd-results-page">7</a></span>
+        <span><a href="#c-results-page">9</a></span>
+        <span><a href="#cft-results-page">11</a></span>
+        <span><a href="#xpp-results-page">13</a></span>
+        <span><a href="#summary-page">15</a></span>
+      </li>
+      <li id="toc-page_toc-names">
+        <span><a href="#om-results-page">Organisational Maturity</a></span>
+        <span><a href="#cd-results-page">Continuous Delivery</a></span>
+        <span><a href="#c-results-page">Culture</a></span>
+        <span><a href="#cft-results-page">Cross-Functional Teams</a></span>
+        <span><a href="#xpp-results-page">XP Practices</a></span>
+        <span><a href="#summary-page">Summary</a></span>
+      </li>
+    </ul>
+  </section>
+  <!-- END TOC PAGE ---------------------------------------------------------- -->
+
+  <!-- BEGIN ORGANISATIONAL MATURITY RESULTS PAGE ---------------------------------------------------------- -->
+  <section id="om-results-page" class="page page-break-after">
+    <div class="graph-bar bar-1">
+      <span class="graph-bar_result-bar"></span>
+    </div>
+    <div class="graph-bar bar-2">
+      <span class="graph-bar_result-bar"></span>
+    </div>
+    <div class="graph-bar bar-3">
+      <span class="graph-bar_result-bar"></span>
+    </div>
+    <div class="graph-bar bar-4">
+      <span class="graph-bar_result-bar"></span>
+    </div>
+  </section>
+  <!-- END ORGANISATIONAL MATURITY RESULTS PAGE ---------------------------------------------------------- -->
+
+  <!-- BEGIN ORGANISATIONAL MATURITY RESULTS PAGE ---------------------------------------------------------- -->
+  <section id="om-breakdown-page" class="page page-break-after"></section>
+  <!-- END ORGANISATIONAL MATURITY RESULTS PAGE ---------------------------------------------------------- -->
+
+  <!-- BEGIN CONTINUOUS DELIVERY RESULTS PAGE ---------------------------------------------------------- -->
+  <section id="cd-results-page" class="page page-break-after dark">
+    <div class="graph-bar bar-1">
+      <span class="graph-bar_result-bar"></span>
+    </div>
+    <div class="graph-bar bar-2">
+      <span class="graph-bar_result-bar"></span>
+    </div>
+    <div class="graph-bar bar-3">
+      <span class="graph-bar_result-bar"></span>
+    </div>
+    <div class="graph-bar bar-4">
+      <span class="graph-bar_result-bar"></span>
+    </div>
+  </section>
+  <!-- END CONTINUOUS DELIVERY RESULTS PAGE ---------------------------------------------------------- -->
+
+  <!-- BEGIN CONTINUOUS DELIVERY RESULTS PAGE ---------------------------------------------------------- -->
+  <section id="cd-breakdown-page" class="page page-break-after dark"></section>
+  <!-- END CONTINUOUS DELIVERY RESULTS PAGE ---------------------------------------------------------- -->
+
+  <!-- BEGIN CULTURE RESULTS PAGE ---------------------------------------------------------- -->
+  <section id="c-results-page" class="page page-break-after">
+    <div class="graph-bar bar-1">
+      <span class="graph-bar_result-bar"></span>
+    </div>
+    <div class="graph-bar bar-2">
+      <span class="graph-bar_result-bar"></span>
+    </div>
+    <div class="graph-bar bar-3">
+      <span class="graph-bar_result-bar"></span>
+    </div>
+    <div class="graph-bar bar-4">
+      <span class="graph-bar_result-bar"></span>
+    </div>
+  </section>
+  <!-- END CULTURE RESULTS PAGE ---------------------------------------------------------- -->
+
+  <!-- BEGIN CULTURE RESULTS PAGE ---------------------------------------------------------- -->
+  <section id="c-breakdown-page" class="page page-break-after"></section>
+  <!-- END CULTURE RESULTS PAGE ---------------------------------------------------------- -->
+
+  <!-- BEGIN CROSS-FUNCTIONAL TEAMS ---------------------------------------------------------- -->
+   <section id="cft-results-page" class="page page-break-after dark">
+    <div class="graph-bar bar-1">
+      <span class="graph-bar_result-bar"></span>
+    </div>
+    <div class="graph-bar bar-2">
+      <span class="graph-bar_result-bar"></span>
+    </div>
+    <div class="graph-bar bar-3">
+      <span class="graph-bar_result-bar"></span>
+    </div>
+    <div class="graph-bar bar-4">
+      <span class="graph-bar_result-bar"></span>
+    </div>
+  </section>
+  <!-- END CROSS-FUNCTIONAL TEAMS ---------------------------------------------------------- -->
+
+  <!-- BEGIN CROSS-FUNCTIONAL TEAMS ---------------------------------------------------------- -->
+  <section id="cft-breakdown-page" class="page page-break-after dark"></section>
+  <!-- END CROSS-FUNCTIONAL TEAMS ---------------------------------------------------------- -->
+
+  <!-- BEGIN XP PRACTICES TEAMS ---------------------------------------------------------- -->
+  <section id="xpp-results-page" class="page page-break-after">
+    <div class="graph-bar bar-1">
+      <span class="graph-bar_result-bar"></span>
+    </div>
+    <div class="graph-bar bar-2">
+      <span class="graph-bar_result-bar"></span>
+    </div>
+    <div class="graph-bar bar-3">
+      <span class="graph-bar_result-bar"></span>
+    </div>
+    <div class="graph-bar bar-4">
+      <span class="graph-bar_result-bar"></span>
+    </div>
+  </section>
+  <!-- END XP PRACTICES TEAMS ---------------------------------------------------------- -->
+
+  <!-- BEGIN XP PRACTICES TEAMS ---------------------------------------------------------- -->
+  <section id="xpp-breakdown-page" class="page page-break-after"></section>
+  <!-- END XP PRACTICES TEAMS ---------------------------------------------------------- -->
+
+  <!-- BEGIN SUMMARY PAGE ---------------------------------------------------------- -->
+  <section id="summary-page" class="page page-break-after"></section>
+  <!-- END SUMMARY PAGE ---------------------------------------------------------- -->
+
+
+
 </body>
+<script src="index.js"></script>
 </html>
