@@ -65,8 +65,8 @@ body {
   max-height: 210mm;
   display: block;
   position: relative;
-  /* margin: 0 auto; */
-  /* margin-bottom: 5mm; */
+  margin: 0 auto;
+  margin-bottom: 5mm;
   overflow: hidden;
 }
 .page-break-before {
