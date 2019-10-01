@@ -42,7 +42,29 @@ const updateAssessmentText = scores => {
 
 
 
-
+(function updateBreakdownGraphs() {
+  const GRAPHS = [
+                  [...document.querySelectorAll('#om-results-page .graph-bar_result-bar')],
+                  [...document.querySelectorAll('#cd-results-page .graph-bar_result-bar')],
+                  [...document.querySelectorAll('#c-results-page .graph-bar_result-bar')],
+                  [...document.querySelectorAll('#cft-results-page .graph-bar_result-bar')],
+                  [...document.querySelectorAll('#xpp-results-page .graph-bar_result-bar')]
+                 ];
+  
+  let data = [];
+        
+  {{#each categories}}
+    data.push([{{this.subCategoryScores}}]);
+  {{/each}}
+  
+ for (let i = 0; i < GRAPHS.length; i++) {
+      
+      for (let j = 0; j < GRAPHS[i].length; j++) {
+          GRAPHS[i][j].style.width = `${data[i][j]}%`;
+      }
+      
+  }
+})();
 
 
 
