@@ -44,11 +44,11 @@ const updateAssessmentText = scores => {
 
 (function updateBreakdownGraphs() {
   const GRAPHS = [
-                  [...document.querySelectorAll('#om-results-page .graph-bar_result-bar')],
-                  [...document.querySelectorAll('#cd-results-page .graph-bar_result-bar')],
-                  [...document.querySelectorAll('#c-results-page .graph-bar_result-bar')],
-                  [...document.querySelectorAll('#cft-results-page .graph-bar_result-bar')],
-                  [...document.querySelectorAll('#xpp-results-page .graph-bar_result-bar')]
+                  document.querySelectorAll('#om-results-page .graph-bar_result-bar'),
+                  document.querySelectorAll('#cd-results-page .graph-bar_result-bar'),
+                  document.querySelectorAll('#c-results-page .graph-bar_result-bar'),
+                  document.querySelectorAll('#cft-results-page .graph-bar_result-bar'),
+                  document.querySelectorAll('#xpp-results-page .graph-bar_result-bar')
                  ];
   
   let data = [];
@@ -70,18 +70,18 @@ const updateAssessmentText = scores => {
 
 
 
+(function insertBreakdownPages(scores) {
+  const BREAKDOWN_PAGES = [...document.querySelectorAll('[id$="-breakdown-page"]')];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  for (let breakdownPage of BREAKDOWN_PAGES) {
+    let result = scores[BREAKDOWN_PAGES.indexOf(breakdownPage)] < 33
+                 ? 'bad'
+                 : scores[BREAKDOWN_PAGES.indexOf(breakdownPage)] < 66
+                 ? 'avg'
+                 : 'good';
+                 
+    breakdownPage.style.background       = `url(assets/pageImgs/${breakdownPage.id}-${result}.jpg)`;
+    breakdownPage.style.backgroundRepeat = 'no-repeat';
+    breakdownPage.style.backgroundSize   = 'cover';
+  }
+})([{{summaryRadial.scores}}]);
