@@ -229,4 +229,18 @@
 <script>
     {#asset /js/index.js @encoding=utf8}
 </script>
+<!-- Convert CSS Variables -->
+<script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+<script>
+    cssVars({
+        rootElement   : document,
+        include: 'style',
+        exclude: 'link',
+        onlyLegacy: false,
+        preserveStatic: true,
+        preserveVars  : false,
+        updateDOM: true,
+        updateURLs: false
+    });
+</script>
 </html>
