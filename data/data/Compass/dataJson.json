@@ -1,4 +1,17 @@
 {
+    "userData":
+   { 
+     "submittedAt": 1569250954586,
+     "values": [
+        { "name": "firstname", "value": "Daniel" },
+        { "name": "lastname", "value": "Bird" },
+        { "name": "company", "value": "Codurance" },
+        { "name": "email", "value": "daniel.bird@codurance.com" },
+        { "name": "uuid", "value": "476cf248-27fe-4f98-8eaa-19d385cc2fbd" }
+     ],
+     "pageUrl": "https://info.codurance.com/compass-test?uuid=476cf248-27fe-4f98-8eaa-19d385cc2fbd&scores=NjAsNjAsNjAsNjAsNjA="
+   },
+    "scores": [ 60, 60, 60, 60, 60 ],
     "summaryRadial": {
         "scores": [20, 40, 90, 30, 50],
         "labels": [

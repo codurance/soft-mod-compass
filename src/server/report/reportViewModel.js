@@ -1,13 +1,14 @@
 module.exports = reportViewModel
 
-function reportViewModel (categories, questionChoices, answers) {
+function reportViewModel (categories, questionChoices, answers, userDetails) {
   const categoriesWithContentAndScore = createCategoriesFrom(categories, questionChoices, answers)
     .map(addScore)
 
   const scores = categoriesWithContentAndScore.map(c => c.score);
-
+  const userData = userDetails[0];
 
   const jsonResults = {
+    userData,
     scores,
     summaryRadial: {
       scores,
@@ -15,15 +16,11 @@ function reportViewModel (categories, questionChoices, answers) {
     },
     categories: categoriesWithContentAndScore.map(({
       name,
-      content,
-      staticContent,
       score,
       subCategoryNames,
       subCategoryScores
     }) => (
       { name,
-        content,
-        staticContent,
         score,
         subCategoryLabels: subCategoryNames,
         subCategoryLabel1: subCategoryNames[0],
@@ -33,6 +30,8 @@ function reportViewModel (categories, questionChoices, answers) {
         subCategoryScores
       }))
   };
+
+  console.log('from RVM JSON', jsonResults.userData.values);
 
   return jsonResults;
 }

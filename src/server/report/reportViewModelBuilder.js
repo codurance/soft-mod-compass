@@ -1,19 +1,21 @@
 const reportViewModel = require('./reportViewModel')
 const categoryData = require('./categoryData')
 
-const reportViewModelBuilder = (typeformClient) => {
-  function buildReportViewModelFor (submissionId) {
-    return getSurveySubmissionFor(submissionId)
-      .then(([choices, answers]) => {
-        return reportViewModel(categoryData, choices, answers)
-      })
+const reportViewModelBuilder = (typeformClient, getHubspotUserDetails) => {
+
+  function buildReportViewModelFor(submissionId) {
+    return getReportData(submissionId)
+      .then(([choices, answers, userDetails]) => {
+        return reportViewModel(categoryData, choices, answers, userDetails)
+      });
   }
 
-  function getSurveySubmissionFor (submissionId) {
+  function getReportData(submissionId) {
     return Promise.all(
       [
         typeformClient.getQuestionChoices(),
-        typeformClient.surveyAnswersFor(submissionId)
+        typeformClient.surveyAnswersFor(submissionId),
+        getHubspotUserDetails(submissionId)
       ])
   }
 
