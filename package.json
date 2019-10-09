@@ -20,6 +20,7 @@
     "ejs": "2.6.1",
     "express": "4.16.4",
     "jsreport": "2.4.0",
+    "node-fetch": "^2.6.0",
     "request": "2.88.0",
     "request-promise": "4.2.2",
     "sleep-promise": "8.0.1",
