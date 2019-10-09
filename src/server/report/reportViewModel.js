@@ -1,16 +1,13 @@
 module.exports = reportViewModel
 
-function reportViewModel (loadContent, categories, questionChoices, answers, loadStaticContent) {
+function reportViewModel (categories, questionChoices, answers) {
   const categoriesWithContentAndScore = createCategoriesFrom(categories, questionChoices, answers)
     .map(addScore)
-    .map(x => addStaticContent(loadStaticContent, x))
-    .map(x => addContent(loadContent, x))
 
-  const scores = categoriesWithContentAndScore.map(c => c.score)
+  const scores = categoriesWithContentAndScore.map(c => c.score);
 
-  setPageNumbers(categoriesWithContentAndScore)
 
-  return {
+  const jsonResults = {
     scores,
     summaryRadial: {
       scores,
@@ -35,9 +32,10 @@ function reportViewModel (loadContent, categories, questionChoices, answers, loa
         subCategoryLabel4: subCategoryNames[3],
         subCategoryScores
       }))
-  }
-}
+  };
 
+  return jsonResults;
+}
 function createCategoriesFrom (categories, allSelectableChoices, allChosenAnswers) {
   return categories.map((category, index) => {
     const numberOfQuestionsInCategory = 4
@@ -66,34 +64,4 @@ function calculateScoreFor ({ choices, answers }) {
 
 function calculateScoreForAnswer (choices, answer) {
   return 100 - choices.indexOf(answer) * 20
-}
-
-function addContent (loadContent, category) {
-  const content = loadContent(category.name, category.score)
-  return Object.assign({}, category, { content })
-}
-
-function addStaticContent (loadStaticContent, category) {
-  const staticContent = loadStaticContent(category.name)
-  return Object.assign({}, category, { staticContent })
-}
-
-function setPageNumbers (categoriesWithContentAndScore) {
-  let pageNumber = 2
-  let i = 0
-  for (i = 0; i < categoriesWithContentAndScore.length; i++) {
-    const category = categoriesWithContentAndScore[i]
-    if (category.content && category.content.page1) {
-      pageNumber++
-      category.content.page1PageNumber = pageNumber
-    } else {
-      category.content.page1PageNumber = null
-    }
-    if (category.content && category.content.page2) {
-      pageNumber++
-      category.content.page2PageNumber = pageNumber
-    } else {
-      category.content.page2PageNumber = null
-    }
-  }
 }
