@@ -54,6 +54,7 @@
     font-size: 24pt;
     line-height: 1.43em;
     bottom: 71mm;
+    width: 100mm;
 }
 #front-page_detailing-var {
     color: var(--codurance-green);
