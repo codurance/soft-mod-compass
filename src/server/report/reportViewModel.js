@@ -31,8 +31,6 @@ function reportViewModel (categories, questionChoices, answers, userDetails) {
       }))
   };
 
-  console.log('from RVM JSON', jsonResults.userData.values);
-
   return jsonResults;
 }
 function createCategoriesFrom (categories, allSelectableChoices, allChosenAnswers) {
