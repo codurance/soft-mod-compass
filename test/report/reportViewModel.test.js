@@ -1,44 +1,4 @@
 const reportViewModel = require('../../src/server/report/reportViewModel')
-const loadContentStub = category => {
-  if (category === 'cat 1') {
-    return {
-      page1: 'hello mediums',
-      page2: null
-    }
-  }
-  if (category === 'cat 2') {
-    return {
-      page1: 'HELLO YOU DID WELL',
-      page2: 'Yet another page'
-    }
-  }
-  if (category === 'cat 3') {
-    return {
-      page1: 'hello this is still low, again',
-      page2: 'Another low page'
-    }
-  }
-}
-const loadStaticContentStub = category => {
-  if (category === 'cat 1') {
-    return {
-      content: 'static content 1\nstatic content 1 line 2',
-      contentWithNoLineBreaks: 'static content 1 static content 1 line 2'
-    }
-  }
-  if (category === 'cat 2') {
-    return {
-      content: 'static content 2\nstatic content 2 line 2',
-      contentWithNoLineBreaks: 'static content 2 static content 2 line 2'
-    }
-  }
-  if (category === 'cat 3') {
-    return {
-      content: 'static content 3\nstatic content 3 line 2',
-      contentWithNoLineBreaks: 'static content 3 static content 3 line 2'
-    }
-  }
-}
 
 describe('survey results', () => {
   test('creates survey results', () => {
@@ -55,7 +15,7 @@ describe('survey results', () => {
         name: 'cat 3',
         subCategoryNames: ['3 sub1', '3 sub2', '3 sub3', '3 sub4']
       }
-    ]
+    ];
     const questionChoices = [
       ['five', 'four', 'three', 'two', 'one'],
       ['five', 'four', 'three', 'two', 'one'],
@@ -69,12 +29,37 @@ describe('survey results', () => {
       ['five', 'four', 'three', 'two', 'one'],
       ['five', 'four', 'three', 'two', 'one'],
       ['five', 'four', 'three', 'two', 'one']
-    ]
-    const answers = ['three', 'one', 'two', 'five', 'two', 'five', 'two', 'five', 'one', 'two', 'one', 'two']
+    ];
+    const answers = ['three', 'one', 'two', 'five', 'two', 'five', 'two', 'five', 'one', 'two', 'one', 'two'];
+    const userData = [
+      {
+        "submittedAt": 1569250954586,
+        "values": [
+          { "name": "firstname", "value": "Daniel" },
+          { "name": "lastname", "value": "Bird" },
+          { "name": "company", "value": "Codurance" },
+          { "name": "email", "value": "daniel.bird@codurance.com" },
+          { "name": "uuid", "value": "476cf248-27fe-4f98-8eaa-19d385cc2fbd" }
+        ],
+        "pageUrl": "https://info.codurance.com/compass-test?uuid=476cf248-27fe-4f98-8eaa-19d385cc2fbd&scores=NjAsNjAsNjAsNjAsNjA="
+      }
+    ];
 
-    const result = reportViewModel(loadContentStub, categories, questionChoices, answers, loadStaticContentStub)
+    const result = reportViewModel(categories, questionChoices, answers, userData)
 
     expect(result).toEqual({
+      "userData":
+      {
+        "submittedAt": 1569250954586,
+        "values": [
+          { "name": "firstname", "value": "Daniel" },
+          { "name": "lastname", "value": "Bird" },
+          { "name": "company", "value": "Codurance" },
+          { "name": "email", "value": "daniel.bird@codurance.com" },
+          { "name": "uuid", "value": "476cf248-27fe-4f98-8eaa-19d385cc2fbd" }
+        ],
+        "pageUrl": "https://info.codurance.com/compass-test?uuid=476cf248-27fe-4f98-8eaa-19d385cc2fbd&scores=NjAsNjAsNjAsNjAsNjA="
+      },
       'scores': [55, 70, 30],
       'summaryRadial': {
         'scores': [55, 70, 30],
@@ -83,17 +68,6 @@ describe('survey results', () => {
       'categories': [
         {
           'name': 'cat 1',
-          'content': {
-            'page1': 'hello mediums',
-            'page1PageNumber': 3,
-            'page2': null,
-            'page2PageNumber': null
-          },
-          'staticContent':
-          {
-            'content': 'static content 1\nstatic content 1 line 2',
-            'contentWithNoLineBreaks': 'static content 1 static content 1 line 2'
-          },
           'score': 55,
           'subCategoryLabels': ['1 sub1', '1 sub2', '1 sub3', '1 sub4'],
           'subCategoryLabel1': '1 sub1',
@@ -104,17 +78,6 @@ describe('survey results', () => {
         },
         {
           'name': 'cat 2',
-          'content': {
-            'page1': 'HELLO YOU DID WELL',
-            'page1PageNumber': 4,
-            'page2': 'Yet another page',
-            'page2PageNumber': 5
-          },
-          'staticContent':
-          {
-            'content': 'static content 2\nstatic content 2 line 2',
-            'contentWithNoLineBreaks': 'static content 2 static content 2 line 2'
-          },
           'score': 70,
           'subCategoryLabels': ['2 sub1', '2 sub2', '2 sub3', '2 sub4'],
           'subCategoryLabel1': '2 sub1',
@@ -125,17 +88,6 @@ describe('survey results', () => {
         },
         {
           'name': 'cat 3',
-          'content': {
-            'page1': 'hello this is still low, again',
-            'page1PageNumber': 6,
-            'page2': 'Another low page',
-            'page2PageNumber': 7
-          },
-          'staticContent':
-          {
-            'content': 'static content 3\nstatic content 3 line 2',
-            'contentWithNoLineBreaks': 'static content 3 static content 3 line 2'
-          },
           'score': 30,
           'subCategoryLabels': ['3 sub1', '3 sub2', '3 sub3', '3 sub4'],
           'subCategoryLabel1': '3 sub1',
