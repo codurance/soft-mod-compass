@@ -1,0 +1,83 @@
+.include-phone-icon {
+    display: inline-block;
+    background: url('{#asset /assets/summary-phone.svg @encoding=dataURI}') center no-repeat;
+    width: 3.5mm;
+    height: 3.5mm;
+    padding-right: 4mm;
+    vertical-align: middle;
+    opacity: 0.2;
+    margin-top: -0.5mm;
+}
+.include-email-icon {
+    display: inline-block;
+    background: url('{#asset /assets/summary-email.svg @encoding=dataURI}') center no-repeat;
+    width: 3.4mm;
+    height: 3.4mm;
+    padding-right: 4mm;
+    vertical-align: middle;
+    opacity: 0.2;
+    margin-top: -0.5mm;
+}
+
+.summary-contact {
+    position: absolute;
+    list-style: none;
+    left: 222mm;
+}
+.summary-contact li a {
+    text-decoration: none;
+    color: var(--text-black);
+}
+
+#summary-page_contact-london {
+    top: 64.8mm;
+}
+
+#summary-page_contact-manchester {
+    top: 112.4mm;
+}
+
+#summary-page_contact-barcelona {
+    top: 160.4mm;
+}
+
+#summary-cta {
+    position: absolute;
+    width: 60mm;
+    height: 14.167mm;
+    bottom: 45.4mm;
+    left: 13.1mm;
+    color: #f1f1f8;
+    font-weight: var(--font-weight-bold);
+    font-size: 13pt;
+    font-family: proxima-nova;
+    background: var(--codurance-purple);
+    border: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+#summary-cta i {
+    display: inline-block;
+    width: 5.85mm;
+    height: 3.73mm;
+    margin-left: 6mm;
+    background: url('{#asset /assets/cta-arrow.svg @encoding=dataURI}') center no-repeat;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
