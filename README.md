@@ -78,10 +78,13 @@ It's because you need a `scripts/default-env.sh` file, which contains the enviro
 The file contents are stored in Bitwarden, in a note titled `[Compass] default-env.sh contents`. Create the file, paste the contents and then make it executable (on unix this is `chmod +x scripts/default-env.sh`)
 
 ## Running with Docker
-
+You can build the Docker container using the command below
 ```
 docker build -t codurance-compass .
-docker run codurance-compass
+```
+and access `Codurance Compass` going through your http://localhost:8080
+```
+docker run -it --rm -p 8080:8080 codurance-compass
 ```
 
 ## Testing locally
