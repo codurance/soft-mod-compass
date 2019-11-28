@@ -6,7 +6,7 @@ A survey for checking the level of practices at your company.
 
 ### TypeForm
 
-TypeForm is used to build and deliver the survey itself. It is a paid service and we have a subscription for the PRO+ tier. Login credentials can be found on the wiki. TypeForm has support for hidden fields and every user who takes the survey is issued with a UUID that we provide when the form is created. 
+TypeForm is used to build and deliver the survey itself. It is a paid service and we have a subscription for the PRO+ tier. Login credentials can be found on the wiki. TypeForm has support for hidden fields and every user who takes the survey is issued with a UUID that we provide when the form is created.
 
 When a user completes the survey the UUID from the hidden field is saved along with their answers. We then use the UUID to query the TypeForm Responses API for a specific user's answers. We use the answers to calculate scores which are fed into various charts using [chartjs](https://www.chartjs.org/) and the report.
 
@@ -18,15 +18,13 @@ Unfortunatley TypeForm has no concept of categories, giving this the questions a
 
 Questions 1 - 4 relate to the category `Organisational Maturity`, which encompasses:
 
-  Q1: question regarding `DevSecOps`
-  
-  Q2: question regarding `Delivering Value`
-  
-  Q3: question regarding `Technical Debt`
-  
-  Q4: question regarding `Well Defined Methodology`
-  
-  
+Q1: question regarding `DevSecOps`
+
+Q2: question regarding `Delivering Value`
+
+Q3: question regarding `Technical Debt`
+
+Q4: question regarding `Well Defined Methodology`
 
 Questions 5 - 8: relate to the category `Continuous Delivery`
 
@@ -34,7 +32,7 @@ Questions 5 - 8: relate to the category `Continuous Delivery`
 
 There are 20 questions in total, covering 5 categories with 4 questions in each.
 
-You can find the information for categories in `src/server/report/categoryData.js`. 
+You can find the information for categories in `src/server/report/categoryData.js`.
 
 ### HubSpot
 
@@ -69,6 +67,7 @@ yarn dev # go to localhost:8080
 ```
 
 If you see this error:
+
 ```
 sh: ./scripts/default-env.sh: No such file or directory
 ```
@@ -78,28 +77,37 @@ It's because you need a `scripts/default-env.sh` file, which contains the enviro
 The file contents are stored in Bitwarden, in a note titled `[Compass] default-env.sh contents`. Create the file, paste the contents and then make it executable (on unix this is `chmod +x scripts/default-env.sh`)
 
 ## Running with Docker
-Before building the docker container you'll need to run `yarn install` to update the yarn.lock which is then used 
-when building the docker image.
-Now that you ran `yarn install`, you can build the docker container using the command below
+
+Before building the docker container you'll need to run `yarn install` to update the yarn.lock which is then used when building the docker image.
+
+You then need to grab the contents of the `scripts/docker/default-env.sh` note within Bitwarden, and place it in the `scripts/docker/` location within a file called `default-env.sh`. This is a copy of the environment variables from the `default-env.sh` file which is required to run locally - but formatted to be used within Docker.
+
+You can now build the docker container using the command below.
+
 ```
-docker build -t codurance-compass .
+yarn build:docker
 ```
-and access `Codurance Compass` going through your http://localhost:8080
+
+and to access `Codurance Compass` going through http://localhost:8080
+
 ```
-docker run -it --rm -p 8080:8080 codurance-compass
+yarn run:docker
 ```
+
 To stop the container you'll need to get the container id using `docker ps` and you should get a similar output as per below
+
 ```
 codurance-compass git:(Update-pdf-design) ✗ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
 86533ed26329        3659ae504815        "docker-entrypoint.s…"   2 hours ago         Up 2 hours          8080/tcp            xenodochial_joliot
 ```
+
 Then you grab the container id and run the command below
+
 ```
 codurance-compass git:(Update-pdf-design) ✗ docker stop 86533ed26329
 86533ed26329
 ```
-
 
 ## Testing locally
 
@@ -126,4 +134,3 @@ For an explanation of how HubSpot is leveraged in the solution see the _integrat
 The pipeline for this project lives in AWS CodePipeline.
 
 The current URL for the deployed version is http://codurance-compass.eu-west-1.elasticbeanstalk.com/
-
