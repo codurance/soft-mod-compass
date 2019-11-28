@@ -3,8 +3,11 @@
     "name": "Compass",
     "creationDate": "2018-11-01T16:19:36.729Z",
     "modificationDate": {
-        "$$date": 1551282838268
+        "$$date": 1570618204818
     },
     "_id": "CAITOGG6TINB8oJj",
-    "$entitySet": "data"
+    "$entitySet": "data",
+    "folder": {
+        "shortid": "YsMCkB"
+    }
 }

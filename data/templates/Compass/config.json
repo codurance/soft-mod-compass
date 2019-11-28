@@ -9,10 +9,13 @@
         "marginTop": "0cm",
         "marginRight": "0cm",
         "marginBottom": "0cm",
-        "marginLeft": "0cm"
+        "marginLeft": "0cm",
+        "landscape": true,
+        "width": "29.7cm",
+        "height": "21cm"
     },
     "modificationDate": {
-        "$$date": 1552480198463
+        "$$date": 1569854940805
     },
     "_id": "bUe0ZtrZKts6vwCZ",
     "$entitySet": "templates",

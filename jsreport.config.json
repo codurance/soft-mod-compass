@@ -1,0 +1,12 @@
+{
+  "extensions": {
+    "base": {
+      "url": "http://localhost:8080/reporting/assets/content/"
+    },
+    "assets": {
+      "allowedFiles": "css/**.css",
+      "searchOnDiskIfNotFoundInStore": false,
+      "publicAccessEnabled": true
+    }
+  }
+}

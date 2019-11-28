@@ -11,7 +11,9 @@
     "test": "jest && npm run lint",
     "lint": "standard",
     "deploy:hubspot-dev": ". ./scripts/default-env.sh && yarn deploy:hubspot",
-    "deploy:hubspot": "node ./scripts/hubspot/index.js"
+    "deploy:hubspot": "node ./scripts/hubspot/index.js",
+    "build:docker": "docker build -t codurance-compass .",
+    "run:docker": "docker run --env-file ./scripts/docker/default-env.sh -it --rm -p 8080:8080 codurance-compass"
   },
   "author": "Codurance",
   "license": "MIT",
@@ -20,12 +22,15 @@
     "ejs": "2.6.1",
     "express": "4.16.4",
     "jsreport": "2.4.0",
+    "node-fetch": "^2.6.0",
     "request": "2.88.0",
     "request-promise": "4.2.2",
     "sleep-promise": "8.0.1",
     "uuid": "3.3.2"
   },
   "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.0.4",
     "jest": "24.3.1",
     "nock": "10.0.2",
     "nodemon": "1.18.10",
