@@ -4,8 +4,8 @@ function reportViewModel (categories, questionChoices, answers, userDetails) {
   const categoriesWithContentAndScore = createCategoriesFrom(categories, questionChoices, answers)
     .map(addScore)
 
-  const scores = categoriesWithContentAndScore.map(c => c.score);
-  const userData = userDetails[0];
+  const scores = categoriesWithContentAndScore.map(c => c.score)
+  const userData = userDetails[0]
 
   const jsonResults = {
     userData,
@@ -29,9 +29,9 @@ function reportViewModel (categories, questionChoices, answers, userDetails) {
         subCategoryLabel4: subCategoryNames[3],
         subCategoryScores
       }))
-  };
+  }
 
-  return jsonResults;
+  return jsonResults
 }
 function createCategoriesFrom (categories, allSelectableChoices, allChosenAnswers) {
   return categories.map((category, index) => {

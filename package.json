@@ -49,6 +49,9 @@
       "jest",
       "expect",
       "XMLHttpRequest"
+    ],
+    "ignore": [
+      "/data/js/index.js/content.js"
     ]
   },
   "nodemonConfig": {
