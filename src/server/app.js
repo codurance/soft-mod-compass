@@ -1,6 +1,7 @@
 const path = require('path')
 const jsreport = require('jsreport')
 const express = require('express')
+const cors = require('cors')
 const favicon = require('serve-favicon')
 
 const stripHubspotSubmissionGuid = require('./middleware/stripHubspotSubmissionGuid')
@@ -23,7 +24,7 @@ module.exports = (config, reportingApp, buildReportViewModelFor) => {
     res.render('index')
   })
 
-  app.get('/scores/:uuid', (req, res) => {
+  app.get('/scores/:uuid', cors(), (req, res) => {
     buildReportViewModelFor(req.params.uuid)
       .then(viewModel => {
         res.send(base64Encode(viewModel.scores.toString()))
