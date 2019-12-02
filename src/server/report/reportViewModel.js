@@ -5,7 +5,7 @@ function reportViewModel (categories, questionChoices, answers, userDetails) {
     .map(addScore)
 
   const scores = categoriesWithContentAndScore.map(c => c.score)
-  const userData = userDetails[0]
+  const userData = userDetails
 
   const jsonResults = {
     userData,
