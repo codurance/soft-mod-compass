@@ -31,19 +31,17 @@ describe('survey results', () => {
       ['five', 'four', 'three', 'two', 'one']
     ]
     const answers = ['three', 'one', 'two', 'five', 'two', 'five', 'two', 'five', 'one', 'two', 'one', 'two']
-    const userData = [
-      {
-        'submittedAt': 1569250954586,
-        'values': [
-          { 'name': 'firstname', 'value': 'Daniel' },
-          { 'name': 'lastname', 'value': 'Bird' },
-          { 'name': 'company', 'value': 'Codurance' },
-          { 'name': 'email', 'value': 'daniel.bird@codurance.com' },
-          { 'name': 'uuid', 'value': '476cf248-27fe-4f98-8eaa-19d385cc2fbd' }
-        ],
-        'pageUrl': 'https://info.codurance.com/compass-test?uuid=476cf248-27fe-4f98-8eaa-19d385cc2fbd&scores=NjAsNjAsNjAsNjAsNjA='
-      }
-    ]
+    const userData = {
+      'submittedAt': 1569250954586,
+      'values': [
+        { 'name': 'firstname', 'value': 'Daniel' },
+        { 'name': 'lastname', 'value': 'Bird' },
+        { 'name': 'company', 'value': 'Codurance' },
+        { 'name': 'email', 'value': 'daniel.bird@codurance.com' },
+        { 'name': 'uuid', 'value': '476cf248-27fe-4f98-8eaa-19d385cc2fbd' }
+      ],
+      'pageUrl': 'https://info.codurance.com/compass-test?uuid=476cf248-27fe-4f98-8eaa-19d385cc2fbd&scores=NjAsNjAsNjAsNjAsNjA='
+    }
 
     const result = reportViewModel(categories, questionChoices, answers, userData)
 
