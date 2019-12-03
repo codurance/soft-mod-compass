@@ -7,6 +7,9 @@
       "allowedFiles": "css/**.css",
       "searchOnDiskIfNotFoundInStore": false,
       "publicAccessEnabled": true
+    },
+    "templatingEngines": {
+      "timeout": 55000
     }
   }
 }
