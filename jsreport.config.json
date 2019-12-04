@@ -9,7 +9,7 @@
       "publicAccessEnabled": true
     },
     "templatingEngines": {
-      "timeout": 55000
+      "timeout": 550000
     }
   }
 }
