@@ -8,8 +8,20 @@
       "searchOnDiskIfNotFoundInStore": false,
       "publicAccessEnabled": true
     },
-    "templatingEngines": {
-      "timeout": 550000
+    "scripts": {
+      "timeout": 700000
+    },
+    "chrome-pdf": {
+      "timeout": 700000
+    },
+    "express": {
+      "renderTimeout": 700000
     }
+  },
+  "templatingEngines": {
+    "timeout": 700000
+  },
+  "chrome": {
+    "timeout": 700000
   }
 }
