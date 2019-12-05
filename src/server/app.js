@@ -7,7 +7,7 @@ const favicon = require('serve-favicon')
 const stripHubspotSubmissionGuid = require('./middleware/stripHubspotSubmissionGuid')
 const base64Encode = require('./encoding/base64')
 
-module.exports = (config, reportingApp, buildReportViewModelFor) => {
+module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildReportViewModelFor) => {
   const app = express()
 
   app.set('view engine', 'ejs')
@@ -25,7 +25,7 @@ module.exports = (config, reportingApp, buildReportViewModelFor) => {
   })
 
   app.get('/scores/:uuid', cors(), (req, res) => {
-    buildReportViewModelFor(req.params.uuid)
+    buildInitialReportViewModelFor(req.params.uuid)
       .then(viewModel => {
         res.send(base64Encode(viewModel.scores.toString()))
       })
