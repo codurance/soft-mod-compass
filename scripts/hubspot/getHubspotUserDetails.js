@@ -14,7 +14,9 @@ function getHubspotUserDetails (uuid) {
   }
 
   return rp(options).then(response => {
+    console.log('RETREIVED HUBSPOT USER DATA');
     const data = response.results.filter(result => result.values[4].value === uuid)
+    console.log('FILTERED HUBSPOT USER DATA, RETURNING DATA NOW');
     return data[0]
   })
     .catch(err => console.error(err))
