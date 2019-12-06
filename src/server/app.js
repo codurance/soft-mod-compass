@@ -25,22 +25,22 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
   })
 
   app.get('/scores/:uuid', cors(), (req, res) => {
-    console.log('CALLING TO GET INITIAL SCORES');
+    console.log('CALLING TO GET INITIAL SCORES')
 
     buildInitialReportViewModelFor(req.params.uuid)
       .then(viewModel => {
-        console.log('SENDING INITIAL SCORES');
+        console.log('SENDING INITIAL SCORES')
 
         res.send(base64Encode(viewModel.scores.toString()))
       })
   })
 
   app.get('/report/:uuid/Codurance%20Compass.pdf', (req, res) => {
-    console.log('CALLING FOR FULL DATA TO BUILD REPORT');
+    console.log('CALLING FOR FULL DATA TO BUILD REPORT')
 
     buildReportViewModelFor(req.params.uuid)
       .then(viewModel => {
-        console.log('RENDERING REPORT');
+        console.log('RENDERING REPORT')
 
         jsreport.render({
           template: {

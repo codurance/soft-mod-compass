@@ -8,7 +8,7 @@ function reportViewModel (categories, questionChoices, answers, userDetails) {
   const userData = userDetails
 
   console.log(`ABOUT TO MAKE VIEW MODAL JSON RESULTS:
-    userData: ${userData}`);
+    userData: ${userData}`)
 
   const jsonResults = {
     userData,
