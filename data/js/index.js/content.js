@@ -37,7 +37,7 @@ const updateAssessmentText = scores => {
       let alignmentText = scores[TEXTS.indexOf(text)] < 33.3
                           ? 'Somewhat Aligned'
                           : scores[TEXTS.indexOf(text)] < 66.6
-                          ? 'Almsot Aligned'
+                          ? 'Almost Aligned'
                           : 'Closely Aligned';
                           
     text.innerHTML = alignmentText;
