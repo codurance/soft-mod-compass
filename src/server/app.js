@@ -30,7 +30,6 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
     buildInitialReportViewModelFor(req.params.uuid)
       .then(viewModel => {
         console.log('SENDING INITIAL SCORES')
-
         res.send(base64Encode(viewModel.scores.toString()))
       })
   })
@@ -40,7 +39,7 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
 
     buildReportViewModelFor(req.params.uuid)
       .then(viewModel => {
-        console.log('RENDERING REPORT')
+        console.log('RENDERING REPORT: RESULTS: ', viewModel)
 
         jsreport.render({
           template: {
@@ -54,6 +53,10 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
         }).catch((e) => {
           res.end(e.message)
         })
+      })
+      .catch(error => {
+        console.log(error)
+        throw error
       })
   })
 

@@ -4,26 +4,18 @@ const categoryData = require('./categoryData')
 const reportViewModelBuilder = (typeformClient, getHubspotUserDetails) => {
   console.log('STARTING VEIW MODAL BUILDER')
 
-  function buildReportViewModelFor (submissionId) {
+  async function buildReportViewModelFor (submissionId) {
     console.log('GETTING REPORT DATA')
-
-    return getReportData(submissionId)
-      .then(([choices, answers, userDetails]) => {
-        console.log('FINISHED GETTING REPORT DATA')
-        console.log('STARTING REPORT VIEW MODAL')
-        return reportViewModel(categoryData, choices, answers, userDetails)
-      })
+    try {
+      const choices = await typeformClient.getQuestionChoices()
+      const answers = await typeformClient.surveyAnswersFor(submissionId)
+      const userDetails = await getHubspotUserDetails(submissionId)
+      return reportViewModel(categoryData, choices, answers, userDetails)
+    } catch (error) {
+      console.log(error)
+      throw error
+    }
   }
-
-  function getReportData (submissionId) {
-    return Promise.all(
-      [
-        typeformClient.getQuestionChoices(),
-        typeformClient.surveyAnswersFor(submissionId),
-        getHubspotUserDetails(submissionId)
-      ])
-  }
-
   return buildReportViewModelFor
 }
 
