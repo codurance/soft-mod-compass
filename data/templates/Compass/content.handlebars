@@ -133,7 +133,15 @@
   <!-- END ORGANISATIONAL MATURITY RESULTS PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN ORGANISATIONAL MATURITY RESULTS PAGE ---------------------------------------------------------- -->
-  <section id="om-breakdown-page" class="page page-break-after"></section>
+  {{#ifCond summaryRadial.scores.[0] '<=' 33 }}
+    <section id="om-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/om-breakdown-page-bad.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
+    {{else}}
+        {{#ifCond summaryRadial.scores.[0] '<=' 66 }}
+            <section id="om-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/om-breakdown-page-avg.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
+            {{else}}
+            <section id="om-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/om-breakdown-page-good.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
+        {{/ifCond}}
+  {{/ifCond}}
   <!-- END ORGANISATIONAL MATURITY RESULTS PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN CONTINUOUS DELIVERY RESULTS PAGE ---------------------------------------------------------- -->
@@ -154,7 +162,15 @@
   <!-- END CONTINUOUS DELIVERY RESULTS PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN CONTINUOUS DELIVERY RESULTS PAGE ---------------------------------------------------------- -->
-  <section id="cd-breakdown-page" class="page page-break-after dark"></section>
+  {{#ifCond summaryRadial.scores.[1] '<=' 33 }}
+    <section id="cd-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/cd-breakdown-page-bad.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
+    {{else}}
+        {{#ifCond summaryRadial.scores.[1] '<=' 66 }}
+            <section id="cd-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/cd-breakdown-page-avg.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
+            {{else}}
+            <section id="cd-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/cd-breakdown-page-good.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
+        {{/ifCond}}
+  {{/ifCond}}
   <!-- END CONTINUOUS DELIVERY RESULTS PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN CULTURE RESULTS PAGE ---------------------------------------------------------- -->
@@ -175,7 +191,15 @@
   <!-- END CULTURE RESULTS PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN CULTURE RESULTS PAGE ---------------------------------------------------------- -->
-  <section id="c-breakdown-page" class="page page-break-after"></section>
+  {{#ifCond summaryRadial.scores.[2] '<=' 33 }}
+    <section id="c-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/c-breakdown-page-bad.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
+    {{else}}
+        {{#ifCond summaryRadial.scores.[2] '<=' 66 }}
+            <section id="c-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/c-breakdown-page-avg.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
+            {{else}}
+            <section id="c-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/c-breakdown-page-good.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
+        {{/ifCond}}
+  {{/ifCond}}
   <!-- END CULTURE RESULTS PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN CROSS-FUNCTIONAL TEAMS ---------------------------------------------------------- -->
@@ -196,7 +220,15 @@
   <!-- END CROSS-FUNCTIONAL TEAMS ---------------------------------------------------------- -->
 
   <!-- BEGIN CROSS-FUNCTIONAL TEAMS ---------------------------------------------------------- -->
-  <section id="cft-breakdown-page" class="page page-break-after dark"></section>
+  {{#ifCond summaryRadial.scores.[3] '<=' 33 }}
+    <section id="cft-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/cft-breakdown-page-bad.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
+    {{else}}
+        {{#ifCond summaryRadial.scores.[3] '<=' 66 }}
+            <section id="cft-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/cft-breakdown-page-avg.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
+            {{else}}
+            <section id="cft-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/cft-breakdown-page-good.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
+        {{/ifCond}}
+  {{/ifCond}}
   <!-- END CROSS-FUNCTIONAL TEAMS ---------------------------------------------------------- -->
 
   <!-- BEGIN XP PRACTICES TEAMS ---------------------------------------------------------- -->
@@ -217,7 +249,15 @@
   <!-- END XP PRACTICES TEAMS ---------------------------------------------------------- -->
 
   <!-- BEGIN XP PRACTICES TEAMS ---------------------------------------------------------- -->
-  <section id="xpp-breakdown-page" class="page page-break-after"></section>
+  {{#ifCond summaryRadial.scores.[4] '<=' 33 }}
+    <section id="xpp-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/xpp-breakdown-page-bad.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
+    {{else}}
+        {{#ifCond summaryRadial.scores.[4] '<=' 66 }}
+            <section id="xpp-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/xpp-breakdown-page-avg.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
+            {{else}}
+            <section id="xpp-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/xpp-breakdown-page-good.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
+        {{/ifCond}}
+  {{/ifCond}}
   <!-- END XP PRACTICES TEAMS ---------------------------------------------------------- -->
 
   <!-- BEGIN SUMMARY PAGE ---------------------------------------------------------- -->
