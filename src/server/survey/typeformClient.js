@@ -1,6 +1,5 @@
 const rp = require('request-promise')
 const sleep = require('sleep-promise')
-// const config = require('../config')
 
 module.exports = config => {
   const headers = {

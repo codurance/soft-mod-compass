@@ -1,7 +1,5 @@
 const rp = require('request-promise')
 const sleep = require('sleep-promise')
-// require('request-promise').debug = true
-// require('request-debug')(rp)
 const config = require('../../src/server/config')
 
 function getHubspotUserDetails (uuid, retries = 3) {
@@ -17,10 +15,7 @@ function getHubspotUserDetails (uuid, retries = 3) {
 
   return rp(options).then(response => {
     if (response.results.length > 0) {
-      console.log('RETREIVED HUBSPOT USER DATA')
       const data = response.results.filter(result => result.values[4].value === uuid)
-      console.dir(data)
-      console.log('FILTERED HUBSPOT USER DATA, RETURNING DATA NOW')
       return data[0]
     } else {
       const retriesLeft = retries - 1

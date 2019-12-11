@@ -7,9 +7,6 @@ function reportViewModel (categories, questionChoices, answers, userDetails) {
   const scores = categoriesWithContentAndScore.map(c => c.score)
   const userData = userDetails
 
-  console.log(`ABOUT TO MAKE VIEW MODAL JSON RESULTS:
-    userData: ${JSON.stringify(userData)}`)
-
   const jsonResults = {
     userData,
     scores,
