@@ -7,7 +7,7 @@
     "dev": ". ./scripts/default-env.sh && webpack --mode=development && npm start",
     "debug": ". ./scripts/default-env.sh && webpack --mode=development && node --inspect index.js",
     "watch": "nodemon",
-    "start": "node index.js",
+    "start": "babel-node index.js",
     "test": "jest && npm run lint",
     "lint": "standard",
     "deploy:hubspot-dev": ". ./scripts/default-env.sh && yarn deploy:hubspot",
@@ -30,6 +30,10 @@
     "uuid": "3.3.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "@babel/node": "^7.7.4",
+    "@babel/preset-env": "^7.7.6",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.0.4",
     "jest": "24.3.1",
