@@ -25,26 +25,25 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
   })
 
   app.get('/scores/:uuid', cors(), (req, res) => {
-    buildInitialReportViewModelFor(req.params.uuid)
-      .then(viewModel => {
-        res.send(base64Encode(viewModel.scores.toString()))
-      })
+    buildInitialReportViewModelFor(req.params.uuid).then(viewModel => {
+      res.send(base64Encode(viewModel.scores.toString()))
+    })
   })
 
-  app.get('/report/:uuid/Codurance%20Compass.pdf', createReport);
+  app.get('/report/:uuid/Codurance%20Compass.pdf', createReport)
 
-  async function createReport(req, res) {
+  async function createReport (req, res) {
     const template = {
       name: 'Compass',
       engine: 'handlebars',
       recipe: 'chrome-pdf'
     }
     try {
-      const viewModel = await buildReportViewModelFor(req.params.uuid);
-      const out = await jsreport.render({ template, data: viewModel });
-      out.stream.pipe(res);
+      const viewModel = await buildReportViewModelFor(req.params.uuid)
+      const out = await jsreport.render({ template, data: viewModel })
+      out.stream.pipe(res)
     } catch (e) {
-      res.end(e.message || "Internal Error");
+      res.end(e.message || 'Internal Error')
     }
   }
 
