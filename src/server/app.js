@@ -33,6 +33,8 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
   app.get('/report/:uuid/Codurance%20Compass.pdf', createReport)
 
   async function createReport (req, res) {
+    req.setTimeout(120000)
+    res.setTimeout(120000)
     const template = {
       name: 'Compass',
       engine: 'handlebars',
