@@ -34,7 +34,7 @@ const jsreport = require('jsreport')({
       }
     },
     templatingEngines: {
-      strategy: 'in-process',
+      strategy: 'dedicated-process',
       timeout: 5000,
       numberOfWorkers: 1
     },
