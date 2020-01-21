@@ -41,7 +41,7 @@ const jsreport = require('jsreport')({
     'chrome-pdf': {
       timeout: 20000,
       strategy: 'chrome-pool',
-      numberOfWorkers: 5,
+      numberOfWorkers: 2,
       launchOptions: {
         args: ['--no-sandbox', '--disable-setuid-sandbox']
       }

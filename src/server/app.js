@@ -31,27 +31,22 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
       })
   })
 
-  app.get('/report/:uuid/Codurance%20Compass.pdf', (req, res) => {
-    buildReportViewModelFor(req.params.uuid)
-      .then(viewModel => {
-        jsreport.render({
-          template: {
-            name: 'Compass',
-            engine: 'handlebars',
-            recipe: 'chrome-pdf'
-          },
-          data: viewModel
-        }).then((out) => {
-          out.stream.pipe(res)
-        }).catch((e) => {
-          res.end(e.message)
-        })
-      })
-      .catch(error => {
-        console.log(error)
-        throw error
-      })
-  })
+  app.get('/report/:uuid/Codurance%20Compass.pdf', createReport);
+
+  async function createReport(req, res) {
+    const template = {
+      name: 'Compass',
+      engine: 'handlebars',
+      recipe: 'chrome-pdf'
+    }
+    try {
+      const viewModel = await buildReportViewModelFor(req.params.uuid);
+      const out = await jsreport.render({ template, data: viewModel });
+      out.stream.pipe(res);
+    } catch (e) {
+      res.end(e.message || "Internal Error");
+    }
+  }
 
   return app
 }
