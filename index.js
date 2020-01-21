@@ -5,7 +5,10 @@ const config = require('./src/server/config')
 const typeformClient = require('./src/server/survey/typeformClient')(config)
 const getHubspotUserDetails = require('./scripts/hubspot/getHubspotUserDetails')
 const initialReportViewModalBuilder = require('./src/server/report/initialReportViewModalBuilder')(typeformClient)
-const reportViewModelBuilder = require('./src/server/report/reportViewModelBuilder')(typeformClient, getHubspotUserDetails)
+const reportViewModelBuilder = require('./src/server/report/reportViewModelBuilder')(
+  typeformClient,
+  getHubspotUserDetails
+)
 const app = require('./src/server/app')(config, reportingApp, initialReportViewModalBuilder, reportViewModelBuilder)
 
 const port = 8080
@@ -30,7 +33,15 @@ const jsreport = require('jsreport')({
         usePolling: true
       }
     },
+    templatingEngines: {
+      strategy: 'in-process',
+      timeout: 5000,
+      numberOfWorkers: 2
+    },
     'chrome-pdf': {
+      timeout: 20000,
+      strategy: 'chrome-pool',
+      numberOfWorkers: 2,
       launchOptions: {
         args: ['--no-sandbox', '--disable-setuid-sandbox']
       }
@@ -39,22 +50,23 @@ const jsreport = require('jsreport')({
   appPath: '/reporting'
 })
 
-jsreport.init()
+jsreport
+  .init()
   .then(() => {
     console.log('jsreport server started')
   })
-  .catch((e) => {
+  .catch(e => {
     console.error(e)
   })
 
-process.on('SIGTERM', function () {
+process.on('SIGTERM', function() {
   server.close(() => {
     console.log('Received SIGTERM, shutting down')
     process.exit(0)
   })
 })
 
-process.on('SIGINT', function () {
+process.on('SIGINT', function() {
   console.log('Received SIGINT, shutting down')
   server.close(() => {
     process.exit(0)
