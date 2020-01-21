@@ -36,12 +36,12 @@ const jsreport = require('jsreport')({
     templatingEngines: {
       strategy: 'in-process',
       timeout: 5000,
-      numberOfWorkers: 2
+      numberOfWorkers: 10
     },
     'chrome-pdf': {
       timeout: 20000,
       strategy: 'chrome-pool',
-      numberOfWorkers: 2,
+      numberOfWorkers: 10,
       launchOptions: {
         args: ['--no-sandbox', '--disable-setuid-sandbox']
       }
@@ -59,14 +59,14 @@ jsreport
     console.error(e)
   })
 
-process.on('SIGTERM', function () {
+process.on('SIGTERM', function() {
   server.close(() => {
     console.log('Received SIGTERM, shutting down')
     process.exit(0)
   })
 })
 
-process.on('SIGINT', function () {
+process.on('SIGINT', function() {
   console.log('Received SIGINT, shutting down')
   server.close(() => {
     process.exit(0)
