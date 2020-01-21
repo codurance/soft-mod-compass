@@ -45,6 +45,7 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
       const out = await jsreport.render({ template, data: viewModel })
       out.stream.pipe(res)
     } catch (e) {
+      console.log(e.message || 'Internal Error');
       res.end(e.message || 'Internal Error')
     }
   }

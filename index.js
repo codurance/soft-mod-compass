@@ -37,12 +37,12 @@ const jsreport = require('jsreport')({
     templatingEngines: {
       strategy: 'dedicated-process',
       timeout: 40000,
-      numberOfWorkers: 1
+      numberOfWorkers: 2
     },
     'chrome-pdf': {
       timeout: 20000,
       strategy: 'chrome-pool',
-      numberOfWorkers: 1,
+      numberOfWorkers: 2,
       launchOptions: {
         args: ['--no-sandbox', '--disable-setuid-sandbox']
       }
