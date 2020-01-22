@@ -1,4 +1,3 @@
-require('debug').enable('express:*')
 const express = require('express')
 const reportingApp = express()
 
