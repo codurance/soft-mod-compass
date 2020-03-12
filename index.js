@@ -9,7 +9,31 @@ const reportViewModelBuilder = require('./src/server/report/reportViewModelBuild
   typeformClient,
   getHubspotUserDetails
 )
-const app = require('./src/server/app')(config, reportingApp, initialReportViewModalBuilder, reportViewModelBuilder)
+
+const aws = require('aws-sdk')
+const ses = new aws.SES({region: 'eu-west-1'})
+
+function sendPdfLinkMail(destinationEmail, pdfLink) {
+  ses.sendEmail({
+    Source: "compass@codurance.com",
+    Destination: {
+      ToAddresses: [destinationEmail]
+    },
+    Message: {
+      Subject: {Data: 'Your compass report'},
+      Body: {
+        Text: {Data: `You can download your pdf here: ${pdfLink}`}
+      },
+    }
+  }, (err, data) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log(data);
+  });
+}
+
+const app = require('./src/server/app')(config, reportingApp, initialReportViewModalBuilder, reportViewModelBuilder, sendPdfLinkMail)
 
 const port = 8080
 

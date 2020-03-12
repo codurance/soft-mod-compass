@@ -7,10 +7,7 @@ const favicon = require('serve-favicon')
 const stripHubspotSubmissionGuid = require('./middleware/stripHubspotSubmissionGuid')
 const base64Encode = require('./encoding/base64')
 
-const aws = require('aws-sdk')
-const ses = new aws.SES({region: 'eu-west-1'})
-
-module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildReportViewModelFor) => {
+module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildReportViewModelFor, sendPdfLinkMail) => {
   const app = express()
 
   app.set('view engine', 'ejs')
@@ -37,23 +34,9 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
     const uuid = req.params.uuid;
     const pdfLink = req.protocol + '://' + req.get('host') + `/report/${uuid}/Codurance%20Compass.pdf`;
 
-    ses.sendEmail({
-      Source: "compass@codurance.com",
-      Destination: {
-        ToAddresses: ["arnaud.claudel@codurance.com"]
-      },
-       Message: {
-         Subject: { Data: 'Your compass report' },
-         Body: {
-           Text: { Data: `You can download your pdf here: ${pdfLink}` }
-         },
-       }
-    }, (err, data) => {
-      if(err) {
-        console.log(err);
-      }
-      console.log(data);
-    });
+    const destinationEmail = "arnaud.claudel@codurance.com";
+
+    sendPdfLinkMail(destinationEmail, pdfLink);
 
     res.redirect(`https://info.codurance.com/?hs_preview=vAqcgMUf-26948913480&pdfLink=${pdfLink}`)
   });
