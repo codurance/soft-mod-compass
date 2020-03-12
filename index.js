@@ -13,11 +13,13 @@ const reportViewModelBuilder = require('./src/server/report/reportViewModelBuild
 const aws = require('aws-sdk')
 const ses = new aws.SES({region: 'eu-west-1'})
 
-function sendPdfLinkMail(destinationEmail, pdfLink) {
+async function sendPdfLinkMail(destinationEmail, pdfLink, uuid) {
+  const userDetails = await getHubspotUserDetails(uuid);
+  const email = userDetails.values.find(d => d.name === "email").value
   ses.sendEmail({
     Source: "compass@codurance.com",
     Destination: {
-      ToAddresses: [destinationEmail]
+      ToAddresses: [email]
     },
     Message: {
       Subject: {Data: 'Your compass report'},
