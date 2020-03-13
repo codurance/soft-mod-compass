@@ -35,7 +35,7 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
     const pdfLink = req.protocol + '://' + req.get('host') + `/report/${uuid}/Codurance%20Compass.pdf`
 
     sendPdfLinkMail(pdfLink, uuid)
-
+    // TODO extract landing page url to config
     res.redirect(`https://info.codurance.com/?hs_preview=vAqcgMUf-26948913480&pdfLink=${pdfLink}`)
   })
 
