@@ -26,7 +26,10 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
 
   app.get('/scores/:uuid', cors(), (req, res) => {
     buildInitialReportViewModelFor(req.params.uuid).then(viewModel => {
-      res.send(base64Encode(viewModel.scores.toString()))
+      const scores = base64Encode(viewModel.scores.toString())
+      res.send({
+        scores: scores
+      })
     })
   })
 

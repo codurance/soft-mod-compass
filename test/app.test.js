@@ -73,8 +73,10 @@ describe('app', () => {
       .get(`/forms/${config.typeform.formId}/responses?query=${testUuid}`)
       .reply(200, mockSurveyAnswersResponse)
 
+    const expectedBody = { scores: 'MTAwLDEwMCwxMDAsMTAwLDEwMA==' };
     request(app)
       .get(`/scores/${testUuid}`)
-      .expect(200, 'MTAwLDEwMCwxMDAsMTAwLDEwMA==', done)
+      .expect(JSON.stringify(expectedBody))
+      .expect(200, done)
   })
 })
