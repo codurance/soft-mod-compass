@@ -33,9 +33,8 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
   app.get('/report/submit/:uuid', (req, res) => {
     const uuid = req.params.uuid;
     const pdfLink = req.protocol + '://' + req.get('host') + `/report/${uuid}/Codurance%20Compass.pdf`;
-    const destinationEmail = "arnaud.claudel@codurance.com";
 
-    sendPdfLinkMail(destinationEmail, pdfLink, uuid);
+    sendPdfLinkMail(pdfLink, uuid);
 
     res.redirect(`https://info.codurance.com/?hs_preview=vAqcgMUf-26948913480&pdfLink=${pdfLink}`)
   });
