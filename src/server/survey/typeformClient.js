@@ -11,7 +11,7 @@ module.exports = config => {
     getQuestionChoices
   }
 
-  function surveyAnswersFor (uuid, retries = 15) {
+  function surveyAnswersFor (uuid, retries = 30) {
     const options = {
       uri: `${config.typeform.url}/forms/${config.typeform.formId}/responses?query=${uuid}`,
       headers,

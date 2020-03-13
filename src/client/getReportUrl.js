@@ -11,8 +11,8 @@ function getReportUrl (uuid) {
     request.onreadystatechange = () => {
       if (request.readyState === XMLHttpRequest.DONE) {
         const scores = request.responseText
-        // TODO extract landing page url to config
-        const reportLandingPageUrl = `https://info.codurance.com/compass-test?uuid=${uuid}&scores=${scores}`
+        // TODO retrieve this URL from the server - so it can be easily changed
+        const reportLandingPageUrl = `https://info.codurance.com/compass-test-0?uuid=${uuid}&scores=${scores}`
 
         return resolve(reportLandingPageUrl)
       }
