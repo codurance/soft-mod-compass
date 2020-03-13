@@ -4,8 +4,18 @@ const ses = new aws.SES({region: 'eu-west-1'})
 const sendPdfLinkMailBuilder = (getHubspotUserDetails) => {
     async function sendPdfLinkMail(pdfLink, uuid) {
         const userDetails = await getHubspotUserDetails(uuid);
-        const email = userDetails.values.find(d => d.name === "email").value
-        ses.sendEmail({
+        const email = getUserEmail(userDetails)
+
+        ses.sendEmail(makeEmailData(email, pdfLink),
+            (err, data) => {
+                if (err) {
+                    console.log(err);
+                }
+            });
+    }
+
+    function makeEmailData(email, pdfLink) {
+        return {
             Source: "compass@codurance.com",
             Destination: {
                 ToAddresses: [email]
@@ -16,12 +26,11 @@ const sendPdfLinkMailBuilder = (getHubspotUserDetails) => {
                     Text: {Data: `You can download your pdf here: ${pdfLink}`}
                 },
             }
-        }, (err, data) => {
-            if (err) {
-                console.log(err);
-            }
-            console.log(data);
-        });
+        };
+    }
+
+    function getUserEmail(userDetails) {
+        return userDetails.values.find(d => d.name === "email").value;
     }
 
     return sendPdfLinkMail
