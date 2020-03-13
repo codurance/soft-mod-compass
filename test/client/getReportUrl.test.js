@@ -12,7 +12,7 @@ describe('getReportUrl', () => {
 
     getReportUrl(uuid)
       .then((url) => {
-        expect(url).toEqual(`https://info.codurance.com/compass-test?uuid=${uuid}&scores=${scores}`)
+        expect(url).toEqual(`https://info.codurance.com/compass-test-0?uuid=${uuid}&scores=${scores}`)
         done()
       })
       .catch(done)
