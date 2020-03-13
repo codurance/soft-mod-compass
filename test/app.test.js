@@ -57,7 +57,7 @@ describe('app', () => {
       .expect(404, done)
   })
 
-  it('returns survey scores base64 encoded for transport to hubspot in query string', (done) => {
+  it('redirects to hubspot form', (done) => {
     const testUuid = '30749000-5a7b-4de7-b76f-297a84a6c72e'
 
     nock(config.typeform.url, {
@@ -76,13 +76,8 @@ describe('app', () => {
       .get(`/forms/${config.typeform.formId}/responses?query=${testUuid}`)
       .reply(200, mockSurveyAnswersResponse)
 
-    const expectedBody = {
-      scores: 'MTAwLDEwMCwxMDAsMTAwLDEwMA==',
-      redirectUrl: config.hubspot.formLandingPageUrl
-    }
     request(app)
       .get(`/scores/${testUuid}`)
-      .expect(JSON.stringify(expectedBody))
-      .expect(200, done)
+      .expect(302, done)
   })
 })
