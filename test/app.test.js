@@ -6,6 +6,9 @@ const config = {
     url: 'https://typeform-url.com',
     formId: 'formId',
     authToken: 'encoded auth token'
+  },
+  hubspot: {
+    formLandingPageUrl: 'https://hubspot.com/form'
   }
 }
 
@@ -73,7 +76,10 @@ describe('app', () => {
       .get(`/forms/${config.typeform.formId}/responses?query=${testUuid}`)
       .reply(200, mockSurveyAnswersResponse)
 
-    const expectedBody = { scores: 'MTAwLDEwMCwxMDAsMTAwLDEwMA==' };
+    const expectedBody = {
+      scores: 'MTAwLDEwMCwxMDAsMTAwLDEwMA==',
+      redirectUrl: config.hubspot.formLandingPageUrl
+    }
     request(app)
       .get(`/scores/${testUuid}`)
       .expect(JSON.stringify(expectedBody))

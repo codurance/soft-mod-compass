@@ -28,7 +28,8 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
     buildInitialReportViewModelFor(req.params.uuid).then(viewModel => {
       const scores = base64Encode(viewModel.scores.toString())
       res.send({
-        scores: scores
+        scores: scores,
+        redirectUrl: config.hubspot.formLandingPageUrl
       })
     })
   })
