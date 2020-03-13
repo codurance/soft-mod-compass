@@ -27,10 +27,9 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
   app.get('/scores/:uuid', cors(), (req, res) => {
     buildInitialReportViewModelFor(req.params.uuid).then(viewModel => {
       const scores = base64Encode(viewModel.scores.toString())
-      res.send({
-        scores: scores,
-        redirectUrl: config.hubspot.formLandingPageUrl
-      })
+      const uuid = req.params.uuid
+      const redirectUrl = `${config.hubspot.formLandingPageUrl}?uuid=${uuid}&scores=${scores}`
+      res.redirect(redirectUrl)
     })
   })
 

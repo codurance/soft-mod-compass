@@ -11,10 +11,7 @@ typeformEmbed.makeWidget(
   surveyUrl,
   {
     onSubmit: () => {
-      getReportUrl(uuid)
-        .then(url => {
-          window.location = url
-        })
+      window.location = `/scores/${uuid}`
     }
   }
 )

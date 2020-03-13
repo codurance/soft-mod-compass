@@ -10,9 +10,10 @@ function getReportUrl (uuid) {
 
     request.onreadystatechange = () => {
       if (request.readyState === XMLHttpRequest.DONE) {
-        const scores = request.responseText
+        const response = request.responseText
+        console.log(response)
         // TODO retrieve this URL from the server - so it can be easily changed
-        const reportLandingPageUrl = `https://info.codurance.com/compass-test-0?uuid=${uuid}&scores=${scores}`
+        const reportLandingPageUrl = `https://info.codurance.com/compass-test-00?uuid=${uuid}&scores=${response.scores}`
 
         return resolve(reportLandingPageUrl)
       }
