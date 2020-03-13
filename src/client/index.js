@@ -1,4 +1,3 @@
-const getReportUrl = require('./getReportUrl')
 const generateUuid = require('uuid/v4')
 
 const surveyElement = document.getElementById('typeform-survey')
