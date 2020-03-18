@@ -60,23 +60,7 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
       const viewModel = await buildReportViewModelFor(req.params.uuid)
       const out = await jsreport.render({ template, data: viewModel })
 
-      var pass = new stream.PassThrough()
-
-      // Setting up S3 upload parameters
-      const params = {
-        Bucket: 'compass-pdf',
-        Key: 'test.pdf', // File name you want to save as in S3
-        Body: pass,
-        ACL: 'public-read'
-      };
-
-      // Uploading files to the bucket
-      s3.upload(params, (err, data) => {
-        if (err) {
-          console.log(err)
-          return;
-        }
-
+      const successHandler = (data) => {
         const email = getUserEmail(viewModel)
         const pdfLink = data.Location
 
@@ -89,7 +73,22 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
             console.log(`link sent to ${email}`)
           }
         })
-      });
+      }
+
+      var pass = new stream.PassThrough()
+
+      // Setting up S3 upload parameters
+      const params = {
+        Bucket: 'compass-pdf',
+        Key: 'test.pdf', // File name you want to save as in S3
+        Body: pass,
+        ACL: 'public-read'
+      };
+
+      // Uploading files to the bucket
+      s3.upload(params).promise()
+          .then(successHandler)
+          .catch(err => console.log(err))
 
       out.stream.pipe(pass)
       res.redirect(config.hubspot.thanksLandingPageUrl)
