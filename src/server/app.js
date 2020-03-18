@@ -68,8 +68,8 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
 
         ses.sendEmail(makeEmailData(email, pdfLink))
             .promise()
-            .then(_ => console.log(`pdf sent to ${email}.`))
-            .catch(err => console.log(`an error occurred while sending pdf to ${email}.\n${err}`))
+            .then(_ => console.log(`pdf sent to [${email}]`))
+            .catch(err => console.log(`an error occurred while sending pdf to [${email}]\n${err}`))
       }
 
       var pass = new stream.PassThrough()
