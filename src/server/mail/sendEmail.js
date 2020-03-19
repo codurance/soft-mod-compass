@@ -2,7 +2,7 @@ const AWS = require('aws-sdk')
 const ses = new AWS.SES({region: 'eu-west-1'})
 
 function sendEmail (email, pdfLink) {
-  ses.sendEmail({
+  const emailData = {
     Source: 'compass@codurance.com',
     Destination: {
       ToAddresses: [email]
@@ -13,8 +13,9 @@ function sendEmail (email, pdfLink) {
         Text: { Data: `You can download your pdf here: ${pdfLink}` }
       }
     }
-  })
-      .promise()
+  }
+
+  ses.sendEmail(emailData).promise()
       .then(_ => console.log(`pdf sent to [${email}]`))
       .catch(err => console.log(`an error occurred while sending pdf to [${email}]\n${err}`))
 }
