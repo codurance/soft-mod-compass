@@ -7,9 +7,10 @@ const favicon = require('serve-favicon')
 const stripHubspotSubmissionGuid = require('./middleware/stripHubspotSubmissionGuid')
 const base64Encode = require('./encoding/base64')
 
+const sendEmail = require('./mail/sendEmail')
+
 const AWS = require('aws-sdk')
 const s3 = new AWS.S3()
-const ses = new AWS.SES({region: 'eu-west-1'})
 const stream = require('stream')
 
 module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildReportViewModelFor, sendPdfLinkMail) => {
@@ -65,11 +66,7 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
         const pdfLink = data.Location
 
         console.log(`pdf available at ${pdfLink}`)
-
-        ses.sendEmail(makeEmailData(email, pdfLink))
-            .promise()
-            .then(_ => console.log(`pdf sent to [${email}]`))
-            .catch(err => console.log(`an error occurred while sending pdf to [${email}]\n${err}`))
+        sendEmail(email, pdfLink)
       }
 
       var pass = new stream.PassThrough()
@@ -95,22 +92,7 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
     }
   }
 
-function makeEmailData (email, pdfLink) {
-  return {
-    Source: 'compass@codurance.com',
-    Destination: {
-      ToAddresses: [email]
-    },
-    Message: {
-      Subject: { Data: 'Your compass report' },
-      Body: {
-        Text: { Data: `You can download your pdf here: ${pdfLink}` }
-      }
-    }
-  }
-}
-
-function getUserEmail (viewModel) {
+  function getUserEmail (viewModel) {
   return viewModel.userData.values.find(d => d.name === 'email').value
 }
 
