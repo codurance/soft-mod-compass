@@ -44,18 +44,18 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
   })
 
   app.get('/report/:uuid/Codurance%20Compass.pdf', (req, res) => {
-    generateReportAsync(req, res)
+    generateReportAsync(req.params.uuid)
     res.redirect(config.hubspot.thanksLandingPageUrl)
   })
 
-  async function generateReportAsync (req, res) {
+  async function generateReportAsync (uuid) {
     const template = {
       name: 'Compass',
       engine: 'handlebars',
       recipe: 'chrome-pdf'
     }
     try {
-      buildReportViewModelFor(req.params.uuid)
+      buildReportViewModelFor(uuid)
           .then(viewModel => {
             jsreport.render({ template, data: viewModel })
                 .then(out => {
@@ -65,7 +65,6 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
           })
     } catch (e) {
       console.log(e.message || 'Internal Error')
-      res.end(e.message || 'Internal Error')
     }
   }
 
