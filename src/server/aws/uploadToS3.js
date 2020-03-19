@@ -17,7 +17,7 @@ function uploadToS3 (pdf) {
   pdf.stream.pipe(pdfStreamPipe)
 
   return s3.upload(s3Parameters).promise()
-      .then(data => data.Location)
+    .then(data => data.Location)
 }
 
 module.exports = uploadToS3

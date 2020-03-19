@@ -1,5 +1,5 @@
 const AWS = require('aws-sdk')
-const ses = new AWS.SES({region: 'eu-west-1'})
+const ses = new AWS.SES({ region: 'eu-west-1' })
 
 function sendPdfLinkEmail (email, pdfLink) {
   const emailData = {
@@ -16,8 +16,8 @@ function sendPdfLinkEmail (email, pdfLink) {
   }
 
   ses.sendEmail(emailData).promise()
-      .then(_ => console.log(`pdf sent to [${email}]`))
-      .catch(err => console.log(`an error occurred while sending pdf to [${email}]\n${err}`))
+    .then(_ => console.log(`pdf sent to [${email}]`))
+    .catch(err => console.log(`an error occurred while sending pdf to [${email}]\n${err}`))
 }
 
 module.exports = sendPdfLinkEmail
