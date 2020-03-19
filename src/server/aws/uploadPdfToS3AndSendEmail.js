@@ -1,21 +1,10 @@
-const AWS = require('aws-sdk')
-const s3 = new AWS.S3()
-const stream = require('stream')
 const sendPdfLinkEmail = require('./sendPdfLinkEmail')
+const uploadToS3 = require('./uploadToS3')
 
 function uploadPdfToS3AndSendEmail (viewModel, pdf) {
-  const pdfStreamPipe = new stream.PassThrough()
+  const s3Promise = uploadToS3(pdf)
 
-  const s3Parameters = {
-    // TODO extract bucket name as env variable
-    Bucket: 'compass-pdf',
-    // TODO generate a proper name
-    Key: 'test.pdf',
-    Body: pdfStreamPipe,
-    ACL: 'public-read'
-  }
-
-  s3.upload(s3Parameters).promise()
+  s3Promise
       .then(data => {
         const pdfLink = data.Location
         console.log(`pdf available at ${pdfLink}`)
@@ -28,8 +17,6 @@ function uploadPdfToS3AndSendEmail (viewModel, pdf) {
   function getEmail (viewModel) {
     return viewModel.userData.values.find(d => d.name === 'email').value
   }
-
-  pdf.stream.pipe(pdfStreamPipe)
 }
 
 module.exports = uploadPdfToS3AndSendEmail
