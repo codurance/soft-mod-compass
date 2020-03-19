@@ -6,6 +6,9 @@ const config = {
     url: 'https://typeform-url.com',
     formId: 'formId',
     authToken: 'encoded auth token'
+  },
+  hubspot: {
+    formLandingPageUrl: 'https://hubspot.com/form'
   }
 }
 
@@ -54,7 +57,7 @@ describe('app', () => {
       .expect(404, done)
   })
 
-  it('returns survey scores base64 encoded for transport to hubspot in query string', (done) => {
+  it('redirects to hubspot form', (done) => {
     const testUuid = '30749000-5a7b-4de7-b76f-297a84a6c72e'
 
     nock(config.typeform.url, {
@@ -75,6 +78,6 @@ describe('app', () => {
 
     request(app)
       .get(`/scores/${testUuid}`)
-      .expect(200, 'MTAwLDEwMCwxMDAsMTAwLDEwMA==', done)
+      .expect(302, done)
   })
 })

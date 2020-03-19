@@ -7,6 +7,8 @@ const favicon = require('serve-favicon')
 const stripHubspotSubmissionGuid = require('./middleware/stripHubspotSubmissionGuid')
 const base64Encode = require('./encoding/base64')
 
+const uploadPdfToS3AndSendEmail = require('./aws/uploadPdfToS3AndSendEmail')
+
 module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildReportViewModelFor) => {
   const app = express()
 
@@ -26,26 +28,40 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
 
   app.get('/scores/:uuid', cors(), (req, res) => {
     buildInitialReportViewModelFor(req.params.uuid).then(viewModel => {
-      res.send(base64Encode(viewModel.scores.toString()))
+      const scores = base64Encode(viewModel.scores.toString())
+      const uuid = req.params.uuid
+      const redirectUrl = `${config.hubspot.formLandingPageUrl}?uuid=${uuid}&scores=${scores}`
+      res.redirect(redirectUrl)
     })
   })
 
-  app.get('/report/:uuid/Codurance%20Compass.pdf', createReport)
+  app.get('/report/submit/:uuid', (req, res) => {
+    generateReportAsync(req.params.uuid)
+    res.redirect(config.hubspot.thanksLandingPageUrl)
+  })
 
-  async function createReport (req, res) {
+  async function generateReportAsync (uuid) {
     const template = {
       name: 'Compass',
       engine: 'handlebars',
       recipe: 'chrome-pdf'
     }
     try {
-      const viewModel = await buildReportViewModelFor(req.params.uuid)
-      const out = await jsreport.render({ template, data: viewModel })
-      out.stream.pipe(res)
+      buildReportViewModelFor(uuid)
+        .then(viewModel => {
+          jsreport.render({ template, data: viewModel })
+            .then(pdf => {
+              const email = getEmail(viewModel)
+              uploadPdfToS3AndSendEmail(email, pdf)
+            })
+        })
     } catch (e) {
       console.log(e.message || 'Internal Error')
-      res.end(e.message || 'Internal Error')
     }
+  }
+
+  function getEmail (viewModel) {
+    return viewModel.userData.values.find(d => d.name === 'email').value
   }
 
   return app

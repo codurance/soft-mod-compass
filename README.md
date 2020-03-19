@@ -121,6 +121,30 @@ yarn test
 ./scripts/docker/run-tests.sh
 ```
 
+## Useful links for testing
+
+### UUID
+
+The uuid is generated when we start answering TypeForm questions.
+It is used to store the answers on TypeForm and also user details on HubSpot
+
+In order to avoid answering every time, we can reuse this UUID: c8dfdc09-dd9b-4d35-a80e-b14c79598eb5
+
+### Links
+
+Examples below are using an existing UUID.
+You'll be able to download the PDF but you may not receive the mail.
+If you want the mail, you need to fill the [HubSpot form](https://info.codurance.com/compass-test-0?uuid=c8dfdc09-dd9b-4d35-a80e-b14c79598eb5&scores=MTAwLDEwMCwxMDAsMTAwLDEwMA==)
+Doing so will **override** the previous email associated to the UUID.
+
+- Redirect link that HubSpot will use (mail + download button)
+  - http://compass-env.eba-cggvmdz7.eu-central-1.elasticbeanstalk.com/report/submit/c8dfdc09-dd9b-4d35-a80e-b14c79598eb5
+  - http://localhost:8080/report/submit/c8dfdc09-dd9b-4d35-a80e-b14c79598eb5
+
+- HubSpot form (will override the email associated to this UUID)
+  - https://info.codurance.com/compass-test-0?uuid=c8dfdc09-dd9b-4d35-a80e-b14c79598eb5&scores=MTAwLDEwMCwxMDAsMTAwLDEwMA==
+
+
 ## HubSpot landing page deployment with Docker
 
 For an explanation of how HubSpot is leveraged in the solution see the _integrations_ section above.

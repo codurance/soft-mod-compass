@@ -70,33 +70,21 @@ describe('typeformClient', () => {
       .catch(done)
   })
 
-  it('retries getting survey answers no more than three times', (done) => {
+  it('retries getting survey answers no more than the given parameter', (done) => {
     const uuid = '001c1057-7686-49ff-8691-cb7f8de44124'
 
-    nock(config.typeform.url, {
+    const mockApi = nock(config.typeform.url, {
       reqheaders: {
         'authorization': `Bearer ${config.typeform.authToken}`
       }
     })
-      .get(`/forms/${config.typeform.formId}/responses?query=${uuid}`)
-      .reply(200, { items: [] })
-      .get(`/forms/${config.typeform.formId}/responses?query=${uuid}`)
-      .reply(200, { items: [] })
-      .get(`/forms/${config.typeform.formId}/responses?query=${uuid}`)
-      .reply(200, { items: [] })
-      .get(`/forms/${config.typeform.formId}/responses?query=${uuid}`)
-      .reply(200, { items: [] })
-      .get(`/forms/${config.typeform.formId}/responses?query=${uuid}`)
-      .reply(200, {
-        items: [{
-          answers: [
-            { choice: { label: 'one' } },
-            { choice: { label: 'three' } }
-          ]
-        }]
-      })
+    for (let i = 0; i < 4; i++) {
+      mockApi
+        .get(`/forms/${config.typeform.formId}/responses?query=${uuid}`)
+        .reply(200, { items: [] })
+    }
 
-    typeformClient.surveyAnswersFor(uuid)
+    typeformClient.surveyAnswersFor(uuid, 3)
       .then(() => {
         done('surveyAnswersFor did not throw')
       })

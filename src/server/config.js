@@ -11,6 +11,8 @@ module.exports = {
   },
   hubspot: {
     formId: process.env.HUBSPOT_FORM_ID,
-    authToken: process.env.HUBSPOT_AUTH_TOKEN
+    authToken: process.env.HUBSPOT_AUTH_TOKEN,
+    thanksLandingPageUrl: process.env.HUBSPOT_THANKS_LANDING_PAGE_URL,
+    formLandingPageUrl: process.env.HUBSPOT_FORM_LANDING_PAGE_URL
   }
 }
