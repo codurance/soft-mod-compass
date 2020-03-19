@@ -54,14 +54,19 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
     try {
       const viewModel = await buildReportViewModelFor(req.params.uuid)
       const out = await jsreport.render({ template, data: viewModel })
+      const email = getEmail(viewModel)
 
-      uploadPdfToS3AndSendEmail(viewModel, out)
+      uploadPdfToS3AndSendEmail(email, out)
 
       res.redirect(config.hubspot.thanksLandingPageUrl)
     } catch (e) {
       console.log(e.message || 'Internal Error')
       res.end(e.message || 'Internal Error')
     }
+  }
+
+  function getEmail (viewModel) {
+    return viewModel.userData.values.find(d => d.name === 'email').value
   }
 
   return app
