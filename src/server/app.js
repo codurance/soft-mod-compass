@@ -7,11 +7,7 @@ const favicon = require('serve-favicon')
 const stripHubspotSubmissionGuid = require('./middleware/stripHubspotSubmissionGuid')
 const base64Encode = require('./encoding/base64')
 
-const sendEmail = require('./mail/sendEmail')
-
-const AWS = require('aws-sdk')
-const s3 = new AWS.S3()
-const stream = require('stream')
+const uploadPdfToS3AndSendEmail = require('./aws/uploadPdfToS3AndSendEmail')
 
 module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildReportViewModelFor, sendPdfLinkMail) => {
   const app = express()
@@ -59,40 +55,14 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
       const viewModel = await buildReportViewModelFor(req.params.uuid)
       const out = await jsreport.render({ template, data: viewModel })
 
-      const successHandler = (data) => {
-        const email = getUserEmail(viewModel)
-        const pdfLink = data.Location
+      uploadPdfToS3AndSendEmail(viewModel, out)
 
-        console.log(`pdf available at ${pdfLink}`)
-        sendEmail(email, pdfLink)
-      }
-
-      var pass = new stream.PassThrough()
-
-      // Setting up S3 upload parameters
-      const params = {
-        Bucket: 'compass-pdf',
-        Key: 'test.pdf', // File name you want to save as in S3
-        Body: pass,
-        ACL: 'public-read'
-      };
-
-      // Uploading files to the bucket
-      s3.upload(params).promise()
-          .then(successHandler)
-          .catch(err => console.log(err))
-
-      out.stream.pipe(pass)
       res.redirect(config.hubspot.thanksLandingPageUrl)
     } catch (e) {
       console.log(e.message || 'Internal Error')
       res.end(e.message || 'Internal Error')
     }
   }
-
-  function getUserEmail (viewModel) {
-  return viewModel.userData.values.find(d => d.name === 'email').value
-}
 
   return app
 }
