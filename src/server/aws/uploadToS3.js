@@ -14,9 +14,10 @@ function uploadToS3 (pdf) {
     ACL: 'public-read'
   }
 
-  const s3Promise = s3.upload(s3Parameters).promise()
   pdf.stream.pipe(pdfStreamPipe)
-  return s3Promise
+
+  return s3.upload(s3Parameters).promise()
+      .then(data => data.Location)
 }
 
 module.exports = uploadToS3

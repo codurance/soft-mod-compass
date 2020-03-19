@@ -5,11 +5,9 @@ function uploadPdfToS3AndSendEmail (viewModel, pdf) {
   const s3Promise = uploadToS3(pdf)
 
   s3Promise
-      .then(data => {
-        const pdfLink = data.Location
+      .then(pdfLink => {
         console.log(`pdf available at ${pdfLink}`)
         const email = getEmail(viewModel)
-
         sendPdfLinkEmail(email, pdfLink)
       })
       .catch(err => console.log(err))
