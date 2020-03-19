@@ -1,7 +1,7 @@
 const AWS = require('aws-sdk')
 const ses = new AWS.SES({region: 'eu-west-1'})
 
-function sendEmail (email, pdfLink) {
+function sendPdfLinkEmail (email, pdfLink) {
   const emailData = {
     Source: 'compass@codurance.com',
     Destination: {
@@ -20,4 +20,4 @@ function sendEmail (email, pdfLink) {
       .catch(err => console.log(`an error occurred while sending pdf to [${email}]\n${err}`))
 }
 
-module.exports = sendEmail
+module.exports = sendPdfLinkEmail
