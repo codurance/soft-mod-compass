@@ -58,9 +58,9 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
       buildReportViewModelFor(uuid)
           .then(viewModel => {
             jsreport.render({ template, data: viewModel })
-                .then(out => {
+                .then(pdf => {
                   const email = getEmail(viewModel)
-                  uploadPdfToS3AndSendEmail(email, out)
+                  uploadPdfToS3AndSendEmail(email, pdf)
                 })
           })
     } catch (e) {
