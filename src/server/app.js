@@ -52,7 +52,7 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
           jsreport.render({ template, data: viewModel })
             .then(pdf => {
               const email = getEmail(viewModel)
-              uploadPdfToS3AndSendEmail(email, pdf)
+              uploadPdfToS3AndSendEmail(email, pdf, config.aws.bucket)
             })
         })
     } catch (e) {

@@ -1,8 +1,8 @@
 const sendPdfLinkEmail = require('./sendPdfLinkEmail')
 const uploadToS3 = require('./uploadToS3')
 
-function uploadPdfToS3AndSendEmail (email, pdf) {
-  const pdfLinkPromise = uploadToS3(pdf)
+function uploadPdfToS3AndSendEmail (email, pdf, bucket) {
+  const pdfLinkPromise = uploadToS3(pdf, bucket)
 
   pdfLinkPromise
     .then(pdfLink => {

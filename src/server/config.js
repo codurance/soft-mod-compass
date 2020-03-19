@@ -14,5 +14,8 @@ module.exports = {
     authToken: process.env.HUBSPOT_AUTH_TOKEN,
     thanksLandingPageUrl: process.env.HUBSPOT_THANKS_LANDING_PAGE_URL,
     formLandingPageUrl: process.env.HUBSPOT_FORM_LANDING_PAGE_URL
+  },
+  aws: {
+    bucket: process.env.AWS_COMPASS_BUCKET
   }
 }

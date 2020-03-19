@@ -2,12 +2,11 @@ const AWS = require('aws-sdk')
 const s3 = new AWS.S3()
 const stream = require('stream')
 
-function uploadToS3 (pdf) {
+function uploadToS3 (pdf, bucket) {
   const pdfStreamPipe = new stream.PassThrough()
 
   const s3Parameters = {
-    // TODO extract bucket name as env variable
-    Bucket: 'compass-pdf',
+    Bucket: bucket,
     // TODO generate a proper name
     Key: 'test.pdf',
     Body: pdfStreamPipe,
