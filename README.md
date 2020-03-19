@@ -141,13 +141,6 @@ Doing so will **override** the previous email associated to the UUID.
   - http://compass-env.eba-cggvmdz7.eu-central-1.elasticbeanstalk.com/report/submit/c8dfdc09-dd9b-4d35-a80e-b14c79598eb5
   - http://localhost:8080/report/submit/c8dfdc09-dd9b-4d35-a80e-b14c79598eb5
 
-- Generic Redirect link used in HubSpot config
-  - http://compass-env.eba-cggvmdz7.eu-central-1.elasticbeanstalk.com/report/submit/{{request.query_dict.uuid}}
-
-- direct PDF download link
-  - http://compass-env.eba-cggvmdz7.eu-central-1.elasticbeanstalk.com/report/c8dfdc09-dd9b-4d35-a80e-b14c79598eb5/Codurance%20Compass.pdf
-  - http://localhost:8080/report/c8dfdc09-dd9b-4d35-a80e-b14c79598eb5/Codurance%20Compass.pdf
-
 - HubSpot form (will override the email associated to this UUID)
   - https://info.codurance.com/compass-test-0?uuid=c8dfdc09-dd9b-4d35-a80e-b14c79598eb5&scores=MTAwLDEwMCwxMDAsMTAwLDEwMA==
 
