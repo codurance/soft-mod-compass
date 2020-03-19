@@ -36,14 +36,6 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
   })
 
   app.get('/report/submit/:uuid', (req, res) => {
-    const uuid = req.params.uuid
-    const pdfLink = req.protocol + '://' + req.get('host') + `/report/${uuid}/Codurance%20Compass.pdf`
-
-    sendPdfLinkMail(pdfLink, uuid)
-    res.redirect(`${config.hubspot.thanksLandingPageUrl}?pdfLink=${pdfLink}`)
-  })
-
-  app.get('/report/:uuid/Codurance%20Compass.pdf', (req, res) => {
     generateReportAsync(req.params.uuid)
     res.redirect(config.hubspot.thanksLandingPageUrl)
   })
@@ -56,13 +48,13 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
     }
     try {
       buildReportViewModelFor(uuid)
-          .then(viewModel => {
-            jsreport.render({ template, data: viewModel })
-                .then(pdf => {
-                  const email = getEmail(viewModel)
-                  uploadPdfToS3AndSendEmail(email, pdf)
-                })
-          })
+        .then(viewModel => {
+          jsreport.render({ template, data: viewModel })
+            .then(pdf => {
+              const email = getEmail(viewModel)
+              uploadPdfToS3AndSendEmail(email, pdf)
+            })
+        })
     } catch (e) {
       console.log(e.message || 'Internal Error')
     }
