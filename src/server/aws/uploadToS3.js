@@ -2,13 +2,14 @@ const AWS = require('aws-sdk')
 const s3 = new AWS.S3()
 const stream = require('stream')
 
+const uuid = require('uuid')
+
 function uploadToS3 (pdf, bucket) {
   const pdfStreamPipe = new stream.PassThrough()
 
   const s3Parameters = {
     Bucket: bucket,
-    // TODO generate a proper name
-    Key: 'test.pdf',
+    Key: `compass-report-${uuid.v4()}.pdf`,
     Body: pdfStreamPipe,
     ACL: 'public-read'
   }
