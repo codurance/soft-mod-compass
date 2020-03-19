@@ -43,9 +43,12 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
     res.redirect(`${config.hubspot.thanksLandingPageUrl}?pdfLink=${pdfLink}`)
   })
 
-  app.get('/report/:uuid/Codurance%20Compass.pdf', createReport)
+  app.get('/report/:uuid/Codurance%20Compass.pdf', (req, res) => {
+    generateReportAsync(req, res)
+    res.redirect(config.hubspot.thanksLandingPageUrl)
+  })
 
-  async function createReport (req, res) {
+  async function generateReportAsync (req, res) {
     const template = {
       name: 'Compass',
       engine: 'handlebars',
@@ -60,7 +63,6 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
                   uploadPdfToS3AndSendEmail(email, out)
                 })
           })
-      res.redirect(config.hubspot.thanksLandingPageUrl)
     } catch (e) {
       console.log(e.message || 'Internal Error')
       res.end(e.message || 'Internal Error')
