@@ -44,8 +44,6 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
     const pdfLink = req.protocol + '://' + req.get('host') + `/report/${uuid}/Codurance%20Compass.pdf`
 
     sendPdfLinkMail(pdfLink, uuid)
-    // TODO extract landing page url to config
-    console.log(config.hubspot.thanksLandingPageUrl)
     res.redirect(`${config.hubspot.thanksLandingPageUrl}?pdfLink=${pdfLink}`)
   })
 
