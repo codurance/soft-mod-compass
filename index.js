@@ -9,9 +9,8 @@ const reportViewModelBuilder = require('./src/server/report/reportViewModelBuild
   typeformClient,
   getHubspotUserDetails
 )
-const sendPdfLinkMail = require('./src/server/mail/sendPdfLinkMailBuilder')(getHubspotUserDetails)
 
-const app = require('./src/server/app')(config, reportingApp, initialReportViewModalBuilder, reportViewModelBuilder, sendPdfLinkMail)
+const app = require('./src/server/app')(config, reportingApp, initialReportViewModalBuilder, reportViewModelBuilder)
 
 const port = 8080
 

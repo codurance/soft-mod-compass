@@ -9,7 +9,7 @@ const base64Encode = require('./encoding/base64')
 
 const uploadPdfToS3AndSendEmail = require('./aws/uploadPdfToS3AndSendEmail')
 
-module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildReportViewModelFor, sendPdfLinkMail) => {
+module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildReportViewModelFor) => {
   const app = express()
 
   app.set('view engine', 'ejs')
