@@ -52,12 +52,14 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
       recipe: 'chrome-pdf'
     }
     try {
-      const viewModel = await buildReportViewModelFor(req.params.uuid)
-      const out = await jsreport.render({ template, data: viewModel })
-      const email = getEmail(viewModel)
-
-      uploadPdfToS3AndSendEmail(email, out)
-
+      buildReportViewModelFor(req.params.uuid)
+          .then(viewModel => {
+            jsreport.render({ template, data: viewModel })
+                .then(out => {
+                  const email = getEmail(viewModel)
+                  uploadPdfToS3AndSendEmail(email, out)
+                })
+          })
       res.redirect(config.hubspot.thanksLandingPageUrl)
     } catch (e) {
       console.log(e.message || 'Internal Error')
