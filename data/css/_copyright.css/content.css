@@ -11,10 +11,10 @@
 }
 
 #front-page .copyright {
-  color: var(--codurance-green);
+  color: white;
   position: absolute;
-  bottom: 12.5mm;
-  left: 28.8mm;
+  bottom: 10mm;
+  right: 26.3mm;
 }
 
 #toc-page .copyright {

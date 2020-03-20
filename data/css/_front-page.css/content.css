@@ -1,70 +1,22 @@
-.front-page_left-margin {
-    position: absolute;
-    left: 28.8mm;
-}
-.front-page_subcopy {
-    font-size: 16pt;
-}
-
-#front-page_contact-container {
-    display: inline-block;
-    position: absolute;
-    right: 16mm;
-    top: 11mm;
-}
-#front-page_phone-icon {
-    display: inline-block;
-    background: url('{#asset /assets/phone-icon.svg @encoding=dataURI}') center no-repeat;
-    width: 4.3mm;
-    height: 4.3mm;
-    padding-right: 3.5mm;
-    vertical-align: middle;
-}
-#front-page_email-icon {
-    display: inline-block;
-    background: url('{#asset /assets/email-icon.svg @encoding=dataURI}') center no-repeat;
-    width: 4.3mm;
-    height: 4.3mm;
-    padding-right: 4mm;
-    vertical-align: middle;
-}
-#front-page_contact-info {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    align-items: center;
-}
-#front-page_contact-info a {
-    display: inline-block;
-    text-decoration: none;
-    padding-top: 4mm;
-    margin-left: 9.2mm;
-    color: var(--text-black);
-}
-
-#front-page_detailing {
-    color: var(--codurance-green);
-    font-weight: var(--font-weight-regular);
-    font-size: 24pt;
-    line-height: 1.43em;
-    bottom: 71mm;
-    width: 100mm;
-}
-#front-page_detailing-var {
-    color: var(--codurance-green);
+#front-page.page {
+    color: white;
+    font-size: 13.33pt;
     font-weight: var(--font-weight-bold);
+    text-align: right;
 }
+
+#front-page_company-name {
+  display: inline-block;
+  position: absolute;
+  top: 201.5mm;
+  right: 26mm;
+  width: 109mm;
+}
+
 #front-page_date {
-    color: var(--codurance-green);
-    font-weight: var(--font-weight-bold);
-    bottom: 49mm;
-}
-#front-page_prepared {
-    font-weight: var(--font-weight-bold);
-    color: var(--codurance-green);
-    bottom: 38mm;
-}
-.front-page_date-name-vars {
-    font-weight: var(--font-weight-regular);
+  display: inline-block;
+  position: absolute;
+  top: 227mm;
+  right: 26mm;
+  width: 39mm;
 }
