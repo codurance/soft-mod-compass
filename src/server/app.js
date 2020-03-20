@@ -7,7 +7,8 @@ const favicon = require('serve-favicon')
 const stripHubspotSubmissionGuid = require('./middleware/stripHubspotSubmissionGuid')
 const base64Encode = require('./encoding/base64')
 
-const uploadPdfToS3AndSendEmail = require('./aws/uploadPdfToS3AndSendEmail')
+const uploadToS3 = require('./upload/uploadToS3')
+const sendPdfLinkEmail = require('./mail/sendPdfLinkEmail')
 
 module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildReportViewModelFor) => {
   const app = express()
@@ -40,26 +41,30 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
     res.redirect(config.hubspot.thanksLandingPageUrl)
   })
 
-  async function generateReportAsync (uuid) {
+  function generateReportAsync (uuid) {
     const template = {
       name: 'Compass',
       engine: 'handlebars',
       recipe: 'chrome-pdf'
     }
-    try {
-      buildReportViewModelFor(uuid)
-        .then(viewModel => {
-          jsreport.render({ template, data: viewModel })
-            .then(pdf => {
-              const email = getEmail(viewModel)
-              const firstname = getFirstname(viewModel)
-              const userData = { email, firstname }
-              uploadPdfToS3AndSendEmail(pdf, config.aws.bucket, userData)
-            })
-        })
-    } catch (e) {
-      console.log(e.message || 'Internal Error')
-    }
+    buildReportViewModelFor(uuid)
+      .then(viewModel => {
+        jsreport.render({ template, data: viewModel })
+          .then(pdf => {
+            const email = getEmail(viewModel)
+            const firstname = getFirstname(viewModel)
+            uploadPdfAndSendLinkEmail(pdf, { email, firstname })
+          })
+      })
+  }
+
+  function uploadPdfAndSendLinkEmail (pdf, userData) {
+    uploadToS3(pdf, config.aws.bucket)
+      .then(pdfLink => {
+        console.log(`pdf available at ${pdfLink}`)
+        sendPdfLinkEmail(pdfLink, userData)
+      })
+      .catch(err => console.log(`an error occurred while uploading the pdf\n${err}`))
   }
 
   function getEmail (viewModel) {
