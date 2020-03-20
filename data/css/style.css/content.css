@@ -1,4 +1,8 @@
 /* PAGE BACKGROUNDS */
+#front-page {
+    background: url('{#asset /assets/pageImgs/cover.jpg @encoding=dataURI}') no-repeat;
+    background-size: cover;
+}
 #intro-page {
   background: url('{#asset /assets/pageImgs/intro.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
@@ -10,7 +14,7 @@
 }
 
 #toc-page {
-  background: url('{#asset /assets/pageImgs/toc.jpg @encoding=dataURI}') no-repeat;
+  background: url('{#asset /assets/pageImgs/table-of-contents.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 
@@ -19,7 +23,7 @@
   background-size: cover;
 }
 #om-breakdown-page {
-  background: url('{#asset /assets/pageImgs/om-breakdown-page-avg.jpg @encoding=dataURI}') no-repeat;
+  background: url('{#asset /assets/pageImgs/organisational-maturity-avg.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 
@@ -27,51 +31,61 @@
   background: url('{#asset /assets/pageImgs/continuous-delivery.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
-#cd-results-page .graph-bar .graph-bar_result-bar {
-  background: #5d66b6;
-}
+
 #cd-breakdown-page {
-  background: url('{#asset /assets/pageImgs/cd-breakdown-page-avg.jpg @encoding=dataURI}') no-repeat;
+  background: url('{#asset /assets/pageImgs/continuous-delivery-avg.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 
 #c-results-page {
-  background: url('{#asset /assets/pageImgs/culture.jpg @encoding=dataURI}') no-repeat;
+  background: url('{#asset /assets/pageImgs/people-culture.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
-#c-results-page .graph-bar .graph-bar_result-bar {
-  background: var(--small-text-on-dark-yellow);
-}
+
 #c-breakdown-page {
-  background: url('{#asset /assets/pageImgs/c-breakdown-page-avg.jpg @encoding=dataURI}') no-repeat;
+  background: url('{#asset /assets/pageImgs/people-culture-avg.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 
 #cft-results-page {
-  background: url('{#asset /assets/pageImgs/cross-functional-teams.jpg @encoding=dataURI}') no-repeat;
+  background: url('{#asset /assets/pageImgs/effective-team.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
-#cft-results-page .graph-bar .graph-bar_result-bar {
-  background: var(--small-text-on-dark-red);
-}
+
 #cft-breakdown-page {
-  background: url('{#asset /assets/pageImgs/cft-breakdown-page-avg.jpg @encoding=dataURI}') no-repeat;
+  background: url('{#asset /assets/pageImgs/effective-team-avg.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 
 #xpp-results-page {
-  background: url('{#asset /assets/pageImgs/xp-practices.jpg @encoding=dataURI}') no-repeat;
+  background: url('{#asset /assets/pageImgs/technical-practices.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
-#xpp-results-page .graph-bar .graph-bar_result-bar {
-  background: var(--codurance-orange);
-}
+
 #xpp-breakdown-page {
-  background: url('{#asset /assets/pageImgs/xpp-breakdown-page-avg.jpg @encoding=dataURI}') no-repeat;
+  background: url('{#asset /assets/pageImgs/technical-practices-avg.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 
 #summary-page {
   background: url('{#asset /assets/pageImgs/summary.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
+}
+
+
+/* BAR GRAPHS */
+#cd-results-page .graph-bar .graph-bar_result-bar {
+  background: #5d66b6;
+}
+
+#c-results-page .graph-bar .graph-bar_result-bar {
+  background: var(--small-text-on-dark-yellow);
+}
+
+#cft-results-page .graph-bar .graph-bar_result-bar {
+  background: var(--small-text-on-dark-red);
+}
+
+#xpp-results-page .graph-bar .graph-bar_result-bar {
+  background: var(--codurance-orange);
 }

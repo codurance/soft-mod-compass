@@ -1,32 +1,32 @@
 {
-    "shortid": "SyR8PsuhX",
-    "name": "Compass",
-    "recipe": "chrome-pdf",
-    "engine": "handlebars",
-    "chrome": {
-        "printBackground": true,
-        "format": "A4",
-        "marginTop": "0cm",
-        "marginRight": "0cm",
-        "marginBottom": "0cm",
-        "marginLeft": "0cm",
-        "landscape": true,
-        "width": "29.7cm",
-        "height": "21cm"
-    },
-    "modificationDate": {
-        "$$date": 1569854940805
-    },
-    "_id": "bUe0ZtrZKts6vwCZ",
-    "$entitySet": "templates",
-    "data": {
-        "shortid": "BJZFwid3m"
-    },
-    "resources": {
-        "items": []
-    },
-    "folder": {
-        "shortid": "X5TO6e"
-    },
-    "scripts": []
+  "shortid": "SyR8PsuhX",
+  "name": "Compass",
+  "recipe": "chrome-pdf",
+  "engine": "handlebars",
+  "chrome": {
+    "printBackground": true,
+    "format": "A4",
+    "marginTop": "0cm",
+    "marginRight": "0cm",
+    "marginBottom": "0cm",
+    "marginLeft": "0cm",
+    "landscape": false,
+    "width": "21cm",
+    "height": "29.7cm"
+  },
+  "modificationDate": {
+    "$$date": 1584722778930
+  },
+  "_id": "bUe0ZtrZKts6vwCZ",
+  "$entitySet": "templates",
+  "data": {
+    "shortid": "BJZFwid3m"
+  },
+  "resources": {
+    "items": []
+  },
+  "folder": {
+    "shortid": "X5TO6e"
+  },
+  "scripts": []
 }
