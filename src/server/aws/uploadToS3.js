@@ -1,5 +1,5 @@
 const AWS = require('aws-sdk')
-const s3 = new AWS.S3({ signatureVersion: "v4" })
+const s3 = new AWS.S3({ signatureVersion: 'v4' })
 const stream = require('stream')
 
 const uuid = require('uuid')
@@ -19,7 +19,7 @@ function uploadToS3 (pdf, bucket) {
     .then(data => {
       const p = {
         Bucket: bucket,
-        Key: data.Key,
+        Key: data.Key
       }
       return s3.getSignedUrlPromise('getObject', p)
     })
