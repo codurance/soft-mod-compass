@@ -52,7 +52,8 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
           jsreport.render({ template, data: viewModel })
             .then(pdf => {
               const email = getEmail(viewModel)
-              uploadPdfToS3AndSendEmail(email, pdf, config.aws.bucket)
+              const firstname = getFirstname(viewModel)
+              uploadPdfToS3AndSendEmail(email, pdf, config.aws.bucket, firstname)
             })
         })
     } catch (e) {
@@ -62,6 +63,10 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
 
   function getEmail (viewModel) {
     return viewModel.userData.values.find(d => d.name === 'email').value
+  }
+
+  function getFirstname (viewModel) {
+    return viewModel.userData.values.find(d => d.name === 'firstname').value
   }
 
   return app

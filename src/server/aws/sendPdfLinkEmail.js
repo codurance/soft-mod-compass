@@ -1,7 +1,7 @@
 const AWS = require('aws-sdk')
 const ses = new AWS.SES({ region: 'eu-west-1' })
 
-function sendPdfLinkEmail (email, pdfLink) {
+function sendPdfLinkEmail (email, pdfLink, firstname) {
   const emailData = {
     Source: 'compass@codurance.com',
     Destination: {
@@ -10,7 +10,7 @@ function sendPdfLinkEmail (email, pdfLink) {
     Message: {
       Subject: { Data: 'Your compass report' },
       Body: {
-        Text: { Data: `You can download your pdf here: ${pdfLink}` }
+        Text: { Data: `Hi ${firstname},\nYou can download your pdf here: ${pdfLink}` }
       }
     }
   }
