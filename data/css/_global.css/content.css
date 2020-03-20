@@ -21,9 +21,6 @@
   --font-weight-regular: 400;
   --font-weight-bold: 700;
 
-  --font-size-page-header: 51pt;
-  --line-height-page-header: 1.15em;
-
   --font-size-body: 10pt;
   --line-height-body: 1.5em;
 }
@@ -32,29 +29,12 @@
 
 
 /* TYPE -------------------------------------- */
-body {
+html, body {
   font-family: proxima-nova;
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
   color: var(--text-black);
 }
-
-/* .page-header {
-  font-family: proxima-nova;
-  font-weight: var(--font-weight-bold);
-  font-style: normal;
-  text-align: left;
-  font-size: var(--font-size-page-header);
-  line-height: var(--line-height-page-header);
-}
-.page-header.light {
-  color: var(--codurance-green);
-}
-.page-header.dark {
-  color: var(--codurance-light-green);
-} */
-
-
 
 /* LAYOUTS -------------------------------------- */
 .page {
@@ -74,11 +54,6 @@ body {
 .page-break-after {
   break-after: page;
 }
-/* p {
-  break-inside: avoid-page;
-} */
-
-
 
 /* STYLING -------------------------------------- */
 html {
@@ -88,10 +63,6 @@ body {
   padding: 0;
   margin: 0;
 }
-
-/* .js-currentYear {
-  color: inherit;
-} */
 
 .graph-bar {
   width: 103mm;

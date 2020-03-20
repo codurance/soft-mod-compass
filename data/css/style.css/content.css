@@ -1,11 +1,3 @@
-/*@import url('_reset.css');*/
-/*@import url('_global.css');*/
-/*@import url('_copyright.css');*/
-/*@import url('_front-page.css');*/
-/*@import url('_intro-page.css');*/
-/*@import url('_toc-page.css');*/
-/*@import url('_assessment-page.css');*/
-
 /* PAGE BACKGROUNDS */
 #intro-page {
   background: url('{#asset /assets/pageImgs/intro.jpg @encoding=dataURI}') no-repeat;

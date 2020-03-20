@@ -1,11 +1,8 @@
 #toc-page_toc {
   display: grid;
   grid-template-columns: 14mm auto;
-  /* grid-template-rows: repeat(6, auto); */
   grid-column-gap: 6mm;
-  /* grid-row-gap: 13.5mm; */
   justify-items: start;
-  /* align-items: end; */
   position: absolute;
   top: 52mm;
   left: 27.3mm;
