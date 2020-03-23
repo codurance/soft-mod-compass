@@ -7,6 +7,7 @@
   --accent-green: #63f1a4;
   --accent-blue: #53ceea;
   --functional-light-grey: #e0e0e0;
+  --functional-medium-grey: #85898f;
   
   --background-peach: #fff0e0;
   
@@ -83,27 +84,106 @@ body {
     display: none;
 }
 
-/*.graph-bar {*/
-/*  width: 103mm;*/
-/*  height: 3mm;*/
-/*  position: absolute;*/
-/*  background: var(--graph-bar-background-on-light);*/
-/*  right: 28mm;*/
-/*  top: 74mm;*/
-/*}*/
-/*.graph-bar.bar-2 {*/
-/*  top: 100mm;*/
-/*}*/
-/*.graph-bar.bar-3 {*/
-/*  top: 127mm;*/
-/*}*/
-/*.graph-bar.bar-4 {*/
-/*  top: 153mm;*/
-/*}*/
-/*.graph-bar_result-bar {*/
-/*  position: absolute;*/
-/*  left: 0;*/
-/*  top: 0;*/
-/*  height: 100%;*/
-/*  background: var(--codurance-light-green);*/
-/*}*/
+/* MAIN BAR GRAPHS -------------------------------------- */
+
+.main-bar-graph__container {
+    position: absolute;
+    left: 42.2mm;
+}
+.main-bar-graph__bar {
+    position: absolute;
+    top: 0mm;
+    width: 141.5mm;
+    height: 3mm;
+}
+.main-bar-graph__bad-icon {
+    position: absolute;
+    width: 6.617mm;
+    left: -14.5mm;
+    top: -4.6mm;
+    height: 5.841mm;
+}
+.main-bar-graph__average-icon {
+    position: absolute;
+    width: 4.233mm;
+    left: -13.25mm;
+    top: -3.45mm;
+    height: 4.233mm;
+}
+.main-bar-graph__good-icon {
+    position: absolute;
+    width: 5.869mm;
+    left: -14.5mm;
+    top: -3.9mm;
+    height: 4.531mm;
+}
+.main-bar-graph__rule {
+    position: absolute;
+    top: -8.5mm;
+    left: -3.6mm;
+    height: 14.13mm;
+    width: 2pt;
+    background: orange;
+}
+.main-bar-graph__inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+}
+.main-bar-graph__marker-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: absolute;
+    top: 3mm;
+    left: 0;
+    width: 141.3mm;
+}
+.main-bar-graph__marker {
+    height: 2.269mm;
+    width: 0.5mm;
+}
+.bar-1 {
+    top: 177mm;
+}
+.bar-2 {
+    top: 207.3mm;
+}
+.main-bar-graph__container.bar-2 .main-bar-graph__bar {
+    top: 0.4mm;
+}
+.bar-3 {
+    top: 237.8mm;
+}
+.bar-4 {
+    top: 268.2mm;
+}
+
+.on-dark {
+    background: var(--functional-medium-grey);
+}
+.on-light {
+    background: #dcd1c4;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
