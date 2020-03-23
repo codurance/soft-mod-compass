@@ -1,13 +1,24 @@
-#intro-page_contact-info {
+.intro-page__contact-info {
   list-style: none;
   display: inline;
   font-weight: var(--font-weight-bold);
   position: absolute;
-  right: 46.3mm;
-  bottom: 76mm;
+  left: 26.1mm;
+  top: 170mm;
+  color: var(--accent-blue);
+}
+.intro-page__contact-info.second {
+    left: 90.8mm;
 }
 
-#intro-page_contact-info a {
+.intro-page__contact-info a {
   text-decoration: none;
-  color: var(--text-black);
+  color: var(--accent-blue);
 }
+
+.intro-page__contact-header {
+    font-weight: var(--font-weight-bold);
+    font-size: 13.33pt;
+    margin-bottom: 6mm;
+}
+
