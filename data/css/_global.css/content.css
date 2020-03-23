@@ -1,20 +1,24 @@
 /* VARIABLES -------------------------------------- */
 :root {
   /* COLOURS */
-  --codurance-green: #185466;
-  --codurance-light-green: #61BFBB;
-  --codurance-purple: #5c64b9;
-  --codurance-orange: #ef7726;
-  --text-black: #0E0E0E;
-  --graph-bar-background-on-light: #e1e1e1;
-  --graph-bar-background-on-dark: #eef0f0;
-  --footnote-on-dark: #619db9;
-  --footnote-on-toc: #f0eff5;
-  --toc-font-color: #a0d2cc;
-  --small-text-on-dark-purple: #b2b7d1;
-  --small-text-on-dark-yellow: #f8ce57;
-  --small-text-on-dark-red: #f99fb7;
-  --small-text-on-dark-orange: #fec589;
+  --primary-coral: #fa7268;
+  --text-black: #404040;
+  --accent-yellow: #ffca4d;
+  --accent-green: #63f1a4;
+  --accent-blue: #53ceea;
+  
+  --background-peach: #fff0e0;
+  
+  /*--graph-bar-background-on-light: #e1e1e1;*/
+  /*--graph-bar-background-on-dark: #eef0f0;*/
+  /*--footnote-on-dark: #619db9;*/
+  /*--footnote-on-toc: #f0eff5;*/
+  /*--toc-font-color: #a0d2cc;*/
+  
+  /*--small-text-on-dark-purple: #b2b7d1;*/
+  /*--small-text-on-dark-yellow: #f8ce57;*/
+  /*--small-text-on-dark-red: #f99fb7;*/
+  /*--small-text-on-dark-orange: #fec589;*/
 
 
   /* TYPE */
