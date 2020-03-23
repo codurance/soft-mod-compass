@@ -18,51 +18,51 @@
   background-size: cover;
 }
 
-#om-results-page {
+#organisational-maturity-page {
   background: url('{#asset /assets/pageImgs/organisational-maturity.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
-#om-breakdown-page {
+#organisational-maturity-breakdown-page {
   background: url('{#asset /assets/pageImgs/organisational-maturity-avg.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 
-#cd-results-page {
+#continuous-delivery-page {
   background: url('{#asset /assets/pageImgs/continuous-delivery.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 
-#cd-breakdown-page {
+#continuous-delivery-breakdown-page {
   background: url('{#asset /assets/pageImgs/continuous-delivery-avg.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 
-#c-results-page {
+#people-culture-page {
   background: url('{#asset /assets/pageImgs/people-culture.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 
-#c-breakdown-page {
+#people-culture-breakdown-page {
   background: url('{#asset /assets/pageImgs/people-culture-avg.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 
-#cft-results-page {
+#effective-team-page {
   background: url('{#asset /assets/pageImgs/effective-team.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 
-#cft-breakdown-page {
+#effective-team-breakdown-page {
   background: url('{#asset /assets/pageImgs/effective-team-avg.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 
-#xpp-results-page {
+#technical-practices-page {
   background: url('{#asset /assets/pageImgs/technical-practices.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
 
-#xpp-breakdown-page {
+#technical-practices-breakdown-page {
   background: url('{#asset /assets/pageImgs/technical-practices-avg.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }

@@ -6,6 +6,7 @@
   --accent-yellow: #ffca4d;
   --accent-green: #63f1a4;
   --accent-blue: #53ceea;
+  --functional-light-grey: #e0e0e0;
   
   --background-peach: #fff0e0;
   
@@ -69,27 +70,40 @@ body {
   margin: 0;
 }
 
-.graph-bar {
-  width: 103mm;
-  height: 3mm;
-  position: absolute;
-  background: var(--graph-bar-background-on-light);
-  right: 28mm;
-  top: 74mm;
+.good-result {
+    background: var(--accent-green);
 }
-.graph-bar.bar-2 {
-  top: 100mm;
+.average-result {
+    background: var(--accent-blue);
 }
-.graph-bar.bar-3 {
-  top: 127mm;
+.bad-result {
+    background: var(--accent-yellow);
 }
-.graph-bar.bar-4 {
-  top: 153mm;
+.hidden {
+    display: none;
 }
-.graph-bar_result-bar {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  background: var(--codurance-light-green);
-}
+
+/*.graph-bar {*/
+/*  width: 103mm;*/
+/*  height: 3mm;*/
+/*  position: absolute;*/
+/*  background: var(--graph-bar-background-on-light);*/
+/*  right: 28mm;*/
+/*  top: 74mm;*/
+/*}*/
+/*.graph-bar.bar-2 {*/
+/*  top: 100mm;*/
+/*}*/
+/*.graph-bar.bar-3 {*/
+/*  top: 127mm;*/
+/*}*/
+/*.graph-bar.bar-4 {*/
+/*  top: 153mm;*/
+/*}*/
+/*.graph-bar_result-bar {*/
+/*  position: absolute;*/
+/*  left: 0;*/
+/*  top: 0;*/
+/*  height: 100%;*/
+/*  background: var(--codurance-light-green);*/
+/*}*/

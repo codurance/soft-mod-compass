@@ -1,27 +1,30 @@
-#toc-page_toc {
-  display: grid;
-  grid-template-columns: 14mm auto;
-  grid-column-gap: 6mm;
-  justify-items: start;
-  position: absolute;
-  top: 52mm;
-  left: 27.3mm;
+.toc-page__contents {
+    position: absolute;
+    left: 2mm;
+    left: 26mm;
+    top: 80.5mm;
+    font-weight: var(--font-weight-bold);
 }
-#toc-page_toc span {
-  font-weight: var(--font-weight-bold);
-  line-height: 58.6pt;
-  font-size: 31pt;
-  color: var(--toc-font-color);
-  display: block;
+.toc-page__contents a {
+    color: var(--text-black);
+    display: block;
+    text-decoration: none;
 }
-#toc-page_toc a {
-  text-decoration: none;
-  color: inherit;
-}
-#toc-page_toc-names {
-  margin-top: 0.5mm;
+.toc-page__contents li {
+    margin-bottom: 23mm;
+    display: block;
 }
 
-#toc-page_toc-names span {
-  font-size: 24pt;
+.toc-page__numbers {
+    font-size: 31pt;
 }
+
+.toc-page__sections {
+    margin-left: 13mm;
+    font-size: 24pt;
+    left: 23.2mm;
+    white-space: nowrap;
+}
+
+
+
