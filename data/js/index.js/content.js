@@ -23,30 +23,28 @@
 
 
 const updateAssessmentBars = scores => {
-  const GRAPHS = [...document.querySelectorAll('.assessment-page_graph .graph-bar_result-bar')];
+  const graphs = Array.from(document.querySelectorAll('.assessment-page__inner-fill'));
 
-  for (let graph of GRAPHS) {
-    graph.style.width = `${scores[GRAPHS.indexOf(graph)]}%`;
-  }
-}
-
-const updateAssessmentText = scores => {
-  const TEXTS = [...document.querySelectorAll('.assessment-page_result-text')];
+  for (let graph of graphs) {
+    const currentScore = scores[graphs.indexOf(graph)];
+    const category = graph.dataset.category;
+    const warningBox = document.querySelector(`.assessment-page__warning-box[data-category="${category}"]`);
     
-  for (let text of TEXTS) {
-      let alignmentText = scores[TEXTS.indexOf(text)] < 33.3
-                          ? 'Somewhat Aligned'
-                          : scores[TEXTS.indexOf(text)] < 66.6
-                          ? 'Almost Aligned'
-                          : 'Closely Aligned';
-                          
-    text.innerHTML = alignmentText;
+    graph.style.width = `${currentScore}%`;
+    
+    if (currentScore > 66) {
+        graph.classList.add('good-result');
+    } else if (currentScore > 33) {
+        graph.classList.add('average-result');
+    } else {
+        graph.classList.add('bad-result');
+        warningBox.classList.remove('hidden');
+    }
   }
 }
 
 (function updateAssessmentGraphs(scores) {
   updateAssessmentBars(scores);
-  updateAssessmentText(scores);
 })([{{summaryRadial.scores}}]);
 
 
