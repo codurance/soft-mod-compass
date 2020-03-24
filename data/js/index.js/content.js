@@ -9,7 +9,7 @@
 
 
 (function insertDate() {
-    const dateSection = document.querySelector('.front-page_date-name-vars');
+    const dateSection = document.querySelector('#front-page_date');
     
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
