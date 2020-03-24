@@ -6,12 +6,13 @@ INSTANCE_PROFILE='instance-profile--acl-delete-me'
 BUCKET='bucket--acl-delete-me'
 APP_NAME='compass'
 ENV_NAME='test'
+VERSION_LABEL='test'
 STACK_NAME='64bit Amazon Linux 2018.03 v2.14.2 running Docker 18.09.9-ce'
+ARTIFACT='aws-artifact.zip'
+ARTIFACT_S3="s3://${BUCKET}/${ARTIFACT}"
 TRUST_FILE='file:///Users/arnaud/Library/Application Support/JetBrains/IntelliJIdea2020.1/scratches/aws/deployment/compass-trust.json'
 POLICY_FILE='file:///Users/arnaud/Library/Application Support/JetBrains/IntelliJIdea2020.1/scratches/aws/deployment/compass-policies.json'
 OPTION_SETTINGS_FILE='file:///Users/arnaud/Library/Application Support/JetBrains/IntelliJIdea2020.1/scratches/aws/deployment/option-settings.json'
-
-git archive master -o aws-artifact.zip
 
 aws s3 mb s3://${BUCKET}
 aws iam create-role \
@@ -35,3 +36,16 @@ aws elasticbeanstalk create-environment \
     --environment-name ${ENV_NAME} \
     --solution-stack-name "${STACK_NAME}" \
     --option-settings "${OPTION_SETTINGS_FILE}"
+
+git archive master -o ${ARTIFACT}
+
+aws s3 cp ${ARTIFACT} ${ARTIFACT_S3}
+
+aws elasticbeanstalk create-application-version \
+    --application-name ${APP_NAME} \
+    --version-label ${VERSION_LABEL} \
+    --source-bundle S3Bucket=${BUCKET},S3Key=${ARTIFACT}
+
+aws elasticbeanstalk update-environment \
+    --environment-name ${ENV_NAME} \
+    --version-label ${VERSION_LABEL}
