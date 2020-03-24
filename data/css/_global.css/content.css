@@ -11,18 +11,6 @@
   
   --background-peach: #fff0e0;
   
-  /*--graph-bar-background-on-light: #e1e1e1;*/
-  /*--graph-bar-background-on-dark: #eef0f0;*/
-  /*--footnote-on-dark: #619db9;*/
-  /*--footnote-on-toc: #f0eff5;*/
-  /*--toc-font-color: #a0d2cc;*/
-  
-  /*--small-text-on-dark-purple: #b2b7d1;*/
-  /*--small-text-on-dark-yellow: #f8ce57;*/
-  /*--small-text-on-dark-red: #f99fb7;*/
-  /*--small-text-on-dark-orange: #fec589;*/
-
-
   /* TYPE */
   --font-weight-regular: 400;
   --font-weight-bold: 700;
@@ -81,7 +69,7 @@ body {
     background: var(--accent-yellow);
 }
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 /* MAIN BAR GRAPHS -------------------------------------- */
@@ -150,13 +138,13 @@ body {
     top: 177mm;
 }
 .main-bar-graph__container.bar-2 {
-    top: 255.9mm;
+    top: 207.3mm;
 }
 .main-bar-graph__container.bar-2 .main-bar-graph__bar {
     top: 0.4mm;
 }
 .main-bar-graph__container.bar-3 {
-    top: 278.25mm;
+    top: 237.8mm;
 }
 .main-bar-graph__container.bar-4 {
     top: 268.2mm;
