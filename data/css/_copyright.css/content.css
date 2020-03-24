@@ -1,13 +1,9 @@
 .copyright {
-  position: absolute;
-  right: 12.7mm;
-  bottom: 7mm;
-  font-size: 8pt;
-  color: var(--codurance-green);
-}
-
-.dark .copyright {
-  color: var(--footnote-on-dark);
+    position: absolute;
+    right: 9.3mm;
+    bottom: 3mm;
+    font-size: 8pt;
+    color: var(--primary-coral);
 }
 
 #front-page .copyright {
@@ -15,8 +11,5 @@
   position: absolute;
   bottom: 10mm;
   right: 26.3mm;
-}
-
-#toc-page .copyright {
-  color: var(--footnote-on-toc);
+  font-weight: var(--font-weight-regular);
 }
