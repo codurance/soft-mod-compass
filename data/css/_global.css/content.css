@@ -146,19 +146,19 @@ body {
     height: 2.269mm;
     width: 0.5mm;
 }
-.bar-1 {
+.main-bar-graph__container.bar-1 {
     top: 177mm;
 }
-.bar-2 {
-    top: 207.3mm;
+.main-bar-graph__container.bar-2 {
+    top: 255.9mm;
 }
 .main-bar-graph__container.bar-2 .main-bar-graph__bar {
     top: 0.4mm;
 }
-.bar-3 {
-    top: 237.8mm;
+.main-bar-graph__container.bar-3 {
+    top: 278.25mm;
 }
-.bar-4 {
+.main-bar-graph__container.bar-4 {
     top: 268.2mm;
 }
 

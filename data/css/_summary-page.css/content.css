@@ -1,72 +1,201 @@
-.include-phone-icon {
-    display: inline-block;
-    background: url('{#asset /assets/summary-phone.svg @encoding=dataURI}') center no-repeat;
-    width: 3.5mm;
-    height: 3.5mm;
-    padding-right: 4mm;
-    vertical-align: middle;
-    opacity: 0.2;
-    margin-top: -0.5mm;
-}
-.include-email-icon {
-    display: inline-block;
-    background: url('{#asset /assets/summary-email.svg @encoding=dataURI}') center no-repeat;
-    width: 3.4mm;
-    height: 3.4mm;
-    padding-right: 4mm;
-    vertical-align: middle;
-    opacity: 0.2;
-    margin-top: -0.5mm;
-}
-
-.summary-contact {
+.summary-contact__london-container,
+.summary-contact__barcelona-container {
     position: absolute;
-    list-style: none;
-    left: 222mm;
+    top: 54.6mm;
+    left: 135.5mm;
 }
-.summary-contact li a {
+.summary-contact__barcelona-container {
+    top: 131.9mm;
+}
+.summary-contact__london-container > li,
+.summary-contact__barcelona-container > li{
+    margin-bottom: 3mm;
+}
+.summary-contact__name {
+    font-weight: var(--font-weight-bold);
+}
+.summary-contact__london li a,
+.summary-contact__barcelona li a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
     text-decoration: none;
     color: var(--text-black);
 }
 
-#summary-page_contact-london {
-    top: 64.8mm;
+.summary-contact__web {
+    width: 3.3mm;
+    height: 3.3mm;
+    background: url('{#asset /assets/summary-contact-web.png @encoding=dataURI}') center no-repeat;
+    display: inline-block;
+    background-size: contain;
+    margin-right: 2.8mm;
+} 
+.summary-contact__phone {
+    width: 3.27mm;
+    height: 3.27mm;
+    background: url('{#asset /assets/sumamry-contact-phone.png @encoding=dataURI}') center no-repeat;
+    display: inline-block;
+    background-size: contain;
+    margin-right: 2.8mm;
 }
+.summary-contact__email {
+    width: 3.729mm;
+    height: 2.797mm;
+    background: url('{#asset /assets/summary-contact-email.png @encoding=dataURI}') center no-repeat;
+    display: inline-block;
+    background-size: contain;
+    margin-right: 2.8mm;
+} 
 
-#summary-page_contact-manchester {
-    top: 112.4mm;
-}
-
-#summary-page_contact-barcelona {
-    top: 160.4mm;
-}
-
-#summary-cta {
+.summary-bar-graph__container {
     position: absolute;
-    width: 60mm;
-    height: 14.167mm;
-    bottom: 45.4mm;
-    left: 13.1mm;
-    color: #f1f1f8;
-    font-weight: var(--font-weight-bold);
-    font-size: 13pt;
-    font-family: proxima-nova;
-    background: var(--codurance-purple);
-    border: 0;
+    left: 30.8mm;
+}
+.summary-bar-graph__bar {
+    position: absolute;
+    top: 0mm;
+    width: 60.493mm;
+    height: 3mm;
+}
+.summary-bar-graph__bad-icon {
+    position: absolute;
+    width: 6.617mm;
+    left: -14.5mm;
+    top: -4.4mm;
+    height: 5.841mm;
+}
+.summary-bar-graph__average-icon {
+    position: absolute;
+    width: 4.233mm;
+    left: -13.1mm;
+    top: -3mm;
+    height: 4.233mm;
+}
+.summary-bar-graph__good-icon {
+    position: absolute;
+    width: 5.869mm;
+    left: -14.5mm;
+    top: -3.2mm;
+    height: 4.531mm;
+}
+.summary-bar-graph__rule {
+    position: absolute;
+    top: -6.7mm;
+    left: -4.4mm;
+    height: 11.5mm;
+    width: 2pt;
+    background: orange;
+}
+.summary-bar-graph__inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+}
+.summary-bar-graph__marker-container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: absolute;
+    top: 3mm;
+    left: 0.1mm;
+    width: 60.3mm;
+}
+.summary-bar-graph__marker {
+    height: 1.822mm;
+    width: 0.4mm;
+}
+.summary-bar-graph__container[data-category="organisational-maturity"] {
+    top: 233.5mm;
+}
+.summary-bar-graph__container[data-category="continuous-delivery"] {
+    top: 256mm;
+}
+.summary-bar-graph__container[data-category="continuous-delivery"] .summary-bar-graph__bar {
+    top: 0.4mm;
+}
+.summary-bar-graph__container[data-category="people-culture"] {
+    top: 278.1mm;
+}
+.summary-bar-graph__container[data-category="effective-team"] {
+    top: 233.5mm;
+    left: 122.8mm;
 }
 
-#summary-cta i {
-    display: inline-block;
-    width: 5.85mm;
-    height: 3.73mm;
-    margin-left: 6mm;
-    background: url('{#asset /assets/cta-arrow.svg @encoding=dataURI}') center no-repeat;
+.summary-bar-graph__container[data-category="technical-practices"] {
+    top: 256mm;
+    left: 122.8mm;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.include-phone-icon {*/
+/*    display: inline-block;*/
+
+/*    width: 3.5mm;*/
+/*    height: 3.5mm;*/
+/*    padding-right: 4mm;*/
+/*    vertical-align: middle;*/
+/*    opacity: 0.2;*/
+/*    margin-top: -0.5mm;*/
+/*}*/
+/*.include-email-icon {*/
+/*    display: inline-block;*/
+
+/*    width: 3.4mm;*/
+/*    height: 3.4mm;*/
+/*    padding-right: 4mm;*/
+/*    vertical-align: middle;*/
+/*    opacity: 0.2;*/
+/*    margin-top: -0.5mm;*/
+/*}*/
+
+/*.summary-contact {*/
+/*    position: absolute;*/
+/*    list-style: none;*/
+/*    left: 222mm;*/
+/*}*/
+/*.summary-contact li a {*/
+/*    text-decoration: none;*/
+/*    color: var(--text-black);*/
+/*}*/
+
+/*#summary-page_contact-london {*/
+/*    top: 64.8mm;*/
+/*}*/
+
+/*#summary-page_contact-manchester {*/
+/*    top: 112.4mm;*/
+/*}*/
+
+/*#summary-page_contact-barcelona {*/
+/*    top: 160.4mm;*/
+/*}*/
+
+
+
+/*#summary-cta i {*/
+/*    display: inline-block;*/
+/*    width: 5.85mm;*/
+/*    height: 3.73mm;*/
+/*    margin-left: 6mm;*/
+
+/*}*/
 
 
 
