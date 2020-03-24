@@ -71,21 +71,3 @@
   background: url('{#asset /assets/pageImgs/summary.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
-
-
-/* BAR GRAPHS */
-#cd-results-page .graph-bar .graph-bar_result-bar {
-  background: #5d66b6;
-}
-
-#c-results-page .graph-bar .graph-bar_result-bar {
-  background: var(--small-text-on-dark-yellow);
-}
-
-#cft-results-page .graph-bar .graph-bar_result-bar {
-  background: var(--small-text-on-dark-red);
-}
-
-#xpp-results-page .graph-bar .graph-bar_result-bar {
-  background: var(--codurance-orange);
-}
