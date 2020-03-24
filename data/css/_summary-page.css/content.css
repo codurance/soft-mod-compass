@@ -86,9 +86,8 @@
     left: -4.4mm;
     height: 11.5mm;
     width: 2pt;
-    background: orange;
 }
-.summary-bar-graph__inner {
+.summary-bar-graph__inner-fill {
     position: absolute;
     top: 0;
     left: 0;
