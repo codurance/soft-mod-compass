@@ -17,43 +17,43 @@
         "labels": [
             "Organisational Maturity", 
             "Continuous Delivery",
-            "Culture",
-            "Cross-Functional Teams",
-            "XP Practices"
+            "People & Culture",
+            "Effective Team",
+            "Technical Practices"
         ]
     },
     "categories": [
         {
             "name": "Organisational Maturity",
-            "content": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.",
+            "content": "Effective software teams consist of aligned stakeholders contributing to the delivery effort from the beginning. They produce well-designed systems that are easy to change and evolve over time. They are focused on the highest value features and can repeatedly deliver effectively across multiple projects.",
             "score": 10,
             "subCategoryLabels": ["sub1", "sub2", "sub3", "sub4"],
             "subCategoryScores": [20, 40, 60, 80]
         },
         {
             "name": "Continuous Delivery",
-            "content": "Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.",
+            "content": "Good software teams are able to regularly and reliably release valuable product increments. They make use of highly automated processes and feedback loops that allow problems to be found and corrected easily.",
             "score": 40,
             "subCategoryLabels": ["sub1", "sub2", "sub3", "sub4"],
             "subCategoryScores": [40, 80, 20, 60]
         },
         {
-            "name": "Culture",
-            "content": "Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.",
+            "name": "People & Culture",
+            "content": "Transparency is a prerequisite to good decision making. It builds trust within teams. A culture of learning, along with defined career paths, increases staff retention and helps to drive recruitment.",
             "score": 90,
             "subCategoryLabels": ["sub1", "sub2", "sub3", "sub4"],
             "subCategoryScores": [100, 80, 60, 80]
         },
         {
-            "name": "Cross-Functional Teams",
-            "content": "Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration.",
+            "name": "Effective Team",
+            "content": "Strong teams use XP practices to ensure low defect rates and to drive flexibility in changing circumstances. Sustainable pace stops delivery pressure from driving down quality, and leads to better staff retention.",
             "score": 30,
             "subCategoryLabels": ["sub1", "sub2", "sub3", "sub4"],
             "subCategoryScores": [20, 40, 40, 40]
         },
         {
-            "name": "XP Practices",
-            "content": "Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.",
+            "name": "Technical Practices",
+            "content": "Teams with a broad range of experiences and backgrounds provide a range of perspectives and increase the likelihood of innovation. Strong, autonomous teams collaborate well - they can cover for each other and are resilient when key members are not available.",
             "score": 50,
             "subCategoryLabels": ["sub1", "sub2", "sub3", "sub4"],
             "subCategoryScores": [100, 80, 60, 80]
