@@ -106,11 +106,11 @@ function updateSummaryBars(scores) {
         
         innerFill.style.width = `${currentScore}%`;
         
-        if (currentScore >= 66) {
+        if (currentScore >= 75) {
           innerFill.classList.add('good-result');
           rule.classList.add('good-result');
           container.querySelector('.summary-bar-graph__good-icon').classList.remove('hidden');
-        } else if (currentScore > 33) {
+        } else if (currentScore > 50) {
           innerFill.classList.add('average-result');
           rule.classList.add('average-result');
           container.querySelector('.summary-bar-graph__average-icon').classList.remove('hidden');
