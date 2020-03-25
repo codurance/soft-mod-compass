@@ -72,8 +72,6 @@
               <div class="assessment-page__marker"></div>
               <div class="assessment-page__marker"></div>
               <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
           </div>
       </div>
       
@@ -83,8 +81,6 @@
       <div class="assessment-page__barchart" data-category="continuous-delivery">
           <div class="assessment-page__inner-fill" data-category="continuous-delivery"></div>
           <div class="assessment-page__markers-container">
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
               <div class="assessment-page__marker"></div>
               <div class="assessment-page__marker"></div>
               <div class="assessment-page__marker"></div>
@@ -104,8 +100,6 @@
               <div class="assessment-page__marker"></div>
               <div class="assessment-page__marker"></div>
               <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
           </div>
       </div>
       
@@ -120,8 +114,6 @@
               <div class="assessment-page__marker"></div>
               <div class="assessment-page__marker"></div>
               <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
           </div>
       </div>
       
@@ -131,8 +123,6 @@
       <div class="assessment-page__barchart" data-category="technical-practices">
           <div class="assessment-page__inner-fill" data-category="technical-practices"></div>
           <div class="assessment-page__markers-container">
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
               <div class="assessment-page__marker"></div>
               <div class="assessment-page__marker"></div>
               <div class="assessment-page__marker"></div>
@@ -196,7 +186,6 @@
                 <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
             </div>
         </div>
     </div>
@@ -211,7 +200,6 @@
         <div class="main-bar-graph__bar on-dark">
             <div class="main-bar-graph__inner-fill"></div>
             <div class="main-bar-graph__marker-container">
-                <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
@@ -238,7 +226,6 @@
                 <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
             </div>
         </div>
     </div>
@@ -259,7 +246,6 @@
                 <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
             </div>
         </div>
     </div>
@@ -268,13 +254,13 @@
   <!-- END ORGANISATIONAL MATURITY PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN ORGANISATIONAL MATURITY BREAKDOWN ---------------------------------------------------------- -->
-  {{#ifCond summaryRadial.scores.[0] '<=' 33 }}
-    <section id="organisational-maturity-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/organisational-maturity-bad.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
+  {{#ifCond summaryRadial.scores.[0] '>' 80 }}
+    <section id="organisational-maturity-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/organisational-maturity-good.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
     {{else}}
-        {{#ifCond summaryRadial.scores.[0] '<=' 66 }}
+        {{#ifCond summaryRadial.scores.[0] '>=' 60 }}
             <section id="organisational-maturity-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/organisational-maturity-avg.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
             {{else}}
-            <section id="organisational-maturity-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/organisational-maturity-good.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
+            <section id="organisational-maturity-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/organisational-maturity-bad.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
         {{/ifCond}}
   {{/ifCond}}
   <!-- END ORGANISATIONAL MATURITY BREAKDOWN ---------------------------------------------------------- -->
@@ -298,7 +284,6 @@
                 <div class="main-bar-graph__marker on-light"></div>
                 <div class="main-bar-graph__marker on-light"></div>
                 <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
             </div>
         </div>
     </div>
@@ -313,7 +298,6 @@
         <div class="main-bar-graph__bar on-light">
             <div class="main-bar-graph__inner-fill"></div>
             <div class="main-bar-graph__marker-container">
-                <div class="main-bar-graph__marker on-light"></div>
                 <div class="main-bar-graph__marker on-light"></div>
                 <div class="main-bar-graph__marker on-light"></div>
                 <div class="main-bar-graph__marker on-light"></div>
@@ -340,7 +324,6 @@
                 <div class="main-bar-graph__marker on-light"></div>
                 <div class="main-bar-graph__marker on-light"></div>
                 <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
             </div>
         </div>
     </div>
@@ -361,7 +344,6 @@
                 <div class="main-bar-graph__marker on-light"></div>
                 <div class="main-bar-graph__marker on-light"></div>
                 <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
             </div>
         </div>
     </div>
@@ -370,13 +352,13 @@
   <!-- END CONTINUOUS DELIVERY PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN CONTINUOUS DELIVERY BREAKDOWN ---------------------------------------------------------- -->
-  {{#ifCond summaryRadial.scores.[1] '<=' 33 }}
-    <section id="continuous-delivery-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/continuous-delivery-bad.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
+  {{#ifCond summaryRadial.scores.[1] '>' 80 }}
+    <section id="continuous-delivery-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/continuous-delivery-good.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
     {{else}}
-        {{#ifCond summaryRadial.scores.[1] '<=' 66 }}
+        {{#ifCond summaryRadial.scores.[1] '>=' 60 }}
             <section id="continuous-delivery-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/continuous-delivery-avg.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
             {{else}}
-            <section id="continuous-delivery-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/continuous-delivery-good.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
+            <section id="continuous-delivery-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/continuous-delivery-bad.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
         {{/ifCond}}
   {{/ifCond}}
   <!-- END CONTINUOUS DELIVERY BREAKDOWN PAGE ---------------------------------------------------------- -->
@@ -400,7 +382,6 @@
                 <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
             </div>
         </div>
     </div>
@@ -415,7 +396,6 @@
         <div class="main-bar-graph__bar on-dark">
             <div class="main-bar-graph__inner-fill"></div>
             <div class="main-bar-graph__marker-container">
-                <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
@@ -442,7 +422,6 @@
                 <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
             </div>
         </div>
     </div>
@@ -463,7 +442,6 @@
                 <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
             </div>
         </div>
     </div>
@@ -472,13 +450,13 @@
   <!-- END PEOPLE CULTURE PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN PEOPLE CULTURE BREAKDOWN ---------------------------------------------------------- -->
-  {{#ifCond summaryRadial.scores.[2] '<=' 33 }}
-    <section id="people-culture-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/people-culture-bad.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
+  {{#ifCond summaryRadial.scores.[2] '>' 80 }}
+    <section id="people-culture-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/people-culture-good.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
     {{else}}
-        {{#ifCond summaryRadial.scores.[2] '<=' 66 }}
+        {{#ifCond summaryRadial.scores.[2] '>=' 60 }}
             <section id="people-culture-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/people-culture-avg.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
             {{else}}
-            <section id="people-culture-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/people-culture-good.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
+            <section id="people-culture-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/people-culture-bad.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
         {{/ifCond}}
   {{/ifCond}}
   <!-- END PEOPLE CULTURE BREAKDOWN ---------------------------------------------------------- -->
@@ -502,7 +480,6 @@
                 <div class="main-bar-graph__marker on-light"></div>
                 <div class="main-bar-graph__marker on-light"></div>
                 <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
             </div>
         </div>
     </div>
@@ -517,7 +494,6 @@
         <div class="main-bar-graph__bar on-light">
             <div class="main-bar-graph__inner-fill"></div>
             <div class="main-bar-graph__marker-container">
-                <div class="main-bar-graph__marker on-light"></div>
                 <div class="main-bar-graph__marker on-light"></div>
                 <div class="main-bar-graph__marker on-light"></div>
                 <div class="main-bar-graph__marker on-light"></div>
@@ -544,7 +520,6 @@
                 <div class="main-bar-graph__marker on-light"></div>
                 <div class="main-bar-graph__marker on-light"></div>
                 <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
             </div>
         </div>
     </div>
@@ -565,7 +540,6 @@
                 <div class="main-bar-graph__marker on-light"></div>
                 <div class="main-bar-graph__marker on-light"></div>
                 <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
             </div>
         </div>
     </div>
@@ -574,13 +548,13 @@
   <!-- END EFFECTIVE TEAM PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN EFFECTIVE TEAM BREAKDOWN ---------------------------------------------------------- -->
-  {{#ifCond summaryRadial.scores.[3] '<=' 33 }}
-    <section id="effective-team-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/effective-team-bad.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
+  {{#ifCond summaryRadial.scores.[3] '>' 80 }}
+    <section id="effective-team-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/effective-team-good.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
     {{else}}
-        {{#ifCond summaryRadial.scores.[3] '<=' 66 }}
+        {{#ifCond summaryRadial.scores.[3] '>=' 60 }}
             <section id="effective-team-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/effective-team-avg.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
             {{else}}
-            <section id="effective-team-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/effective-team-good.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
+            <section id="effective-team-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/effective-team-bad.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
         {{/ifCond}}
   {{/ifCond}}
   <!-- END EFFECTIVE TEAM BREAKDOWN ---------------------------------------------------------- -->
@@ -604,7 +578,6 @@
                 <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
             </div>
         </div>
     </div>
@@ -619,7 +592,6 @@
         <div class="main-bar-graph__bar on-dark">
             <div class="main-bar-graph__inner-fill"></div>
             <div class="main-bar-graph__marker-container">
-                <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
@@ -646,7 +618,6 @@
                 <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
             </div>
         </div>
     </div>
@@ -667,7 +638,6 @@
                 <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
                 <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
             </div>
         </div>
     </div>
@@ -676,13 +646,13 @@
   <!-- END TECHNICAL PRACTICES PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN TECHNICAL PRACTICES BREAKDOWN ---------------------------------------------------------- -->
-  {{#ifCond summaryRadial.scores.[4] '<=' 33 }}
-    <section id="technical-practices-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/technical-practices-bad.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
+  {{#ifCond summaryRadial.scores.[4] '>' 80 }}
+    <section id="technical-practices-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/technical-practices-good.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
     {{else}}
-        {{#ifCond summaryRadial.scores.[4] '<=' 66 }}
+        {{#ifCond summaryRadial.scores.[4] '>=' 60 }}
             <section id="technical-practices-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/technical-practices-avg.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
             {{else}}
-            <section id="technical-practices-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/technical-practices-good.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
+            <section id="technical-practices-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/technical-practices-bad.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
         {{/ifCond}}
   {{/ifCond}}
   <!-- END TECHNICAL PRACTICES BREAKDOWN ---------------------------------------------------------- -->
@@ -749,7 +719,6 @@
                 <div class="summary-bar-graph__marker on-light"></div>
                 <div class="summary-bar-graph__marker on-light"></div>
                 <div class="summary-bar-graph__marker on-light"></div>
-                <div class="summary-bar-graph__marker on-light"></div>
             </div>
         </div>
     </div>
@@ -764,7 +733,6 @@
         <div class="summary-bar-graph__bar on-light">
             <div class="summary-bar-graph__inner-fill"></div>
             <div class="summary-bar-graph__marker-container">
-                <div class="summary-bar-graph__marker on-light"></div>
                 <div class="summary-bar-graph__marker on-light"></div>
                 <div class="summary-bar-graph__marker on-light"></div>
                 <div class="summary-bar-graph__marker on-light"></div>
@@ -791,7 +759,6 @@
                 <div class="summary-bar-graph__marker on-light"></div>
                 <div class="summary-bar-graph__marker on-light"></div>
                 <div class="summary-bar-graph__marker on-light"></div>
-                <div class="summary-bar-graph__marker on-light"></div>
             </div>
         </div>
     </div>
@@ -812,7 +779,6 @@
                 <div class="summary-bar-graph__marker on-light"></div>
                 <div class="summary-bar-graph__marker on-light"></div>
                 <div class="summary-bar-graph__marker on-light"></div>
-                <div class="summary-bar-graph__marker on-light"></div>
             </div>
         </div>
     </div>
@@ -827,7 +793,6 @@
         <div class="summary-bar-graph__bar on-light">
             <div class="summary-bar-graph__inner-fill"></div>
             <div class="summary-bar-graph__marker-container">
-                <div class="summary-bar-graph__marker on-light"></div>
                 <div class="summary-bar-graph__marker on-light"></div>
                 <div class="summary-bar-graph__marker on-light"></div>
                 <div class="summary-bar-graph__marker on-light"></div>

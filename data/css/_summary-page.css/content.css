@@ -106,7 +106,7 @@
 }
 .summary-bar-graph__marker {
     height: 1.822mm;
-    width: 0.4mm;
+    width: 0.5mm;
 }
 .summary-bar-graph__container[data-category="organisational-maturity"] {
     top: 233.5mm;
@@ -130,7 +130,11 @@
     left: 122.8mm;
 }
 
-
+.summary-bar-graph__container[data-category="technical-practices"] .summary-bar-graph__marker-container,
+.summary-bar-graph__container[data-category="effective-team"] .summary-bar-graph__marker-container {
+    width: 60.4mm;
+    left: 0;
+}
 
 
 
