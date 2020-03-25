@@ -1,7 +1,12 @@
 window.onload = function() {
     insertCopyright();
+    
     insertDate();
+    
     updateAssessmentBars([{{summaryRadial.scores}}]);
+    
+    updateCategoryGraphs();
+    
     updateSummaryBars([{{summaryRadial.scores}}]);
 }
 
@@ -46,6 +51,50 @@ function updateAssessmentBars(scores) {
   }
 }
 
+function updateCategoryGraphs(subCategoryScores) {
+    const pages = Array.from(document.querySelectorAll('.js-category-page'));
+    let data = [];
+
+  {{#each categories}}
+    data.push([{{this.subCategoryScores}}]);
+  {{/each}}
+  
+    
+    for (let page of pages) {
+        const graphs = Array.from(page.querySelectorAll('.main-bar-graph__container'));
+        // const pageIndex = pages.indexOf(page);
+        const dataSet = data[pages.indexOf(page)];
+
+        updateGraphsOnPage(dataSet, graphs);
+    }
+    
+    function updateGraphsOnPage(dataSet, arrayOfGraphs) {
+        for (let graph of arrayOfGraphs) {
+            const score = dataSet[arrayOfGraphs.indexOf(graph)];
+            
+            const innerFill = graph.querySelector('.main-bar-graph__inner-fill');
+            const rule = graph.querySelector('.main-bar-graph__rule');
+            
+            innerFill.style.width = `${score}%`;
+            
+                if (score > 66) {
+                    innerFill.classList.add('good-result');
+                    rule.classList.add('good-result');
+                    graph.querySelector('.main-bar-graph__good-icon').classList.remove('hidden');
+                } else if (score > 33) {
+                    innerFill.classList.add('average-result');
+                    rule.classList.add('average-result');
+                    graph.querySelector('.main-bar-graph__average-icon').classList.remove('hidden');
+                } else {
+                    innerFill.classList.add('bad-result');
+                    rule.classList.add('bad-result');
+                    graph.querySelector('.main-bar-graph__bad-icon').classList.remove('hidden');
+                }
+        }
+    }
+    
+}
+
 function updateSummaryBars(scores) {
   const graphContainers = Array.from(document.querySelectorAll('.summary-bar-graph__container'));
   
@@ -73,29 +122,6 @@ function updateSummaryBars(scores) {
     }
 }
 
-/*(function updateBreakdownGraphs() {
-  const GRAPHS = [
-                  document.querySelectorAll('#om-results-page .graph-bar_result-bar'),
-                  document.querySelectorAll('#cd-results-page .graph-bar_result-bar'),
-                  document.querySelectorAll('#c-results-page .graph-bar_result-bar'),
-                  document.querySelectorAll('#cft-results-page .graph-bar_result-bar'),
-                  document.querySelectorAll('#xpp-results-page .graph-bar_result-bar')
-                 ];
-
-  let data = [];
-
-  {{#each categories}}
-    data.push([{{this.subCategoryScores}}]);
-  {{/each}}
-
- for (let i = 0; i < GRAPHS.length; i++) {
-
-      for (let j = 0; j < GRAPHS[i].length; j++) {
-          GRAPHS[i][j].style.width = `${data[i][j]}%`;
-      }
-
-  }
-})();*/
 
 
 
