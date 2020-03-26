@@ -2,13 +2,14 @@
 
 BASEDIR=$(dirname $0)
 
-ROLE='role--acl-delete-me'
-POLICY='policy--acl-delete-me'
-export INSTANCE_PROFILE='instance-profile--acl-delete-me'
-export BUCKET='bucket--acl-delete-me'
 APP_NAME='compass'
-ENV_NAME='test-8'
-VERSION_LABEL='test-8'
+ENV_NAME='integration'
+FULL_NAME=${APP_NAME}-${ENV_NAME}
+ROLE="role-"${FULL_NAME}
+POLICY="policy-${FULL_NAME}"
+export INSTANCE_PROFILE="instance-profile-${FULL_NAME}"
+export BUCKET="bucket-${FULL_NAME}"
+VERSION_LABEL=$(uuid)
 STACK_NAME='64bit Amazon Linux 2018.03 v2.14.2 running Docker 18.09.9-ce'
 ARTIFACT='aws-artifact.zip'
 ARTIFACT_S3="s3://${BUCKET}/${ARTIFACT}"
@@ -73,7 +74,6 @@ aws elasticbeanstalk update-environment \
     --version-label ${VERSION_LABEL} \
     --option-settings "${OPTION_SETTINGS_FOR_UPDATE}"
 
-# TODO properly name resources (compass prefix + env name suffix)
 # TODO logging
 # TODO separate create-env from deploy
 # TODO cleanup ?
