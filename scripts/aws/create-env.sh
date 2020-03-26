@@ -1,9 +1,13 @@
 #!/bin/bash
 
-BASEDIR=$(dirname $0)
+if [[ $# -lt 1 ]] ; then
+    echo "ERROR: missing target environment"
+    exit 1
+fi
 
+BASEDIR=$(dirname $0)
+ENV_NAME=$1
 APP_NAME='compass'
-ENV_NAME='integration'
 FULL_NAME=${APP_NAME}-${ENV_NAME}
 ROLE="role-"${FULL_NAME}
 POLICY="policy-${FULL_NAME}"

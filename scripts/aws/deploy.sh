@@ -1,8 +1,13 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
+if [[ $# -lt 1 ]] ; then
+    echo "ERROR: missing target environment"
+    exit 1
+fi
 
 BASEDIR=$(dirname $0)
+ENV_NAME=$1
 APP_NAME='compass'
-ENV_NAME='integration'
 FULL_NAME=${APP_NAME}-${ENV_NAME}
 VERSION_LABEL=$(uuid)
 ARTIFACT='aws-artifact.zip'
