@@ -4,11 +4,8 @@ BASEDIR=$(dirname $0)
 APP_NAME='compass'
 ENV_NAME='integration'
 FULL_NAME=${APP_NAME}-${ENV_NAME}
-# exported because it's used in option-settings-update.json
-export BUCKET="bucket-${FULL_NAME}"
 VERSION_LABEL=$(uuid)
 ARTIFACT='aws-artifact.zip'
-ARTIFACT_S3="s3://${BUCKET}/${ARTIFACT}"
 POLICY_FILE="${BASEDIR}/iam/compass-policies.json"
 OPTION_SETTINGS_FILE="${BASEDIR}/eb/option-settings.json"
 OPTION_SETTINGS_FILE_FOR_UPDATE="${BASEDIR}/eb/option-settings-update.json"
@@ -20,6 +17,9 @@ loadFileAndReplaceEnvVariables() {
 OPTION_SETTINGS_FOR_UPDATE=$(loadFileAndReplaceEnvVariables "${OPTION_SETTINGS_FILE_FOR_UPDATE}")
 
 git archive master -o ${ARTIFACT}
+
+BUCKET=$(aws elasticbeanstalk create-storage-location | jq -r '.S3Bucket')
+ARTIFACT_S3="s3://${BUCKET}/${VERSION_LABEL}-${ARTIFACT}"
 
 aws s3 cp ${ARTIFACT} ${ARTIFACT_S3}
 
