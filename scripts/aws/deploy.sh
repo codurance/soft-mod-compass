@@ -17,8 +17,13 @@ POLICY_FILE="file://${BASEDIR}/iam/compass-policies.json"
 OPTION_SETTINGS_FILE="file://${BASEDIR}/eb/option-settings.json"
 OPTION_SETTINGS_FILE_FOR_UPDATE="${BASEDIR}/eb/option-settings-update.json"
 EB_FULL_ACCESS="arn:aws:iam::aws:policy/AWSElasticBeanstalkFullAccess"
+S3_LIFECYCLE_FILE="file://${BASEDIR}/s3/s3-lifecycle.json"
 
 aws s3 mb s3://${BUCKET}
+
+aws s3api put-bucket-lifecycle-configuration \
+    --bucket ${BUCKET} \
+    --lifecycle-configuration "${S3_LIFECYCLE_FILE}"
 
 aws iam create-role \
     --role-name ${ROLE} \
@@ -66,7 +71,6 @@ aws elasticbeanstalk update-environment \
     --version-label ${VERSION_LABEL} \
     --option-settings "${OPTION_SETTINGS_FOR_UPDATE}"
 
-# TODO add S3 lifecycle
 # TODO prefix all resources by compass*
 # TODO add the environment name in the name of resources
 # TODO parameterize the json policy files OR use compass*

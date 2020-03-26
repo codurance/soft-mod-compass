@@ -1,16 +1,14 @@
 {
   "Rules": [
     {
-      "Expiration": {
-        "Days": 1,
-        "ExpiredObjectDeleteMarker": true
-      },
-      "ID": "delete-after-1-day",
-      "Prefix": "string",
       "Filter": {
-        "Prefix": "compass",
+        "Prefix": "compass-report"
       },
-      "Status": "Enabled"
+      "Status": "Enabled",
+      "Expiration": {
+        "Days": 1
+      },
+      "ID": "DeleteAfter1Day"
     }
   ]
 }
