@@ -158,3 +158,15 @@ For an explanation of how HubSpot is leveraged in the solution see the _integrat
 The pipeline for this project lives in AWS CodePipeline.
 
 The current URL for the deployed version is http://codurance-compass.eu-west-1.elasticbeanstalk.com/
+
+## AWS
+
+The command `./scripts/aws/create-env.sh integration` will create a new environment *integration*
+on AWS (with roles, bucket, EBS, etc.)
+
+The command `. ./scripts/app-env.sh && ./scripts/aws/deploy.sh integration` will deploy 
+the local *master* to *integration*.
+`app-env.sh` should contain all the environment variables for the runtime.  
+**Note** that you can't use `default-env.sh` as it contains AWS credentials for 
+the local environment.  
+ 
