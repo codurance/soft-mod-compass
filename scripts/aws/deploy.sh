@@ -7,15 +7,15 @@ POLICY='policy--acl-delete-me'
 INSTANCE_PROFILE='instance-profile--acl-delete-me'
 BUCKET='bucket--acl-delete-me'
 APP_NAME='compass'
-ENV_NAME='test-7'
-VERSION_LABEL='test-7'
+ENV_NAME='test-8'
+VERSION_LABEL='test-8'
 STACK_NAME='64bit Amazon Linux 2018.03 v2.14.2 running Docker 18.09.9-ce'
 ARTIFACT='aws-artifact.zip'
 ARTIFACT_S3="s3://${BUCKET}/${ARTIFACT}"
 TRUST_FILE="file://${BASEDIR}/iam/compass-trust.json"
 POLICY_FILE="file://${BASEDIR}/iam/compass-policies.json"
-OPTION_SETTINGS_FILE="file://${BASEDIR}/iam/option-settings.json"
-OPTION_SETTINGS_FILE_FOR_UPDATE="${BASEDIR}/iam/option-settings-update.json"
+OPTION_SETTINGS_FILE="file://${BASEDIR}/eb/option-settings.json"
+OPTION_SETTINGS_FILE_FOR_UPDATE="${BASEDIR}/eb/option-settings-update.json"
 EB_FULL_ACCESS="arn:aws:iam::aws:policy/AWSElasticBeanstalkFullAccess"
 
 aws s3 mb s3://${BUCKET}
@@ -69,5 +69,6 @@ aws elasticbeanstalk update-environment \
 # TODO add S3 lifecycle
 # TODO prefix all resources by compass*
 # TODO add the environment name in the name of resources
+# TODO parameterize the json policy files OR use compass*
 # TODO restrict resources to compass*
 # TODO cleanup ?
