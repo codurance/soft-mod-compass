@@ -7,7 +7,7 @@
         "s3:GetObject",
         "s3:PutObject"
       ],
-      "Resource": "arn:aws:s3:::bucket-acl--delete-me/*"
+      "Resource": "arn:aws:s3:::$BUCKET/*"
     },
     {
       "Effect": "Allow",

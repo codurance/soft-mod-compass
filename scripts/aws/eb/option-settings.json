@@ -7,11 +7,11 @@
   {
     "Namespace": "aws:autoscaling:launchconfiguration",
     "OptionName": "IamInstanceProfile",
-    "Value": "instance-profile--acl-delete-me"
+    "Value": "$INSTANCE_PROFILE"
   },
   {
     "Namespace": "aws:autoscaling:launchconfiguration",
     "OptionName": "InstanceType",
-    "Value": "t2.medium"
+    "Value": "t2.small"
   }
 ]
