@@ -1,5 +1,6 @@
 #!/bin/bash
 
+WORKDIR=$(pwd)
 ROLE='role--acl-delete-me'
 POLICY='policy--acl-delete-me'
 INSTANCE_PROFILE='instance-profile--acl-delete-me'
@@ -10,10 +11,10 @@ VERSION_LABEL='test-7'
 STACK_NAME='64bit Amazon Linux 2018.03 v2.14.2 running Docker 18.09.9-ce'
 ARTIFACT='aws-artifact.zip'
 ARTIFACT_S3="s3://${BUCKET}/${ARTIFACT}"
-TRUST_FILE='file:///Users/arnaud/Library/Application Support/JetBrains/IntelliJIdea2020.1/scratches/aws/deployment/compass-trust.json'
-POLICY_FILE='file:///Users/arnaud/Library/Application Support/JetBrains/IntelliJIdea2020.1/scratches/aws/deployment/compass-policies.json'
-OPTION_SETTINGS_FILE='file:///Users/arnaud/Library/Application Support/JetBrains/IntelliJIdea2020.1/scratches/aws/deployment/option-settings.json'
-OPTION_SETTINGS_FILE_FOR_UPDATE="/Users/arnaud/Library/Application Support/JetBrains/IntelliJIdea2020.1/scratches/aws/deployment/option-settings-update.json"
+TRUST_FILE="file:///Users/arnaud/IdeaProjects/soft-mod-compass/scripts/aws/iam/compass-trust.json"
+POLICY_FILE="file:///Users/arnaud/IdeaProjects/soft-mod-compass/scripts/aws/iam/compass-policies.json"
+OPTION_SETTINGS_FILE="file:///Users/arnaud/IdeaProjects/soft-mod-compass/scripts/aws/iam/option-settings.json"
+OPTION_SETTINGS_FILE_FOR_UPDATE="/Users/arnaud/IdeaProjects/soft-mod-compass/scripts/aws/iam/option-settings-update.json"
 EB_FULL_ACCESS="arn:aws:iam::aws:policy/AWSElasticBeanstalkFullAccess"
 
 aws s3 mb s3://${BUCKET}
