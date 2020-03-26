@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 BASEDIR=$(dirname $0)
 
@@ -28,16 +28,37 @@ OPTION_SETTINGS_FOR_UPDATE=$(loadFileAndReplaceEnvVariables "${OPTION_SETTINGS_F
 OPTION_SETTINGS=$(loadFileAndReplaceEnvVariables "${OPTION_SETTINGS_FILE}")
 POLICY_DOCUMENT=$(loadFileAndReplaceEnvVariables "${POLICY_FILE}")
 
-git archive master -o ${ARTIFACT}
+aws s3 mb s3://${BUCKET}
 
-aws s3 cp ${ARTIFACT} ${ARTIFACT_S3}
+aws s3api put-bucket-lifecycle-configuration \
+    --bucket ${BUCKET} \
+    --lifecycle-configuration "${S3_LIFECYCLE_FILE}"
 
-aws elasticbeanstalk create-application-version \
+aws iam create-role \
+    --role-name ${ROLE} \
+    --assume-role-policy-document "${TRUST_FILE}"
+
+aws iam put-role-policy \
+    --role-name ${ROLE} \
+    --policy-name ${POLICY} \
+    --policy-document "${POLICY_DOCUMENT}"
+
+aws iam attach-role-policy \
+    --role-name ${ROLE} \
+    --policy-arn ${EB_FULL_ACCESS}
+
+aws iam create-instance-profile \
+    --instance-profile-name ${INSTANCE_PROFILE}
+
+aws iam add-role-to-instance-profile \
+    --role-name ${ROLE} \
+    --instance-profile-name ${INSTANCE_PROFILE}
+
+aws elasticbeanstalk create-environment \
     --application-name ${APP_NAME} \
-    --version-label ${VERSION_LABEL} \
-    --source-bundle S3Bucket=${BUCKET},S3Key=${ARTIFACT}
-
-aws elasticbeanstalk update-environment \
     --environment-name ${ENV_NAME} \
-    --version-label ${VERSION_LABEL} \
-    --option-settings "${OPTION_SETTINGS_FOR_UPDATE}"
+    --solution-stack-name "${STACK_NAME}" \
+    --option-settings "${OPTION_SETTINGS}"
+
+# TODO logging
+# TODO cleanup ?
