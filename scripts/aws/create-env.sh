@@ -7,12 +7,11 @@ ENV_NAME='integration'
 FULL_NAME=${APP_NAME}-${ENV_NAME}
 ROLE="role-"${FULL_NAME}
 POLICY="policy-${FULL_NAME}"
+# exported because it's used in option-settings.json
 export INSTANCE_PROFILE="instance-profile-${FULL_NAME}"
+# exported because it's used in compass-policies.json
 export BUCKET="bucket-${FULL_NAME}"
-VERSION_LABEL=$(uuid)
 STACK_NAME='64bit Amazon Linux 2018.03 v2.14.2 running Docker 18.09.9-ce'
-ARTIFACT='aws-artifact.zip'
-ARTIFACT_S3="s3://${BUCKET}/${ARTIFACT}"
 TRUST_FILE="file://${BASEDIR}/iam/compass-trust.json"
 POLICY_FILE="${BASEDIR}/iam/compass-policies.json"
 OPTION_SETTINGS_FILE="${BASEDIR}/eb/option-settings.json"
@@ -24,7 +23,6 @@ loadFileAndReplaceEnvVariables() {
     envsubst < "${1}"
 }
 
-OPTION_SETTINGS_FOR_UPDATE=$(loadFileAndReplaceEnvVariables "${OPTION_SETTINGS_FILE_FOR_UPDATE}")
 OPTION_SETTINGS=$(loadFileAndReplaceEnvVariables "${OPTION_SETTINGS_FILE}")
 POLICY_DOCUMENT=$(loadFileAndReplaceEnvVariables "${POLICY_FILE}")
 
