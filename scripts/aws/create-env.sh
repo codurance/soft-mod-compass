@@ -30,12 +30,14 @@ loadFileAndReplaceEnvVariables() {
 OPTION_SETTINGS=$(loadFileAndReplaceEnvVariables "${OPTION_SETTINGS_FILE}")
 POLICY_DOCUMENT=$(loadFileAndReplaceEnvVariables "${POLICY_FILE}")
 
+echo "creating compass bucket [${BUCKET}] .."
 aws s3 mb s3://${BUCKET}
 
 aws s3api put-bucket-lifecycle-configuration \
     --bucket ${BUCKET} \
     --lifecycle-configuration "${S3_LIFECYCLE_FILE}"
 
+echo "creating compass role: [${ROLE}] .."
 aws iam create-role \
     --role-name ${ROLE} \
     --assume-role-policy-document "${TRUST_FILE}"
@@ -49,18 +51,20 @@ aws iam attach-role-policy \
     --role-name ${ROLE} \
     --policy-arn ${EB_FULL_ACCESS}
 
+echo "creating compass instance profile: [${INSTANCE_PROFILE}] .."
 aws iam create-instance-profile \
     --instance-profile-name ${INSTANCE_PROFILE}
 
+echo "adding role to instance profile .."
 aws iam add-role-to-instance-profile \
     --role-name ${ROLE} \
     --instance-profile-name ${INSTANCE_PROFILE}
 
+echo "creating compass environment [${ENV_NAME}] .."
 aws elasticbeanstalk create-environment \
     --application-name ${APP_NAME} \
     --environment-name ${ENV_NAME} \
     --solution-stack-name "${STACK_NAME}" \
     --option-settings "${OPTION_SETTINGS}"
 
-# TODO logging
 # TODO cleanup ?

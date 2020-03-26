@@ -21,6 +21,7 @@ loadFileAndReplaceEnvVariables() {
 
 OPTION_SETTINGS_FOR_UPDATE=$(loadFileAndReplaceEnvVariables "${OPTION_SETTINGS_FILE_FOR_UPDATE}")
 
+echo "building and uploading artifact [${ARTIFACT}] .."
 git archive master -o ${ARTIFACT}
 
 BUCKET=$(aws elasticbeanstalk create-storage-location | jq -r '.S3Bucket')
@@ -28,11 +29,13 @@ ARTIFACT_S3="s3://${BUCKET}/${VERSION_LABEL}-${ARTIFACT}"
 
 aws s3 cp ${ARTIFACT} ${ARTIFACT_S3}
 
+echo "creating application version  [${VERSION_LABEL}] .."
 aws elasticbeanstalk create-application-version \
     --application-name ${APP_NAME} \
     --version-label ${VERSION_LABEL} \
-    --source-bundle S3Bucket=${BUCKET},S3Key=${ARTIFACT}
+    --source-bundle "S3Bucket=${BUCKET},S3Key=${VERSION_LABEL}-${ARTIFACT}"
 
+echo "updating environment  [${ENV_NAME}] .."
 aws elasticbeanstalk update-environment \
     --environment-name ${ENV_NAME} \
     --version-label ${VERSION_LABEL} \
