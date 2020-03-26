@@ -1,6 +1,7 @@
 #!/bin/bash
 
-WORKDIR=$(pwd)
+BASEDIR=$(dirname $0)
+
 ROLE='role--acl-delete-me'
 POLICY='policy--acl-delete-me'
 INSTANCE_PROFILE='instance-profile--acl-delete-me'
@@ -11,10 +12,10 @@ VERSION_LABEL='test-7'
 STACK_NAME='64bit Amazon Linux 2018.03 v2.14.2 running Docker 18.09.9-ce'
 ARTIFACT='aws-artifact.zip'
 ARTIFACT_S3="s3://${BUCKET}/${ARTIFACT}"
-TRUST_FILE="file:///Users/arnaud/IdeaProjects/soft-mod-compass/scripts/aws/iam/compass-trust.json"
-POLICY_FILE="file:///Users/arnaud/IdeaProjects/soft-mod-compass/scripts/aws/iam/compass-policies.json"
-OPTION_SETTINGS_FILE="file:///Users/arnaud/IdeaProjects/soft-mod-compass/scripts/aws/iam/option-settings.json"
-OPTION_SETTINGS_FILE_FOR_UPDATE="/Users/arnaud/IdeaProjects/soft-mod-compass/scripts/aws/iam/option-settings-update.json"
+TRUST_FILE="file://${BASEDIR}/iam/compass-trust.json"
+POLICY_FILE="file://${BASEDIR}/iam/compass-policies.json"
+OPTION_SETTINGS_FILE="file://${BASEDIR}/iam/option-settings.json"
+OPTION_SETTINGS_FILE_FOR_UPDATE="${BASEDIR}/iam/option-settings-update.json"
 EB_FULL_ACCESS="arn:aws:iam::aws:policy/AWSElasticBeanstalkFullAccess"
 
 aws s3 mb s3://${BUCKET}
@@ -31,7 +32,6 @@ aws iam put-role-policy \
 aws iam attach-role-policy \
     --role-name ${ROLE} \
     --policy-arn ${EB_FULL_ACCESS}
-
 
 aws iam create-instance-profile \
     --instance-profile-name ${INSTANCE_PROFILE}
@@ -66,7 +66,6 @@ aws elasticbeanstalk update-environment \
     --version-label ${VERSION_LABEL} \
     --option-settings "${OPTION_SETTINGS_FOR_UPDATE}"
 
-# TODO add policy files to version control
 # TODO add S3 lifecycle
 # TODO prefix all resources by compass*
 # TODO add the environment name in the name of resources
