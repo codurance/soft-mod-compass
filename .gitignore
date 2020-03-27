@@ -1,7 +1,8 @@
 .idea
 dist
 data/settings
-scripts/*-env.sh
+scripts/default-env.sh
+scripts/aws-env.sh
 scripts/docker/default-env.sh
 
 # Created by https://www.gitignore.io/api/node,macos,visualstudiocode
