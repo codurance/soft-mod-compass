@@ -1,7 +1,7 @@
 .idea
 dist
 data/settings
-scripts/default-env.sh
+scripts/*-env.sh
 scripts/docker/default-env.sh
 
 # Created by https://www.gitignore.io/api/node,macos,visualstudiocode
