@@ -162,7 +162,8 @@ The current URL for the deployed version is http://codurance-compass.eu-west-1.e
 ## AWS
 
 The command `./scripts/aws/create-env.sh integration` will create a new environment *integration*
-on AWS (with roles, bucket, EBS, etc.)
+on AWS (with roles, bucket, EBS, etc.).  
+**The environment name must be at least 4 characters.**
 
 The command `. ./scripts/aws-env.sh && ./scripts/aws/deploy.sh integration` will deploy 
 the local *master* to *integration*.
