@@ -11,7 +11,7 @@ function sendPdfLinkEmail (pdfLink, userData) {
     Message: {
       Subject: { Data: 'Here is your Codurance Compass report' },
       Body: {
-        Text: { Data: pdfLinkEmail(pdfLink, userData) }
+        Html: { Data: pdfLinkEmail(pdfLink, userData) }
       }
     }
   }
