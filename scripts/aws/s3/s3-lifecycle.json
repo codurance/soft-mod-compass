@@ -1,0 +1,14 @@
+{
+  "Rules": [
+    {
+      "Filter": {
+        "Prefix": "compass-report"
+      },
+      "Status": "Enabled",
+      "Expiration": {
+        "Days": 1
+      },
+      "ID": "DeleteAfter1Day"
+    }
+  ]
+}
