@@ -4,16 +4,16 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "dev": ". ./scripts/default-env.sh && webpack --mode=development && npm start",
-    "debug": ". ./scripts/default-env.sh && webpack --mode=development && node --inspect index.js",
+    "dev": ". ./scripts/aws-env.sh && webpack --mode=development && npm start",
+    "debug": ". ./scripts/aws-env.sh && webpack --mode=development && node --inspect index.js",
     "watch": "nodemon",
     "start": "babel-node index.js",
     "test": "jest && npm run lint",
     "lint": "standard",
-    "deploy:hubspot-dev": ". ./scripts/default-env.sh && yarn deploy:hubspot",
+    "deploy:hubspot-dev": ". ./scripts/aws-env.sh && yarn deploy:hubspot",
     "deploy:hubspot": "node ./scripts/hubspot/index.js",
     "build:docker": "docker build -t codurance-compass .",
-    "run:docker": "docker run --env-file ./scripts/docker/default-env.sh -it --rm -p 8080:8080 codurance-compass"
+    "run:docker": "docker run --env-file ./scripts/docker/aws-env.sh -it --rm -p 8080:8080 codurance-compass"
   },
   "author": "Codurance",
   "license": "MIT",
@@ -27,7 +27,8 @@
     "request": "2.88.0",
     "request-promise": "4.2.2",
     "sleep-promise": "8.0.1",
-    "uuid": "3.3.2"
+    "uuid": "3.3.2",
+    "uuidgen": "^1.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.5",
