@@ -10,7 +10,9 @@ typeformEmbed.makeWidget(
   surveyUrl,
   {
     onSubmit: () => {
-      window.location = `https://info.codurance.com/compass-details-submission?uuid=${uuid}`
+      setTimeout(() => {
+        window.location = `https://info.codurance.com/compass-details-submission?uuid=${uuid}`
+      }, 2500);
     }
   }
 )
