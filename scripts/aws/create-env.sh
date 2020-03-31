@@ -15,12 +15,12 @@ POLICY="policy-${FULL_NAME}"
 export INSTANCE_PROFILE="instance-profile-${FULL_NAME}"
 # exported because it's used in compass-policies.json
 export BUCKET="bucket-${FULL_NAME}"
-STACK_NAME='64bit Amazon Linux 2018.03 v2.14.2 running Docker 18.09.9-ce'
+STACK_NAME='64bit Amazon Linux 2018.03 v2.14.3 running Docker 18.09.9-ce'
 TRUST_FILE="file://${BASEDIR}/iam/compass-trust.json"
 POLICY_FILE="${BASEDIR}/iam/compass-policies.json"
 OPTION_SETTINGS_FILE="${BASEDIR}/eb/option-settings.json"
 OPTION_SETTINGS_FILE_FOR_UPDATE="${BASEDIR}/eb/option-settings-update.json"
-EB_FULL_ACCESS="arn:aws:iam::aws:policy/AWSElasticBeanstalkService"
+EB_FULL_ACCESS="arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkService"
 S3_LIFECYCLE_FILE="file://${BASEDIR}/s3/s3-lifecycle.json"
 
 loadFileAndReplaceEnvVariables() {

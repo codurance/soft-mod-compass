@@ -12,7 +12,7 @@
     {
       "Effect": "Allow",
       "Action": "ses:SendEmail",
-      "Resource": "arn:aws:ses:eu-west-1:300563897675:identity/codurance.com"
+      "Resource": "arn:aws:ses:eu-west-1:815886228738:identity/codurance.com"
     }
   ]
 }
