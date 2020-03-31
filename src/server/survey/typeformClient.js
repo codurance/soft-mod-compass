@@ -11,7 +11,7 @@ module.exports = config => {
     getQuestionChoices
   }
 
-  function surveyAnswersFor (uuid, retries = 30) {
+  function surveyAnswersFor (uuid, retries = 3) {
     const options = {
       uri: `${config.typeform.url}/forms/${config.typeform.formId}/responses?query=${uuid}`,
       headers,
@@ -27,7 +27,7 @@ module.exports = config => {
           throw Error(`no survey answers for ${uuid} after three attempts`)
         }
 
-        return sleep(1000).then(() => surveyAnswersFor(uuid, retriesLeft))
+        return sleep((10000)).then(() => surveyAnswersFor(uuid, retriesLeft))
       }
     })
   }
