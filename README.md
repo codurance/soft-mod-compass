@@ -171,3 +171,8 @@ An example of `aws-env.sh` can be find on BitWarden, be sure to adapt environmen
 **Note** that you can't use `default-env.sh` directly as it contains AWS credentials for 
 the local environment, which can't be used for deployment.
  
+### Production or Playground
+The current script is setup to work on the production account.
+If you want to create / deploy on the playground, you need to change some `arn`.  
+Check [this commit](https://github.com/codurance/soft-mod-compass/commit/a111abe59c61ea53e789c265055d4e05a8298a9f)
+to see what needs to be changed.
