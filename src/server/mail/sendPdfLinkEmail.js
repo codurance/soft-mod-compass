@@ -4,10 +4,13 @@ const pdfLinkEmail = require('./PdfLinkEmail');
 
 function sendPdfLinkEmail(pdfLink, userData) {
   const emailData = {
-    Source: 'talkwithus@codurance.com',
+    Source: 'Codurance-Talk With Us <talkwithus@codurance.com>',
     Destination: {
       ToAddresses: [userData.email],
     },
+    ReplyToAddresses: [
+      'talkwithus@codurance.com'
+    ],
     Message: {
       Subject: { Data: 'Here is your Codurance Compass report' },
       Body: {
