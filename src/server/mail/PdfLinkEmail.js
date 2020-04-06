@@ -50,7 +50,7 @@ const pdfLinkEmail = (pdfLink, userData) => {
                   <br><br>
                   Thank you for using <b>Codurance Compass</b> — our software delivery assessment.
                   <br><br>
-                  Below is a link to the PDF of your detailed report. This report will help you measure the current level of maturity of your software development organisation across 5 distinct areas and includes recommendations for improvements. Your report will be available to download for 14 days.
+                  Below is a link to the PDF of your detailed report. This report will help you measure the current level of maturity of your software development organisation across 5 distinct areas and includes recommendations for improvements.
                   <br><br>
                   5 areas of effective software delivery organisation:
                 </p>
@@ -61,8 +61,9 @@ const pdfLinkEmail = (pdfLink, userData) => {
                   <li>Effective Team</li>
                   <li>Technical Practices</li>
                 </ul>
+                <p>Your report will be available to download for 14 days. If you have any comments on the report, or need us to expand or clarify a specific point, do not hesitate to contact us.</p>
                 <p style="font-family:Arial, Helvetica, sans-serif; font-size: 16px; color: #293341; line-height: 1.5;">
-                  <a href=${pdfLink} style="color: #fa7268">Your Codurance Compass report</a>
+                  <a href=${pdfLink} style="color: #fa7268">Download your Codurance Compass report</a>
                   <br><br>
                   Thanks,
                 </p>
