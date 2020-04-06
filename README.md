@@ -176,3 +176,8 @@ The current script is setup to work on the production account.
 If you want to create / deploy on the playground, you need to change some `arn`.  
 Check [this commit](https://github.com/codurance/soft-mod-compass/commit/a111abe59c61ea53e789c265055d4e05a8298a9f)
 to see what needs to be changed.
+
+### HTTPS
+
+The elasticbeanstalk instance will redirect HTTP traffic to HTTPS.
+When creating a new enviromnent, you need to manually add an HTTPS listener with a valid certificate.
