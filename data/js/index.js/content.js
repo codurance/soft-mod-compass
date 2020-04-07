@@ -40,9 +40,9 @@ function updateAssessmentBars(scores) {
     
     graph.style.width = `${currentScore}%`;
     
-    if (currentScore > 75) {
+    if (currentScore > 80) {
         graph.classList.add('good-result');
-    } else if (currentScore >= 50) {
+    } else if (currentScore >= 60) {
         graph.classList.add('average-result');
     } else {
         graph.classList.add('bad-result');
@@ -77,6 +77,7 @@ function updateCategoryGraphs(subCategoryScores) {
             
             innerFill.style.width = `${score}%`;
             
+                if (score )
                 if (score > 80) {
                     innerFill.classList.add('good-result');
                     rule.classList.add('good-result');
@@ -106,11 +107,11 @@ function updateSummaryBars(scores) {
         
         innerFill.style.width = `${currentScore}%`;
         
-        if (currentScore >= 75) {
+        if (currentScore > 80) {
           innerFill.classList.add('good-result');
           rule.classList.add('good-result');
           container.querySelector('.summary-bar-graph__good-icon').classList.remove('hidden');
-        } else if (currentScore > 50) {
+        } else if (currentScore >= 60) {
           innerFill.classList.add('average-result');
           rule.classList.add('average-result');
           container.querySelector('.summary-bar-graph__average-icon').classList.remove('hidden');
