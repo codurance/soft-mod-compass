@@ -73,13 +73,15 @@ const pdfLinkEmail = (pdfLink, userData) => {
               <td style="padding-left: 20px; padding-right: 20px; padding-top: 10px;">
                 <table cellpadding="0" cellspacing="0" border="0">
                   <tr>
-                    <td>
+                    <td width="80">
                       <img alt="david-profile" width="80" height="80" src="https://compass-pdf.s3.eu-central-1.amazonaws.com/email-images/david-profile.png">
                     </td>
                     <td style="padding-left: 20px;">
                       <p>
                         <b>David Hall</b><br>
-                        <span style="font-size: 13px;">Head of Business<br>Development Codurance</span>
+                        <span style="font-size: 13px;">Head of Business Development</span><br>
+                        <a href="tel: +447447062036" style="font-size: 13px; color: #293341;">+44 7447 062036</a><br>
+                        <a href="https://codurance.com/en/software-moderisation" style="font-size: 13px; color: #293341;">Codurance.com</a>
                       </p>
                     </td>
                   </tr>
