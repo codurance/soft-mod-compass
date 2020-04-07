@@ -173,6 +173,7 @@
     <div class="main-bar-graph__container bar-1">
         <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
+        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
         <div class="main-bar-graph__rule"></div>
@@ -193,6 +194,7 @@
     <div class="main-bar-graph__container bar-2">
         <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
+        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
         <div class="main-bar-graph__rule"></div>
@@ -213,6 +215,7 @@
     <div class="main-bar-graph__container bar-3">
         <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
+        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
         <div class="main-bar-graph__rule"></div>
@@ -233,6 +236,7 @@
     <div class="main-bar-graph__container bar-4">
         <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
+        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
         <div class="main-bar-graph__rule"></div>
@@ -254,10 +258,10 @@
   <!-- END ORGANISATIONAL MATURITY PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN ORGANISATIONAL MATURITY BREAKDOWN ---------------------------------------------------------- -->
-  {{#ifCond summaryRadial.scores.[0] '>' 80 }}
+  {{#ifCond summaryRadial.scores.[0] '>' 75 }}
     <section id="organisational-maturity-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/organisational-maturity-good.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
     {{else}}
-        {{#ifCond summaryRadial.scores.[0] '>=' 60 }}
+        {{#ifCond summaryRadial.scores.[0] '>=' 50 }}
             <section id="organisational-maturity-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/organisational-maturity-avg.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
             {{else}}
             <section id="organisational-maturity-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/organisational-maturity-bad.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
@@ -271,6 +275,7 @@
     <div class="main-bar-graph__container bar-1">
         <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
+        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
         <div class="main-bar-graph__rule"></div>
@@ -291,6 +296,7 @@
     <div class="main-bar-graph__container bar-2">
         <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
+        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
         <div class="main-bar-graph__rule"></div>
@@ -311,6 +317,7 @@
     <div class="main-bar-graph__container bar-3">
         <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
+        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
         <div class="main-bar-graph__rule"></div>
@@ -331,6 +338,7 @@
     <div class="main-bar-graph__container bar-4">
         <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
+        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
         <div class="main-bar-graph__rule"></div>
@@ -352,10 +360,10 @@
   <!-- END CONTINUOUS DELIVERY PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN CONTINUOUS DELIVERY BREAKDOWN ---------------------------------------------------------- -->
-  {{#ifCond summaryRadial.scores.[1] '>' 80 }}
+  {{#ifCond summaryRadial.scores.[1] '>' 75 }}
     <section id="continuous-delivery-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/continuous-delivery-good.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
     {{else}}
-        {{#ifCond summaryRadial.scores.[1] '>=' 60 }}
+        {{#ifCond summaryRadial.scores.[1] '>=' 50 }}
             <section id="continuous-delivery-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/continuous-delivery-avg.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
             {{else}}
             <section id="continuous-delivery-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/continuous-delivery-bad.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
@@ -369,6 +377,7 @@
     <div class="main-bar-graph__container bar-1">
         <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
+        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
         <div class="main-bar-graph__rule"></div>
@@ -389,6 +398,7 @@
     <div class="main-bar-graph__container bar-2">
         <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
+        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
         <div class="main-bar-graph__rule"></div>
@@ -409,6 +419,7 @@
     <div class="main-bar-graph__container bar-3">
         <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
+        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
         <div class="main-bar-graph__rule"></div>
@@ -429,6 +440,7 @@
     <div class="main-bar-graph__container bar-4">
         <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
+        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
         <div class="main-bar-graph__rule"></div>
@@ -450,10 +462,10 @@
   <!-- END PEOPLE CULTURE PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN PEOPLE CULTURE BREAKDOWN ---------------------------------------------------------- -->
-  {{#ifCond summaryRadial.scores.[2] '>' 80 }}
+  {{#ifCond summaryRadial.scores.[2] '>' 75 }}
     <section id="people-culture-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/people-culture-good.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
     {{else}}
-        {{#ifCond summaryRadial.scores.[2] '>=' 60 }}
+        {{#ifCond summaryRadial.scores.[2] '>=' 50 }}
             <section id="people-culture-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/people-culture-avg.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
             {{else}}
             <section id="people-culture-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/people-culture-bad.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
@@ -467,6 +479,7 @@
     <div class="main-bar-graph__container bar-1">
         <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
+        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
         <div class="main-bar-graph__rule"></div>
@@ -487,6 +500,7 @@
     <div class="main-bar-graph__container bar-2">
         <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
+        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
         <div class="main-bar-graph__rule"></div>
@@ -507,6 +521,7 @@
     <div class="main-bar-graph__container bar-3">
         <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
+        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
         <div class="main-bar-graph__rule"></div>
@@ -527,6 +542,7 @@
     <div class="main-bar-graph__container bar-4">
         <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
+        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
         <div class="main-bar-graph__rule"></div>
@@ -548,10 +564,10 @@
   <!-- END EFFECTIVE TEAM PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN EFFECTIVE TEAM BREAKDOWN ---------------------------------------------------------- -->
-  {{#ifCond summaryRadial.scores.[3] '>' 80 }}
+  {{#ifCond summaryRadial.scores.[3] '>' 75 }}
     <section id="effective-team-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/effective-team-good.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
     {{else}}
-        {{#ifCond summaryRadial.scores.[3] '>=' 60 }}
+        {{#ifCond summaryRadial.scores.[3] '>=' 50 }}
             <section id="effective-team-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/effective-team-avg.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
             {{else}}
             <section id="effective-team-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/effective-team-bad.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
@@ -565,6 +581,7 @@
     <div class="main-bar-graph__container bar-1">
         <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
+        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
         <div class="main-bar-graph__rule"></div>
@@ -585,6 +602,7 @@
     <div class="main-bar-graph__container bar-2">
         <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
+        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
         <div class="main-bar-graph__rule"></div>
@@ -605,6 +623,7 @@
     <div class="main-bar-graph__container bar-3">
         <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
+        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
         <div class="main-bar-graph__rule"></div>
@@ -625,6 +644,7 @@
     <div class="main-bar-graph__container bar-4">
         <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
+        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
         <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
         <div class="main-bar-graph__rule"></div>
@@ -646,10 +666,10 @@
   <!-- END TECHNICAL PRACTICES PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN TECHNICAL PRACTICES BREAKDOWN ---------------------------------------------------------- -->
-  {{#ifCond summaryRadial.scores.[4] '>' 80 }}
+  {{#ifCond summaryRadial.scores.[4] '>' 75 }}
     <section id="technical-practices-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/technical-practices-good.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
     {{else}}
-        {{#ifCond summaryRadial.scores.[4] '>=' 60 }}
+        {{#ifCond summaryRadial.scores.[4] '>=' 50 }}
             <section id="technical-practices-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/technical-practices-avg.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
             {{else}}
             <section id="technical-practices-breakdown-page" class="page page-break-after" style="background: url('{#asset /assets/pageImgs/technical-practices-bad.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>

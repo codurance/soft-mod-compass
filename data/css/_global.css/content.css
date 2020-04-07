@@ -91,7 +91,8 @@ body {
     top: -4.6mm;
     height: 5.841mm;
 }
-.main-bar-graph__average-icon {
+.main-bar-graph__average-icon,
+.main-bar-graph__average-high-icon {
     position: absolute;
     width: 4.233mm;
     left: -13.25mm;
