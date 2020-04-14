@@ -11,7 +11,7 @@ typeformEmbed.makeWidget(
   {
     onSubmit: () => {
       setTimeout(() => {
-        window.location = `https://info.codurance.com/compass-details-submission?uuid=${uuid}`
+        window.location = `https://info.codurance.com/en/compass-details-submission?uuid=${uuid}`
       }, 2500);
     }
   }
