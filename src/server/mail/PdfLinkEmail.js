@@ -74,7 +74,7 @@ const pdfLinkEmail = (pdfLink, userData) => {
                 <table cellpadding="0" cellspacing="0" border="0">
                   <tr>
                     <td width="80">
-                      <img alt="david-profile" width="80" height="80" src="https://compass-pdf.s3.eu-central-1.amazonaws.com/email-images/david-profile.png">
+                      <img alt="david-profile" width="80" height="80" src="https://compass-images.s3.eu-central-1.amazonaws.com/email-images/david-profile.png">
                     </td>
                     <td style="padding-left: 20px;">
                       <p>
@@ -101,7 +101,7 @@ const pdfLinkEmail = (pdfLink, userData) => {
                 <table cellpadding="0" cellspacing="0" border="0" style="padding: 20px; color: #ffffff99; width: 100%;">
                   <tr>
                     <td>
-                      <img alt="codurance-logo" width="150" height="20" src="https://compass-pdf.s3.eu-central-1.amazonaws.com/email-images/codurance-logo.png">
+                      <img alt="codurance-logo" width="150" height="20" src="https://compass-images.s3.eu-central-1.amazonaws.com/email-images/codurance-logo.png">
                     </td>
                   </tr>
                   <tr>
@@ -148,16 +148,16 @@ const pdfLinkEmail = (pdfLink, userData) => {
               <td>
                 <span class="text-small">Follow us on social</span>
                 <a href="https://www.facebook.com/codurance/" style="margin-left: 10px;">
-                  <img alt="Facebook-f" width="auto" height="20" src="https://compass-pdf.s3.eu-central-1.amazonaws.com/email-images/Facebook-f.png">
+                  <img alt="Facebook-f" width="auto" height="20" src="https://compass-images.s3.eu-central-1.amazonaws.com/email-images/Facebook-f.png">
                 </a>
                 <a href="https://www.linkedin.com/company/codurance/" style="margin-left: 10px;">
-                  <img alt="linkedin-in" width="auto" height="20" src="https://compass-pdf.s3.eu-central-1.amazonaws.com/email-images/linkedin-in.png">
+                  <img alt="linkedin-in" width="auto" height="20" src="https://compass-images.s3.eu-central-1.amazonaws.com/email-images/linkedin-in.png">
                 </a>
                 <a href="https://twitter.com/codurance" style="margin-left: 10px;">
-                  <img alt="twitter" width="auto" height="20" src="https://compass-pdf.s3.eu-central-1.amazonaws.com/email-images/twitter.png">
+                  <img alt="twitter" width="auto" height="20" src="https://compass-images.s3.eu-central-1.amazonaws.com/email-images/twitter.png">
                 </a>
                 <a href="https://www.instagram.com/codurance/" style="margin-left: 10px;">
-                  <img alt="instagram" width="auto" height="20" src="https://compass-pdf.s3.eu-central-1.amazonaws.com/email-images/instagram.png">
+                  <img alt="instagram" width="auto" height="20" src="https://compass-images.s3.eu-central-1.amazonaws.com/email-images/instagram.png">
                 </a>
               </td>
             </tr>
