@@ -19,7 +19,8 @@ function uploadToS3 (pdf, bucket) {
     .then(data => {
       const p = {
         Bucket: bucket,
-        Key: data.Key
+        Key: data.Key,
+        Expires: 1209600 // 14 Days in seconds - corresponds to set expiry on S3
       }
       return s3.getSignedUrlPromise('getObject', p)
     })
