@@ -61,7 +61,7 @@ const pdfLinkEmail = (pdfLink, userData) => {
                   <li>Effective Team</li>
                   <li>Technical Practices</li>
                 </ul>
-                <p>Your report will be available to download for 14 days. If you have any comments on the report, or need us to expand or clarify a specific point, do not hesitate to contact us.</p>
+                <p>Your report will be available to download for 7 days. If you have any comments on the report, or need us to expand or clarify a specific point, do not hesitate to contact us.</p>
                 <p style="font-family:Arial, Helvetica, sans-serif; font-size: 16px; color: #293341; line-height: 1.5;">
                   <a href=${pdfLink} style="color: #fa7268">Download your Codurance Compass report</a>
                   <br><br>
