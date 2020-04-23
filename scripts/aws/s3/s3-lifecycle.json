@@ -6,9 +6,9 @@
       },
       "Status": "Enabled",
       "Expiration": {
-        "Days": 14
+        "Days": 7
       },
-      "ID": "DeleteAfter14Days"
+      "ID": "DeleteAfter7Days"
     }
   ]
 }
