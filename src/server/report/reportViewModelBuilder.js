@@ -2,11 +2,11 @@ const reportViewModel = require('./reportViewModel')
 const categoryData = require('./categoryData')
 
 const reportViewModelBuilder = (typeformClient, getHubspotUserDetails) => {
-  async function buildReportViewModelFor (submissionId) {
+  async function buildReportViewModelFor (submissionUuid) {
     try {
       const choices = await typeformClient.getQuestionChoices()
-      const answers = await typeformClient.surveyAnswersFor(submissionId)
-      const userDetails = await getHubspotUserDetails(submissionId)
+      const answers = await typeformClient.surveyAnswersFor(submissionUuid)
+      const userDetails = await getHubspotUserDetails(submissionUuid)
 
       console.log('USER DETES:', userDetails)
 

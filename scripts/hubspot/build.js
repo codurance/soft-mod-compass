@@ -1,6 +1,7 @@
 const landingPage = require('./assets/compassLandingPage')
 
 const buildLandingPage = (readFile) => {
+  // https://developers.hubspot.com/docs/methods/pages/put_pages_page_id
   const header = readFile('./scripts/hubspot/assets/header.html')
   const body = readFile('./scripts/hubspot/assets/body.html')
   const footer = readFile('./scripts/hubspot/assets/footer.html')
