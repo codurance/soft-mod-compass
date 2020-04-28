@@ -3,7 +3,7 @@ const reportingApp = express()
 
 const config = require('./src/server/config')
 const typeformClient = require('./src/server/survey/typeformClient')(config)
-const getHubspotUserDetails = require('./scripts/hubspot/getHubspotUserDetails')
+const getHubspotUserDetails = require('./src/server/report/getHubspotUserDetails')
 const initialReportViewModalBuilder = require('./src/server/report/initialReportViewModalBuilder')(typeformClient)
 const reportViewModelBuilder = require('./src/server/report/reportViewModelBuilder')(
   typeformClient,
