@@ -2,6 +2,13 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { EnvironmentPlugin } = require('webpack');
 const path = require('path');
 
+const envVarsNeededInClientIndexJs = [
+  'TYPEFORM_URL',
+  'TYPEFORM_FORM_ID',
+  'HUBSPOT_FORM_ID',
+  'HUBSPOT_FORM_LANDING_PAGE_URL'
+]
+
 module.exports = {
   entry: './src/client/index.js',
   mode: 'production',
@@ -11,11 +18,6 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new EnvironmentPlugin([
-      'TYPEFORM_URL',
-      'TYPEFORM_FORM_ID',
-      'HUBSPOT_FORM_ID',
-      'HUBSPOT_FORM_LANDING_PAGE_URL'
-    ]),
+    new EnvironmentPlugin(envVarsNeededInClientIndexJs),
   ],
 };
