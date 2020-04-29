@@ -1,16 +1,14 @@
 const path = require('path')
 const jsreport = require('jsreport')
 const express = require('express')
-const cors = require('cors')
 const favicon = require('serve-favicon')
 
 const stripHubspotSubmissionGuid = require('./middleware/stripHubspotSubmissionGuid')
-const base64Encode = require('./encoding/base64')
 
 const uploadToS3 = require('./upload/uploadToS3')
 const sendPdfLinkEmail = require('./mail/sendPdfLinkEmail')
 
-module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildReportViewModelFor) => {
+module.exports = (config, reportingApp, buildReportViewModelFor) => {
   const app = express()
 
   app.set('view engine', 'ejs')
@@ -28,15 +26,6 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
       typeformUrl: config.typeform.url,
       typeformFormId: config.typeform.formId,
       hubspotFormLandingPageUrl: config.hubspot.formLandingPageUrl
-    })
-  })
-
-  app.get('/scores/:uuid', cors(), (req, res) => {
-    buildInitialReportViewModelFor(req.params.uuid).then(viewModel => {
-      const scores = base64Encode(viewModel.scores.toString())
-      const uuid = req.params.uuid
-      const redirectUrl = `${config.hubspot.formLandingPageUrl}?uuid=${uuid}&scores=${scores}`
-      res.redirect(redirectUrl)
     })
   })
 
