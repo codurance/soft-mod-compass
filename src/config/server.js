@@ -12,6 +12,7 @@ module.exports = {
   },
   hubspot: {
     ...sharedConfig.hubspot,
+    thanksLandingPageUrl: process.env.HUBSPOT_THANKS_LANDING_PAGE_URL,
     authToken: process.env.HUBSPOT_AUTH_TOKEN
   },
   aws: {
