@@ -56,28 +56,4 @@ describe('app', () => {
       .expect('Content-Type', /html/)
       .expect(404, done)
   })
-
-  it('redirects to hubspot form', (done) => {
-    const testUuid = '30749000-5a7b-4de7-b76f-297a84a6c72e'
-
-    nock(config.typeform.url, {
-      reqheaders: {
-        'authorization': `Bearer ${config.typeform.authToken}`
-      }
-    })
-      .get(`/forms/${config.typeform.formId}`)
-      .reply(200, mockSurveyQuestionsResponse)
-
-    nock(config.typeform.url, {
-      reqheaders: {
-        'authorization': `Bearer ${config.typeform.authToken}`
-      }
-    })
-      .get(`/forms/${config.typeform.formId}/responses?query=${testUuid}`)
-      .reply(200, mockSurveyAnswersResponse)
-
-    request(app)
-      .get(`/scores/${testUuid}`)
-      .expect(302, done)
-  })
 })
