@@ -1,5 +1,17 @@
 const generateUuid = require('uuid/v4')
 
+// TODO: Use a shared config and a config just for the server (for secrets)
+const config = {
+  typeform: {
+    url: process.env.TYPEFORM_URL,
+    formId: process.env.TYPEFORM_FORM_ID,
+  },
+  hubspot: {
+    formId: process.env.HUBSPOT_FORM_ID,
+    formLandingPageUrl: process.env.HUBSPOT_FORM_LANDING_PAGE_URL
+  }
+}
+
 const surveyElement = document.getElementById('typeform-survey')
 
 const uuid = generateUuid()
@@ -11,16 +23,16 @@ Typeform: https://developer.typeform.com/embed/hidden-fields/
 Hubspot: https://knowledge.hubspot.com/forms/can-i-auto-populate-form-fields-through-a-query-string
 */
 const hiddenFieldToAutoPopulate = `uuid=${uuid}`
-const surveyUrl = `https://mashooqbadar.typeform.com/to/yiRLeY?${hiddenFieldToAutoPopulate}`
-const hubspotLandingPage = `https://info.codurance.com/en/compass-details-submission?${hiddenFieldToAutoPopulate}`
+const typeformSurveyUrlWithUuidAsHiddenField = `${config.typeform.url}/to/${config.typeform.formId}?${hiddenFieldToAutoPopulate}`
+const hubspotLandingPageWithUuidAsHiddenField = `${config.hubspot.formLandingPageUrl}?${hiddenFieldToAutoPopulate}`
 
 typeformEmbed.makeWidget(
   surveyElement,
-  surveyUrl,
+  typeformSurveyUrlWithUuidAsHiddenField,
   {
     onSubmit: () => {
       setTimeout(() => {
-        window.location = hubspotLandingPage
+        window.location = hubspotLandingPageWithUuidAsHiddenField
       }, 2500);
     }
   }

@@ -1,5 +1,6 @@
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const path = require('path')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { EnvironmentPlugin } = require('webpack');
+const path = require('path');
 
 module.exports = {
   entry: './src/client/index.js',
@@ -9,6 +10,12 @@ module.exports = {
     filename: 'bundle.js'
   },
   plugins: [
-    new CleanWebpackPlugin()
-  ]
-}
+    new CleanWebpackPlugin(),
+    new EnvironmentPlugin([
+      'TYPEFORM_URL',
+      'TYPEFORM_FORM_ID',
+      'HUBSPOT_FORM_ID',
+      'HUBSPOT_FORM_LANDING_PAGE_URL'
+    ]),
+  ],
+};
