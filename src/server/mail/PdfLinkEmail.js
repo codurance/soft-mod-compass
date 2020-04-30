@@ -45,7 +45,7 @@ const pdfLinkEmail = (pdfLink, userData) => {
           <table cellpadding="0" cellspacing="0" border="0" style="width: 100%; max-width: 600px; margin-left: auto; margin-right: auto;">
             <tr>
               <td align="left" valign="top" style="padding: 20px;">
-                <p class="preview-text" style="font-size: 0; line-height: 0;">Your report expires in 14 days.</p>
+                <p class="preview-text" style="font-size: 0; line-height: 0;">Your report expires in 6 hours.</p>
                 <p>Hi ${userData.firstname},
                   <br><br>
                   Thank you for using <b>Codurance Compass</b> — our software delivery assessment.
