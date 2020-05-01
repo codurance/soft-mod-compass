@@ -10,8 +10,6 @@
     "start": "babel-node index.js",
     "test": "jest && npm run lint",
     "lint": "standard",
-    "deploy:hubspot-dev": ". ./scripts/aws-env.sh && yarn deploy:hubspot",
-    "deploy:hubspot": "node ./scripts/hubspot/index.js",
     "build:docker": "docker build -t codurance-compass .",
     "run:docker": "docker run --env-file ./scripts/docker/aws-env.sh -it --rm -p 8080:8080 codurance-compass"
   },

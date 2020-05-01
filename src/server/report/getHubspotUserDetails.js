@@ -1,6 +1,6 @@
 const rp = require('request-promise')
 const sleep = require('sleep-promise')
-const config = require('../../src/server/config')
+const config = require('../config')
 
 function getHubspotUserDetails (uuid, retries = 3) {
   if (typeof (uuid) !== 'string') console.error('uuid is not a string')

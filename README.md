@@ -144,15 +144,6 @@ Doing so will **override** the previous email associated to the UUID.
 - HubSpot form (will override the email associated to this UUID)
   - https://info.codurance.com/compass-test-0?uuid=c8dfdc09-dd9b-4d35-a80e-b14c79598eb5&scores=MTAwLDEwMCwxMDAsMTAwLDEwMA==
 
-
-## HubSpot landing page deployment with Docker
-
-For an explanation of how HubSpot is leveraged in the solution see the _integrations_ section above.
-
-```
-./scripts/docker/deploy-hubspot.sh
-```
-
 ## Continuous Delivery
 
 The pipeline for this project lives in AWS CodePipeline.
@@ -181,3 +172,8 @@ to see what needs to be changed.
 
 The elasticbeanstalk instance will redirect HTTP traffic to HTTPS.
 When creating a new enviromnent, you need to manually add an HTTPS listener with a valid certificate.
+
+## Additional Notes
+
+HubSpot landing page deployment with Docker has been deprecated.
+Check [this commit](https://github.com/codurance/soft-mod-compass/commit/8adc74e0e3fb9aefbc49ef6f3ed580e39d260964)
