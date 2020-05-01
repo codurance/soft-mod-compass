@@ -3,11 +3,10 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
     "dev": ". ./scripts/aws-env.sh && webpack --mode=development && npm start",
     "debug": ". ./scripts/aws-env.sh && webpack --mode=development && node --inspect index.js",
     "watch": "nodemon",
-    "start": "babel-node index.js",
+    "start": "webpack && babel-node index.js",
     "test": "jest && npm run lint",
     "lint": "standard",
     "build:docker": "docker build -t codurance-compass .",
