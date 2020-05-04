@@ -25,7 +25,7 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
 
   app.get('/', (req, res) => {
     res.render('index', {
-      typeformUrl: config.typeform.url, 
+      typeformUrl: config.typeform.url,
       typeformFormId: config.typeform.formId,
       hubspotFormLandingPageUrl: config.hubspot.formLandingPageUrl
     })
