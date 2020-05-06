@@ -7,7 +7,7 @@ ROLE="role-"${FULL_NAME}
 POLICY="policy-${FULL_NAME}"
 # exported because it's used in option-settings.json
 export INSTANCE_PROFILE="instance-profile-${FULL_NAME}"
-# exported because it's used in compass-policies.json
+# exported because it's used in compass-policies.json and option-settings-update.json
 export REPORT_BUCKET="bucket-${FULL_NAME}"
 STACK_NAME='64bit Amazon Linux 2018.03 v2.15.0 running Docker 19.03.6-ce'
 TRUST_FILE="file://${BASEDIR}/iam/compass-trust.json"
