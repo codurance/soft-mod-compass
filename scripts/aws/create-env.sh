@@ -57,17 +57,10 @@ function create_env_with_instance_profile {
         --option-settings "${OPTION_SETTINGS}"
 }
 
-function unnecessary_step_to_remove {
-    aws iam attach-role-policy \
-        --role-name ${ROLE} \
-        --policy-arn ${EB_FULL_ACCESS}
-}
-
 
 stop_on_first_failure
 initialize_variables $1
 create_and_configure_s3_bucket
 create_role_to_allow_access_to_s3_and_send_mail
-unnecessary_step_to_remove
 create_instance_profile_and_add_role_to_it
 create_env_with_instance_profile
