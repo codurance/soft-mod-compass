@@ -38,15 +38,5 @@
     "Namespace": "aws:elasticbeanstalk:application:environment",
     "OptionName": "TYPEFORM_URL",
     "Value": "$TYPEFORM_URL"
-  },
-  {
-    "Namespace": "aws:elasticbeanstalk:application:environment",
-    "OptionName": "AWS_ACCESS_KEY_ID",
-    "Value": "$COMPASS_USER_ACCESS_KEY_ID"
-  },
-  {
-    "Namespace": "aws:elasticbeanstalk:application:environment",
-    "OptionName": "AWS_SECRET_ACCESS_KEY",
-    "Value": "$COMPASS_USER_SECRET_ACCESS_KEY"
   }
 ]
