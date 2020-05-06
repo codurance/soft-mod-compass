@@ -19,9 +19,10 @@ function initialize_variables {
     ARTIFACT_FILE=${BASEDIR}/${ARTIFACT}
 }
 
-function build_artifact_for_master {
+function build_artifact_for_current_branch {
     echo "Building artifact [${ARTIFACT}] .."
-    git archive master -o ${ARTIFACT_FILE}
+    CURRENT_BRANCH=$(git branch --show-current)
+    git archive ${CURRENT_BRANCH} -o ${ARTIFACT_FILE}
 }
 
 function upload_artifact_to_s3 {
@@ -52,7 +53,7 @@ function deploy_artifact_to_elasticbean_and_set_envvars {
 
 stop_on_first_failure
 initialize_variables $1
-build_artifact_for_master
+build_artifact_for_current_branch
 upload_artifact_to_s3
 delete_local_artifact
 deploy_artifact_to_elasticbean_and_set_envvars
