@@ -42,8 +42,8 @@ function delete_compass_role {
 }
 
 function delete_s3_bucket {
-    echo "Deleting compass bucket [${BUCKET}] ..."
-    aws s3 rb s3://${BUCKET} \
+    echo "Deleting compass bucket [${REPORT_BUCKET}] ..."
+    aws s3 rb s3://${REPORT_BUCKET} \
         --force
 }
 

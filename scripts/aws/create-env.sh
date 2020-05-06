@@ -17,11 +17,11 @@ function initialize_variables {
 }
 
 function create_and_configure_s3_bucket {
-    echo "creating compass bucket [${BUCKET}] .."
-    aws s3 mb s3://${BUCKET}
+    echo "creating compass bucket [${REPORT_BUCKET}] .."
+    aws s3 mb s3://${REPORT_BUCKET}
     
     aws s3api put-bucket-lifecycle-configuration \
-        --bucket ${BUCKET} \
+        --bucket ${REPORT_BUCKET} \
         --lifecycle-configuration "${S3_LIFECYCLE_FILE}"
 }
 

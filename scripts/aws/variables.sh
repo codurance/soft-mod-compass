@@ -8,7 +8,7 @@ POLICY="policy-${FULL_NAME}"
 # exported because it's used in option-settings.json
 export INSTANCE_PROFILE="instance-profile-${FULL_NAME}"
 # exported because it's used in compass-policies.json
-export BUCKET="bucket-${FULL_NAME}"
+export REPORT_BUCKET="bucket-${FULL_NAME}"
 STACK_NAME='64bit Amazon Linux 2018.03 v2.15.0 running Docker 19.03.6-ce'
 TRUST_FILE="file://${BASEDIR}/iam/compass-trust.json"
 POLICY_FILE="${BASEDIR}/iam/compass-policies.json"
@@ -22,4 +22,5 @@ loadFileAndReplaceEnvVariables() {
 }
 
 OPTION_SETTINGS=$(loadFileAndReplaceEnvVariables "${OPTION_SETTINGS_FILE}")
+OPTION_SETTINGS_FOR_UPDATE=$(loadFileAndReplaceEnvVariables "${OPTION_SETTINGS_FILE_FOR_UPDATE}")
 POLICY_DOCUMENT=$(loadFileAndReplaceEnvVariables "${POLICY_FILE}")
