@@ -7,7 +7,7 @@
         "s3:GetObject",
         "s3:PutObject"
       ],
-      "Resource": "arn:aws:s3:::$BUCKET/*"
+      "Resource": "arn:aws:s3:::$REPORT_BUCKET/*"
     },
     {
       "Effect": "Allow",
