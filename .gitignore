@@ -5,6 +5,8 @@ scripts/default-env.sh
 scripts/aws-env.sh
 scripts/docker/default-env.sh
 
+aws-artifact.zip
+
 # Created by https://www.gitignore.io/api/node,macos,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=node,macos,visualstudiocode
 
