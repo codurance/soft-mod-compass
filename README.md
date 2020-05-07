@@ -159,6 +159,8 @@ codurance-compass git:(Update-pdf-design) ✗ docker stop 86533ed26329
   - `aws configure`
     - https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
     - Default region name: `eu-west-1`
+- The `gettext` utility
+  - `brew install gettext`
 
 ### Playground
 
