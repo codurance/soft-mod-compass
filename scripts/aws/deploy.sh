@@ -3,17 +3,17 @@ BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )" # sr
 
 function stop_on_first_failure { set -e -o pipefail; }
 
-function ensure_env_name_provided_as_argument {
+function ensure_env_tag_provided_as_argument {
     if [[ $# -lt 1 ]] ; then
-        echo "ERROR: missing target environment"
+        echo "ERROR: missing environment tag"
         exit 1
     fi
 }
 
 function initialize_variables {
-    ensure_env_name_provided_as_argument $1
-    ENV_NAME=$1
-    . ${BASEDIR}/variables.sh $ENV_NAME
+    ensure_env_tag_provided_as_argument $1
+    ENV_TAG=$1
+    . ${BASEDIR}/variables.sh $ENV_TAG
     VERSION_LABEL=$(uuidgen)
     ARTIFACT='aws-artifact.zip'
     ARTIFACT_FILE=${BASEDIR}/${ARTIFACT}
