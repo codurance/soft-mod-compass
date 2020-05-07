@@ -1,17 +1,17 @@
 #!/bin/bash
 BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"  # src: https://stackoverflow.com/a/246128/4490991
 
-function ensure_env_name_provided_as_argument {
+function ensure_env_tag_provided_as_argument {
     if [[ $# -lt 1 ]] ; then
-        echo "ERROR: missing target environment"
+        echo "ERROR: missing environment tag"
         exit 1
     fi
 }
 
 function initialize_variables {
-    ensure_env_name_provided_as_argument $1
-    ENV_NAME=$1
-    . ${BASEDIR}/variables.sh $ENV_NAME
+    ensure_env_tag_provided_as_argument $1
+    ENV_TAG=$1
+    . ${BASEDIR}/variables.sh $ENV_TAG
 }
 
 function terminate_environment {
