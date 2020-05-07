@@ -152,6 +152,14 @@ codurance-compass git:(Update-pdf-design) ✗ docker stop 86533ed26329
 
 ## Deploying the Project - AWS
 
+**Important**: When deploying to `codurance` or `codurance-playground`, you **need**:
+- The `aws` cli installed
+  - `brew install awscli`
+- To be logged in with the corresponding account (`codurance` or `codurance-playground`) in the `aws` cli
+  - `aws configure`
+    - https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
+    - Default region name: `eu-west-1`
+
 ### Playground
 
 > **Note:** In all following commands, the language `en` can be swapped for `es`.
