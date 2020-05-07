@@ -27,6 +27,6 @@
   {
     "Namespace": "aws:elb:listener:443",
     "OptionName": "SSLCertificateId",
-    "Value": "arn:aws:acm:eu-central-1:815886228738:certificate/b5eaf3c6-284d-42b3-98bc-dddc83a0970e"
+    "Value": "arn:aws:acm:eu-west-1:${AWS_ACCOUNT_ID}:certificate/20a8435b-ca58-4f57-94f9-e5560ccbc3b0"
   }
 ]

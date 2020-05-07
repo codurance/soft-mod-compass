@@ -4,6 +4,10 @@ data/settings
 scripts/default-env.sh
 scripts/aws-env.sh
 scripts/docker/default-env.sh
+scripts/envvars-config-dev-EN.sh
+scripts/envvars-config-dev-ES.sh
+scripts/envvars-config-prod-EN.sh
+scripts/envvars-config-prod-ES.sh
 
 aws-artifact.zip
 
