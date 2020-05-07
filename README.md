@@ -61,6 +61,7 @@ The jsreport console can be found at `/reporting`. This is where you will find t
 ## Running the project
 ### NOTES - TO REMOVE
 WIP TODO (do not work yet):
+
     "create-env-prod:en": # Tip: Use EnvTag: "prod-en"
     "create-env-prod:es": # Tip: Use EnvTag: "prod-es"
 
@@ -85,6 +86,10 @@ Environment variables needed for this project can be found in Bitwarden:
 Create the file in the `scripts` directory, paste the contents from Bitwarden.
 
 ### Running Locally
+
+TODO: 
+**Note** AWS credentials (AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY) are only needed for running a local environment. These are not needed for AWS deployment.
+
 Run the dev environment:
 
 ```
@@ -147,33 +152,34 @@ codurance-compass git:(Update-pdf-design) ✗ docker stop 86533ed26329
 
 ## Deploying the Project - AWS
 
-**Note** AWS credentials (AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY) are only needed for running a local environment. These are not needed for AWS deployment.
-
 ### Playground
 
-Create a dev environment called `dev-environment` on AWS (with roles, bucket, EBS, etc.):
+> **Note:** In all following commands, the language `en` can be swapped for `es`.
+
+Create a dev environment called `compass-dev-en` on AWS (with roles, bucket, EBS, etc.):
 
 ```sh
 
 yarn create-env-dev:en
 
 ```
-Deploy current (checked-out) branch to `dev-environment`:
+Deploy current (checked-out) branch to `compass-dev-en`
 
 ```sh
 
 yarn deploy-env-dev:en
 
 ```
-Destroy `dev-environment` (and all corresponding resources):
+
+**Clean Up:** Destroy `compass-dev-en` (and all corresponding resources):
 
 ```sh
 
-yarn destroy-dev-env
+yarn destroy-env-dev:en
 
 ```
 
-### Production (WIP)
+### Production (DOES NOT WORK YET => To update)
 
 Commands to create, deploy, and destroy the English production environment:
 ```sh 
