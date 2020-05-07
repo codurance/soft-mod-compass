@@ -2,7 +2,15 @@
 
 A survey for checking the level of practices at your company.
 
-## Integrations
+
+## User flow
+
+### In picture
+
+![compass sequence diagram](/docs/compass-sequence-diagram.png?raw=true)
+
+The above diagram in the `docs` folder can be opened with [draw.io](https://www.draw.io/).
+
 
 ### TypeForm
 
@@ -50,33 +58,55 @@ The `/report/:UUID` endpoint of the Node app uses the UUID to query the TypeForm
 
 The jsreport console can be found at `/reporting`. This is where you will find the jsreport development environment for updating the report template.
 
-## User Journey
+## Running the project
+### NOTES - TO REMOVE
+WIP TODO (do not work yet):
+    "create-env-prod:en": # Tip: Use EnvTag: "prod-en"
+    "create-env-prod:es": # Tip: Use EnvTag: "prod-es"
 
-![compass sequence diagram](/docs/compass-sequence-diagram.png?raw=true)
+    "destroy-env-prod:en": # Tip: Use EnvTag: "prod-en"
+    "destroy-env-prod:es": # Tip: Use EnvTag: "prod-es"
 
-The above diagram in the `docs` folder can be opened with [draw.io](https://www.draw.io/).
+    "deploy-prod:en": # Tip: Use EnvTag: "prod-en"
+    "deploy–prod:es": # Tip: Use EnvTag: "prod-en"
 
-## Running locally
+### Config
+Environment variables needed for this project can be found in Bitwarden:
 
-:large_blue_diamond: Note that `yarn` can be substituted for `npm`/`npm run` if you don't have yarn. (Yarn is easily installed on mac with `brew install yarn`)
+- **Dev**
+  -  `[Compass] envvars-config-dev-EN.sh` contains the English values used on dev
+  -  `[Compass] envvars-config-dev-ES.sh` contains the Spanish values used on dev
+
+- **Prod**
+  - WIP TODO: Do not use yet, wasn't tested.
+  -  `[Compass] envvars-config-prod-EN.sh` contains the English values used on production
+  -  `[Compass] envvars-config-prod-ES.sh` contains the Spanish values used on production
+
+Create the file in the `scripts` directory, paste the contents from Bitwarden.
+
+### Running Locally
+Run the dev environment:
 
 ```
+# Step 1
+# Copy the correct config (See 'Config' section)
+
+# Step 2
 yarn install
 
+# Step 3
 yarn dev # go to localhost:8080
 ```
 
-If you see this error:
+:large_blue_diamond: Note that `yarn` can be substituted for `npm`/`npm run` if you don't have yarn. (Yarn is easily installed on mac with `brew install yarn`)
+
+#### Running tests locally
 
 ```
-sh: ./scripts/default-env.sh: No such file or directory
+yarn test
 ```
 
-It's because you need a `scripts/default-env.sh` file, which contains the environment variables to connect to typeform and hubspot.
-
-The file contents are stored in Bitwarden, in a note titled `[Compass] default-env.sh contents`. Create the file, paste the contents and then make it executable (on unix this is `chmod +x scripts/default-env.sh`)
-
-## Running with Docker
+### Running Locally - with Docker - TO UPDATE
 
 Before building the docker container you'll need to run `yarn install` to update the yarn.lock which is then used when building the docker image.
 
@@ -109,22 +139,68 @@ codurance-compass git:(Update-pdf-design) ✗ docker stop 86533ed26329
 86533ed26329
 ```
 
-## Testing locally
-
-```
-yarn test
-```
-
-## Testing with Docker
+### Running tests locally -  with Docker
 
 ```
 ./scripts/docker/run-tests.sh
 ```
 
-## Useful links for testing
+## Deploying the Project - AWS
+
+**Note** AWS credentials (AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY) are only needed for running a local environment. These are not needed for AWS deployment.
+
+### Playground
+
+Create a dev environment called `dev-environment` on AWS (with roles, bucket, EBS, etc.):
+
+```sh
+
+yarn create-env-dev:en
+
+```
+Deploy current (checked-out) branch to `dev-environment`:
+
+```sh
+
+yarn deploy-env-dev:en
+
+```
+Destroy `dev-environment` (and all corresponding resources):
+
+```sh
+
+yarn destroy-dev-env
+
+```
+
+### Production (WIP)
+
+Commands to create, deploy, and destroy the English production environment:
+```sh 
+yarn deploy-prod:en
+
+yarn create-prod-env:en
+
+yarn destroy-prod-env:en
+```
+Commands to create, deploy, and destroy the Spanish production environment:
+```sh
+yarn deploy-prod:es
+
+yarn create-prod-env:es
+
+yarn destroy-prod-env:es
+```
+
+### HTTPS
+
+The elasticbeanstalk instance will redirect HTTP traffic to HTTPS.
+When creating a new enviromnent, you need to manually add an HTTPS listener with a valid certificate.
+
+
+## Useful links for testing (deprecated TO UPDATE)
 
 ### UUID
-
 The uuid is generated when we start answering TypeForm questions.
 It is used to store the answers on TypeForm and also user details on HubSpot
 
@@ -144,36 +220,6 @@ Doing so will **override** the previous email associated to the UUID.
 - HubSpot form (will override the email associated to this UUID)
   - https://info.codurance.com/compass-test-0?uuid=c8dfdc09-dd9b-4d35-a80e-b14c79598eb5&scores=MTAwLDEwMCwxMDAsMTAwLDEwMA==
 
-## Continuous Delivery
-
-The pipeline for this project lives in AWS CodePipeline.
-
-The current URL for the deployed version is http://codurance-compass.eu-west-1.elasticbeanstalk.com/
-
-## AWS
-
-The command `./scripts/aws/create-env.sh integration` will create a new environment *integration*
-on AWS (with roles, bucket, EBS, etc.).  
-**The environment name must be at least 4 characters.**
-
-The command `. ./scripts/aws-env.sh && ./scripts/aws/deploy.sh integration` will deploy 
-the local *master* to *integration*.
-An example of `aws-env.sh` can be find on BitWarden, be sure to adapt environment variables.  
-**Note** that you can't use `default-env.sh` directly as it contains AWS credentials for 
-the local environment, which can't be used for deployment.
- 
-### Production or Playground
-The current script is setup to work on the production account.
-If you want to create / deploy on the playground, you need to change some `arn`.  
-Check [this commit](https://github.com/codurance/soft-mod-compass/commit/a111abe59c61ea53e789c265055d4e05a8298a9f)
-to see what needs to be changed.
-
-### HTTPS
-
-The elasticbeanstalk instance will redirect HTTP traffic to HTTPS.
-When creating a new enviromnent, you need to manually add an HTTPS listener with a valid certificate.
-
 ## Additional Notes
-
 HubSpot landing page deployment with Docker has been deprecated.
 Check [this commit](https://github.com/codurance/soft-mod-compass/commit/8adc74e0e3fb9aefbc49ef6f3ed580e39d260964)
