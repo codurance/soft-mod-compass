@@ -11,7 +11,21 @@
     "test": "jest && npm run lint",
     "lint": "standard",
     "build:docker": "docker build -t codurance-compass .",
-    "run:docker": "docker run --env-file ./scripts/docker/aws-env.sh -it --rm -p 8080:8080 codurance-compass"
+    "run:docker": "docker run --env-file ./scripts/docker/aws-env.sh -it --rm -p 8080:8080 codurance-compass",
+    "create-env-dev:en": ". ./scripts/envvars-config-dev-EN.sh && ./scripts/aws/create-env.sh dev-en",
+    "create-env-dev:es": ". ./scripts/envvars-config-dev-ES.sh && ./scripts/aws/create-env.sh dev-es",
+    "create-env-prod:en": "echo TODO",
+    "create-env-prod:es": "echo TODO",
+
+    "destroy-env-dev:en": "./scripts/aws/destroy-env.sh dev-en",
+    "destroy-env-dev:es": "./scripts/aws/destroy-env.sh dev-es",
+    "destroy-env-prod:en": "echo TODO",
+    "destroy-env-prod:es": "echo TODO",
+
+    "deploy-dev:en": ". ./scripts/envvars-config-dev-EN.sh && ./scripts/aws/deploy.sh dev-en",
+    "deploy–dev:es": ". ./scripts/envvars-config-dev-ES.sh && ./scripts/aws/deploy.sh dev-es",
+    "deploy-prod:en": "echo TODO",
+    "deploy–prod:es": "echo TODO"
   },
   "author": "Codurance",
   "license": "MIT",
