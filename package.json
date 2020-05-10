@@ -23,7 +23,7 @@
     "destroy-env-prod:es": "echo TODO",
 
     "deploy-dev:en": ". ./scripts/envvars-config-dev-EN.sh && ./scripts/aws/deploy.sh dev-en",
-    "deploy–dev:es": ". ./scripts/envvars-config-dev-ES.sh && ./scripts/aws/deploy.sh dev-es",
+    "deploy-dev:es": ". ./scripts/envvars-config-dev-ES.sh && ./scripts/aws/deploy.sh dev-es",
     "deploy-prod:en": "echo TODO",
     "deploy–prod:es": "echo TODO"
   },
