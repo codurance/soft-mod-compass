@@ -45,7 +45,7 @@ const pdfLinkEmail = (pdfLink, userData) => {
           <table cellpadding="0" cellspacing="0" border="0" style="width: 100%; max-width: 600px; margin-left: auto; margin-right: auto;">
             <tr>
               <td align="left" valign="top" style="padding: 20px;">
-                <p class="preview-text" style="font-size: 0; line-height: 0;">Your report expires in 6 hours.</p>
+                <p class="preview-text" style="font-size: 0; line-height: 0;">Your report expires in 7 days.</p>
                 <p>Hi ${userData.firstname},
                   <br><br>
                   Thank you for using <b>Codurance Compass</b> — our software delivery assessment.
@@ -61,7 +61,7 @@ const pdfLinkEmail = (pdfLink, userData) => {
                   <li>Effective Team</li>
                   <li>Technical Practices</li>
                 </ul>
-                <p>Your report will be available to download for the next 6 hours. If you have any comments on the report, or need us to expand or clarify a specific point, do not hesitate to contact us.</p>
+                <p>Your report will be available to download for the next 7 days. If you have any comments on the report, or need us to expand or clarify a specific point, do not hesitate to contact us.</p>
                 <p style="font-family:Arial, Helvetica, sans-serif; font-size: 16px; color: #293341; line-height: 1.5;">
                   <a href=${pdfLink} style="color: #fa7268">Download your Codurance Compass report</a>
                   <br><br>
