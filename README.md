@@ -161,6 +161,8 @@ codurance-compass git:(Update-pdf-design) ✗ docker stop 86533ed26329
     - Default region name: `eu-west-1`
 - The `gettext` utility
   - `brew install gettext`
+- The `jq` utility
+  - `brew install jq`
 
 ### Playground
 
