@@ -14,7 +14,6 @@ TRUST_FILE="file://${BASEDIR}/iam/compass-trust.json"
 POLICY_FILE="${BASEDIR}/iam/compass-policies.json"
 OPTION_SETTINGS_FILE="${BASEDIR}/eb/option-settings.json"
 OPTION_SETTINGS_FILE_FOR_UPDATE="${BASEDIR}/eb/option-settings-update.json"
-EB_FULL_ACCESS="arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkService"
 S3_LIFECYCLE_FILE="file://${BASEDIR}/s3/s3-lifecycle.json"
 
 loadFileAndReplaceEnvVariables() {
