@@ -62,14 +62,14 @@ The jsreport console can be found at `/reporting`. This is where you will find t
 ### NOTES - TO REMOVE
 WIP TODO (do not work yet):
 
-    "create-env-prod:en": # Tip: Use EnvTag: "prod-en"
-    "create-env-prod:es": # Tip: Use EnvTag: "prod-es"
+    "create-env:prod:en": # Tip: Use EnvTag: "prod-en"
+    "create-env:prod:es": # Tip: Use EnvTag: "prod-es"
 
-    "destroy-env-prod:en": # Tip: Use EnvTag: "prod-en"
-    "destroy-env-prod:es": # Tip: Use EnvTag: "prod-es"
+    "destroy-env:prod:en": # Tip: Use EnvTag: "prod-en"
+    "destroy-env:prod:es": # Tip: Use EnvTag: "prod-es"
 
-    "deploy-prod:en": # Tip: Use EnvTag: "prod-en"
-    "deploy–prod:es": # Tip: Use EnvTag: "prod-en"
+    "deploy:prod:en": # Tip: Use EnvTag: "prod-en"
+    "deploy:prod:es": # Tip: Use EnvTag: "prod-en"
 
 ### Config
 Environment variables needed for this project can be found in Bitwarden:
@@ -177,14 +177,14 @@ Create a dev environment called `compass-dev-en` on AWS (with roles, bucket, EBS
 
 ```sh
 
-yarn create-env-dev:en
+yarn create-env:dev:en
 
 ```
 Deploy current (checked-out) branch to `compass-dev-en`
 
 ```sh
 
-yarn deploy-dev:en
+yarn deploy:dev:en
 
 ```
 
@@ -192,7 +192,7 @@ yarn deploy-dev:en
 
 ```sh
 
-yarn destroy-env-dev:en
+yarn destroy-env:dev:en
 
 ```
 
@@ -200,19 +200,19 @@ yarn destroy-env-dev:en
 
 Commands to create, deploy, and destroy the English production environment:
 ```sh 
-yarn deploy-prod:en
+yarn deploy:prod:en
 
-yarn create-prod-env:en
+yarn create:prod-env:en
 
-yarn destroy-prod-env:en
+yarn destroy:prod-env:en
 ```
 Commands to create, deploy, and destroy the Spanish production environment:
 ```sh
-yarn deploy-prod:es
+yarn deploy:prod:es
 
-yarn create-prod-env:es
+yarn create:prod-env:es
 
-yarn destroy-prod-env:es
+yarn destroy:prod-env:es
 ```
 
 ### HTTPS
