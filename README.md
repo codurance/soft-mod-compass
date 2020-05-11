@@ -172,6 +172,9 @@ Create a dev environment called `compass-dev-en` on AWS (with roles, bucket, EBS
 > The environment creation will take a couple of minutes.  
 > You can check the progress at [Compass Application Dashboard on Elasticbeanstalk](https://eu-west-1.console.aws.amazon.com/elasticbeanstalk/home?region=eu-west-1#/application/overview?applicationName=compass)
 
+> TODO: Update Hubspot redirection links once `compass.codurance.io/(en|es)` is working for dev.  
+> For now, after creating a new environment, the redirection URL in Hubspot needs to be updated to point to the actual elasticbeanstalk environment.
+
 ```sh
 
 yarn create-env-dev:en
