@@ -21,7 +21,7 @@ function initialize_variables {
 
 function build_artifact_for_current_branch {
     echo "Building artifact [${ARTIFACT}] .."
-    CURRENT_BRANCH=$(git branch --show-current)
+    CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD) # https://stackoverflow.com/a/6245587/4490991
     git archive ${CURRENT_BRANCH} -o ${ARTIFACT_FILE}
 }
 
