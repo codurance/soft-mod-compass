@@ -8,7 +8,7 @@ POLICY="policy-${ENV_NAME}"
 # exported because it's used in option-settings.json
 export INSTANCE_PROFILE="instance-profile-${ENV_NAME}"
 # exported because it's used in compass-policies.json and option-settings-update.json
-export REPORT_BUCKET="bucket-${ENV_NAME}"
+export REPORT_BUCKET="${ENV_NAME}"
 STACK_NAME='64bit Amazon Linux 2018.03 v2.15.0 running Docker 19.03.6-ce'
 TRUST_FILE="file://${BASEDIR}/iam/compass-trust.json"
 POLICY_FILE="${BASEDIR}/iam/compass-policies.json"
