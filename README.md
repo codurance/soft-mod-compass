@@ -167,6 +167,8 @@ codurance-compass git:(Update-pdf-design) ✗ docker stop 86533ed26329
 > **Note:** In all following commands, the language `en` can be swapped for `es`.
 
 Create a dev environment called `compass-dev-en` on AWS (with roles, bucket, EBS, etc.):
+> The environment creation will take a couple of minutes.  
+> You can check the progress at [Compass Application Dashboard on Elasticbeanstalk](https://eu-west-1.console.aws.amazon.com/elasticbeanstalk/home?region=eu-west-1#/application/overview?applicationName=compass)
 
 ```sh
 
@@ -177,7 +179,7 @@ Deploy current (checked-out) branch to `compass-dev-en`
 
 ```sh
 
-yarn deploy-env-dev:en
+yarn deploy-dev:en
 
 ```
 
