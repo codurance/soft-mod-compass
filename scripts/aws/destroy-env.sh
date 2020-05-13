@@ -25,7 +25,7 @@ function delete_instance_profile {
     aws iam remove-role-from-instance-profile \
         --instance-profile-name ${INSTANCE_PROFILE} \
         --role-name ${ROLE}
-        
+
     echo "Deleting Instance Profile [${INSTANCE_PROFILE}] ..."
     aws iam delete-instance-profile \
         --instance-profile-name ${INSTANCE_PROFILE}
@@ -36,6 +36,10 @@ function delete_compass_role {
     aws iam delete-role-policy \
         --role-name ${ROLE} \
         --policy-name ${POLICY}
+
+    aws iam detach-role-policy \
+        --role-name ${ROLE} \
+        --policy-arn ${EB_WEBTIER_POLICY}
 
     aws iam delete-role \
         --role-name ${ROLE}
