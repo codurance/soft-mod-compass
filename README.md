@@ -194,7 +194,7 @@ Deploy current (checked-out) branch to `compass-prod-en`
 
 ```sh
 
-yarn deploy-prod:en
+yarn deploy:prod:en
 
 ```
 
@@ -209,14 +209,14 @@ Create a dev environment called `compass-prod-en` on AWS (with roles, bucket, EB
 
 ```sh
 
-yarn create-env-prod:en
+yarn create-env:prod:en
 
 ```
 **Clean Up:** Destroy `compass-prod-en` (and all corresponding resources):
 
 ```sh
 
-yarn destroy-env-prod:en
+yarn destroy-env:prod:en
 
 ```
 
