@@ -20,3 +20,11 @@ bw get item $DEV_ES | jq '.notes' -r > $DIR/envvars-config-dev-ES.sh
 bw get item $PROD_EN | jq '.notes' -r > $DIR/envvars-config-prod-EN.sh
 bw get item $PROD_ES | jq '.notes' -r > $DIR/envvars-config-prod-ES.sh
  
+echo ""
+echo "The following files were created:"
+echo ""
+echo "  - ./scripts/envvars-config-dev-EN.sh"
+echo "  - ./scripts/envvars-config-dev-ES.sh"
+echo "  - ./scripts/envvars-config-prod-EN.sh"
+echo "  - ./scripts/envvars-config-prod-ES.sh"
+echo ""
