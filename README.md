@@ -73,6 +73,11 @@ Environment variables needed for this project can be found in Bitwarden:
 
 Create the file in the `scripts` directory, paste the contents from Bitwarden.
 
+#### Automatic config download with the Bitwarden CLI
+1. Install the Bitwarden CLI: `brew install bitwarden-cli`
+1. Login to Bitwarden: `bw login EMAIL@codurance.com`
+1. Run `./scripts/download_config_from_bitwarden.sh`
+
 ### Running Locally
 
 TODO: 
@@ -194,7 +199,7 @@ Deploy current (checked-out) branch to `compass-prod-en`
 
 ```sh
 
-yarn deploy:prod:en
+yarn deploy-prod:en
 
 ```
 
@@ -209,14 +214,14 @@ Create a dev environment called `compass-prod-en` on AWS (with roles, bucket, EB
 
 ```sh
 
-yarn create-env:prod:en
+yarn create-env-prod:en
 
 ```
 **Clean Up:** Destroy `compass-prod-en` (and all corresponding resources):
 
 ```sh
 
-yarn destroy-env:prod:en
+yarn destroy-env-prod:en
 
 ```
 
