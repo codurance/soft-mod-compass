@@ -16,25 +16,25 @@ function initialize_variables {
     . ${BASEDIR}/variables.sh $ENV_TAG
     VERSION_LABEL=$(uuidgen)
     ARTIFACT='aws-artifact.zip'
-    ARTIFACT_FILE=${BASEDIR}/${ARTIFACT}
+    ARTIFACT_PATH=${BASEDIR}/${ARTIFACT}
 }
 
 function build_artifact_for_current_branch {
     echo "Building artifact [${ARTIFACT}] .."
     CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD) # https://stackoverflow.com/a/6245587/4490991
-    git archive ${CURRENT_BRANCH} -o ${ARTIFACT_FILE}
+    git archive ${CURRENT_BRANCH} -o ${ARTIFACT_PATH}
 }
 
 function upload_artifact_to_s3 {
     echo "Uploading artifact [${ARTIFACT}] .."
     ARTIFACT_BUCKET=$(aws elasticbeanstalk create-storage-location | jq -r '.S3Bucket')
     ARTIFACT_S3="s3://${ARTIFACT_BUCKET}/${VERSION_LABEL}-${ARTIFACT}"
-    aws s3 cp ${ARTIFACT_FILE} ${ARTIFACT_S3}
+    aws s3 cp ${ARTIFACT_PATH} ${ARTIFACT_S3}
 }
 
 function delete_local_artifact {
     echo "Removing local artifact [${ARTIFACT}] .."
-    rm ${ARTIFACT_FILE}
+    rm ${ARTIFACT_PATH}
 }
 
 function deploy_artifact_to_elasticbean_and_set_envvars {
