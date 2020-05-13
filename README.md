@@ -59,18 +59,6 @@ The `/report/:UUID` endpoint of the Node app uses the UUID to query the TypeForm
 The jsreport console can be found at `/reporting`. This is where you will find the jsreport development environment for updating the report template.
 
 ## Running the project
-### NOTES - TO REMOVE
-WIP TODO (do not work yet):
-
-    "create-env:prod:en": # Tip: Use EnvTag: "prod-en"
-    "create-env:prod:es": # Tip: Use EnvTag: "prod-es"
-
-    "destroy-env:prod:en": # Tip: Use EnvTag: "prod-en"
-    "destroy-env:prod:es": # Tip: Use EnvTag: "prod-es"
-
-    "deploy:prod:en": # Tip: Use EnvTag: "prod-en"
-    "deploy:prod:es": # Tip: Use EnvTag: "prod-en"
-
 ### Config
 Environment variables needed for this project can be found in Bitwarden:
 
@@ -79,7 +67,7 @@ Environment variables needed for this project can be found in Bitwarden:
   -  `[Compass] envvars-config-dev-ES.sh` contains the Spanish values used on dev
 
 - **Prod**
-  - WIP TODO: Do not use yet, wasn't tested.
+  - WIP TODO: Update prod-ES values (see TODO in file)
   -  `[Compass] envvars-config-prod-EN.sh` contains the English values used on production
   -  `[Compass] envvars-config-prod-ES.sh` contains the Spanish values used on production
 
@@ -153,6 +141,7 @@ codurance-compass git:(Update-pdf-design) ✗ docker stop 86533ed26329
 ## Deploying the Project - AWS
 
 **Important**: When deploying to `codurance` or `codurance-playground`, you **need**:
+- **The compass config files saved in `/scripts`. See [Config section](#config)**
 - The `aws` cli installed
   - `brew install awscli`
 - To be logged in with the corresponding account (`codurance` or `codurance-playground`) and region in the `aws` cli
@@ -197,23 +186,38 @@ yarn destroy-env:dev:en
 
 ```
 
-### Production (DOES NOT WORK YET => To update)
+### Production - AWS Region: `eu-central-1`
 
-Commands to create, deploy, and destroy the English production environment:
-```sh 
-yarn deploy:prod:en
+> **Note:** In all following commands, the language `en` can be swapped for `es`.
 
-yarn create:prod-env:en
+Deploy current (checked-out) branch to `compass-prod-en`
 
-yarn destroy:prod-env:en
-```
-Commands to create, deploy, and destroy the Spanish production environment:
 ```sh
-yarn deploy:prod:es
 
-yarn create:prod-env:es
+yarn deploy-prod:en
 
-yarn destroy:prod-env:es
+```
+
+In production, the environment should already exist.  
+
+Create a dev environment called `compass-prod-en` on AWS (with roles, bucket, EBS, etc.):
+> The environment creation will take a couple of minutes.  
+> You can check the progress at [Compass Application Dashboard on Elasticbeanstalk](https://eu-central-1.console.aws.amazon.com/elasticbeanstalk/home?region=eu-central-1#/application/overview?applicationName=compass)
+  
+> TODO: Update Hubspot redirection links once `compass.codurance.com/(en|es)` is working for prod.  
+> For now, after creating a new environment, the redirection URL in Hubspot needs to be updated to point to the actual elasticbeanstalk environment.
+
+```sh
+
+yarn create-env-prod:en
+
+```
+**Clean Up:** Destroy `compass-prod-en` (and all corresponding resources):
+
+```sh
+
+yarn destroy-env-prod:en
+
 ```
 
 ### HTTPS
