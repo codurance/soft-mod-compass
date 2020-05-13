@@ -10,17 +10,18 @@ Sources
 Typeform: https://developer.typeform.com/embed/hidden-fields/
 Hubspot: https://knowledge.hubspot.com/forms/can-i-auto-populate-form-fields-through-a-query-string
 */
+
 const hiddenFieldToAutoPopulate = `uuid=${uuid}`
-const surveyUrl = `https://mashooqbadar.typeform.com/to/yiRLeY?${hiddenFieldToAutoPopulate}`
-const hubspotLandingPage = `https://info.codurance.com/en/compass-details-submission?${hiddenFieldToAutoPopulate}`
+const typeformSurveyUrlWithUuidAsHiddenField = `${surveyElement.dataset.typeformurl}/to/${surveyElement.dataset.typeformformid}?${hiddenFieldToAutoPopulate}`
+const hubspotLandingPageWithUuidAsHiddenField = `${surveyElement.dataset.hubspotformlandingpageurl}?${hiddenFieldToAutoPopulate}`
 
 typeformEmbed.makeWidget(
   surveyElement,
-  surveyUrl,
+  typeformSurveyUrlWithUuidAsHiddenField,
   {
     onSubmit: () => {
       setTimeout(() => {
-        window.location = hubspotLandingPage
+        window.location = hubspotLandingPageWithUuidAsHiddenField
       }, 2500);
     }
   }

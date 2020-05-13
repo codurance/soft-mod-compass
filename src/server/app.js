@@ -24,7 +24,11 @@ module.exports = (config, reportingApp, buildInitialReportViewModelFor, buildRep
   }
 
   app.get('/', (req, res) => {
-    res.render('index')
+    res.render('index', {
+      typeformUrl: config.typeform.url,
+      typeformFormId: config.typeform.formId,
+      hubspotFormLandingPageUrl: config.hubspot.formLandingPageUrl
+    })
   })
 
   app.get('/scores/:uuid', cors(), (req, res) => {
