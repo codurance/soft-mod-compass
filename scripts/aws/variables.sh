@@ -12,6 +12,7 @@ export REPORT_BUCKET="${ENV_NAME}"
 STACK_NAME='64bit Amazon Linux 2018.03 v2.15.0 running Docker 19.03.6-ce'
 TRUST_FILE="file://${BASEDIR}/iam/compass-trust.json"
 POLICY_FILE="${BASEDIR}/iam/compass-policies.json"
+EB_WEBTIER_POLICY="arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier" # https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-instanceprofile.html
 OPTION_SETTINGS_FILE="${BASEDIR}/eb/option-settings.json"
 OPTION_SETTINGS_FILE_FOR_UPDATE="${BASEDIR}/eb/option-settings-update.json"
 S3_LIFECYCLE_FILE="file://${BASEDIR}/s3/s3-lifecycle.json"

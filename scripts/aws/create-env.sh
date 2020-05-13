@@ -25,16 +25,23 @@ function create_and_configure_s3_bucket {
         --lifecycle-configuration "${S3_LIFECYCLE_FILE}"
 }
 
-function create_role_to_allow_access_to_s3_and_send_mail {
+function create_role_to_allow_access_to_s3_send_mail_and_general_ec2_needs {
     echo "creating compass role: [${ROLE}] .."
     aws iam create-role \
         --role-name ${ROLE} \
         --assume-role-policy-document "${TRUST_FILE}"
     
+    # Allow access to S3 and Mail - Compass Need
     aws iam put-role-policy \
         --role-name ${ROLE} \
         --policy-name ${POLICY} \
         --policy-document "${POLICY_DOCUMENT}"
+
+    # Allow to upload logs to Amazon S3 and debugging information to AWS X-Ray - EC2 Need
+    # https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-instanceprofile.html
+    aws iam attach-role-policy \
+        --role-name ${ROLE} \
+        --policy-arn ${EB_WEBTIER_POLICY}
 }
 
 function create_instance_profile_and_add_role_to_it {
@@ -61,6 +68,6 @@ function create_env_with_instance_profile {
 stop_on_first_failure
 initialize_variables $1
 create_and_configure_s3_bucket
-create_role_to_allow_access_to_s3_and_send_mail
+create_role_to_allow_access_to_s3_send_mail_and_general_ec2_needs
 create_instance_profile_and_add_role_to_it
 create_env_with_instance_profile
