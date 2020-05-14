@@ -10,8 +10,9 @@ TARGET_GROUP_ARNS_PATH=$DIR/target_group_arns
 
 function delete_all_target_groups {
     for ARN_FILE in $TARGET_GROUP_ARNS_PATH/*; do
+        TARGET_GROUP_ARN=$(cat $ARN_FILE)
         aws elbv2 delete-target-group \
-            --target-group-arn $(cat $ARN_FILE)
+            --target-group-arn $TARGET_GROUP_ARN
         rm $ARN_FILE
     done
 }

@@ -5,7 +5,6 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 
 # TODO: DO NOT HARDCODE VPC ID
-
 DEFAULT_VPC_ID=vpc-1ee65b79
 
 TARGET_GROUP_ARNS_PATH=$DIR/target_group_arns
