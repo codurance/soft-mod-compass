@@ -46,27 +46,28 @@ const body = (pdfLink, userData) => {
             <tr>
               <td align="left" valign="top" style="padding: 20px;">
                 <p class="preview-text" style="font-size: 0; line-height: 0;">Your report expires in 7 days.</p>
-                <p>Hi ${userData.firstname},
+                <p>Hola ${userData.firstname},
                   <br><br>
-                  Thank you for using <b>Codurance Compass</b> — our software delivery assessment.
-                  DEBUG ES VERSION DEBUG ES VERSION DEBUG ES VERSION DEBUG ES VERSION DEBUG ES VERSION DEBUG ES VERSION DEBUG ES VERSION 
+                  El equipo de Codurance te damos las gracias por utilizar <b>Compass</b>.
                   <br><br>
-                  Below is a link to the PDF of your detailed report. This report will help you measure the current level of maturity of your software development organisation across 5 distinct areas and includes recommendations for improvements.
+                  A continuación verás un link con el que podrás acceder al informe que hemos elaborado.
+                  Esperamos que te sirva de ayuda para entender cuál es el grado actual de madurez de tu organización en cuanto a software modernisation.
+                  Hemos incluído algunas recomendaciones para que puedas analizar las posibilidades de mejora que tienes a tu alcance.
                   <br><br>
-                  5 areas of effective software delivery organisation:
+                  Las cinco áreas que hemos analizado son:
                 </p>
                 <ul style="font-family: inherit;">
-                  <li>Organisational Maturity</li>
-                  <li>Continuous Delivery</li>
-                  <li>People & Culture</li>
-                  <li>Effective Team</li>
-                  <li>Technical Practices</li>
+                  <li>Madurez Organizacional</li>
+                  <li>Entrega continua</li>
+                  <li>Personas y cultura</li>
+                  <li>Equipos efectivos</li>
+                  <li>Practicas técnicas</li>
                 </ul>
-                <p>Your report will be available to download for the next 7 days. If you have any comments on the report, or need us to expand or clarify a specific point, do not hesitate to contact us.</p>
+                <p>Tu informe estará disponible para descargar durante 7 días. Si tienes algún comentario sobre el informe, o necesitas que ampliemos o clarifiquemos algún punto en concreto no dudes en contactar con nosotros.</p>
                 <p style="font-family:Arial, Helvetica, sans-serif; font-size: 16px; color: #293341; line-height: 1.5;">
-                  <a href=${pdfLink} style="color: #fa7268">Download your Codurance Compass report</a>
+                  <a href=${pdfLink} style="color: #fa7268">Aquí tienes tu informe</a>
                   <br><br>
-                  Thanks,
+                  Gracias!
                 </p>
               </td>
             </tr>
@@ -147,7 +148,7 @@ const body = (pdfLink, userData) => {
           <table cellpadding="0" cellspacing="0" border="0" style="width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; padding-left: 20px; padding-right: 20px;">
             <tr>
               <td>
-                <span class="text-small">Follow us on social</span>
+                <span class="text-small">Síguenos en nuestros canales Social Media</span>
                 <a href="https://www.facebook.com/codurance/" style="margin-left: 10px;">
                   <img alt="Facebook-f" width="auto" height="20" src="https://compass-images.s3.eu-central-1.amazonaws.com/email-images/Facebook-f.png">
                 </a>
