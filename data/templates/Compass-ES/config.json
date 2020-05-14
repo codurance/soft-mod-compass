@@ -7,11 +7,18 @@
     "recipe": "chrome-pdf",
     "engine": "handlebars",
     "chrome": {
-        "printBackground": true
+        "printBackground": true,
+        "format": "A4",
+        "width": "21cm",
+        "height": "29.7cm",
+        "marginTop": "0cm",
+        "marginRight": "0cm",
+        "marginBottom": "0cm",
+        "marginLeft": "0cm"
     },
     "creationDate": "2020-05-13T08:42:09.759Z",
     "modificationDate": {
-        "$$date": 1589447935283
+        "$$date": 1589450051893
     },
     "_id": "c79giGnzkPeEKZea",
     "$entitySet": "templates",
