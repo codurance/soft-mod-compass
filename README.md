@@ -87,20 +87,28 @@ This will download the latest config files from Bitwarden and place them in the 
 
 ### Running Locally
 
-TODO: 
-**Note** AWS credentials (AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY) are only needed for running a local environment. These are not needed for AWS deployment.
+> **Important**: Before running locally, you **need**:
+> - **The compass config files saved in `/scripts`. See [Config section](#config)**
+> - The `aws` cli installed
+>   - `brew install awscli`
+> - To be logged in with the corresponding account (`codurance` or `codurance-playground`) and region in the `aws` cli
+>   - `aws configure`
+>     - https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
+>     - Check the correct region in each section below (`playground`/`prod`).  
+>       If the region is incorrect, an error will be thrown.
+
 
 Run the dev environment:
 
-```
+```bash
 # Step 1
-# Copy the correct config (See 'Config' section)
-
-# Step 2
 yarn install
 
+# Step 2
+yarn dev:en # or 'yarn dev:es'
+
 # Step 3
-yarn dev # go to localhost:8080
+# Go to http://localhost:8080
 ```
 
 :large_blue_diamond: Note that `yarn` can be substituted for `npm`/`npm run` if you don't have yarn. (Yarn is easily installed on mac with `brew install yarn`)
