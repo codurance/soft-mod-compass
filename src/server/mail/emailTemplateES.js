@@ -109,7 +109,8 @@ const body = (pdfLink, userData) => {
                   <tr>
                     <td style="padding-top: 10px;">
                       <p style="font-size: 13px;">
-                        We are software craftspeople. We build well-crafted software for our clients, we help developers to get better at their craft through training, coaching and mentoring, and we help companies get better at delivering software.</p>
+                        Somos Software Craftspeople. Construimos software bien elaborado para nuestros clientes, ayudamos a los/as desarrolladores/as a mejorar en su oficio a través de la formación, la orientación y la tutoría. Ayudamos a las empresas a mejorar en la distribución de software.
+                      </p>
                     </td>
                   </tr>
                 </table>
@@ -118,24 +119,24 @@ const body = (pdfLink, userData) => {
               <td class="right-cell" style="display: inline-block; width: 49%; padding-top: 20px;color:#ffffff99;">
                   <ul style="list-style: none; display: inline-block;">
                     <li class="footer__nav-link" style="margin-bottom: 10px;">
-                      <a href="https://codurance.es/clients/" style="color:inherit; text-decoration: none;">clients</a>
+                      <a href="https://codurance.es/clients/" style="color:inherit; text-decoration: none;">clientes</a>
                     </li>
                     <li class="footer__nav-link" style="margin-bottom: 10px;">
-                      <a href="https://codurance.es/services/" style="color:inherit; text-decoration: none;">services</a>
+                      <a href="https://codurance.es/services/" style="color:inherit; text-decoration: none;">servicios</a>
                     </li>
                     <li class="footer__nav-link" style="margin-bottom: 10px;">
-                      <a href="https://codurance.es/publications/" style="color:inherit; text-decoration: none;">publications</a>
+                      <a href="https://codurance.es/publications/" style="color:inherit; text-decoration: none;">publicaciones</a>
                     </li>
                   </ul>
                   <ul style="list-style: none; display: inline-block;">
                     <li class="footer__nav-link" style="margin-bottom: 10px;">
-                      <a href="https://codurance.es/careers/" style="color:inherit; text-decoration: none;">careers</a>
+                      <a href="https://codurance.es/careers/" style="color:inherit; text-decoration: none;">carreras</a>
                     </li>
                     <li class="footer__nav-link" style="margin-bottom: 10px;">
-                      <a href="https://codurance.es/about-us/our-story/" style="color:inherit; text-decoration: none;">about</a>
+                      <a href="https://codurance.es/about-us/our-story/" style="color:inherit; text-decoration: none;">sobre nosotros</a>
                     </li>
                     <li class="footer__nav-link" style="margin-bottom: 10px;">
-                      <a href="https://codurance.es/contact-us/" style="color:inherit; text-decoration: none;">contact</a>
+                      <a href="https://codurance.es/contact-us/" style="color:inherit; text-decoration: none;">contáctanos</a>
                     </li>
                   </ul>
               </td>
