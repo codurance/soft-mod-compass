@@ -1,4 +1,4 @@
-const pdfLinkEmail = (pdfLink, userData) => {
+const body = (pdfLink, userData) => {
   return `
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -169,4 +169,6 @@ const pdfLinkEmail = (pdfLink, userData) => {
 </html>
 `};
 
-module.exports = pdfLinkEmail;
+const subject = () => 'Here is your Codurance Compass report';
+
+module.exports = {subject, body};
