@@ -1,0 +1,21 @@
+{
+    "folder": {
+        "shortid": "X5TO6e"
+    },
+    "shortid": "SkluRM4Y9U",
+    "name": "Compass-ES",
+    "recipe": "chrome-pdf",
+    "engine": "handlebars",
+    "chrome": {
+        "printBackground": true
+    },
+    "creationDate": "2020-05-13T08:42:09.759Z",
+    "modificationDate": {
+        "$$date": 1589447935283
+    },
+    "_id": "c79giGnzkPeEKZea",
+    "$entitySet": "templates",
+    "data": {
+        "shortid": "Skgk_Aucq8"
+    }
+}
