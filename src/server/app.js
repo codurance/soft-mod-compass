@@ -35,8 +35,12 @@ module.exports = (config, reportingApp, buildReportViewModelFor) => {
   })
 
   function generateReportAsync (uuid) {
+    let templateName = 'Compass'
+    if(config.language === 'ES') {
+      templateName = `${templateName}-ES`
+    }
     const template = {
-      name: 'Compass',
+      name: templateName,
       engine: 'handlebars',
       recipe: 'chrome-pdf'
     }
