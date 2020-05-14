@@ -81,7 +81,7 @@ const body = (pdfLink, userData) => {
                         <b>David Hall</b><br>
                         <span style="font-size: 13px;">Head of Business Development</span><br>
                         <a href="tel: +447447062036" style="font-size: 13px; color: #293341;">+44 7447 062036</a><br>
-                        <a href="https://codurance.com/en/software-moderisation" style="font-size: 13px; color: #293341;">Codurance.com</a>
+                        <a href="https://codurance.com/software-modernisation" style="font-size: 13px; color: #293341;">Codurance.com</a>
                       </p>
                     </td>
                   </tr>
@@ -130,7 +130,7 @@ const body = (pdfLink, userData) => {
                       <a href="https://codurance.com/careers/" style="color:inherit; text-decoration: none;">careers</a>
                     </li>
                     <li class="footer__nav-link" style="margin-bottom: 10px;">
-                      <a href="https://codurance.com/our-story/" style="color:inherit; text-decoration: none;">about</a>
+                      <a href="https://codurance.com/about-us/our-story/" style="color:inherit; text-decoration: none;">about</a>
                     </li>
                     <li class="footer__nav-link" style="margin-bottom: 10px;">
                       <a href="https://codurance.com/contact-us/" style="color:inherit; text-decoration: none;">contact</a>
