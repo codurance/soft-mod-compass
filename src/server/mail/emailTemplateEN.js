@@ -11,7 +11,7 @@ const body = (pdfLink, userData) => {
     />
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
 
-    <title>Here is your Codurance Compass report</title>
+    <title>${subject()}</title>
 
     <style>
       @media (max-width: 550px) {

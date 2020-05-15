@@ -11,7 +11,7 @@ const body = (pdfLink, userData) => {
     />
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
 
-    <title>Here is your Codurance Compass report</title>
+    <title>${subject()}</title>
 
     <style>
       @media (max-width: 550px) {
@@ -45,13 +45,13 @@ const body = (pdfLink, userData) => {
           <table cellpadding="0" cellspacing="0" border="0" style="width: 100%; max-width: 600px; margin-left: auto; margin-right: auto;">
             <tr>
               <td align="left" valign="top" style="padding: 20px;">
-                <p class="preview-text" style="font-size: 0; line-height: 0;">Your report expires in 7 days.</p>
+                <p class="preview-text" style="font-size: 0; line-height: 0;">Tu informe estará disponible para descargar durante siete días.</p>
                 <p>Hola ${userData.firstname},
                   <br><br>
                   El equipo de Codurance te damos las gracias por utilizar <b>Compass</b>.
                   <br><br>
                   A continuación verás un link con el que podrás acceder al informe que hemos elaborado.
-                  Esperamos que te sirva de ayuda para entender cuál es el grado actual de madurez de tu organización en cuanto a software modernisation.
+                  Esperamos que te sirva de ayuda para entender cuál es el grado actual de madurez de tu organización en cuanto a Software Modernisation.
                   Hemos incluído algunas recomendaciones para que puedas analizar las posibilidades de mejora que tienes a tu alcance.
                   <br><br>
                   Las cinco áreas que hemos analizado son:
@@ -63,7 +63,7 @@ const body = (pdfLink, userData) => {
                   <li>Equipos efectivos</li>
                   <li>Practicas técnicas</li>
                 </ul>
-                <p>Tu informe estará disponible para descargar durante 7 días. Si tienes algún comentario sobre el informe, o necesitas que ampliemos o clarifiquemos algún punto en concreto no dudes en contactar con nosotros.</p>
+                <p>Tu informe estará disponible para descargar durante siete días. Si tienes algún comentario sobre el informe, o necesitas que ampliemos o clarifiquemos algún punto en concreto no dudes en contactar con nosotros.</p>
                 <p style="font-family:Arial, Helvetica, sans-serif; font-size: 16px; color: #293341; line-height: 1.5;">
                   <a href=${pdfLink} style="color: #fa7268">Aquí tienes tu informe</a>
                   <br><br>
@@ -172,6 +172,6 @@ const body = (pdfLink, userData) => {
 </html>
 `};
 
-const subject = () => 'DEBUG ES VERSION SUBJECT';
+const subject = () => 'Aquí tienes tu informe Compass';
 
 module.exports = {subject, body};
