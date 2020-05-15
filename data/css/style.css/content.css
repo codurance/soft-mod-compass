@@ -3,6 +3,7 @@
     background: url('{#asset /assets/pageImgs/cover.jpg @encoding=dataURI}') no-repeat;
     background-size: cover;
 }
+
 #intro-page {
   background: url('{#asset /assets/pageImgs/intro.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
@@ -22,6 +23,7 @@
   background: url('{#asset /assets/pageImgs/organisational-maturity.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
+
 #organisational-maturity-breakdown-page {
   background: url('{#asset /assets/pageImgs/organisational-maturity-avg.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
@@ -71,3 +73,25 @@
   background: url('{#asset /assets/pageImgs/summary.jpg @encoding=dataURI}') no-repeat;
   background-size: cover;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

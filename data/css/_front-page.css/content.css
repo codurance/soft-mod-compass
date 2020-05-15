@@ -11,6 +11,8 @@
   top: 201.5mm;
   right: 26mm;
   width: 109mm;
+  text-align: right;
+  color: white;
 }
 
 #front-page_date {
@@ -19,4 +21,6 @@
   top: 227mm;
   right: 26mm;
   width: 39mm;
+  text-align: right;
+  color: white;
 }

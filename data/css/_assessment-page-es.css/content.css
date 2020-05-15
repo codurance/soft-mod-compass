@@ -1,0 +1,208 @@
+.assessment-page__warning-box {
+    width: 166mm;
+    height: 38.8mm;
+    outline-style: solid;
+    outline-color: #ffca4d;
+    outline-width: 2pt;
+    display: block;
+    position: absolute;
+    left: 22.12mm;
+}
+.assessment-page__warning-icon {
+    background: url('{#asset /assets/assessment-warning-icon.png @encoding=dataURI}');
+    background-size: cover;
+    display: inline-block;
+    position: absolute;
+    width: 8.7mm;
+    height: 7.9mm;
+    top: -5mm;
+    left: 5.5mm;
+}
+
+.assessment-page__warning-box[data-category="organisational-maturity"] {
+    top: 63mm;
+    height: 40.2mm;
+}
+
+.assessment-page__warning-box[data-category="continuous-delivery"] {
+    top: 110.7mm;
+    height: 34.7mm;
+}
+
+.assessment-page__warning-box[data-category="people-culture"] {
+    top: 153mm;
+    height: 40.3mm;
+}
+
+.assessment-page__warning-box[data-category="effective-team"] {
+    top: 200.5mm;
+    height: 40.2mm;
+}
+
+.assessment-page__warning-box[data-category="technical-practices"] {
+    top: 248mm;
+    height: 40.8mm;
+}
+
+.assessment-page__barchart {
+    left: 114.8mm;
+    width: 62.956mm;
+    height: 1.88mm;
+    position: absolute;
+    background: var(--functional-light-grey);
+}
+.assessment-page__inner-fill {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.assessment-page__markers-container {
+    position: absolute;
+    left: 0;
+    top: 1.88mm;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.assessment-page__marker {
+    width: 0.5mm;
+    height: 1.822mm;
+    background: var(--functional-light-grey);
+    box-sizing: border-box;
+    /*border: 5pt solid grey;*/
+    overflow: hidden;
+}
+
+.assessment-page__barchart[data-category="organisational-maturity"] {
+    top: 71.5mm;
+}
+
+.assessment-page__barchart[data-category="continuous-delivery"] {
+    top: 119.6mm;
+}
+
+.assessment-page__barchart[data-category="people-culture"] {
+    top: 165mm;
+}
+
+.assessment-page__barchart[data-category="effective-team"] {
+    top: 210.5mm;
+}
+
+.assessment-page__barchart[data-category="technical-practices"] {
+    top: 253.2mm;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.assessment-page_graph {*/
+/*  position: absolute;*/
+/*  width: 67.4mm;*/
+/*  height: 2mm;*/
+/*  background: var(--graph-bar-background-on-dark);*/
+/*}*/
+
+/*.assessment-page_result-text {*/
+/*  font-size: var(--font-size-body);*/
+/*  font-weight: var(--font-weight-bold);*/
+/*  position: absolute;*/
+/*  top: 5mm;*/
+/*  left: 0;*/
+/*}*/
+
+/*.assessment-page_graph.om {*/
+/*  top: 58.2mm;*/
+/*  left: 27.65mm;*/
+/*}*/
+/*.assessment-page_graph.om > .graph-bar_result-bar {*/
+/*  background: var(--codurance-light-green);*/
+/*}*/
+/*.assessment-page_result-text.om {*/
+/*  color: var(--codurance-light-green);*/
+/*}*/
+
+
+/*.assessment-page_graph.cd {*/
+/*  top: 58.2mm;*/
+/*  left: 115.7mm;*/
+/*}*/
+/*.assessment-page_graph.cd > .graph-bar_result-bar {*/
+/*  background: var(--codurance-purple);*/
+/*}*/
+/*.assessment-page_result-text.cd {*/
+/*  color: var(--small-text-on-dark-purple);*/
+/*}*/
+
+
+/*.assessment-page_graph.c {*/
+/*  top: 58.2mm;*/
+/*  left: 203.7mm;*/
+/*}*/
+/*.assessment-page_graph.c > .graph-bar_result-bar {*/
+/*  background: var(--small-text-on-dark-yellow);*/
+/*}*/
+/*.assessment-page_result-text.c {*/
+/*  color: var(--small-text-on-dark-yellow);*/
+/*}*/
+
+
+/*.assessment-page_graph.cft {*/
+/*  top: 132.3mm;*/
+/*  left: 27.65mm;*/
+/*}*/
+/*.assessment-page_graph.cft > .graph-bar_result-bar {*/
+/*  background: var(--small-text-on-dark-red);*/
+/*}*/
+/*.assessment-page_result-text.cft {*/
+/*  color: var(--small-text-on-dark-red);*/
+/*}*/
+
+
+/*.assessment-page_graph.xpp {*/
+/*  top: 132.3mm;*/
+/*  left: 115.7mm;*/
+/*}*/
+/*.assessment-page_graph.xpp > .graph-bar_result-bar {*/
+/*  background: var(--codurance-orange);*/
+/*}*/
+/*.assessment-page_result-text.xpp {*/
+/*  color: var(--small-text-on-dark-orange);*/
+/*}*/
