@@ -4,8 +4,10 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "dev": ". ./scripts/aws-env.sh && webpack --mode=development && npm start",
-    "debug": ". ./scripts/aws-env.sh && webpack --mode=development && node --inspect index.js",
+    "dev:en": ". ./scripts/envvars-config-dev-EN.sh && webpack --mode=development && npm start",
+    "dev:es": ". ./scripts/envvars-config-dev-ES.sh && webpack --mode=development && npm start",
+    "debug:en": ". ./scripts/envvars-config-dev-EN.sh && webpack --mode=development && node --inspect index.js",
+    "debug:es": ". ./scripts/envvars-config-dev-ES.sh && webpack --mode=development && node --inspect index.js",
     "watch": "nodemon",
     "start": "babel-node index.js",
     "test": "jest && npm run lint",

@@ -1,6 +1,8 @@
 const AWS = require('aws-sdk');
 const ses = new AWS.SES({ region: 'eu-west-1' });
-const pdfLinkEmail = require('./PdfLinkEmail');
+const config = require('../config')
+const isESversion = config.language === "ES"
+const emailTemplate = isESversion ? require('./emailTemplateES') : require('./emailTemplateEN')
 
 function sendPdfLinkEmail(pdfLink, userData) {
   const emailData = {
@@ -12,9 +14,9 @@ function sendPdfLinkEmail(pdfLink, userData) {
       'talkwithus@codurance.com'
     ],
     Message: {
-      Subject: { Data: 'Here is your Codurance Compass report' },
+      Subject: { Data: emailTemplate.subject() },
       Body: {
-        Html: { Data: pdfLinkEmail(pdfLink, userData) },
+        Html: { Data: emailTemplate.body(pdfLink, userData) },
       },
     },
   };
