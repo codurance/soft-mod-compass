@@ -63,10 +63,9 @@ const body = (pdfLink, userData) => {
                   <li>Equipos efectivos</li>
                   <li>Practicas técnicas</li>
                 </ul>
+                <a href=${pdfLink} style="color: #fa7268">Aquí tienes tu informe</a>
                 <p>Tu informe estará disponible para descargar durante siete días. Si tienes algún comentario sobre el informe, o necesitas que ampliemos o clarifiquemos algún punto en concreto no dudes en contactar con nosotros.</p>
                 <p style="font-family:Arial, Helvetica, sans-serif; font-size: 16px; color: #293341; line-height: 1.5;">
-                  <a href=${pdfLink} style="color: #fa7268">Aquí tienes tu informe</a>
-                  <br><br>
                   Gracias!
                 </p>
               </td>
