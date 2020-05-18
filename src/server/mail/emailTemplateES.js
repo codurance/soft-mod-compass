@@ -75,13 +75,13 @@ const body = (pdfLink, userData) => {
                 <table cellpadding="0" cellspacing="0" border="0">
                   <tr>
                     <td width="80">
-                      <img alt="david-profile" width="80" height="80" src="https://compass-images.s3.eu-central-1.amazonaws.com/email-images/david-profile.png">
+                      <img alt="jack-profile" width="80" height="80" src="https://compass-images.s3.eu-central-1.amazonaws.com/email-images/jack-profile.png">
                     </td>
                     <td style="padding-left: 20px;">
                       <p>
-                        <b>David Hall</b><br>
-                        <span style="font-size: 13px;">Head of Business Development</span><br>
-                        <a href="tel: +447447062036" style="font-size: 13px; color: #293341;">+44 7447 062036</a><br>
+                        <b>Jack Colemanzo</b><br>
+                        <span style="font-size: 13px;">Head of Sales (Spain)</span><br>
+                        <a href="tel: +34937822882" style="font-size: 13px; color: #293341;">+34 937 82 28 82</a><br>
                         <a href="https://codurance.es/software-modernisation/" style="font-size: 13px; color: #293341;">Codurance.es</a>
                       </p>
                     </td>
