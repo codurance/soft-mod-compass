@@ -1,17 +1,20 @@
 const config = require('./config');
+
 const ENGLISH_PREVIEW_TEXT = "Our software delivery assessment measures the " +
     "current level of maturity of your software development organisation across " +
     "5 areas & includes recommendations for improvements.";
 const SPANISH_PREVIEW_TEXT = "Nuestra evaluación de entrega de software permite medir" +
     " el nivel actual de madurez de tu organización de desarrollo de software en " +
     "cinco áreas distintas e incluye recomendaciones para aplicar posibles mejoras.";
-
-function isEnglishVersion() {
-    return config.language !== "ES";
-}
+const ENGLISH_TITLE = "Compass by Codurance | Assessment Tool"
+const SPANISH_TITLE = "Compass by Codurance | Herramienta de evaluación"
 
 function getDescription() {
-    return isEnglishVersion() ? ENGLISH_PREVIEW_TEXT : SPANISH_PREVIEW_TEXT;
+    return !config.isESVersion ? ENGLISH_PREVIEW_TEXT : SPANISH_PREVIEW_TEXT;
 }
 
-module.exports = getDescription;
+function getTitle() {
+    return !config.isESVersion ? ENGLISH_TITLE : SPANISH_TITLE
+}
+
+module.exports = {getDescription, getTitle};

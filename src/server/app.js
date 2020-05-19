@@ -2,6 +2,7 @@ const path = require('path')
 const jsreport = require('jsreport')
 const express = require('express')
 const favicon = require('serve-favicon')
+const {getDescription, getTitle} = require('./socialMediaPreview');
 
 const stripHubspotSubmissionGuid = require('./middleware/stripHubspotSubmissionGuid')
 
@@ -15,7 +16,6 @@ const jsReportTemplate ={
     recipe: 'chrome-pdf'
 }
 
-const getDescription = require('./getDescription');
 
 module.exports = (config, reportingApp, buildReportViewModelFor) => {
   const app = express()
@@ -35,7 +35,8 @@ module.exports = (config, reportingApp, buildReportViewModelFor) => {
       typeformUrl: config.typeform.url,
       typeformFormId: config.typeform.formId,
       hubspotFormLandingPageUrl: config.hubspot.formLandingPageUrl,
-      getDescription: getDescription(),
+      description: getDescription(),
+      title: getTitle()
     })
   })
 
