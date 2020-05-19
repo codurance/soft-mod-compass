@@ -1,0 +1,75 @@
+/* page-en BACKGROUNDS */
+#front-page-en {
+    background: url('{#asset /assets/pageImgs-EN/cover-EN.jpg @encoding=dataURI}') no-repeat;
+    background-size: cover;
+}
+
+#intro-page-en {
+  background: url('{#asset /assets/pageImgs-EN/intro-EN.jpg @encoding=dataURI}') no-repeat;
+  background-size: cover;
+}
+
+#assessment-page-en {
+  background: url('{#asset /assets/pageImgs-EN/assessment-EN.jpg @encoding=dataURI}') no-repeat;
+  background-size: cover;
+}
+
+#toc-page-en {
+  background: url('{#asset /assets/pageImgs-EN/table-of-contents-EN.jpg @encoding=dataURI}') no-repeat;
+  background-size: cover;
+}
+
+#organisational-maturity-page-en {
+  background: url('{#asset /assets/pageImgs-EN/organisational-maturity-EN.jpg @encoding=dataURI}') no-repeat;
+  background-size: cover;
+}
+
+#organisational-maturity-breakdown-page-en {
+  background: url('{#asset /assets/pageImgs-EN/organisational-maturity-avg-EN.jpg @encoding=dataURI}') no-repeat;
+  background-size: cover;
+}
+
+#continuous-delivery-page-en {
+  background: url('{#asset /assets/pageImgs-EN/continuous-delivery-EN.jpg @encoding=dataURI}') no-repeat;
+  background-size: cover;
+}
+
+#continuous-delivery-breakdown-page-en {
+  background: url('{#asset /assets/pageImgs-EN/continuous-delivery-avg-EN.jpg @encoding=dataURI}') no-repeat;
+  background-size: cover;
+}
+
+#people-culture-page-en {
+  background: url('{#asset /assets/pageImgs-EN/people-culture-EN.jpg @encoding=dataURI}') no-repeat;
+  background-size: cover;
+}
+
+#people-culture-breakdown-page-en {
+  background: url('{#asset /assets/pageImgs-EN/people-culture-avg-EN.jpg @encoding=dataURI}') no-repeat;
+  background-size: cover;
+}
+
+#effective-team-page-en {
+  background: url('{#asset /assets/pageImgs-EN/effective-team-EN.jpg @encoding=dataURI}') no-repeat;
+  background-size: cover;
+}
+
+#effective-team-breakdown-page-en {
+  background: url('{#asset /assets/pageImgs-EN/effective-team-avg-EN.jpg @encoding=dataURI}') no-repeat;
+  background-size: cover;
+}
+
+#technical-practices-page-en {
+  background: url('{#asset /assets/pageImgs-EN/technical-practices-EN.jpg @encoding=dataURI}') no-repeat;
+  background-size: cover;
+}
+
+#technical-practices-breakdown-page-en {
+  background: url('{#asset /assets/pageImgs-EN/technical-practices-avg-EN.jpg @encoding=dataURI}') no-repeat;
+  background-size: cover;
+}
+
+#summary-page-en {
+  background: url('{#asset /assets/pageImgs-EN/summary-EN.jpg @encoding=dataURI}') no-repeat;
+  background-size: cover;
+}

@@ -10,7 +10,7 @@ const sendPdfLinkEmail = require('./mail/sendPdfLinkEmail')
 const config = require('./config');
 const isESversion = config.language === "ES"; // TODO: Maybe merge this w/ the one from `sendPdfLinkEmail` and add in `config.js`
 const jsReportTemplate ={
-    name: isESversion ? "Compass-ES" : "Compass",
+    name: isESversion ? "Compass-ES" : "Compass-EN",
     engine: 'handlebars',
     recipe: 'chrome-pdf'
 }
