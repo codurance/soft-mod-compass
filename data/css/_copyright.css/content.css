@@ -6,6 +6,7 @@
     color: var(--primary-coral);
 }
 
+#front-page-es .copyright,
 #front-page .copyright {
   color: white;
   position: absolute;
