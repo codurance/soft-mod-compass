@@ -15,6 +15,8 @@ const jsReportTemplate ={
     recipe: 'chrome-pdf'
 }
 
+const getDescription = require('./getDescription');
+
 module.exports = (config, reportingApp, buildReportViewModelFor) => {
   const app = express()
 
@@ -32,7 +34,8 @@ module.exports = (config, reportingApp, buildReportViewModelFor) => {
     res.render('index', {
       typeformUrl: config.typeform.url,
       typeformFormId: config.typeform.formId,
-      hubspotFormLandingPageUrl: config.hubspot.formLandingPageUrl
+      hubspotFormLandingPageUrl: config.hubspot.formLandingPageUrl,
+      getDescription: getDescription(),
     })
   })
 
