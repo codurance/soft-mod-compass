@@ -1,0 +1,32 @@
+{
+    "shortid": "SyR8PsuhX",
+    "name": "Compass-EN",
+    "recipe": "chrome-pdf",
+    "engine": "handlebars",
+    "chrome": {
+        "printBackground": true,
+        "format": "A4",
+        "marginTop": "0cm",
+        "marginRight": "0cm",
+        "marginBottom": "0cm",
+        "marginLeft": "0cm",
+        "landscape": false,
+        "width": "21cm",
+        "height": "29.7cm"
+    },
+    "modificationDate": {
+        "$$date": 1589561754928
+    },
+    "_id": "bUe0ZtrZKts6vwCZ",
+    "$entitySet": "templates",
+    "data": {
+        "shortid": "SyxAR6_5qI"
+    },
+    "resources": {
+        "items": []
+    },
+    "folder": {
+        "shortid": "X5TO6e"
+    },
+    "scripts": []
+}
