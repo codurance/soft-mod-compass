@@ -15,6 +15,7 @@ else
   export BW_SESSION=$(bw unlock --raw)
 fi
 
+bw sync
 bw get item $DEV_EN | jq '.notes' -r > $DIR/envvars-config-dev-EN.sh
 bw get item $DEV_ES | jq '.notes' -r > $DIR/envvars-config-dev-ES.sh
 bw get item $PROD_EN | jq '.notes' -r > $DIR/envvars-config-prod-EN.sh
