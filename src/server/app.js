@@ -7,6 +7,13 @@ const stripHubspotSubmissionGuid = require('./middleware/stripHubspotSubmissionG
 
 const uploadToS3 = require('./upload/uploadToS3')
 const sendPdfLinkEmail = require('./mail/sendPdfLinkEmail')
+const config = require('./config');
+const isESversion = config.language === "ES"; // TODO: Maybe merge this w/ the one from `sendPdfLinkEmail` and add in `config.js`
+const jsReportTemplate ={
+    name: isESversion ? "Compass-ES" : "Compass",
+    engine: 'handlebars',
+    recipe: 'chrome-pdf'
+}
 
 module.exports = (config, reportingApp, buildReportViewModelFor) => {
   const app = express()
@@ -35,18 +42,9 @@ module.exports = (config, reportingApp, buildReportViewModelFor) => {
   })
 
   function generateReportAsync (uuid) {
-    let templateName = 'Compass'
-    if(config.language === 'ES') {
-      templateName = `${templateName}-ES`
-    }
-    const template = {
-      name: templateName,
-      engine: 'handlebars',
-      recipe: 'chrome-pdf'
-    }
     buildReportViewModelFor(uuid)
       .then(viewModel => {
-        jsreport.render({ template, data: viewModel })
+        jsreport.render({ template: jsReportTemplate, data: viewModel })
           .then(pdf => {
             const email = getEmail(viewModel)
             const firstname = getFirstname(viewModel)
