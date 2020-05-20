@@ -136,12 +136,6 @@ yarn dev-docker:en # or 'yarn dev-docker:en'
 yarn test
 ```
 
-### Running tests locally -  with Docker
-
-```
-./scripts/docker/run-tests.sh
-```
-
 ## Deploying the Project - AWS
 
 **Important**: When deploying to `codurance` or `codurance-playground`, you **need**:
