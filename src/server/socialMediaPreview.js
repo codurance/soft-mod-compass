@@ -10,11 +10,11 @@ const ENGLISH_TITLE = "Compass by Codurance | Assessment Tool"
 const SPANISH_TITLE = "Compass by Codurance | Herramienta de evaluación"
 
 function getDescription() {
-    return !config.isESVersion ? ENGLISH_PREVIEW_TEXT : SPANISH_PREVIEW_TEXT;
+    return config.isESVersion ? SPANISH_PREVIEW_TEXT : ENGLISH_PREVIEW_TEXT;
 }
 
 function getTitle() {
-    return !config.isESVersion ? ENGLISH_TITLE : SPANISH_TITLE
+    return config.isESVersion ? SPANISH_TITLE : ENGLISH_TITLE
 }
 
 module.exports = {getDescription, getTitle};
