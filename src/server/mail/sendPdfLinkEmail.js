@@ -1,8 +1,7 @@
 const AWS = require('aws-sdk');
 const ses = new AWS.SES({ region: 'eu-west-1' });
 const config = require('../config')
-const isESversion = config.language === "ES"
-const emailTemplate = isESversion ? require('./emailTemplateES') : require('./emailTemplateEN')
+const emailTemplate = config.isESVersion ? require('./emailTemplateES') : require('./emailTemplateEN')
 
 function sendPdfLinkEmail(pdfLink, userData) {
   const emailData = {

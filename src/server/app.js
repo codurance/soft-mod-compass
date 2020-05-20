@@ -2,18 +2,19 @@ const path = require('path')
 const jsreport = require('jsreport')
 const express = require('express')
 const favicon = require('serve-favicon')
+const socialMediaPreview = require('./socialMediaPreview');
 
 const stripHubspotSubmissionGuid = require('./middleware/stripHubspotSubmissionGuid')
 
 const uploadToS3 = require('./upload/uploadToS3')
 const sendPdfLinkEmail = require('./mail/sendPdfLinkEmail')
 const config = require('./config');
-const isESversion = config.language === "ES"; // TODO: Maybe merge this w/ the one from `sendPdfLinkEmail` and add in `config.js`
 const jsReportTemplate ={
-    name: isESversion ? "Compass-ES" : "Compass-EN",
+    name: config.isESVersion ? "Compass-ES" : "Compass-EN",
     engine: 'handlebars',
     recipe: 'chrome-pdf'
 }
+
 
 module.exports = (config, reportingApp, buildReportViewModelFor) => {
   const app = express()
@@ -32,7 +33,9 @@ module.exports = (config, reportingApp, buildReportViewModelFor) => {
     res.render('index', {
       typeformUrl: config.typeform.url,
       typeformFormId: config.typeform.formId,
-      hubspotFormLandingPageUrl: config.hubspot.formLandingPageUrl
+      hubspotFormLandingPageUrl: config.hubspot.formLandingPageUrl,
+      description: socialMediaPreview.getDescription(),
+      title: socialMediaPreview.getTitle()
     })
   })
 

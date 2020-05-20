@@ -1,7 +1,9 @@
 const environmentIsDevelopment = process.env.NODE_ENV !== 'production' || false
+const isESVersion = () => process.env.COMPASS_LANGUAGE === "ES"
 
 module.exports = {
   language: process.env.COMPASS_LANGUAGE,
+  isESVersion: isESVersion(),
   jsreport: {
     studioEditorEnabled: environmentIsDevelopment
   },
