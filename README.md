@@ -113,43 +113,27 @@ yarn dev:en # or 'yarn dev:es'
 
 :large_blue_diamond: Note that `yarn` can be substituted for `npm`/`npm run` if you don't have yarn. (Yarn is easily installed on mac with `brew install yarn`)
 
+#### Running Locally - With Docker
+
+> To run with Docker you need:
+>  - Everything needed to run locally (see above)
+>  - `docker` installed
+>  - `docker-compose` installed
+
+Run the dev environment:
+
+```bash
+# Step 1
+yarn dev-docker:en # or 'yarn dev-docker:en'
+
+# Step 2
+# Go to http://localhost:8080
+```
+
 #### Running tests locally
 
 ```
 yarn test
-```
-
-### Running Locally - with Docker - TO UPDATE
-
-Before building the docker container you'll need to run `yarn install` to update the yarn.lock which is then used when building the docker image.
-
-You then need to grab the contents of the `scripts/docker/default-env.sh` note within Bitwarden, and place it in the `scripts/docker/` location within a file called `default-env.sh`. This is a copy of the environment variables from the `default-env.sh` file which is required to run locally - but formatted to be used within Docker.
-
-You can now build the docker container using the command below.
-
-```
-yarn build:docker
-```
-
-and to access `Codurance Compass` going through http://localhost:8080
-
-```
-yarn run:docker
-```
-
-To stop the container you'll need to get the container id using `docker ps` and you should get a similar output as per below
-
-```
-codurance-compass git:(Update-pdf-design) ✗ docker ps
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
-86533ed26329        3659ae504815        "docker-entrypoint.s…"   2 hours ago         Up 2 hours          8080/tcp            xenodochial_joliot
-```
-
-Then you grab the container id and run the command below
-
-```
-codurance-compass git:(Update-pdf-design) ✗ docker stop 86533ed26329
-86533ed26329
 ```
 
 ### Running tests locally -  with Docker
