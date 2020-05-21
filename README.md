@@ -132,7 +132,7 @@ yarn dev-docker:en # or 'yarn dev-docker:en'
 
 #### Running tests locally
 
-```
+```bash
 yarn test
 ```
 
