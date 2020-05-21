@@ -13,14 +13,9 @@ const config = {
 }
 
 const typeformClient = require('../src/server/survey/typeformClient')(config)
-const loadContent = require('../src/server/report/contentRepository')
-const loadStaticContent = require('../src/server/report/staticContentRepository')
-const reportViewModelBuilder = require('../src/server/report/reportViewModelBuilder')(typeformClient, loadContent, loadStaticContent)
+const reportViewModelBuilder = require('../src/server/report/reportViewModelBuilder')(typeformClient)
 
-const nock = require('nock')
 const request = require('supertest')
-const mockSurveyQuestionsResponse = require('./mockData/surveyQuestionsResponse')
-const mockSurveyAnswersResponse = require('./mockData/surveyAnswersResponse')
 
 const fakeReportingApp = (req, res, next) => {
   return res.send('<p>jsreport studio</p>')
