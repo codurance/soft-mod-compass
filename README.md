@@ -85,6 +85,10 @@ This will download the latest config files from Bitwarden and place them in the 
 
 ### Running Locally
 
+> **Note:** The compass flow mostly redirects to Typeform and Hubspot, alongside generating the report.
+> Keep in mind that when running locally, compass will still redirect to remote pages in Typeform and Hubspot.
+> The configuration will redirect to Dev instances of these pages, but we wanted to make clear that these are not local instances.
+
 > **Important**: Before running locally, you **need**:
 > - **The compass config files saved in `/scripts`. See [Config section](#config)**
 > - The `aws` cli installed
