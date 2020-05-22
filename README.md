@@ -124,7 +124,7 @@ Run the dev environment:
 
 ```bash
 # Step 1
-yarn dev-docker:en # or 'yarn dev-docker:en'
+./scripts/run_in_docker.sh en # or './scripts/run_in_docker.sh es'
 
 # Step 2
 # Go to http://localhost:8080

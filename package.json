@@ -8,8 +8,6 @@
     "dev:es": ". ./scripts/envvars-config-dev-ES.sh && webpack --mode=development && npm start",
     "debug:en": ". ./scripts/envvars-config-dev-EN.sh && webpack --mode=development && node --inspect index.js",
     "debug:es": ". ./scripts/envvars-config-dev-ES.sh && webpack --mode=development && node --inspect index.js",
-    "dev-docker:en": ". ./scripts/envvars-config-dev-EN.sh && docker-compose up; docker-compose down",
-    "dev-docker:es": ". ./scripts/envvars-config-dev-ES.sh && docker-compose up; docker-compose down",
     "watch": "nodemon",
     "start": "babel-node index.js",
     "test": "jest && npm run lint",
