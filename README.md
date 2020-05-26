@@ -91,11 +91,14 @@ This will download the latest config files from Bitwarden and place them in the 
 
 > **Important**: Before running locally, you **need**:
 > - **The compass config files saved in `/scripts`. See [Config section](#config)**
+> - Add the line `export AWS_COMPASS_BUCKET='compass-dev-en'` to the config file `envvars-config-dev-EN.sh`
+ (or `export AWS_COMPASS_BUCKET='compass-dev-es'` for `envvars-config-dev-ES.sh`). *See `/scripts/aws/variables.sh` 
+ for more info on how the bucket name is formed when running in AWS.*
 > - The `aws` cli installed
 >   - `brew install awscli`
 > - To be logged in with the corresponding account (`codurance` or `codurance-playground`) and region in the `aws` cli
 >   - `aws configure`
->     - https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
+>     - https://docs.aws.amazon.clom/cli/latest/userguide/cli-chap-configure.html
 >     - Check the correct region in each section below (`playground`/`prod`).  
 >       If the region is incorrect, an error will be thrown.
 
