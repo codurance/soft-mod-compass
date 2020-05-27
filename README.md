@@ -98,7 +98,7 @@ This will download the latest config files from Bitwarden and place them in the 
 >   - `brew install awscli`
 > - To be logged in with the corresponding account (`codurance` or `codurance-playground`) and region in the `aws` cli
 >   - `aws configure`
->     - https://docs.aws.amazon.clom/cli/latest/userguide/cli-chap-configure.html
+>     - https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
 >     - Check the correct region in each section below (`playground`/`prod`).  
 >       If the region is incorrect, an error will be thrown.
 
