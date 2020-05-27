@@ -46,9 +46,8 @@ You can find the information for categories in `src/server/report/categoryData.j
 
 HubSpot is a CRM service used to host the landing page that captures user contact information once they have downloaded their report. After a user has completed the survey they are redirected to HubSpot with their UUID and a base64 comma separated list of scores for each survey category in the query string. Once the user submits the HubSpot landing page form, the user is redirected to `/report/submit/:UUID` of the Node app which is used to generate the report that can be downloaded from a link in the email. 
 
-Note we also store the UUID in a hidden field on the HubSpot report download form, this is then saved along with their interaction so that we can refer back to their scores or report.
-
-HubSpot provides tokens (`{{request.query_dict.XXX}}`) that can be embedded into any input field or script that are replaced with query string parameters when the form is rendered:
+Note we also store the UUID in a hidden field on the HubSpot report download form, this is then saved along with their interaction so that we can link the contact with the report. To pass the UUID as a hidden field, it is simply passed as a query parameter in the URL, then on the Hubspot end, it will be available via the following variable `{{request.query_dict.XXX}}`.  
+See: [Hubspot Documentation on Hidden Fields](https://knowledge.hubspot.com/forms/can-i-auto-populate-form-fields-through-a-query-string) and [client/index.js](https://github.com/codurance/soft-mod-compass/blob/master/src/client/index.js) (where we inject the Hubspot redirection URL).
 
 ### Reporting (jsreport)
 
