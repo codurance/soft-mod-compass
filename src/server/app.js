@@ -9,7 +9,7 @@ const stripHubspotSubmissionGuid = require('./middleware/stripHubspotSubmissionG
 const uploadToS3 = require('./upload/uploadToS3')
 const sendPdfLinkEmail = require('./mail/sendPdfLinkEmail')
 const config = require('./config');
-const jsReportTemplate ={
+const jsReportTemplate = {
     name: config.isESVersion ? "Compass-ES" : "Compass-EN",
     engine: 'handlebars',
     recipe: 'chrome-pdf'
@@ -35,7 +35,8 @@ module.exports = (config, reportingApp, buildReportViewModelFor) => {
       typeformFormId: config.typeform.formId,
       hubspotFormLandingPageUrl: config.hubspot.formLandingPageUrl,
       description: socialMediaPreview.getDescription(),
-      title: socialMediaPreview.getTitle()
+      title: socialMediaPreview.getTitle(),
+      canonicalUrl: config.canonicalUrl
     })
   })
 

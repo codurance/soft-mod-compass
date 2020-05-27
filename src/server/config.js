@@ -1,9 +1,11 @@
 const environmentIsDevelopment = process.env.NODE_ENV !== 'production' || false
 const isESVersion = () => process.env.COMPASS_LANGUAGE === "ES"
+const canonicalUrlTld = isESVersion() ? "es" : "com"
 
 module.exports = {
   language: process.env.COMPASS_LANGUAGE,
   isESVersion: isESVersion(),
+  canonicalUrl: `https://compass.codurance.${canonicalUrlTld}`,
   jsreport: {
     studioEditorEnabled: environmentIsDevelopment
   },
