@@ -60,23 +60,11 @@ The jsreport console can be found at `/reporting`. This is where you will find t
 
 ## Running the project
 ### Config
-Environment variables needed for this project can be found in Bitwarden:
-
-- **Dev**
-  -  `[Compass] envvars-config-dev-EN.sh` contains the English values used on dev
-  -  `[Compass] envvars-config-dev-ES.sh` contains the Spanish values used on dev
-
-- **Prod**
-  - WIP TODO: Update prod-ES values (see TODO in file)
-  -  `[Compass] envvars-config-prod-EN.sh` contains the English values used on production
-  -  `[Compass] envvars-config-prod-ES.sh` contains the Spanish values used on production
-
-Create the file in the `scripts` directory, paste the contents from Bitwarden.
-
 #### Automatic config download with the Bitwarden CLI
 1. Install the Bitwarden CLI: `brew install bitwarden-cli`
 1. Install the `jq`: `brew install jq`
-1. Login to Bitwarden: `bw login EMAIL@codurance.com`
+1. Login to Bitwarden: `bw login EMAIL@codurance.com`  
+   _You can ignore the message about `BW_SESSION`_
 1. Run `./scripts/download_config_from_bitwarden.sh`
 
 This will download the latest config files from Bitwarden and place them in the `./scripts/` directory:
@@ -84,6 +72,19 @@ This will download the latest config files from Bitwarden and place them in the 
 - `./scripts/envvars-config-dev-ES.sh`
 - `./scripts/envvars-config-prod-EN.sh`
 - `./scripts/envvars-config-prod-ES.sh`
+
+#### Manual config download via the Bitwarden interface
+Environment variables needed for this project can be found in Bitwarden:
+
+- **Dev**
+  -  `[Compass] envvars-config-dev-EN.sh` contains the English values used on dev
+  -  `[Compass] envvars-config-dev-ES.sh` contains the Spanish values used on dev
+
+- **Prod**
+  -  `[Compass] envvars-config-prod-EN.sh` contains the English values used on production
+  -  `[Compass] envvars-config-prod-ES.sh` contains the Spanish values used on production
+
+Create the file in the `scripts` directory, paste the contents from Bitwarden.
 
 ### Running Locally
 
