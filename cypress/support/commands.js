@@ -23,3 +23,10 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+require('cypress-iframe')
+
+Cypress.Commands.add("waitAndClickAnswer", (waitTime, answer) => {
+    cy.wait(waitTime)
+    cy.iframe().find('section[data-qa-focused=true]').contains(answer).click();
+})
