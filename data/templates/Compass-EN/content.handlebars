@@ -16,14 +16,14 @@
 
 
   <!-- BEGIN FRONT PAGE ---------------------------------------------------------- -->
-  <section id="front-page-en" class="page page-break-after">
+  <section id="front-page-en" class="page page-break-after with-background-img">
     <span id="front-page_company-name">{{userData.values.[2].value}}</span>
     <span id="front-page_date">01 / 01 / 2019</span>
   </section>
   <!-- END FRONT PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN INTRO PAGE ---------------------------------------------------------- -->
-  <section id="intro-page-en" class="page page-break-after">
+  <section id="intro-page-en" class="page page-break-after with-background-img">
     <ul class="intro-page__contact-info">
         <li class="intro-page__contact-header">
             London / Manchester
@@ -50,7 +50,7 @@
   <!-- END INTRO PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN YOUR ASSESSMENT PAGE ---------------------------------------------------------- -->
-  <section id="assessment-page-en" class="page page-break-after">
+  <section id="assessment-page-en" class="page page-break-after with-background-img">
       
       <div class="assessment-page__warning-box hidden" data-category="organisational-maturity">
           <i class="assessment-page__warning-icon"></i>
@@ -126,7 +126,7 @@
   <!-- END YOUR ASSESSMENT PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN TOC PAGE ---------------------------------------------------------- -->
-  <section id="toc-page-en" class="page page-break-after">
+  <section id="toc-page-en" class="page page-break-after with-background-img">
       
       <ul class="toc-page__contents">
           <a href="#organisational-maturity-page"><li>
@@ -159,7 +159,7 @@
   <!-- END TOC PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN ORGANISATIONAL MATURITY PAGE ---------------------------------------------------------- -->
-  <section id="organisational-maturity-page-en" class="page page-break-after js-category-page">
+  <section id="organisational-maturity-page-en" class="page page-break-after js-category-page with-background-img">
       
     <div class="main-bar-graph__container bar-1">
         <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
@@ -249,19 +249,13 @@
   <!-- END ORGANISATIONAL MATURITY PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN ORGANISATIONAL MATURITY BREAKDOWN ---------------------------------------------------------- -->
-  {{#ifCond summaryRadial.scores.[0] '>' 75 }}
-    <section id="organisational-maturity-breakdown-page-en" class="page page-break-after" style="background: url('{#asset /assets/pageImgs-EN/organisational-maturity-good-EN.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
-    {{else}}
-        {{#ifCond summaryRadial.scores.[0] '>=' 50 }}
-            <section id="organisational-maturity-breakdown-page-en" class="page page-break-after" style="background: url('{#asset /assets/pageImgs-EN/organisational-maturity-avg-EN.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
-            {{else}}
-            <section id="organisational-maturity-breakdown-page-en" class="page page-break-after" style="background: url('{#asset /assets/pageImgs-EN/organisational-maturity-bad-EN.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
-        {{/ifCond}}
-  {{/ifCond}}
+  <section
+    id="organisational-maturity-breakdown-page-en"
+    class="page page-break-after with-background-img {{{scoreClass summaryRadial.scores.[0]}}}"></section>
   <!-- END ORGANISATIONAL MATURITY BREAKDOWN ---------------------------------------------------------- -->
 
   <!-- BEGIN CONTINUOUS DELIVERY PAGE ---------------------------------------------------------- -->
-  <section id="continuous-delivery-page-en" class="page page-break-after js-category-page">
+  <section id="continuous-delivery-page-en" class="page page-break-after js-category-page with-background-img">
 
     <div class="main-bar-graph__container bar-1">
         <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
@@ -351,19 +345,13 @@
   <!-- END CONTINUOUS DELIVERY PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN CONTINUOUS DELIVERY BREAKDOWN ---------------------------------------------------------- -->
-  {{#ifCond summaryRadial.scores.[1] '>' 75 }}
-    <section id="continuous-delivery-breakdown-page-es" class="page page-break-after" style="background: url('{#asset /assets/pageImgs-EN/continuous-delivery-good-EN.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
-    {{else}}
-        {{#ifCond summaryRadial.scores.[1] '>=' 50 }}
-            <section id="continuous-delivery-breakdown-page-es" class="page page-break-after" style="background: url('{#asset /assets/pageImgs-EN/continuous-delivery-avg-EN.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
-            {{else}}
-            <section id="continuous-delivery-breakdown-page-es" class="page page-break-after" style="background: url('{#asset /assets/pageImgs-EN/continuous-delivery-bad-EN.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
-        {{/ifCond}}
-  {{/ifCond}}
+  <section
+    id="continuous-delivery-breakdown-page-en"
+    class="page page-break-after with-background-img {{{scoreClass summaryRadial.scores.[0]}}}"></section>
   <!-- END CONTINUOUS DELIVERY BREAKDOWN PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN PEOPLE CULTURE PAGE ---------------------------------------------------------- -->
-  <section id="people-culture-page-en" class="page page-break-after js-category-page">
+  <section id="people-culture-page-en" class="page page-break-after js-category-page with-background-img">
 
     <div class="main-bar-graph__container bar-1">
         <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
@@ -453,19 +441,13 @@
   <!-- END PEOPLE CULTURE PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN PEOPLE CULTURE BREAKDOWN ---------------------------------------------------------- -->
-  {{#ifCond summaryRadial.scores.[2] '>' 75 }}
-    <section id="people-culture-breakdown-page-en" class="page page-break-after" style="background: url('{#asset /assets/pageImgs-EN/people-culture-good-EN.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
-    {{else}}
-        {{#ifCond summaryRadial.scores.[2] '>=' 50 }}
-            <section id="people-culture-breakdown-page-en" class="page page-break-after" style="background: url('{#asset /assets/pageImgs-EN/people-culture-avg-EN.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
-            {{else}}
-            <section id="people-culture-breakdown-page-en" class="page page-break-after" style="background: url('{#asset /assets/pageImgs-EN/people-culture-bad-EN.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
-        {{/ifCond}}
-  {{/ifCond}}
+  <section
+    id="people-culture-breakdown-page-en"
+    class="page page-break-after with-background-img {{{scoreClass summaryRadial.scores.[0]}}}"></section>
   <!-- END PEOPLE CULTURE BREAKDOWN ---------------------------------------------------------- -->
 
   <!-- BEGIN EFFECTIVE TEAM PAGE ---------------------------------------------------------- -->
-   <section id="effective-team-page-en" class="page page-break-after js-category-page">
+   <section id="effective-team-page-en" class="page page-break-after js-category-page with-background-img">
 
     <div class="main-bar-graph__container bar-1">
         <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
@@ -555,19 +537,13 @@
   <!-- END EFFECTIVE TEAM PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN EFFECTIVE TEAM BREAKDOWN ---------------------------------------------------------- -->
-  {{#ifCond summaryRadial.scores.[3] '>' 75 }}
-    <section id="effective-team-breakdown-page-en" class="page page-break-after" style="background: url('{#asset /assets/pageImgs-EN/effective-team-good-EN.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
-    {{else}}
-        {{#ifCond summaryRadial.scores.[3] '>=' 50 }}
-            <section id="effective-team-breakdown-page-en" class="page page-break-after" style="background: url('{#asset /assets/pageImgs-EN/effective-team-avg-EN.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
-            {{else}}
-            <section id="effective-team-breakdown-page-en" class="page page-break-after" style="background: url('{#asset /assets/pageImgs-EN/effective-team-bad-EN.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
-        {{/ifCond}}
-  {{/ifCond}}
+  <section
+    id="effective-team-breakdown-page-en"
+    class="page page-break-after with-background-img {{{scoreClass summaryRadial.scores.[0]}}}"></section>
   <!-- END EFFECTIVE TEAM BREAKDOWN ---------------------------------------------------------- -->
 
   <!-- BEGIN TECHNICAL PRACTICES PAGE ---------------------------------------------------------- -->
-  <section id="technical-practices-page-en" class="page page-break-after js-category-page">
+  <section id="technical-practices-page-en" class="page page-break-after js-category-page with-background-img">
 
     <div class="main-bar-graph__container bar-1">
         <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
@@ -657,19 +633,13 @@
   <!-- END TECHNICAL PRACTICES PAGE ---------------------------------------------------------- -->
 
   <!-- BEGIN TECHNICAL PRACTICES BREAKDOWN ---------------------------------------------------------- -->
-  {{#ifCond summaryRadial.scores.[4] '>' 75 }}
-    <section id="technical-practices-breakdown-page-en" class="page page-break-after" style="background: url('{#asset /assets/pageImgs-EN/technical-practices-good-EN.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
-    {{else}}
-        {{#ifCond summaryRadial.scores.[4] '>=' 50 }}
-            <section id="technical-practices-breakdown-page-en" class="page page-break-after" style="background: url('{#asset /assets/pageImgs-EN/technical-practices-avg-EN.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
-            {{else}}
-            <section id="technical-practices-breakdown-page-en" class="page page-break-after" style="background: url('{#asset /assets/pageImgs-EN/technical-practices-bad-EN.jpg @encoding=dataURI}') no-repeat; background-size: cover;"></section>
-        {{/ifCond}}
-  {{/ifCond}}
+  <section
+    id="technical-practices-breakdown-page-en"
+    class="page page-break-after with-background-img {{{scoreClass summaryRadial.scores.[0]}}}"></section>
   <!-- END TECHNICAL PRACTICES BREAKDOWN ---------------------------------------------------------- -->
 
   <!-- BEGIN SUMMARY PAGE ---------------------------------------------------------- -->
-  <section id="summary-page-en" class="page page-break-after">
+  <section id="summary-page-en" class="page page-break-after with-background-img">
       
     <ul class="summary-contact__london-container">
         <li>Sales Contact: <span class="summary-contact__name">David Hall</span></li>
