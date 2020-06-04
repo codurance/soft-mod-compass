@@ -4,11 +4,9 @@
     "folder": {
         "shortid": "fvfrX3r"
     },
-    "creationDate": {
-        "$$date": 1589452662756
-    },
+    "creationDate": "2020-05-14T10:37:42.756Z",
     "modificationDate": {
-        "$$date": 1589452662756
+        "$$date": 1590764278724
     },
     "_id": "ZUooCIuKu8ibD5Uz",
     "$entitySet": "assets"
