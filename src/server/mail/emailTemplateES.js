@@ -149,9 +149,6 @@ const body = (pdfLink, userData) => {
             <tr>
               <td>
                 <span class="text-small">Síguenos en nuestros canales Social Media</span>
-                <a href="https://www.facebook.com/codurance/" style="margin-left: 10px;">
-                  <img alt="Facebook-f" width="auto" height="20" src="https://compass-images.s3.eu-central-1.amazonaws.com/email-images/Facebook-f.png">
-                </a>
                 <a href="https://www.linkedin.com/company/codurance/" style="margin-left: 10px;">
                   <img alt="linkedin-in" width="auto" height="20" src="https://compass-images.s3.eu-central-1.amazonaws.com/email-images/linkedin-in.png">
                 </a>
