@@ -1,22 +1,22 @@
-const reportViewModel = require('./reportViewModel')
-const categoryData = require('./categoryData')
+const reportViewModel = require('./reportViewModel');
+const categoryData = require('./categoryData');
 
 const reportViewModelBuilder = (typeformClient, getHubspotUserDetails) => {
-  async function buildReportViewModelFor (submissionUuid) {
+  async function buildReportViewModelFor(submissionUuid) {
     try {
-      const choices = await typeformClient.getQuestionChoices()
-      const answers = await typeformClient.surveyAnswersFor(submissionUuid)
-      const userDetails = await getHubspotUserDetails(submissionUuid)
+      const choices = await typeformClient.getQuestionChoices();
+      const answers = await typeformClient.surveyAnswersFor(submissionUuid);
+      const userDetails = await getHubspotUserDetails(submissionUuid);
 
-      console.log('USER DETES:', userDetails)
+      console.log('USER DETES:', userDetails);
 
-      return reportViewModel(categoryData, choices, answers, userDetails)
+      return reportViewModel(categoryData, choices, answers, userDetails);
     } catch (error) {
-      console.log(error)
-      throw error
+      console.log(error);
+      throw error;
     }
   }
-  return buildReportViewModelFor
-}
+  return buildReportViewModelFor;
+};
 
-module.exports = reportViewModelBuilder
+module.exports = reportViewModelBuilder;

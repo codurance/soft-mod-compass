@@ -166,8 +166,9 @@ const body = (pdfLink, userData) => {
     </table>
   </body>
 </html>
-`};
+`;
+};
 
 const subject = () => 'Aquí tienes tu informe Compass';
 
-module.exports = {subject, body};
+module.exports = { subject, body };

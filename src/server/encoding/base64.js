@@ -1,6 +1,5 @@
-
 const encode = (string) => {
-  return Buffer.from(string).toString('base64')
-}
+  return Buffer.from(string).toString('base64');
+};
 
-module.exports = encode
+module.exports = encode;
