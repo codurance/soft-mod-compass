@@ -163,8 +163,9 @@ const body = (pdfLink, userData) => {
     </table>
   </body>
 </html>
-`};
+`;
+};
 
 const subject = () => 'Here is your Codurance Compass report';
 
-module.exports = {subject, body};
+module.exports = { subject, body };
