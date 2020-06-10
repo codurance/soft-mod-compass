@@ -14,4 +14,4 @@ LANGUAGE=$(to_uppercase $1)
 
 trap 'docker-compose down' EXIT
 . ./scripts/envvars-config-dev-$LANGUAGE.sh
-docker-compose up
+docker-compose up --build

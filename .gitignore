@@ -1,3 +1,7 @@
+# Cypress
+cypress/videos
+
+# Idea
 .idea
 dist
 data/settings
