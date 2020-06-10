@@ -11,6 +11,7 @@
     "watch": "nodemon",
     "start": "babel-node index.js",
     "test": "jest && npm run lint",
+    "test:e2e": "cypress run",
     "lint": "standard",
     "check-aws-region:prod": "./scripts/check-aws-region.sh eu-central-1",
     "check-aws-region:dev": "./scripts/check-aws-region.sh eu-west-1",
