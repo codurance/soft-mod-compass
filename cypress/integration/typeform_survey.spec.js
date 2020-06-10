@@ -1,6 +1,5 @@
 describe('TypeForm Survey', ()=>{
-    it('redirects to HubSpot landing page when completed', () => {
+    it('directs to TypeForm', () => {
         cy.visit('https://compass-en.codurance.io');
-        cy.iframe().contains('Start').click();
     })
 })
