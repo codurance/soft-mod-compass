@@ -1,9 +1,19 @@
 describe('Compass flow', () => {
 
+    it('(ES) redirects to HubSpot Successful Submission page when completed', () => {
+        cy.visit('https://compass-es.codurance.io')
+        assertStartPageIsInCorrectLanguage('Nuestra evaluación de entrega de software permite')
+        clickStart()
+        completeTypeFormSurveryAndSubmit('Totalmente de acuerdo', 'Cada hora', 'Enviar')
+        assertRedirectsToHubSpotLPAndContains('Para recibir tu informe')
+        fillInHubSpotSubmissionFormAndSubmit()
+        assertRedirectsToSucessfulSubmissionPageAndContains('¡Gracias!')
+    })
+
     it('(EN) redirects to HubSpot Successful Submission page when completed', () => {
         cy.visit('https://compass-en.codurance.io')
         assertStartPageIsInCorrectLanguage('Our software delivery assessment measures the current')
-        assertStartButtonContainsCorrectTextAndClick('Start')
+        clickStart()
         completeTypeFormSurveryAndSubmit('Strongly Agree', 'Hourly', 'Submit')
         assertRedirectsToHubSpotLPAndContains('Receive your report')
         fillInHubSpotSubmissionFormAndSubmit()
@@ -14,9 +24,9 @@ describe('Compass flow', () => {
         cy.iframe().contains(text)
     }
 
-    function assertStartButtonContainsCorrectTextAndClick(startText) {
-        cy.assertStartButtonContainsCorrectText(startText)
-        cy.iframe().contains(startText).click()
+    function clickStart() {
+        cy.wait(0)
+        cy.iframe().find('[data-qa=start-button]').click()
     }
 
     function completeTypeFormSurveryAndSubmit(answerText, q5AnswerText, submitText) {
@@ -39,7 +49,6 @@ describe('Compass flow', () => {
         cy.get('[name=company]').type('Codurance')
         cy.get('[name=email]').type('compass-test@codurance.com')
         cy.get('.hs-button').click()
-        cy.wait(6000)
     }
 
    function assertRedirectsToSucessfulSubmissionPageAndContains(successText) {

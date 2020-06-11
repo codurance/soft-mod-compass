@@ -24,13 +24,7 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
-require('cypress-iframe')
-
 Cypress.Commands.add('waitAndClickAnswer', (waitTime, answer) => {
     cy.wait(waitTime)
     cy.iframe().find('section[data-qa-focused=true]').contains(answer).click();
-})
-
-Cypress.Commands.add('assertStartButtonContainsCorrectText', (startText) => {
-    cy.iframe().find('[data-qa=start-button]').should('contain.text', startText )
 })
