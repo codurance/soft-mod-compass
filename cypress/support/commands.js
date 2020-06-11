@@ -25,6 +25,6 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('waitAndClickAnswer', (waitTime, answer) => {
-    cy.wait(waitTime)
-    cy.iframe().find('section[data-qa-focused=true]').contains(answer).click();
-})
+  cy.wait(waitTime);
+  cy.iframe().find('section[data-qa-focused=true]').contains(answer).click();
+});
