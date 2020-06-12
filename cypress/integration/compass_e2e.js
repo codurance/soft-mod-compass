@@ -32,8 +32,9 @@ describe('Compass flow', () => {
   }
 
   function clickStart() {
-    cy.wait(0);
-    cy.iframe().find('[data-qa=start-button]').click();
+    cy.iframe()
+      .find('[data-qa=start-button]')
+      .then(($startButton) => $startButton.click());
   }
 
   function completeTypeFormSurveryAndSubmit(
