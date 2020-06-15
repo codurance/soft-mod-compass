@@ -1,5 +1,6 @@
 # Cypress
 cypress/videos
+cypress/screenshots
 
 # Idea
 .idea
