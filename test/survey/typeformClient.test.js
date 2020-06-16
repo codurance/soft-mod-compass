@@ -8,7 +8,8 @@ const config = {
   },
 };
 const typeformClient = require('../../src/server/survey/typeformClient')(
-  config
+  config,
+  0
 );
 
 describe('typeformClient', () => {

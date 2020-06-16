@@ -1,7 +1,7 @@
 const rp = require('request-promise');
 const sleep = require('sleep-promise');
 
-module.exports = (config) => {
+module.exports = (config, sleepBeforeRetryMs) => {
   const headers = {
     Authorization: `Bearer ${config.typeform.authToken}`,
   };
@@ -29,7 +29,11 @@ module.exports = (config) => {
           );
         }
 
-        return sleep(10000).then(() => surveyAnswersFor(uuid, retriesLeft));
+        // TODO: Inject sleep from config, and then set 0 in tests.
+        // Or set to more than 0 and fast forward with jest in the tests that check for delay
+        return sleep(sleepBeforeRetryMs).then(() =>
+          surveyAnswersFor(uuid, retriesLeft)
+        );
       }
     });
   }
