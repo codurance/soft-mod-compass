@@ -24,9 +24,7 @@ module.exports = (config, sleepBeforeRetryMs) => {
       } else {
         const retriesLeft = retries - 1;
         if (retriesLeft === 0) {
-          throw Error(
-            `no survey answers for ${uuid} after thirty!! 10s attempts`
-          );
+          throw Error(`no survey answers for ${uuid}`);
         }
 
         // TODO: Inject sleep from config, and then set 0 in tests.

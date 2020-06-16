@@ -62,7 +62,7 @@ describe('typeformClient', () => {
       .catch(done);
   });
 
-  it('retries getting survey answers no more than the given parameter', (done) => {
+  it('retries getting survey answers no more than the given parameter', async () => {
     const uuid = '001c1057-7686-49ff-8691-cb7f8de44124';
 
     const mockApi = nock(config.typeform.url, {
@@ -73,20 +73,17 @@ describe('typeformClient', () => {
     for (let i = 0; i < 4; i++) {
       mockApi
         .get(`/forms/${config.typeform.formId}/responses?query=${uuid}`)
-        .reply(200, { items: [] });
+        .reply(OK, answerEmpty);
     }
 
-    typeformClient
-      .surveyAnswersFor(uuid, 3)
-      .then(() => {
-        done('surveyAnswersFor did not throw');
-      })
-      .catch((err) => {
-        expect(err.message).toEqual(
-          `no survey answers for ${uuid} after three attempts`
-        );
-        done();
-      });
+    try {
+      await typeformClient.surveyAnswersFor(uuid, 3);
+      fail('did not throw');
+    } catch (err) {
+      expect(err.message).toEqual(
+        `no survey answers for ${uuid}` // TODO: Re-introduce number of retries in assertion
+      );
+    }
   });
 
   it('gets survey schema from typeform', (done) => {
