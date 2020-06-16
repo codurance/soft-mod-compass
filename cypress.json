@@ -1,4 +1,8 @@
 {
-    "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+  "env": {
+    "devEnUrl": "https://compass-en.codurance.io",
+    "devEsUrl": "https://compass-es.codurance.io",
+    "localhost": "http://localhost:8080"
   }
-  
+}
