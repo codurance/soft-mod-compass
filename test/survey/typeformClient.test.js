@@ -13,67 +13,50 @@ const typeformClient = require('../../src/server/survey/typeformClient')(
 );
 
 describe('typeformClient', () => {
+  const mockUuid = 'MOCK_UUID';
+  const queryAnswersForMockUuidUrl = `/forms/${config.typeform.formId}/responses?query=${mockUuid}`;
+  const OK = 200;
+  const answerEmpty = { items: [] };
+  const answerWithTwoItems = {
+    items: [
+      {
+        answers: [{ choice: { label: 'one' } }, { choice: { label: 'two' } }],
+      },
+    ],
+  };
+  const expectedTwoItems = ['one', 'two'];
+
   afterEach(() => {
     nock.cleanAll();
   });
 
   it('get survey answers for a particular uuid', (done) => {
-    const uuid = '001c1057-7686-49ff-8691-cb7f8de44124';
-
-    nock(config.typeform.url, {
-      reqheaders: {
-        authorization: `Bearer ${config.typeform.authToken}`,
-      },
-    })
-      .get(`/forms/${config.typeform.formId}/responses?query=${uuid}`)
-      .reply(200, {
-        items: [
-          {
-            answers: [
-              { choice: { label: 'one' } },
-              { choice: { label: 'three' } },
-            ],
-          },
-        ],
-      });
+    nock(config.typeform.url)
+      .get(queryAnswersForMockUuidUrl)
+      .reply(OK, answerWithTwoItems);
 
     typeformClient
-      .surveyAnswersFor(uuid)
+      .surveyAnswersFor(mockUuid)
       .then((res) => {
-        expect(res).toEqual(['one', 'three']);
+        expect(res).toEqual(expectedTwoItems);
         done();
       })
       .catch(done);
   });
 
   it('retries getting survey answers if answers are empty', (done) => {
-    const uuid = '001c1057-7686-49ff-8691-cb7f8de44124';
-
-    nock(config.typeform.url, {
-      reqheaders: {
-        authorization: `Bearer ${config.typeform.authToken}`,
-      },
-    })
-      .get(`/forms/${config.typeform.formId}/responses?query=${uuid}`)
-      .reply(200, { items: [] })
-      .get(`/forms/${config.typeform.formId}/responses?query=${uuid}`)
-      .reply(200, { items: [] })
-      .get(`/forms/${config.typeform.formId}/responses?query=${uuid}`)
-      .reply(200, {
-        items: [
-          {
-            answers: [
-              { choice: { label: 'one' } },
-              { choice: { label: 'three' } },
-            ],
-          },
-        ],
-      });
+    nock(config.typeform.url)
+      .get(queryAnswersForMockUuidUrl)
+      .reply(OK, answerEmpty)
+      .get(queryAnswersForMockUuidUrl)
+      .reply(OK, answerEmpty)
+      .get(queryAnswersForMockUuidUrl)
+      .reply(OK, answerWithTwoItems);
 
     typeformClient
-      .surveyAnswersFor(uuid)
+      .surveyAnswersFor(mockUuid)
       .then((res) => {
-        expect(res).toEqual(['one', 'three']);
+        expect(res).toEqual(expectedTwoItems);
         done();
       })
       .catch(done);
@@ -114,7 +97,7 @@ describe('typeformClient', () => {
 
     nock(config.typeform.url)
       .get(`/forms/${config.typeform.formId}`)
-      .reply(200, {
+      .reply(OK, {
         fields: questions,
       });
 
