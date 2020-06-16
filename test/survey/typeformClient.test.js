@@ -63,25 +63,19 @@ describe('typeformClient', () => {
   });
 
   it('retries getting survey answers no more than the given parameter', async () => {
-    const uuid = '001c1057-7686-49ff-8691-cb7f8de44124';
+    const expectedRetries = 3;
 
-    const mockApi = nock(config.typeform.url, {
-      reqheaders: {
-        authorization: `Bearer ${config.typeform.authToken}`,
-      },
-    });
-    for (let i = 0; i < 4; i++) {
-      mockApi
-        .get(`/forms/${config.typeform.formId}/responses?query=${uuid}`)
-        .reply(OK, answerEmpty);
-    }
+    nock(config.typeform.url)
+      .get(queryAnswersForMockUuidUrl)
+      .times(expectedRetries)
+      .reply(OK, answerEmpty);
 
     try {
-      await typeformClient.surveyAnswersFor(uuid, 3);
+      await typeformClient.surveyAnswersFor(mockUuid, expectedRetries);
       fail('did not throw');
     } catch (err) {
       expect(err.message).toEqual(
-        `no survey answers for ${uuid}` // TODO: Re-introduce number of retries in assertion
+        `no survey answers for ${mockUuid}` // TODO: Re-introduce number of retries in assertion
       );
     }
   });
