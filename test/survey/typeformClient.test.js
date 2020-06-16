@@ -1,10 +1,11 @@
 const nock = require('nock');
 
+const testAuthToken = 'MOCK AUTH TOKEN';
 const config = {
   typeform: {
     url: 'https://typeform-url.com',
     formId: 'formId',
-    authToken: 'encoded auth token',
+    authToken: testAuthToken,
   },
 };
 const typeformClient = require('../../src/server/survey/typeformClient')(
@@ -30,6 +31,22 @@ describe('typeformClient', () => {
 
     afterEach(() => {
       nock.cleanAll();
+    });
+
+    it('sends auth header', async () => {
+      nock(config.typeform.url)
+        .get(queryAnswersForMockUuidUrl)
+        .reply(OK, function () {
+          const requestHeaders = this.req.headers;
+          const expectedAuthHeader = `Bearer ${testAuthToken}`;
+
+          expect(requestHeaders).toHaveProperty('authorization');
+          expect(requestHeaders['authorization']).toBe(expectedAuthHeader);
+
+          return answerWithTwoItems;
+        });
+
+      await typeformClient.surveyAnswersFor(mockUuid);
     });
 
     it('successfuly get an extract result', (done) => {
