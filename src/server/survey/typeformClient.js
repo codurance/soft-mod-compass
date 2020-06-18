@@ -27,8 +27,6 @@ module.exports = (config, sleepBeforeRetryMs) => {
           throw Error(`no survey answers for ${uuid}`);
         }
 
-        // TODO: Inject sleep from config, and then set 0 in tests.
-        // Or set to more than 0 and fast forward with jest in the tests that check for delay
         return sleep(sleepBeforeRetryMs).then(() =>
           surveyAnswersFor(uuid, retriesLeft)
         );

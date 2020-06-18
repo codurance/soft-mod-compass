@@ -1,5 +1,11 @@
 const nock = require('nock');
 
+const sleepMock = jest.fn();
+sleepMock.mockImplementation(() => Promise.resolve());
+jest.doMock('sleep-promise', () => {
+  return sleepMock;
+});
+
 const testAuthToken = 'MOCK AUTH TOKEN';
 const config = {
   typeform: {
@@ -8,13 +14,15 @@ const config = {
     authToken: testAuthToken,
   },
 };
-const typeformClient = require('../../src/server/survey/typeformClient')(
-  config,
-  0
-);
+const typeformClientFactory = require('../../src/server/survey/typeformClient');
+const typeformClient = typeformClientFactory(config, 0);
 
 describe('typeformClient', () => {
   const OK = 200;
+
+  beforeEach(() => {
+    sleepMock.mockClear();
+  });
 
   describe('get survey answers', () => {
     const mockUuid = 'MOCK_UUID';
@@ -97,6 +105,24 @@ describe('typeformClient', () => {
           `no survey answers for ${mockUuid}` // TODO: Re-introduce number of retries in assertion
         );
       }
+    });
+
+    it('Waits delay before retrying', async () => {
+      const mockSleepDuration = 100;
+      const typeformClient = typeformClientFactory(config, mockSleepDuration);
+
+      nock(config.typeform.url)
+        .get(queryAnswersForMockUuidUrl)
+        .times(3)
+        .reply(OK, answerEmpty)
+        .get(queryAnswersForMockUuidUrl)
+        .reply(OK, answerWithTwoItems);
+
+      await typeformClient.surveyAnswersFor(mockUuid, 10);
+      expect(sleepMock).toHaveBeenCalledTimes(3);
+      expect(sleepMock).toHaveBeenNthCalledWith(1, mockSleepDuration);
+      expect(sleepMock).toHaveBeenNthCalledWith(2, mockSleepDuration);
+      expect(sleepMock).toHaveBeenNthCalledWith(3, mockSleepDuration);
     });
   });
 
