@@ -1,0 +1,67 @@
+.cookie-message__container {
+    position: absolute;
+    padding-top: 1.42857rem;
+    padding-bottom: 1.42857rem;
+    background-color: rgba(0, 0, 0, 0.9);
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: 1;
+}
+
+.cookie-message__text {
+    font-family: proxima-nova, sans-serif;  /******************************************** add proxima-nova font to proj?*/
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 1.42857rem;
+    /* padding-left: 3.57143rem;
+    margin-right: 3.57143rem; */
+    margin-left: 3rem;
+    margin-right: 2rem;
+}
+
+.cookie-policy__link {
+    color: #FA7268;
+    text-decoration: none;
+}
+
+.cookie-policy-link:hover {
+    text-decoration: underline;
+}
+
+  /*Button Styles
+------------------------------------*/
+
+.pull-right {
+    float: right;
+    padding-right: 3.57143rem;
+  }
+
+.cookie-message__button {
+    line-height: 1.5;
+    border-radius: .25rem;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    font-family: proxima-nova, sans-serif;
+    cursor: pointer;
+    font-size: 15px;
+    margin: 10px 0;
+    padding: 10px 30px;
+    background-color: transparent;
+    color: white;
+    font-weight: 400;
+    background: #FA7268;
+    border: none;
+    overflow: hidden;
+    position: relative;
+}
+
+.cookie-message__button:hover {
+    transition: all 0.3s ease-in-out;
+    background-color: #f16055;
+}

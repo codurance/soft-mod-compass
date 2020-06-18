@@ -22,6 +22,7 @@ module.exports = (config, reportingApp, buildReportViewModelFor) => {
   app.set('views', path.join(__dirname, '/views'));
   app.use(stripHubspotSubmissionGuid);
   app.use(express.static('dist'));
+  app.use(express.static(__dirname + '/public')); ///////////////////////////////////////////////////// should css be put here?
   app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
   if (config.jsreport.studioEditorEnabled) {
