@@ -1,4 +1,4 @@
-const rp = require('request-promise');
+const request = require('request-promise');
 const sleep = require('sleep-promise');
 
 module.exports = (config, sleepBeforeRetryMs) => {
@@ -11,40 +11,42 @@ module.exports = (config, sleepBeforeRetryMs) => {
     getQuestionChoices,
   };
 
-  function surveyAnswersFor(uuid, retries = 30) {
+  async function makeTypeformRequest(path) {
     const options = {
-      uri: `${config.typeform.url}/forms/${config.typeform.formId}/responses?query=${uuid}`,
+      uri: `${config.typeform.url}${path}`,
       headers,
       json: true,
     };
-
-    return rp(options).then((results) => {
-      if (results.items.length > 0) {
-        return results.items[0].answers.map((answer) => answer.choice.label);
-      } else {
-        const retriesLeft = retries - 1;
-        if (retriesLeft === 0) {
-          throw Error(`no survey answers for ${uuid}`);
-        }
-
-        return sleep(sleepBeforeRetryMs).then(() =>
-          surveyAnswersFor(uuid, retriesLeft)
-        );
-      }
-    });
+    return request(options);
   }
 
-  function getQuestionChoices() {
-    const options = {
-      uri: `${config.typeform.url}/forms/${config.typeform.formId}`,
-      headers,
-      json: true,
+  async function surveyAnswersFor(uuid, retries = 30, retriesLeft = retries) {
+    const ensureEnoughRetriesLeft = () => {
+      if (retriesLeft === 0) throw Error(`no survey answers for ${uuid}`);
     };
+    const sleepAndTryAgain = async () => {
+      await sleep(sleepBeforeRetryMs);
+      return surveyAnswersFor(uuid, retriesLeft - 1);
+    };
+    const extractAnswers = (results) =>
+      results.items[0].answers.map((answer) => answer.choice.label);
+    const queryAnswerForUuidUrl = `/forms/${config.typeform.formId}/responses?query=${uuid}`;
 
-    return rp(options).then((results) => {
-      return results.fields.map((question) =>
-        question.properties.choices.map((choice) => choice.label)
-      );
-    });
+    ensureEnoughRetriesLeft();
+    const results = await makeTypeformRequest(queryAnswerForUuidUrl);
+    if (results.items.length > 0) {
+      return extractAnswers(results);
+    } else {
+      return sleepAndTryAgain();
+    }
+  }
+
+  async function getQuestionChoices() {
+    const results = await makeTypeformRequest(
+      `/forms/${config.typeform.formId}`
+    );
+    return results.fields.map((question) =>
+      question.properties.choices.map((choice) => choice.label)
+    );
   }
 };
