@@ -27,7 +27,7 @@ describe('Compass', () => {
     }
   });
 
-  context.skip('Cookie Message', () => {
+  context('Cookie Message', () => {
     it('is displayed and cookies not created when user has never visited Compass', () => {
       cy.visit(Cypress.env('localhost'));
       clickStart();
@@ -56,7 +56,7 @@ describe('Compass', () => {
       assertCorrectCookieMessageIsDisplayed(spanishMessage);
     });
 
-    it('is displayed in Spanish when a user visits Compass EN', () => {
+    it('is displayed in English when a user visits Compass EN', () => {
       cy.visit(Cypress.env('localhost'));
       let englishMessage =
         'Codurance uses cookies to ensure we give you the best experience on our website.';
@@ -129,28 +129,28 @@ describe('Compass', () => {
   }
 
   function acceptCookies() {
-    cy.get('[data-test=button]').click();
+    cy.get('[data-test=cookie-msg-btn]').click();
   }
 
   function assertCompassCookiesDoNotExist() {
-    cy.getCookie('hubspotutk').should('be.equal', null);
-    cy.getCookie('has-cookie-consent').should('be.equal', null);
+    cy.getCookie('hubspotutk').should('not.exist');
+    cy.getCookie('has-cookie-consent').should('not.exist');
   }
 
   function assertCompassCookiesExist() {
-    cy.getCookie('hubspotutk').should('be.not.equal', null);
-    cy.getCookie('has-cookie-consent').should('be.not.equal', null);
+    cy.getCookie('hubspotutk').should('exist');
+    cy.getCookie('has-cookie-consent').should('exist');
   }
 
   function assertCookieMessageIsNotDisplayed() {
-    cy.get('[data-test=message]').should('not.be.visible');
+    cy.get('[data-test=cookie-msg]').should('not.be.visible');
   }
 
   function assertCookieMessageIsDisplayed() {
-    cy.get('[data-test=message]').should('be.visible');
+    cy.get('[data-test=cookie-msg]').should('be.visible');
   }
 
   function assertCorrectCookieMessageIsDisplayed(text) {
-    cy.get('[data-test=text]').contains(text);
+    cy.get('[data-test=cookie-msg-text]').contains(text);
   }
 });

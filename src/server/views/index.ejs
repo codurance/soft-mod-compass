@@ -41,16 +41,14 @@
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NF7RGC7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <div class="container">
-      <div
-        id="typeform-survey"
-        style="height: 100%;"
-        data-typeformurl="<%=typeformUrl%>"
-        data-typeformformid="<%=typeformFormId%>"
-        data-hubspotformlandingpageurl="<%=hubspotFormLandingPageUrl%>"></div>
+    <div
+      id="typeform-survey"
+      style="height: 100%;"
+      data-typeformurl="<%=typeformUrl%>"
+      data-typeformformid="<%=typeformFormId%>"
+      data-hubspotformlandingpageurl="<%=hubspotFormLandingPageUrl%>"></div>
 
-      <%- include('cookieMessage'); %>
-    </div>
+    <%- include('cookieMessage'); %>
 
     <script src="https://embed.typeform.com/embed.js"></script>
     <script src="bundle.js"></script>

@@ -1,25 +1,24 @@
 .cookie-message__container {
-    position: absolute;
-    padding-top: 1.42857rem;
-    padding-bottom: 1.42857rem;
+    position: fixed;
+    padding-top: 1.4rem;
+    padding-bottom: 1.4rem;
     background-color: rgba(0, 0, 0, 0.9);
     bottom: 0;
     left: 0;
-    z-index: 999;
     width: 100%;
-    margin: 0 auto;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.6;
-    opacity: 1;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .cookie-message__text {
     font-family: proxima-nova, sans-serif;  /******************************************** add proxima-nova font to proj?*/
     font-weight: 300;
     color: rgba(255, 255, 255, 0.8);
-    padding: 1.42857rem;
-    /* padding-left: 3.57143rem;
-    margin-right: 3.57143rem; */
+    padding: 1.4rem;
     margin-left: 3rem;
     margin-right: 2rem;
 }
@@ -29,29 +28,23 @@
     text-decoration: none;
 }
 
-.cookie-policy-link:hover {
+.cookie-policy__link:hover {
     text-decoration: underline;
 }
 
   /*Button Styles
 ------------------------------------*/
 
-.pull-right {
-    float: right;
-    padding-right: 3.57143rem;
-  }
-
 .cookie-message__button {
     line-height: 1.5;
     border-radius: .25rem;
-    text-align: center;
-    white-space: nowrap;
     vertical-align: middle;
     font-family: proxima-nova, sans-serif;
     cursor: pointer;
-    font-size: 15px;
-    margin: 10px 0;
-    padding: 10px 30px;
+    font-size: 0.9rem;
+    margin: 0.63rem 0;
+    margin-right: 1.4rem;
+    padding: 0.63rem 1.87rem;
     background-color: transparent;
     color: white;
     font-weight: 400;
@@ -59,6 +52,7 @@
     border: none;
     overflow: hidden;
     position: relative;
+    align-self: flex-end;
 }
 
 .cookie-message__button:hover {
