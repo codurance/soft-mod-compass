@@ -40,3 +40,13 @@ const checkSurveyHasFocusInterval = window.setInterval(
   checkSurveyHasFocus,
   100
 );
+
+window.ready = ready;
+
+function ready(func) {
+  if (document.readyState === 'complete' || document.readyState != 'loading') {
+    func();
+  } else {
+    document.addEventListener('DOMContentLoaded', func);
+  }
+}
