@@ -2,16 +2,15 @@
 
 <!-- This was obtained from https://github.com/studio24/cookie-message-->
 
-<!-- Cookie Message -->
-<div class="js-cookie-message cookie-message__container" data-test="message" >
-    <div class="row">
-      <div class="cookie-message__text" data-test="text">
-          Codurance uses cookies to ensure we give you the best experience on our website.
-          <a href="" target="_blank" title="View our Cookie Policy" class="cookie-policy__link">View our Cookie Policy</a>
-      </div>
-      <div class="pull-right">
-        <a class="js-cookie-message-accept cookie-message__button" title="Accept" data-test="button"> Accept</a>
-      </div>
+<div class="cookie-message__container" data-test="cookie-msg" >
+    <div class="cookie-message__text" data-test="cookie-msg-text">
+        <%= cookieMessage.text%>
+        <a href="<%= cookieMessage.policyLink %>" target="_blank" title="View our Cookie Policy" class="cookie-policy__link">
+          <%= cookieMessage.viewPolicy %>
+        </a>
     </div>
+      <button class="cookie-message__button" title="Accept" data-test="cookie-msg-btn">
+        <%= cookieMessage.accept %>
+      </button>
   </div>
   

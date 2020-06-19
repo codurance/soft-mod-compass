@@ -8,6 +8,7 @@ const stripHubspotSubmissionGuid = require('./middleware/stripHubspotSubmissionG
 
 const uploadToS3 = require('./upload/uploadToS3');
 const sendPdfLinkEmail = require('./mail/sendPdfLinkEmail');
+const cookieMessage = require('./cookieMessage');
 const config = require('./config');
 const jsReportTemplate = {
   name: config.isESVersion ? 'Compass-ES' : 'Compass-EN',
@@ -37,6 +38,7 @@ module.exports = (config, reportingApp, buildReportViewModelFor) => {
       description: socialMediaPreview.getDescription(),
       title: socialMediaPreview.getTitle(),
       canonicalUrl: config.canonicalUrl,
+      cookieMessage: cookieMessage,
     });
   });
 
