@@ -57,7 +57,7 @@ describe('typeformClient', () => {
       await typeformClient.surveyAnswersFor(mockUuid);
     });
 
-    it('successfuly get an extract result', (done) => {
+    it('successfully gets and extract result', (done) => {
       nock(config.typeform.url)
         .get(queryAnswersForMockUuidUrl)
         .reply(OK, answerWithTwoItems);
@@ -127,7 +127,7 @@ describe('typeformClient', () => {
   });
 
   describe('get survey schema', () => {
-    it('sucessfully gets and and extract schema', (done) => {
+    it('sucessfully gets and extract schema', (done) => {
       const questions = [
         { properties: { choices: choicesData() } },
         { properties: { choices: choicesData() } },
