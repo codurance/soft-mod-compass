@@ -1,61 +1,53 @@
-.cookie-message__container {
-    position: fixed;
-    padding-top: 1.4rem;
-    padding-bottom: 1.4rem;
-    background-color: rgba(0, 0, 0, 0.9);
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    font-size: 1rem;
-    line-height: 1.6;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
+.cookie-message {
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1em 4rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 100px;
 }
 
 .cookie-message__text {
-    font-family: proxima-nova, sans-serif;  /******************************************** add proxima-nova font to proj?*/
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.8);
-    padding: 1.4rem;
-    margin-left: 3rem;
-    margin-right: 2rem;
+  font-family: proxima-nova, sans-serif; /* TODO: add proxima-nova font to project? */
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0.5em 0;
 }
 
 .cookie-policy__link {
-    color: #FA7268;
-    text-decoration: none;
+  color: #fa7268;
+  text-decoration: none;
 }
 
 .cookie-policy__link:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-  /*Button Styles
-------------------------------------*/
-
 .cookie-message__button {
-    line-height: 1.5;
-    border-radius: .25rem;
-    vertical-align: middle;
-    font-family: proxima-nova, sans-serif;
-    cursor: pointer;
-    font-size: 0.9rem;
-    margin: 0.63rem 0;
-    margin-right: 1.4rem;
-    padding: 0.63rem 1.87rem;
-    background-color: transparent;
-    color: white;
-    font-weight: 400;
-    background: #FA7268;
-    border: none;
-    overflow: hidden;
-    position: relative;
-    align-self: flex-end;
+  border-radius: 0.25rem;
+  padding: 0.63rem 1.87rem;
+  font-family: proxima-nova, sans-serif; /* TODO: add proxima-nova font to project? */
+  font-size: 0.9rem;
+  font-weight: 400;
+  cursor: pointer;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  background: #fa7268;
+  border: none;
 }
 
 .cookie-message__button:hover {
-    transition: all 0.3s ease-in-out;
-    background-color: #f16055;
+  transition: all 0.3s ease-in-out;
+  background-color: #f16055;
+}
+
+.cookie-message__button-wrapper {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
 }
