@@ -18,15 +18,7 @@ function cookieMessage() {
   }
   let onConsentCallbacks = [];
 
-  /**
-   * Set cookie
-   *
-   * @param string name
-   * @param string value
-   * @param int days
-   * @param string path
-   * @see http://www.quirksmode.org/js/cookies.html
-   */
+  // see http://www.quirksmode.org/js/cookies.html
   function createCookie(name, value, days, path) {
     let expires;
     if (days) {
@@ -37,12 +29,7 @@ function cookieMessage() {
     document.cookie = name + '=' + value + expires + '; path=' + path;
   }
 
-  /**
-   * Read cookie
-   * @param string name
-   * @returns {*}
-   * @see http://www.quirksmode.org/js/cookies.html
-   */
+  // see: http://www.quirksmode.org/js/cookies.html
   function readCookie(name) {
     let nameEQ = name + '=';
     let ca = document.cookie.split(';');
@@ -73,7 +60,6 @@ function cookieMessage() {
     // Set/update cookie
     let cookieExpiry = 60;
     let cookiePath = '/';
-
     createCookie(COOKIE_NAME, 'yes', cookieExpiry, cookiePath);
   }
 

@@ -33,6 +33,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "@typeform/embed": "^0.22.0",
     "aws-sdk": "^2.638.0",
     "cors": "^2.8.5",
     "cypress-iframe": "^1.0.1",
