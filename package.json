@@ -92,5 +92,8 @@
       "logs/*"
     ],
     "delay": 1000
+  },
+  "jest": {
+    "testPathIgnorePatterns": ["/cypress/"]
   }
 }
