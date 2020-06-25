@@ -11,8 +11,8 @@ function hubspotInit() {
   }
 }
 
-var loadHubspotEmbedCode = function () {
-  var scriptTag = document.createElement('script');
+const loadHubspotEmbedCode = function () {
+  const scriptTag = document.createElement('script');
   scriptTag.src = '//js.hs-scripts.com/3042464.js';
   scriptTag.setAttribute('id', 'hs-script-loader');
   document.body.appendChild(scriptTag);
