@@ -6,9 +6,7 @@ ready(function () {
 
 function cookieMessage() {
   const COOKIE_NAME = 'has-cookie-consent';
-  let messageElement = document.getElementsByClassName(
-    'cookie-message__container'
-  )[0];
+  let messageElement = document.getElementsByClassName('cookie-message')[0];
   if (!messageElement) {
     throw 'no element found for cookie message';
   }

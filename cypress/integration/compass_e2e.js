@@ -27,7 +27,7 @@ describe('Compass', () => {
     }
   });
 
-  context('Cookie Message', () => {
+  context('When Cookie Message', () => {
     it('is displayed and cookies not created when user has never visited Compass', () => {
       cy.visit(Cypress.env('localhost'));
       clickStart();
@@ -35,7 +35,7 @@ describe('Compass', () => {
       assertCookieMessageIsDisplayed();
     });
 
-    it('is not visible and cookie are created when user clicks ACCEPT', () => {
+    it('should not be visible after user accepts cookie policy', () => {
       cy.visit(Cypress.env('localhost'));
       acceptCookies();
       assertCompassCookiesExist();
