@@ -1,9 +1,3 @@
-window.compass = window.compass || {};
-
-ready(function () {
-  window.compass.cookieMessage = cookieMessage();
-});
-
 function cookieMessage() {
   const COOKIE_NAME = 'has-cookie-consent';
   let messageElement = document.getElementsByClassName('cookie-message')[0];
@@ -92,3 +86,5 @@ function cookieMessage() {
     onConsent: onConsent,
   };
 }
+
+module.exports = cookieMessage;

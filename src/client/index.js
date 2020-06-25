@@ -1,5 +1,7 @@
 const generateUuid = require('uuid/v4');
 const typeformEmbed = require('@typeform/embed');
+const cookieMessageFactory = require('./cookieMessage');
+const hubspotEmbeddedFactory = require('./hubspotEmbedded');
 
 /*
 Hidden fields are pre-populated using query string parameters in both Typeform and Hubspot
@@ -50,3 +52,12 @@ function ready(func) {
     document.addEventListener('DOMContentLoaded', func);
   }
 }
+
+window.compass = window.compass || {};
+ready(function () {
+  const cookieMessage = cookieMessageFactory();
+  window.compass.cookieMessage = cookieMessage;
+
+  hubspotEmbedded = hubspotEmbeddedFactory(cookieMessage);
+  hubspotEmbedded.initializeHubspot();
+});
