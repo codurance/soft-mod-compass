@@ -40,8 +40,13 @@ describe('Compass', () => {
     it('should not be visible after user accepts cookie policy', () => {
       cy.visit(Cypress.env('localhost'));
       acceptCookies();
-      assertCompassCookiesExist();
       assertCookieMessageIsNotDisplayed();
+    });
+
+    it('should allow cookies after user accepts cookie policy', () => {
+      cy.visit(Cypress.env('localhost'));
+      acceptCookies();
+      assertCompassCookiesExist();
     });
 
     it('is not visible and cookies are present when user has already accepted cookie in the past', () => {
