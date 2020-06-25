@@ -146,6 +146,7 @@ describe('Compass', () => {
   }
 
   function assertCompassCookiesExist() {
+    cy.waitUntil(() => cy.getCookie('hubspotutk'));
     cy.getCookie('hubspotutk').should('exist');
     cy.getCookie('has-cookie-consent').should('exist');
   }
