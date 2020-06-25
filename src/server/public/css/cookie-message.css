@@ -1,0 +1,54 @@
+.cookie-message {
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1em 4rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 100px;
+}
+
+.cookie-message__text {
+  font-family: proxima-nova, sans-serif; /* TODO: add proxima-nova font to project? */
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0.5em 0;
+}
+
+.cookie-policy__link {
+  color: #fa7268;
+  text-decoration: none;
+}
+
+.cookie-policy__link:hover {
+  text-decoration: underline;
+}
+
+.cookie-message__button {
+  border-radius: 0.25rem;
+  padding: 0.63rem 1.87rem;
+  margin-left: 2em;
+  font-family: proxima-nova, sans-serif; /* TODO: add proxima-nova font to project? */
+  font-size: 0.9rem;
+  font-weight: 400;
+  cursor: pointer;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  background: #fa7268;
+  border: none;
+}
+
+.cookie-message__button:hover {
+  transition: all 0.3s ease-in-out;
+  background-color: #f16055;
+}
+
+.cookie-message__button-wrapper {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}

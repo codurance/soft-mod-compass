@@ -34,28 +34,13 @@
     <meta name="robots" content="index,follow">
 
     <title><%= title %></title>
-    <style type="text/css">
-      html, body {
-        margin: 0;
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
-      }
-      iframe {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        top: 0;
-        border: 0;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="/css/index.css" />
+
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NF7RGC7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-
     <div
       id="typeform-survey"
       style="height: 100%;"
@@ -63,10 +48,8 @@
       data-typeformformid="<%=typeformFormId%>"
       data-hubspotformlandingpageurl="<%=hubspotFormLandingPageUrl%>"></div>
 
-    <script src="https://embed.typeform.com/embed.js"></script>
+    <%- include('cookieMessage'); %>
+
     <script src="bundle.js"></script>
-    <!-- Start of HubSpot Embed Code -->
-    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/3042464.js"></script>
-    <!-- End of HubSpot Embed Code -->
   </body>
 </html>
