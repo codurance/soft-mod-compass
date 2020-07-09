@@ -1,7 +1,8 @@
 const request = require('request-promise');
 const sleep = require('sleep-promise');
+const config = require('../config');
 
-module.exports = (config, sleepBeforeRetryMs) => {
+module.exports = (sleepBeforeRetryMs) => {
   const headers = {
     Authorization: `Bearer ${config.typeform.authToken}`,
   };
@@ -25,7 +26,7 @@ module.exports = (config, sleepBeforeRetryMs) => {
       if (retriesLeft === 0) throw Error(`no survey answers for ${uuid}`);
     };
     const sleepAndTryAgain = async () => {
-      await sleep(sleepBeforeRetryMs);
+      await sleep(config.app.typeform.sleepBeforeRetryMs);
       return surveyAnswersFor(uuid, retriesLeft - 1);
     };
     const extractAnswers = (results) =>
