@@ -1,8 +1,7 @@
 const express = require('express');
 const reportingApp = express();
 
-const reportViewModelBuilder = require('./src/server/report/reportViewModelBuilder');
-const app = require('./src/server/app')(reportingApp, reportViewModelBuilder);
+const app = require('./src/server/app')(reportingApp);
 
 const port = 8080;
 

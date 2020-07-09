@@ -4,14 +4,9 @@ function appWithMockConfig(configOverrides) {
   const config = { ...mockConfig, ...configOverrides };
   jest.resetModules();
   jest.doMock('../src/server/config', () => config);
-
   const fakeReportingApp = (req, res, next) =>
     res.send('<p>jsreport studio</p>');
-  const reportViewModelBuilder = require('../src/server/report/reportViewModelBuilder');
-  const app = require('../src/server/app')(
-    fakeReportingApp,
-    reportViewModelBuilder
-  );
+  const app = require('../src/server/app')(fakeReportingApp);
   return app;
 }
 
