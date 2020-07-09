@@ -1,13 +1,7 @@
 const express = require('express');
 const reportingApp = express();
 
-const config = require('./src/server/config');
-const typeformClient = require('./src/server/survey/typeformClient')(config);
-const getHubspotUserDetails = require('./src/server/report/getHubspotUserDetails');
-const reportViewModelBuilder = require('./src/server/report/reportViewModelBuilder')(
-  typeformClient,
-  getHubspotUserDetails
-);
+const reportViewModelBuilder = require('./src/server/report/reportViewModelBuilder');
 const app = require('./src/server/app')(reportingApp, reportViewModelBuilder);
 
 const port = 8080;
