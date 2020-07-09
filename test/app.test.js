@@ -1,4 +1,26 @@
-const config = {
+const request = require('supertest');
+
+function appWithMockConfig(configOverrides) {
+  const config = { ...mockConfig, ...configOverrides };
+  jest.resetModules();
+  jest.doMock('../src/server/config', () => config);
+
+  const fakeReportingApp = (req, res, next) =>
+    res.send('<p>jsreport studio</p>');
+  const typeformClient = require('../src/server/survey/typeformClient')(
+    mockConfig
+  );
+  const reportViewModelBuilder = require('../src/server/report/reportViewModelBuilder')(
+    typeformClient
+  );
+  const app = require('../src/server/app')(
+    fakeReportingApp,
+    reportViewModelBuilder
+  );
+  return app;
+}
+
+const mockConfig = {
   jsreport: {
     studioEditorEnabled: true,
   },
@@ -12,24 +34,12 @@ const config = {
   },
 };
 
-const typeformClient = require('../src/server/survey/typeformClient')(config);
-const reportViewModelBuilder = require('../src/server/report/reportViewModelBuilder')(
-  typeformClient
-);
-
-const request = require('supertest');
-
-const fakeReportingApp = (req, res, next) => {
-  return res.send('<p>jsreport studio</p>');
-};
-
-const app = require('../src/server/app')(
-  config,
-  fakeReportingApp,
-  reportViewModelBuilder
-);
-
 describe('app', () => {
+  let app;
+  beforeEach(() => {
+    app = appWithMockConfig();
+  });
+
   it('responds with html on homepage', (done) => {
     request(app).get('/').expect('Content-Type', /html/).expect(200, done);
   });
@@ -42,13 +52,11 @@ describe('app', () => {
   });
 
   it('does not allow access to jsreport studio in production', (done) => {
-    const fakeProdConfig = {
-      ...config,
+    const app = appWithMockConfig({
       jsreport: {
         studioEditorEnabled: false,
       },
-    };
-    const app = require('../src/server/app')(fakeProdConfig, fakeReportingApp);
+    });
     request(app)
       .get('/reporting')
       .expect('Content-Type', /html/)

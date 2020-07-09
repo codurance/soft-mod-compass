@@ -16,7 +16,7 @@ const jsReportTemplate = {
   recipe: 'chrome-pdf',
 };
 
-module.exports = (config, reportingApp, buildReportViewModelFor) => {
+module.exports = (reportingApp, buildReportViewModelFor) => {
   const app = express();
 
   app.set('view engine', 'ejs');

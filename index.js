@@ -8,11 +8,7 @@ const reportViewModelBuilder = require('./src/server/report/reportViewModelBuild
   typeformClient,
   getHubspotUserDetails
 );
-const app = require('./src/server/app')(
-  config,
-  reportingApp,
-  reportViewModelBuilder
-);
+const app = require('./src/server/app')(reportingApp, reportViewModelBuilder);
 
 const port = 8080;
 
