@@ -46,7 +46,7 @@ const body = (pdfLink, userData) => {
             <tr>
               <td align="left" valign="top" style="padding: 20px;">
                 <p class="preview-text" style="font-size: 0; line-height: 0;">Your report expires in 7 days.</p>
-                <p>Hi ${userData.firstname},
+                <p>Hi ${userData.firstName},
                   <br><br>
                   Thank you for using <b>Codurance Compass</b> — our software delivery assessment.
                   <br><br>

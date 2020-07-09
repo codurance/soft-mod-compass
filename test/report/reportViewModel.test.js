@@ -65,17 +65,11 @@ describe('survey results', () => {
     );
 
     expect(result).toEqual({
-      userData: {
-        submittedAt: 1569250954586,
-        values: [
-          { name: 'firstname', value: 'Daniel' },
-          { name: 'lastname', value: 'Bird' },
-          { name: 'company', value: 'Codurance' },
-          { name: 'email', value: 'daniel.bird@codurance.com' },
-          { name: 'uuid', value: '476cf248-27fe-4f98-8eaa-19d385cc2fbd' },
-        ],
-        pageUrl:
-          'https://info.codurance.com/compass-test?uuid=476cf248-27fe-4f98-8eaa-19d385cc2fbd&scores=NjAsNjAsNjAsNjAsNjA=',
+      user: {
+        firstName: 'Daniel',
+        lastName: 'Bird',
+        company: 'Codurance',
+        email: 'daniel.bird@codurance.com',
       },
       scores: [55, 70, 30],
       summaryRadial: {

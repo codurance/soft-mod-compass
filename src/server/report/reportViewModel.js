@@ -8,10 +8,17 @@ function reportViewModel(categories, questionChoices, answers, userDetails) {
   ).map(addScore);
 
   const scores = categoriesWithContentAndScore.map((c) => c.score);
-  const userData = userDetails;
+  const userProperty = (propertyName) =>
+    userDetails.values.find((property) => property.name === propertyName).value;
+  const user = {
+    firstName: userProperty('firstname'),
+    lastName: userProperty('lastname'),
+    company: userProperty('company'),
+    email: userProperty('email'),
+  };
 
   const jsonResults = {
-    userData,
+    user,
     scores,
     summaryRadial: {
       scores,
