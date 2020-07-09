@@ -15,8 +15,9 @@ const jsReportTemplate = {
   engine: 'handlebars',
   recipe: 'chrome-pdf',
 };
+const buildReportViewModelFor = require('./report/reportViewModelBuilder');
 
-module.exports = (reportingApp, buildReportViewModelFor) => {
+module.exports = (reportingApp) => {
   const app = express();
 
   app.set('view engine', 'ejs');
