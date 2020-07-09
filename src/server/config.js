@@ -23,4 +23,9 @@ module.exports = {
   aws: {
     bucket: process.env.AWS_COMPASS_BUCKET,
   },
+  app: {
+    typeform: {
+      sleepBeforeRetryMs: 3000,
+    },
+  },
 };
