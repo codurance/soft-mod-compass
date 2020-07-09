@@ -7,9 +7,7 @@ function appWithMockConfig(configOverrides) {
 
   const fakeReportingApp = (req, res, next) =>
     res.send('<p>jsreport studio</p>');
-  const typeformClient = require('../src/server/survey/typeformClient')(
-    mockConfig
-  );
+  const typeformClient = require('../src/server/survey/typeformClient');
   const reportViewModelBuilder = require('../src/server/report/reportViewModelBuilder')(
     typeformClient
   );
