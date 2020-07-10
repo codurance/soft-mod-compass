@@ -6,10 +6,21 @@
     text-align: right;
 }
 
+#front-page_full-name {
+  display: inline-block;
+  position: absolute;
+  top: 198mm;
+  right: 26mm;
+  width: 109mm;
+  text-align: right;
+  color: white;
+}
+
+
 #front-page_company-name {
   display: inline-block;
   position: absolute;
-  top: 201.5mm;
+  top: 225mm;
   right: 26mm;
   width: 109mm;
   text-align: right;
@@ -19,7 +30,7 @@
 #front-page_date {
   display: inline-block;
   position: absolute;
-  top: 227mm;
+  top: 251mm;
   right: 26mm;
   width: 39mm;
   text-align: right;
