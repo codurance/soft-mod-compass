@@ -114,6 +114,6 @@ jspm_packages/
 .history
 
 ### Hubspot config
-./src/hubspot/hubspot.config.yml
+hubspot.config.yml
 
 # End of https://www.gitignore.io/api/node,macos,visualstudiocode
