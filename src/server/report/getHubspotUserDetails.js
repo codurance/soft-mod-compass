@@ -21,19 +21,27 @@ function getHubspotUserDetails(uuid, retries = 3) {
     return names.join(' ');
   }
 
+  function valueWithName(values, name) {
+    for (const valueEntry of values) {
+      if (valueEntry.name === name) return valueEntry.value;
+    }
+    throw `Could not find value with name ${name} in ${values}`;
+  }
+
+  const uuidMatches = (result) => valueWithName(result.values, 'uuid') === uuid;
+
   return sleep(2000).then(() => {
     return rp(options)
       .then((response) => {
         if (response.results.length > 0) {
-          const data = response.results.filter(
-            (result) => result.values[4].value === uuid
-          )[0];
+          const dataForUuid = response.results.find(uuidMatches);
 
-          data.values = data.values.map((entry) => {
+          dataForUuid.values = dataForUuid.values.map((entry) => {
             if (
               entry.name === 'firstname' ||
               entry.name === 'lastname' ||
-              entry.name === 'company'
+              entry.name === 'company' ||
+              entry.name === 'job_function'
             ) {
               entry.value = titleCase(entry.value);
               return entry;
@@ -42,7 +50,7 @@ function getHubspotUserDetails(uuid, retries = 3) {
             }
           });
 
-          return data;
+          return dataForUuid;
         } else {
           const retriesLeft = retries - 1;
           if (retriesLeft === 0)

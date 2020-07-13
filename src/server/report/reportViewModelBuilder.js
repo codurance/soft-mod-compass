@@ -12,6 +12,9 @@ const reportViewModelBuilder = (typeformClient, getHubspotUserDetails) => {
 
       return reportViewModel(categoryData, choices, answers, userDetails);
     } catch (error) {
+      console.log(
+        `There was a problem processing report for '${submissionUuid}'`
+      );
       console.log(error);
       throw error;
     }
