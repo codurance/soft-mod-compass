@@ -1,44 +1,47 @@
 describe('Cookie Message', () => {
   it('is displayed and cookies not created when user has never visited Compass', () => {
-    cy.visit(Cypress.env('localhost'));
+    cy.visit('/');
     clickStart();
     assertCompassCookiesDoNotExist();
     assertCookieMessageIsDisplayed();
   });
 
   it('should not be visible after user accepts cookie policy', () => {
-    cy.visit(Cypress.env('localhost'));
+    cy.visit('/');
     acceptCookies();
     assertCookieMessageIsNotDisplayed();
   });
 
   it('should allow cookies after user accepts cookie policy', () => {
-    cy.visit(Cypress.env('localhost'));
+    cy.visit('/');
     acceptCookies();
     assertCompassCookiesExist();
   });
 
   it('is not visible and cookies are present when user has already accepted cookie in the past', () => {
     cy.setCookie('has-cookie-consent', 'yes');
-    cy.visit(Cypress.env('localhost'));
+    cy.visit('/');
     assertCompassCookiesExist();
     assertCookieMessageIsNotDisplayed();
   });
 
-  // TODO: Fix when streamlining E2E test config
-  // it('is displayed in Spanish when a user visits Compass ES', () => {
-  //   cy.visit(Cypress.env('localhost'));
-  //   let spanishMessage =
-  //     'Codurance utiliza cookies para garantizarte la mejor experiencia de navegación en nuestro sitio web.';
-  //   assertCorrectCookieMessageIsDisplayed(spanishMessage);
-  // });
+  if (Cypress.env('langToTest') === 'EN') {
+    it('is displayed in English when a user visits Compass EN', () => {
+      cy.visit('/');
+      let englishMessage =
+        'Codurance uses cookies to ensure we give you the best experience on our website.';
+      assertCorrectCookieMessageIsDisplayed(englishMessage);
+    });
+  }
 
-  it('is displayed in English when a user visits Compass EN', () => {
-    cy.visit(Cypress.env('localhost'));
-    let englishMessage =
-      'Codurance uses cookies to ensure we give you the best experience on our website.';
-    assertCorrectCookieMessageIsDisplayed(englishMessage);
-  });
+  if (Cypress.env('langToTest') === 'ES') {
+    it('is displayed in Spanish when a user visits Compass ES', () => {
+      cy.visit('/');
+      let spanishMessage =
+        'Codurance utiliza cookies para garantizarte la mejor experiencia de navegación en nuestro sitio web.';
+      assertCorrectCookieMessageIsDisplayed(spanishMessage);
+    });
+  }
 });
 
 function clickStart() {
