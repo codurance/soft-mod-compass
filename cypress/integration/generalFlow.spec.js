@@ -16,7 +16,7 @@ describe('Compass Flow', () => {
 
 function testSpanishCompass() {
   assertStartPageIsInCorrectLanguage(
-    'Nuestra herramienta de evaluación de entrega de software permite '
+    'Nuestra herramienta de evaluación de entrega de software permite'
   );
   clickStart();
   completeTypeFormSurveryAndSubmit(
