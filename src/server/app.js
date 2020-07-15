@@ -52,11 +52,7 @@ module.exports = (reportingApp) => {
     buildReportViewModelFor(uuid).then((viewModel) => {
       jsreport
         .render({ template: jsReportTemplate, data: viewModel })
-        .then((pdf) => {
-          const email = getEmail(viewModel);
-          const firstname = getFirstname(viewModel);
-          uploadPdfAndSendLinkEmail(pdf, { email, firstname });
-        });
+        .then((pdf) => uploadPdfAndSendLinkEmail(pdf, viewModel.user));
     });
   }
 
@@ -69,14 +65,6 @@ module.exports = (reportingApp) => {
       .catch((err) =>
         console.log(`an error occurred while uploading the pdf\n${err}`)
       );
-  }
-
-  function getEmail(viewModel) {
-    return viewModel.userData.values.find((d) => d.name === 'email').value;
-  }
-
-  function getFirstname(viewModel) {
-    return viewModel.userData.values.find((d) => d.name === 'firstname').value;
   }
 
   return app;

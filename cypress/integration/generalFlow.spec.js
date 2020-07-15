@@ -1,29 +1,15 @@
 describe('Compass Flow', () => {
-  if (Cypress.env('envToTest') === 'dev:es') {
-    // Rename 'dev:es' -> 'playground:es'
+  if (Cypress.env('langToTest') === 'ES') {
     it('(ES) redirects to HubSpot Successful Submission page when completed', () => {
-      cy.visit(Cypress.env('devEsUrl'));
+      cy.visit('/');
       testSpanishCompass();
     });
   }
 
-  if (Cypress.env('envToTest') === 'dev:en') {
-    // Rename 'dev:en' -> 'playground:en'
+  if (Cypress.env('langToTest') === 'EN') {
     it('(EN) redirects to HubSpot Successful Submission page when completed', () => {
-      cy.visit(Cypress.env('devEnUrl'));
+      cy.visit('/');
       testEnglishCompass();
-    });
-  }
-
-  if (!Cypress.env('envToTest') || Cypress.env('envToTest') === 'local') {
-    let lang = Cypress.env('lang') ? Cypress.env('lang') : 'en';
-    it(`(${lang.toUpperCase()}) redirects to HubSpot Successful Submission page when completed`, () => {
-      cy.visit(Cypress.env('localhost'));
-      if (lang === 'es') {
-        testSpanishCompass();
-      } else {
-        testEnglishCompass();
-      }
     });
   }
 });
@@ -81,7 +67,7 @@ function assertRedirectsToHubSpotLPAndContains(headerText) {
 }
 
 function fillInHubSpotSubmissionFormAndSubmit() {
-  cy.get('[name=firstname]').type('Test');
+  cy.get('[name=firstname]').type('Compass');
   cy.get('[name=lastname]').type('Test');
   cy.get('[name=company]').type('Codurance');
   cy.get('[name=email]').type('compass-test@codurance.com');

@@ -46,7 +46,7 @@ const body = (pdfLink, userData) => {
             <tr>
               <td align="left" valign="top" style="padding: 20px;">
                 <p class="preview-text" style="font-size: 0; line-height: 0;">Tu informe estará disponible para descargar durante siete días.</p>
-                <p>Hola ${userData.firstname},
+                <p>Hola ${userData.firstName},
                   <br><br>
                   El equipo de Codurance te damos las gracias por utilizar <b>Compass</b>.
                   <br><br>
