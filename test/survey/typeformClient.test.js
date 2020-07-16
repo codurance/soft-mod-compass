@@ -2,31 +2,38 @@ const nock = require('nock');
 
 const sleepMock = jest.fn();
 sleepMock.mockImplementation(() => Promise.resolve());
-jest.doMock('sleep-promise', () => {
-  return sleepMock;
-});
+
+function typeformClientWithMockConfig(configOverrides) {
+  const config = { ...mockConfig, ...configOverrides };
+  jest.resetModules();
+  jest.doMock('sleep-promise', () => sleepMock);
+  jest.doMock('../../src/server/config', () => config);
+  const typeformClient = require('../../src/server/survey/typeformClient');
+  return typeformClient;
+}
 
 const testAuthToken = 'MOCK AUTH TOKEN';
-const config = {
+const mockConfig = {
   typeform: {
     url: 'https://typeform-url.com',
     formId: 'formId',
     authToken: testAuthToken,
   },
+  app: { typeform: { sleepBeforeRetryMs: 0 } },
 };
-const typeformClientFactory = require('../../src/server/survey/typeformClient');
-const typeformClient = typeformClientFactory(config, 0);
 
 describe('typeformClient', () => {
   const OK = 200;
+  let typeformClient;
 
   beforeEach(() => {
     sleepMock.mockClear();
+    typeformClient = typeformClientWithMockConfig();
   });
 
   describe('get survey answers', () => {
     const mockUuid = 'MOCK_UUID';
-    const queryAnswersForMockUuidUrl = `/forms/${config.typeform.formId}/responses?query=${mockUuid}`;
+    const queryAnswersForMockUuidUrl = `/forms/${mockConfig.typeform.formId}/responses?query=${mockUuid}`;
     const answerEmpty = { items: [] };
     const answerWithTwoItems = {
       items: [
@@ -42,7 +49,7 @@ describe('typeformClient', () => {
     });
 
     it('sends auth header', async () => {
-      nock(config.typeform.url)
+      nock(mockConfig.typeform.url)
         .get(queryAnswersForMockUuidUrl)
         .reply(OK, function () {
           const requestHeaders = this.req.headers;
@@ -58,7 +65,7 @@ describe('typeformClient', () => {
     });
 
     it('successfully gets and extract result', (done) => {
-      nock(config.typeform.url)
+      nock(mockConfig.typeform.url)
         .get(queryAnswersForMockUuidUrl)
         .reply(OK, answerWithTwoItems);
 
@@ -72,7 +79,7 @@ describe('typeformClient', () => {
     });
 
     it('retries multiple times if answers are empty', (done) => {
-      nock(config.typeform.url)
+      nock(mockConfig.typeform.url)
         .get(queryAnswersForMockUuidUrl)
         .reply(OK, answerEmpty)
         .get(queryAnswersForMockUuidUrl)
@@ -92,7 +99,7 @@ describe('typeformClient', () => {
     it('retries no more than the given parameter', async () => {
       const expectedRetries = 3;
 
-      nock(config.typeform.url)
+      nock(mockConfig.typeform.url)
         .get(queryAnswersForMockUuidUrl)
         .times(expectedRetries)
         .reply(OK, answerEmpty);
@@ -109,9 +116,12 @@ describe('typeformClient', () => {
 
     it('Waits delay before retrying', async () => {
       const mockSleepDuration = 100;
-      const typeformClient = typeformClientFactory(config, mockSleepDuration);
 
-      nock(config.typeform.url)
+      typeformClient = typeformClientWithMockConfig({
+        app: { typeform: { sleepBeforeRetryMs: mockSleepDuration } },
+      });
+
+      nock(mockConfig.typeform.url)
         .get(queryAnswersForMockUuidUrl)
         .times(3)
         .reply(OK, answerEmpty)
@@ -133,8 +143,8 @@ describe('typeformClient', () => {
         { properties: { choices: choicesData() } },
       ];
 
-      nock(config.typeform.url)
-        .get(`/forms/${config.typeform.formId}`)
+      nock(mockConfig.typeform.url)
+        .get(`/forms/${mockConfig.typeform.formId}`)
         .reply(OK, {
           fields: questions,
         });

@@ -4,17 +4,20 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "dev:en": "npm run check-aws-region:dev && . ./scripts/envvars-config-dev-EN.sh && webpack --mode=development && npm start",
-    "dev:es": "npm run check-aws-region:dev && . ./scripts/envvars-config-dev-ES.sh && webpack --mode=development && npm start",
+    "dev:en": "npm run check-aws-region:dev && . ./scripts/envvars-config-dev-EN.sh && webpack --mode=development && babel-node index.js",
+    "dev:es": "npm run check-aws-region:dev && . ./scripts/envvars-config-dev-ES.sh && webpack --mode=development && babel-node index.js",
     "debug:en": ". ./scripts/envvars-config-dev-EN.sh && webpack --mode=development && node --inspect index.js",
     "debug:es": ". ./scripts/envvars-config-dev-ES.sh && webpack --mode=development && node --inspect index.js",
-    "prod:en": "npm run check-aws-region:prod && . ./scripts/envvars-config-prod-EN.sh && webpack --mode=development && npm start",
-    "prod:es": "npm run check-aws-region:prod && . ./scripts/envvars-config-prod-ES.sh && webpack --mode=development && npm start",
+    "prod:en": "npm run check-aws-region:prod && . ./scripts/envvars-config-prod-EN.sh && webpack --mode=development && babel-node index.js",
+    "prod:es": "npm run check-aws-region:prod && . ./scripts/envvars-config-prod-ES.sh && webpack --mode=development && babel-node index.js",
+    "docker:start": "babel-node index.js",
     "watch": "nodemon",
-    "start": "babel-node index.js",
     "test": "jest && npm run lint",
     "test:tdd": "jest --watch",
-    "test:e2e": "cypress run",
+    "test:e2e:localhost:en": "cypress run --env langToTest=EN",
+    "test:e2e:localhost:es": "cypress run --env langToTest=ES",
+    "test:e2e:dev:en": "cypress run --config baseUrl=https://compass-en.codurance.io --env langToTest=EN",
+    "test:e2e:dev:es": "cypress run --config baseUrl=https://compass-es.codurance.io --env langToTest=ES",
     "lint": "standard",
     "check-aws-region:prod": "./scripts/check-aws-region.sh eu-central-1",
     "check-aws-region:dev": "./scripts/check-aws-region.sh eu-west-1",
@@ -38,7 +41,6 @@
     "@typeform/embed": "^0.22.0",
     "aws-sdk": "^2.638.0",
     "cors": "^2.8.5",
-    "cypress-iframe": "^1.0.1",
     "ejs": "2.6.1",
     "express": "4.16.4",
     "jsreport": "2.4.0",
@@ -49,14 +51,15 @@
     "uuidgen": "^1.0.0"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.0",
     "@babel/cli": "^7.7.5",
     "@babel/core": "^7.7.5",
     "@babel/node": "^7.7.4",
     "@babel/preset-env": "^7.7.6",
+    "@types/jest": "^26.0.4",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.0.4",
     "cypress": "^4.7.0",
+    "cypress-iframe": "^1.0.1",
     "cypress-wait-until": "^1.7.1",
     "eslint": "^7.1.0",
     "eslint-config-prettier": "^6.11.0",
@@ -96,6 +99,8 @@
     "delay": 1000
   },
   "jest": {
-    "testPathIgnorePatterns": ["/cypress/"]
+    "testPathIgnorePatterns": [
+      "/cypress/"
+    ]
   }
 }
