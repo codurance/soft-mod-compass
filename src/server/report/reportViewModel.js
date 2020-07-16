@@ -1,81 +1,78 @@
 module.exports = reportViewModel;
 
-function reportViewModel(categories, questionChoices, answers, userDetails) {
-  const categoriesWithContentAndScore = createCategoriesFrom(
-    categories,
-    questionChoices,
-    answers
-  ).map(addScore);
+function ensureKeysValid(categories) {
+  for (const category of categories) {
+    if (category.key.includes(' ')) {
+      throw 'Category key can not contain space';
+    }
+  }
+}
+const copyOf = (array) => [...array];
 
-  const scores = categoriesWithContentAndScore.map((c) => c.score);
+function mapUserInfo(userDetails) {
   const userProperty = (propertyName) =>
     userDetails.values.find((property) => property.name === propertyName).value;
-  const user = {
+
+  return {
     firstName: userProperty('firstname'),
     lastName: userProperty('lastname'),
     company: userProperty('company'),
     email: userProperty('email'),
   };
-
-  const jsonResults = {
-    user,
-    scores,
-    summaryRadial: {
-      scores,
-      labels: categoriesWithContentAndScore.map((c) => c.name),
-    },
-    categories: categoriesWithContentAndScore.map(
-      ({ name, score, subCategoryNames, subCategoryScores }) => ({
-        name,
-        score,
-        subCategoryLabels: subCategoryNames,
-        subCategoryLabel1: subCategoryNames[0],
-        subCategoryLabel2: subCategoryNames[1],
-        subCategoryLabel3: subCategoryNames[2],
-        subCategoryLabel4: subCategoryNames[3],
-        subCategoryScores,
-      })
-    ),
-  };
-  return jsonResults;
 }
-function createCategoriesFrom(
-  categories,
-  allSelectableChoices,
-  allChosenAnswers
+
+function computeScoresForCategories(
+  categoryDefinitions,
+  answers,
+  questionChoices
 ) {
-  return categories.map((category, index) => {
-    const numberOfQuestionsInCategory = 4;
-    const offset = index * numberOfQuestionsInCategory;
-    const categoryChoices = allSelectableChoices.slice(
-      offset,
-      offset + numberOfQuestionsInCategory
-    );
-    const categoryAnswers = allChosenAnswers.slice(
-      offset,
-      offset + numberOfQuestionsInCategory
-    );
+  answers = copyOf(answers);
+  questionChoices = copyOf(questionChoices);
 
-    return Object.assign({}, category, {
-      choices: categoryChoices,
-      answers: categoryAnswers,
-    });
-  });
+  const categories = {};
+
+  for (const categoryDefinition of categoryDefinitions) {
+    const key = categoryDefinition.key;
+    const subcategories = categoryDefinition.subcategoryNames;
+    const subcategoryScores = [];
+
+    for (const _ of subcategories) {
+      const answerForSubcategory = answers.shift();
+      const questionChoicesForSubcategory = questionChoices.shift();
+      const subcategoryScore = calculateScoreForAnswer(
+        questionChoicesForSubcategory,
+        answerForSubcategory
+      );
+      subcategoryScores.push(subcategoryScore);
+    }
+
+    const averageScore =
+      subcategoryScores.reduce((a, b) => a + b) / subcategoryScores.length;
+
+    categories[key] = {
+      score: averageScore,
+      subcategoryScores,
+    };
+  }
+
+  return categories;
 }
 
-function addScore(category) {
-  const scores = calculateScoreFor(category);
-  return Object.assign({}, category, scores);
-}
-
-function calculateScoreFor({ choices, answers }) {
-  const subCategoryScores = choices.map((choiceList, index) =>
-    calculateScoreForAnswer(choiceList, answers[index])
-  );
+function reportViewModel(
+  categoryDefinitions,
+  questionChoices,
+  answers,
+  userDetails
+) {
+  ensureKeysValid(categoryDefinitions);
 
   return {
-    score: subCategoryScores.reduce((a, b) => a + b) / answers.length,
-    subCategoryScores,
+    user: mapUserInfo(userDetails),
+    categories: computeScoresForCategories(
+      categoryDefinitions,
+      answers,
+      questionChoices
+    ),
   };
 }
 

@@ -1,56 +1,30 @@
 {
     "user": {
-        "firstName": "Example",
-        "lastName": "Name",
-        "company": "Codurance",
-        "email": "example.name@codurance.com"
+      "firstName": "Example",
+      "lastName": "Name",
+      "company": "Codurance",
+      "email": "example.name@codurance.com"
     },
-    "scores": [ 60, 60, 60, 60, 60 ],
-    "summaryRadial": {
-        "scores": [20, 20, 20, 20, 20],
-        "labels": [
-            "Organisational Maturity", 
-            "Continuous Delivery",
-            "People & Culture",
-            "Effective Team",
-            "Technical Practices"
-        ]
-    },
-    "categories": [
-        {
-            "name": "Organisational Maturity",
-            "content": "Effective software teams consist of aligned stakeholders contributing to the delivery effort from the beginning. They produce well-designed systems that are easy to change and evolve over time. They are focused on the highest value features and can repeatedly deliver effectively across multiple projects.",
-            "score": 10,
-            "subCategoryLabels": ["sub1", "sub2", "sub3", "sub4"],
-            "subCategoryScores": [20, 40, 20, 20]
-        },
-        {
-            "name": "Continuous Delivery",
-            "content": "Good software teams are able to regularly and reliably release valuable product increments. They make use of highly automated processes and feedback loops that allow problems to be found and corrected easily.",
-            "score": 10,
-            "subCategoryLabels": ["sub1", "sub2", "sub3", "sub4"],
-            "subCategoryScores": [40, 20, 20, 20]
-        },
-        {
-            "name": "People & Culture",
-            "content": "Transparency is a prerequisite to good decision making. It builds trust within teams. A culture of learning, along with defined career paths, increases staff retention and helps to drive recruitment.",
-            "score": 10,
-            "subCategoryLabels": ["sub1", "sub2", "sub3", "sub4"],
-            "subCategoryScores": [20, 20, 40, 40]
-        },
-        {
-            "name": "Effective Team",
-            "content": "Strong teams use XP practices to ensure low defect rates and to drive flexibility in changing circumstances. Sustainable pace stops delivery pressure from driving down quality, and leads to better staff retention.",
-            "score": 10,
-            "subCategoryLabels": ["sub1", "sub2", "sub3", "sub4"],
-            "subCategoryScores": [20, 40, 40, 40]
-        },
-        {
-            "name": "Technical Practices",
-            "content": "Teams with a broad range of experiences and backgrounds provide a range of perspectives and increase the likelihood of innovation. Strong, autonomous teams collaborate well - they can cover for each other and are resilient when key members are not available.",
-            "score": 10,
-            "subCategoryLabels": ["sub1", "sub2", "sub3", "sub4"],
-            "subCategoryScores": [20, 20, 20, 20]
-        }
-    ]      
-}
+    "categories": {
+      "organisationalMaturity": {
+        "score": 25,
+        "subcategoryScores": [20, 20, 40, 20]
+      },
+      "continuousDelivery": {
+        "score": 25,
+        "subcategoryScores": [20, 20, 40, 20]
+      },
+      "culture": {
+        "score": 25,
+        "subcategoryScores": [20, 20, 40, 20]
+      },
+      "crossFunctionalTeams": {
+        "score": 25,
+        "subcategoryScores": [20, 20, 40, 20]
+      },
+      "xpPractices": {
+        "score": 25,
+        "subcategoryScores": [20, 20, 40, 20]
+      }
+    }
+  }

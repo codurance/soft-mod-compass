@@ -5,15 +5,18 @@ describe('survey results', () => {
     const categories = [
       {
         name: 'cat 1',
-        subCategoryNames: ['1 sub1', '1 sub2', '1 sub3', '1 sub4'],
+        key: 'firstCat',
+        subcategoryNames: ['1 sub1', '1 sub2', '1 sub3', '1 sub4'],
       },
       {
         name: 'cat 2',
-        subCategoryNames: ['2 sub1', '2 sub2', '2 sub3', '2 sub4'],
+        key: 'secondCat',
+        subcategoryNames: ['2 sub1', '2 sub2', '2 sub3', '2 sub4'],
       },
       {
         name: 'cat 3',
-        subCategoryNames: ['3 sub1', '3 sub2', '3 sub3', '3 sub4'],
+        key: 'thirdCat',
+        subcategoryNames: ['3 sub1', '3 sub2', '3 sub3', '3 sub4'],
       },
     ];
     const questionChoices = [
@@ -71,43 +74,40 @@ describe('survey results', () => {
         company: 'Codurance',
         email: 'daniel.bird@codurance.com',
       },
-      scores: [55, 70, 30],
-      summaryRadial: {
-        scores: [55, 70, 30],
-        labels: ['cat 1', 'cat 2', 'cat 3'],
-      },
-      categories: [
-        {
-          name: 'cat 1',
+      categories: {
+        firstCat: {
           score: 55,
-          subCategoryLabels: ['1 sub1', '1 sub2', '1 sub3', '1 sub4'],
-          subCategoryLabel1: '1 sub1',
-          subCategoryLabel2: '1 sub2',
-          subCategoryLabel3: '1 sub3',
-          subCategoryLabel4: '1 sub4',
-          subCategoryScores: [60, 20, 40, 100],
+          subcategoryScores: [60, 20, 40, 100],
         },
-        {
-          name: 'cat 2',
+        secondCat: {
           score: 70,
-          subCategoryLabels: ['2 sub1', '2 sub2', '2 sub3', '2 sub4'],
-          subCategoryLabel1: '2 sub1',
-          subCategoryLabel2: '2 sub2',
-          subCategoryLabel3: '2 sub3',
-          subCategoryLabel4: '2 sub4',
-          subCategoryScores: [40, 100, 40, 100],
+          subcategoryScores: [40, 100, 40, 100],
         },
-        {
-          name: 'cat 3',
+        thirdCat: {
           score: 30,
-          subCategoryLabels: ['3 sub1', '3 sub2', '3 sub3', '3 sub4'],
-          subCategoryLabel1: '3 sub1',
-          subCategoryLabel2: '3 sub2',
-          subCategoryLabel3: '3 sub3',
-          subCategoryLabel4: '3 sub4',
-          subCategoryScores: [20, 40, 20, 40],
+          subcategoryScores: [20, 40, 20, 40],
         },
-      ],
+      },
     });
+    expect(answers).not.toHaveLength(0);
+  });
+
+  test('throws error when category key contains space', () => {
+    const categories = [
+      {
+        name: 'cat 1',
+        key: 'there is a space',
+        subcategoryNames: ['1 sub1'],
+      },
+      {
+        name: 'cat 2',
+        key: 'secondCat',
+        subcategoryNames: ['2 sub1'],
+      },
+    ];
+
+    expect(() => {
+      reportViewModel(categories, null, null, null);
+    }).toThrowError(/Category key can not contain space/);
   });
 });

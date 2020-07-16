@@ -3,11 +3,14 @@ window.onload = function() {
     
     insertDate();
     
-    updateAssessmentBars([{{summaryRadial.scores}}]);
+    // Temp Hack - Remove when simplifying bar configuration
+    const scores = [{{extractScores categories}}]
+    console.log(scores)
+    updateAssessmentBars(scores);
     
     updateCategoryGraphs();
     
-    updateSummaryBars([{{summaryRadial.scores}}]);
+    updateSummaryBars(scores);
 }
 
 function insertCopyright() {
@@ -62,7 +65,7 @@ function updateCategoryGraphs(subCategoryScores) {
     let data = [];
 
   {{#each categories}}
-    data.push([{{this.subCategoryScores}}]);
+    data.push([{{this.subcategoryScores}}]);
   {{/each}}
   
     
