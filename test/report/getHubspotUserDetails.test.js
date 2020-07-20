@@ -132,12 +132,12 @@ describe('getHubspotUserDetails', () => {
       }
     });
 
-    it.skip('Waits delay before retrying', async () => {
+    it('Waits delay before retrying', async () => {
       const mockSleepDuration = 100;
       const expectedRetries = 3;
 
       getHubspotUserDetails = require_getHubspotUserDetails_withMockConfig({
-        app: { hubspot: { sleepBeforeRetryMs: 0 } },
+        app: { hubspot: { sleepBeforeRetryMs: mockSleepDuration } },
       });
 
       nock(hubspotApiBaseUrl)

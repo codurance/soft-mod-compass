@@ -2,6 +2,13 @@ const rp = require('request-promise');
 const sleep = require('sleep-promise');
 const config = require('../config');
 
+const fieldsToTransformToTitleCase = [
+  'firstname',
+  'lastname',
+  'company',
+  'job_function',
+];
+
 function getHubspotUserDetails(uuid, retries = 3) {
   if (typeof uuid !== 'string') console.error('uuid is not a string');
 
@@ -30,36 +37,32 @@ function getHubspotUserDetails(uuid, retries = 3) {
 
   const uuidMatches = (result) => valueWithName(result.values, 'uuid') === uuid;
 
-  return sleep(2000).then(() => {
-    return rp(options).then((response) => {
-      if (response.results.length > 0) {
-        const dataForUuid = response.results.find(uuidMatches);
-
-        dataForUuid.values = dataForUuid.values.map((entry) => {
-          if (
-            entry.name === 'firstname' ||
-            entry.name === 'lastname' ||
-            entry.name === 'company' ||
-            entry.name === 'job_function'
-          ) {
-            entry.value = titleCase(entry.value);
-            return entry;
-          } else {
-            return entry;
-          }
-        });
-
-        return dataForUuid;
-      } else {
-        const retriesLeft = retries - 1;
-        if (retriesLeft === 0)
-          throw Error(
-            `Hubspot User Details could not be retrieved for ${uuid}`
-          );
-
-        return sleep(350).then(() => getHubspotUserDetails(uuid, retriesLeft));
+  return rp(options).then((response) => {
+    if (response.results.length > 0) {
+      function convertValueToTitleCaseIfNeeded(entry) {
+        if (fieldsToTransformToTitleCase.includes(entry.name)) {
+          entry.value = titleCase(entry.value);
+          return entry;
+        } else {
+          return entry;
+        }
       }
-    });
+
+      const dataForUuid = response.results.find(uuidMatches);
+      dataForUuid.values = dataForUuid.values.map(
+        convertValueToTitleCaseIfNeeded
+      );
+
+      return dataForUuid;
+    } else {
+      const retriesLeft = retries - 1;
+      if (retriesLeft === 0)
+        throw Error(`Hubspot User Details could not be retrieved for ${uuid}`);
+
+      return sleep(config.app.hubspot.sleepBeforeRetryMs).then(() =>
+        getHubspotUserDetails(uuid, retriesLeft)
+      );
+    }
   });
 }
 
