@@ -44,13 +44,14 @@ module.exports = (reportingApp) => {
   });
 
   app.get('/report/submit/:uuid', (req, res) => {
-    console.log('Generating report for:', req.params.uuid);
     generateAndSendReportAsync(req.params.uuid);
     res.redirect(config.hubspot.thanksLandingPageUrl);
   });
 
   async function generateAndSendReportAsync(uuid) {
     try {
+      console.log('Generating report for:', uuid);
+
       const viewModel = await buildReportViewModelFor(uuid);
 
       const pdf = await jsreport.render({
