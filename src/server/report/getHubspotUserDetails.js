@@ -31,36 +31,35 @@ function getHubspotUserDetails(uuid, retries = 3) {
   const uuidMatches = (result) => valueWithName(result.values, 'uuid') === uuid;
 
   return sleep(2000).then(() => {
-    return rp(options)
-      .then((response) => {
-        if (response.results.length > 0) {
-          const dataForUuid = response.results.find(uuidMatches);
+    return rp(options).then((response) => {
+      if (response.results.length > 0) {
+        const dataForUuid = response.results.find(uuidMatches);
 
-          dataForUuid.values = dataForUuid.values.map((entry) => {
-            if (
-              entry.name === 'firstname' ||
-              entry.name === 'lastname' ||
-              entry.name === 'company' ||
-              entry.name === 'job_function'
-            ) {
-              entry.value = titleCase(entry.value);
-              return entry;
-            } else {
-              return entry;
-            }
-          });
+        dataForUuid.values = dataForUuid.values.map((entry) => {
+          if (
+            entry.name === 'firstname' ||
+            entry.name === 'lastname' ||
+            entry.name === 'company' ||
+            entry.name === 'job_function'
+          ) {
+            entry.value = titleCase(entry.value);
+            return entry;
+          } else {
+            return entry;
+          }
+        });
 
-          return dataForUuid;
-        } else {
-          const retriesLeft = retries - 1;
-          if (retriesLeft === 0)
-            throw Error(`no data retreived for ${uuid} after three attempts`);
-          return sleep(350).then(() =>
-            getHubspotUserDetails(uuid, retriesLeft)
+        return dataForUuid;
+      } else {
+        const retriesLeft = retries - 1;
+        if (retriesLeft === 0)
+          throw Error(
+            `Hubspot User Details could not be retrieved for ${uuid}`
           );
-        }
-      })
-      .catch((err) => console.error(err));
+
+        return sleep(350).then(() => getHubspotUserDetails(uuid, retriesLeft));
+      }
+    });
   });
 }
 
