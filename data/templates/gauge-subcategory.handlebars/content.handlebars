@@ -1,0 +1,15 @@
+<img class="gauge-subcategory__icon--score-{{ score }}" src="{#asset /assets/{{ subcategoryIcon score }} @encoding=dataURI}" />
+
+<div class="gauge-subcategory__rule score-{{ score }}"></div>
+
+<div class="gauge-subcategory__bar {{#if onDark}}on-dark{{else}}on-light{{/if}}">
+    <div class="gauge-subcategory__inner-fill score-{{ score }}" style="width: {{ score }}%"></div>
+    <div class="gauge-subcategory__markers">
+        <div class="gauge-subcategory__marker {{#if onDark}}on-dark{{else}}on-light{{/if}}"></div>
+        <div class="gauge-subcategory__marker {{#if onDark}}on-dark{{else}}on-light{{/if}}"></div>
+        <div class="gauge-subcategory__marker {{#if onDark}}on-dark{{else}}on-light{{/if}}"></div>
+        <div class="gauge-subcategory__marker {{#if onDark}}on-dark{{else}}on-light{{/if}}"></div>
+        <div class="gauge-subcategory__marker {{#if onDark}}on-dark{{else}}on-light{{/if}}"></div>
+        <div class="gauge-subcategory__marker {{#if onDark}}on-dark{{else}}on-light{{/if}}"></div>
+    </div>
+</div>

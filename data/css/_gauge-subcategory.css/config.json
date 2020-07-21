@@ -1,12 +1,12 @@
 {
-    "name": "_subcategory-gauge.css",
+    "name": "_gauge-subcategory.css",
     "shortid": "Hkls-UmRkP",
     "folder": {
         "shortid": "fvfrX3r"
     },
     "creationDate": "2020-07-16T19:10:13.229Z",
     "modificationDate": {
-        "$$date": 1595342694122
+        "$$date": 1595344988559
     },
     "_id": "SMiXrAjhnKRjpp5z",
     "$entitySet": "assets"

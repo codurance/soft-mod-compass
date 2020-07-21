@@ -1,4 +1,5 @@
-Handlebars.registerPartial("subcategory-gauge", "{#asset subcategory-gauge.handlebars @encoding=string}");
+Handlebars.registerPartial("gauge-subcategory", "{#asset gauge-subcategory.handlebars @encoding=string}");
+Handlebars.registerPartial("gauge-assessment", "{#asset gauge-assessment.handlebars @encoding=string}");
 
 
 /* eslint-disable */
