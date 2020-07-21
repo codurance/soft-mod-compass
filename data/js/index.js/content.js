@@ -5,10 +5,7 @@ window.onload = function() {
     
     // Temp Hack - Remove when simplifying bar configuration
     const scores = [{{extractScores categories}}]
-    console.log(scores)
     updateAssessmentBars(scores);
-    
-    updateCategoryGraphs();
     
     updateSummaryBars(scores);
 }
@@ -60,53 +57,6 @@ function updateAssessmentBars(scores) {
   }
 }
 
-function updateCategoryGraphs(subCategoryScores) {
-    const pages = Array.from(document.querySelectorAll('.js-category-page'));
-    let data = [];
-
-  {{#each categories}}
-    data.push([{{this.subcategoryScores}}]);
-  {{/each}}
-  
-    
-    for (let page of pages) {
-        const graphs = Array.from(page.querySelectorAll('.main-bar-graph__container'));
-        // const pageIndex = pages.indexOf(page);
-        const dataSet = data[pages.indexOf(page)];
-
-        updateGraphsOnPage(dataSet, graphs);
-    }
-    
-    function updateGraphsOnPage(dataSet, arrayOfGraphs) {
-        for (let graph of arrayOfGraphs) {
-            const score = dataSet[arrayOfGraphs.indexOf(graph)];
-            
-            const innerFill = graph.querySelector('.main-bar-graph__inner-fill');
-            const rule = graph.querySelector('.main-bar-graph__rule');
-            
-            innerFill.style.width = `${score}%`;
-            
-                if (score === 100) {
-                    innerFill.classList.add('good-result');
-                    rule.classList.add('good-result');
-                    graph.querySelector('.main-bar-graph__good-icon').classList.remove('hidden');
-                }else if (score === 80) {
-                    innerFill.classList.add('good-result');
-                    rule.classList.add('good-result');
-                    graph.querySelector('.main-bar-graph__average-high-icon').classList.remove('hidden');
-                } else if (score === 60) {
-                    innerFill.classList.add('average-result');
-                    rule.classList.add('average-result');
-                    graph.querySelector('.main-bar-graph__average-icon').classList.remove('hidden');
-                } else {
-                    innerFill.classList.add('bad-result');
-                    rule.classList.add('bad-result');
-                    graph.querySelector('.main-bar-graph__bad-icon').classList.remove('hidden');
-                }
-        }
-    }
-    
-}
 
 function updateSummaryBars(scores) {
   const graphContainers = Array.from(document.querySelectorAll('.summary-bar-graph__container'));
