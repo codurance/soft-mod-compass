@@ -1,5 +1,6 @@
 {#asset /css/_gauge-subcategory.css @encoding=utf8}
 {#asset /css/_gauge-assessment.css @encoding=utf8}
+{#asset /css/_gauge-summary.css @encoding=utf8}
 
 .good {
     background: var(--accent-green);

@@ -288,7 +288,32 @@
         </li>
         <li>Carrer de Pallars 99,<br>4th piso, room 41<br>Barcelona, 08018</li>
     </ul>
-    
+
+    {{> gauge-summary 
+        score=categories.organisationalMaturity.score
+        category="organisational-maturity"
+        lang="es" }}
+        
+    {{> gauge-summary 
+        score=categories.continuousDelivery.score
+        category="continuous-delivery"
+        lang="es" }}
+        
+    {{> gauge-summary 
+        score=categories.culture.score
+        category="people-culture"
+        lang="es" }}
+        
+    {{> gauge-summary 
+        score=categories.crossFunctionalTeams.score
+        category="effective-team"
+        lang="es" }}
+        
+    {{> gauge-summary 
+        score=categories.xpPractices.score
+        category="technical-practices"
+        lang="es" }}
+
     
   </section>
   <!-- END SUMMARY PAGE ---------------------------------------------------------- -->

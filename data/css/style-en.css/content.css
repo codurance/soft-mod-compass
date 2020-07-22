@@ -24,7 +24,7 @@
 #organisational-maturity-breakdown-page-en.good {
   background-image: url('{#asset /assets/pageImgs-EN/organisational-maturity-good-EN.jpg @encoding=dataURI}');
 }
-#organisational-maturity-breakdown-page-en.avg {
+#organisational-maturity-breakdown-page-en.average {
   background-image: url('{#asset /assets/pageImgs-EN/organisational-maturity-avg-EN.jpg @encoding=dataURI}');
 }
 #organisational-maturity-breakdown-page-en.bad {
@@ -38,7 +38,7 @@
 #continuous-delivery-breakdown-page-en.good {
   background-image: url('{#asset /assets/pageImgs-EN/continuous-delivery-good-EN.jpg @encoding=dataURI}');
 }
-#continuous-delivery-breakdown-page-en.avg {
+#continuous-delivery-breakdown-page-en.average {
   background-image: url('{#asset /assets/pageImgs-EN/continuous-delivery-avg-EN.jpg @encoding=dataURI}');
 }
 #continuous-delivery-breakdown-page-en.bad {
@@ -51,7 +51,7 @@
 #people-culture-breakdown-page-en.good {
   background-image: url('{#asset /assets/pageImgs-EN/people-culture-good-EN.jpg @encoding=dataURI}');
 }
-#people-culture-breakdown-page-en.avg {
+#people-culture-breakdown-page-en.average {
   background-image: url('{#asset /assets/pageImgs-EN/people-culture-avg-EN.jpg @encoding=dataURI}');
 }
 #people-culture-breakdown-page-en.bad {
@@ -64,7 +64,7 @@
 #effective-team-breakdown-page-en.good {
   background-image: url('{#asset /assets/pageImgs-EN/effective-team-good-EN.jpg @encoding=dataURI}');
 }
-#effective-team-breakdown-page-en.avg {
+#effective-team-breakdown-page-en.average {
   background-image: url('{#asset /assets/pageImgs-EN/effective-team-avg-EN.jpg @encoding=dataURI}');
 }
 #effective-team-breakdown-page-en.bad {
@@ -77,7 +77,7 @@
 #technical-practices-breakdown-page-en.good {
   background-image: url('{#asset /assets/pageImgs-EN/technical-practices-good-EN.jpg @encoding=dataURI}');
 }
-#technical-practices-breakdown-page-en.avg {
+#technical-practices-breakdown-page-en.average {
   background-image: url('{#asset /assets/pageImgs-EN/technical-practices-avg-EN.jpg @encoding=dataURI}');
 }
 #technical-practices-breakdown-page-en.bad {

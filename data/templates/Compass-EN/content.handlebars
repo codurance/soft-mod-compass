@@ -76,7 +76,6 @@
         score=categories.xpPractices.score
         category="technical-practices"
         lang="en" }}
-
   </section>
   <!-- END YOUR ASSESSMENT PAGE ---------------------------------------------------------- -->
 
@@ -288,7 +287,32 @@
         </li>
         <li>Carrer de Pallars 99,<br>4th floor, room 41<br>Barcelona, 08018</li>
     </ul>
-    
+
+    {{> gauge-summary 
+        score=categories.organisationalMaturity.score
+        category="organisational-maturity"
+        lang="en" }}
+        
+    {{> gauge-summary 
+        score=categories.continuousDelivery.score
+        category="continuous-delivery"
+        lang="en" }}
+        
+    {{> gauge-summary 
+        score=categories.culture.score
+        category="people-culture"
+        lang="en" }}
+        
+    {{> gauge-summary 
+        score=categories.crossFunctionalTeams.score
+        category="effective-team"
+        lang="en" }}
+        
+    {{> gauge-summary 
+        score=categories.xpPractices.score
+        category="technical-practices"
+        lang="en" }}
+
   </section>
   <!-- END SUMMARY PAGE ---------------------------------------------------------- -->
 

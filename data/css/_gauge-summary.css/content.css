@@ -1,0 +1,114 @@
+/* Container */
+.gauge-summary__container {
+    position: absolute;
+    left: 30.8mm;
+}
+.gauge-summary__container[data-category="organisational-maturity-en"],
+.gauge-summary__container[data-category="organisational-maturity-es"] {
+    top: 233.5mm;
+}
+.gauge-summary__container[data-category="continuous-delivery-en"],
+.gauge-summary__container[data-category="continuous-delivery-es"]{
+    top: 256mm;
+}
+.gauge-summary__container[data-category="people-culture-en"],
+.gauge-summary__container[data-category="people-culture-es"]{
+    top: 278.1mm;
+}
+.gauge-summary__container[data-category="effective-team-en"],
+.gauge-summary__container[data-category="effective-team-es"] {
+    top: 233.5mm;
+    left: 122.8mm;
+}
+.gauge-summary__container[data-category="technical-practices-en"],
+.gauge-summary__container[data-category="technical-practices-es"] {
+    top: 256mm;
+    left: 122.8mm;
+}
+
+
+/* Icon */
+.gauge-summary__icon--bad {
+    position: absolute;
+    width: 6.617mm;
+    left: -14.5mm;
+    top: -4.4mm;
+    height: 5.841mm;
+}
+.gauge-summary__icon--average {
+    position: absolute;
+    width: 4.233mm;
+    left: -13.1mm;
+    top: -3mm;
+    height: 4.233mm;
+}
+.gauge-summary__icon--good {
+    position: absolute;
+    width: 5.869mm;
+    left: -14.5mm;
+    top: -3.2mm;
+    height: 4.531mm;
+}
+
+
+/* Rule */
+.gauge-summary__rule {
+    position: absolute;
+    top: -6.7mm;
+    left: -4.4mm;
+    height: 11.5mm;
+    width: 2pt;
+}
+
+
+/* Bar */
+.gauge-summary__bar {
+    position: absolute;
+    top: 0mm;
+    width: 60.493mm;
+    height: 3mm;
+}
+.gauge-summary__container[data-category="continuous-delivery-en"] .gauge-summary__bar,
+.gauge-summary__container[data-category="continuous-delivery-es"] .gauge-summary__bar {
+    top: 0.4mm;
+}
+
+
+/* Inner Fill */
+.gauge-summary__inner-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+}
+
+
+/* Markers */
+.gauge-summary__markers {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: absolute;
+    top: 3mm;
+    left: 0.1mm;
+    width: 60.3mm;
+}
+.gauge-summary__container[data-category="technical-practices-en"] .gauge-summary__markers,
+.gauge-summary__container[data-category="technical-practices-es"] .gauge-summary__markers,
+.gauge-summary__container[data-category="effective-team-en"] .gauge-summary__markers,
+.gauge-summary__container[data-category="effective-team-es"] .gauge-summary__markers {
+    width: 60.4mm;
+    left: 0;
+}
+.gauge-summary__marker {
+    height: 1.822mm;
+    width: 0.5mm;
+}
+
+
+
+
+
+
