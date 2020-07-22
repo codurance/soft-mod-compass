@@ -1,4 +1,4 @@
-.assessment-page__warning-box {
+.gauge-assessment__warning-box {
     width: 166mm;
     height: 38.8mm;
     outline-style: solid;
@@ -8,7 +8,7 @@
     position: absolute;
     left: 22.12mm;
 }
-.assessment-page__warning-icon {
+.gauge-assessment__warning-icon {
     background: url('{#asset /assets/assessment-warning-icon.png @encoding=dataURI}');
     background-size: cover;
     display: inline-block;
@@ -19,40 +19,63 @@
     left: 5.5mm;
 }
 
-.assessment-page__warning-box[data-category="organisational-maturity"] {
+.gauge-assessment__warning-box[data-category="organisational-maturity-en"] {
     top: 65.5mm;
 }
+.gauge-assessment__warning-box[data-category="organisational-maturity-es"] {
+    top: 62.7mm;
+    height: 40.2mm;
+}
 
-.assessment-page__warning-box[data-category="continuous-delivery"] {
+.gauge-assessment__warning-box[data-category="continuous-delivery-en"] {
     top: 110.9mm;
 }
+.gauge-assessment__warning-box[data-category="continuous-delivery-es"] {
+    top: 110.2mm;
+    height: 34.7mm;
+}
 
-.assessment-page__warning-box[data-category="people-culture"] {
+.gauge-assessment__warning-box[data-category="people-culture-en"] {
     top: 156.2mm;
 }
+.gauge-assessment__warning-box[data-category="people-culture-es"] {
+    top: 152.5mm;
+    height: 40.3mm;
+}
 
-.assessment-page__warning-box[data-category="effective-team"] {
+.gauge-assessment__warning-box[data-category="effective-team-en"] {
     top: 201.9mm;
 }
-
-.assessment-page__warning-box[data-category="technical-practices"] {
-    top: 247.4mm;
+.gauge-assessment__warning-box[data-category="effective-team-es"] {
+    top: 199.6mm;
+    height: 40.2mm;
 }
 
-.assessment-page__barchart {
+.gauge-assessment__warning-box[data-category="technical-practices-en"] {
+    top: 247.4mm;
+}
+.gauge-assessment__warning-box[data-category="technical-practices-es"] {
+    top: 247.7mm;
+    height: 40.8mm;
+}
+
+
+
+
+.gauge-assessment__barchart {
     left: 114.8mm;
     width: 62.956mm;
     height: 1.88mm;
     position: absolute;
     background: var(--functional-light-grey);
 }
-.assessment-page__inner-fill {
+.gauge-assessment__inner-fill {
     height: 100%;
     position: absolute;
     left: 0;
     top: 0;
 }
-.assessment-page__markers-container {
+.gauge-assessment__markers-container {
     position: absolute;
     left: 0;
     top: 1.88mm;
@@ -62,7 +85,7 @@
     align-items: flex-start;
     justify-content: space-between;
 }
-.assessment-page__marker {
+.gauge-assessment__marker {
     width: 0.5mm;
     height: 1.822mm;
     background: var(--functional-light-grey);
@@ -71,133 +94,37 @@
     overflow: hidden;
 }
 
-.assessment-page__barchart[data-category="organisational-maturity"] {
+.gauge-assessment__barchart[data-category="organisational-maturity-en"] {
     top: 71.5mm;
 }
+.gauge-assessment__barchart[data-category="organisational-maturity-es"] {
+    top: 69.4mm;
+}
 
-.assessment-page__barchart[data-category="continuous-delivery"] {
+.gauge-assessment__barchart[data-category="continuous-delivery-en"] {
     top: 119.6mm;
 }
+.gauge-assessment__barchart[data-category="continuous-delivery-es"] {
+    top: 117.3mm;
+}
 
-.assessment-page__barchart[data-category="people-culture"] {
+.gauge-assessment__barchart[data-category="people-culture-en"] {
     top: 165mm;
 }
+.gauge-assessment__barchart[data-category="people-culture-es"] {
+    top: 160mm;
+}
 
-.assessment-page__barchart[data-category="effective-team"] {
+.gauge-assessment__barchart[data-category="effective-team-en"] {
     top: 210.5mm;
 }
-
-.assessment-page__barchart[data-category="technical-practices"] {
-    top: 253.2mm;
+.gauge-assessment__barchart[data-category="effective-team-es"] {
+    top: 206.8mm;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*.assessment-page_graph {*/
-/*  position: absolute;*/
-/*  width: 67.4mm;*/
-/*  height: 2mm;*/
-/*  background: var(--graph-bar-background-on-dark);*/
-/*}*/
-
-/*.assessment-page_result-text {*/
-/*  font-size: var(--font-size-body);*/
-/*  font-weight: var(--font-weight-bold);*/
-/*  position: absolute;*/
-/*  top: 5mm;*/
-/*  left: 0;*/
-/*}*/
-
-/*.assessment-page_graph.om {*/
-/*  top: 58.2mm;*/
-/*  left: 27.65mm;*/
-/*}*/
-/*.assessment-page_graph.om > .graph-bar_result-bar {*/
-/*  background: var(--codurance-light-green);*/
-/*}*/
-/*.assessment-page_result-text.om {*/
-/*  color: var(--codurance-light-green);*/
-/*}*/
-
-
-/*.assessment-page_graph.cd {*/
-/*  top: 58.2mm;*/
-/*  left: 115.7mm;*/
-/*}*/
-/*.assessment-page_graph.cd > .graph-bar_result-bar {*/
-/*  background: var(--codurance-purple);*/
-/*}*/
-/*.assessment-page_result-text.cd {*/
-/*  color: var(--small-text-on-dark-purple);*/
-/*}*/
-
-
-/*.assessment-page_graph.c {*/
-/*  top: 58.2mm;*/
-/*  left: 203.7mm;*/
-/*}*/
-/*.assessment-page_graph.c > .graph-bar_result-bar {*/
-/*  background: var(--small-text-on-dark-yellow);*/
-/*}*/
-/*.assessment-page_result-text.c {*/
-/*  color: var(--small-text-on-dark-yellow);*/
-/*}*/
-
-
-/*.assessment-page_graph.cft {*/
-/*  top: 132.3mm;*/
-/*  left: 27.65mm;*/
-/*}*/
-/*.assessment-page_graph.cft > .graph-bar_result-bar {*/
-/*  background: var(--small-text-on-dark-red);*/
-/*}*/
-/*.assessment-page_result-text.cft {*/
-/*  color: var(--small-text-on-dark-red);*/
-/*}*/
-
-
-/*.assessment-page_graph.xpp {*/
-/*  top: 132.3mm;*/
-/*  left: 115.7mm;*/
-/*}*/
-/*.assessment-page_graph.xpp > .graph-bar_result-bar {*/
-/*  background: var(--codurance-orange);*/
-/*}*/
-/*.assessment-page_result-text.xpp {*/
-/*  color: var(--small-text-on-dark-orange);*/
-/*}*/
+.gauge-assessment__barchart[data-category="technical-practices-en"] {
+    top: 253.2mm;
+}
+.gauge-assessment__barchart[data-category="technical-practices-es"] {
+    top: 255.1mm;
+}

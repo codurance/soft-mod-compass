@@ -36,27 +36,6 @@ function insertDate() {
     dateSection.innerHTML = `${dd}/${mm}/${yyyy}`;
 };
 
-function updateAssessmentBars(scores) {
-  const graphs = Array.from(document.querySelectorAll('.assessment-page__inner-fill'));
-
-  for (let graph of graphs) {
-    const currentScore = scores[graphs.indexOf(graph)];
-    const category = graph.dataset.category;
-    const warningBox = document.querySelector(`.assessment-page__warning-box[data-category="${category}"]`);
-    
-    graph.style.width = `${currentScore}%`;
-    
-    if (currentScore > 75) {
-        graph.classList.add('good-result');
-    } else if (currentScore >= 50) {
-        graph.classList.add('average-result');
-    } else {
-        graph.classList.add('bad-result');
-        warningBox.classList.remove('hidden');
-    }
-  }
-}
-
 
 function updateSummaryBars(scores) {
   const graphContainers = Array.from(document.querySelectorAll('.summary-bar-graph__container'));

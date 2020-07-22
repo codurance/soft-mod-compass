@@ -52,77 +52,31 @@
 
   <!-- BEGIN YOUR ASSESSMENT PAGE ---------------------------------------------------------- -->
   <section id="assessment-page-es" class="page page-break-after with-background-img">
-      
-      <div class="assessment-page__warning-box hidden" data-category="organisational-maturity">
-          <i class="assessment-page__warning-icon"></i>
-      </div>
-      <div class="assessment-page__barchart" data-category="organisational-maturity">
-          <div class="assessment-page__inner-fill" data-category="organisational-maturity"></div>
-          <div class="assessment-page__markers-container">
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-          </div>
-      </div>
-      
-      <div class="assessment-page__warning-box hidden" data-category="continuous-delivery">
-          <i class="assessment-page__warning-icon"></i>
-      </div>
-      <div class="assessment-page__barchart" data-category="continuous-delivery">
-          <div class="assessment-page__inner-fill" data-category="continuous-delivery"></div>
-          <div class="assessment-page__markers-container">
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-          </div>
-      </div>
-      
-      <div class="assessment-page__warning-box hidden" data-category="people-culture">
-          <i class="assessment-page__warning-icon"></i>
-      </div>
-      <div class="assessment-page__barchart" data-category="people-culture">
-          <div class="assessment-page__inner-fill" data-category="people-culture"></div>
-          <div class="assessment-page__markers-container">
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-          </div>
-      </div>
-      
-      <div class="assessment-page__warning-box hidden" data-category="effective-team">
-          <i class="assessment-page__warning-icon"></i>
-      </div>
-      <div class="assessment-page__barchart" data-category="effective-team">
-          <div class="assessment-page__inner-fill" data-category="effective-team"></div>
-          <div class="assessment-page__markers-container">
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-          </div>
-      </div>
-      
-      <div class="assessment-page__warning-box hidden" data-category="technical-practices">
-          <i class="assessment-page__warning-icon"></i>
-      </div>
-      <div class="assessment-page__barchart" data-category="technical-practices">
-          <div class="assessment-page__inner-fill" data-category="technical-practices"></div>
-          <div class="assessment-page__markers-container">
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-          </div>
-      </div>
-      
+    {{> gauge-assessment 
+        score=categories.organisationalMaturity.score
+        category="organisational-maturity"
+        lang="es" }}
+        
+    {{> gauge-assessment 
+        score=categories.continuousDelivery.score
+        category="continuous-delivery"
+        lang="es" }}
+        
+    {{> gauge-assessment 
+        score=categories.culture.score
+        category="people-culture"
+        lang="es" }}
+        
+    {{> gauge-assessment 
+        score=categories.crossFunctionalTeams.score
+        category="effective-team"
+        lang="es" }}
+        
+    {{> gauge-assessment 
+        score=categories.xpPractices.score
+        category="technical-practices"
+        lang="es" }}
+
   </section>
   <!-- END YOUR ASSESSMENT PAGE ---------------------------------------------------------- -->
 

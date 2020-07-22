@@ -1,13 +1,19 @@
-<div class="assessment-page__warning-box hidden" data-category="organisational-maturity">
-    <i class="assessment-page__warning-icon"></i>
+{{#if (showAssessmentWarningBox score) }}
+<div class="gauge-assessment__warning-box " data-category="{{ category }}-{{ lang }}">
+    <i class="gauge-assessment__warning-icon"></i>
 </div>
-<div class="assessment-page__barchart" data-category="organisational-maturity">
-    <div class="assessment-page__inner-fill" data-category="organisational-maturity"></div>
-    <div class="assessment-page__markers-container">
-        <div class="assessment-page__marker"></div>
-        <div class="assessment-page__marker"></div>
-        <div class="assessment-page__marker"></div>
-        <div class="assessment-page__marker"></div>
-        <div class="assessment-page__marker"></div>
+{{/if}}
+
+<div class="gauge-assessment__barchart" data-category="{{ category }}-{{ lang }}">
+    <div 
+        class="gauge-assessment__inner-fill {{ gaugeScoreClass score }}" 
+        data-category="{{ category }}-{{ lang }}"
+        style="width: {{ score }}%"></div>
+    <div class="gauge-assessment__markers-container">
+        <div class="gauge-assessment__marker"></div>
+        <div class="gauge-assessment__marker"></div>
+        <div class="gauge-assessment__marker"></div>
+        <div class="gauge-assessment__marker"></div>
+        <div class="gauge-assessment__marker"></div>
     </div>
 </div>

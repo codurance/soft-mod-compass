@@ -4,7 +4,7 @@
     },
     "shortid": "SkluRM4Y9U",
     "name": "Compass-ES",
-    "recipe": "html-with-browser-client",
+    "recipe": "chrome-pdf",
     "engine": "handlebars",
     "chrome": {
         "printBackground": true,
@@ -18,11 +18,11 @@
     },
     "creationDate": "2020-05-13T08:42:09.759Z",
     "modificationDate": {
-        "$$date": 1595344988575
+        "$$date": 1595424224958
     },
     "_id": "c79giGnzkPeEKZea",
     "$entitySet": "templates",
     "data": {
-        "shortid": "BkglpA_c5U"
+        "shortid": "SyxAR6_5qI"
     }
 }

@@ -1,14 +1,12 @@
 {#asset /css/_gauge-subcategory.css @encoding=utf8}
 {#asset /css/_gauge-assessment.css @encoding=utf8}
 
-.score-100,
-.score-80 {
+.good {
     background: var(--accent-green);
 }
-.score-60 {
+.average {
     background: var(--accent-blue);
 }
-.score-40,
-.score-20 {
+.bad {
     background: var(--accent-yellow);
 }
