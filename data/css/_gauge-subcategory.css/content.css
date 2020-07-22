@@ -29,23 +29,22 @@
 
 
 /* Icon */
-.gauge-subcategory__icon--score-20,
-.gauge-subcategory__icon--score-40 {
+.gauge-subcategory__icon--bad {
     position: absolute;
     width: 6.617mm;
     left: -14.5mm;
     top: -4.6mm;
     height: 5.841mm;
 }
-.gauge-subcategory__icon--score-60,
-.gauge-subcategory__icon--score-80 {
+.gauge-subcategory__icon--average,
+.gauge-subcategory__icon--average-high {
     position: absolute;
     width: 4.233mm;
     left: -13.25mm;
     top: -3.45mm;
     height: 4.233mm;
 }
-.gauge-subcategory__icon--score-100 {
+.gauge-subcategory__icon--good {
     position: absolute;
     width: 5.869mm;
     left: -14.5mm;

@@ -2,12 +2,6 @@ window.onload = function() {
     insertCopyright();
     
     insertDate();
-    
-    // Temp Hack - Remove when simplifying bar configuration
-    const scores = [{{extractScores categories}}]
-    updateAssessmentBars(scores);
-    
-    updateSummaryBars(scores);
 }
 
 function insertCopyright() {
