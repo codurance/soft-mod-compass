@@ -7,9 +7,10 @@
         "$$date": 1584717450211
     },
     "modificationDate": {
-        "$$date": 1589543552836
+        "$$date": 1595441109456
     },
     "shortid": "O324_Tm",
     "_id": "nPWfWtvxjqzosv8D",
-    "$entitySet": "assets"
+    "$entitySet": "assets",
+    "link": null
 }

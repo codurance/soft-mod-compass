@@ -5,9 +5,10 @@
     "name": "organisational-maturity-EN.jpg",
     "creationDate": "2020-03-20T15:15:58.468Z",
     "modificationDate": {
-        "$$date": 1589543474061
+        "$$date": 1595441056781
     },
     "shortid": "j5O1nRC",
     "_id": "1ZurIfXipKwEtfVU",
-    "$entitySet": "assets"
+    "$entitySet": "assets",
+    "link": null
 }

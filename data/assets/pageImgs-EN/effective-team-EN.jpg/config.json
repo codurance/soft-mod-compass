@@ -5,9 +5,10 @@
     "name": "effective-team-EN.jpg",
     "creationDate": "2020-03-20T15:14:07.695Z",
     "modificationDate": {
-        "$$date": 1589543434860
+        "$$date": 1595441034658
     },
     "shortid": "iftqorV",
     "_id": "bNzx0ue0CWgYMjA2",
-    "$entitySet": "assets"
+    "$entitySet": "assets",
+    "link": null
 }
