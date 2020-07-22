@@ -1,12 +1,12 @@
 {
-    "name": "style-es.css",
+    "name": "background-imgs-es.css",
     "shortid": "B1gQ4Jiq9L",
     "folder": {
         "shortid": "fvfrX3r"
     },
     "creationDate": "2020-05-14T10:37:42.756Z",
     "modificationDate": {
-        "$$date": 1595438943848
+        "$$date": 1595440244572
     },
     "_id": "ZUooCIuKu8ibD5Uz",
     "$entitySet": "assets"
