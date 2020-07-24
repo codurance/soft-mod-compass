@@ -1,13 +1,30 @@
 module.exports = reportViewModel;
 
 function ensureKeysValid(categories) {
+  const isValidKey = (key) => {
+    const hasSpace = key.includes(' ');
+    const startWithNumber = key.match(/^\d/);
+    const startWithCapitalLetter = key[0] === key[0].toUpperCase();
+
+    return !hasSpace && !startWithNumber && !startWithCapitalLetter;
+  };
+  const throwError = () => {
+    throw 'Category key can not contain space, start with capital letter or start with number';
+  };
+
   for (const category of categories) {
-    if (category.key.includes(' ')) {
-      throw 'Category key can not contain space';
+    if (!isValidKey(category.key)) throwError();
+    for (const subcategoryKey of category.subcategoryKeys) {
+      if (!isValidKey(subcategoryKey)) throwError();
     }
   }
 }
+
 const copyOf = (array) => [...array];
+const average = (array) => {
+  const sumAll = (a, b) => a + b;
+  return array.reduce(sumAll) / array.length;
+};
 
 function mapUserInfo(userDetails) {
   const userProperty = (propertyName) =>
@@ -33,25 +50,29 @@ function computeScoresForCategories(
 
   for (const categoryDefinition of categoryDefinitions) {
     const key = categoryDefinition.key;
-    const subcategories = categoryDefinition.subcategoryNames;
-    const subcategoryScores = [];
+    const subcategoryKeys = categoryDefinition.subcategoryKeys;
 
-    for (const _ of subcategories) {
+    const subcategories = {};
+    for (const subcategoryKey of subcategoryKeys) {
       const answerForSubcategory = answers.shift();
       const questionChoicesForSubcategory = questionChoices.shift();
       const subcategoryScore = calculateScoreForAnswer(
         questionChoicesForSubcategory,
         answerForSubcategory
       );
-      subcategoryScores.push(subcategoryScore);
+      subcategories[subcategoryKey] = {
+        score: subcategoryScore,
+        answer: answerForSubcategory,
+      };
     }
 
-    const averageScore =
-      subcategoryScores.reduce((a, b) => a + b) / subcategoryScores.length;
+    const averageScore = average(
+      Object.values(subcategories).map((subcategory) => subcategory.score)
+    );
 
     categories[key] = {
       score: averageScore,
-      subcategoryScores,
+      subcategories,
     };
   }
 

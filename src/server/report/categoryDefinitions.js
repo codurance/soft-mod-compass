@@ -1,47 +1,32 @@
 module.exports = [
   {
-    name: 'Organisational Maturity',
     key: 'organisationalMaturity',
-    subCategoryNames: [
-      'DevSecOps',
-      'Delivering Value',
-      'Technical Debt',
-      'Well Defined Methodology',
+    subcategoryKeys: [
+      'devSecOps',
+      'deliveringValue',
+      'technicalDebt',
+      'methodology',
     ],
   },
   {
-    name: 'Continuous Delivery',
     key: 'continuousDelivery',
-    subCategoryNames: [
-      'Deployment Cadence',
-      'Rework',
-      'Automated Pipeline',
-      'Confidence to Develop Without Side Effects',
-    ],
+    subcategoryKeys: ['cadence', 'rework', 'pipeline', 'sideEffects'],
   },
   {
-    name: 'Culture',
     key: 'culture',
-    subCategoryNames: [
-      'Transparency',
-      'Learning',
-      'Failure Is an Opportunity to Learn',
-      'Career Path',
+    subcategoryKeys: [
+      'transparency',
+      'learning',
+      'learnFromFailure',
+      'careerPath',
     ],
   },
   {
-    name: 'Cross-Functional Teams',
     key: 'crossFunctionalTeams',
-    subCategoryNames: ['Diversity', 'Autonomy', 'Whole Team', 'Bus factor'],
+    subcategoryKeys: ['diversity', 'autonomy', 'wholeTeam', 'knowledgeSharing'],
   },
   {
-    name: 'XP Practices',
     key: 'xpPractices',
-    subCategoryNames: [
-      'Test-Driven Development',
-      'Sustainable Pace',
-      'Pairing',
-      'Peer Review',
-    ],
+    subcategoryKeys: ['tdd', 'architecture', 'cleanCode', 'peerReview'],
   },
 ];
