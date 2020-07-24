@@ -8,23 +8,108 @@
   "categories": {
     "organisationalMaturity": {
       "score": 55,
-      "subcategoryScores": [40, 60, 20, 100]
+      "subcategories": {
+        "devSecOps": {
+          "score": 40,
+          "answer": "Disagree"
+        },
+        "deliveringValue": {
+          "score": 60,
+          "answer": "Neither Agree Nor Disagree"
+        },
+        "technicalDebt": {
+          "score": 20,
+          "answer": "Strongly Disagree"
+        },
+        "methodology": {
+          "score": 100,
+          "answer": "Strongly Agree"
+        }
+      }
     },
     "continuousDelivery": {
       "score": 55,
-      "subcategoryScores": [40, 60, 20, 100]
+      "subcategories": {
+        "cadence": {
+          "score": 40,
+          "answer": "Monthly"
+        },
+        "rework": {
+          "score": 60,
+          "answer": "Neither Agree Nor Disagree"
+        },
+        "pipeline": {
+          "score": 20,
+          "answer": "Strongly Disagree"
+        },
+        "sideEffects": {
+          "score": 100,
+          "answer": "Strongly Agree"
+        }
+      }
     },
     "culture": {
       "score": 55,
-      "subcategoryScores": [40, 60, 20, 100]
+      "subcategories": {
+        "transparency": {
+          "score": 40,
+          "answer": "Disagree"
+        },
+        "learning": {
+          "score": 60,
+          "answer": "Neither Agree Nor Disagree"
+        },
+        "learnFromFailure": {
+          "score": 20,
+          "answer": "Strongly Disagree"
+        },
+        "careerPath": {
+          "score": 100,
+          "answer": "Strongly Agree"
+        }
+      }
     },
     "crossFunctionalTeams": {
       "score": 55,
-      "subcategoryScores": [40, 60, 20, 100]
+      "subcategories": {
+        "diversity": {
+          "score": 40,
+          "answer": "Disagree"
+        },
+        "autonomy": {
+          "score": 60,
+          "answer": "Neither Agree Nor Disagree"
+        },
+        "wholeTeam": {
+          "score": 20,
+          "answer": "Strongly Disagree"
+        },
+        "knowledgeSharing": {
+          "score": 100,
+          "answer": "Strongly Agree"
+        }
+      }
     },
     "xpPractices": {
       "score": 55,
-      "subcategoryScores": [40, 60, 20, 100]
+      "subcategories": {
+        "tdd": {
+          "score": 40,
+          "answer": "Disagree"
+        },
+        "architecture": {
+          "score": 60,
+          "answer": "Neither Agree Nor Disagree"
+        },
+        "cleanCode": {
+          "score": 20,
+          "answer": "Strongly Disagree"
+        },
+        "peerReview": {
+          "score": 100,
+          "answer": "Strongly Agree"
+        }
+      }
     }
   }
 }

@@ -1,30 +1,115 @@
 {
-    "user": {
-      "firstName": "Example",
-      "lastName": "Name",
-      "company": "Codurance",
-      "email": "example.name@codurance.com"
+  "user": {
+    "firstName": "Example",
+    "lastName": "Name",
+    "company": "Codurance",
+    "email": "example.name@codurance.com"
+  },
+  "categories": {
+    "organisationalMaturity": {
+      "score": 25,
+      "subcategories": {
+        "devSecOps": {
+          "score": 20,
+          "answer": "Strongly Disagree"
+        },
+        "deliveringValue": {
+          "score": 20,
+          "answer": "Strongly Disagree"
+        },
+        "technicalDebt": {
+          "score": 40,
+          "answer": "Disagree"
+        },
+        "methodology": {
+          "score": 20,
+          "answer": "Strongly Disagree"
+        }
+      }
     },
-    "categories": {
-      "organisationalMaturity": {
-        "score": 25,
-        "subcategoryScores": [20, 20, 40, 20]
-      },
-      "continuousDelivery": {
-        "score": 25,
-        "subcategoryScores": [20, 20, 40, 20]
-      },
-      "culture": {
-        "score": 25,
-        "subcategoryScores": [20, 20, 40, 20]
-      },
-      "crossFunctionalTeams": {
-        "score": 25,
-        "subcategoryScores": [20, 20, 40, 20]
-      },
-      "xpPractices": {
-        "score": 25,
-        "subcategoryScores": [20, 20, 40, 20]
+    "continuousDelivery": {
+      "score": 25,
+      "subcategories": {
+        "cadence": {
+          "score": 20,
+          "answer": "Less Often Than Monthly"
+        },
+        "rework": {
+          "score": 20,
+          "answer": "Strongly Disagree"
+        },
+        "pipeline": {
+          "score": 40,
+          "answer": "Disagree"
+        },
+        "sideEffects": {
+          "score": 20,
+          "answer": "Strongly Disagree"
+        }
+      }
+    },
+    "culture": {
+      "score": 25,
+      "subcategories": {
+        "transparency": {
+          "score": 20,
+          "answer": "Strongly Disagree"
+        },
+        "learning": {
+          "score": 20,
+          "answer": "Strongly Disagree"
+        },
+        "learnFromFailure": {
+          "score": 40,
+          "answer": "Disagree"
+        },
+        "careerPath": {
+          "score": 20,
+          "answer": "Strongly Disagree"
+        }
+      }
+    },
+    "crossFunctionalTeams": {
+      "score": 25,
+      "subcategories": {
+        "diversity": {
+          "score": 20,
+          "answer": "Strongly Disagree"
+        },
+        "autonomy": {
+          "score": 20,
+          "answer": "Strongly Disagree"
+        },
+        "wholeTeam": {
+          "score": 40,
+          "answer": "Disagree"
+        },
+        "knowledgeSharing": {
+          "score": 20,
+          "answer": "Strongly Disagree"
+        }
+      }
+    },
+    "xpPractices": {
+      "score": 25,
+      "subcategories": {
+        "tdd": {
+          "score": 20,
+          "answer": "Strongly Disagree"
+        },
+        "architecture": {
+          "score": 20,
+          "answer": "Strongly Disagree"
+        },
+        "cleanCode": {
+          "score": 40,
+          "answer": "Disagree"
+        },
+        "peerReview": {
+          "score": 20,
+          "answer": "Strongly Disagree"
+        }
       }
     }
   }
+}

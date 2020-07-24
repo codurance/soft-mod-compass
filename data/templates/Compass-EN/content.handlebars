@@ -122,19 +122,27 @@
   <!-- BEGIN ORGANISATIONAL MATURITY RESULTS -------------------------------------------------------- -->
   <section id="organisational-maturity-results-page-en" class="page page-break-after with-background-img">
     <div class="gauge-subcategory gauge-1">
-        {{> gauge-subcategory score=categories.organisationalMaturity.subcategoryScores.[0] onDark=true }}
+        {{> gauge-subcategory 
+            subcategory=categories.organisationalMaturity.subcategories.devSecOps 
+            onDark=true }}
     </div>
     
     <div class="gauge-subcategory gauge-2">
-        {{> gauge-subcategory score=categories.organisationalMaturity.subcategoryScores.[1] onDark=true }}
+        {{> gauge-subcategory 
+            subcategory=categories.organisationalMaturity.subcategories.deliveringValue 
+            onDark=true }}
     </div>
     
     <div class="gauge-subcategory gauge-3">
-        {{> gauge-subcategory score=categories.organisationalMaturity.subcategoryScores.[2] onDark=true }}
+        {{> gauge-subcategory 
+            subcategory=categories.organisationalMaturity.subcategories.technicalDebt 
+            onDark=true }}
     </div>
     
     <div class="gauge-subcategory gauge-4">
-        {{> gauge-subcategory score=categories.organisationalMaturity.subcategoryScores.[3] onDark=true }}
+        {{> gauge-subcategory 
+            subcategory=categories.organisationalMaturity.subcategories.methodology 
+            onDark=true }}
     </div>  
   </section>
   <!---- END ORGANISATIONAL MATURITY RESULTS -------------------------------------------------------- -->
@@ -154,19 +162,27 @@
   <!-- BEGIN CONTINUOUS DELIVERY RESULTS ------------------------------------------------------------ -->
   <section id="continuous-delivery-results-page-en" class="page page-break-after with-background-img">
     <div class="gauge-subcategory gauge-1">
-        {{> gauge-subcategory score=categories.continuousDelivery.subcategoryScores.[0] onDark=false  }}
+        {{> gauge-subcategory 
+            subcategory=categories.continuousDelivery.subcategories.cadence 
+            onDark=false }}
     </div>
     
     <div class="gauge-subcategory gauge-2">
-        {{> gauge-subcategory score=categories.continuousDelivery.subcategoryScores.[1] onDark=false  }}
+        {{> gauge-subcategory 
+            subcategory=categories.continuousDelivery.subcategories.rework 
+            onDark=false }}
     </div>
     
     <div class="gauge-subcategory gauge-3">
-        {{> gauge-subcategory score=categories.continuousDelivery.subcategoryScores.[2] onDark=false  }}
+        {{> gauge-subcategory 
+            subcategory=categories.continuousDelivery.subcategories.pipeline 
+            onDark=false }}
     </div>
     
     <div class="gauge-subcategory gauge-4">
-        {{> gauge-subcategory score=categories.continuousDelivery.subcategoryScores.[3] onDark=false  }}
+        {{> gauge-subcategory 
+            subcategory=categories.continuousDelivery.subcategories.sideEffects 
+            onDark=false }}
     </div>
   </section>
   <!---- END CONTINUOUS DELIVERY RESULTS ------------------------------------------------------------ -->
@@ -186,19 +202,27 @@
   <!-- BEGIN PEOPLE CULTURE RESULTS ------------------------------------------------------------ -->
   <section id="people-culture-results-page-en" class="page page-break-after with-background-img">
     <div class="gauge-subcategory gauge-1">
-        {{> gauge-subcategory score=categories.culture.subcategoryScores.[0] onDark=true }}
+        {{> gauge-subcategory 
+            subcategory=categories.culture.subcategories.transparency 
+            onDark=true }}
     </div>
     
     <div class="gauge-subcategory gauge-2">
-        {{> gauge-subcategory score=categories.culture.subcategoryScores.[1] onDark=true }}
+        {{> gauge-subcategory 
+            subcategory=categories.culture.subcategories.learning 
+            onDark=true }}
     </div>
     
     <div class="gauge-subcategory gauge-3">
-        {{> gauge-subcategory score=categories.culture.subcategoryScores.[2] onDark=true }}
+        {{> gauge-subcategory 
+            subcategory=categories.culture.subcategories.learnFromFailure 
+            onDark=true }}
     </div>
     
     <div class="gauge-subcategory gauge-4">
-        {{> gauge-subcategory score=categories.culture.subcategoryScores.[3] onDark=true }}
+        {{> gauge-subcategory 
+            subcategory=categories.culture.subcategories.careerPath 
+            onDark=true }}
     </div>
   </section>
   <!---- END PEOPLE CULTURE RESULTS ------------------------------------------------------------ -->
@@ -218,19 +242,27 @@
   <!-- BEGIN EFFECTIVE TEAM RESULTS ------------------------------------------------------------ -->
   <section id="effective-team-results-page-en" class="page page-break-after with-background-img">
     <div class="gauge-subcategory gauge-1">
-        {{> gauge-subcategory score=categories.crossFunctionalTeams.subcategoryScores.[0] onDark=false  }}
+        {{> gauge-subcategory 
+            subcategory=categories.crossFunctionalTeams.subcategories.diversity 
+            onDark=false }}
     </div>
     
     <div class="gauge-subcategory gauge-2">
-        {{> gauge-subcategory score=categories.crossFunctionalTeams.subcategoryScores.[1] onDark=false  }}
+        {{> gauge-subcategory 
+            subcategory=categories.crossFunctionalTeams.subcategories.autonomy 
+            onDark=false }}
     </div>
     
     <div class="gauge-subcategory gauge-3">
-        {{> gauge-subcategory score=categories.crossFunctionalTeams.subcategoryScores.[2] onDark=false  }}
+        {{> gauge-subcategory 
+            subcategory=categories.crossFunctionalTeams.subcategories.wholeTeam 
+            onDark=false }}
     </div>
     
     <div class="gauge-subcategory gauge-4">
-        {{> gauge-subcategory score=categories.crossFunctionalTeams.subcategoryScores.[3] onDark=false  }}
+        {{> gauge-subcategory 
+            subcategory=categories.crossFunctionalTeams.subcategories.knowledgeSharing 
+            onDark=false }}
     </div>
   </section>
   <!---- END EFFECTIVE TEAM RESULTS ------------------------------------------------------------ -->
@@ -250,19 +282,27 @@
   <!-- BEGIN TECHNICAL PRACTICES RESULTS ------------------------------------------------------- -->
   <section id="technical-practices-results-page-en" class="page page-break-after with-background-img">
     <div class="gauge-subcategory gauge-1">
-        {{> gauge-subcategory score=categories.xpPractices.subcategoryScores.[0] onDark=true }}
+        {{> gauge-subcategory 
+            subcategory=categories.xpPractices.subcategories.tdd 
+            onDark=true }}
     </div>
     
     <div class="gauge-subcategory gauge-2">
-        {{> gauge-subcategory score=categories.xpPractices.subcategoryScores.[1] onDark=true }}
+        {{> gauge-subcategory 
+            subcategory=categories.xpPractices.subcategories.architecture 
+            onDark=true }}
     </div>
     
     <div class="gauge-subcategory gauge-3">
-        {{> gauge-subcategory score=categories.xpPractices.subcategoryScores.[2] onDark=true }}
+        {{> gauge-subcategory 
+            subcategory=categories.xpPractices.subcategories.cleanCode 
+            onDark=true }}
     </div>
     
     <div class="gauge-subcategory gauge-4">
-        {{> gauge-subcategory score=categories.xpPractices.subcategoryScores.[3] onDark=true }}
+        {{> gauge-subcategory 
+            subcategory=categories.xpPractices.subcategories.peerReview 
+            onDark=true }}
     </div>
   </section>
   <!---- END TECHNICAL PRACTICES RESULTS ------------------------------------------------------- -->
