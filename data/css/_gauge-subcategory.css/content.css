@@ -19,12 +19,7 @@
 .gauge-subcategory.gauge-4 {
     top: 268.2mm;
 }
-.on-dark {
-    background: var(--functional-medium-grey);
-}
-.on-light {
-    background: #dcd1c4;
-}
+
 
 
 /* Icon */
@@ -70,12 +65,19 @@
     position: absolute;
 }
 
+
 /* Bar */
 .gauge-subcategory__bar {
     position: absolute;
     top: 0mm;
     width: 141.5mm;
     height: 3mm;
+}
+.gauge-subcategory__bar.on-dark {
+    background: var(--functional-medium-grey);
+}
+.gauge-subcategory__bar.on-light {
+    background: #dcd1c4;
 }
 
 .gauge-subcategory__inner-fill {
@@ -99,8 +101,12 @@
     height: 2.269mm;
     width: 0.5mm;
 }
-
-
+.gauge-subcategory__marker.on-dark {
+    background: var(--functional-medium-grey);
+}
+.gauge-subcategory__marker.on-light {
+    background: #dcd1c4;
+}
 
 
 
