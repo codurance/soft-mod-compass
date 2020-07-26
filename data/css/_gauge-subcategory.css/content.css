@@ -1,25 +1,16 @@
 /* MAIN gauge GRAPHS -------------------------------------- */
 
+/*
+NOTE: For Subcategory/Lang dependent settings, see at the bottom of the file
+NOTE: For Subcategory/Lang dependent settings, see at the bottom of the file
+NOTE: For Subcategory/Lang dependent settings, see at the bottom of the file
+*/
+
+/* Gauge */
 .gauge-subcategory {
     position: absolute;
     left: 42.2mm;
 }
-.gauge-subcategory.gauge-1 {
-    top: 100mm;
-}
-.gauge-subcategory.gauge-2 {
-    top: 207.3mm;
-}
-.gauge-subcategory.gauge-2 .gauge-subcategory__bar {
-    top: 0.4mm;
-}
-.gauge-subcategory.gauge-3 {
-    top: 237.8mm;
-}
-.gauge-subcategory.gauge-4 {
-    top: 268.2mm;
-}
-
 
 
 /* Icon */
@@ -52,18 +43,42 @@
     position: absolute;
     top: -8.5mm;
     left: -3.6mm;
-    height: 14.13mm;
     width: 2pt;
 }
 
 
-/* Answer TEMP MOVE TO CORRECT POSITION */
+/* Answer */
 .gauge-subcategory__answer {
-    color: white;
     font-size: 2em;
     top: -8mm;
     position: absolute;
 }
+.on-dark .gauge-subcategory__answer.good {
+    color: var(--accent-green--dark-bkg);
+    background: unset;
+}
+.on-dark .gauge-subcategory__answer.average {
+    color: var(--accent-blue--dark-bkg);
+    background: unset;
+}
+.on-dark .gauge-subcategory__answer.bad {
+    color: var(--accent-yellow--dark-bkg);
+    background: unset;
+}
+.on-light .gauge-subcategory__answer.good {
+    color: var(--accent-green--light-bkg);
+    background: unset;
+}
+.on-light .gauge-subcategory__answer.average {
+    color: var(--accent-blue--light-bkg);
+    background: unset;
+}
+.on-light .gauge-subcategory__answer.bad {
+    color: var(--accent-yellow--light-bkg);
+    background: unset;
+}
+
+
 
 
 /* Bar */
@@ -108,6 +123,263 @@
     background: #dcd1c4;
 }
 
+
+
+/*********************************************************************
+**          Subcategory/Lang dependent settings                     **
+**********************************************************************/
+
+#gauge-organisationalmaturity-devsecops-en {
+    top: 100.0mm;
+}
+#gauge-organisationalmaturity-devsecops-es {
+    top: 100.0mm;
+}
+#gauge-organisationalmaturity-deliveringvalue-en {
+    top: 150.0mm;
+}
+#gauge-organisationalmaturity-deliveringvalue-es {
+    top: 100.0mm;
+}
+#gauge-organisationalmaturity-technicaldebt-en {
+    top: 100.0mm;
+}
+#gauge-organisationalmaturity-technicaldebt-es {
+    top: 100.0mm;
+}
+#gauge-organisationalmaturity-methodology-en {
+    top: 100.0mm;
+}
+#gauge-organisationalmaturity-methodology-es {
+    top: 100.0mm;
+}
+
+#gauge-continuousdelivery-cadence-en {
+    top: 100.0mm;
+}
+#gauge-continuousdelivery-cadence-es {
+    top: 100.0mm;
+}
+#gauge-continuousdelivery-rework-en {
+    top: 100.0mm;
+}
+#gauge-continuousdelivery-rework-es {
+    top: 100.0mm;
+}
+#gauge-continuousdelivery-pipeline-en {
+    top: 100.0mm;
+}
+#gauge-continuousdelivery-pipeline-es {
+    top: 100.0mm;
+}
+#gauge-continuousdelivery-sideeffects-en {
+    top: 100.0mm;
+}
+#gauge-continuousdelivery-sideeffects-es {
+    top: 100.0mm;
+}
+
+#gauge-culture-transparency-en {
+    top: 100.0mm;
+}
+#gauge-culture-transparency-es {
+    top: 100.0mm;
+}
+#gauge-culture-learning-en {
+    top: 100.0mm;
+}
+#gauge-culture-learning-es {
+    top: 100.0mm;
+}
+#gauge-culture-learnfromfailure-en {
+    top: 100.0mm;
+}
+#gauge-culture-learnfromfailure-es {
+    top: 100.0mm;
+}
+#gauge-culture-careerpath-en {
+    top: 100.0mm;
+}
+#gauge-culture-careerpath-es {
+    top: 100.0mm;
+}
+
+#gauge-crossfunctionalteams-diversity-en {
+    top: 100.0mm;
+}
+#gauge-crossfunctionalteams-diversity-es {
+    top: 100.0mm;
+}
+#gauge-crossfunctionalteams-autonomy-en {
+    top: 100.0mm;
+}
+#gauge-crossfunctionalteams-autonomy-es {
+    top: 100.0mm;
+}
+#gauge-crossfunctionalteams-wholeteam-en {
+    top: 100.0mm;
+}
+#gauge-crossfunctionalteams-wholeteam-es {
+    top: 100.0mm;
+}
+#gauge-crossfunctionalteams-knowledgesharing-en {
+    top: 100.0mm;
+}
+#gauge-crossfunctionalteams-knowledgesharing-es {
+    top: 100.0mm;
+}
+
+#gauge-xppractices-tdd-en {
+    top: 100.0mm;
+}
+#gauge-xppractices-tdd-es {
+    top: 100.0mm;
+}
+#gauge-xppractices-architecture-en {
+    top: 100.0mm;
+}
+#gauge-xppractices-architecture-es {
+    top: 100.0mm;
+}
+#gauge-xppractices-cleancode-en {
+    top: 100.0mm;
+}
+#gauge-xppractices-cleancode-es {
+    top: 100.0mm;
+}
+#gauge-xppractices-peerreview-en {
+    top: 100.0mm;
+}
+#gauge-xppractices-peerreview-es {
+    top: 100.0mm;
+}
+
+
+
+#gauge-organisationalmaturity-devsecops-en .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-organisationalmaturity-devsecops-es .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-organisationalmaturity-deliveringvalue-en .gauge-subcategory__rule {
+    height: 30.0mm;
+}
+#gauge-organisationalmaturity-deliveringvalue-es .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-organisationalmaturity-technicaldebt-en .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-organisationalmaturity-technicaldebt-es .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-organisationalmaturity-methodology-en .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-organisationalmaturity-methodology-es .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+ 
+#height-continuousdelivery-cadence-en .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-continuousdelivery-cadence-es .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-continuousdelivery-rework-en .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-continuousdelivery-rework-es .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-continuousdelivery-pipeline-en .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-continuousdelivery-pipeline-es .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-continuousdelivery-sideeffects-en .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-continuousdelivery-sideeffects-es .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+ 
+#height-culture-transparency-en .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-culture-transparency-es .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-culture-learning-en .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-culture-learning-es .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-culture-learnfromfailure-en .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-culture-learnfromfailure-es .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-culture-careerpath-en .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-culture-careerpath-es .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+ 
+#height-crossfunctionalteams-diversity-en .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-crossfunctionalteams-diversity-es .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-crossfunctionalteams-autonomy-en .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-crossfunctionalteams-autonomy-es .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-crossfunctionalteams-wholeteam-en .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-crossfunctionalteams-wholeteam-es .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-crossfunctionalteams-knowledgesharing-en .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-crossfunctionalteams-knowledgesharing-es .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+ 
+#height-xppractices-tdd-en .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-xppractices-tdd-es .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-xppractices-architecture-en .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-xppractices-architecture-es .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-xppractices-cleancode-en .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-xppractices-cleancode-es .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-xppractices-peerreview-en .gauge-subcategory__rule {
+    height: 10.0mm;
+}
+#gauge-xppractices-peerreview-es .gauge-subcategory__rule {
+    height: 10.0mm;
+}
 
 
 

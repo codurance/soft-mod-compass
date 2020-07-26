@@ -122,29 +122,25 @@
 
   <!-- BEGIN ORGANISATIONAL MATURITY RESULTS -------------------------------------------------------- -->
   <section id="organisational-maturity-results-page-es" class="page page-break-after with-background-img">
-    <div class="gauge-subcategory gauge-1">
-        {{> gauge-subcategory 
-            subcategory=categories.organisationalMaturity.subcategories.devSecOps 
-            onDark=true }}
-    </div>
-    
-    <div class="gauge-subcategory gauge-2">
-        {{> gauge-subcategory 
-            subcategory=categories.organisationalMaturity.subcategories.deliveringValue 
-            onDark=true }}
-    </div>
-    
-    <div class="gauge-subcategory gauge-3">
-        {{> gauge-subcategory 
-            subcategory=categories.organisationalMaturity.subcategories.technicalDebt 
-            onDark=true }}
-    </div>
-    
-    <div class="gauge-subcategory gauge-4">
-        {{> gauge-subcategory 
-            subcategory=categories.organisationalMaturity.subcategories.methodology 
-            onDark=true }}
-    </div>  
+    {{> gauge-subcategory 
+        id="gauge-organisationalmaturity-devsecops-es"
+        subcategory=categories.organisationalMaturity.subcategories.devSecOps 
+        onDark=true }}
+
+    {{> gauge-subcategory 
+        id="gauge-organisationalmaturity-deliveringvalue-es"
+        subcategory=categories.organisationalMaturity.subcategories.deliveringValue 
+        onDark=true }}
+
+    {{> gauge-subcategory 
+        id="gauge-organisationalmaturity-technicaldebt-es"
+        subcategory=categories.organisationalMaturity.subcategories.technicalDebt 
+        onDark=true }}
+
+    {{> gauge-subcategory 
+        id="gauge-organisationalmaturity-methodology-es"
+        subcategory=categories.organisationalMaturity.subcategories.methodology 
+        onDark=true }}
   </section>
   <!---- END ORGANISATIONAL MATURITY RESULTS -------------------------------------------------------- -->
 
@@ -162,29 +158,25 @@
 
   <!-- BEGIN CONTINUOUS DELIVERY RESULTS ------------------------------------------------------------ -->
   <section id="continuous-delivery-results-page-es" class="page page-break-after with-background-img">
-    <div class="gauge-subcategory gauge-1">
-        {{> gauge-subcategory 
-            subcategory=categories.continuousDelivery.subcategories.cadence 
-            onDark=false }}
-    </div>
-    
-    <div class="gauge-subcategory gauge-2">
-        {{> gauge-subcategory 
-            subcategory=categories.continuousDelivery.subcategories.rework 
-            onDark=false }}
-    </div>
-    
-    <div class="gauge-subcategory gauge-3">
-        {{> gauge-subcategory 
-            subcategory=categories.continuousDelivery.subcategories.pipeline 
-            onDark=false }}
-    </div>
-    
-    <div class="gauge-subcategory gauge-4">
-        {{> gauge-subcategory 
-            subcategory=categories.continuousDelivery.subcategories.sideEffects 
-            onDark=false }}
-    </div>
+    {{> gauge-subcategory 
+        id="gauge-continuousdelivery-cadence-es"
+        subcategory=categories.continuousDelivery.subcategories.cadence 
+        onDark=false }}
+
+    {{> gauge-subcategory 
+        id="gauge-continuousdelivery-rework-es"
+        subcategory=categories.continuousDelivery.subcategories.rework 
+        onDark=false }}
+
+    {{> gauge-subcategory 
+        id="gauge-continuousdelivery-pipeline-es"
+        subcategory=categories.continuousDelivery.subcategories.pipeline 
+        onDark=false }}
+
+    {{> gauge-subcategory 
+        id="gauge-continuousdelivery-sideeffects-es"
+        subcategory=categories.continuousDelivery.subcategories.sideEffects 
+        onDark=false }}
   </section>
   <!---- END CONTINUOUS DELIVERY RESULTS ------------------------------------------------------------ -->
 
@@ -202,29 +194,25 @@
 
   <!-- BEGIN PEOPLE CULTURE RESULTS ------------------------------------------------------------ -->
   <section id="people-culture-results-page-es" class="page page-break-after with-background-img">
-    <div class="gauge-subcategory gauge-1">
-        {{> gauge-subcategory 
-            subcategory=categories.culture.subcategories.transparency 
-            onDark=true }}
-    </div>
-    
-    <div class="gauge-subcategory gauge-2">
-        {{> gauge-subcategory 
-            subcategory=categories.culture.subcategories.learning 
-            onDark=true }}
-    </div>
-    
-    <div class="gauge-subcategory gauge-3">
-        {{> gauge-subcategory 
-            subcategory=categories.culture.subcategories.learnFromFailure 
-            onDark=true }}
-    </div>
-    
-    <div class="gauge-subcategory gauge-4">
-        {{> gauge-subcategory 
-            subcategory=categories.culture.subcategories.careerPath 
-            onDark=true }}
-    </div>
+    {{> gauge-subcategory 
+        id="gauge-culture-transparency-es"
+        subcategory=categories.culture.subcategories.transparency 
+        onDark=true }}
+
+    {{> gauge-subcategory 
+        id="gauge-culture-learning-es"
+        subcategory=categories.culture.subcategories.learning 
+        onDark=true }}
+
+    {{> gauge-subcategory 
+        id="gauge-culture-learnfromfailure-es"
+        subcategory=categories.culture.subcategories.learnFromFailure 
+        onDark=true }}
+
+    {{> gauge-subcategory 
+        id="gauge-culture-careerpath-es"
+        subcategory=categories.culture.subcategories.careerPath 
+        onDark=true }}
   </section>
   <!---- END PEOPLE CULTURE RESULTS ------------------------------------------------------------ -->
 
@@ -242,29 +230,25 @@
 
   <!-- BEGIN EFFECTIVE TEAM RESULTS ------------------------------------------------------------ -->
   <section id="effective-team-results-page-es" class="page page-break-after with-background-img">
-    <div class="gauge-subcategory gauge-1">
-        {{> gauge-subcategory 
-            subcategory=categories.crossFunctionalTeams.subcategories.diversity 
-            onDark=false }}
-    </div>
-    
-    <div class="gauge-subcategory gauge-2">
-        {{> gauge-subcategory 
-            subcategory=categories.crossFunctionalTeams.subcategories.autonomy 
-            onDark=false }}
-    </div>
-    
-    <div class="gauge-subcategory gauge-3">
-        {{> gauge-subcategory 
-            subcategory=categories.crossFunctionalTeams.subcategories.wholeTeam 
-            onDark=false }}
-    </div>
-    
-    <div class="gauge-subcategory gauge-4">
-        {{> gauge-subcategory 
-            subcategory=categories.crossFunctionalTeams.subcategories.knowledgeSharing 
-            onDark=false }}
-    </div>
+    {{> gauge-subcategory 
+        id="gauge-crossfunctionalteams-diversity-es"
+        subcategory=categories.crossFunctionalTeams.subcategories.diversity 
+        onDark=false }}
+
+    {{> gauge-subcategory 
+        id="gauge-crossfunctionalteams-autonomy-es"
+        subcategory=categories.crossFunctionalTeams.subcategories.autonomy 
+        onDark=false }}
+
+    {{> gauge-subcategory 
+        id="gauge-crossfunctionalteams-wholeteam-es"
+        subcategory=categories.crossFunctionalTeams.subcategories.wholeTeam 
+        onDark=false }}
+
+    {{> gauge-subcategory 
+        id="gauge-crossfunctionalteams-knowledgesharing-es"
+        subcategory=categories.crossFunctionalTeams.subcategories.knowledgeSharing 
+        onDark=false }}
   </section>
   <!---- END EFFECTIVE TEAM RESULTS ------------------------------------------------------------ -->
 
@@ -282,29 +266,25 @@
 
   <!-- BEGIN TECHNICAL PRACTICES RESULTS ------------------------------------------------------- -->
   <section id="technical-practices-results-page-es" class="page page-break-after with-background-img">
-    <div class="gauge-subcategory gauge-1">
-        {{> gauge-subcategory 
-            subcategory=categories.xpPractices.subcategories.tdd 
-            onDark=true }}
-    </div>
-    
-    <div class="gauge-subcategory gauge-2">
-        {{> gauge-subcategory 
-            subcategory=categories.xpPractices.subcategories.architecture 
-            onDark=true }}
-    </div>
-    
-    <div class="gauge-subcategory gauge-3">
-        {{> gauge-subcategory 
-            subcategory=categories.xpPractices.subcategories.cleanCode 
-            onDark=true }}
-    </div>
-    
-    <div class="gauge-subcategory gauge-4">
-        {{> gauge-subcategory 
-            subcategory=categories.xpPractices.subcategories.peerReview 
-            onDark=true }}
-    </div>
+    {{> gauge-subcategory 
+        id="gauge-xppractices-tdd-es"
+        subcategory=categories.xpPractices.subcategories.tdd 
+        onDark=true }}
+
+    {{> gauge-subcategory 
+        id="gauge-xppractices-architecture-es"
+        subcategory=categories.xpPractices.subcategories.architecture 
+        onDark=true }}
+
+    {{> gauge-subcategory 
+        id="gauge-xppractices-cleancode-es"
+        subcategory=categories.xpPractices.subcategories.cleanCode 
+        onDark=true }}
+
+    {{> gauge-subcategory 
+        id="gauge-xppractices-peerreview-es"
+        subcategory=categories.xpPractices.subcategories.peerReview 
+        onDark=true }}
   </section>
   <!---- END TECHNICAL PRACTICES RESULTS ------------------------------------------------------- -->
 
