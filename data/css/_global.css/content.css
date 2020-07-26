@@ -3,9 +3,12 @@
   /* COLOURS */
   --primary-coral: #fa7268;
   --text-black: #404040;
-  --accent-yellow: #ffca4d;
-  --accent-green: #63f1a4;
-  --accent-blue: #53ceea;
+  --accent-yellow--dark-bkg: #ffca4d;
+  --accent-yellow--light-bkg: #d2a224;
+  --accent-green--dark-bkg: #63f1a4;
+  --accent-green--light-bkg: #27c27a;
+  --accent-blue--dark-bkg: #53ceea;
+  --accent-blue--light-bkg: #00a0bb;
   --functional-light-grey: #e0e0e0;
   --functional-medium-grey: #85898f;
   
@@ -63,13 +66,3 @@ body {
 .hidden {
     display: none !important;
 }
-
-
-
-
-
-
-
-
-
-

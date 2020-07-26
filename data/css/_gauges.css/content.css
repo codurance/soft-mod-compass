@@ -2,12 +2,13 @@
 {#asset /css/_gauge-assessment.css @encoding=utf8}
 {#asset /css/_gauge-summary.css @encoding=utf8}
 
+/** TODO: Fix here **/
 .good {
-    background: var(--accent-green);
+    background: var(--accent-green--dark-bkg);
 }
 .average {
-    background: var(--accent-blue);
+    background: var(--accent-blue--dark-bkg);
 }
 .bad {
-    background: var(--accent-yellow);
+    background: var(--accent-yellow--dark-bkg);
 }
