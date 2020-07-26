@@ -1,11 +1,11 @@
 <img class="gauge-subcategory__icon--{{ scoreIconSubcategory subcategory.score }}" src="{#asset /assets/result-icon-{{ scoreIconSubcategory subcategory.score }}.png @encoding=dataURI}" />
 
-<div class="gauge-subcategory__rule {{ gaugeScoreClass subcategory.score }}"></div>
+<div class="gauge-subcategory__rule {{ gaugeScoreClasses subcategory.score onDark}}"></div>
 
 <div class="gauge-subcategory__answer">{{ subcategory.answer }}</div>
 
 <div class="gauge-subcategory__bar {{#if onDark}}on-dark{{else}}on-light{{/if}}">
-    <div class="gauge-subcategory__inner-fill {{ gaugeScoreClass subcategory.score }}" style="width: {{ subcategory.score }}%"></div>
+    <div class="gauge-subcategory__inner-fill {{ gaugeScoreClasses subcategory.score onDark}}" style="width: {{ subcategory.score }}%"></div>
     <div class="gauge-subcategory__markers">
         <div class="gauge-subcategory__marker {{#if onDark}}on-dark{{else}}on-light{{/if}}"></div>
         <div class="gauge-subcategory__marker {{#if onDark}}on-dark{{else}}on-light{{/if}}"></div>

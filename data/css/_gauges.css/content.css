@@ -2,13 +2,22 @@
 {#asset /css/_gauge-assessment.css @encoding=utf8}
 {#asset /css/_gauge-summary.css @encoding=utf8}
 
-/** TODO: Fix here **/
-.good {
+.good.on-dark {
     background: var(--accent-green--dark-bkg);
 }
-.average {
+.average.on-dark {
     background: var(--accent-blue--dark-bkg);
 }
-.bad {
+.bad.on-dark {
     background: var(--accent-yellow--dark-bkg);
 }
+.good.on-light {
+    background: var(--accent-green--light-bkg);
+}
+.average.on-light {
+    background: var(--accent-blue--light-bkg);
+}
+.bad.on-light {
+    background: var(--accent-yellow--light-bkg);
+}
+

@@ -4,10 +4,10 @@
          src="{#asset /assets/result-icon-{{ scoreIconSummary score }}.png @encoding=dataURI}" />
 
 
-    <div class="gauge-summary__rule {{ gaugeSummaryScoreClass score }}"></div>
+    <div class="gauge-summary__rule {{ gaugeSummaryScoreClasses score false}}"></div>
     
     <div class="gauge-summary__bar on-light">
-        <div class="gauge-summary__inner-fill {{ gaugeSummaryScoreClass score }} " style="width: {{ score }}%"></div>
+        <div class="gauge-summary__inner-fill {{ gaugeSummaryScoreClasses score false}} " style="width: {{ score }}%"></div>
         <div class="gauge-summary__markers">
             <div class="gauge-summary__marker on-light"></div>
             <div class="gauge-summary__marker on-light"></div>
