@@ -67,18 +67,13 @@
     top: 0mm;
     width: 60.493mm;
     height: 3mm;
+    /* On light background */
+    background: #dcd1c4;
 }
 .gauge-summary__container[data-category="continuous-delivery-en"] .gauge-summary__bar,
 .gauge-summary__container[data-category="continuous-delivery-es"] .gauge-summary__bar {
     top: 0.4mm;
 }
-.gauge-summary__bar.on-dark {
-    background: var(--functional-medium-grey);
-}
-.gauge-summary__bar.on-light {
-    background: #dcd1c4;
-}
-
 
 
 /* Inner Fill */
@@ -112,15 +107,9 @@
 .gauge-summary__marker {
     height: 1.822mm;
     width: 0.5mm;
-}
-.gauge-summary__marker.on-dark {
-    background: var(--functional-medium-grey);
-}
-.gauge-summary__marker.on-light {
+    /* On light background */
     background: #dcd1c4;
 }
-
-
 
 
 

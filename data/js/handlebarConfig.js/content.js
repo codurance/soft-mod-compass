@@ -14,27 +14,15 @@ Handlebars.registerHelper("categoryScoreClass", function (score) {
 
 
 /** Gauges **/
-Handlebars.registerHelper("gaugeScoreClasses", function (score, onDark) {
-    const baseScoreClass = () => {
-        if (score >= 80) return "good";
-        if (score >= 60) return "average";
-        return "bad";  
-    }
-    
-    return onDark ? 
-        baseScoreClass() + ' on-dark' :
-        baseScoreClass() + ' on-light' 
+Handlebars.registerHelper("gaugeScoreClass", function (score) {
+    if (score >= 80) return "good";
+    if (score >= 60) return "average";
+    return "bad";  
 });
-Handlebars.registerHelper("gaugeSummaryScoreClasses", function (score, onDark) {
-    const baseScoreClass = () => {
-        if (score > 75) return "good";
-        if (score >= 50) return "average";
-        return "bad";  
-    }
-    
-    return onDark ? 
-        baseScoreClass() + ' on-dark' :
-        baseScoreClass() + ' on-light' 
+Handlebars.registerHelper("gaugeSummaryScoreClass", function (score) {
+    if (score > 75) return "good";
+    if (score >= 50) return "average";
+    return "bad";  
 });
 Handlebars.registerHelper("scoreIconSubcategory", function (score) {
   if (score == 100) return "good";

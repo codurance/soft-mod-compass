@@ -5,7 +5,7 @@
     left: 42.2mm;
 }
 .gauge-subcategory.gauge-1 {
-    top: 177mm;
+    top: 100mm;
 }
 .gauge-subcategory.gauge-2 {
     top: 207.3mm;
@@ -73,10 +73,10 @@
     width: 141.5mm;
     height: 3mm;
 }
-.gauge-subcategory__bar.on-dark {
+.on-dark .gauge-subcategory__bar {
     background: var(--functional-medium-grey);
 }
-.gauge-subcategory__bar.on-light {
+.on-light .gauge-subcategory__bar {
     background: #dcd1c4;
 }
 
@@ -101,10 +101,10 @@
     height: 2.269mm;
     width: 0.5mm;
 }
-.gauge-subcategory__marker.on-dark {
+.on-dark .gauge-subcategory__marker {
     background: var(--functional-medium-grey);
 }
-.gauge-subcategory__marker.on-light {
+.on-light .gauge-subcategory__marker {
     background: #dcd1c4;
 }
 
