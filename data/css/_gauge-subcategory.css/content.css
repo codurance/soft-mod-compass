@@ -6,7 +6,7 @@
 
 /* Gauge - */
 .gauge-subcategory {
-    position: relative;
+    position: absolute;
     left: 28.3mm;
     width: 155.3mm;
     display: flex;
@@ -16,9 +16,18 @@
 
 
 /* Icon */
-.gauge-subcategory__icon {
+.gauge-subcategory__icon-container {
+    width: 9.6mm;
+}
+.gauge-subcategory__icon--good {
+    height: 4.5mm;
+}
+.gauge-subcategory__icon--average,
+.gauge-subcategory__icon--average-high {
     height: 4.2mm;
-    margin-right: 5.4mm;
+}
+.gauge-subcategory__icon--bad {
+    height: 5.8mm;
 }
 
 
@@ -108,32 +117,32 @@
 
 
 #gauge-organisationalmaturity-devsecops-en {
-    height: 10.0mm;
-    top: -8.0mm;
+    height: 32.3mm;
+    top: 62.5mm;
 }
 #gauge-organisationalmaturity-devsecops-es {
     height: 10.0mm;
     top: -8.0mm;
 }
 #gauge-organisationalmaturity-deliveringvalue-en {
-    height: 10.0mm;
-    top: -8.0mm;
+    height: 32.9mm;
+    top: 120.2mm;
 }
 #gauge-organisationalmaturity-deliveringvalue-es {
     height: 10.0mm;
     top: -8.0mm;
 }
 #gauge-organisationalmaturity-technicaldebt-en {
-    height: 10.0mm;
-    top: -8.0mm;
+    height: 32.8mm;
+    top: 178.5mm;
 }
 #gauge-organisationalmaturity-technicaldebt-es {
     height: 10.0mm;
     top: -8.0mm;
 }
 #gauge-organisationalmaturity-methodology-en {
-    height: 10.0mm;
-    top: -8.0mm;
+    height: 32.7mm;
+    top: 236.8mm
 }
 #gauge-organisationalmaturity-methodology-es {
     height: 10.0mm;
@@ -142,15 +151,15 @@
  
 #gauge-continuousdelivery-cadence-en {
     height: 10.0mm;
-    top: -8.0mm;
+    top: 82.0mm;
 }
 #gauge-continuousdelivery-cadence-es {
     height: 10.0mm;
-    top: -8.0mm;
+    top: 82.0mm;
 }
 #gauge-continuousdelivery-rework-en {
     height: 10.0mm;
-    top: -8.0mm;
+    top: 82.0mm;
 }
 #gauge-continuousdelivery-rework-es {
     height: 10.0mm;
@@ -158,7 +167,7 @@
 }
 #gauge-continuousdelivery-pipeline-en {
     height: 10.0mm;
-    top: -8.0mm;
+    top: 82.0mm;
 }
 #gauge-continuousdelivery-pipeline-es {
     height: 10.0mm;
@@ -166,7 +175,7 @@
 }
 #gauge-continuousdelivery-sideeffects-en {
     height: 10.0mm;
-    top: -8.0mm;
+    top: 82.0mm;
 }
 #gauge-continuousdelivery-sideeffects-es {
     height: 10.0mm;
