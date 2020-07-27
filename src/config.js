@@ -1,5 +1,7 @@
 const socialMediaPreview = require('./server/socialMediaPreview');
 const config = require('./server/config');
+const hubspotRequiredStandardHeaderIncludesTag = `{{standard_header_includes}}`;
+const hubspotRequiredStandardFooterIncludesTag = `{{standard_footer_includes}}`;
 
 module.exports = {
   devEn: {
@@ -9,6 +11,8 @@ module.exports = {
       'https://info.codurance.com/en/dev-compass-details-submission',
     description: socialMediaPreview.getDescription(),
     title: socialMediaPreview.getTitle(),
+    header: hubspotRequiredStandardHeaderIncludesTag,
+    footer: hubspotRequiredStandardFooterIncludesTag,
     canonicalUrl: config.canonicalUrl,
   },
   devEs: {
@@ -18,6 +22,8 @@ module.exports = {
       'https://info.codurance.com/es/dev-compass-details-submission',
     description: socialMediaPreview.getDescription(),
     title: socialMediaPreview.getTitle(),
+    header: hubspotRequiredStandardHeaderIncludesTag,
+    footer: hubspotRequiredStandardFooterIncludesTag,
     canonicalUrl: config.canonicalUrl,
   },
   prodEn: {
@@ -26,6 +32,8 @@ module.exports = {
     hubspotFormUrl: 'https://info.codurance.com/en/compass-details-submission',
     description: socialMediaPreview.getDescription(),
     title: socialMediaPreview.getTitle(),
+    header: hubspotRequiredStandardHeaderIncludesTag,
+    footer: hubspotRequiredStandardFooterIncludesTag,
     canonicalUrl: config.canonicalUrl,
   },
   prodEs: {
@@ -34,6 +42,8 @@ module.exports = {
     hubspotFormUrl: 'https://info.codurance.com/es/compass-details-submission',
     description: socialMediaPreview.getDescription(),
     title: socialMediaPreview.getTitle(),
+    header: hubspotRequiredStandardHeaderIncludesTag,
+    footer: hubspotRequiredStandardFooterIncludesTag,
     canonicalUrl: config.canonicalUrl,
   },
 };

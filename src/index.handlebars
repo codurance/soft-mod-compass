@@ -11,7 +11,7 @@
     <title>{{htmlWebpackPlugin.options.compassConfig.title}}</title>
     <meta name="description" content="{{ content.meta_description }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
-    {{ standard_header_includes }}
+    {{ htmlWebpackPlugin.options.compassConfig.header }}
     <style type="text/css">
         html {
             margin: 0;
@@ -30,30 +30,12 @@
     </style>
 </head>
 <body>
-<div id="typeform-survey"></div>
+<div id="typeform-survey"
+     data-typeform-form-id="{{htmlWebpackPlugin.options.compassConfig.typeformFormId}}"
+     data-hubspot-form-url="{{htmlWebpackPlugin.options.compassConfig.hubspotFormUrl}}"></div>
 
-{{ standard_footer_includes }}
+{{ htmlWebpackPlugin.options.compassConfig.footer }}
 
 <script src="https://embed.typeform.com/embed.js" type="text/javascript"></script>
-<script type="application/javascript">
-    const uuidv4 = require('https://jspm.dev/uuid');
-    const surveyElement = document.getElementById("typeform-survey");
-
-    const uuid = uuidv4();
-    const hiddenFieldToPopulate = `uuid=${uuid}`;
-    const typeformId = "{{htmlWebpackPlugin.options.compassConfig.typeformFormId}}"
-    const hubspotFromUrl = "{{htmlWebpackPlugin.options.compassConfig.hubspotFormUrl}}"
-    const typeformSurveyUrlWithUuidAsHiddenField = `https://form.typeform.com/to/${typeformId}/?${hiddenFieldToPopulate}`;
-    const hubspotLandingPageWithUuidAsHiddenField = `${hubspotFromUrl}?${hiddenFieldToPopulate}`;
-
-
-    window.typeformEmbed.makeWidget(surveyElement, typeformSurveyUrlWithUuidAsHiddenField, {
-        onSubmit: () => {
-            setTimeout(() => {
-                window.location = hubspotLandingPageWithUuidAsHiddenField;
-            }, 2500);
-        },
-    });
-</script>
 </body>
 </html>

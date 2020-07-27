@@ -2,10 +2,11 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
 const config = require('./src/config');
 
 module.exports = {
-  entry: ['./src/client/index.js'],
+  entry: ['./src/app.js'],
   mode: 'production',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -24,6 +25,7 @@ module.exports = {
       filename: config.devEn.filename,
       compassConfig: config.devEn,
       template: './src/index.handlebars',
+      inject: true,
     }),
     new HtmlWebpackPlugin({
       filename: config.devEs.filename,
@@ -41,5 +43,6 @@ module.exports = {
       template: './src/index.handlebars',
     }),
     new CleanWebpackPlugin(),
+    new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/bundle/]),
   ],
 };
