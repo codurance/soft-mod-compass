@@ -29,6 +29,7 @@ const mockConfig = {
 describe('getHubspotUserDetails', () => {
   const MOCK_PAGE_URL = 'NOT_USED';
   const MOCK_TIMESTAMP = 1593969791429;
+  const RETRY_FOREVER = 100000;
   const OK = 200;
   const MOCK_UUID = 'aaaaaaaa-1111-4444-9999-bbbbbbbbbbbb';
   let getHubspotUserDetails;
@@ -147,7 +148,7 @@ describe('getHubspotUserDetails', () => {
         .get(queryFormSubmissions)
         .reply(OK, validResponseFromHubspotWithUserDetails);
 
-      await getHubspotUserDetails(MOCK_UUID, 10000);
+      await getHubspotUserDetails(MOCK_UUID, RETRY_FOREVER);
       expect(sleepMock).toHaveBeenCalledTimes(expectedRetries);
       for (const i of range1toN(expectedRetries)) {
         expect(sleepMock).toHaveBeenNthCalledWith(i, mockSleepDuration);
