@@ -12,6 +12,11 @@
     display: flex;
     align-items: center;
 }
+:root {
+    --gauge-subcategory-height-two-lines: 3.27cm;
+    --gauge-subcategory-height-one-line: 2.7cm;
+}
+
 
 
 
@@ -53,7 +58,6 @@
 .gauge-subcategory__answer {
     font-size: 10pt;
     font-weight: var(--font-weight-bold);
-    color: var(--accent-green--dark-bkg);
     margin-bottom: 7px;
 }
 .on-dark .gauge-subcategory__answer.good {
@@ -117,168 +121,168 @@
 
 
 #gauge-organisationalmaturity-devsecops-en {
-    height: 32.3mm;
     top: 62.5mm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-organisationalmaturity-devsecops-es {
-    height: 10.0mm;
     top: -8.0mm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-organisationalmaturity-deliveringvalue-en {
-    height: 32.9mm;
     top: 120.2mm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-organisationalmaturity-deliveringvalue-es {
-    height: 10.0mm;
     top: -8.0mm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-organisationalmaturity-technicaldebt-en {
-    height: 32.8mm;
     top: 178.5mm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-organisationalmaturity-technicaldebt-es {
-    height: 10.0mm;
     top: -8.0mm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-organisationalmaturity-methodology-en {
-    height: 32.7mm;
-    top: 236.8mm
+    top: 236.8mm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-organisationalmaturity-methodology-es {
-    height: 10.0mm;
     top: -8.0mm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
  
 #gauge-continuousdelivery-cadence-en {
-    height: 10.0mm;
-    top: 82.0mm;
+    top: 6.24cm;
+    height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-continuousdelivery-cadence-es {
-    height: 10.0mm;
     top: 82.0mm;
+    height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-continuousdelivery-rework-en {
-    height: 10.0mm;
-    top: 82.0mm;
+    top: 12.06cm;
+    height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-continuousdelivery-rework-es {
     height: 10.0mm;
-    top: -8.0mm;
+    height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-continuousdelivery-pipeline-en {
-    height: 10.0mm;
-    top: 82.0mm;
+    top: 17.89cm;
+    height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-continuousdelivery-pipeline-es {
     height: 10.0mm;
-    top: -8.0mm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-continuousdelivery-sideeffects-en {
-    height: 10.0mm;
-    top: 82.0mm;
+    top: 23.71cm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-continuousdelivery-sideeffects-es {
-    height: 10.0mm;
     top: -8.0mm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
  
 #gauge-culture-transparency-en {
-    height: 10.0mm;
-    top: -8.0mm;
+    top: 6.24cm;
+    height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-culture-transparency-es {
-    height: 10.0mm;
     top: -8.0mm;
+    height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-culture-learning-en {
-    height: 10.0mm;
-    top: -8.0mm;
+    top: 11.68cm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-culture-learning-es {
-    height: 10.0mm;
     top: -8.0mm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-culture-learnfromfailure-en {
-    height: 10.0mm;
-    top: -8.0mm;
+    top: 17.68cm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-culture-learnfromfailure-es {
-    height: 10.0mm;
     top: -8.0mm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-culture-careerpath-en {
-    height: 10.0mm;
-    top: -8.0mm;
+    top: 23.66cm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-culture-careerpath-es {
-    height: 10.0mm;
     top: -8.0mm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
  
 #gauge-crossfunctionalteams-diversity-en {
-    top: 62.4mm;
-    height: 27.0mm;
+    top: 6.24cm;
+    height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-crossfunctionalteams-diversity-es {
     top: 62.4mm;
-    height: 27.0mm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-crossfunctionalteams-autonomy-en {
-    height: 10.0mm;
-    top: -8.0mm;
+    top: 11.69cm;
+   height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-crossfunctionalteams-autonomy-es {
-    height: 10.0mm;
     top: -8.0mm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-crossfunctionalteams-wholeteam-en {
-    height: 10.0mm;
-    top: -8.0mm;
+    top: 17.73cm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-crossfunctionalteams-wholeteam-es {
-    height: 10.0mm;
     top: -8.0mm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-crossfunctionalteams-knowledgesharing-en {
-    height: 10.0mm;
-    top: -8.0mm;
+    top: 23.71cm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-crossfunctionalteams-knowledgesharing-es {
-    height: 10.0mm;
     top: -8.0mm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
  
 #gauge-xppractices-tdd-en {
-    height: 10.0mm;
-    top: -8.0mm;
+    top: 6.25cm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-xppractices-tdd-es {
-    height: 10.0mm;
     top: -8.0mm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-xppractices-architecture-en {
-    height: 10.0mm;
-    top: -8.0mm;
+    top: 12.6cm;
+    height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-xppractices-architecture-es {
-    height: 10.0mm;
     top: -8.0mm;
+    height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-xppractices-cleancode-en {
-    height: 10.0mm;
-    top: -8.0mm;
+    top: 18.43cm;
+    height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-xppractices-cleancode-es {
-    height: 10.0mm;
     top: -8.0mm;
+    height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-xppractices-peerreview-en {
-    height: 10.0mm;
-    top: -8.0mm;
+    top: 24.25cm;
+    height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-xppractices-peerreview-es {
-    height: 10.0mm;
     top: -8.0mm;
+    height: var(--gauge-subcategory-height-one-line);
 }
 
 
