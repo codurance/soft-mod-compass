@@ -13,8 +13,8 @@ function typeformFactory() {
     const uuid = generateUuid();
     const surveyElement = document.getElementById('typeform-survey');
     const hiddenFieldToAutoPopulate = `uuid=${uuid}`;
-    const typeformSurveyUrlWithUuidAsHiddenField = `${surveyElement.dataset.typeformurl}/to/${surveyElement.dataset.typeformformid}?${hiddenFieldToAutoPopulate}`;
-    const hubspotLandingPageWithUuidAsHiddenField = `${surveyElement.dataset.hubspotformlandingpageurl}?${hiddenFieldToAutoPopulate}`;
+    const typeformSurveyUrlWithUuidAsHiddenField = `${surveyElement.dataset.typeformurl}/to/${surveyElement.dataset.typeformFormId}?${hiddenFieldToAutoPopulate}`;
+    const hubspotLandingPageWithUuidAsHiddenField = `${surveyElement.dataset.hubspotFromUrl}?${hiddenFieldToAutoPopulate}`;
 
     typeformEmbed.makeWidget(
       surveyElement,

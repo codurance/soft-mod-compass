@@ -32,7 +32,11 @@
     "deploy:dev:en": "npm run check-aws-region:dev && . ./scripts/envvars-config-dev-EN.sh && ./scripts/aws/deploy.sh dev-en",
     "deploy:dev:es": "npm run check-aws-region:dev && . ./scripts/envvars-config-dev-ES.sh && ./scripts/aws/deploy.sh dev-es",
     "deploy:prod:en": "npm run check-aws-region:prod && . ./scripts/envvars-config-prod-EN.sh && ./scripts/aws/deploy.sh prod-en",
-    "deploy:prod:es": "npm run check-aws-region:prod && . ./scripts/envvars-config-prod-ES.sh && ./scripts/aws/deploy.sh prod-es"
+    "deploy:prod:es": "npm run check-aws-region:prod && . ./scripts/envvars-config-prod-ES.sh && ./scripts/aws/deploy.sh prod-es",
+    "hs:upload:dev:en": "./scripts/upload_new_version_to_hubspot.sh ./dist/compass-survey-dev-en.html compass-dev-en.html",
+    "hs:upload:dev:es": "./scripts/upload_new_version_to_hubspot.sh ./dist/compass-survey-dev-es.html compass-dev-en.html",
+    "hs:upload:prod:en": "./scripts/upload_new_version_to_hubspot.sh ./dist/compass-survey-prod-en.html compass-prod-en.html",
+    "hs:upload:prod:es": "./scripts/upload_new_version_to_hubspot.sh ./dist/compass-survey-prod-es.html compass-prod-es.html"
   },
   "author": "Codurance",
   "license": "MIT",
