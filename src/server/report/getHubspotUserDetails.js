@@ -1,4 +1,4 @@
-const rp = require('request-promise');
+const requestPromise = require('request-promise');
 const sleep = require('sleep-promise');
 const config = require('../config');
 
@@ -52,7 +52,7 @@ async function getHubspotUserDetails(uuid, retries = 3) {
     return getHubspotUserDetails(uuid, retriesLeft);
   }
 
-  const response = await rp({
+  const response = await requestPromise({
     uri: `https://api.hubapi.com/form-integrations/v1/submissions/forms/${config.hubspot.formId}`,
     qs: {
       hapikey: config.hubspot.authToken,
