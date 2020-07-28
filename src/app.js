@@ -1,4 +1,3 @@
-// const uuidv4 = require('https://jspm.dev/uuid');
 const uuidv4 = require('uuid/v4');
 const uuid = uuidv4();
 const surveyElement = document.getElementById('typeform-survey');
