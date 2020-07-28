@@ -12,11 +12,14 @@
     background: var(--accent-yellow--dark-bkg);
 }
 .on-light .good {
-    background: var(--accent-green--light-bkg);
+    /*background: var(--accent-green--light-bkg);*/
+    background: var(--accent-green--dark-bkg);
 }
 .on-light .average {
-    background: var(--accent-blue--light-bkg);
+    /*background: var(--accent-blue--light-bkg);*/
+    background: var(--accent-blue--dark-bkg);
 }
 .on-light .bad {
-    background: var(--accent-yellow--light-bkg);
+    /*background: var(--accent-yellow--light-bkg);*/
+    background: var(--accent-yellow--dark-bkg);
 }

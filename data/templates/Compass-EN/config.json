@@ -1,7 +1,7 @@
 {
     "shortid": "SyR8PsuhX",
     "name": "Compass-EN",
-    "recipe": "html-with-browser-client",
+    "recipe": "chrome-pdf",
     "engine": "handlebars",
     "chrome": {
         "printBackground": true,
@@ -15,7 +15,7 @@
         "height": "29.7cm"
     },
     "modificationDate": {
-        "$$date": 1595867998357
+        "$$date": 1595933941958
     },
     "_id": "bUe0ZtrZKts6vwCZ",
     "$entitySet": "templates",
