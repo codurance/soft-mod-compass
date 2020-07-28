@@ -15,6 +15,10 @@
 :root {
     --gauge-subcategory-height-two-lines: 3.27cm;
     --gauge-subcategory-height-one-line: 2.7cm;
+    --gauge-subcategory-top-1: 6.24cm;
+    --gauge-subcategory-top-2: 6.24cm;
+    --gauge-subcategory-top-3: 6.24cm;
+    --gauge-subcategory-top-4: 6.24cm;
 }
 
 
@@ -125,40 +129,41 @@
     height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-organisationalmaturity-devsecops-es {
-    top: -8.0mm;
+    top: 62.5mm;
     height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-organisationalmaturity-deliveringvalue-en {
-    top: 120.2mm;
+    top: 12.02cm;
     height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-organisationalmaturity-deliveringvalue-es {
-    top: -8.0mm;
+    top: 12.11cm;
     height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-organisationalmaturity-technicaldebt-en {
-    top: 178.5mm;
+    top: 17.85cm;
     height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-organisationalmaturity-technicaldebt-es {
-    top: -8.0mm;
+    top: 17.88cm;
     height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-organisationalmaturity-methodology-en {
-    top: 236.8mm;
+    top: 23.68cm;
     height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-organisationalmaturity-methodology-es {
-    top: -8.0mm;
+    top: 23.71cm;
     height: var(--gauge-subcategory-height-two-lines);
 }
  
+/* TODO: For ES rework, pipeline & side-effects to be fixed */
 #gauge-continuousdelivery-cadence-en {
     top: 6.24cm;
     height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-continuousdelivery-cadence-es {
-    top: 82.0mm;
+    top: 6.24cm;
     height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-continuousdelivery-rework-en {
@@ -166,15 +171,15 @@
     height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-continuousdelivery-rework-es {
-    height: 10.0mm;
-    height: var(--gauge-subcategory-height-one-line);
+    top: 11.97cm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-continuousdelivery-pipeline-en {
     top: 17.89cm;
     height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-continuousdelivery-pipeline-es {
-    height: 10.0mm;
+    top: 17.66cm;
     height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-continuousdelivery-sideeffects-en {
@@ -182,7 +187,7 @@
     height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-continuousdelivery-sideeffects-es {
-    top: -8.0mm;
+    top: 23.74cm;
     height: var(--gauge-subcategory-height-two-lines);
 }
  
@@ -191,7 +196,7 @@
     height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-culture-transparency-es {
-    top: -8.0mm;
+    top: 6.24cm;
     height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-culture-learning-en {
@@ -199,7 +204,7 @@
     height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-culture-learning-es {
-    top: -8.0mm;
+    top: 11.68cm;
     height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-culture-learnfromfailure-en {
@@ -207,7 +212,7 @@
     height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-culture-learnfromfailure-es {
-    top: -8.0mm;
+    top: 17.68cm;
     height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-culture-careerpath-en {
@@ -215,7 +220,7 @@
     height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-culture-careerpath-es {
-    top: -8.0mm;
+    top: 23.66cm;
     height: var(--gauge-subcategory-height-two-lines);
 }
  
@@ -224,15 +229,15 @@
     height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-crossfunctionalteams-diversity-es {
-    top: 62.4mm;
+    top: 6.24cm;
     height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-crossfunctionalteams-autonomy-en {
     top: 11.69cm;
-   height: var(--gauge-subcategory-height-two-lines);
+    height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-crossfunctionalteams-autonomy-es {
-    top: -8.0mm;
+    top: 12.05cm;
     height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-crossfunctionalteams-wholeteam-en {
@@ -240,7 +245,7 @@
     height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-crossfunctionalteams-wholeteam-es {
-    top: -8.0mm;
+    top: 17.88cm;
     height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-crossfunctionalteams-knowledgesharing-en {
@@ -248,16 +253,17 @@
     height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-crossfunctionalteams-knowledgesharing-es {
-    top: -8.0mm;
+    top: 23.66cm;
     height: var(--gauge-subcategory-height-two-lines);
 }
- 
+
+/* TODO: For ES architecture, cleancode & peer-review to be fixed */
 #gauge-xppractices-tdd-en {
     top: 6.25cm;
     height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-xppractices-tdd-es {
-    top: -8.0mm;
+    top: 6.25cm;
     height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-xppractices-architecture-en {
@@ -265,15 +271,15 @@
     height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-xppractices-architecture-es {
-    top: -8.0mm;
-    height: var(--gauge-subcategory-height-one-line);
+    top: 12.6cm;
+    height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-xppractices-cleancode-en {
     top: 18.43cm;
     height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-xppractices-cleancode-es {
-    top: -8.0mm;
+    top: 18.43cm;
     height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-xppractices-peerreview-en {
@@ -281,7 +287,7 @@
     height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-xppractices-peerreview-es {
-    top: -8.0mm;
+    top: 24.25cm;
     height: var(--gauge-subcategory-height-one-line);
 }
 
