@@ -157,7 +157,6 @@
     height: var(--gauge-subcategory-height-two-lines);
 }
  
-/* TODO: For ES rework, pipeline & side-effects to be fixed */
 #gauge-continuousdelivery-cadence-en {
     top: 6.24cm;
     height: var(--gauge-subcategory-height-one-line);
@@ -171,7 +170,7 @@
     height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-continuousdelivery-rework-es {
-    top: 11.97cm;
+    top: 11.79cm;
     height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-continuousdelivery-pipeline-en {
@@ -179,7 +178,7 @@
     height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-continuousdelivery-pipeline-es {
-    top: 17.66cm;
+    top: 17.83cm;
     height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-continuousdelivery-sideeffects-en {
@@ -187,7 +186,7 @@
     height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-continuousdelivery-sideeffects-es {
-    top: 23.74cm;
+    top: 23.73cm;
     height: var(--gauge-subcategory-height-two-lines);
 }
  
@@ -271,7 +270,7 @@
     height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-xppractices-architecture-es {
-    top: 12.6cm;
+    top: 12.43cm;
     height: var(--gauge-subcategory-height-two-lines);
 }
 #gauge-xppractices-cleancode-en {
@@ -279,7 +278,7 @@
     height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-xppractices-cleancode-es {
-    top: 18.43cm;
+    top: 18.62cm;
     height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-xppractices-peerreview-en {
@@ -287,7 +286,7 @@
     height: var(--gauge-subcategory-height-one-line);
 }
 #gauge-xppractices-peerreview-es {
-    top: 24.25cm;
+    top: 24.28cm;
     height: var(--gauge-subcategory-height-one-line);
 }
 
