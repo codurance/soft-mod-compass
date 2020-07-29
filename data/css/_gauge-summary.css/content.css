@@ -35,7 +35,8 @@
     top: -4.4mm;
     height: 5.841mm;
 }
-.gauge-summary__icon--average {
+.gauge-summary__icon--average,
+.gauge-summary__icon--average-high {
     position: absolute;
     width: 4.233mm;
     left: -13.1mm;

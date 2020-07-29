@@ -14,27 +14,36 @@ Handlebars.registerHelper("categoryScoreClass", function (score) {
 
 
 /** Gauges **/
-Handlebars.registerHelper("gaugeScoreClass", function (score) {
-    if (score >= 80) return "good";
-    if (score >= 60) return "average";
-    return "bad";  
-});
-Handlebars.registerHelper("gaugeSummaryScoreClass", function (score) {
-    if (score > 75) return "good";
-    if (score >= 50) return "average";
-    return "bad";  
-});
-Handlebars.registerHelper("scoreIconSubcategory", function (score) {
+Handlebars.registerHelper("gaugeCategoryScoreClass", function (score) {
+  if (score == 100) return "good";
+  if (score == 75) return "good";
+  if (score == 50) return "average";
+  if (score == 25) return "bad";
+  throw `Invalid category score: ${score}`
+})
+Handlebars.registerHelper("gaugeCategoryScoreIcon", function (score) {
+  if (score == 100) return "good";
+  if (score == 75) return "average-high";
+  if (score == 50) return "average";
+  if (score == 25) return "bad";
+  throw `Invalid category score: ${score}`
+})
+Handlebars.registerHelper("gaugeSubcategoryScoreClass", function (score) {
+  if (score == 100) return "good";
+  if (score == 80) return "good";
+  if (score == 60) return "average";
+  if (score == 40) return "bad";
+  if (score == 20) return "bad";
+  throw `Invalid subcategory score: ${score}`
+})
+Handlebars.registerHelper("gaugeSubcategoryScoreIcon", function (score) {
   if (score == 100) return "good";
   if (score == 80) return "average-high";
   if (score == 60) return "average";
-  return "bad";
-});
-Handlebars.registerHelper("scoreIconSummary", function (score) {
-  if (score > 75) return "good";
-  if (score >= 50) return "average";
-  return "bad";
-});
+  if (score == 40) return "bad";
+  if (score == 20) return "bad";
+  throw `Invalid subcategory score: ${score}`
+})
 Handlebars.registerHelper("showAssessmentWarningBox", (score) => score < 50 );
 
 
