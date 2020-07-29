@@ -133,7 +133,7 @@ describe('getHubspotUserDetails', () => {
       }
     });
 
-    it('Waits delay before retrying', async () => {
+    it("sleeps 'sleepBeforeRetryMs' (from config) before retrying", async () => {
       const mockSleepDuration = 100;
       const expectedRetries = 3;
 
