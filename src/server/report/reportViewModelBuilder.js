@@ -2,6 +2,7 @@ const reportViewModel = require('./reportViewModel');
 const categoryDefinitions = require('./categoryDefinitions');
 const getHubspotUserDetails = require('./getHubspotUserDetails');
 const typeformClient = require('../survey/typeformClient');
+const roundCategoryScoresToNearestQuarter = require('./roundCategoryScoresToNearestQuarter');
 
 async function buildReportViewModelFor(submissionUuid) {
   const choices = await typeformClient.getQuestionChoices();
@@ -12,7 +13,14 @@ async function buildReportViewModelFor(submissionUuid) {
 
   console.log(`User details for '${submissionUuid}'`, userDetails);
 
-  return reportViewModel(categoryDefinitions, choices, answers, userDetails);
+  const viewModel = reportViewModel(
+    categoryDefinitions,
+    choices,
+    answers,
+    userDetails
+  );
+
+  return roundCategoryScoresToNearestQuarter(viewModel);
 }
 
 module.exports = buildReportViewModelFor;
