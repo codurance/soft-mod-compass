@@ -150,8 +150,11 @@ describe('getHubspotUserDetails', () => {
 
       await getHubspotUserDetails(MOCK_UUID, RETRY_FOREVER);
       expect(sleepMock).toHaveBeenCalledTimes(expectedRetries);
-      for (const i of range1toN(expectedRetries)) {
-        expect(sleepMock).toHaveBeenNthCalledWith(i, mockSleepDuration);
+      for (const retryOrder of range1toN(expectedRetries)) {
+        expect(sleepMock).toHaveBeenNthCalledWith(
+          retryOrder,
+          mockSleepDuration
+        );
       }
     });
   });
