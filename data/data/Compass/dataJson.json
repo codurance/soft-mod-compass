@@ -7,7 +7,7 @@
   },
   "categories": {
     "organisationalMaturity": {
-      "score": 70,
+      "score": 75,
       "subcategories": {
         "devSecOps": {
           "score": 40,
@@ -28,7 +28,7 @@
       }
     },
     "continuousDelivery": {
-      "score": 55,
+      "score": 50,
       "subcategories": {
         "cadence": {
           "score": 40,
@@ -70,7 +70,7 @@
       }
     },
     "crossFunctionalTeams": {
-      "score": 55,
+      "score": 50,
       "subcategories": {
         "diversity": {
           "score": 100,
@@ -91,7 +91,7 @@
       }
     },
     "xpPractices": {
-      "score": 80,
+      "score": 75,
       "subcategories": {
         "tdd": {
           "score": 80,
