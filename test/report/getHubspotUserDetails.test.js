@@ -1,10 +1,17 @@
 const nock = require('nock');
+const { range1toN } = require('../testUtils');
 
 const sleepMock = jest.fn();
 sleepMock.mockImplementation(() => Promise.resolve());
-jest.doMock('sleep-promise', () => {
-  return sleepMock;
-});
+
+function require_getHubspotUserDetails_withMockConfig(configOverrides) {
+  const config = { ...mockConfig, ...configOverrides };
+  jest.resetModules();
+  jest.doMock('sleep-promise', () => sleepMock);
+  jest.doMock('../../src/server/config', () => config);
+  const getHubspotUserDetails = require('../../src/server/report/getHubspotUserDetails');
+  return getHubspotUserDetails;
+}
 
 const testAuthToken = 'MOCK_AUTH_TOKEN';
 const mockConfig = {
@@ -12,18 +19,24 @@ const mockConfig = {
     formId: 'MOCK_FORM_ID',
     authToken: testAuthToken,
   },
+  app: {
+    hubspot: {
+      sleepBeforeRetryMs: 0,
+    },
+  },
 };
-jest.doMock('../../src/server/config', () => mockConfig);
 
-const getHubspotUserDetails = require('../../src/server/report/getHubspotUserDetails');
 describe('getHubspotUserDetails', () => {
   const MOCK_PAGE_URL = 'NOT_USED';
   const MOCK_TIMESTAMP = 1593969791429;
+  const RETRY_FOREVER = 100000;
   const OK = 200;
   const MOCK_UUID = 'aaaaaaaa-1111-4444-9999-bbbbbbbbbbbb';
+  let getHubspotUserDetails;
 
   beforeEach(() => {
     sleepMock.mockClear();
+    getHubspotUserDetails = require_getHubspotUserDetails_withMockConfig();
   });
 
   describe('get survey answers', () => {
@@ -44,6 +57,15 @@ describe('getHubspotUserDetails', () => {
           pageUrl: MOCK_PAGE_URL,
         },
       ],
+      paging: {
+        next: {
+          after: 'NOT_USED',
+          link: 'NOT_USED',
+        },
+      },
+    };
+    const emptyResponse = {
+      results: [],
       paging: {
         next: {
           after: 'NOT_USED',
@@ -78,6 +100,62 @@ describe('getHubspotUserDetails', () => {
         ],
         pageUrl: MOCK_PAGE_URL,
       });
+    });
+
+    it('retries multiple times if answers are empty', async () => {
+      nock(hubspotApiBaseUrl)
+        .get(queryFormSubmissions)
+        .reply(OK, emptyResponse)
+        .get(queryFormSubmissions)
+        .reply(OK, emptyResponse)
+        .get(queryFormSubmissions)
+        .reply(OK, validResponseFromHubspotWithUserDetails);
+
+      const result = await getHubspotUserDetails(MOCK_UUID);
+      expect(result).toHaveProperty(['values', 0, 'value'], 'Sarah');
+    });
+
+    it('retries no more than the given parameter', async () => {
+      const expectedRetries = 5;
+
+      nock(hubspotApiBaseUrl)
+        .get(queryFormSubmissions)
+        .times(expectedRetries)
+        .reply(OK, emptyResponse);
+
+      try {
+        await getHubspotUserDetails(MOCK_UUID, expectedRetries);
+        fail('did not throw');
+      } catch (err) {
+        expect(err.message).toEqual(
+          `Hubspot User Details could not be retrieved for ${MOCK_UUID}`
+        );
+      }
+    });
+
+    it("sleeps 'sleepBeforeRetryMs' (from config) before retrying", async () => {
+      const mockSleepDuration = 100;
+      const expectedRetries = 3;
+
+      getHubspotUserDetails = require_getHubspotUserDetails_withMockConfig({
+        app: { hubspot: { sleepBeforeRetryMs: mockSleepDuration } },
+      });
+
+      nock(hubspotApiBaseUrl)
+        .get(queryFormSubmissions)
+        .times(expectedRetries)
+        .reply(OK, emptyResponse)
+        .get(queryFormSubmissions)
+        .reply(OK, validResponseFromHubspotWithUserDetails);
+
+      await getHubspotUserDetails(MOCK_UUID, RETRY_FOREVER);
+      expect(sleepMock).toHaveBeenCalledTimes(expectedRetries);
+      for (const retryOrder of range1toN(expectedRetries)) {
+        expect(sleepMock).toHaveBeenNthCalledWith(
+          retryOrder,
+          mockSleepDuration
+        );
+      }
     });
   });
 });

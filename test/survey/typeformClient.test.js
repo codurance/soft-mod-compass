@@ -1,4 +1,5 @@
 const nock = require('nock');
+const { range1toN } = require('../testUtils');
 
 const sleepMock = jest.fn();
 sleepMock.mockImplementation(() => Promise.resolve());
@@ -114,8 +115,9 @@ describe('typeformClient', () => {
       }
     });
 
-    it('Waits delay before retrying', async () => {
+    it("sleeps 'sleepBeforeRetryMs' (from config) before retrying", async () => {
       const mockSleepDuration = 100;
+      const expectedRetries = 3;
 
       typeformClient = typeformClientWithMockConfig({
         app: { typeform: { sleepBeforeRetryMs: mockSleepDuration } },
@@ -123,16 +125,16 @@ describe('typeformClient', () => {
 
       nock(mockConfig.typeform.url)
         .get(queryAnswersForMockUuidUrl)
-        .times(3)
+        .times(expectedRetries)
         .reply(OK, answerEmpty)
         .get(queryAnswersForMockUuidUrl)
         .reply(OK, answerWithTwoItems);
 
       await typeformClient.surveyAnswersFor(mockUuid, 10);
-      expect(sleepMock).toHaveBeenCalledTimes(3);
-      expect(sleepMock).toHaveBeenNthCalledWith(1, mockSleepDuration);
-      expect(sleepMock).toHaveBeenNthCalledWith(2, mockSleepDuration);
-      expect(sleepMock).toHaveBeenNthCalledWith(3, mockSleepDuration);
+      expect(sleepMock).toHaveBeenCalledTimes(expectedRetries);
+      for (const i of range1toN(expectedRetries)) {
+        expect(sleepMock).toHaveBeenNthCalledWith(i, mockSleepDuration);
+      }
     });
   });
 

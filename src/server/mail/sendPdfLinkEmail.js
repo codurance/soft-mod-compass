@@ -5,7 +5,7 @@ const emailTemplate = config.isESVersion
   ? require('./emailTemplateES')
   : require('./emailTemplateEN');
 
-function sendPdfLinkEmail(pdfLink, userData) {
+async function sendPdfLinkEmail(pdfLink, userData) {
   const emailData = {
     Source: 'Codurance-Talk With Us <talkwithus@codurance.com>',
     Destination: {
@@ -20,15 +20,7 @@ function sendPdfLinkEmail(pdfLink, userData) {
     },
   };
 
-  ses
-    .sendEmail(emailData)
-    .promise()
-    .then((_) => console.log(`pdf sent to [${userData.email}]`))
-    .catch((err) =>
-      console.log(
-        `an error occurred while sending pdf to [${userData.email}]\n${err}`
-      )
-    );
+  return await ses.sendEmail(emailData).promise();
 }
 
 module.exports = sendPdfLinkEmail;

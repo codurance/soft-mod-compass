@@ -1,4 +1,4 @@
-const request = require('request-promise');
+const requestPromise = require('request-promise');
 const sleep = require('sleep-promise');
 const config = require('../config');
 
@@ -11,7 +11,7 @@ async function makeTypeformRequest(path) {
     headers,
     json: true,
   };
-  return request(options);
+  return requestPromise(options);
 }
 
 async function surveyAnswersFor(uuid, retries = 30, retriesLeft = retries) {

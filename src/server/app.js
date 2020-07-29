@@ -44,27 +44,34 @@ module.exports = (reportingApp) => {
   });
 
   app.get('/report/submit/:uuid', (req, res) => {
-    generateReportAsync(req.params.uuid);
+    generateAndSendReportAsync(req.params.uuid);
     res.redirect(config.hubspot.thanksLandingPageUrl);
   });
 
-  function generateReportAsync(uuid) {
-    buildReportViewModelFor(uuid).then((viewModel) => {
-      jsreport
-        .render({ template: jsReportTemplate, data: viewModel })
-        .then((pdf) => uploadPdfAndSendLinkEmail(pdf, viewModel.user));
-    });
-  }
+  async function generateAndSendReportAsync(uuid) {
+    try {
+      console.log('Generating report for:', uuid);
 
-  function uploadPdfAndSendLinkEmail(pdf, userData) {
-    uploadToS3(pdf, config.aws.bucket)
-      .then((pdfLink) => {
-        console.log(`pdf available at ${pdfLink}`);
-        sendPdfLinkEmail(pdfLink, userData);
-      })
-      .catch((err) =>
-        console.log(`an error occurred while uploading the pdf\n${err}`)
+      const viewModel = await buildReportViewModelFor(uuid);
+
+      const pdf = await jsreport.render({
+        template: jsReportTemplate,
+        data: viewModel,
+      });
+
+      console.log(`Uploading report for '${uuid}'`);
+      const pdfLink = await uploadToS3(pdf, config.aws.bucket);
+      console.log(
+        `Uploading report for '${uuid}' done. Pdf available at ${pdfLink}`
       );
+
+      const userData = viewModel.user;
+      await sendPdfLinkEmail(pdfLink, userData);
+      console.log(`Email for '${uuid}' sent to '${userData.email}'`);
+    } catch (e) {
+      console.log('Error while processing report for:', uuid);
+      console.log(e);
+    }
   }
 
   return app;

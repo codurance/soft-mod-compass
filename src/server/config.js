@@ -27,5 +27,8 @@ module.exports = {
     typeform: {
       sleepBeforeRetryMs: 3000,
     },
+    hubspot: {
+      sleepBeforeRetryMs: 2000,
+    },
   },
 };

@@ -4,21 +4,15 @@ const getHubspotUserDetails = require('./getHubspotUserDetails');
 const typeformClient = require('../survey/typeformClient');
 
 async function buildReportViewModelFor(submissionUuid) {
-  try {
-    const choices = await typeformClient.getQuestionChoices();
-    const answers = await typeformClient.surveyAnswersFor(submissionUuid);
-    const userDetails = await getHubspotUserDetails(submissionUuid);
+  const choices = await typeformClient.getQuestionChoices();
+  console.log(`Fetching survey answers from Typeform for '${submissionUuid}'`);
+  const answers = await typeformClient.surveyAnswersFor(submissionUuid);
+  console.log(`Fetching user details from Hubspot for '${submissionUuid}'`);
+  const userDetails = await getHubspotUserDetails(submissionUuid);
 
-    console.log('USER DETES:', userDetails);
+  console.log(`User details for '${submissionUuid}'`, userDetails);
 
-    return reportViewModel(categoryData, choices, answers, userDetails);
-  } catch (error) {
-    console.log(
-      `There was a problem processing report for '${submissionUuid}'`
-    );
-    console.log(error);
-    throw error;
-  }
+  return reportViewModel(categoryData, choices, answers, userDetails);
 }
 
 module.exports = buildReportViewModelFor;
