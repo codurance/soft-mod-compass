@@ -1,5 +1,3 @@
-const reportViewModel = require('./reportViewModel');
-
 const roundToNearestQuarter = (score) => {
   return Math.round(score / 25) * 25;
 };
