@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="https://use.typekit.net/gpw7xtk.css">
   <title>Codurance Compass</title>
   <style>
-    {#asset /css/main-es.css @encoding=utf8}
+    {#asset /css/main.css @encoding=utf8}
+    {#asset /css/background-imgs-es.css @encoding=utf8}
   </style>
 </head>
 <body>
@@ -19,7 +20,7 @@
   <section id="front-page-es" class="page page-break-after with-background-img">
     <span id="front-page_full-name">{{user.firstName}} {{user.lastName}}</span>
     <span id="front-page_company-name">{{user.company}}</span>
-    <span id="front-page_date">01 / 01 / 2019</span>
+    <span id="front-page_date">{{ currentDate }}</span>
   </section>
   <!-- END FRONT PAGE ---------------------------------------------------------- -->
 
@@ -52,77 +53,31 @@
 
   <!-- BEGIN YOUR ASSESSMENT PAGE ---------------------------------------------------------- -->
   <section id="assessment-page-es" class="page page-break-after with-background-img">
-      
-      <div class="assessment-page__warning-box hidden" data-category="organisational-maturity">
-          <i class="assessment-page__warning-icon"></i>
-      </div>
-      <div class="assessment-page__barchart" data-category="organisational-maturity">
-          <div class="assessment-page__inner-fill" data-category="organisational-maturity"></div>
-          <div class="assessment-page__markers-container">
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-          </div>
-      </div>
-      
-      <div class="assessment-page__warning-box hidden" data-category="continuous-delivery">
-          <i class="assessment-page__warning-icon"></i>
-      </div>
-      <div class="assessment-page__barchart" data-category="continuous-delivery">
-          <div class="assessment-page__inner-fill" data-category="continuous-delivery"></div>
-          <div class="assessment-page__markers-container">
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-          </div>
-      </div>
-      
-      <div class="assessment-page__warning-box hidden" data-category="people-culture">
-          <i class="assessment-page__warning-icon"></i>
-      </div>
-      <div class="assessment-page__barchart" data-category="people-culture">
-          <div class="assessment-page__inner-fill" data-category="people-culture"></div>
-          <div class="assessment-page__markers-container">
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-          </div>
-      </div>
-      
-      <div class="assessment-page__warning-box hidden" data-category="effective-team">
-          <i class="assessment-page__warning-icon"></i>
-      </div>
-      <div class="assessment-page__barchart" data-category="effective-team">
-          <div class="assessment-page__inner-fill" data-category="effective-team"></div>
-          <div class="assessment-page__markers-container">
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-          </div>
-      </div>
-      
-      <div class="assessment-page__warning-box hidden" data-category="technical-practices">
-          <i class="assessment-page__warning-icon"></i>
-      </div>
-      <div class="assessment-page__barchart" data-category="technical-practices">
-          <div class="assessment-page__inner-fill" data-category="technical-practices"></div>
-          <div class="assessment-page__markers-container">
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-              <div class="assessment-page__marker"></div>
-          </div>
-      </div>
-      
+    {{> gauge-assessment 
+        score=categories.organisationalMaturity.score
+        category="organisational-maturity"
+        lang="es" }}
+        
+    {{> gauge-assessment 
+        score=categories.continuousDelivery.score
+        category="continuous-delivery"
+        lang="es" }}
+        
+    {{> gauge-assessment 
+        score=categories.culture.score
+        category="people-culture"
+        lang="es" }}
+        
+    {{> gauge-assessment 
+        score=categories.crossFunctionalTeams.score
+        category="effective-team"
+        lang="es" }}
+        
+    {{> gauge-assessment 
+        score=categories.xpPractices.score
+        category="technical-practices"
+        lang="es" }}
+
   </section>
   <!-- END YOUR ASSESSMENT PAGE ---------------------------------------------------------- -->
 
@@ -135,23 +90,23 @@
             <span class="toc-page__sections">Madurez organizacional</span>
           </li></a>
           <li><a href="#continuous-delivery-page-es">
-            <span class="toc-page__numbers">6.</span>
+            <span class="toc-page__numbers">7.</span>
             <span class="toc-page__sections">Entrega continua</span>
           </a></li>
           <li><a href="#people-culture-page-es">
-            <span class="toc-page__numbers">8.</span>
+            <span class="toc-page__numbers">10.</span>
             <span class="toc-page__sections">Cultura y personas</span>
           </a></li>
           <li><a href="#effective-team-page-es">
-            <span class="toc-page__numbers">10.</span>
+            <span class="toc-page__numbers">13.</span>
             <span class="toc-page__sections">Equipos efectivos</span>
           </a></li>
           <li><a href="#technical-practices-page-es">
-            <span class="toc-page__numbers">12.</span>
+            <span class="toc-page__numbers">16.</span>
             <span class="toc-page__sections">Prácticas técnicas</span>
           </a></li>
           <li><a href="#summary-page-es">
-            <span class="toc-page__numbers">14.</span>
+            <span class="toc-page__numbers">19.</span>
             <span class="toc-page__sections">Resumen</span>
           </a></li>
       </ul>
@@ -159,487 +114,189 @@
   </section>
   <!-- END TOC PAGE ---------------------------------------------------------- -->
 
-  <!-- BEGIN ORGANISATIONAL MATURITY PAGE ---------------------------------------------------------- -->
-  <section id="organisational-maturity-page-es" class="page page-break-after js-category-page with-background-img">
-      
-    <div class="main-bar-graph__container bar-1">
-        <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
-        <div class="main-bar-graph__rule"></div>
-        
-        <div class="main-bar-graph__bar on-dark">
-            <div class="main-bar-graph__inner-fill"></div>
-            <div class="main-bar-graph__marker-container">
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="main-bar-graph__container bar-2">
-        <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
-        <div class="main-bar-graph__rule"></div>
-        
-        <div class="main-bar-graph__bar on-dark">
-            <div class="main-bar-graph__inner-fill"></div>
-            <div class="main-bar-graph__marker-container">
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="main-bar-graph__container bar-3">
-        <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
+  <!-- BEGIN ORGANISATIONAL MATURITY INTRO ---------------------------------------------------------- -->
+  <section id="organisational-maturity-page-es" class="page page-break-after with-background-img"></section>
+  <!-- END ORGANISATIONAL MATURITY INTRO ---------------------------------------------------------- -->
 
-        <div class="main-bar-graph__rule"></div>
-        
-        <div class="main-bar-graph__bar on-dark">
-            <div class="main-bar-graph__inner-fill"></div>
-            <div class="main-bar-graph__marker-container">
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="main-bar-graph__container bar-4">
-        <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
+  <!-- BEGIN ORGANISATIONAL MATURITY RESULTS -------------------------------------------------------- -->
+  <section id="organisational-maturity-results-page-es" class="page page-break-after with-background-img">
+    {{> gauge-subcategory 
+        id="gauge-organisationalmaturity-devsecops-es"
+        subcategory=categories.organisationalMaturity.subcategories.devSecOps 
+        onDark=true }}
 
-        <div class="main-bar-graph__rule"></div>
-        
-        <div class="main-bar-graph__bar on-dark">
-            <div class="main-bar-graph__inner-fill"></div>
-            <div class="main-bar-graph__marker-container">
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-            </div>
-        </div>
-    </div>
-    
+    {{> gauge-subcategory 
+        id="gauge-organisationalmaturity-deliveringvalue-es"
+        subcategory=categories.organisationalMaturity.subcategories.deliveringValue 
+        onDark=true }}
+
+    {{> gauge-subcategory 
+        id="gauge-organisationalmaturity-technicaldebt-es"
+        subcategory=categories.organisationalMaturity.subcategories.technicalDebt 
+        onDark=true }}
+
+    {{> gauge-subcategory 
+        id="gauge-organisationalmaturity-methodology-es"
+        subcategory=categories.organisationalMaturity.subcategories.methodology 
+        onDark=true }}
   </section>
-  <!-- END ORGANISATIONAL MATURITY PAGE ---------------------------------------------------------- -->
+  <!---- END ORGANISATIONAL MATURITY RESULTS -------------------------------------------------------- -->
 
   <!-- BEGIN ORGANISATIONAL MATURITY BREAKDOWN ---------------------------------------------------------- -->
   <section
     id="organisational-maturity-breakdown-page-es"
-    class="page page-break-after with-background-img {{{scoreClass summaryRadial.scores.[0]}}}"></section>
+    class="page page-break-after with-background-img {{{categoryScoreClass categories.organisationalMaturity.score}}}"></section>
   <!-- END ORGANISATIONAL MATURITY BREAKDOWN ---------------------------------------------------------- -->
 
-  <!-- BEGIN CONTINUOUS DELIVERY PAGE ---------------------------------------------------------- -->
-  <section id="continuous-delivery-page-es" class="page page-break-after js-category-page with-background-img">
 
-    <div class="main-bar-graph__container bar-1">
-        <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
-        <div class="main-bar-graph__rule"></div>
-        
-        <div class="main-bar-graph__bar on-light">
-            <div class="main-bar-graph__inner-fill"></div>
-            <div class="main-bar-graph__marker-container">
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="main-bar-graph__container bar-2">
-        <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
+  <!-- BEGIN CONTINUOUS DELIVERY INTRO ---------------------------------------------------------- -->
+  <section id="continuous-delivery-page-es" class="page page-break-after with-background-img"></section>
+  <!-- END CONTINUOUS DELIVERY INTRO ---------------------------------------------------------- -->
 
-        <div class="main-bar-graph__rule"></div>
-        
-        <div class="main-bar-graph__bar on-light">
-            <div class="main-bar-graph__inner-fill"></div>
-            <div class="main-bar-graph__marker-container">
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="main-bar-graph__container bar-3">
-        <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
+  <!-- BEGIN CONTINUOUS DELIVERY RESULTS ------------------------------------------------------------ -->
+  <section id="continuous-delivery-results-page-es" class="page page-break-after with-background-img">
+    {{> gauge-subcategory 
+        id="gauge-continuousdelivery-cadence-es"
+        subcategory=categories.continuousDelivery.subcategories.cadence 
+        onDark=false }}
 
-        <div class="main-bar-graph__rule"></div>
-        
-        <div class="main-bar-graph__bar on-light">
-            <div class="main-bar-graph__inner-fill"></div>
-            <div class="main-bar-graph__marker-container">
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="main-bar-graph__container bar-4">
-        <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
+    {{> gauge-subcategory 
+        id="gauge-continuousdelivery-rework-es"
+        subcategory=categories.continuousDelivery.subcategories.rework 
+        onDark=false }}
 
-        <div class="main-bar-graph__rule"></div>
-        
-        <div class="main-bar-graph__bar on-light">
-            <div class="main-bar-graph__inner-fill"></div>
-            <div class="main-bar-graph__marker-container">
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-            </div>
-        </div>
-    </div>
+    {{> gauge-subcategory 
+        id="gauge-continuousdelivery-pipeline-es"
+        subcategory=categories.continuousDelivery.subcategories.pipeline 
+        onDark=false }}
 
+    {{> gauge-subcategory 
+        id="gauge-continuousdelivery-sideeffects-es"
+        subcategory=categories.continuousDelivery.subcategories.sideEffects 
+        onDark=false }}
   </section>
-  <!-- END CONTINUOUS DELIVERY PAGE ---------------------------------------------------------- -->
+  <!---- END CONTINUOUS DELIVERY RESULTS ------------------------------------------------------------ -->
 
   <!-- BEGIN CONTINUOUS DELIVERY BREAKDOWN ---------------------------------------------------------- -->
   <section
     id="continuous-delivery-breakdown-page-es"
-    class="page page-break-after with-background-img {{{scoreClass summaryRadial.scores.[1]}}}"></section>
-  <!-- END CONTINUOUS DELIVERY BREAKDOWN PAGE ---------------------------------------------------------- -->
+    class="page page-break-after with-background-img {{{categoryScoreClass categories.continuousDelivery.score}}}"></section>
+  <!-- END CONTINUOUS DELIVERY BREAKDOWN ---------------------------------------------------------- -->
 
-  <!-- BEGIN PEOPLE CULTURE PAGE ---------------------------------------------------------- -->
-  <section id="people-culture-page-es" class="page page-break-after js-category-page with-background-img">
 
-    <div class="main-bar-graph__container bar-1">
-        <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
-        <div class="main-bar-graph__rule"></div>
-        
-        <div class="main-bar-graph__bar on-dark">
-            <div class="main-bar-graph__inner-fill"></div>
-            <div class="main-bar-graph__marker-container">
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="main-bar-graph__container bar-2">
-        <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
+  <!-- BEGIN PEOPLE CULTURE INTRO ---------------------------------------------------------- -->
+  <section id="people-culture-page-es" class="page page-break-after with-background-img"></section>
+  <!-- END PEOPLE CULTURE INTRO ---------------------------------------------------------- -->
 
-        <div class="main-bar-graph__rule"></div>
-        
-        <div class="main-bar-graph__bar on-dark">
-            <div class="main-bar-graph__inner-fill"></div>
-            <div class="main-bar-graph__marker-container">
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="main-bar-graph__container bar-3">
-        <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
+  <!-- BEGIN PEOPLE CULTURE RESULTS ------------------------------------------------------------ -->
+  <section id="people-culture-results-page-es" class="page page-break-after with-background-img">
+    {{> gauge-subcategory 
+        id="gauge-culture-transparency-es"
+        subcategory=categories.culture.subcategories.transparency 
+        onDark=true }}
 
-        <div class="main-bar-graph__rule"></div>
-        
-        <div class="main-bar-graph__bar on-dark">
-            <div class="main-bar-graph__inner-fill"></div>
-            <div class="main-bar-graph__marker-container">
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="main-bar-graph__container bar-4">
-        <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
+    {{> gauge-subcategory 
+        id="gauge-culture-learning-es"
+        subcategory=categories.culture.subcategories.learning 
+        onDark=true }}
 
-        <div class="main-bar-graph__rule"></div>
-        
-        <div class="main-bar-graph__bar on-dark">
-            <div class="main-bar-graph__inner-fill"></div>
-            <div class="main-bar-graph__marker-container">
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-            </div>
-        </div>
-    </div>
+    {{> gauge-subcategory 
+        id="gauge-culture-learnfromfailure-es"
+        subcategory=categories.culture.subcategories.learnFromFailure 
+        onDark=true }}
 
+    {{> gauge-subcategory 
+        id="gauge-culture-careerpath-es"
+        subcategory=categories.culture.subcategories.careerPath 
+        onDark=true }}
   </section>
-  <!-- END PEOPLE CULTURE PAGE ---------------------------------------------------------- -->
+  <!---- END PEOPLE CULTURE RESULTS ------------------------------------------------------------ -->
 
   <!-- BEGIN PEOPLE CULTURE BREAKDOWN ---------------------------------------------------------- -->
   <section
     id="people-culture-breakdown-page-es"
-    class="page page-break-after with-background-img {{{scoreClass summaryRadial.scores.[2]}}}"></section>
+    class="page page-break-after with-background-img {{{categoryScoreClass categories.culture.score}}}"></section>
   <!-- END PEOPLE CULTURE BREAKDOWN ---------------------------------------------------------- -->
 
-  <!-- BEGIN EFFECTIVE TEAM PAGE ---------------------------------------------------------- -->
-   <section id="effective-team-page-es" class="page page-break-after js-category-page with-background-img">
 
-    <div class="main-bar-graph__container bar-1">
-        <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
-        <div class="main-bar-graph__rule"></div>
-        
-        <div class="main-bar-graph__bar on-light">
-            <div class="main-bar-graph__inner-fill"></div>
-            <div class="main-bar-graph__marker-container">
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="main-bar-graph__container bar-2">
-        <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
+  <!-- BEGIN EFFECTIVE TEAM INTRO ---------------------------------------------------------- -->
+   <section id="effective-team-page-es" class="page page-break-after with-background-img"></section>
+  <!-- END EFFECTIVE TEAM INTRO ---------------------------------------------------------- -->
 
-        <div class="main-bar-graph__rule"></div>
-        
-        <div class="main-bar-graph__bar on-light">
-            <div class="main-bar-graph__inner-fill"></div>
-            <div class="main-bar-graph__marker-container">
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="main-bar-graph__container bar-3">
-        <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
+  <!-- BEGIN EFFECTIVE TEAM RESULTS ------------------------------------------------------------ -->
+  <section id="effective-team-results-page-es" class="page page-break-after with-background-img">
+    {{> gauge-subcategory 
+        id="gauge-crossfunctionalteams-diversity-es"
+        subcategory=categories.crossFunctionalTeams.subcategories.diversity 
+        onDark=false }}
 
-        <div class="main-bar-graph__rule"></div>
-        
-        <div class="main-bar-graph__bar on-light">
-            <div class="main-bar-graph__inner-fill"></div>
-            <div class="main-bar-graph__marker-container">
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="main-bar-graph__container bar-4">
-        <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
+    {{> gauge-subcategory 
+        id="gauge-crossfunctionalteams-autonomy-es"
+        subcategory=categories.crossFunctionalTeams.subcategories.autonomy 
+        onDark=false }}
 
-        <div class="main-bar-graph__rule"></div>
-        
-        <div class="main-bar-graph__bar on-light">
-            <div class="main-bar-graph__inner-fill"></div>
-            <div class="main-bar-graph__marker-container">
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-                <div class="main-bar-graph__marker on-light"></div>
-            </div>
-        </div>
-    </div>
+    {{> gauge-subcategory 
+        id="gauge-crossfunctionalteams-wholeteam-es"
+        subcategory=categories.crossFunctionalTeams.subcategories.wholeTeam 
+        onDark=false }}
 
+    {{> gauge-subcategory 
+        id="gauge-crossfunctionalteams-knowledgesharing-es"
+        subcategory=categories.crossFunctionalTeams.subcategories.knowledgeSharing 
+        onDark=false }}
   </section>
-  <!-- END EFFECTIVE TEAM PAGE ---------------------------------------------------------- -->
+  <!---- END EFFECTIVE TEAM RESULTS ------------------------------------------------------------ -->
 
   <!-- BEGIN EFFECTIVE TEAM BREAKDOWN ---------------------------------------------------------- -->
   <section
     id="effective-team-breakdown-page-es"
-    class="page page-break-after with-background-img {{{scoreClass summaryRadial.scores.[3]}}}"></section>
+    class="page page-break-after with-background-img {{{categoryScoreClass categories.crossFunctionalTeams.score}}}"></section>
   <!-- END EFFECTIVE TEAM BREAKDOWN ---------------------------------------------------------- -->
 
-  <!-- BEGIN TECHNICAL PRACTICES PAGE ---------------------------------------------------------- -->
-  <section id="technical-practices-page-es" class="page page-break-after js-category-page with-background-img">
 
-    <div class="main-bar-graph__container bar-1">
-        <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
-        <div class="main-bar-graph__rule"></div>
-        
-        <div class="main-bar-graph__bar on-dark">
-            <div class="main-bar-graph__inner-fill"></div>
-            <div class="main-bar-graph__marker-container">
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="main-bar-graph__container bar-2">
-        <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
+  <!-- BEGIN TECHNICAL PRACTICES INTRO ---------------------------------------------------------- -->
+  <section id="technical-practices-page-es" class="page page-break-after with-background-img"></section>
+  <!-- END TECHNICAL PRACTICES INTRO ---------------------------------------------------------- -->
 
-        <div class="main-bar-graph__rule"></div>
-        
-        <div class="main-bar-graph__bar on-dark">
-            <div class="main-bar-graph__inner-fill"></div>
-            <div class="main-bar-graph__marker-container">
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="main-bar-graph__container bar-3">
-        <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
+  <!-- BEGIN TECHNICAL PRACTICES RESULTS ------------------------------------------------------- -->
+  <section id="technical-practices-results-page-es" class="page page-break-after with-background-img">
+    {{> gauge-subcategory 
+        id="gauge-xppractices-tdd-es"
+        subcategory=categories.xpPractices.subcategories.tdd 
+        onDark=true }}
 
-        <div class="main-bar-graph__rule"></div>
-        
-        <div class="main-bar-graph__bar on-dark">
-            <div class="main-bar-graph__inner-fill"></div>
-            <div class="main-bar-graph__marker-container">
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="main-bar-graph__container bar-4">
-        <img class="main-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__average-high-icon hidden" src="{#asset /assets/average-high-result-icon.png @encoding=dataURI}" />
-        <img class="main-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
+    {{> gauge-subcategory 
+        id="gauge-xppractices-architecture-es"
+        subcategory=categories.xpPractices.subcategories.architecture 
+        onDark=true }}
 
-        <div class="main-bar-graph__rule"></div>
-        
-        <div class="main-bar-graph__bar on-dark">
-            <div class="main-bar-graph__inner-fill"></div>
-            <div class="main-bar-graph__marker-container">
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-                <div class="main-bar-graph__marker on-dark"></div>
-            </div>
-        </div>
-    </div>
+    {{> gauge-subcategory 
+        id="gauge-xppractices-cleancode-es"
+        subcategory=categories.xpPractices.subcategories.cleanCode 
+        onDark=true }}
 
+    {{> gauge-subcategory 
+        id="gauge-xppractices-peerreview-es"
+        subcategory=categories.xpPractices.subcategories.peerReview 
+        onDark=true }}
   </section>
-  <!-- END TECHNICAL PRACTICES PAGE ---------------------------------------------------------- -->
+  <!---- END TECHNICAL PRACTICES RESULTS ------------------------------------------------------- -->
 
   <!-- BEGIN TECHNICAL PRACTICES BREAKDOWN ---------------------------------------------------------- -->
   <section
     id="technical-practices-breakdown-page-es"
-    class="page page-break-after with-background-img {{{scoreClass summaryRadial.scores.[4]}}}"></section>
+    class="page page-break-after with-background-img {{{categoryScoreClass categories.xpPractices.score}}}"></section>
   <!-- END TECHNICAL PRACTICES BREAKDOWN ---------------------------------------------------------- -->
 
-  <!-- BEGIN SUMMARY PAGE ---------------------------------------------------------- -->
+
+
+  <!-- BEGIN SUMMARY ---------------------------------------------------------- -->
   <section id="summary-page-es" class="page page-break-after with-background-img">
       
     <ul class="summary-contact__london-container">
@@ -684,110 +341,40 @@
         </li>
         <li>Carrer de Pallars 99,<br>4th piso, room 41<br>Barcelona, 08018</li>
     </ul>
-    
-    <div class="summary-bar-graph__container" data-category="organisational-maturity">
-        <img class="summary-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
-        <img class="summary-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
-        <img class="summary-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
 
-        <div class="summary-bar-graph__rule"></div>
+    {{> gauge-summary 
+        score=categories.organisationalMaturity.score
+        category="organisational-maturity"
+        lang="es" }}
         
-        <div class="summary-bar-graph__bar on-light">
-            <div class="summary-bar-graph__inner-fill"></div>
-            <div class="summary-bar-graph__marker-container">
-                <div class="summary-bar-graph__marker on-light"></div>
-                <div class="summary-bar-graph__marker on-light"></div>
-                <div class="summary-bar-graph__marker on-light"></div>
-                <div class="summary-bar-graph__marker on-light"></div>
-                <div class="summary-bar-graph__marker on-light"></div>
-            </div>
-        </div>
-    </div>
+    {{> gauge-summary 
+        score=categories.continuousDelivery.score
+        category="continuous-delivery"
+        lang="es" }}
+        
+    {{> gauge-summary 
+        score=categories.culture.score
+        category="people-culture"
+        lang="es" }}
+        
+    {{> gauge-summary 
+        score=categories.crossFunctionalTeams.score
+        category="effective-team"
+        lang="es" }}
+        
+    {{> gauge-summary 
+        score=categories.xpPractices.score
+        category="technical-practices"
+        lang="es" }}
     
-    <div class="summary-bar-graph__container" data-category="continuous-delivery">
-        <img class="summary-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
-        <img class="summary-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
-        <img class="summary-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
-
-        <div class="summary-bar-graph__rule"></div>
-        
-        <div class="summary-bar-graph__bar on-light">
-            <div class="summary-bar-graph__inner-fill"></div>
-            <div class="summary-bar-graph__marker-container">
-                <div class="summary-bar-graph__marker on-light"></div>
-                <div class="summary-bar-graph__marker on-light"></div>
-                <div class="summary-bar-graph__marker on-light"></div>
-                <div class="summary-bar-graph__marker on-light"></div>
-                <div class="summary-bar-graph__marker on-light"></div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="summary-bar-graph__container" data-category="people-culture">
-        <img class="summary-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
-        <img class="summary-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
-        <img class="summary-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
-
-        <div class="summary-bar-graph__rule"></div>
-        
-        <div class="summary-bar-graph__bar on-light">
-            <div class="summary-bar-graph__inner-fill"></div>
-            <div class="summary-bar-graph__marker-container">
-                <div class="summary-bar-graph__marker on-light"></div>
-                <div class="summary-bar-graph__marker on-light"></div>
-                <div class="summary-bar-graph__marker on-light"></div>
-                <div class="summary-bar-graph__marker on-light"></div>
-                <div class="summary-bar-graph__marker on-light"></div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="summary-bar-graph__container" data-category="effective-team">
-        <img class="summary-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
-        <img class="summary-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
-        <img class="summary-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
-
-        <div class="summary-bar-graph__rule"></div>
-        
-        <div class="summary-bar-graph__bar on-light">
-            <div class="summary-bar-graph__inner-fill"></div>
-            <div class="summary-bar-graph__marker-container">
-                <div class="summary-bar-graph__marker on-light"></div>
-                <div class="summary-bar-graph__marker on-light"></div>
-                <div class="summary-bar-graph__marker on-light"></div>
-                <div class="summary-bar-graph__marker on-light"></div>
-                <div class="summary-bar-graph__marker on-light"></div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="summary-bar-graph__container" data-category="technical-practices">
-        <img class="summary-bar-graph__bad-icon hidden" src="{#asset /assets/bad-result-icon.png @encoding=dataURI}" />
-        <img class="summary-bar-graph__average-icon hidden" src="{#asset /assets/average-result-icon.png @encoding=dataURI}" />
-        <img class="summary-bar-graph__good-icon hidden" src="{#asset /assets/good-result-icon.png @encoding=dataURI}" />
-
-        <div class="summary-bar-graph__rule"></div>
-        
-        <div class="summary-bar-graph__bar on-light">
-            <div class="summary-bar-graph__inner-fill"></div>
-            <div class="summary-bar-graph__marker-container">
-                <div class="summary-bar-graph__marker on-light"></div>
-                <div class="summary-bar-graph__marker on-light"></div>
-                <div class="summary-bar-graph__marker on-light"></div>
-                <div class="summary-bar-graph__marker on-light"></div>
-                <div class="summary-bar-graph__marker on-light"></div>
-            </div>
-        </div>
-    </div>
-      
   </section>
-  <!-- END SUMMARY PAGE ---------------------------------------------------------- -->
+  <!-- END SUMMARY ---------------------------------------------------------- -->
 
 
 
 </body>
 <script>
-    {#asset /js/index.js @encoding=utf8}
+    {#asset /js/copyright.js @encoding=utf8}
 </script>
 <!-- Convert CSS Variables -->
 <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>

@@ -1,0 +1,293 @@
+/********************************************************************************
+ *                                                                              *
+ * NOTE: For Subcategory/Lang dependent settings, see at the bottom of the file *
+ *                                                                              *
+ ********************************************************************************/
+
+/* Gauge - */
+.gauge-subcategory {
+    position: absolute;
+    left: 28.3mm;
+    width: 155.3mm;
+    display: flex;
+    align-items: center;
+}
+:root {
+    --gauge-subcategory-height-two-lines: 3.27cm;
+    --gauge-subcategory-height-one-line: 2.7cm;
+    --gauge-subcategory-top-1: 6.24cm;
+    --gauge-subcategory-top-2: 6.24cm;
+    --gauge-subcategory-top-3: 6.24cm;
+    --gauge-subcategory-top-4: 6.24cm;
+}
+
+
+
+
+/* Icon */
+.gauge-subcategory__icon-container {
+    width: 9.6mm;
+}
+.gauge-subcategory__icon--good {
+    height: 4.5mm;
+}
+.gauge-subcategory__icon--average,
+.gauge-subcategory__icon--average-high {
+    height: 4.2mm;
+}
+.gauge-subcategory__icon--bad {
+    height: 5.8mm;
+}
+
+
+
+/* Rule */
+.gauge-subcategory__rule {
+    width: 2pt;
+    height: 100%;
+    background: var(--accent-green--dark-bkg);
+}
+
+
+
+/* Result */
+.gauge-subcategory__result {
+    margin-left: 3.6mm;
+    width: 141.4mm;
+    align-self: flex-end;
+}
+
+
+/* Result - Answer */
+.gauge-subcategory__answer {
+    font-size: 10pt;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 7px;
+}
+.on-dark .gauge-subcategory__answer.good {
+    color: var(--accent-green--dark-bkg);
+    background: unset;
+}
+.on-dark .gauge-subcategory__answer.average {
+    color: var(--accent-blue--dark-bkg);
+    background: unset;
+}
+.on-dark .gauge-subcategory__answer.bad {
+    color: var(--accent-yellow--dark-bkg);
+    background: unset;
+}
+.on-light .gauge-subcategory__answer.good {
+    color: var(--accent-green--light-bkg);
+    background: unset;
+}
+.on-light .gauge-subcategory__answer.average {
+    color: var(--accent-blue--light-bkg);
+    background: unset;
+}
+.on-light .gauge-subcategory__answer.bad {
+    color: var(--accent-yellow--light-bkg);
+    background: unset;
+}
+
+
+/* Result - Bar */
+.gauge-subcategory__bar {
+    height: 3mm;
+}
+.on-dark .gauge-subcategory__bar {
+    background: var(--functional-medium-grey);
+}
+.on-light .gauge-subcategory__bar {
+    background: #dcd1c4;
+}
+.gauge-subcategory__inner-fill {
+    height: 100%;
+    width: 50%;
+}
+.gauge-subcategory__markers {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.gauge-subcategory__marker {
+    height: 2.269mm;
+    width: 0.5mm;
+}
+.on-dark .gauge-subcategory__marker {
+    background: var(--functional-medium-grey);
+}
+.on-light .gauge-subcategory__marker {
+    background: #dcd1c4;
+}
+
+
+
+
+#gauge-organisationalmaturity-devsecops-en {
+    top: 62.5mm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+#gauge-organisationalmaturity-devsecops-es {
+    top: 62.5mm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+#gauge-organisationalmaturity-deliveringvalue-en {
+    top: 12.02cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+#gauge-organisationalmaturity-deliveringvalue-es {
+    top: 12.11cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+#gauge-organisationalmaturity-technicaldebt-en {
+    top: 17.85cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+#gauge-organisationalmaturity-technicaldebt-es {
+    top: 17.88cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+#gauge-organisationalmaturity-methodology-en {
+    top: 23.68cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+#gauge-organisationalmaturity-methodology-es {
+    top: 23.71cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+ 
+#gauge-continuousdelivery-cadence-en {
+    top: 6.24cm;
+    height: var(--gauge-subcategory-height-one-line);
+}
+#gauge-continuousdelivery-cadence-es {
+    top: 6.24cm;
+    height: var(--gauge-subcategory-height-one-line);
+}
+#gauge-continuousdelivery-rework-en {
+    top: 12.06cm;
+    height: var(--gauge-subcategory-height-one-line);
+}
+#gauge-continuousdelivery-rework-es {
+    top: 11.79cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+#gauge-continuousdelivery-pipeline-en {
+    top: 17.89cm;
+    height: var(--gauge-subcategory-height-one-line);
+}
+#gauge-continuousdelivery-pipeline-es {
+    top: 17.83cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+#gauge-continuousdelivery-sideeffects-en {
+    top: 23.71cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+#gauge-continuousdelivery-sideeffects-es {
+    top: 23.73cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+ 
+#gauge-culture-transparency-en {
+    top: 6.24cm;
+    height: var(--gauge-subcategory-height-one-line);
+}
+#gauge-culture-transparency-es {
+    top: 6.24cm;
+    height: var(--gauge-subcategory-height-one-line);
+}
+#gauge-culture-learning-en {
+    top: 11.68cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+#gauge-culture-learning-es {
+    top: 11.68cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+#gauge-culture-learnfromfailure-en {
+    top: 17.68cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+#gauge-culture-learnfromfailure-es {
+    top: 17.68cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+#gauge-culture-careerpath-en {
+    top: 23.66cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+#gauge-culture-careerpath-es {
+    top: 23.66cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+ 
+#gauge-crossfunctionalteams-diversity-en {
+    top: 6.24cm;
+    height: var(--gauge-subcategory-height-one-line);
+}
+#gauge-crossfunctionalteams-diversity-es {
+    top: 6.24cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+#gauge-crossfunctionalteams-autonomy-en {
+    top: 11.69cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+#gauge-crossfunctionalteams-autonomy-es {
+    top: 12.05cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+#gauge-crossfunctionalteams-wholeteam-en {
+    top: 17.73cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+#gauge-crossfunctionalteams-wholeteam-es {
+    top: 17.88cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+#gauge-crossfunctionalteams-knowledgesharing-en {
+    top: 23.71cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+#gauge-crossfunctionalteams-knowledgesharing-es {
+    top: 23.66cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+
+/* TODO: For ES architecture, cleancode & peer-review to be fixed */
+#gauge-xppractices-tdd-en {
+    top: 6.25cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+#gauge-xppractices-tdd-es {
+    top: 6.25cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+#gauge-xppractices-architecture-en {
+    top: 12.6cm;
+    height: var(--gauge-subcategory-height-one-line);
+}
+#gauge-xppractices-architecture-es {
+    top: 12.43cm;
+    height: var(--gauge-subcategory-height-two-lines);
+}
+#gauge-xppractices-cleancode-en {
+    top: 18.43cm;
+    height: var(--gauge-subcategory-height-one-line);
+}
+#gauge-xppractices-cleancode-es {
+    top: 18.62cm;
+    height: var(--gauge-subcategory-height-one-line);
+}
+#gauge-xppractices-peerreview-en {
+    top: 24.25cm;
+    height: var(--gauge-subcategory-height-one-line);
+}
+#gauge-xppractices-peerreview-es {
+    top: 24.28cm;
+    height: var(--gauge-subcategory-height-one-line);
+}
+
+

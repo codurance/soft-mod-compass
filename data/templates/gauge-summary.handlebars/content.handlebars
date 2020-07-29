@@ -1,0 +1,19 @@
+<div class="gauge-summary__container {{#if onDark}}on-dark{{else}}on-light{{/if}}" data-category="{{ category }}-{{ lang }}">
+
+    <img class="gauge-summary__icon--{{ gaugeCategoryScoreIcon score }}" 
+         src="{#asset /assets/result-icon-{{ gaugeCategoryScoreIcon score }}.png @encoding=dataURI}" />
+
+
+    <div class="gauge-summary__rule {{ gaugeCategoryScoreClass score}}"></div>
+    
+    <div class="gauge-summary__bar on-light">
+        <div class="gauge-summary__inner-fill {{ gaugeCategoryScoreClass score}} " style="width: {{ score }}%"></div>
+        <div class="gauge-summary__markers">
+            <div class="gauge-summary__marker on-light"></div>
+            <div class="gauge-summary__marker on-light"></div>
+            <div class="gauge-summary__marker on-light"></div>
+            <div class="gauge-summary__marker on-light"></div>
+            <div class="gauge-summary__marker on-light"></div>
+        </div>
+    </div>
+</div>

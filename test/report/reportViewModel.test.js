@@ -4,16 +4,21 @@ describe('survey results', () => {
   test('creates survey results', () => {
     const categories = [
       {
-        name: 'cat 1',
-        subCategoryNames: ['1 sub1', '1 sub2', '1 sub3', '1 sub4'],
+        key: 'firstCat',
+        subcategoryKeys: ['firstSub1', 'firstSub2', 'firstSub3', 'firstSub4'],
       },
       {
-        name: 'cat 2',
-        subCategoryNames: ['2 sub1', '2 sub2', '2 sub3', '2 sub4'],
+        key: 'secondCat',
+        subcategoryKeys: [
+          'secondSub1',
+          'secondSub2',
+          'secondSub3',
+          'secondSub4',
+        ],
       },
       {
-        name: 'cat 3',
-        subCategoryNames: ['3 sub1', '3 sub2', '3 sub3', '3 sub4'],
+        key: 'thirdCat',
+        subcategoryKeys: ['thirdSub1', 'thirdSub2', 'thirdSub3', 'thirdSub4'],
       },
     ];
     const questionChoices = [
@@ -71,43 +76,153 @@ describe('survey results', () => {
         company: 'Codurance',
         email: 'daniel.bird@codurance.com',
       },
-      scores: [55, 70, 30],
-      summaryRadial: {
-        scores: [55, 70, 30],
-        labels: ['cat 1', 'cat 2', 'cat 3'],
-      },
-      categories: [
-        {
-          name: 'cat 1',
+      categories: {
+        firstCat: {
           score: 55,
-          subCategoryLabels: ['1 sub1', '1 sub2', '1 sub3', '1 sub4'],
-          subCategoryLabel1: '1 sub1',
-          subCategoryLabel2: '1 sub2',
-          subCategoryLabel3: '1 sub3',
-          subCategoryLabel4: '1 sub4',
-          subCategoryScores: [60, 20, 40, 100],
+          subcategories: {
+            firstSub1: {
+              score: 60,
+              answer: 'three',
+            },
+            firstSub2: {
+              score: 20,
+              answer: 'one',
+            },
+            firstSub3: {
+              score: 40,
+              answer: 'two',
+            },
+            firstSub4: {
+              score: 100,
+              answer: 'five',
+            },
+          },
         },
-        {
-          name: 'cat 2',
+        secondCat: {
           score: 70,
-          subCategoryLabels: ['2 sub1', '2 sub2', '2 sub3', '2 sub4'],
-          subCategoryLabel1: '2 sub1',
-          subCategoryLabel2: '2 sub2',
-          subCategoryLabel3: '2 sub3',
-          subCategoryLabel4: '2 sub4',
-          subCategoryScores: [40, 100, 40, 100],
+          subcategories: {
+            secondSub1: {
+              score: 40,
+              answer: 'two',
+            },
+            secondSub2: {
+              score: 100,
+              answer: 'five',
+            },
+            secondSub3: {
+              score: 40,
+              answer: 'two',
+            },
+            secondSub4: {
+              score: 100,
+              answer: 'five',
+            },
+          },
         },
-        {
-          name: 'cat 3',
+        thirdCat: {
           score: 30,
-          subCategoryLabels: ['3 sub1', '3 sub2', '3 sub3', '3 sub4'],
-          subCategoryLabel1: '3 sub1',
-          subCategoryLabel2: '3 sub2',
-          subCategoryLabel3: '3 sub3',
-          subCategoryLabel4: '3 sub4',
-          subCategoryScores: [20, 40, 20, 40],
+          subcategories: {
+            thirdSub1: {
+              score: 20,
+              answer: 'one',
+            },
+            thirdSub2: {
+              score: 40,
+              answer: 'two',
+            },
+            thirdSub3: {
+              score: 20,
+              answer: 'one',
+            },
+            thirdSub4: {
+              score: 40,
+              answer: 'two',
+            },
+          },
         },
-      ],
+      },
+    });
+  });
+
+  describe("Error with 'keys'", () => {
+    const expectedErrorRegex = /Category key can not contain space, start with capital letter or start with number/;
+
+    it('throws error when category key contains space', () => {
+      const categoryWithSpace = [
+        {
+          key: 'there is a space',
+          subcategoryKeys: ['abc'],
+        },
+      ];
+
+      expect(() => {
+        reportViewModel(categoryWithSpace, null, null, null);
+      }).toThrowError(expectedErrorRegex);
+    });
+
+    it('throws error when subcategory key contains space', () => {
+      const subcategoryWithSpace = [
+        {
+          key: 'asdfasdf',
+          subcategoryKeys: ['there is a space'],
+        },
+      ];
+
+      expect(() => {
+        reportViewModel(subcategoryWithSpace, null, null, null);
+      }).toThrowError(expectedErrorRegex);
+    });
+
+    it('throws error when category key starts with capital letter', () => {
+      const categories = [
+        {
+          key: 'StartsWithACapitalLetter',
+          subcategoryKeys: ['abc'],
+        },
+      ];
+
+      expect(() => {
+        reportViewModel(categories, null, null, null);
+      }).toThrowError(expectedErrorRegex);
+    });
+
+    it('throws error when subcategory key starts with capital letter', () => {
+      const subcategoryWithCapitalLetter = [
+        {
+          key: 'abc',
+          subcategoryKeys: ['StartsWithACapitalLetter'],
+        },
+      ];
+
+      expect(() => {
+        reportViewModel(subcategoryWithCapitalLetter, null, null, null);
+      }).toThrowError(expectedErrorRegex);
+    });
+
+    it('throws error when category key starts with number', () => {
+      const categories = [
+        {
+          key: '9startsWithANumber',
+          subcategoryKeys: ['abc'],
+        },
+      ];
+
+      expect(() => {
+        reportViewModel(categories, null, null, null);
+      }).toThrowError(expectedErrorRegex);
+    });
+
+    it('throws error when subcategory key starts with number', () => {
+      const categories = [
+        {
+          key: 'secondCat',
+          subcategoryKeys: ['9startsWithANumber'],
+        },
+      ];
+
+      expect(() => {
+        reportViewModel(categories, null, null, null);
+      }).toThrowError(expectedErrorRegex);
     });
   });
 });

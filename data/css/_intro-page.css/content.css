@@ -5,7 +5,7 @@
   position: absolute;
   left: 26.1mm;
   top: 170mm;
-  color: var(--accent-blue);
+  color: var(--accent-blue--dark-bkg);
 }
 .intro-page__contact-info.second {
     left: 90.8mm;
@@ -13,7 +13,7 @@
 
 .intro-page__contact-info a {
   text-decoration: none;
-  color: var(--accent-blue);
+  color: var(--accent-blue--dark-bkg);
 }
 
 .intro-page__contact-header {
@@ -21,4 +21,3 @@
     font-size: 13.33pt;
     margin-bottom: 6mm;
 }
-
