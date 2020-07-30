@@ -76,8 +76,23 @@ This will download the latest config files from Bitwarden and place them in the 
 Also it will generate the hubspot cli configuration needed to deploy the client with `yarn deploy-client` in:
 
 - `./hubspot.config.yml`
+### Set up Hubspot CLI
+1. run `yarn add @hubspot/cms-cli`
+1. Run `hs help` to check Hubspot CLI commands are accessible
 
+### Updating Hubspot Templates 
+- In the event the Hubspot templates need updating please make changes to the `index.handlebars` file located in `./src/client`
 
+### Uploading New Template Versions to Hubspot
+- After updating template run `yarn build-client` which will produce the following files in the `./dist` folder:
+  - bundle.js
+  - compass-survey-dev-en.html
+  - compass-survey-dev-es.html
+  - compass-survey-prod-en.html
+  - compass-survey-prod-es.html
+
+- Next, run `yarn deploy-client`, which uploads the files to [Hubspot](https://app.hubspot.com/design-manager/3042464/)     
+  
 ### Running Locally
 
 > **Note:** The compass flow mostly redirects to Typeform and Hubspot, alongside generating the report.
