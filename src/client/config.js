@@ -42,6 +42,6 @@ module.exports = {
     hubspotFormUrl: 'https://info.codurance.com/es/compass-details-submission',
     description: SPANISH_PREVIEW_TEXT,
     title: SPANISH_TITLE,
-    canonicalUrl: 'https://compass.codurance.en',
+    canonicalUrl: 'https://compass.codurance.es',
   },
 };
