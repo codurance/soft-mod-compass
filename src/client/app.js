@@ -1,22 +1,10 @@
-const uuidv4 = require('uuid/v4');
-const uuid = uuidv4();
-const surveyElement = document.getElementById('typeform-survey');
-const typeformEmbed = require('@typeform/embed');
+const typeformFactory = require('./typeform');
 
-const hiddenFieldToPopulate = `uuid=${uuid}`;
-const typeformId = surveyElement.dataset.typeformFormId;
-const hubspotFromUrl = surveyElement.dataset.hubspotFormUrl;
-const typeformSurveyUrlWithUuidAsHiddenField = `https://form.typeform.com/to/${typeformId}/?${hiddenFieldToPopulate}`;
-const hubspotLandingPageWithUuidAsHiddenField = `${hubspotFromUrl}?${hiddenFieldToPopulate}`;
+const onReady = () => {
+  const typeform = typeformFactory();
 
-typeformEmbed.makeWidget(
-  surveyElement,
-  typeformSurveyUrlWithUuidAsHiddenField,
-  {
-    onSubmit: () => {
-      setTimeout(() => {
-        window.location = hubspotLandingPageWithUuidAsHiddenField;
-      }, 2500);
-    },
-  }
-);
+  typeform.initializeTypeformSurvey();
+  typeform.ensureSurveyAlwaysHasFocus();
+};
+
+document.addEventListener('DOMContentLoaded', onReady);

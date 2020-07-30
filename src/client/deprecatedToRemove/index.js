@@ -1,6 +1,6 @@
 const cookieMessageFactory = require('./cookieMessage');
 const loadHubspot = require('./loadHubspot');
-const typeformFactory = require('./typeform');
+const typeformFactory = require('../typeform');
 
 const onReady = () => {
   const cookieMessage = cookieMessageFactory();
