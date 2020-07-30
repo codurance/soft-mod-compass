@@ -40,8 +40,8 @@ module.exports = {
     filename: 'compass-survey-prod-es.html',
     typeformFormId: 'ZoBrCZ',
     hubspotFormUrl: 'https://info.codurance.com/es/compass-details-submission',
-    description: SPANISH_TITLE,
-    title: SPANISH_PREVIEW_TEXT,
+    description: SPANISH_PREVIEW_TEXT,
+    title: SPANISH_TITLE,
     canonicalUrl: 'https://compass.codurance.en',
   },
 };
