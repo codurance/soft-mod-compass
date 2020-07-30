@@ -1,14 +1,10 @@
-const path = require('path');
 const jsreport = require('jsreport');
 const express = require('express');
-const favicon = require('serve-favicon');
-const socialMediaPreview = require('./socialMediaPreview');
 
 const stripHubspotSubmissionGuid = require('./middleware/stripHubspotSubmissionGuid');
 
 const uploadToS3 = require('./upload/uploadToS3');
 const sendPdfLinkEmail = require('./mail/sendPdfLinkEmail');
-const cookieMessage = require('./cookieMessage');
 const config = require('./config');
 const jsReportTemplate = {
   name: config.isESVersion ? 'Compass-ES' : 'Compass-EN',
@@ -20,28 +16,12 @@ const buildReportViewModelFor = require('./report/reportViewModelBuilder');
 module.exports = (reportingApp) => {
   const app = express();
 
-  app.set('view engine', 'ejs');
-  app.set('views', path.join(__dirname, '/views'));
+  // TODO: Investigate if this is still needed (since we extracted the client logic, it might be related)
   app.use(stripHubspotSubmissionGuid);
-  app.use(express.static('dist'));
-  app.use(express.static(__dirname + '/public')); ///////////////////////////////////////////////////// should css be put here?
-  app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
   if (config.jsreport.studioEditorEnabled) {
     app.use('/reporting', reportingApp);
   }
-
-  app.get('/', (req, res) => {
-    res.render('index', {
-      typeformUrl: config.typeform.url,
-      typeformFormId: config.typeform.formId,
-      hubspotFormLandingPageUrl: config.hubspot.formLandingPageUrl,
-      description: socialMediaPreview.getDescription(),
-      title: socialMediaPreview.getTitle(),
-      canonicalUrl: config.canonicalUrl,
-      cookieMessage: cookieMessage,
-    });
-  });
 
   app.get('/report/submit/:uuid', (req, res) => {
     generateAndSendReportAsync(req.params.uuid);
