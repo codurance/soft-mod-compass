@@ -6,7 +6,7 @@ const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
 const config = require('./src/client/config');
 
 module.exports = {
-  entry: ['./src/app.js'],
+  entry: ['./src/client/app.js'],
   mode: 'production',
   output: {
     path: path.resolve(__dirname, 'dist'),
