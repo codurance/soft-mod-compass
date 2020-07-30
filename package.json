@@ -34,10 +34,7 @@
     "deploy:prod:es": "npm run check-aws-region:prod && . ./scripts/envvars-config-prod-ES.sh && ./scripts/aws/deploy.sh prod-es",
 
     "build-client": "webpack --config ./client/webpack.config.js",
-    "hs:upload:dev:en": "./scripts/upload_new_version_to_hubspot.sh ./dist/compass-survey-dev-en.html compass-dev-en.html",
-    "hs:upload:dev:es": "./scripts/upload_new_version_to_hubspot.sh ./dist/compass-survey-dev-es.html compass-dev-en.html",
-    "hs:upload:prod:en": "./scripts/upload_new_version_to_hubspot.sh ./dist/compass-survey-prod-en.html compass-prod-en.html",
-    "hs:upload:prod:es": "./scripts/upload_new_version_to_hubspot.sh ./dist/compass-survey-prod-es.html compass-prod-es.html"
+    "deploy-client": "npm run build-client && ./scripts/deploy_client_to_hubspot.sh"
   },
   "author": "Codurance",
   "license": "MIT",

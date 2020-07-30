@@ -5,4 +5,3 @@ PATH_ON_HUBSPOT="Templates/Custom/Page/Codurance Landing Page/compass-survey-tem
 LOCAL_FILE=$1
 
 hs upload "$LOCAL_FILE" "$PATH_ON_HUBSPOT"
-
