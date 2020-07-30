@@ -1,8 +1,8 @@
 sandbox
 
 # Cypress
-cypress/videos
-cypress/screenshots
+testE2E/cypress/videos
+testE2E/cypress/screenshots
 
 # Idea
 .idea

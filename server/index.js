@@ -1,7 +1,8 @@
+const path = require('path');
 const express = require('express');
 const reportingApp = express();
 
-const app = require('./src/server/app')(reportingApp);
+const app = require('./src/app')(reportingApp);
 
 const port = 8080;
 
@@ -9,6 +10,7 @@ const server = app.listen(port, () => {
   console.log(`ready at http://localhost:${port}`);
 });
 
+const reportDataDir = path.resolve(__dirname, 'reportData');
 const jsreport = require('jsreport')({
   store: {
     provider: 'fs',
@@ -19,7 +21,7 @@ const jsreport = require('jsreport')({
       server: app,
     },
     'fs-store': {
-      dataDirectory: 'data',
+      dataDirectory: reportDataDir,
       syncModifications: true,
       sync: {
         usePolling: true,

@@ -31,9 +31,7 @@ COPY package.json yarn.lock ./
 
 RUN yarn install
 
-COPY . .
-
-RUN yarn build
+COPY ./server .
 
 EXPOSE 8080
 

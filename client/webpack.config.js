@@ -3,10 +3,24 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
-const config = require('./src/client/config');
+const config = require('./src/config');
+
+const htmlPluginOptions = {
+  template: path.resolve(__dirname, 'src/index.handlebars'),
+  inject: true,
+  minify: {
+    collapseWhitespace: true,
+    removeComments: false,
+    removeRedundantAttributes: true,
+    removeScriptTypeAttributes: true,
+    removeStyleLinkTypeAttributes: true,
+    useShortDoctype: true,
+    preserveLineBreaks: true,
+  },
+};
 
 module.exports = {
-  entry: ['./src/client/app.js'],
+  entry: [path.resolve(__dirname, 'src/app.js')],
   mode: 'production',
   output: {
     path: path.resolve(__dirname, 'dist'),
