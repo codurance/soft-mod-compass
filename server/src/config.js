@@ -27,5 +27,9 @@ module.exports = {
       sleepBeforeRetryMs: 2000,
       reportsFolder: 'Compass Reports',
     },
+    retryUntilSuccess: {
+      maxRetries: 10,
+      sleepBeforeRetryMs: 3000,
+    },
   },
 };
