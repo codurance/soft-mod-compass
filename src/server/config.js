@@ -24,9 +24,6 @@ module.exports = {
     bucket: process.env.AWS_COMPASS_BUCKET,
   },
   app: {
-    typeform: {
-      sleepBeforeRetryMs: 3000,
-    },
     hubspot: {
       sleepBeforeRetryMs: 2000,
     },

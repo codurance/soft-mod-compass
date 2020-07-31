@@ -14,20 +14,15 @@ async function makeTypeformRequest(path) {
   return requestPromise(options);
 }
 
-async function surveyAnswersFor(uuid, retries = 30, retriesLeft = retries) {
+async function surveyAnswersFor(uuid) {
   const extractAnswers = (results) =>
     results.items[0].answers.map((answer) => answer.choice.label);
   const queryAnswerForUuidUrl = `/forms/${config.typeform.formId}/responses?query=${uuid}`;
 
-  try {
-    const results = await retryUntilSuccessful(
-      () => makeTypeformRequest(queryAnswerForUuidUrl),
-      (res) => res.items.length > 0
-    );
-    return extractAnswers(results);
-  } catch (err) {
-    throw Error(`No survey answers for ${uuid}`);
-  }
+  return retryUntilSuccessful(
+    () => makeTypeformRequest(queryAnswerForUuidUrl),
+    (res) => res.items.length > 0
+  ).then(extractAnswers);
 }
 
 async function getQuestionChoices() {
