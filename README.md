@@ -77,11 +77,12 @@ Also it will generate the hubspot cli configuration needed to deploy the client 
 
 - `./hubspot.config.yml`
 ### Set up Hubspot CLI
-1. run `yarn add @hubspot/cms-cli`
+1. Run `yarn install`
 1. Run `hs help` to check Hubspot CLI commands are accessible
+1. If `command not found` displayed, run `yarn add @hubspot/cms-cli`
 
-### Updating Hubspot Templates 
-- In the event the Hubspot templates need updating please make changes to the `index.handlebars` file located in `./src/client`
+### Modifying Compass Survey Template
+- In the event the Hubspot templates need modifying please make changes to the `index.handlebars` file located in `./src/client`
 
 ### Uploading New Template Versions to Hubspot
 - Run `yarn deploy-client`, which uploads the files to [Hubspot](https://app.hubspot.com/design-manager/3042464/) and creates the following files in `./dist` folder:     
