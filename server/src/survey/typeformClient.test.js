@@ -1,17 +1,7 @@
 const nock = require('nock');
-const { range1toN } = require('../testUtils');
 
-const sleepMock = jest.fn();
-sleepMock.mockImplementation(() => Promise.resolve());
-
-function typeformClientWithMockConfig(configOverrides) {
-  const config = { ...mockConfig, ...configOverrides };
-  jest.resetModules();
-  jest.doMock('sleep-promise', () => sleepMock);
-  jest.doMock('../config', () => config);
-  const typeformClient = require('./typeformClient');
-  return typeformClient;
-}
+const retryUntilSuccessfulMock = require('../network/retryUntilSuccessfulMock');
+jest.doMock('../network/retryUntilSuccessful', () => retryUntilSuccessfulMock);
 
 const testAuthToken = 'MOCK AUTH TOKEN';
 const mockConfig = {
@@ -19,24 +9,13 @@ const mockConfig = {
     formId: 'formId',
     authToken: testAuthToken,
   },
-  app: {
-    typeform: { sleepBeforeRetryMs: 0 },
-    retryUntilSuccess: {
-      maxRetries: 10,
-      sleepBeforeRetryMs: 0,
-    },
-  },
 };
 const TYPEFORM_BASE_URL = 'https://mashooqbadar.typeform.com';
+jest.doMock('../config', () => mockConfig);
 
+const typeformClient = require('./typeformClient');
 describe('typeformClient', () => {
   const OK = 200;
-  let typeformClient;
-
-  beforeEach(() => {
-    sleepMock.mockClear();
-    typeformClient = typeformClientWithMockConfig();
-  });
 
   describe('get survey answers', () => {
     const mockUuid = 'MOCK_UUID';
@@ -101,62 +80,6 @@ describe('typeformClient', () => {
           done();
         })
         .catch(done);
-    });
-
-    it('retries no more than the given parameter', async () => {
-      const expectedRetries = 3;
-
-      typeformClient = typeformClientWithMockConfig({
-        app: {
-          typeform: { sleepBeforeRetryMs: 0 },
-          retryUntilSuccess: {
-            maxRetries: expectedRetries,
-            sleepBeforeRetryMs: 0,
-          },
-        },
-      });
-
-      nock(TYPEFORM_BASE_URL)
-        .get(queryAnswersForMockUuidUrl)
-        .times(expectedRetries)
-        .reply(OK, answerEmpty);
-
-      try {
-        await typeformClient.surveyAnswersFor(mockUuid, expectedRetries);
-        fail('did not throw');
-      } catch (err) {
-        expect(err.message).toEqual(
-          `No survey answers for ${mockUuid}` // TODO: Re-introduce number of retries in assertion
-        );
-      }
-    });
-
-    it("sleeps 'sleepBeforeRetryMs' (from config) before retrying", async () => {
-      const mockSleepDuration = 100;
-      const expectedRetries = 3;
-
-      typeformClient = typeformClientWithMockConfig({
-        app: {
-          typeform: { sleepBeforeRetryMs: mockSleepDuration },
-          retryUntilSuccess: {
-            maxRetries: 10,
-            sleepBeforeRetryMs: mockSleepDuration,
-          },
-        },
-      });
-
-      nock(TYPEFORM_BASE_URL)
-        .get(queryAnswersForMockUuidUrl)
-        .times(expectedRetries)
-        .reply(OK, answerEmpty)
-        .get(queryAnswersForMockUuidUrl)
-        .reply(OK, answerWithTwoItems);
-
-      await typeformClient.surveyAnswersFor(mockUuid, 10);
-      expect(sleepMock).toHaveBeenCalledTimes(expectedRetries);
-      for (const i of range1toN(expectedRetries)) {
-        expect(sleepMock).toHaveBeenNthCalledWith(i, mockSleepDuration);
-      }
     });
   });
 
