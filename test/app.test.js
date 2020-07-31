@@ -22,6 +22,12 @@ const mockConfig = {
   hubspot: {
     formLandingPageUrl: 'https://hubspot.com/form',
   },
+  app: {
+    retryUntilSuccess: {
+      maxRetries: 10,
+      sleepBeforeRetryMs: 0,
+    },
+  },
 };
 
 describe('app', () => {

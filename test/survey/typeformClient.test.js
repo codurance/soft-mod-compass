@@ -20,7 +20,13 @@ const mockConfig = {
     formId: 'formId',
     authToken: testAuthToken,
   },
-  app: { typeform: { sleepBeforeRetryMs: 0 } },
+  app: {
+    typeform: { sleepBeforeRetryMs: 0 },
+    retryUntilSuccess: {
+      maxRetries: 10,
+      sleepBeforeRetryMs: 0,
+    },
+  },
 };
 
 describe('typeformClient', () => {
@@ -100,6 +106,16 @@ describe('typeformClient', () => {
     it('retries no more than the given parameter', async () => {
       const expectedRetries = 3;
 
+      typeformClient = typeformClientWithMockConfig({
+        app: {
+          typeform: { sleepBeforeRetryMs: 0 },
+          retryUntilSuccess: {
+            maxRetries: expectedRetries,
+            sleepBeforeRetryMs: 0,
+          },
+        },
+      });
+
       nock(mockConfig.typeform.url)
         .get(queryAnswersForMockUuidUrl)
         .times(expectedRetries)
@@ -110,7 +126,7 @@ describe('typeformClient', () => {
         fail('did not throw');
       } catch (err) {
         expect(err.message).toEqual(
-          `no survey answers for ${mockUuid}` // TODO: Re-introduce number of retries in assertion
+          `No survey answers for ${mockUuid}` // TODO: Re-introduce number of retries in assertion
         );
       }
     });
@@ -120,7 +136,13 @@ describe('typeformClient', () => {
       const expectedRetries = 3;
 
       typeformClient = typeformClientWithMockConfig({
-        app: { typeform: { sleepBeforeRetryMs: mockSleepDuration } },
+        app: {
+          typeform: { sleepBeforeRetryMs: mockSleepDuration },
+          retryUntilSuccess: {
+            maxRetries: 10,
+            sleepBeforeRetryMs: mockSleepDuration,
+          },
+        },
       });
 
       nock(mockConfig.typeform.url)
