@@ -24,9 +24,6 @@ module.exports = {
     bucket: process.env.AWS_COMPASS_BUCKET,
   },
   app: {
-    hubspot: {
-      sleepBeforeRetryMs: 2000,
-    },
     retryUntilSuccess: {
       maxRetries: 10,
       sleepBeforeRetryMs: 3000,
