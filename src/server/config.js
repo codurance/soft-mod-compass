@@ -30,5 +30,9 @@ module.exports = {
     hubspot: {
       sleepBeforeRetryMs: 2000,
     },
+    retryUntilSuccess: {
+      maxRetries: 10,
+      sleepBeforeRetryMs: 3000,
+    },
   },
 };
