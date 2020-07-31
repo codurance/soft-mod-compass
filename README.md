@@ -84,14 +84,13 @@ Also it will generate the hubspot cli configuration needed to deploy the client 
 - In the event the Hubspot templates need updating please make changes to the `index.handlebars` file located in `./src/client`
 
 ### Uploading New Template Versions to Hubspot
-- After updating template run `yarn build-client` which will produce the following files in the `./dist` folder:
+- Run `yarn deploy-client`, which uploads the files to [Hubspot](https://app.hubspot.com/design-manager/3042464/) and creates the following files in `./dist` folder:     
   - bundle.js
   - compass-survey-dev-en.html
   - compass-survey-dev-es.html
   - compass-survey-prod-en.html
   - compass-survey-prod-es.html
 
-- Next, run `yarn deploy-client`, which uploads the files to [Hubspot](https://app.hubspot.com/design-manager/3042464/)     
   
 ### Running Locally
 
