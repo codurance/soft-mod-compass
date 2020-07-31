@@ -21,13 +21,22 @@
         <meta name="twitter:title" content="{{ htmlWebpackPlugin.options.compassConfig.title }}">
         <meta name="twitter:description" content="{{ htmlWebpackPlugin.options.compassConfig.description }}">
 
-        \{{standard_header_includes}}
         <style type="text/css">
-            html {
-                margin: 0;
-                height: 100%;
-                overflow: hidden;
+            html,
+            body {
+              position: fixed;
+              margin: 0;
+              height: 100%;
+              width: 100%;
+              overflow: hidden;
+              box-sizing: border-box;
             }
+            *,
+            *:before,
+            *:after {
+              box-sizing: inherit;
+            }
+
             #typeform-survey {
                 position: absolute;
                 left: 0;
@@ -38,12 +47,18 @@
                 height: 100%;
             }
         </style>
+
+        <!-- Hubspot Header -->
+        \{{standard_header_includes}}
+        <!-- Hubspot Header -->
     </head>
     <body>
     <div id="typeform-survey"
          data-typeform-form-id="{{htmlWebpackPlugin.options.compassConfig.typeformFormId}}"
          data-hubspot-form-url="{{htmlWebpackPlugin.options.compassConfig.hubspotFormUrl}}"></div>
 
+        <!-- Hubspot Footer -->
         \{{standard_footer_includes}}
+        <!-- Hubspot Footer -->
     </body>
 </html>
