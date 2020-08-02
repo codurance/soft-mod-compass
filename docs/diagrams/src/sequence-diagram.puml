@@ -3,18 +3,18 @@ skinparam BoxPadding 10
 title Compass Sequence Diagram
 
 actor "User"
-participant "Node App" as NodeApp
+participant "HubSpot"
 participant "TypeForm" as TypeForm
 participant "TypeForm API" as TypeFormApi
-participant "HubSpot"
+participant "Node App" as NodeApp
 box AWS
 participant "S3 Bucket" as s3
 participant "SES"
 end box
-User -> NodeApp: Loads Compass
-NodeApp -> NodeApp: Generate UUID to identify user
-NodeApp -> TypeForm: Load embedded TypeForm survery
-User -> TypeForm: Completes survery
+User -> HubSpot: Loads Compass
+HubSpot -> HubSpot: Generate UUID to identify user
+HubSpot -> TypeForm: Load embedded TypeForm survery
+User -> HubSpot: Completes survey
 TypeForm -> HubSpot: Redirects to HubSpot Landing Page Submission Form\n""https://info.codurance.com/en/compass-details-submission""
 User -> HubSpot: Completes submission form
 NodeApp <- HubSpot: Redirects to ""/report/submit/:uuid"" (to generate report)
