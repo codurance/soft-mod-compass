@@ -1,4 +1,46 @@
-const getFormSubmission = (uuid) => {};
+const config = require('../../config');
+const request = require('request-promise');
+
+const hubspotRequest = async (path) => {
+  return request({
+    uri: `https://api.hubapi.com` + path,
+    qs: { hapikey: config.hubspot.authToken },
+    json: true,
+  });
+};
+
+const getFormSubmission = async (uuid) => {
+  const valueWithName = (values, name) => {
+    for (const valueEntry of values) {
+      if (valueEntry.name === name) return valueEntry.value;
+    }
+    throw `Could not find value with name '${name}' in '${values
+      .map(({ name, _value }) => name)
+      .join(', ')}'`;
+  };
+  const findSubmissionForUuid = (response) => {
+    const resultWithCorrectUuid = (result) =>
+      valueWithName(result.values, 'uuid') === uuid;
+    return response.results.find(resultWithCorrectUuid);
+  };
+  const extractValues = (submission) => submission.values;
+
+  const valuesForUuid = await hubspotRequest(
+    `/form-integrations/v1/submissions/forms/${config.hubspot.formId}`
+  )
+    .then(findSubmissionForUuid)
+    .then(extractValues);
+
+  return {
+    firstName: valueWithName(valuesForUuid, 'firstname'),
+    lastName: valueWithName(valuesForUuid, 'lastname'),
+    company: valueWithName(valuesForUuid, 'company'),
+    jobFunction: valueWithName(valuesForUuid, 'job_function'),
+    email: valueWithName(valuesForUuid, 'email'),
+    uuid,
+  };
+};
+
 const getContactId = (email) => {};
 const uploadFile = (file, pathOnHubspotFilemanager) => {};
 const createNote = (
