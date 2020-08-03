@@ -1,5 +1,6 @@
 const config = require('../../config');
 const request = require('request-promise');
+const retryUntilSuccessful = require('../../network/retryUntilSuccessful');
 
 const hubspotRequest = async (path) => {
   return request({
@@ -25,8 +26,12 @@ const getFormSubmission = async (uuid) => {
   };
   const extractValues = (submission) => submission.values;
 
-  const valuesForUuid = await hubspotRequest(
-    `/form-integrations/v1/submissions/forms/${config.hubspot.formId}`
+  const valuesForUuid = await retryUntilSuccessful(
+    () =>
+      hubspotRequest(
+        `/form-integrations/v1/submissions/forms/${config.hubspot.formId}`
+      ),
+    (response) => 'results' in response && response.results.length !== 0
   )
     .then(findSubmissionForUuid)
     .then(extractValues);

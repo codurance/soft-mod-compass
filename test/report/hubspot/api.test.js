@@ -1,5 +1,9 @@
 const nock = require('nock');
 
+jest.doMock('../../../src/server/network/retryUntilSuccessful', () =>
+  require('../../network/retryUntilSuccessfulMock')
+);
+
 const testAuthToken = 'MOCK_AUTH_TOKEN';
 const mockConfig = {
   hubspot: {
@@ -76,25 +80,22 @@ describe('Hubspot API', () => {
         uuid: MOCK_UUID,
       });
     });
-    it.todo('retries mulitple times if form submission not found for UUID'); //Note: Use 'retryUntilSuccessfulMock'
-    it.todo('throws error if form submission not found for UUID after retries');
 
-    describe.skip('get survey answers', () => {
-      it('retries multiple times if answers are empty', async () => {
-        // TODO: Migrate to above tests
-        nock(hubspotApiBaseUrl)
-          .get(queryFormSubmissions)
-          .reply(OK, emptyResponse)
-          .get(queryFormSubmissions)
-          .reply(OK, emptyResponse)
-          .get(queryFormSubmissions)
-          .reply(OK, validResponseFromHubspotWithUserDetails);
+    it('retries mulitple times if form submission not found for UUID', async () => {
+      nock(hubspotApiBaseUrl)
+        .get(queryFormSubmissions)
+        .reply(OK, emptyResponse)
+        .get(queryFormSubmissions)
+        .reply(OK, emptyResponse)
+        .get(queryFormSubmissions)
+        .reply(OK, validResponseFromHubspotWithUserDetails);
 
-        const result = await getHubspotUserDetails(MOCK_UUID);
-        expect(result).toHaveProperty(['values', 0, 'value'], 'Sarah');
-      });
+      const result = await api.getFormSubmission(MOCK_UUID);
+
+      expect(result).toHaveProperty('firstName', 'sarah');
     });
   });
+
   describe('getContactId', () => {
     // Note: Use async/await.
     it.todo('returns the user ID for email');
