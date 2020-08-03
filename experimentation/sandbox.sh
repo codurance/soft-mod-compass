@@ -6,10 +6,10 @@ HUBSPOT_AUTH_TOKEN="5ef1881f-72ab-4ef0-a0a5-a5fa87498018"
 
 CONTACT_TO_ENGAGEMENT_ASSOCIATION_ID=9 # See: https://legacydocs.hubspot.com/docs/methods/crm-associations/crm-associations-overview
 
-COMPASS_TEST_USER_ID=7443351
+COMPASS_TEST_USER_ID=7680701
 FLORIAN_KEMPENICH_OWNERID=46375477
 TODAY_EPOCH=1594056257000
-ID_OF_UPLOADED_IMGTEST=31945409335
+ID_OF_UPLOADED_IMGTEST=33208829019
 
 function upload_imgtest_and_print_id() {
     http \
@@ -76,7 +76,7 @@ function get_contact_id_from_email() {
         jq '.["canonical-vid"]'
 }
 
-get_contact_id_from_email 'compass-test@codurance.com'
-
+# get_contact_id_from_email 'compass-test@codurance.com'
+# upload_imgtest_and_print_id
 # create_engagement_with_imgtest
 # get_all_engagement_associated_with_compass_test_contact

@@ -1,7 +1,7 @@
 const requestPromise = require('request-promise');
 const config = require('../config');
-
 const retryUntilSuccessful = require('../network/retryUntilSuccessful');
+
 const fieldsToTransformToTitleCase = [
   'firstname',
   'lastname',

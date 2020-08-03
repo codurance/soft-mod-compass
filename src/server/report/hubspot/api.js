@@ -1,10 +1,15 @@
 const getFormSubmission = (uuid) => {};
-const getUserId = (email) => {};
+const getContactId = (email) => {};
 const uploadFile = (file, pathOnHubspotFilemanager) => {};
-const createEngagement = (engagementJson) => {};
+const createNote = (
+  contactId,
+  attachmentsIds,
+  ownerId,
+  timestamp = Date.now()
+) => {};
 module.exports = {
   getFormSubmission,
-  getUserId,
+  getContactId,
   uploadFile,
-  createEngagement,
+  createNote,
 };

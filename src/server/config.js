@@ -28,5 +28,8 @@ module.exports = {
       maxRetries: 10,
       sleepBeforeRetryMs: 3000,
     },
+    hubspot: {
+      reportsFolder: 'Compass Reports',
+    },
   },
 };
