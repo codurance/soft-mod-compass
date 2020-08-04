@@ -46,7 +46,16 @@ const getFormSubmission = async (uuid) => {
   };
 };
 
-const getContactId = (email) => {};
+const getContactId = (email) => {
+  const extractVid = (resp) => resp['canonical-vid'];
+
+  return hubspotRequest(`/contacts/v1/contact/email/${email}/profile`)
+    .then(extractVid)
+    .catch((_) => {
+      throw new Error(`Could not find ID of contact with email '${email}'`);
+    });
+};
+
 const uploadFile = (file, pathOnHubspotFilemanager) => {};
 const createNote = (
   contactId,
