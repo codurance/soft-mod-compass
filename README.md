@@ -6,7 +6,7 @@ A survey for checking the level of practices at your company.
 
 ### In picture
 
-![compass sequence diagram](/docs/diagrams/out/sequence-diagram/Compass%20Sequence%20Diagram.png?raw=true)
+![compass sequence diagram](docs/diagrams/out/compass-sequence-diagram-hs-flow/sequence-diagram.png?raw=true)
 
 The above diagram in the `docs` folder is generated from the PlantUML file: `sequence-diagram.puml`.
 
