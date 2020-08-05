@@ -17,15 +17,17 @@ HubSpot -> TypeForm: Load embedded TypeForm survery
 User -> HubSpot: Completes survey
 TypeForm -> HubSpot: Redirects to HubSpot Landing Page Submission Form\n""https://info.codurance.com/en/compass-details-submission""
 User -> HubSpot: Completes submission form
-NodeApp <- HubSpot: Redirects to ""/report/submit/:uuid"" (to generate report)
 HubSpot -> HubSpot: Save submission info \n& contact in Hubspot
+NodeApp <- HubSpot: Redirects to ""/report/submit/:uuid"" (to generate report)
+NodeApp -> NodeApp: Start report generation
 activate NodeApp
+NodeApp -> HubSpot: Redirects to HubSpot Thanks Landing Page\n"""https://info.codurance.com/en/compass-successful-submission"""
 NodeApp -> TypeFormApi: Gets survery questions & answers
 activate TypeFormApi
 NodeApp <--TypeFormApi
 deactivate TypeFormApi
 NodeApp -> HubSpot: Get user details
-note left: generate report \n and send email 
+note left: generate report \n and send email
 activate HubSpot
 NodeApp <-- HubSpot
 deactivate HubSpot
@@ -38,6 +40,5 @@ deactivate s3
 NodeApp -> NodeApp: Compose email data with report pdf link
 NodeApp -> SES: Queue email for sending
 deactivate NodeApp
-NodeApp -> HubSpot: Redirects to HubSpot Thanks Landing Page\n"""https://info.codurance.com/en/compass-successful-submission"""
 SES -> User: Send email to user
 @enduml
