@@ -7,7 +7,9 @@ testE2E/cypress/screenshots
 # Idea
 .idea
 dist
-data/settings
+
+
+server/reportData/settings
 scripts/default-env.sh
 scripts/aws-env.sh
 scripts/docker/default-env.sh
