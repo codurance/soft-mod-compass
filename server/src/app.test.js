@@ -30,10 +30,6 @@ describe('app', () => {
     app = appWithMockConfig();
   });
 
-  it('responds with html on homepage', (done) => {
-    request(app).get('/').expect('Content-Type', /html/).expect(200, done);
-  });
-
   it('allows access to jsreport studio locally in development', (done) => {
     request(app)
       .get('/reporting')
