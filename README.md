@@ -154,10 +154,6 @@ Run the dev environment:
 yarn test:tdd
 
 # E2E Tests
-# For localhost you need a running instance first
-# TODO: Check if E2E tests still working!!!
-yarn test:e2e:localhost:en
-yarn test:e2e:localhost:es
 yarn test:e2e:dev:en
 yarn test:e2e:dev:es
 ```

@@ -13,8 +13,6 @@
     "watch": "nodemon",
     "test": "jest && npm run lint",
     "test:tdd": "jest --watch",
-    "test:e2e:localhost:en": "cypress run --project testE2E --env langToTest=EN",
-    "test:e2e:localhost:es": "cypress run --project testE2E --env langToTest=ES",
     "test:e2e:dev:en": "cypress run --project testE2E --config baseUrl=https://compass-en.codurance.io --env langToTest=EN",
     "test:e2e:dev:es": "cypress run --project testE2E --config baseUrl=https://compass-es.codurance.io --env langToTest=ES",
     "lint": "standard",
