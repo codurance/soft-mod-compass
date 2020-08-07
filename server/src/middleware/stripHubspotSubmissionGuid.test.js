@@ -1,4 +1,4 @@
-const stripHubspotSubmissionGuid = require('../../src/server/middleware/stripHubspotSubmissionGuid');
+const stripHubspotSubmissionGuid = require('./stripHubspotSubmissionGuid');
 
 describe('stripHubspotSubmissionGuid middleware', () => {
   it('redirects to correct path with submissionGuid param removed when submissionGuid is in query string', () => {

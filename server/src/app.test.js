@@ -3,10 +3,10 @@ const request = require('supertest');
 function appWithMockConfig(configOverrides) {
   const config = { ...mockConfig, ...configOverrides };
   jest.resetModules();
-  jest.doMock('../src/server/config', () => config);
+  jest.doMock('./config', () => config);
   const fakeReportingApp = (req, res, next) =>
     res.send('<p>jsreport studio</p>');
-  const app = require('../src/server/app')(fakeReportingApp);
+  const app = require('./app')(fakeReportingApp);
   return app;
 }
 

@@ -8,8 +8,8 @@ function typeformClientWithMockConfig(configOverrides) {
   const config = { ...mockConfig, ...configOverrides };
   jest.resetModules();
   jest.doMock('sleep-promise', () => sleepMock);
-  jest.doMock('../../src/server/config', () => config);
-  const typeformClient = require('../../src/server/survey/typeformClient');
+  jest.doMock('../config', () => config);
+  const typeformClient = require('./typeformClient');
   return typeformClient;
 }
 

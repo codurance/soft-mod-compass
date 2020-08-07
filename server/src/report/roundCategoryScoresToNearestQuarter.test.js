@@ -1,4 +1,4 @@
-const roundCategoryScoresToNearestQuarter = require('../../src/server/report/roundCategoryScoresToNearestQuarter');
+const roundCategoryScoresToNearestQuarter = require('./roundCategoryScoresToNearestQuarter');
 describe('roundCategoryScoresToNearestQuarter =>', () => {
   const viewModelWithSingleCategoryOfAverageScore = (categoryAverageScore) => ({
     user: {},
