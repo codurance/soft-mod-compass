@@ -8,14 +8,16 @@ module.exports = {
     studioEditorEnabled: environmentIsDevelopment,
   },
   typeform: {
+    formId: process.env.TYPEFORM_FORM_ID,
     authToken: process.env.TYPEFORM_AUTH_TOKEN,
   },
   hubspot: {
+    formId: process.env.HUBSPOT_FORM_ID,
     authToken: process.env.HUBSPOT_AUTH_TOKEN,
     thanksLandingPageUrl: process.env.HUBSPOT_THANKS_LANDING_PAGE_URL,
   },
   aws: {
-    bucket: process.env.AWS_COMPASS_BUCKET,
+    bucket: process.env.REPORT_BUCKET,
   },
   app: {
     typeform: {

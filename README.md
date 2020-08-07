@@ -102,9 +102,6 @@ Also it will generate the hubspot cli configuration needed to deploy the client 
 > **Important**: Before running locally, you **need**:
 >
 > - **The compass config files saved in `/scripts`. See [Config section](#config)**
-> - Add the line `export AWS_COMPASS_BUCKET='compass-dev-en'` to the config file `envvars-config-dev-EN.sh`
->   (or `export AWS_COMPASS_BUCKET='compass-dev-es'` for `envvars-config-dev-ES.sh`). _See `/scripts/aws/variables.sh`
->   for more info on how the bucket name is formed when running in AWS._
 > - The `aws` cli installed
 >   - `brew install awscli`
 > - To be logged in with the corresponding account (`codurance` or `codurance-playground`) and region in the `aws` cli
