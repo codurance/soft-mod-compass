@@ -3,10 +3,10 @@ const request = require('supertest');
 function appWithMockConfig(configOverrides) {
   const config = { ...mockConfig, ...configOverrides };
   jest.resetModules();
-  jest.doMock('../src/server/config', () => config);
+  jest.doMock('./config', () => config);
   const fakeReportingApp = (req, res, next) =>
     res.send('<p>jsreport studio</p>');
-  const app = require('../src/server/app')(fakeReportingApp);
+  const app = require('./app')(fakeReportingApp);
   return app;
 }
 
@@ -28,10 +28,6 @@ describe('app', () => {
   let app;
   beforeEach(() => {
     app = appWithMockConfig();
-  });
-
-  it('responds with html on homepage', (done) => {
-    request(app).get('/').expect('Content-Type', /html/).expect(200, done);
   });
 
   it('allows access to jsreport studio locally in development', (done) => {

@@ -1,4 +1,4 @@
-const reportViewModel = require('../../src/server/report/reportViewModel');
+const reportViewModel = require('./reportViewModel');
 
 describe('survey results', () => {
   test('creates survey results', () => {

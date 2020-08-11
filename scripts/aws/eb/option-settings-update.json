@@ -1,7 +1,7 @@
 [
   {
     "Namespace": "aws:elasticbeanstalk:application:environment",
-    "OptionName": "AWS_COMPASS_BUCKET",
+    "OptionName": "REPORT_BUCKET",
     "Value": "$REPORT_BUCKET"
   },
   {

@@ -8,8 +8,8 @@ function require_getHubspotUserDetails_withMockConfig(configOverrides) {
   const config = { ...mockConfig, ...configOverrides };
   jest.resetModules();
   jest.doMock('sleep-promise', () => sleepMock);
-  jest.doMock('../../src/server/config', () => config);
-  const getHubspotUserDetails = require('../../src/server/report/getHubspotUserDetails');
+  jest.doMock('../config', () => config);
+  const getHubspotUserDetails = require('./getHubspotUserDetails');
   return getHubspotUserDetails;
 }
 

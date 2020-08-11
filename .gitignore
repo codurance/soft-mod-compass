@@ -1,13 +1,15 @@
 sandbox
 
 # Cypress
-cypress/videos
-cypress/screenshots
+testE2E/cypress/videos
+testE2E/cypress/screenshots
 
 # Idea
 .idea
 dist
-data/settings
+
+
+server/reportData/settings
 scripts/default-env.sh
 scripts/aws-env.sh
 scripts/docker/default-env.sh
@@ -112,5 +114,8 @@ jspm_packages/
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
+
+### Hubspot config
+hubspot.config.yml
 
 # End of https://www.gitignore.io/api/node,macos,visualstudiocode

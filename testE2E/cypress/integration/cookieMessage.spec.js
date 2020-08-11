@@ -19,7 +19,7 @@ describe('Cookie Message', () => {
   });
 
   it('is not visible and cookies are present when user has already accepted cookie in the past', () => {
-    cy.setCookie('has-cookie-consent', 'yes');
+    givenUserHasAlreadyAcceptedCookieInThePast();
     cy.visit('/');
     assertCompassCookiesExist();
     assertCookieMessageIsNotDisplayed();
@@ -49,28 +49,31 @@ function clickStart() {
 }
 
 function acceptCookies() {
-  cy.get('[data-test=cookie-msg-btn]').click();
+  cy.get('#hs-eu-confirmation-button').click();
+}
+
+function givenUserHasAlreadyAcceptedCookieInThePast() {
+  cy.setCookie('__hs_opt_out', 'no');
+  cy.setCookie('__hs_initial_opt_in', 'true');
 }
 
 function assertCompassCookiesDoNotExist() {
   cy.getCookie('hubspotutk').should('not.exist');
-  cy.getCookie('has-cookie-consent').should('not.exist');
 }
 
 function assertCompassCookiesExist() {
   cy.waitUntil(() => cy.getCookie('hubspotutk'));
   cy.getCookie('hubspotutk').should('exist');
-  cy.getCookie('has-cookie-consent').should('exist');
 }
 
 function assertCookieMessageIsNotDisplayed() {
-  cy.get('[data-test=cookie-msg]').should('not.be.visible');
+  cy.get('#hs-eu-cookie-confirmation').should('not.be.visible');
 }
 
 function assertCookieMessageIsDisplayed() {
-  cy.get('[data-test=cookie-msg]').should('be.visible');
+  cy.get('#hs-eu-cookie-confirmation').should('be.visible');
 }
 
 function assertCorrectCookieMessageIsDisplayed(text) {
-  cy.get('[data-test=cookie-msg-text]').contains(text);
+  cy.get('#hs-eu-cookie-confirmation').contains(text);
 }
