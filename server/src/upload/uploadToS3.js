@@ -18,17 +18,15 @@ function uploadToS3(pdf, bucket) {
   return s3
     .upload(s3Parameters)
     .promise()
-    .then((data) => {
-      const params = {
+    .then((data) =>
+      s3.getObject({
         Bucket: bucket,
         Key: data.Key,
         ResponseExpires: 3600, // 30 Days in seconds - corresponds to set expiry on S3
-      };
-      return s3
-        .getObject(params)
-        .promise()
-        .then((data) => data.Body.toString());
-    });
+      })
+    )
+    .then((s3Object) => s3Object.promise())
+    .then((data) => data.Body.toString());
 }
 
 module.exports = uploadToS3;
