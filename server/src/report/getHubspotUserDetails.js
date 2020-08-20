@@ -9,18 +9,19 @@ const fieldsToTransformToTitleCase = [
   'job_function',
 ];
 
+function valueWithName(values, name) {
+  for (const valueEntry of values) {
+    if (valueEntry.name === name) return valueEntry.value;
+  }
+  throw `Could not find value with name ${name} in ${values}`;
+}
+
 async function getHubspotUserDetails(uuid, retries = 3) {
   if (typeof uuid !== 'string') console.error('uuid is not a string');
+  const resultWithCorrectUuid = (result) =>
+    valueWithName(result.values, 'uuid') === uuid;
 
   function formattedDataForUuid(response) {
-    function valueWithName(values, name) {
-      for (const valueEntry of values) {
-        if (valueEntry.name === name) return valueEntry.value;
-      }
-      throw `Could not find value with name ${name} in ${values}`;
-    }
-    const resultWithCorrectUuid = (result) =>
-      valueWithName(result.values, 'uuid') === uuid;
     function convertValueToTitleCaseIfNeeded(entry) {
       function titleCase(str) {
         const names = str.toLowerCase().split(' ');
@@ -60,11 +61,18 @@ async function getHubspotUserDetails(uuid, retries = 3) {
     json: true,
   });
 
-  if (response.results.length === 0) {
+  const validResponse = () => {
+    const isEmpty = response.results.length === 0;
+    const hasSubmissionForUuid =
+      response.results.find(resultWithCorrectUuid) !== undefined;
+    return !isEmpty && hasSubmissionForUuid;
+  };
+
+  if (validResponse()) {
+    return formattedDataForUuid(response);
+  } else {
     return sleepAndRetryLater();
   }
-
-  return formattedDataForUuid(response);
 }
 
 module.exports = getHubspotUserDetails;
