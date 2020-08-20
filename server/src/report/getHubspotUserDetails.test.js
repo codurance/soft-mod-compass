@@ -42,7 +42,7 @@ describe('getHubspotUserDetails', () => {
   describe('get survey answers', () => {
     const hubspotApiBaseUrl = 'https://api.hubapi.com';
     const queryFormSubmissions = `/form-integrations/v1/submissions/forms/${mockConfig.hubspot.formId}?hapikey=${mockConfig.hubspot.authToken}`;
-    const validResponseFromHubspotWithUserDetails = {
+    const validResponse_SubmissionIsOK = {
       results: [
         {
           submittedAt: MOCK_TIMESTAMP,
@@ -73,6 +73,28 @@ describe('getHubspotUserDetails', () => {
         },
       },
     };
+    const validResponse_SubmissionForUuidIsMISSING = {
+      results: [
+        {
+          submittedAt: MOCK_TIMESTAMP,
+          values: [
+            { name: 'firstname', value: 'someone else' },
+            { name: 'lastname', value: 'not our user' },
+            { name: 'company', value: 'some company' },
+            { name: 'job_function', value: 'intern' },
+            { name: 'email', value: 'patrick@notgmail.com' },
+            { name: 'uuid', value: 'not-the-uuid-we-re-interested-in' },
+          ],
+          pageUrl: MOCK_PAGE_URL,
+        },
+      ],
+      paging: {
+        next: {
+          after: 'NOT_USED',
+          link: 'NOT_USED',
+        },
+      },
+    };
 
     afterEach(() => {
       nock.cleanAll();
@@ -82,7 +104,7 @@ describe('getHubspotUserDetails', () => {
       // Given: Hubspot returns a valid response
       nock(hubspotApiBaseUrl)
         .get(queryFormSubmissions)
-        .reply(OK, validResponseFromHubspotWithUserDetails);
+        .reply(OK, validResponse_SubmissionIsOK);
 
       // When: Getting Hubspot user details
       const result = await getHubspotUserDetails(MOCK_UUID);
@@ -109,7 +131,20 @@ describe('getHubspotUserDetails', () => {
         .get(queryFormSubmissions)
         .reply(OK, emptyResponse)
         .get(queryFormSubmissions)
-        .reply(OK, validResponseFromHubspotWithUserDetails);
+        .reply(OK, validResponse_SubmissionIsOK);
+
+      const result = await getHubspotUserDetails(MOCK_UUID);
+      expect(result).toHaveProperty(['values', 0, 'value'], 'Sarah');
+    });
+
+    it('retries multiple times if submission with UUID is not found', async () => {
+      nock(hubspotApiBaseUrl)
+        .get(queryFormSubmissions)
+        .reply(OK, validResponse_SubmissionForUuidIsMISSING)
+        .get(queryFormSubmissions)
+        .reply(OK, validResponse_SubmissionForUuidIsMISSING)
+        .get(queryFormSubmissions)
+        .reply(OK, validResponse_SubmissionIsOK);
 
       const result = await getHubspotUserDetails(MOCK_UUID);
       expect(result).toHaveProperty(['values', 0, 'value'], 'Sarah');
@@ -146,7 +181,7 @@ describe('getHubspotUserDetails', () => {
         .times(expectedRetries)
         .reply(OK, emptyResponse)
         .get(queryFormSubmissions)
-        .reply(OK, validResponseFromHubspotWithUserDetails);
+        .reply(OK, validResponse_SubmissionIsOK);
 
       await getHubspotUserDetails(MOCK_UUID, RETRY_FOREVER);
       expect(sleepMock).toHaveBeenCalledTimes(expectedRetries);
