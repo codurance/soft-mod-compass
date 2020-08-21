@@ -56,7 +56,7 @@ const getContactId = (email) => {
     });
 };
 
-const uploadFile = (file, pathOnHubspotFilemanager) => {};
+const uploadFile = (fileStream, pathOnHubspotFilemanager) => {};
 const createNote = (
   contactId,
   attachmentsIds,
