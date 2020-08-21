@@ -20,6 +20,8 @@ async function sendPdfLinkEmail(pdfLink, userData) {
     },
   };
 
+  console.log('TEMP: Do not send the email. This is a learning branch');
+  return;
   return await ses.sendEmail(emailData).promise();
 }
 
