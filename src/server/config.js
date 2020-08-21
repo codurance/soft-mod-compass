@@ -21,7 +21,7 @@ module.exports = {
     formLandingPageUrl: process.env.HUBSPOT_FORM_LANDING_PAGE_URL,
   },
   aws: {
-    bucket: process.env.AWS_COMPASS_BUCKET,
+    bucket: process.env.REPORT_BUCKET,
   },
   app: {
     retryUntilSuccess: {
