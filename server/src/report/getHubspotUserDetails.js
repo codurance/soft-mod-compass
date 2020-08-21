@@ -34,21 +34,6 @@ async function getHubspotUserDetails(uuid, retries = 3) {
     response.results.find(resultWithCorrectUuid) !== undefined
   ) {
     const dataForUuid = response.results.find(resultWithCorrectUuid);
-    dataForUuid.values = dataForUuid.values.map((entry) => {
-      function titleCase(str) {
-        const names = str.toLowerCase().split(' ');
-        for (let i = 0; i < names.length; i++) {
-          names[i] = names[i][0].toUpperCase() + names[i].slice(1);
-        }
-        return names.join(' ');
-      }
-      if (fieldsToTransformToTitleCase.includes(entry.name)) {
-        entry.value = titleCase(entry.value);
-        return entry;
-      } else {
-        return entry;
-      }
-    });
     return dataForUuid;
   } else {
     const retriesLeft = retries - 1;
