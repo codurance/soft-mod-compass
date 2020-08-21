@@ -11,6 +11,7 @@ function uploadToS3(pdf, bucket) {
     Bucket: bucket,
     Key: `compass-report-${uuid.v4()}.pdf`,
     Body: pdfStreamPipe,
+    ACL: 'public-read',
   };
 
   pdf.stream.pipe(pdfStreamPipe);
@@ -18,15 +19,7 @@ function uploadToS3(pdf, bucket) {
   return s3
     .upload(s3Parameters)
     .promise()
-    .then((data) =>
-      s3.getObject({
-        Bucket: bucket,
-        Key: data.Key,
-        ResponseExpires: 3600, // 30 Days in seconds - corresponds to set expiry on S3
-      })
-    )
-    .then((s3Object) => s3Object.promise())
-    .then((data) => data.Body.toString());
+    .then((data) => data.Location);
 }
 
 module.exports = uploadToS3;
