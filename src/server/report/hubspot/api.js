@@ -2,7 +2,16 @@ const config = require('../../config');
 const request = require('request-promise');
 const retryUntilSuccessful = require('../../network/retryUntilSuccessful');
 
-const hubspotRequest = async (path) => {
+const hubspotPost = async (path, formData) => {
+  return request({
+    method: 'POST',
+    uri: 'https://api.hubapi.com' + path,
+    qs: { hapikey: config.hubspot.authToken },
+    formData,
+    json: true,
+  });
+};
+const hubspotGet = async (path) => {
   return request({
     uri: `https://api.hubapi.com` + path,
     qs: { hapikey: config.hubspot.authToken },
@@ -28,7 +37,7 @@ const getFormSubmission = async (uuid) => {
 
   const valuesForUuid = await retryUntilSuccessful(
     () =>
-      hubspotRequest(
+      hubspotGet(
         `/form-integrations/v1/submissions/forms/${config.hubspot.formId}`
       ),
     (response) => 'results' in response && response.results.length !== 0
@@ -49,14 +58,36 @@ const getFormSubmission = async (uuid) => {
 const getContactId = (email) => {
   const extractVid = (resp) => resp['canonical-vid'];
 
-  return hubspotRequest(`/contacts/v1/contact/email/${email}/profile`)
+  return hubspotGet(`/contacts/v1/contact/email/${email}/profile`)
     .then(extractVid)
     .catch((_) => {
       throw new Error(`Could not find ID of contact with email '${email}'`);
     });
 };
 
-const uploadFile = (fileStream, pathOnHubspotFilemanager) => {};
+const uploadFile = (
+  fileBufer,
+  fileName,
+  fileMimeType,
+  pathOnHubspotFilemanager
+) => {
+  const extractUploadedFileId = (resp) => resp['objects'][0]['id'];
+
+  return hubspotPost(`/filemanager/api/v2/files`, {
+    files: {
+      value: fileBufer,
+      options: {
+        filename: fileName,
+        contentType: fileMimeType,
+      },
+    },
+    folder_path: pathOnHubspotFilemanager,
+  })
+    .then(extractUploadedFileId)
+    .catch((e) => {
+      throw new Error(`Could not upload file - Reason: ${e.message}`);
+    });
+};
 const createNote = (
   contactId,
   attachmentsIds,

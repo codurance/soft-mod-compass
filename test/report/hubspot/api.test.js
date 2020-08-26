@@ -17,6 +17,7 @@ jest.doMock('../../../src/server/config', () => mockConfig);
 const api = require('../../../src/server/report/hubspot/api');
 describe('Hubspot API', () => {
   const hubspotApiBaseUrl = 'https://api.hubapi.com';
+  const authQueryString = { hapikey: mockConfig.hubspot.authToken };
 
   const MOCK_PAGE_URL = 'NOT_USED';
   const MOCK_TIMESTAMP = 1593969791429;
@@ -29,7 +30,7 @@ describe('Hubspot API', () => {
   });
 
   describe('getFormSubmission', () => {
-    const queryFormSubmissions = `/form-integrations/v1/submissions/forms/${mockConfig.hubspot.formId}?hapikey=${mockConfig.hubspot.authToken}`;
+    const queryFormSubmissions = `/form-integrations/v1/submissions/forms/${mockConfig.hubspot.formId}`;
     const validResponseFromHubspotWithUserDetails = {
       results: [
         {
@@ -62,17 +63,17 @@ describe('Hubspot API', () => {
       },
     };
 
-    // Note: Use async/await
     it('returns form submission for UUID', async () => {
       // Given: Hubspot returns a valid response
       nock(hubspotApiBaseUrl)
         .get(queryFormSubmissions)
+        .query(authQueryString)
         .reply(OK, validResponseFromHubspotWithUserDetails);
 
       // When: Getting form submission
       const result = await api.getFormSubmission(MOCK_UUID);
 
-      // Then: Values for UUID have been extracted and values are using Title Case
+      // Then: Values for UUID have been extracted
       expect(result).toEqual({
         firstName: 'sarah',
         lastName: 'some long last name',
@@ -86,10 +87,15 @@ describe('Hubspot API', () => {
     it('retries mulitple times if form submission not found for UUID', async () => {
       nock(hubspotApiBaseUrl)
         .get(queryFormSubmissions)
+        .query(authQueryString)
         .reply(OK, emptyResponse)
+
         .get(queryFormSubmissions)
+        .query(authQueryString)
         .reply(OK, emptyResponse)
+
         .get(queryFormSubmissions)
+        .query(authQueryString)
         .reply(OK, validResponseFromHubspotWithUserDetails);
 
       const result = await api.getFormSubmission(MOCK_UUID);
@@ -102,7 +108,7 @@ describe('Hubspot API', () => {
     const email = 'some.person@codurance.com';
     const contactId = 123456;
 
-    const queryContactId = `/contacts/v1/contact/email/${email}/profile?hapikey=${mockConfig.hubspot.authToken}`;
+    const queryContactId = `/contacts/v1/contact/email/${email}/profile`;
     const validResponseFromHubspotWithContactId = {
       'canonical-vid': contactId,
     };
@@ -121,6 +127,7 @@ describe('Hubspot API', () => {
     it('returns the user ID for email', async () => {
       nock(hubspotApiBaseUrl)
         .get(queryContactId)
+        .query(authQueryString)
         .reply(OK, validResponseFromHubspotWithContactId);
 
       const result = await api.getContactId(email);
@@ -131,6 +138,7 @@ describe('Hubspot API', () => {
     it('throws error if user not found', async () => {
       nock(hubspotApiBaseUrl)
         .get(queryContactId)
+        .query(authQueryString)
         .reply(NOT_FOUND, errorResponseContactDoesNotExist);
 
       await expect(api.getContactId(email)).rejects.toThrowError(
@@ -140,10 +148,79 @@ describe('Hubspot API', () => {
   });
 
   describe('uploadFile', () => {
-    // Note: Use async/await
-    it.todo('returns ID of uploaded file');
-    it.todo('throws error if upload failed');
+    const uploadedFileId = 'abcde1234';
+    const fileBuffer = Buffer.from('my file');
+    const fileName = 'hello.pdf';
+    const fileMimeType = 'application/pdf';
+    const pathOnHubspotFilemanager = 'Some/Nested Path';
+
+    it('returns ID of uploaded file', async () => {
+      nock(hubspotApiBaseUrl)
+        .post('/filemanager/api/v2/files')
+        .query(authQueryString)
+        .reply(200, { objects: [{ id: uploadedFileId }] });
+
+      const result = await api.uploadFile(
+        fileBuffer,
+        fileName,
+        fileMimeType,
+        pathOnHubspotFilemanager
+      );
+
+      expect(result).toBe(uploadedFileId);
+    });
+
+    it('uploads the file with correct parameters', async () => {
+      let requestBody;
+      nock(hubspotApiBaseUrl)
+        .post('/filemanager/api/v2/files')
+        .query(authQueryString)
+        .reply(200, (_uri, body) => {
+          requestBody = body;
+          return { objects: [{ id: uploadedFileId }] };
+        });
+
+      await api.uploadFile(
+        fileBuffer,
+        fileName,
+        fileMimeType,
+        pathOnHubspotFilemanager
+      );
+
+      // Note: This is not ideal, but I couldn't find a cleaner way to test.
+      //       Feel free to improve :)
+
+      // Ensure 'files' parameter is present
+      expect(requestBody).toContain('name="files"');
+
+      // Ensure 'folder_path' parameter is present
+      expect(requestBody).toContain('name="folder_path"');
+      // Ensure the correct folder is used
+      expect(requestBody).toContain(pathOnHubspotFilemanager);
+
+      // Ensure the file is uploaded correctly
+      expect(requestBody).toContain(fileBuffer.toString());
+      expect(requestBody).toContain(`filename="${fileName}"`);
+      expect(requestBody).toContain(`Content-Type: ${fileMimeType}`);
+    });
+
+    it('throws error if upload failed', async () => {
+      nock(hubspotApiBaseUrl)
+        .post('/filemanager/api/v2/files')
+        .query(authQueryString)
+        .reply(400, 'some error');
+
+      await expect(
+        api.uploadFile(
+          fileBuffer,
+          fileName,
+          fileMimeType,
+          pathOnHubspotFilemanager
+        )
+      ).rejects.toThrowError('Could not upload file');
+    });
   });
+
   describe('createNote', () => {
     it.todo("creates a 'NOTE' engagement with the correct parameters"); // tests that it uses the right json
   });
