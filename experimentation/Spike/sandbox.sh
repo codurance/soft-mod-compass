@@ -9,7 +9,7 @@ CONTACT_TO_ENGAGEMENT_ASSOCIATION_ID=9 # See: https://legacydocs.hubspot.com/doc
 COMPASS_TEST_USER_ID=7680701
 FLORIAN_KEMPENICH_OWNERID=46375477
 TODAY_EPOCH=1594056257000
-ID_OF_UPLOADED_IMGTEST=33208829019
+ID_OF_UPLOADED_IMGTEST=34128361532
 
 function upload_imgtest_and_print_id() {
     http \
@@ -79,4 +79,6 @@ function get_contact_id_from_email() {
 # get_contact_id_from_email 'compass-test@codurance.com'
 # upload_imgtest_and_print_id
 # create_engagement_with_imgtest
-# get_all_engagement_associated_with_compass_test_contact
+get_all_engagement_associated_with_compass_test_contact
+# delete_engagement 8118035499
+# delete_engagement 8118181729

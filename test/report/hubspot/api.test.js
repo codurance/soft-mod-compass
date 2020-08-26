@@ -154,11 +154,16 @@ describe('Hubspot API', () => {
     const fileMimeType = 'application/pdf';
     const pathOnHubspotFilemanager = 'Some/Nested Path';
 
+    const uploadFileApiPath = '/filemanager/api/v2/files';
+    const validResponseWithUploadedFileId = {
+      objects: [{ id: uploadedFileId }],
+    };
+
     it('returns ID of uploaded file', async () => {
       nock(hubspotApiBaseUrl)
-        .post('/filemanager/api/v2/files')
+        .post(uploadFileApiPath)
         .query(authQueryString)
-        .reply(200, { objects: [{ id: uploadedFileId }] });
+        .reply(200, validResponseWithUploadedFileId);
 
       const result = await api.uploadFile(
         fileBuffer,
@@ -173,11 +178,11 @@ describe('Hubspot API', () => {
     it('uploads the file with correct parameters', async () => {
       let requestBody;
       nock(hubspotApiBaseUrl)
-        .post('/filemanager/api/v2/files')
+        .post(uploadFileApiPath)
         .query(authQueryString)
         .reply(200, (_uri, body) => {
           requestBody = body;
-          return { objects: [{ id: uploadedFileId }] };
+          return validResponseWithUploadedFileId;
         });
 
       await api.uploadFile(
@@ -222,6 +227,95 @@ describe('Hubspot API', () => {
   });
 
   describe('createNote', () => {
-    it.todo("creates a 'NOTE' engagement with the correct parameters"); // tests that it uses the right json
+    const contactId = 1234;
+    const attachmentId = 5678;
+    const timestamp = Date.parse('03 Aug 2020 00:12:00 GMT');
+
+    const engagementId = 9999;
+    const createEngagementApiPath = '/engagements/v1/engagements';
+    const validResponseWithEngagementId = { engagement: { id: engagementId } };
+
+    const mockTimestamp = 1234;
+    let originalDateNow;
+
+    beforeAll(() => {
+      originalDateNow = Date.now;
+      Date.now = () => mockTimestamp;
+    });
+    afterAll(() => {
+      Date.now = originalDateNow;
+    });
+
+    it("creates a 'NOTE' engagement with the correct parameters", async () => {
+      let requestBody;
+      nock(hubspotApiBaseUrl)
+        .post(createEngagementApiPath)
+        .query(authQueryString)
+        .reply(200, (_uri, body) => {
+          requestBody = body;
+          return validResponseWithEngagementId;
+        });
+
+      await api.createNote(contactId, [attachmentId], timestamp);
+
+      expect(requestBody).toEqual({
+        engagement: {
+          active: true,
+          ownerId: null,
+          type: 'NOTE',
+          timestamp: timestamp,
+        },
+        associations: {
+          contactIds: [contactId],
+          companyIds: [],
+          dealIds: [],
+          ownerIds: [],
+          ticketIds: [],
+        },
+        attachments: [{ id: attachmentId }],
+        metadata: { body: '<b>Compass Report - Automatic Upload</b>' },
+      });
+    });
+
+    it("uses 'Date.now()' if no timestamp is provided", async () => {
+      let requestBody;
+      nock(hubspotApiBaseUrl)
+        .post(createEngagementApiPath)
+        .query(authQueryString)
+        .reply(200, (_uri, body) => {
+          requestBody = body;
+          return validResponseWithEngagementId;
+        });
+
+      await api.createNote(contactId, [attachmentId]);
+
+      expect(requestBody.engagement.timestamp).toEqual(mockTimestamp);
+    });
+
+    it('Returns the ID of the created engagement', async () => {
+      nock(hubspotApiBaseUrl)
+        .post(createEngagementApiPath)
+        .query(authQueryString)
+        .reply(200, validResponseWithEngagementId);
+
+      const response = await api.createNote(
+        contactId,
+        [attachmentId],
+        timestamp
+      );
+
+      expect(response).toBe(engagementId);
+    });
+
+    it('throws error if engagement creation failed', async () => {
+      nock(hubspotApiBaseUrl)
+        .post(createEngagementApiPath)
+        .query(authQueryString)
+        .reply(400, 'some error');
+
+      await expect(
+        api.createNote(contactId, [attachmentId], timestamp)
+      ).rejects.toThrowError('Could not create Note');
+    });
   });
 });

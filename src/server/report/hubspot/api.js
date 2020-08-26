@@ -2,14 +2,18 @@ const config = require('../../config');
 const request = require('request-promise');
 const retryUntilSuccessful = require('../../network/retryUntilSuccessful');
 
-const hubspotPost = async (path, formData) => {
-  return request({
+const hubspotPost = async (path, { formData, body }) => {
+  const requestOptions = {
     method: 'POST',
     uri: 'https://api.hubapi.com' + path,
     qs: { hapikey: config.hubspot.authToken },
-    formData,
     json: true,
-  });
+  };
+
+  if (formData) requestOptions.formData = formData;
+  if (body) requestOptions.body = body;
+
+  return request(requestOptions);
 };
 const hubspotGet = async (path) => {
   return request({
@@ -74,26 +78,53 @@ const uploadFile = (
   const extractUploadedFileId = (resp) => resp['objects'][0]['id'];
 
   return hubspotPost(`/filemanager/api/v2/files`, {
-    files: {
-      value: fileBufer,
-      options: {
-        filename: fileName,
-        contentType: fileMimeType,
+    formData: {
+      files: {
+        value: fileBufer,
+        options: {
+          filename: fileName,
+          contentType: fileMimeType,
+        },
       },
+      folder_path: pathOnHubspotFilemanager,
     },
-    folder_path: pathOnHubspotFilemanager,
   })
     .then(extractUploadedFileId)
     .catch((e) => {
       throw new Error(`Could not upload file - Reason: ${e.message}`);
     });
 };
-const createNote = (
-  contactId,
-  attachmentsIds,
-  ownerId,
-  timestamp = Date.now()
-) => {};
+const createNote = (contactId, attachmentsIds, timestamp = Date.now()) => {
+  const newNoteJson = (contactId, attachmentsIds, timestamp, body) => ({
+    engagement: {
+      active: true,
+      ownerId: null,
+      type: 'NOTE',
+      timestamp: timestamp,
+    },
+    associations: {
+      contactIds: [contactId],
+      companyIds: [],
+      dealIds: [],
+      ownerIds: [],
+      ticketIds: [],
+    },
+    attachments: attachmentsIds.map((id) => ({ id })),
+    metadata: { body },
+  });
+  const body = '<b>Compass Report - Automatic Upload</b>';
+
+  const extractEngagementId = (response) => response.engagement.id;
+
+  return hubspotPost('/engagements/v1/engagements', {
+    body: newNoteJson(contactId, attachmentsIds, timestamp, body),
+  })
+    .then(extractEngagementId)
+    .catch((e) => {
+      throw new Error(`Could not create Note - Reason: ${e.message}`);
+    });
+};
+
 module.exports = {
   getFormSubmission,
   getContactId,
