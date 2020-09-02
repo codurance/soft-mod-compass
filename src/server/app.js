@@ -16,6 +16,7 @@ const jsReportTemplate = {
   recipe: 'chrome-pdf',
 };
 const buildReportViewModelFor = require('./report/reportViewModelBuilder');
+const uploadToHubspot = require('./report/hubspot/uploadToHubspot');
 
 module.exports = (reportingApp) => {
   const app = express();
@@ -59,11 +60,14 @@ module.exports = (reportingApp) => {
         data: viewModel,
       });
 
-      console.log(`Uploading report for '${uuid}'`);
+      console.log(`Uploading report to S3 for '${uuid}'`);
       const pdfLink = await uploadToS3(pdf, config.aws.bucket);
       console.log(
         `Uploading report for '${uuid}' done. Pdf available at ${pdfLink}`
       );
+
+      console.log(`Uploading report to Hubspot for '${uuid}'`);
+      await uploadToHubspot(pdf.content, uuid);
 
       const userData = viewModel.user;
       await sendPdfLinkEmail(pdfLink, userData);
