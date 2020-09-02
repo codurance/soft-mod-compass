@@ -26,15 +26,20 @@ const average = (array) => {
   return array.reduce(sumAll) / array.length;
 };
 
-function mapUserInfo(userDetails) {
-  const userProperty = (propertyName) =>
-    userDetails.values.find((property) => property.name === propertyName).value;
+function mapToUserDetails(formSubmission) {
+  function titleCase(str) {
+    const names = str.toLowerCase().split(' ');
+    for (let i = 0; i < names.length; i++) {
+      names[i] = names[i][0].toUpperCase() + names[i].slice(1);
+    }
+    return names.join(' ');
+  }
 
   return {
-    firstName: userProperty('firstname'),
-    lastName: userProperty('lastname'),
-    company: userProperty('company'),
-    email: userProperty('email'),
+    firstName: titleCase(formSubmission.firstName),
+    lastName: titleCase(formSubmission.lastName),
+    company: titleCase(formSubmission.company),
+    email: formSubmission.email,
   };
 }
 
@@ -83,12 +88,12 @@ function reportViewModel(
   categoryDefinitions,
   questionChoices,
   answers,
-  userDetails
+  formSubmisison
 ) {
   ensureKeysValid(categoryDefinitions);
 
   return {
-    user: mapUserInfo(userDetails),
+    user: mapToUserDetails(formSubmisison),
     categories: computeScoresForCategories(
       categoryDefinitions,
       answers,
