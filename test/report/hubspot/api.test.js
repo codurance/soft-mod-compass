@@ -78,7 +78,6 @@ describe('Hubspot API', () => {
         firstName: 'sarah',
         lastName: 'some long last name',
         company: 'codurance',
-        jobFunction: 'head of heads',
         email: 'sarah.baker@notgmail.com',
         uuid: MOCK_UUID,
       });

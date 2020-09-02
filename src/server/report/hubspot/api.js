@@ -53,7 +53,6 @@ const getFormSubmission = async (uuid) => {
     firstName: valueWithName(valuesForUuid, 'firstname'),
     lastName: valueWithName(valuesForUuid, 'lastname'),
     company: valueWithName(valuesForUuid, 'company'),
-    jobFunction: valueWithName(valuesForUuid, 'job_function'),
     email: valueWithName(valuesForUuid, 'email'),
     uuid,
   };
