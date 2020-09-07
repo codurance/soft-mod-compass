@@ -1,3 +1,8 @@
+const ensureReportWasAttachedToTheContactOnHubspot = require('../support/generalFlow/ensureReportWasAttachedToTheContactOnHubspot');
+
+const SECONDS = 1000;
+const MINUTES = 60 * SECONDS;
+
 describe('Compass Flow', () => {
   if (Cypress.env('langToTest') === 'ES') {
     it('(ES) redirects to HubSpot Successful Submission page when completed', () => {
@@ -27,6 +32,8 @@ function testSpanishCompass() {
   assertRedirectsToHubSpotLPAndContains('Para recibir tu informe');
   fillInHubSpotSubmissionFormAndSubmit();
   assertRedirectsToSucessfulSubmissionPageAndContains('¡Gracias!');
+  cy.wait(2 * MINUTES);
+  ensureReportWasAttachedToTheContactOnHubspot();
 }
 
 function testEnglishCompass() {
@@ -38,6 +45,8 @@ function testEnglishCompass() {
   assertRedirectsToHubSpotLPAndContains('Receive your report');
   fillInHubSpotSubmissionFormAndSubmit();
   assertRedirectsToSucessfulSubmissionPageAndContains('Success!');
+  cy.wait(2 * MINUTES);
+  ensureReportWasAttachedToTheContactOnHubspot();
 }
 
 function assertStartPageIsInCorrectLanguage(text) {
@@ -67,10 +76,10 @@ function assertRedirectsToHubSpotLPAndContains(headerText) {
 }
 
 function fillInHubSpotSubmissionFormAndSubmit() {
+  cy.get('[name=email]').type('compass-test@codurance.com');
   cy.get('[name=firstname]').type('Compass');
   cy.get('[name=lastname]').type('Test');
   cy.get('[name=company]').type('Codurance');
-  cy.get('[name=email]').type('compass-test@codurance.com');
   cy.get('.hs-button').click();
 }
 

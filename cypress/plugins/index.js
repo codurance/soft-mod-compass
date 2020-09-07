@@ -15,7 +15,22 @@
 /**
  * @type {Cypress.PluginConfig}
  */
-module.exports = (on, config) => {
+
+module.exports = (_on, config) => {
   // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
-}
+  function loadEnvvarsInConfig() {
+    config.env.hubspotAuthToken = process.env.HUBSPOT_AUTH_TOKEN;
+    config.env.langToTest = process.env.COMPASS_LANGUAGE;
+  }
+  function setBaseUrlBasedOnLanguage() {
+    if (config.env.langToTest === 'EN') {
+      config.baseUrl = 'https://compass-en.codurance.io';
+    } else if (config.env.langToTest === 'ES') {
+      config.baseUrl = 'https://compass-es.codurance.io';
+    }
+  }
+
+  loadEnvvarsInConfig();
+  setBaseUrlBasedOnLanguage();
+  return config;
+};
