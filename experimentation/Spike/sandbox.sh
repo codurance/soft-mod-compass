@@ -2,7 +2,6 @@
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
 BASE_URL=https://api.hubapi.com
-HUBSPOT_AUTH_TOKEN="5ef1881f-72ab-4ef0-a0a5-a5fa87498018"
 
 CONTACT_TO_ENGAGEMENT_ASSOCIATION_ID=9 # See: https://legacydocs.hubspot.com/docs/methods/crm-associations/crm-associations-overview
 
@@ -10,6 +9,11 @@ COMPASS_TEST_USER_ID=7680701
 FLORIAN_KEMPENICH_OWNERID=46375477
 TODAY_EPOCH=1594056257000
 ID_OF_UPLOADED_IMGTEST=34128361532
+
+if [ -z $HUBSPOT_AUTH_TOKEN ]; then
+    echo "Make sure to source the envvar config first"
+    exit 1
+fi
 
 function upload_imgtest_and_print_id() {
     http \
@@ -76,9 +80,27 @@ function get_contact_id_from_email() {
         jq '.["canonical-vid"]'
 }
 
+function experiment() {
+    http \
+        $BASE_URL/contacts/v1/contact/vid/$COMPASS_TEST_USER_ID/profile \
+        hapikey==$HUBSPOT_AUTH_TOKEN |
+        jq |
+        grep 'compass'
+    # jq '.properties | keys'
+}
+
+# Ideas for E2E tests
+# - List all attachements from contact, find report
+# - Just check that the file has been uploaded (but we don't test the attachment there)
+# - [WINNER] Check the engagement api to make sure an engagment was created
+#    - in the last 5 minutes
+#    - has an attachement ID (no need to check the actual file, if ID is there it means it worked)
+
 # get_contact_id_from_email 'compass-test@codurance.com'
 # upload_imgtest_and_print_id
 # create_engagement_with_imgtest
-get_all_engagement_associated_with_compass_test_contact
+# get_all_engagement_associated_with_compass_test_contact
 # delete_engagement 8118035499
 # delete_engagement 8118181729
+
+experiment
