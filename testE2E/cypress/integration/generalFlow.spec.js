@@ -67,10 +67,10 @@ function assertRedirectsToHubSpotLPAndContains(headerText) {
 }
 
 function fillInHubSpotSubmissionFormAndSubmit() {
+  cy.get('[name=email]').type('compass-test@codurance.com');
   cy.get('[name=firstname]').type('Compass');
   cy.get('[name=lastname]').type('Test');
   cy.get('[name=company]').type('Codurance');
-  cy.get('[name=email]').type('compass-test@codurance.com');
   cy.get('.hs-button').click();
 }
 
