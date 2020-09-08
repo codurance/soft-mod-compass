@@ -16,12 +16,12 @@ function typeformClientWithMockConfig(configOverrides) {
 const testAuthToken = 'MOCK AUTH TOKEN';
 const mockConfig = {
   typeform: {
-    url: 'https://typeform-url.com',
     formId: 'formId',
     authToken: testAuthToken,
   },
   app: { typeform: { sleepBeforeRetryMs: 0 } },
 };
+const TYPEFORM_BASE_URL = 'https://mashooqbadar.typeform.com';
 
 describe('typeformClient', () => {
   const OK = 200;
@@ -50,7 +50,7 @@ describe('typeformClient', () => {
     });
 
     it('sends auth header', async () => {
-      nock(mockConfig.typeform.url)
+      nock(TYPEFORM_BASE_URL)
         .get(queryAnswersForMockUuidUrl)
         .reply(OK, function () {
           const requestHeaders = this.req.headers;
@@ -66,7 +66,7 @@ describe('typeformClient', () => {
     });
 
     it('successfully gets and extract result', (done) => {
-      nock(mockConfig.typeform.url)
+      nock(TYPEFORM_BASE_URL)
         .get(queryAnswersForMockUuidUrl)
         .reply(OK, answerWithTwoItems);
 
@@ -80,7 +80,7 @@ describe('typeformClient', () => {
     });
 
     it('retries multiple times if answers are empty', (done) => {
-      nock(mockConfig.typeform.url)
+      nock(TYPEFORM_BASE_URL)
         .get(queryAnswersForMockUuidUrl)
         .reply(OK, answerEmpty)
         .get(queryAnswersForMockUuidUrl)
@@ -100,7 +100,7 @@ describe('typeformClient', () => {
     it('retries no more than the given parameter', async () => {
       const expectedRetries = 3;
 
-      nock(mockConfig.typeform.url)
+      nock(TYPEFORM_BASE_URL)
         .get(queryAnswersForMockUuidUrl)
         .times(expectedRetries)
         .reply(OK, answerEmpty);
@@ -123,7 +123,7 @@ describe('typeformClient', () => {
         app: { typeform: { sleepBeforeRetryMs: mockSleepDuration } },
       });
 
-      nock(mockConfig.typeform.url)
+      nock(TYPEFORM_BASE_URL)
         .get(queryAnswersForMockUuidUrl)
         .times(expectedRetries)
         .reply(OK, answerEmpty)
@@ -145,7 +145,7 @@ describe('typeformClient', () => {
         { properties: { choices: choicesData() } },
       ];
 
-      nock(mockConfig.typeform.url)
+      nock(TYPEFORM_BASE_URL)
         .get(`/forms/${mockConfig.typeform.formId}`)
         .reply(OK, {
           fields: questions,
