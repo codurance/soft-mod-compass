@@ -160,6 +160,27 @@ yarn test:e2e:dev:es
 
 ## Deploying the Server side - AWS
 
+#### Updating Compass AWS Policies
+- **DEV environment**
+    1. Go to `scripts/aws/iam/compass-policies.json`
+    1. Add policy to **Action** list in the first **Statement**
+        ```
+        {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3:GetObject",
+                ...
+              ],
+              "Resource": "arn:aws:s3:::$REPORT_BUCKET/*"
+            },
+        }
+        ```
+    1. Destroy environment
+    1. Re-create environment
+
 **Important**: When deploying to `codurance` or `codurance-playground`, you **need**:
 
 - **The compass config files saved in `/scripts`. See [Config section](#config)**
