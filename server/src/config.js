@@ -25,6 +25,7 @@ module.exports = {
     },
     hubspot: {
       sleepBeforeRetryMs: 2000,
+      reportsFolder: 'Compass Reports',
     },
   },
 };
