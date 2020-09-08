@@ -10,6 +10,33 @@ const server = app.listen(port, () => {
   console.log(`ready at http://localhost:${port}`);
 });
 
+// Add putBucketLifecycleConfigurantion
+const AWS = require('aws-sdk');
+const s3 = new AWS.S3({ signatureVersion: 'v4' });
+
+const params = {
+  Bucket: 'compass-dev-en',
+  LifecycleConfiguration: {
+    Rules: [
+      {
+        Filter: {
+          Prefix: 'compass-report',
+        },
+        Status: 'Enabled',
+        Expiration: {
+          Days: 1,
+        },
+        ID: 'DeleteAfterXDays',
+      },
+    ],
+  },
+};
+
+s3.putBucketLifecycleConfiguration(params)
+  .promise()
+  .then((data) => console.log(data))
+  .catch((error) => console.log(error));
+
 const reportDataDir = path.resolve(__dirname, 'reportData');
 const jsreport = require('jsreport')({
   store: {

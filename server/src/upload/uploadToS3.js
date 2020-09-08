@@ -16,10 +16,12 @@ function uploadToS3(pdf, bucket) {
 
   pdf.stream.pipe(pdfStreamPipe);
 
-  return s3
+  const objectUrl = s3
     .upload(s3Parameters)
     .promise()
     .then((data) => data.Location);
+
+  return objectUrl;
 }
 
 module.exports = uploadToS3;

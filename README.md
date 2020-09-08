@@ -233,12 +233,12 @@ yarn create-env:prod:en
 
 **Clean Up:** Destroy `compass-prod-en` (and all corresponding resources):
 
+> Note: Destroying Prod environment **DELETES ALL THE REPORTS**
 ```sh
 
 yarn destroy-env:prod:en
 
 ```
-
 ### HTTPS
 
 The elasticbeanstalk instance will redirect HTTP traffic to HTTPS.
