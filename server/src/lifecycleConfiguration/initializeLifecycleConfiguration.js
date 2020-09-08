@@ -2,7 +2,7 @@ const AWS = require('aws-sdk');
 const s3 = new AWS.S3({ signatureVersion: 'v4' });
 const config = require('../config');
 
-export default function initializeLifecycleConfiguration() {
+function initializeLifecycleConfiguration() {
   const params = {
     Bucket: 'compass-dev-en',
     LifecycleConfiguration: {
@@ -27,3 +27,5 @@ export default function initializeLifecycleConfiguration() {
     .then((data) => console.log(data))
     .catch((error) => console.log(error));
 }
+
+module.exports = initializeLifecycleConfiguration;
