@@ -21,7 +21,6 @@ module.exports = {
   },
   app: {
     hubspot: {
-      sleepBeforeRetryMs: 2000,
       reportsFolder: 'Compass Reports',
     },
     retryUntilSuccess: {

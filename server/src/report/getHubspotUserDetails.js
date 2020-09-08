@@ -1,13 +1,22 @@
 const requestPromise = require('request-promise');
-const sleep = require('sleep-promise');
 const config = require('../config');
 
+const retryUntilSuccessful = require('../network/retryUntilSuccessful');
 const fieldsToTransformToTitleCase = [
   'firstname',
   'lastname',
   'company',
   'job_function',
 ];
+
+const getFormSubmissions = async (formId) =>
+  requestPromise({
+    uri: `https://api.hubapi.com/form-integrations/v1/submissions/forms/${formId}`,
+    qs: {
+      hapikey: config.hubspot.authToken,
+    },
+    json: true,
+  });
 
 function valueWithName(values, name) {
   for (const valueEntry of values) {
@@ -16,12 +25,12 @@ function valueWithName(values, name) {
   throw `Could not find value with name ${name} in ${values}`;
 }
 
-async function getHubspotUserDetails(uuid, retries = 3) {
+async function getHubspotUserDetails(uuid) {
   if (typeof uuid !== 'string') console.error('uuid is not a string');
   const resultWithCorrectUuid = (result) =>
     valueWithName(result.values, 'uuid') === uuid;
 
-  function formattedDataForUuid(response) {
+  function convertValuesToTitleCaseIfNeeded(dataForUuid) {
     function convertValueToTitleCaseIfNeeded(entry) {
       function titleCase(str) {
         const names = str.toLowerCase().split(' ');
@@ -38,41 +47,31 @@ async function getHubspotUserDetails(uuid, retries = 3) {
       }
     }
 
-    const dataForUuid = response.results.find(resultWithCorrectUuid);
     dataForUuid.values = dataForUuid.values.map(
       convertValueToTitleCaseIfNeeded
     );
     return dataForUuid;
   }
-  async function sleepAndRetryLater() {
-    const retriesLeft = retries - 1;
-    if (retriesLeft === 0)
-      throw Error(`Hubspot User Details could not be retrieved for ${uuid}`);
 
-    await sleep(config.app.hubspot.sleepBeforeRetryMs);
-    return getHubspotUserDetails(uuid, retriesLeft);
-  }
-
-  const response = await requestPromise({
-    uri: `https://api.hubapi.com/form-integrations/v1/submissions/forms/${config.hubspot.formId}`,
-    qs: {
-      hapikey: config.hubspot.authToken,
-    },
-    json: true,
-  });
-
-  const validResponse = () => {
+  const validResponse = (response) => {
     const isEmpty = response.results.length === 0;
     const hasSubmissionForUuid =
       response.results.find(resultWithCorrectUuid) !== undefined;
     return !isEmpty && hasSubmissionForUuid;
   };
 
-  if (validResponse()) {
-    return formattedDataForUuid(response);
-  } else {
-    return sleepAndRetryLater();
-  }
+  const extractResultsForUuid = (response) => {
+    const resultWithCorrectUuid = (result) =>
+      valueWithName(result.values, 'uuid') === uuid;
+    return response.results.find(resultWithCorrectUuid);
+  };
+
+  return retryUntilSuccessful(
+    () => getFormSubmissions(config.hubspot.formId),
+    validResponse
+  )
+    .then(extractResultsForUuid)
+    .then(convertValuesToTitleCaseIfNeeded);
 }
 
 module.exports = getHubspotUserDetails;
