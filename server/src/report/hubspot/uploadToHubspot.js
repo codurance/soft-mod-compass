@@ -13,8 +13,17 @@ const pdfFilename = (userFirstName, userLastName) => {
     return [firstLetter.toLowerCase(), restOfTheWord].join('');
   };
   const toCamelCase = (text) => {
+    /*
+    Steps:
+    - 'hello compass test'
+    - ['hello', 'compass', 'test']
+    - ['Hello', 'Compass', 'Test']
+    - HelloCompassTest
+    - helloCompassTest
+    */
     return firstLetterDowncase(text.split(' ').map(firstLetterUpcase).join(''));
   };
+
   const sanitize = (name) => {
     const withoutSpecialChars = name.replace(/[^a-zA-Z ]+/g, '');
     return toCamelCase(withoutSpecialChars);

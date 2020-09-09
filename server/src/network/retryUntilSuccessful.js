@@ -1,8 +1,8 @@
 const config = require('../config');
 const sleep = require('sleep-promise');
 
-const maxRetries = config.app.retryUntilSuccess.maxRetries;
-const sleepBeforeRetryMs = config.app.retryUntilSuccess.sleepBeforeRetryMs;
+const maxRetries = config.app.retryUntilSuccessful.maxRetries;
+const sleepBeforeRetryMs = config.app.retryUntilSuccessful.sleepBeforeRetryMs;
 const retryUntilSuccesful = async (functionToTry, condition) => {
   return await doRetryUntilSuccesful(functionToTry, condition, 0);
 };

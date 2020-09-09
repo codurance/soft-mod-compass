@@ -7,7 +7,7 @@ function retryUntilSuccesful_withMockConfig(
 ) {
   const config = {
     app: {
-      retryUntilSuccess: {
+      retryUntilSuccessful: {
         maxRetries: maxRetries,
         sleepBeforeRetryMs: sleepBeforeRetryMs,
       },

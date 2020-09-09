@@ -47,9 +47,11 @@ describe('Upload report to Hubspot', () => {
   describe('upload the pdf to hubspot', () => {
     it('uploads the pdf to the correct folder and with correct MIME type', async () => {
       await uploadToHubspot(fakePdfBuffer, uuid);
+
+      const anyFilename = expect.any(String);
       expect(api.uploadFile).toHaveBeenCalledWith(
         fakePdfBuffer,
-        expect.any(String),
+        anyFilename,
         'application/pdf',
         mockConfig.app.hubspot.reportsFolder
       );
@@ -57,7 +59,14 @@ describe('Upload report to Hubspot', () => {
 
     describe('construct filename with user data', () => {
       test('valid first and last names', async () => {
+        apiMock.getFormSubmission.mockReturnValue({
+          email,
+          firstName: 'firstName',
+          lastName: 'lastName',
+        });
+
         await uploadToHubspot(fakePdfBuffer, uuid);
+
         const uploadedPdfFilename = api.uploadFile.mock.calls[0][1];
         expect(uploadedPdfFilename).toBe(
           'compassReport_firstName-lastName.pdf'
@@ -70,7 +79,9 @@ describe('Upload report to Hubspot', () => {
           firstName: '   firstName ',
           lastName: ' lastName    ',
         });
+
         await uploadToHubspot(fakePdfBuffer, uuid);
+
         const uploadedPdfFilename = api.uploadFile.mock.calls[0][1];
         expect(uploadedPdfFilename).toBe(
           'compassReport_firstName-lastName.pdf'

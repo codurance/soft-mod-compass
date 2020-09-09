@@ -9,7 +9,7 @@ const hubspotGet = (path, queryStringAsObject) => {
 };
 
 const findEngagementCreatedByCompass = (results) => {
-  const engagementCreateByCompass = results.find((result) => {
+  const engagementCreatedByCompass = results.find((result) => {
     const isAssociatedWithCompassTestContact =
       result.associations.contactIds[0] === COMPASS_TEST_CONTACT_VID;
     const isCompassNote =
@@ -19,17 +19,17 @@ const findEngagementCreatedByCompass = (results) => {
     return isAssociatedWithCompassTestContact && isCompassNote;
   });
 
-  if (!engagementCreateByCompass) {
+  if (!engagementCreatedByCompass) {
     throw new Error(
       "Couldn't find an engagment created by Compass in the last 5 minutes"
     );
   }
 
-  return engagementCreateByCompass;
+  return engagementCreatedByCompass;
 };
 
 const expectEngagement = (engagement) => ({
-  toHaveAttachement: function () {
+  toHaveAttachement() {
     const isNumber = (thing) => !isNaN(thing);
 
     const hasAttachement =
