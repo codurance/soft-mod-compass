@@ -18,7 +18,7 @@ module.exports = {
   },
   aws: {
     bucket: process.env.REPORT_BUCKET,
-    reportExpirationDate: 2,
+    reportExpirationDate: 1,
   },
   app: {
     hubspot: {
