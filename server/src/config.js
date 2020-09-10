@@ -20,11 +20,12 @@ module.exports = {
     bucket: process.env.REPORT_BUCKET,
   },
   app: {
-    typeform: {
-      sleepBeforeRetryMs: 3000,
-    },
     hubspot: {
-      sleepBeforeRetryMs: 2000,
+      reportsFolder: 'Compass Reports',
+    },
+    retryUntilSuccessful: {
+      maxRetries: 10,
+      sleepBeforeRetryMs: 3000,
     },
   },
 };
