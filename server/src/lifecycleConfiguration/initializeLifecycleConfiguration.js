@@ -24,8 +24,13 @@ function initializeLifecycleConfiguration() {
   return s3
     .putBucketLifecycleConfiguration(params)
     .promise()
-    .then((data) => console.log(data))
-    .catch((error) => console.log(error));
+    .then((_) =>
+      console.log('Initialization of Lifecycle Configuration successful!')
+    )
+    .catch((error) => {
+      console.log('Initialization of Lifecycle Configuration failed!');
+      console.log(error);
+    });
 }
 
 module.exports = initializeLifecycleConfiguration;
