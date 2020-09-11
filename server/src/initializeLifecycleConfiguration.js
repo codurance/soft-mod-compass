@@ -13,7 +13,7 @@ function initializeLifecycleConfiguration() {
           },
           Status: 'Enabled',
           Expiration: {
-            Days: config.aws.reportExpirationDate,
+            Days: config.aws.reportExpirationDays,
           },
           ID: 'DeleteAfterXDays',
         },

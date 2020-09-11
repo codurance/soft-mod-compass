@@ -45,7 +45,7 @@ const body = (pdfLink, userData, config) => {
           <table cellpadding="0" cellspacing="0" border="0" style="width: 100%; max-width: 600px; margin-left: auto; margin-right: auto;">
             <tr>
               <td align="left" valign="top" style="padding: 20px;">
-                <p class="preview-text" style="font-size: 0; line-height: 0;">Your report expires in ${config.aws.reportExpirationDate} days.</p>
+                <p class="preview-text" style="font-size: 0; line-height: 0;">Your report expires in ${config.aws.reportExpirationDays} days.</p>
                 <p>Hi ${userData.firstName},
                   <br><br>
                   Thank you for using <b>Codurance Compass</b> — our software delivery assessment.
@@ -62,7 +62,7 @@ const body = (pdfLink, userData, config) => {
                   <li>Technical Practices</li>
                 </ul>
                 <a href=${pdfLink} style="color: #fa7268">Download your Codurance Compass report</a>
-                <p>Your report will be available to download for the next ${config.aws.reportExpirationDate} days. If you have any comments on the report, or need us to expand or clarify a specific point, do not hesitate to contact us.</p>
+                <p>Your report will be available to download for the next ${config.aws.reportExpirationDays} days. If you have any comments on the report, or need us to expand or clarify a specific point, do not hesitate to contact us.</p>
                 <p style="font-family:Arial, Helvetica, sans-serif; font-size: 16px; color: #293341; line-height: 1.5;">
                   Thanks,
                 </p>

@@ -45,7 +45,7 @@ const body = (pdfLink, userData, config) => {
           <table cellpadding="0" cellspacing="0" border="0" style="width: 100%; max-width: 600px; margin-left: auto; margin-right: auto;">
             <tr>
               <td align="left" valign="top" style="padding: 20px;">
-                <p class="preview-text" style="font-size: 0; line-height: 0;">Tu informe estará disponible para descargar durante ${config.aws.reportExpirationDate} días.</p>
+                <p class="preview-text" style="font-size: 0; line-height: 0;">Tu informe estará disponible para descargar durante ${config.aws.reportExpirationDays} días.</p>
                 <p>Hola ${userData.firstName},
                   <br><br>
                   El equipo de Codurance te damos las gracias por utilizar <b>Compass</b>.
@@ -64,7 +64,7 @@ const body = (pdfLink, userData, config) => {
                   <li>Practicas técnicas</li>
                 </ul>
                 <a href=${pdfLink} style="color: #fa7268">Aquí tienes tu informe</a>
-                <p>Tu informe estará disponible para descargar durante ${config.aws.reportExpirationDate} días. Si tienes algún comentario sobre el informe, o necesitas que ampliemos o clarifiquemos algún punto en concreto no dudes en contactar con nosotros.</p>
+                <p>Tu informe estará disponible para descargar durante ${config.aws.reportExpirationDays} días. Si tienes algún comentario sobre el informe, o necesitas que ampliemos o clarifiquemos algún punto en concreto no dudes en contactar con nosotros.</p>
                 <p style="font-family:Arial, Helvetica, sans-serif; font-size: 16px; color: #293341; line-height: 1.5;">
                   Gracias!
                 </p>
