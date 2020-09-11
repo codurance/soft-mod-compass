@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 const reportingApp = express();
-const initializeLifecycleConfiguration = require('./src/lifecycleConfiguration/initializeLifecycleConfiguration');
+const initializeLifecycleConfiguration = require('./src/initializeLifecycleConfiguration');
 
 const app = require('./src/app')(reportingApp);
 

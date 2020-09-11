@@ -1,6 +1,6 @@
 const AWS = require('aws-sdk');
 const s3 = new AWS.S3({ signatureVersion: 'v4' });
-const config = require('../config');
+const config = require('./config');
 
 function initializeLifecycleConfiguration() {
   const params = {
