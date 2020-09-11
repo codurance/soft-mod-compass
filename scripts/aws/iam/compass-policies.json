@@ -6,10 +6,16 @@
       "Action": [
         "s3:GetObject",
         "s3:PutObject",
-        "s3:PutObjectAcl",
-        "s3:PutLifecycleConfiguration"
+        "s3:PutObjectAcl"
       ],
       "Resource": "arn:aws:s3:::$REPORT_BUCKET/*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutLifecycleConfiguration"
+      ],
+      "Resource": "arn:aws:s3:::$REPORT_BUCKET"
     },
     {
       "Effect": "Allow",
