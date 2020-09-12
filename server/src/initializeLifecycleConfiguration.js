@@ -4,7 +4,7 @@ const config = require('./config');
 
 function initializeLifecycleConfiguration() {
   const params = {
-    Bucket: 'compass-dev-en',
+    Bucket: `${config.aws.bucket}`,
     LifecycleConfiguration: {
       Rules: [
         {
