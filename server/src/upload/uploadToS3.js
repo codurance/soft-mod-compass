@@ -11,21 +11,17 @@ function uploadToS3(pdf, bucket) {
     Bucket: bucket,
     Key: `compass-report-${uuid.v4()}.pdf`,
     Body: pdfStreamPipe,
+    ACL: 'public-read',
   };
 
   pdf.stream.pipe(pdfStreamPipe);
 
-  return s3
+  const objectUrl = s3
     .upload(s3Parameters)
     .promise()
-    .then((data) => {
-      const p = {
-        Bucket: bucket,
-        Key: data.Key,
-        Expires: 604790, // 7 Days in seconds - corresponds to set expiry on S3
-      };
-      return s3.getSignedUrlPromise('getObject', p);
-    });
+    .then((data) => data.Location);
+
+  return objectUrl;
 }
 
 module.exports = uploadToS3;

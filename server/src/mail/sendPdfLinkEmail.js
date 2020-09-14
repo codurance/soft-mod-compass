@@ -15,7 +15,7 @@ async function sendPdfLinkEmail(pdfLink, userData) {
     Message: {
       Subject: { Data: emailTemplate.subject() },
       Body: {
-        Html: { Data: emailTemplate.body(pdfLink, userData) },
+        Html: { Data: emailTemplate.body(pdfLink, userData, config) },
       },
     },
   };

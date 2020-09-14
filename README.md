@@ -160,6 +160,30 @@ yarn test:e2e:dev:es
 
 ## Deploying the Server side - AWS
 
+#### Modifying AWS Policies
+- **DEV environment**
+    1. Go to `scripts/aws/iam/compass-policies.json`
+    1. Add policy to **Action** list in the first **Statement**
+        ```
+        {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3:GetObject",
+                ...
+              ],
+              "Resource": "arn:aws:s3:::$REPORT_BUCKET/*"
+            },
+        }
+        ```
+    1. Destroy environment
+    1. Re-create environment
+    
+- **Prod environment**
+    1. Modify manually on AWS console
+    
 **Important**: When deploying to `codurance` or `codurance-playground`, you **need**:
 
 - **The compass config files saved in `/scripts`. See [Config section](#config)**
@@ -233,12 +257,12 @@ yarn create-env:prod:en
 
 **Clean Up:** Destroy `compass-prod-en` (and all corresponding resources):
 
+> Note: Destroying Prod environment **DELETES ALL THE REPORTS**
 ```sh
 
 yarn destroy-env:prod:en
 
 ```
-
 ### HTTPS
 
 The elasticbeanstalk instance will redirect HTTP traffic to HTTPS.

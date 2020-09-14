@@ -13,7 +13,6 @@ POLICY_FILE="${BASEDIR}/iam/compass-policies.json"
 EB_WEBTIER_POLICY="arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier" # https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-instanceprofile.html
 OPTION_SETTINGS_FILE="${BASEDIR}/eb/option-settings.json"
 OPTION_SETTINGS_FILE_FOR_UPDATE="${BASEDIR}/eb/option-settings-update.json"
-S3_LIFECYCLE_FILE="file://${BASEDIR}/s3/s3-lifecycle.json"
 
 loadFileAndReplaceEnvVariables() {
     envsubst < "${1}"

@@ -19,10 +19,6 @@ function initialize_variables {
 function create_and_configure_s3_bucket {
     echo "creating compass bucket [${REPORT_BUCKET}] .."
     aws s3 mb s3://${REPORT_BUCKET}
-    
-    aws s3api put-bucket-lifecycle-configuration \
-        --bucket ${REPORT_BUCKET} \
-        --lifecycle-configuration "${S3_LIFECYCLE_FILE}"
 }
 
 function create_role_to_allow_access_to_s3_send_mail_and_general_ec2_needs {
