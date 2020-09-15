@@ -62,13 +62,15 @@ function get_all_engagement_associated_with_compass_test_contact() {
         hapikey==$HUBSPOT_AUTH_TOKEN |
         jq '.results | {engagement_ids: .}'
 }
+
 function delete_engagement() {
     ENGAGEMENT_ID=$1
 
     http \
         DELETE \
         $BASE_URL/engagements/v1/engagements/$ENGAGEMENT_ID \
-        hapikey==$HUBSPOT_AUTH_TOKEN
+        hapikey==$HUBSPOT_AUTH_TOKEN |
+        jq
 }
 
 function get_contact_id_from_email() {
@@ -80,27 +82,51 @@ function get_contact_id_from_email() {
         jq '.["canonical-vid"]'
 }
 
-function experiment() {
+function get_file_attached_to_engagement() {
+    ENGAGEMENT_ID=$1
+
     http \
-        $BASE_URL/contacts/v1/contact/vid/$COMPASS_TEST_USER_ID/profile \
+        $BASE_URL/engagements/v1/engagements/$ENGAGEMENT_ID \
         hapikey==$HUBSPOT_AUTH_TOKEN |
-        jq |
-        grep 'compass'
-    # jq '.properties | keys'
+        jq '.attachments[0].id'
 }
 
-# Ideas for E2E tests
-# - List all attachements from contact, find report
-# - Just check that the file has been uploaded (but we don't test the attachment there)
-# - [WINNER] Check the engagement api to make sure an engagment was created
-#    - in the last 5 minutes
-#    - has an attachement ID (no need to check the actual file, if ID is there it means it worked)
+function delete_file() {
+    FILE_ID=$1
 
-# get_contact_id_from_email 'compass-test@codurance.com'
-# upload_imgtest_and_print_id
-# create_engagement_with_imgtest
-# get_all_engagement_associated_with_compass_test_contact
-# delete_engagement 8118035499
-# delete_engagement 8118181729
+    http \
+        POST \
+        $BASE_URL/filemanager/api/v2/files/$FILE_ID/full-delete \
+        hapikey==$HUBSPOT_AUTH_TOKEN |
+        jq
+}
 
-experiment
+function delete_engagement_and_attached_file() {
+    ENGAGEMENT_ID=$1
+
+    attached_file_id=$(get_file_attached_to_engagement $ENGAGEMENT_ID)
+
+    delete_file $attached_file_id
+    delete_engagement $ENGAGEMENT_ID
+}
+
+function experiment() {
+    ENGAGEMENT_ID=$1
+
+    http \
+        $BASE_URL/engagements/v1/engagements/$ENGAGEMENT_ID \
+        hapikey==$HUBSPOT_AUTH_TOKEN |
+        # jq '.attachments[0].id'
+        jq '.engagement.bodyPreview'
+}
+
+####################################################################
+## To delete all notes on Compass Test:                           ##
+##  1. `get_all_engagement_associated_with_compass_test_contact`  ##
+##  2. For each, call: `delete_engagement_and_attached_file ID`   ##
+####################################################################
+
+get_all_engagement_associated_with_compass_test_contact
+# delete_engagement_and_attached_file 8656752851
+# delete_engagement_and_attached_file 8691782426
+# delete_engagement_and_attached_file 8691782850
