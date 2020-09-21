@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+  echo "Make sure you are SOURCING this script, and not just executing it"
+  exit 1
+fi
+
+
 credentials=$(aws sts \
     assume-role \
     --role-arn arn:aws:iam::300563897675:role/FullAdminAccessRole \
