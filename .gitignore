@@ -118,4 +118,7 @@ jspm_packages/
 ### Hubspot config
 hubspot.config.yml
 
+### load aws creds
+load_aws_credentials.sh
+
 # End of https://www.gitignore.io/api/node,macos,visualstudiocode
