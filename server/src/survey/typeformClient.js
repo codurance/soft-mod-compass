@@ -7,7 +7,7 @@ async function makeTypeformRequest(path) {
     Authorization: `Bearer ${config.typeform.authToken}`,
   };
   const options = {
-    uri: `https://mashooqbadar.typeform.com${path}`,
+    uri: `https://codurance.typeform.com${path}`,
     headers,
     json: true,
   };

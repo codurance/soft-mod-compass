@@ -15,7 +15,7 @@ function typeformFactory() {
     const hiddenFieldToAutoPopulate = `uuid=${uuid}`;
     const typeformId = surveyElement.dataset.typeformFormId;
     const hubspotFromUrl = surveyElement.dataset.hubspotFormUrl;
-    const typeformSurveyUrlWithUuidAsHiddenField = `https://form.typeform.com/to/${typeformId}/?${hiddenFieldToAutoPopulate}`;
+    const typeformSurveyUrlWithUuidAsHiddenField = `https://codurance.typeform.com/to/${typeformId}/?${hiddenFieldToAutoPopulate}`;
     const hubspotLandingPageWithUuidAsHiddenField = `${hubspotFromUrl}?${hiddenFieldToAutoPopulate}`;
 
     typeformEmbed.makeWidget(

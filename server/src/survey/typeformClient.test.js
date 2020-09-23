@@ -10,7 +10,7 @@ const mockConfig = {
     authToken: testAuthToken,
   },
 };
-const TYPEFORM_BASE_URL = 'https://mashooqbadar.typeform.com';
+const TYPEFORM_BASE_URL = 'https://codurance.typeform.com';
 jest.doMock('../config', () => mockConfig);
 
 const typeformClient = require('./typeformClient');
