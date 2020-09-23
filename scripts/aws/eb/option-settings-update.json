@@ -36,11 +36,6 @@
   },
   {
     "Namespace": "aws:elasticbeanstalk:application:environment",
-    "OptionName": "TYPEFORM_URL",
-    "Value": "$TYPEFORM_URL"
-  },
-  {
-    "Namespace": "aws:elasticbeanstalk:application:environment",
     "OptionName": "COMPASS_LANGUAGE",
     "Value": "$COMPASS_LANGUAGE"
   }
