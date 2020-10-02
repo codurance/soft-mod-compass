@@ -32,7 +32,6 @@
     "deploy:dev:es": "npm run check-aws-region:dev && . ./scripts/envvars-config-dev-ES.sh && ./scripts/aws/deploy.sh dev-es",
     "deploy:prod:en": "npm run check-aws-region:prod && . ./scripts/envvars-config-prod-EN.sh && ./scripts/aws/deploy.sh prod-en",
     "deploy:prod:es": "npm run check-aws-region:prod && . ./scripts/envvars-config-prod-ES.sh && ./scripts/aws/deploy.sh prod-es",
-
     "build-client": "webpack --config ./client/webpack.config.js",
     "deploy-client": "npm run build-client && ./scripts/deploy_client_to_hubspot.sh"
   },
@@ -43,9 +42,13 @@
     "@hubspot/cms-cli": "^1.1.8",
     "@typeform/embed": "^0.22.0",
     "aws-sdk": "^2.638.0",
+    "canvas": "^2.6.1",
     "cors": "^2.8.5",
     "express": "4.16.4",
     "jsreport": "2.4.0",
+    "pdf-lib": "^1.11.1",
+    "pdf2pic": "^2.1.2",
+    "pdfjs-dist": "^2.5.207",
     "request": "2.88.0",
     "request-promise": "4.2.2",
     "sleep-promise": "8.0.1",
