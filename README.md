@@ -59,6 +59,11 @@ The `/report/submit/:UUID` endpoint of the Node app uses the `UUID` to retrieve 
 
 The jsreport console can be found at `/reporting`. This is where you will find the jsreport development environment for updating the report template.
 
+
+## Get Up and Running
+1. Clone project: `git clone git@github.com:codurance/soft-mod-compass.git`
+1. Run `yarn install`
+
 ## Running the project
 
 ### Config
