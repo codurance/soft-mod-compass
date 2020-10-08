@@ -15,7 +15,10 @@
 /**
  * @type {Cypress.PluginConfig}
  */
-module.exports = (_on, config) => {
+const requestPromise = require('request-promise');
+const TESTMAIL_ENDPOINT = `https://api.testmail.app/api/json?apikey=${process.env.TESTMAIL_APIKEY}&namespace=${process.env.TESTMAIL_NAMESPACE}`;
+
+module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
   function loadEnvvarsInConfig() {
@@ -29,6 +32,12 @@ module.exports = (_on, config) => {
       config.baseUrl = 'https://compass-es.codurance.io';
     }
   }
+
+  on('task', {
+    async queryTestmail() {
+      return await requestPromise(TESTMAIL_ENDPOINT);
+    },
+  });
 
   loadEnvvarsInConfig();
   setBaseUrlBasedOnLanguage();

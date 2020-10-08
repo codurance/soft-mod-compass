@@ -32,7 +32,6 @@
     "deploy:dev:es": "npm run check-aws-region:dev && . ./scripts/envvars-config-dev-ES.sh && ./scripts/aws/deploy.sh dev-es",
     "deploy:prod:en": "npm run check-aws-region:prod && . ./scripts/envvars-config-prod-EN.sh && ./scripts/aws/deploy.sh prod-en",
     "deploy:prod:es": "npm run check-aws-region:prod && . ./scripts/envvars-config-prod-ES.sh && ./scripts/aws/deploy.sh prod-es",
-
     "build-client": "webpack --config ./client/webpack.config.js",
     "deploy-client": "npm run build-client && ./scripts/deploy_client_to_hubspot.sh"
   },
@@ -71,9 +70,11 @@
     "jest": "26.4.2",
     "nock": "10.0.2",
     "nodemon": "1.18.10",
+    "pdf2pic": "^2.1.2",
     "prettier": "2.0.5",
     "react-dev-utils": "^10.2.1",
     "request-debug": "^0.2.0",
+    "resemblejs": "^3.2.5",
     "standard": "12.0.1",
     "supertest": "3.3.0",
     "webpack": "4.20.2",
