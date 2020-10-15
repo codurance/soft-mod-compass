@@ -27,5 +27,5 @@
 import 'cypress-wait-until';
 Cypress.Commands.add('waitAndClickAnswer', (waitTime, answer) => {
   cy.wait(waitTime);
-  cy.iframe().find('section[data-qa-focused=true]').contains(answer).click();
+  cy.iframe().find('div[data-qa-focused=true]').contains(answer).click();
 });
