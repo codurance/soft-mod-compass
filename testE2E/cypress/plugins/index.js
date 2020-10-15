@@ -35,7 +35,8 @@ module.exports = (on, config) => {
 
   on('task', {
     async queryTestmail() {
-      return await requestPromise(TESTMAIL_ENDPOINT);
+      const result = await requestPromise(TESTMAIL_ENDPOINT);
+      return result;
     },
   });
 
