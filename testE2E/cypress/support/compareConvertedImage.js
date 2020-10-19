@@ -1,5 +1,5 @@
 const path = require('path');
-// const resemble = require('resemblejs');
+const resemble = require('resemblejs');
 const image1 = path.join(__dirname, '../support/images/compass.png');
 const diffPath = path.join(__dirname, '../support/images/diff.png');
 const pixelmatch = require('pixelmatch');
