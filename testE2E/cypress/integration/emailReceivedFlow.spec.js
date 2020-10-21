@@ -1,3 +1,4 @@
+const comparisonMismatchThreshold = 10;
 context('Email Received', () => {
   it('should return a successful result', async () => {
     const inbox = await cy.task('queryTestmail');
@@ -17,8 +18,11 @@ context('Email Received', () => {
 
   it('should return converted pdf as image', async () => {
     await cy.task('convertPDFToPng');
-    await cy.task('compareImage');
-
-    expect(2).to.equal(0);
+    await cy.task('compareImage').then(
+      imageComparisonResult => {
+        console.log('mismatch percentage is ',imageComparisonResult.rawMisMatchPercentage)
+        expect(imageComparisonResult.rawMisMatchPercentage).to.lessThan(comparisonMismatchThreshold)
+      }
+    );
   });
 });

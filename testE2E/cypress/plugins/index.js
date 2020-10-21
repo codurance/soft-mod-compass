@@ -16,68 +16,72 @@
  * @type {Cypress.PluginConfig}
  */
 
-const { fromPath } = require('pdf2pic');
-const requestPromise = require('request-promise');
-const resemble = require('resemblejs');
-const path = require('path');
-const pdfPath = path.join(__dirname, '../support/compass-report.pdf');
-const saveFilePath = path.join(__dirname, '../support/images');
-const image1 = path.join(__dirname, '../support/images/compass.png');
-const image2 = path.join(__dirname, '../support/images/expected.png');
-const TESTMAIL_ENDPOINT = `https://api.testmail.app/api/json?apikey=${process.env.TESTMAIL_APIKEY}&namespace=${process.env.TESTMAIL_NAMESPACE}`;
+const { fromPath } = require('pdf2pic')
+const requestPromise = require('request-promise')
+const resemble = require('resemblejs')
+const path = require('path')
+const pdfPath = path.join(__dirname, '../support/compass-report.pdf')
+const saveFilePath = path.join(__dirname, '../support/images')
+const image1 = path.join(__dirname, '../support/images/compass.png')
+const image2 = path.join(__dirname, '../support/images/expected.png')
+const TESTMAIL_ENDPOINT = `https://api.testmail.app/api/json?apikey=${process.env.TESTMAIL_APIKEY}&namespace=${process.env.TESTMAIL_NAMESPACE}`
 
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
-  function loadEnvvarsInConfig() {
-    config.env.hubspotAuthToken = process.env.HUBSPOT_AUTH_TOKEN;
-    config.env.langToTest = process.env.COMPASS_LANGUAGE;
+  function loadEnvvarsInConfig () {
+    config.env.hubspotAuthToken = process.env.HUBSPOT_AUTH_TOKEN
+    config.env.langToTest = process.env.COMPASS_LANGUAGE
   }
-  function setBaseUrlBasedOnLanguage() {
+
+  function setBaseUrlBasedOnLanguage () {
     if (config.env.langToTest === 'EN') {
-      config.baseUrl = 'https://compass-en.codurance.io';
+      config.baseUrl = 'https://compass-en.codurance.io'
     } else if (config.env.langToTest === 'ES') {
-      config.baseUrl = 'https://compass-es.codurance.io';
+      config.baseUrl = 'https://compass-es.codurance.io'
     }
   }
 
   on('task', {
-    async queryTestmail() {
-      const response = await requestPromise(TESTMAIL_ENDPOINT);
-      console.log(response);
-      return response;
+    async queryTestmail () {
+      const response = await requestPromise(TESTMAIL_ENDPOINT)
+      console.log(response)
+      return response
     },
 
-    async convertPDFToPng() {
-      const pageToConvertAsImage = 10;
+    async convertPDFToPng () {
+      const pageToConvertAsImage = 10
       const options = {
         density: 100,
         saveFilename: `compassReport_${pageToConvertAsImage}`,
         savePath: saveFilePath,
         format: 'png',
         width: 1240,
-        height: 1754,
-      };
+        height: 1754
+      }
 
-      const storeAsImage = fromPath(pdfPath, options);
+      const storeAsImage = fromPath(pdfPath, options)
 
-      await storeAsImage(pageToConvertAsImage);
-      console.log(`Page ${pageToConvertAsImage} is now converted as image`);
+      await storeAsImage(pageToConvertAsImage)
+      console.log(`Page ${pageToConvertAsImage} is now converted as image`)
 
-      return null;
+      return null
     },
 
-    async compareImage() {
-      console.log('------------Starting comparison---------------');
-      const data = resemble(image1).compareTo(image2);
-      data.ignoreAntialiasing();
-      data.onComplete((data) => console.log(data));
-      console.log('------------Comparison done---------------------');
-      return 'Finished converting PDF to image';
-    },
-  });
+    async compareImage () {
+      var imageComparisonResult
+      console.log('------------Starting comparison---------------')
+      resemble(image1).compareTo(image2)
+        .ignoreAntialiasing()
+        .onComplete((result) => {
+          imageComparisonResult = result
+        })
+      console.log('------------Comparison done---------------------')
+      return imageComparisonResult
+    }
+  })
 
-  loadEnvvarsInConfig();
-  setBaseUrlBasedOnLanguage();
-  return config;
-};
+  loadEnvvarsInConfig()
+  setBaseUrlBasedOnLanguage()
+  return config
+}
