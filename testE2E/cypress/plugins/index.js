@@ -65,13 +65,13 @@ module.exports = (on, config) => {
       await storeAsImage(pageToConvertAsImage)
       console.log(`Page ${pageToConvertAsImage} is now converted as image`)
 
-      return null
+      return image1
     },
 
-    async compareImage () {
+    async compareImage (actualImage) {
       var imageComparisonResult
       console.log('------------Starting comparison---------------')
-      resemble(image1).compareTo(image2)
+      resemble(actualImage).compareTo(image2)
         .ignoreAntialiasing()
         .onComplete((result) => {
           imageComparisonResult = result
