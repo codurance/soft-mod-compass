@@ -16,13 +16,14 @@
  * @type {Cypress.PluginConfig}
  */
 
-const compareConvertedImage = require('../support/compareConvertedImage');
 const { fromPath } = require('pdf2pic');
 const requestPromise = require('request-promise');
+const resemble = require('resemblejs');
 const path = require('path');
 const pdfPath = path.join(__dirname, '../support/compass-report.pdf');
 const saveFilePath = path.join(__dirname, '../support/images');
-const image = path.join(__dirname, '../support/images/expected.png');
+const image1 = path.join(__dirname, '../support/images/compass.png');
+const image2 = path.join(__dirname, '../support/images/expected.png');
 const TESTMAIL_ENDPOINT = `https://api.testmail.app/api/json?apikey=${process.env.TESTMAIL_APIKEY}&namespace=${process.env.TESTMAIL_NAMESPACE}`;
 
 module.exports = (on, config) => {
@@ -43,15 +44,11 @@ module.exports = (on, config) => {
   on('task', {
     async queryTestmail() {
       const response = await requestPromise(TESTMAIL_ENDPOINT);
-      const parsedResponse = JSON.parse(response);
-      console.log(
-        'Parsed-------------------------',
-        parsedResponse.emails[0]['text']
-      );
+      console.log(response);
       return response;
     },
 
-    async convertToPng() {
+    async convertPDFToPng() {
       const pageToConvertAsImage = 10;
       const options = {
         density: 100,
@@ -71,10 +68,12 @@ module.exports = (on, config) => {
     },
 
     async compareImage() {
-      console.log('Running image comparison----------------------------');
-      const response = await compareConvertedImage(image);
-      console.log('Response: ---------', response);
-      return response;
+      console.log('------------Starting comparison---------------');
+      const data = resemble(image1).compareTo(image2);
+      data.ignoreAntialiasing();
+      data.onComplete((data) => console.log(data));
+      console.log('------------Comparison done---------------------');
+      return 'Finished converting PDF to image';
     },
   });
 
