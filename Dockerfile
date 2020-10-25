@@ -17,6 +17,7 @@ RUN apt-get update \
      fonts-kacst \
      fonts-freefont-ttf \
      libxss1 \
+     libxtst6 \
      --no-install-recommends \
    && rm -rf /var/lib/apt/lists/*
 
