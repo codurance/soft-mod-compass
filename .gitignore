@@ -118,4 +118,5 @@ jspm_packages/
 ### Hubspot config
 hubspot.config.yml
 
+compassReport_*.png
 # End of https://www.gitignore.io/api/node,macos,visualstudiocode

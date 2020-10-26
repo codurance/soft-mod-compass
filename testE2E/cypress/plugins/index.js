@@ -15,47 +15,55 @@
 /**
  * @type {Cypress.PluginConfig}
  */
+const request = require('request')
+const { fromBuffer } = require('pdf2pic')
+const requestPromise = require('request-promise')
+const resemble = require('resemblejs')
+const path = require('path')
+const saveFilePath = path.join(__dirname, '../support/images')
+const expectedImage = path.join(__dirname, '../support/images/expected.png')
+const TESTMAIL_ENDPOINT = `https://api.testmail.app/api/json?apikey=${process.env.TESTMAIL_APIKEY}&namespace=${process.env.TESTMAIL_NAMESPACE}`
 
-const { fromPath } = require('pdf2pic');
-const requestPromise = require('request-promise');
-const resemble = require('resemblejs');
-const path = require('path');
-const pdfPath = path.join(__dirname, '../support/compass-report.pdf');
-const saveFilePath = path.join(__dirname, '../support/images');
-const image1 = path.join(__dirname, '../support/images/compass.png');
-const image2 = path.join(__dirname, '../support/images/expected.png');
-const TESTMAIL_ENDPOINT = `https://api.testmail.app/api/json?apikey=${process.env.TESTMAIL_APIKEY}&namespace=${process.env.TESTMAIL_NAMESPACE}`;
+function requestPdfBody (pdfOptions) {
+  return new Promise(resolve => {
+      request.get(pdfOptions,
+        (err, res, body) =>
+          resolve(body)
+      )
+    }
+  )
+}
 
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
-  function loadEnvvarsInConfig() {
-    config.env.hubspotAuthToken = process.env.HUBSPOT_AUTH_TOKEN;
-    config.env.langToTest = process.env.COMPASS_LANGUAGE;
+  function loadEnvvarsInConfig () {
+    config.env.hubspotAuthToken = process.env.HUBSPOT_AUTH_TOKEN
+    config.env.langToTest = process.env.COMPASS_LANGUAGE
   }
 
-  function setBaseUrlBasedOnLanguage() {
+  function setBaseUrlBasedOnLanguage () {
     if (config.env.langToTest === 'EN') {
-      config.baseUrl = 'https://compass-en.codurance.io';
+      config.baseUrl = 'https://compass-en.codurance.io'
     } else if (config.env.langToTest === 'ES') {
-      config.baseUrl = 'https://compass-es.codurance.io';
+      config.baseUrl = 'https://compass-es.codurance.io'
     }
   }
 
   on('task', {
-    async queryTestmail() {
-      const response = await requestPromise(TESTMAIL_ENDPOINT);
-      const parsedResponse = JSON.parse(response);
-
+    async queryTestmail () {
+      const response = await requestPromise(TESTMAIL_ENDPOINT)
+      const parsedResponse = JSON.parse(response)
       const reportLink = parsedResponse.emails[0].text.match(
         'https:\\/\\/compass-dev-en\\.s3\\.eu-west-1\\.amazonaws\\.com\\/compass-report-[a-zA-Z0-9-]+.pdf'
-      )[0];
+      )[0]
 
-      return response;
+      return reportLink
     },
 
-    async convertPDFToPng() {
-      const pageToConvertAsImage = 10;
+    async convertPDFToPng (reportLink) {
+      console.log('link ', reportLink)
+      const pageToConvertAsImage = 10
       const options = {
         density: 100,
         saveFilename: `compassReport_${pageToConvertAsImage}`,
@@ -63,31 +71,37 @@ module.exports = (on, config) => {
         format: 'png',
         width: 1240,
         height: 1754,
-      };
+      }
 
-      const storeAsImage = fromPath(pdfPath, options);
+      const reportLinkOptions = {
+        url: reportLink,
+        encoding: null
+      }
 
-      await storeAsImage(pageToConvertAsImage);
-      console.log(`Page ${pageToConvertAsImage} is now converted as image`);
-
-      return image1;
+      const pdfBuffer = Buffer.from(
+        await requestPdfBody(reportLinkOptions),
+        'utf8'
+      )
+      const storedImage = await fromBuffer(pdfBuffer, options)(pageToConvertAsImage)
+      console.log(`stored image of PDF report page ${pageToConvertAsImage}`, storedImage)
+      return storedImage.path
     },
 
-    async compareImage(actualImage) {
-      var imageComparisonResult;
-      console.log('------------Starting comparison---------------');
+    compareImage (actualImage) {
+      var imageComparisonResult
+      console.log('------------Starting comparison---------------')
       resemble(actualImage)
-        .compareTo(image2)
+        .compareTo(expectedImage)
         .ignoreAntialiasing()
         .onComplete((result) => {
-          imageComparisonResult = result;
-        });
-      console.log('------------Comparison done---------------------');
-      return imageComparisonResult;
+          imageComparisonResult = result
+        })
+      console.log('------------Comparison done---------------------')
+      return imageComparisonResult
     },
-  });
+  })
 
-  loadEnvvarsInConfig();
-  setBaseUrlBasedOnLanguage();
-  return config;
-};
+  loadEnvvarsInConfig()
+  setBaseUrlBasedOnLanguage()
+  return config
+}
