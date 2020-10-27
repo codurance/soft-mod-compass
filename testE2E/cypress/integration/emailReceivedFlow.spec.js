@@ -1,4 +1,4 @@
-const comparisonMismatchThreshold = 10
+const comparisonMismatchThreshold = 10;
 context('Email Received', () => {
   // it('should return a successful result', () => {
   //   cy.task('queryTestmail')
@@ -16,16 +16,16 @@ context('Email Received', () => {
 
   it('should return converted pdf as image', () => {
     cy.task('queryTestmail')
-      .then(reportLink => cy.task('convertPDFToPng', reportLink))
-      .then(convertedImage => cy.task('compareImage', convertedImage))
-      .then(imageComparisonResult => {
+      .then((reportLink) => cy.task('convertPDFToPng', reportLink))
+      .then((convertedImage) => cy.task('compareImage', convertedImage))
+      .then((imageComparisonResult) => {
         console.log(
           'mismatch percentage is ',
           imageComparisonResult.rawMisMatchPercentage
-        )
+        );
         expect(imageComparisonResult.rawMisMatchPercentage).to.lessThan(
           comparisonMismatchThreshold
-        )
-      })
-  })
-})
+        );
+      });
+  });
+});
