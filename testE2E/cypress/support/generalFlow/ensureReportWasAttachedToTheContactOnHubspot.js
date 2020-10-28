@@ -1,4 +1,4 @@
-const COMPASS_TEST_CONTACT_VID = 7680701;
+const COMPASS_TEST_CONTACT_VID = 8102001;
 
 const hubspotGet = (path, queryStringAsObject) => {
   return cy.request({
@@ -9,19 +9,30 @@ const hubspotGet = (path, queryStringAsObject) => {
 };
 
 const findEngagementCreatedByCompass = (results) => {
-  const engagementCreatedByCompass = results.find((result) => {
-    const isAssociatedWithCompassTestContact =
-      result.associations.contactIds[0] === COMPASS_TEST_CONTACT_VID;
-    const isCompassNote =
-      result.engagement.bodyPreview &&
-      result.engagement.bodyPreview.includes('Compass Report');
+  const resultIsAssociatedWithCompassTestContact = (result) =>
+    result.associations.contactIds[0] === COMPASS_TEST_CONTACT_VID;
 
-    return isAssociatedWithCompassTestContact && isCompassNote;
-  });
+  const resultIsACompassNote = (result) =>
+    result.engagement.bodyPreview &&
+    result.engagement.bodyPreview.includes('Compass Report');
+
+  const resultsAssociatedWithCompassTestContact = results.filter(
+    resultIsAssociatedWithCompassTestContact
+  );
+  if (resultsAssociatedWithCompassTestContact.length === 0) {
+    throw new Error(
+      'No engagement was associated with the Compass Test Contact.\n\n' +
+        "Did you maybe delete the 'compass-test@codurance.com' contact in Hubspot?\n" +
+        'If so just update the contact VID at the top of the file'
+    );
+  }
+  const engagementCreatedByCompass = resultsAssociatedWithCompassTestContact.find(
+    resultIsACompassNote
+  );
 
   if (!engagementCreatedByCompass) {
     throw new Error(
-      "Couldn't find an engagment created by Compass in the last 5 minutes"
+      "Couldn't find an engagment created by Compass in the last 5 minutes."
     );
   }
 
