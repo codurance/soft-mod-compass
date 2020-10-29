@@ -4,8 +4,7 @@ const comparisonMismatchThreshold = 10;
 context('Email Received', () => {
   before('given a survey filled in english', () => {
     cy.visit('/');
-    const survey = Survey();
-    survey
+    Survey()
       .fillSurveyWith('Strongly Agree', 'Hourly', 'Submit')
       .submitToReceiveReportAt('9cmtz.test@inbox.testmail.app');
     cy.wait(10000);

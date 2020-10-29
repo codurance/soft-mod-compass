@@ -39,7 +39,6 @@ module.exports = (on, config) => {
   }
 
   function setBaseUrlBasedOnLanguage() {
-    console.log('config urls...');
     if (config.env.langToTest === 'EN') {
       config.baseUrl = 'https://compass-en.codurance.io';
     } else if (config.env.langToTest === 'ES') {
