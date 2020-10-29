@@ -1,31 +1,43 @@
+const Survey = require('../support/fillSurvey');
 const comparisonMismatchThreshold = 10;
-context('Email Received', () => {
-  // it('should return a successful result', () => {
-  //   cy.task('queryTestmail')
-  //     .then(inbox => {
-  //       const data = JSON.parse(inbox)
-  //       expect(data.result).to.equal('success')
-  //     })
-  // })
-  //
-  // it('should return emails length greater than', () => {
-  //   cy.task('queryTestmail').then((mailBox) =>
-  //     expect(JSON.parse(mailBox).emails.length).to.be.greaterThan(0)
-  //   )
-  // })
 
-  it('should return converted pdf as image', () => {
-    cy.task('queryTestmail')
-      .then((reportLink) => cy.task('convertPDFToPng', reportLink))
-      .then((convertedImage) => cy.task('compareImage', convertedImage))
-      .then((imageComparisonResult) => {
-        console.log(
-          'mismatch percentage is ',
-          imageComparisonResult.rawMisMatchPercentage
-        );
-        expect(imageComparisonResult.rawMisMatchPercentage).to.lessThan(
-          comparisonMismatchThreshold
-        );
-      });
+context('Email Received', () => {
+  before('given a survey filled in english', () => {
+    cy.visit('/');
+    const survey = Survey();
+    survey
+      .fillSurveyWith('Strongly Agree', 'Hourly', 'Submit')
+      .submitToReceiveReportAt('9cmtz.test@inbox.testmail.app');
+    cy.wait(10000);
   });
+
+  it('should send email with pdf report in english', () => {
+    cy.task('queryTestmail').then((email) => {
+      assertLanguage(email);
+      comparePdfReport(email).then(assertComparisonIsSuccessful());
+    });
+  });
+
+  function assertLanguage(email) {
+    expect(email.subject).to.eq('Here is your Codurance Compass report');
+    expect(email.textFirstLine).to.eq('Your report expires in 30 days.\n');
+  }
+
+  function comparePdfReport(email) {
+    return cy
+      .task('convertPDFToPng', email.reportLink)
+      .then((convertedImage) => cy.task('compareImage', convertedImage));
+  }
+
+  function assertComparisonIsSuccessful() {
+    return (imageComparisonResult) => {
+      console.log(
+        'mismatch percentage is ',
+        imageComparisonResult.rawMisMatchPercentage
+      );
+      expect(imageComparisonResult.rawMisMatchPercentage).to.lessThan(
+        comparisonMismatchThreshold
+      );
+    };
+  }
 });

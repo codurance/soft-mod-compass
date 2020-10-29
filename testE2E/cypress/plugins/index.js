@@ -39,6 +39,7 @@ module.exports = (on, config) => {
   }
 
   function setBaseUrlBasedOnLanguage() {
+    console.log('config urls...');
     if (config.env.langToTest === 'EN') {
       config.baseUrl = 'https://compass-en.codurance.io';
     } else if (config.env.langToTest === 'ES') {
@@ -50,11 +51,16 @@ module.exports = (on, config) => {
     async queryTestmail() {
       const response = await requestPromise(TESTMAIL_ENDPOINT);
       const parsedResponse = JSON.parse(response);
-      const reportLink = parsedResponse.emails[0].text.match(
-        'https:\\/\\/compass-dev-en\\.s3\\.eu-west-1\\.amazonaws\\.com\\/compass-report-[a-zA-Z0-9-]+.pdf'
-      )[0];
-
-      return reportLink;
+      console.log('response from testmail', parsedResponse);
+      return {
+        reportLink: parsedResponse.emails[0].text.match(
+          'https:\\/\\/compass-dev-en\\.s3\\.eu-west-1\\.amazonaws\\.com\\/compass-report-[a-zA-Z0-9-]+.pdf'
+        )[0],
+        subject: parsedResponse.emails[0].subject,
+        textFirstLine: parsedResponse.emails[0].text.match(
+          'Your report expires in 30 days.\\n'
+        )[0],
+      };
     },
 
     async convertPDFToPng(reportLink) {
