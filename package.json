@@ -14,7 +14,6 @@
     "test": "jest && npm run lint",
     "test:tdd": "jest --watch",
     "test:e2e:dev:en": ". ./scripts/envvars-config-dev-EN.sh && cypress run --project testE2E",
-    "test:e2eEmailSpec:dev:en": ". ./scripts/envvars-config-dev-EN.sh && cypress run --project testE2E --spec testE2E/cypress/integration/emailReceivedFlow.spec.js",
     "test:e2e:dev:es": ". ./scripts/envvars-config-dev-ES.sh && cypress run --project testE2E",
     "test:e2eOpen:dev:en": ". ./scripts/envvars-config-dev-EN.sh && cypress open --project testE2E",
     "test:e2eOpen:dev:es": ". ./scripts/envvars-config-dev-ES.sh && cypress open --project testE2E",

@@ -16,15 +16,17 @@
  * @type {Cypress.PluginConfig}
  */
 const request = require('request');
-const { fromBuffer } = require('pdf2pic');
+const pdf2pic = require('pdf2pic');
 const requestPromise = require('request-promise');
 const resemble = require('resemblejs');
 const path = require('path');
 const saveFilePath = path.join(__dirname, '../support/images');
 const expectedImage = path.join(__dirname, '../support/images/expected.png');
-const TESTMAIL_ENDPOINT = `https://api.testmail.app/api/json?apikey=${process.env.TESTMAIL_APIKEY}&namespace=${process.env.TESTMAIL_NAMESPACE}`;
+const TESTMAIL_ENDPOINT = (tag) =>
+  `https://api.testmail.app/api/json?apikey=${process.env.TESTMAIL_APIKEY}&namespace=${process.env.TESTMAIL_NAMESPACE}&tag=${tag}&livequery=true`;
 
 function requestPdfBody(pdfOptions) {
+  // using request because of issue with requesting files : https://github.com/request/request-promise/issues/171
   return new Promise((resolve) => {
     request.get(pdfOptions, (err, res, body) => resolve(body));
   });
@@ -47,8 +49,9 @@ module.exports = (on, config) => {
   }
 
   on('task', {
-    async queryTestmail() {
-      const response = await requestPromise(TESTMAIL_ENDPOINT);
+    async queryTestmail(tag) {
+      console.log(`sending testmail query... tag : ${tag}`);
+      const response = await requestPromise(TESTMAIL_ENDPOINT(tag));
       const parsedResponse = JSON.parse(response);
       console.log('response from testmail', parsedResponse);
       return {
@@ -83,7 +86,7 @@ module.exports = (on, config) => {
         await requestPdfBody(reportLinkOptions),
         'utf8'
       );
-      const storedImage = await fromBuffer(
+      const storedImage = await pdf2pic.fromBuffer(
         pdfBuffer,
         options
       )(pageToConvertAsImage);
@@ -95,7 +98,7 @@ module.exports = (on, config) => {
     },
 
     compareImage(actualImage) {
-      var imageComparisonResult;
+      let imageComparisonResult;
       console.log('------------Starting comparison---------------');
       resemble(actualImage)
         .compareTo(expectedImage)

@@ -1,21 +1,24 @@
 const Survey = require('../support/fillSurvey');
+const generateUuid = require('uuid/v4');
 const comparisonMismatchThreshold = 10;
 
 context('Email Received', () => {
-  before('given a survey filled in english', () => {
-    cy.visit('/');
-    Survey()
-      .fillSurveyWith('Strongly Agree', 'Hourly', 'Submit')
-      .submitToReceiveReportAt('9cmtz.test@inbox.testmail.app');
-    cy.wait(10000);
-  });
-
-  it('should send email with pdf report in english', () => {
-    cy.task('queryTestmail').then((email) => {
-      assertLanguage(email);
-      comparePdfReport(email).then(assertComparisonIsSuccessful());
+  if (Cypress.env('langToTest') === 'EN') {
+    const randomTag = generateUuid();
+    before('given a survey filled in english', () => {
+      cy.visit('/');
+      Survey()
+        .fillSurveyWith('Strongly Agree', 'Hourly', 'Submit')
+        .submitToReceiveReportAt(`9cmtz.${randomTag}@inbox.testmail.app`);
     });
-  });
+
+    it('should send email with pdf report in english', () => {
+      cy.task('queryTestmail', randomTag).then((email) => {
+        assertLanguage(email);
+        comparePdfReport(email).then(assertComparisonIsSuccessful());
+      });
+    });
+  }
 
   function assertLanguage(email) {
     expect(email.subject).to.eq('Here is your Codurance Compass report');
