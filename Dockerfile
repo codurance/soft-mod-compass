@@ -17,6 +17,8 @@ RUN apt-get update \
      fonts-kacst \
      fonts-freefont-ttf \
      libxss1 \
+#     missing lib for pupeteer
+     libxtst6 \
      --no-install-recommends \
    && rm -rf /var/lib/apt/lists/*
 
