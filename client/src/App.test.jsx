@@ -4,24 +4,32 @@ import App from './App';
 
 describe('app', () => {
   it('should display the first question', () => {
-    const app = render(<App />);
+    const { getByText } = render(<App />);
     expect(
-      app.getByText('Decision making for IT product and projects is based on what will carry the most value for the business.This question is required.'),
+      getByText('Decision making for IT product and projects is based on what will carry the most value for the business.This question is required.'),
     ).toBeInTheDocument();
     expect(
-      app.getByText('Strongly Agree'),
+      getByText('Strongly Agree'),
     ).toBeInTheDocument();
     expect(
-      app.getByText('Agree'),
+      getByText('Agree'),
     ).toBeInTheDocument();
     expect(
-      app.getByText('Neither Agree Nor Disagree'),
+      getByText('Neither Agree Nor Disagree'),
     ).toBeInTheDocument();
     expect(
-      app.getByText('Disagree'),
+      getByText('Disagree'),
     ).toBeInTheDocument();
     expect(
-      app.getByText('Strongly Disagree'),
+      getByText('Strongly Disagree'),
     ).toBeInTheDocument();
+  });
+  it('should display checked element when click answer', () => {
+    const { getByText } = render(<App />);
+    getByText('Strongly Agree').click();
+    expect(getByText('Strongly Agree')).toHaveClass('selected');
+    getByText('Agree').click();
+    expect(getByText('Strongly Agree')).not.toHaveClass('selected');
+    expect(getByText('Agree')).toHaveClass('selected');
   });
 });
