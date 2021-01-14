@@ -2,7 +2,7 @@
   "name": "client",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "src/index.jsx",
   "babel": {
     "presets": [
       "@babel/preset-env",
@@ -10,9 +10,11 @@
     ]
   },
   "scripts": {
-    "start": "webpack-dev-server --open",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "create": "webpack"
+    "start": "webpack serve",
+    "test": "jest",
+    "create": "webpack",
+    "prettify" :"npx prettier --write .",
+    "lint": "npx eslint src"
   },
   "keywords": [],
   "author": "",
@@ -24,8 +26,15 @@
     "@testing-library/react": "^11.2.3",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "html-webpack-plugin": "^4.5.1",
     "jest": "^26.6.3",
+    "prettier": "^2.2.1",
     "style-loader": "^2.0.0",
     "webpack": "^5.13.0",
     "webpack-cli": "^4.3.1",
