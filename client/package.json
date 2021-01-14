@@ -13,7 +13,7 @@
     "start": "webpack serve",
     "test": "jest",
     "create": "webpack",
-    "prettify" :"npx prettier --write .",
+    "prettify": "npx prettier --write .",
     "lint": "npx eslint src"
   },
   "keywords": [],
@@ -34,6 +34,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "html-webpack-plugin": "^4.5.1",
     "jest": "^26.6.3",
+    "nock": "^13.0.5",
     "prettier": "^2.2.1",
     "style-loader": "^2.0.0",
     "webpack": "^5.13.0",
