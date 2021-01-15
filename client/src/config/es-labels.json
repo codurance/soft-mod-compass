@@ -1,7 +1,7 @@
 {
   "stronglyAgree": "Totalement de acuerdo",
   "agree": "de acuerdo",
-  "neitherAgree": "Neither Agree Nor Disagree",
+  "neitherAgree": "Ni acuerdo ni en desacuerdo",
   "disagree": "No estoy de acuerdo",
-  "stronglyDisagree": "Strongly Disagree"
+  "stronglyDisagree": "Muy en desacuerdo"
 }

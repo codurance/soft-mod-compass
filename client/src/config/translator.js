@@ -4,4 +4,5 @@ import enLang from './en-labels.json';
 // if (window.location.pathname === '/es') translator = esLang;
 // else translator = enLang;
 
-module.exports = enLang;
+// module.exports = enLang;
+export default enLang;
