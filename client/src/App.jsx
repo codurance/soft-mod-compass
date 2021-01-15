@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import surveyConfig from './config/surveyModel.json';
+import translator from './config/translator';
 
 function App() {
   const [state, setState] = useState();
@@ -11,17 +13,30 @@ function App() {
     if (answer === state) return 'selected';
     return '';
   };
+
+  function renderAnswers() {
+    return surveyConfig.answers.map(
+      (answer) => (
+        <button
+          key={answer.label}
+          type="button"
+          value={translator[answer.label]}
+          className={getSelectedClass(translator[answer.label])}
+          onClick={handleChoseAnswer}
+        >
+          {translator[answer.label]}
+        </button>
+      ),
+    );
+  }
+
   return (
     <div>
       <span>
         Decision making for IT product and projects is
         based on what will carry the most value for the business.This question is required.
       </span>
-      <button type="button" value="Strongly Agree" className={getSelectedClass('Strongly Agree')} onClick={handleChoseAnswer}>Strongly Agree</button>
-      <button type="button" value="Agree" className={getSelectedClass('Agree')} onClick={handleChoseAnswer}>Agree</button>
-      <button type="button">Neither Agree Nor Disagree</button>
-      <button type="button">Disagree</button>
-      <button type="button">Strongly Disagree</button>
+      {renderAnswers()}
     </div>
   );
 }

@@ -1,6 +1,13 @@
 import { render } from '@testing-library/react';
 import React from 'react';
+import each from 'jest-each';
 import App from './App';
+
+const stronglyAgree = 'Strongly Agree';
+const Agree = 'Agree';
+const NeitherAgree = 'Neither Agree Nor Disagree';
+const Disagree = 'Disagree';
+const StronglyDisagree = 'Strongly Disagree';
 
 describe('app', () => {
   it('should display the first question', () => {
@@ -9,27 +16,46 @@ describe('app', () => {
       getByText('Decision making for IT product and projects is based on what will carry the most value for the business.This question is required.'),
     ).toBeInTheDocument();
     expect(
-      getByText('Strongly Agree'),
+      getByText(stronglyAgree),
     ).toBeInTheDocument();
     expect(
-      getByText('Agree'),
+      getByText(Agree),
     ).toBeInTheDocument();
     expect(
-      getByText('Neither Agree Nor Disagree'),
+      getByText(NeitherAgree),
     ).toBeInTheDocument();
     expect(
-      getByText('Disagree'),
+      getByText(Disagree),
     ).toBeInTheDocument();
     expect(
-      getByText('Strongly Disagree'),
+      getByText(StronglyDisagree),
     ).toBeInTheDocument();
   });
-  it('should display checked element when click answer', () => {
+
+  const answerTable = [
+    stronglyAgree,
+    Agree,
+    NeitherAgree,
+    Disagree,
+    StronglyDisagree,
+  ];
+  each([
+    [stronglyAgree, answerTable],
+    [Agree, answerTable],
+    [NeitherAgree, answerTable],
+    [Disagree, answerTable],
+    [StronglyDisagree, answerTable],
+  ]).it("when the answer is '%s'", (selectedAnswer, answers) => {
     const { getByText } = render(<App />);
-    getByText('Strongly Agree').click();
-    expect(getByText('Strongly Agree')).toHaveClass('selected');
-    getByText('Agree').click();
-    expect(getByText('Strongly Agree')).not.toHaveClass('selected');
-    expect(getByText('Agree')).toHaveClass('selected');
+    getByText(selectedAnswer).click();
+    answers.forEach((answer) => {
+      if (selectedAnswer === answer) {
+        expect(getByText(answer))
+          .toHaveClass('selected');
+      } else {
+        expect(getByText(answer))
+          .not.toHaveClass('selected');
+      }
+    });
   });
 });

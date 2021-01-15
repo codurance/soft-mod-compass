@@ -1,0 +1,9 @@
+{
+  "answers" : [
+    {"label" : "stronglyAgree"},
+    {"label" : "agree"},
+    {"label" : "neitherAgree"},
+    {"label" : "disagree"},
+    {"label" : "stronglyDisagree"}
+  ]
+}
