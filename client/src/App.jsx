@@ -26,7 +26,9 @@ function App() {
   };
 
   const handleSubmit = () => {
-    submitSurvey({ foo: 'foo' });
+    const data = { ...textFields };
+    data.answer = state;
+    submitSurvey(data);
   };
 
   function renderAnswers() {
