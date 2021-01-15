@@ -11,9 +11,21 @@ const userFirstName = 'FIRSTNAME';
 const userLastName = 'LASTNAME';
 const userCompany = 'COMPANY';
 const userEmail = 'user@mail.com';
+const optionAnswer = 'Strongly Agree';
 const successfulResponseFromBackend = { status: 'ok' };
 const REPORT_BACKEND_URL = 'compass.codurance.io';
 const SUBMIT_SURVEY_URI = '/surveys';
+const firstPassedArgumentOf = (mockedFunction) =>
+  mockedFunction.mock.calls[0][0];
+const sendedData = {
+  firstName: userFirstName,
+  lastName: userLastName,
+  companyName: userCompany,
+  email: userEmail,
+  answer: optionAnswer,
+};
+const spy = jest.spyOn(reportService, 'submitSurvey');
+
 /*
 Given a user load compass survey
 When the user choose "Strongly Agree" in the question
@@ -28,7 +40,7 @@ describe('acceptance test', () => {
   it('should submit information about the survey', () => {
     const { getByText, getByLabelText } = render(<App />);
     // when I fill the survey and click on submit
-    const answerChoice = getByText('Strongly Agree');
+    const answerChoice = getByText(optionAnswer);
     fireEvent.click(answerChoice);
 
     const inputFirstName = getByLabelText('First Name');
@@ -43,11 +55,12 @@ describe('acceptance test', () => {
     const inputEmail = getByLabelText('Email');
     fireEvent.change(inputEmail, { target: { value: userEmail } });
 
-    const button = getByText('submit');
+    const button = getByText('Submit');
     fireEvent.click(button);
 
     // then
-    const spy = jest.spyOn(reportService, 'submitSurvey');
+    const data = firstPassedArgumentOf(spy);
+    expect(data).toEqual(sendedData);
     expect(spy).toReturnWith(Promise.resolve(successfulResponseFromBackend));
   });
 });
