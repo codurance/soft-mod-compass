@@ -13,23 +13,15 @@ describe('app', () => {
   it('should display the first question', () => {
     const { getByText } = render(<App />);
     expect(
-      getByText('Decision making for IT product and projects is based on what will carry the most value for the business.This question is required.'),
+      getByText(
+        'Decision making for IT product and projects is based on what will carry the most value for the business.This question is required.'
+      )
     ).toBeInTheDocument();
-    expect(
-      getByText(stronglyAgree),
-    ).toBeInTheDocument();
-    expect(
-      getByText(Agree),
-    ).toBeInTheDocument();
-    expect(
-      getByText(NeitherAgree),
-    ).toBeInTheDocument();
-    expect(
-      getByText(Disagree),
-    ).toBeInTheDocument();
-    expect(
-      getByText(StronglyDisagree),
-    ).toBeInTheDocument();
+    expect(getByText(stronglyAgree)).toBeInTheDocument();
+    expect(getByText(Agree)).toBeInTheDocument();
+    expect(getByText(NeitherAgree)).toBeInTheDocument();
+    expect(getByText(Disagree)).toBeInTheDocument();
+    expect(getByText(StronglyDisagree)).toBeInTheDocument();
   });
 
   const answerTable = [
@@ -50,11 +42,9 @@ describe('app', () => {
     getByText(selectedAnswer).click();
     answers.forEach((answer) => {
       if (selectedAnswer === answer) {
-        expect(getByText(answer))
-          .toHaveClass('selected');
+        expect(getByText(answer)).toHaveClass('selected');
       } else {
-        expect(getByText(answer))
-          .not.toHaveClass('selected');
+        expect(getByText(answer)).not.toHaveClass('selected');
       }
     });
   });
