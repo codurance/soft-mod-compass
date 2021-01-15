@@ -1,13 +1,11 @@
-import { render } from '@testing-library/react';
-import React from 'react';
+import { describe, expect, it, jest } from '@jest/globals';
 import { fireEvent } from '@testing-library/dom';
-import {
-  describe, it, jest, expect,
-} from '@jest/globals';
+import { render } from '@testing-library/react';
 import nock from 'nock';
-import reportService from './services/reportService';
+import React from 'react';
 import App from './App';
 import payloadRequest from './mockdata/post_survey_request_body.json';
+import reportService from './services/reportService';
 
 const userFirstName = 'FIRSTNAME';
 const userLastName = 'LASTNAME';
@@ -25,9 +23,7 @@ Then the following POST request should be sent (look json file attached)
 Then the user is redirected to thank you page
  */
 describe('acceptance test', () => {
-  nock(REPORT_BACKEND_URL)
-    .post(SUBMIT_SURVEY_URI, payloadRequest)
-    .reply(201);
+  nock(REPORT_BACKEND_URL).post(SUBMIT_SURVEY_URI, payloadRequest).reply(201);
 
   it('should submit information about the survey', () => {
     const { getByText, getByLabelText } = render(<App />);
@@ -35,16 +31,16 @@ describe('acceptance test', () => {
     const answerChoice = getByText('Strongly Agree');
     fireEvent.click(answerChoice);
 
-    const inputFirstName = getByText('firstName');
+    const inputFirstName = getByLabelText('First Name');
     fireEvent.change(inputFirstName, { target: { value: userFirstName } });
 
-    const inputLastName = getByLabelText('lastName');
+    const inputLastName = getByLabelText('Last Name');
     fireEvent.change(inputLastName, { target: { value: userLastName } });
 
-    const inputCompany = getByLabelText('company');
+    const inputCompany = getByLabelText('Company Name');
     fireEvent.change(inputCompany, { target: { value: userCompany } });
 
-    const inputEmail = getByLabelText('email');
+    const inputEmail = getByLabelText('Email');
     fireEvent.change(inputEmail, { target: { value: userEmail } });
 
     const button = getByText('submit');
