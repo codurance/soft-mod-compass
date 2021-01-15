@@ -3,6 +3,7 @@ import React from 'react';
 import each from 'jest-each';
 import { fireEvent } from '@testing-library/dom';
 import App from './App';
+import reportService from './services/reportService';
 
 const stronglyAgree = 'Strongly Agree';
 const Agree = 'Agree';
@@ -67,4 +68,19 @@ describe('app', () => {
       expect(inputFirstName.value).toBe(expectedTextValue);
     }
   );
+
+  it('should display the submit button', () => {
+    const { getByText } = render(<App />);
+    expect(getByText('Submit')).toBeInTheDocument();
+  });
+
+  it('should call submitServey with the data', () => {
+    const { getByText } = render(<App />);
+    const spy = jest
+      .spyOn(reportService, 'submitSurvey')
+      .mockImplementation((payload) => {});
+
+    getByText('Submit').click();
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
 });

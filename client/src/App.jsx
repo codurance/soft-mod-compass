@@ -3,6 +3,7 @@ import AnswerButton from './components/AnswerButton';
 import surveyConfig from './config/surveyModel.json';
 import translator from './config/translator';
 import InputText from './components/InputText';
+import { submitSurvey } from './services/reportService';
 
 const initialTextFieldsState = {
   firstName: '',
@@ -18,6 +19,16 @@ function App() {
     setState(event.target.value);
   };
 
+  const handleChangeText = (fieldName) => (event) => {
+    const copy = { ...textFields };
+    copy[fieldName] = event.target.value;
+    setTextFields(copy);
+  };
+
+  const handleSubmit = () => {
+    submitSurvey({ foo: 'foo' });
+  };
+
   function renderAnswers() {
     return surveyConfig.answers.map((answer) => (
       <AnswerButton
@@ -28,12 +39,6 @@ function App() {
       />
     ));
   }
-
-  const handleChangeText = (fieldName) => (event) => {
-    const copy = { ...textFields };
-    copy[fieldName] = event.target.value;
-    setTextFields(copy);
-  };
 
   return (
     <div>
@@ -62,6 +67,9 @@ function App() {
         onChangeCallBack={handleChangeText('email')}
         label="Email"
       />
+      <button type="submit" onClick={handleSubmit}>
+        Submit
+      </button>
     </div>
   );
 }
