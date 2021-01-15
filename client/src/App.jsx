@@ -6,6 +6,9 @@ import InputText from './components/InputText';
 
 const initialTextFieldsState = {
   firstName: '',
+  lastName: '',
+  companyName: '',
+  email: '',
 };
 function App() {
   const [state, setState] = useState('');
@@ -26,10 +29,10 @@ function App() {
     ));
   }
 
-  const handleChangeText = (event) => {
-    setTextFields(
-      { ...textFields, firstName: event.target.value },
-    );
+  const handleChangeText = (fieldName) => (event) => {
+    const copy = { ...textFields };
+    copy[fieldName] = event.target.value;
+    setTextFields(copy);
   };
 
   return (
@@ -39,7 +42,26 @@ function App() {
         the most value for the business.This question is required.
       </span>
       {renderAnswers()}
-      <InputText textValue={textFields.firstName} onChangeCallBack={handleChangeText} />
+      <InputText
+        textValue={textFields.firstName}
+        onChangeCallBack={handleChangeText('firstName')}
+        label="First Name"
+      />
+      <InputText
+        textValue={textFields.lastName}
+        onChangeCallBack={handleChangeText('lastName')}
+        label="Last Name"
+      />
+      <InputText
+        textValue={textFields.companyName}
+        onChangeCallBack={handleChangeText('companyName')}
+        label="Company Name"
+      />
+      <InputText
+        textValue={textFields.email}
+        onChangeCallBack={handleChangeText('email')}
+        label="Email"
+      />
     </div>
   );
 }
