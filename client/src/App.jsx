@@ -2,9 +2,14 @@ import React, { useState } from 'react';
 import AnswerButton from './components/AnswerButton';
 import surveyConfig from './config/surveyModel.json';
 import translator from './config/translator';
+import InputText from './components/InputText';
 
+const initialTextFieldsState = {
+  firstName: '',
+};
 function App() {
   const [state, setState] = useState('');
+  const [textFields, setTextFields] = useState(initialTextFieldsState);
 
   const handleChoseAnswer = (event) => {
     setState(event.target.value);
@@ -21,6 +26,12 @@ function App() {
     ));
   }
 
+  const handleChangeText = (event) => {
+    setTextFields(
+      { ...textFields, firstName: event.target.value },
+    );
+  };
+
   return (
     <div>
       <span>
@@ -28,6 +39,7 @@ function App() {
         the most value for the business.This question is required.
       </span>
       {renderAnswers()}
+      <InputText textValue={textFields.firstName} onChangeCallBack={handleChangeText} />
     </div>
   );
 }

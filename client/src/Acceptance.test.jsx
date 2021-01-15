@@ -35,7 +35,7 @@ describe('acceptance test', () => {
     const answerChoice = getByText('Strongly Agree');
     fireEvent.click(answerChoice);
 
-    const inputFirstName = getByLabelText('firstName');
+    const inputFirstName = getByText('firstName');
     fireEvent.change(inputFirstName, { target: { value: userFirstName } });
 
     const inputLastName = getByLabelText('lastName');
