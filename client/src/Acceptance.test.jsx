@@ -22,7 +22,10 @@ const sendedData = {
   lastName: userLastName,
   companyName: userCompany,
   email: userEmail,
-  answer: optionAnswer,
+  answer: {
+    label :optionAnswer,
+    score : 40
+  }
 };
 const spy = jest.spyOn(reportService, 'submitSurvey');
 

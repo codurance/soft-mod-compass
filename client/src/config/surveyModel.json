@@ -1,9 +1,24 @@
 {
-  "answers" : [
-    {"label" : "stronglyAgree"},
-    {"label" : "agree"},
-    {"label" : "neitherAgree"},
-    {"label" : "disagree"},
-    {"label" : "stronglyDisagree"}
-  ]
+  "answers": [
+    {
+      "label": "stronglyAgree"
+    },
+    {
+      "label": "agree"
+    },
+    {
+      "label": "neitherAgree"
+    },
+    {
+      "label": "disagree"
+    },
+    {
+      "label": "stronglyDisagree"
+    }
+  ],
+  "firstNameLabel": "firstName",
+  "lastNameLabel": "lastName",
+  "companyLabel": "companyName",
+  "emailLabel": "email",
+  "submitLabel": "submit"
 }

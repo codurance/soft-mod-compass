@@ -1,0 +1,10 @@
+{
+  "firstName": "FIRSTNAME",
+  "lastName": "LASTNAME",
+  "companyName": "COMPANY",
+  "email": "user@mail.com",
+  "answer": {
+    "label": "Strongly Agree",
+    "score": 100
+  }
+}

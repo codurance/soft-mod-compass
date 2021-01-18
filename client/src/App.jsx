@@ -52,25 +52,25 @@ function App() {
       <InputText
         textValue={textFields.firstName}
         onChangeCallBack={handleChangeText('firstName')}
-        label="First Name"
+        label={translator[surveyConfig.firstNameLabel]}
       />
       <InputText
         textValue={textFields.lastName}
         onChangeCallBack={handleChangeText('lastName')}
-        label="Last Name"
+        label={translator[surveyConfig.lastNameLabel]}
       />
       <InputText
         textValue={textFields.companyName}
         onChangeCallBack={handleChangeText('companyName')}
-        label="Company Name"
+        label={translator[surveyConfig.companyLabel]}
       />
       <InputText
         textValue={textFields.email}
         onChangeCallBack={handleChangeText('email')}
-        label="Email"
+        label={translator[surveyConfig.emailLabel]}
       />
       <button type="submit" onClick={handleSubmit}>
-        Submit
+        {translator[surveyConfig.submitLabel]}
       </button>
     </div>
   );

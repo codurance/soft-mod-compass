@@ -3,5 +3,10 @@
   "agree": "de acuerdo",
   "neitherAgree": "Ni acuerdo ni en desacuerdo",
   "disagree": "No estoy de acuerdo",
-  "stronglyDisagree": "Muy en desacuerdo"
+  "stronglyDisagree": "Muy en desacuerdo",
+  "firstName": "Nombre",
+  "lastName": "Apellido",
+  "companyName": "Nombre de la empresa",
+  "email": "Email",
+  "submit": "Enviar"
 }

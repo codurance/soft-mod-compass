@@ -1,7 +1,12 @@
 {
-"stronglyAgree" : "Strongly Agree",
-"agree" : "Agree",
-"neitherAgree" : "Neither Agree Nor Disagree",
-"disagree" : "Disagree",
-"stronglyDisagree" : "Strongly Disagree"
+  "stronglyAgree": "Strongly Agree",
+  "agree": "Agree",
+  "neitherAgree": "Neither Agree Nor Disagree",
+  "disagree": "Disagree",
+  "stronglyDisagree": "Strongly Disagree",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "companyName": "Company Name",
+  "email": "Email",
+  "submit": "Submit"
 }
