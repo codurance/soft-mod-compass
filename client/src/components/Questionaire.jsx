@@ -37,6 +37,6 @@ function Questionnaire({ initialState, handleQuestionnaire }) {
 export default Questionnaire;
 
 Questionnaire.propTypes = {
-  initialState: PropTypes.objectOf(PropTypes.string.isRequired).isRequired,
+  initialState: PropTypes.objectOf(PropTypes.any.isRequired).isRequired,
   handleQuestionnaire: PropTypes.func.isRequired,
 };
