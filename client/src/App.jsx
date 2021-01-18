@@ -5,6 +5,7 @@ import InputText from './components/InputText';
 import reportService from './services/reportService';
 import Questionnaire from './components/Questionaire';
 import UserForm from './components/UserForm';
+import Welcome from './components/Welcome';
 
 const initialTextFieldsState = {
   firstName: '',
@@ -37,6 +38,7 @@ function App() {
 
   return (
     <div>
+      <Welcome />
       <Questionnaire
         initialState={questionnaire}
         handleQuestionnaire={updateQuestionnaire}

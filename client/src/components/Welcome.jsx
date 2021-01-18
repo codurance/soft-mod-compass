@@ -1,14 +1,11 @@
 import React from 'react';
-import {
-  welcomeFirstParagraph,
-  welcomeSecondParagraph,
-} from '../config/en-labels.json';
+import translator from '../config/translator';
 
 function Welcome() {
   return (
     <>
-      <p>{welcomeFirstParagraph}</p>
-      <p>{welcomeSecondParagraph}</p>
+      <p>{translator.welcomeFirstParagraph}</p>
+      <p>{translator.welcomeSecondParagraph}</p>
     </>
   );
 }
