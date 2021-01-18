@@ -1,4 +1,6 @@
 import fetch from 'node-fetch';
+import config from '../config/config';
+
 export default {
   submitSurvey(surveyData) {
     const bodyPayload = {
@@ -116,7 +118,7 @@ export default {
         },
       },
     };
-    return fetch('http://fake-report.com/surveys', {
+    return fetch(`${config.reportServerBaseUrl}/surveys`, {
       method: 'POST',
       body: JSON.stringify(bodyPayload),
       headers: { 'Content-Type': 'application/json' },

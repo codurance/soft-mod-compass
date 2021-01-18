@@ -6,14 +6,15 @@ import React from 'react';
 import App from './App';
 import payloadRequest from './mockdata/post_survey_request_body.json';
 import reportService from './services/reportService';
+import config from './config/config';
 
-const userFirstName = 'FIRSTNAME';
-const userLastName = 'LASTNAME';
-const userCompany = 'COMPANY';
-const userEmail = 'user@mail.com';
+const userFirstName = 'First Name';
+const userLastName = 'Last Name';
+const userCompany = 'Some Company';
+const userEmail = 'user@company.com';
 const optionAnswer = 'Strongly Agree';
 const successfulResponseFromBackend = { status: 'ok' };
-const REPORT_BACKEND_URL = 'http://fake-report.com';
+config.reportServerBaseUrl = 'http://fake-report.com';
 const SUBMIT_SURVEY_URI = '/surveys';
 const firstPassedArgumentOf = (mockedFunction) =>
   mockedFunction.mock.calls[0][0];
@@ -23,11 +24,13 @@ const sentData = {
   companyName: userCompany,
   email: userEmail,
   answer: {
-    label :'stronglyAgree',
-    score : 100
-  }
+    label: 'stronglyAgree',
+    score: 100,
+  },
 };
-const spy = jest.spyOn(reportService, 'submitSurvey');
+const submitSurveySpy = jest.spyOn(reportService, 'submitSurvey');
+
+const returnFromAsync = (spy) => spy.mock.results[0].value;
 
 /*
 Given a user load compass survey
@@ -38,9 +41,11 @@ Then the following POST request should be sent (look json file attached)
 Then the user is redirected to thank you page
  */
 describe('acceptance test', () => {
-  nock(REPORT_BACKEND_URL).post(SUBMIT_SURVEY_URI, payloadRequest).reply(201);
+  nock(config.reportServerBaseUrl)
+    .post(SUBMIT_SURVEY_URI, payloadRequest)
+    .reply(201);
 
-  it('should submit information about the survey', () => {
+  it('should submit information about the survey', async () => {
     const { getByText, getByLabelText } = render(<App />);
     // when I fill the survey and click on submit
     const answerChoice = getByText(optionAnswer);
@@ -62,8 +67,9 @@ describe('acceptance test', () => {
     fireEvent.click(button);
 
     // then
-    const data = firstPassedArgumentOf(spy);
+    const data = firstPassedArgumentOf(submitSurveySpy);
     expect(data).toEqual(sentData);
-    expect(spy).toReturnWith(Promise.resolve(successfulResponseFromBackend));
+    const result = await returnFromAsync(submitSurveySpy);
+    expect(result).toEqual(successfulResponseFromBackend);
   });
 });
