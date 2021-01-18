@@ -47,7 +47,7 @@ describe('AnswerButton', () => {
     const { getByText } = render(
       <AnswerButton
         answer={answerValue}
-        selectedAnswer=""
+        selectedAnswer={true}
         clickCallback={clickCallback}
       />
     );

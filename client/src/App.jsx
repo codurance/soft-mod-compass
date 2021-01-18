@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import AnswerButton from './components/AnswerButton';
 import surveyConfig from './config/surveyModel.json';
 import translator from './config/translator';
 import InputText from './components/InputText';
 import reportService from './services/reportService';
+import Questionnaire from './components/Questionaire';
 
 const initialTextFieldsState = {
   firstName: '',
@@ -13,16 +13,12 @@ const initialTextFieldsState = {
 };
 const initialAnswerState = {
   label: '',
-  score: ''
-}
+  score: '',
+};
 
 function App() {
-  const [state, setState] = useState(initialAnswerState);
   const [textFields, setTextFields] = useState(initialTextFieldsState);
-
-  const handleChoseAnswer = (answer) => {
-    setState(answer);
-  };
+  const [questionnaire, setQuestionnaire] = useState(initialAnswerState);
 
   const handleChangeText = (fieldName) => (event) => {
     const copy = { ...textFields };
@@ -32,28 +28,20 @@ function App() {
 
   const handleSubmit = () => {
     const data = { ...textFields };
-    data.answer = state;
+    data.answer = questionnaire;
     reportService.submitSurvey(data);
   };
 
-  function renderAnswers() {
-    return surveyConfig.answers.map((answer) => (
-      <AnswerButton
-        key={answer.label}
-        clickCallback={() => handleChoseAnswer(answer)}
-        answer={translator[answer.label]}
-        selectedAnswer={answer === state}
-      />
-    ));
-  }
+  const updateQuestionnaire = (answer) => {
+    setQuestionnaire(answer);
+  };
 
   return (
     <div>
-      <span>
-        Decision making for IT product and projects is based on what will carry
-        the most value for the business.This question is required.
-      </span>
-      {renderAnswers()}
+      <Questionnaire
+        initialState={questionnaire}
+        handleQuestionnaire={updateQuestionnaire}
+      />
       <InputText
         textValue={textFields.firstName}
         onChangeCallBack={handleChangeText('firstName')}
