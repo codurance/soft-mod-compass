@@ -4,6 +4,7 @@ import translator from './config/translator';
 import InputText from './components/InputText';
 import reportService from './services/reportService';
 import Questionnaire from './components/Questionaire';
+import UserForm from './components/UserForm';
 
 const initialTextFieldsState = {
   firstName: '',
@@ -20,10 +21,8 @@ function App() {
   const [textFields, setTextFields] = useState(initialTextFieldsState);
   const [questionnaire, setQuestionnaire] = useState(initialAnswerState);
 
-  const handleChangeText = (fieldName) => (event) => {
-    const copy = { ...textFields };
-    copy[fieldName] = event.target.value;
-    setTextFields(copy);
+  const updateUserForm = (data) => {
+    setTextFields(data);
   };
 
   const handleSubmit = () => {
@@ -42,26 +41,7 @@ function App() {
         initialState={questionnaire}
         handleQuestionnaire={updateQuestionnaire}
       />
-      <InputText
-        textValue={textFields.firstName}
-        onChangeCallBack={handleChangeText('firstName')}
-        label={translator[surveyConfig.firstNameLabel]}
-      />
-      <InputText
-        textValue={textFields.lastName}
-        onChangeCallBack={handleChangeText('lastName')}
-        label={translator[surveyConfig.lastNameLabel]}
-      />
-      <InputText
-        textValue={textFields.companyName}
-        onChangeCallBack={handleChangeText('companyName')}
-        label={translator[surveyConfig.companyLabel]}
-      />
-      <InputText
-        textValue={textFields.email}
-        onChangeCallBack={handleChangeText('email')}
-        label={translator[surveyConfig.emailLabel]}
-      />
+      <UserForm initialState={textFields} updateUserForm={updateUserForm} />
       <button type="submit" onClick={handleSubmit}>
         {translator[surveyConfig.submitLabel]}
       </button>

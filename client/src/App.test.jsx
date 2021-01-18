@@ -1,7 +1,6 @@
 import { render } from '@testing-library/react';
-import React from 'react';
 import each from 'jest-each';
-import { fireEvent } from '@testing-library/dom';
+import React from 'react';
 import App from './App';
 import reportService from './services/reportService';
 
@@ -26,56 +25,12 @@ describe('app', () => {
     expect(getByText(StronglyDisagree)).toBeInTheDocument();
   });
 
-  const answerTable = [
-    stronglyAgree,
-    Agree,
-    NeitherAgree,
-    Disagree,
-    StronglyDisagree,
-  ];
-  each([
-    [stronglyAgree, answerTable],
-    [Agree, answerTable],
-    [NeitherAgree, answerTable],
-    [Disagree, answerTable],
-    [StronglyDisagree, answerTable],
-  ]).it("given an answer '%s' ," +
-    " only that one should be selected", (selectedAnswer, answers) => {
-    const { getByText } = render(<App />);
-    getByText(selectedAnswer).click();
-    answers.forEach((answer) => {
-      if (selectedAnswer === answer) {
-        expect(getByText(answer)).toHaveClass('selected');
-      } else {
-        expect(getByText(answer)).not.toHaveClass('selected');
-      }
-    });
-  });
-
-  each([
-    ['First Name', 'Alice'],
-    ['Last Name', 'Cooper'],
-    ['Company Name', 'Codurance'],
-    ['Email', 'alice.cooper@codurance.com'],
-  ]).it(
-    'should change the text value of the firstname input field when the firstname field is changed',
-    (labelName, expectedTextValue) => {
-      const { getByLabelText } = render(<App />);
-      const inputFirstName = getByLabelText(labelName);
-      expect(inputFirstName.value).not.toBe(expectedTextValue);
-      fireEvent.change(inputFirstName, {
-        target: { value: expectedTextValue },
-      });
-      expect(inputFirstName.value).toBe(expectedTextValue);
-    }
-  );
-
   it('should display the submit button', () => {
     const { getByText } = render(<App />);
     expect(getByText('Submit')).toBeInTheDocument();
   });
 
-  it('should call submitSurvey with the data', () => {
+  it('should call submitSurvey service', () => {
     const { getByText } = render(<App />);
     const spy = jest
       .spyOn(reportService, 'submitSurvey')
@@ -83,4 +38,6 @@ describe('app', () => {
     getByText('Submit').click();
     expect(spy).toHaveBeenCalledTimes(1);
   });
+
+  // TODO CREATE A TEST FOR MOCKED COMPONENTS
 });
