@@ -1,129 +1,129 @@
-import request from 'request-promise'
-
-export const submitSurvey = (surveyData) => {
-  const bodyPayload = {
-    user: {
-      firstName: surveyData.firstName,
-      lastName: surveyData.lastName,
-      company: surveyData.companyName,
-      email: surveyData.email
-    },
-    categories: {
-      organisationalMaturity: {
-        score: 75,
-        subcategories: {
-          devSecOps: {
-            score: surveyData.answer.score,
-            answer: surveyData.answer.label
-          },
-          deliveringValue: {
-            score: 60,
-            answer: 'Neither Agree Nor Disagree'
-          },
-          technicalDebt: {
-            score: 80,
-            answer: 'Agree'
-          },
-          methodology: {
-            score: 100,
-            answer: 'Strongly Agree'
-          }
-        }
+import fetch from 'node-fetch'
+export default {
+  submitSurvey(surveyData) {
+    const bodyPayload = {
+      user: {
+        firstName: surveyData.firstName,
+        lastName: surveyData.lastName,
+        company: surveyData.companyName,
+        email: surveyData.email
       },
-      continuousDelivery: {
-        score: 50,
-        subcategories: {
-          cadence: {
-            score: 40,
-            answer: 'Monthly'
-          },
-          rework: {
-            score: 60,
-            answer: 'Neither Agree Nor Disagree'
-          },
-          pipeline: {
-            score: 20,
-            answer: 'Strongly Disagree'
-          },
-          sideEffects: {
-            score: 100,
-            answer: 'Strongly Agree'
+      categories: {
+        organisationalMaturity: {
+          score: 75,
+          subcategories: {
+            devSecOps: {
+              score: surveyData.answer.score,
+              answer: surveyData.answer.label
+            },
+            deliveringValue: {
+              score: 60,
+              answer: 'Neither Agree Nor Disagree'
+            },
+            technicalDebt: {
+              score: 80,
+              answer: 'Agree'
+            },
+            methodology: {
+              score: 100,
+              answer: 'Strongly Agree'
+            }
           }
-        }
-      },
-      culture: {
-        score: 25,
-        subcategories: {
-          transparency: {
-            score: 20,
-            answer: 'Strongly Disagree'
-          },
-          learning: {
-            score: 20,
-            answer: 'Strongly Disagree'
-          },
-          learnFromFailure: {
-            score: 40,
-            answer: 'Disagree'
-          },
-          careerPath: {
-            score: 20,
-            answer: 'Strongly Disagree'
+        },
+        continuousDelivery: {
+          score: 50,
+          subcategories: {
+            cadence: {
+              score: 40,
+              answer: 'Monthly'
+            },
+            rework: {
+              score: 60,
+              answer: 'Neither Agree Nor Disagree'
+            },
+            pipeline: {
+              score: 20,
+              answer: 'Strongly Disagree'
+            },
+            sideEffects: {
+              score: 100,
+              answer: 'Strongly Agree'
+            }
           }
-        }
-      },
-      crossFunctionalTeams: {
-        score: 50,
-        subcategories: {
-          diversity: {
-            score: 100,
-            answer: 'Strongly Agree'
-          },
-          autonomy: {
-            score: 40,
-            answer: 'Disagree'
-          },
-          wholeTeam: {
-            score: 60,
-            answer: 'Neither Agree Nor Disagree'
-          },
-          knowledgeSharing: {
-            score: 20,
-            answer: 'Strongly Disagree'
+        },
+        culture: {
+          score: 25,
+          subcategories: {
+            transparency: {
+              score: 20,
+              answer: 'Strongly Disagree'
+            },
+            learning: {
+              score: 20,
+              answer: 'Strongly Disagree'
+            },
+            learnFromFailure: {
+              score: 40,
+              answer: 'Disagree'
+            },
+            careerPath: {
+              score: 20,
+              answer: 'Strongly Disagree'
+            }
           }
-        }
-      },
-      xpPractices: {
-        score: 75,
-        subcategories: {
-          tdd: {
-            score: 80,
-            answer: 'Agree'
-          },
-          architecture: {
-            score: 60,
-            answer: 'Neither Agree Nor Disagree'
-          },
-          cleanCode: {
-            score: 80,
-            answer: 'Agree'
-          },
-          peerReview: {
-            score: 100,
-            answer: 'Strongly Agree'
+        },
+        crossFunctionalTeams: {
+          score: 50,
+          subcategories: {
+            diversity: {
+              score: 100,
+              answer: 'Strongly Agree'
+            },
+            autonomy: {
+              score: 40,
+              answer: 'Disagree'
+            },
+            wholeTeam: {
+              score: 60,
+              answer: 'Neither Agree Nor Disagree'
+            },
+            knowledgeSharing: {
+              score: 20,
+              answer: 'Strongly Disagree'
+            }
+          }
+        },
+        xpPractices: {
+          score: 75,
+          subcategories: {
+            tdd: {
+              score: 80,
+              answer: 'Agree'
+            },
+            architecture: {
+              score: 60,
+              answer: 'Neither Agree Nor Disagree'
+            },
+            cleanCode: {
+              score: 80,
+              answer: 'Agree'
+            },
+            peerReview: {
+              score: 100,
+              answer: 'Strongly Agree'
+            }
           }
         }
       }
     }
+    return fetch('http://fake-report.com/surveys',{
+      method: 'POST',
+      body: JSON.stringify(bodyPayload),
+      headers: { 'Content-Type': 'application/json' }
+    }).then(success => {
+      console.log('response successful ', success)
+      return { status: 'ok' }
+    })
+      .catch(reason => console.log('error from report backend ', reason))
   }
-  return request({
-    method: 'POST',
-    uri: 'http://fake-report.com' + '/surveys',
-    json: true,
-    body: bodyPayload
-  }).then(success => {
-    console.log('success ', success)
-    return { status: 'ok' }
-  })
-    .catch(reason => console.log('error ', reason))
 }

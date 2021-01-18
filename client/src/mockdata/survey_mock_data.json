@@ -1,8 +1,8 @@
 {
-  "firstName": "FIRSTNAME",
-  "lastName": "LASTNAME",
-  "companyName": "COMPANY",
-  "email": "user@mail.com",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "companyName": "Some Company",
+  "email": "user@company.com",
   "answer": {
     "label": "Strongly Agree",
     "score": 100

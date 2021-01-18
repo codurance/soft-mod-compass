@@ -74,12 +74,11 @@ describe('app', () => {
     expect(getByText('Submit')).toBeInTheDocument();
   });
 
-  it('should call submitServey with the data', () => {
+  it('should call submitSurvey with the data', () => {
     const { getByText } = render(<App />);
     const spy = jest
       .spyOn(reportService, 'submitSurvey')
       .mockImplementation((payload) => {});
-
     getByText('Submit').click();
     expect(spy).toHaveBeenCalledTimes(1);
   });

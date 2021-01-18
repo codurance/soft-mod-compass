@@ -13,18 +13,18 @@ const userCompany = 'COMPANY';
 const userEmail = 'user@mail.com';
 const optionAnswer = 'Strongly Agree';
 const successfulResponseFromBackend = { status: 'ok' };
-const REPORT_BACKEND_URL = 'compass.codurance.io';
+const REPORT_BACKEND_URL = 'http://fake-report.com';
 const SUBMIT_SURVEY_URI = '/surveys';
 const firstPassedArgumentOf = (mockedFunction) =>
   mockedFunction.mock.calls[0][0];
-const sendedData = {
+const sentData = {
   firstName: userFirstName,
   lastName: userLastName,
   companyName: userCompany,
   email: userEmail,
   answer: {
     label :optionAnswer,
-    score : 40
+    score : 100
   }
 };
 const spy = jest.spyOn(reportService, 'submitSurvey');
@@ -63,7 +63,7 @@ describe('acceptance test', () => {
 
     // then
     const data = firstPassedArgumentOf(spy);
-    expect(data).toEqual(sendedData);
+    expect(data).toEqual(sentData);
     expect(spy).toReturnWith(Promise.resolve(successfulResponseFromBackend));
   });
 });

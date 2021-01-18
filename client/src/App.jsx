@@ -3,7 +3,7 @@ import AnswerButton from './components/AnswerButton';
 import surveyConfig from './config/surveyModel.json';
 import translator from './config/translator';
 import InputText from './components/InputText';
-import { submitSurvey } from './services/reportService';
+import reportService from './services/reportService';
 
 const initialTextFieldsState = {
   firstName: '',
@@ -11,12 +11,20 @@ const initialTextFieldsState = {
   companyName: '',
   email: '',
 };
+const initialAnswerState = {
+  label: '',
+  score: ''
+}
+
 function App() {
-  const [state, setState] = useState('');
+  const [state, setState] = useState(initialAnswerState);
   const [textFields, setTextFields] = useState(initialTextFieldsState);
 
-  const handleChoseAnswer = (event) => {
-    setState(event.target.value);
+  const handleChoseAnswer = (answer) => {
+    setState({
+      label: translator[answer.label],
+      score: answer.score
+    });
   };
 
   const handleChangeText = (fieldName) => (event) => {
@@ -28,16 +36,16 @@ function App() {
   const handleSubmit = () => {
     const data = { ...textFields };
     data.answer = state;
-    submitSurvey(data);
+    reportService.submitSurvey(data);
   };
 
   function renderAnswers() {
     return surveyConfig.answers.map((answer) => (
       <AnswerButton
         key={answer.label}
-        clickCallback={handleChoseAnswer}
+        clickCallback={() => handleChoseAnswer(answer)}
         answer={translator[answer.label]}
-        selectedAnswer={state}
+        selectedAnswer={state.label || ''}
       />
     ));
   }
