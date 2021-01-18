@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function AnswerButton({ answer, selectedAnswer, clickCallback }) {
-
-
   return (
     <button
       type="button"
