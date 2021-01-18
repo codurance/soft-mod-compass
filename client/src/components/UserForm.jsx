@@ -44,6 +44,6 @@ function UserForm({ initialState, updateUserForm }) {
 export default UserForm;
 
 UserForm.propTypes = {
-  initialState: PropTypes.object.isRequired,
+  initialState: PropTypes.objectOf(PropTypes.string.isRequired).isRequired,
   updateUserForm: PropTypes.func.isRequired,
 };

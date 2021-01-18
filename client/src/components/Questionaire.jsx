@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import surveyConfig from '../config/surveyModel.json';
 import translator from '../config/translator';
 import AnswerButton from './AnswerButton';
-import PropTypes from 'prop-types';
 
 function Questionnaire({ initialState, handleQuestionnaire }) {
   const [questionnaire, setQuestionnaire] = useState(initialState);
@@ -37,6 +37,6 @@ function Questionnaire({ initialState, handleQuestionnaire }) {
 export default Questionnaire;
 
 Questionnaire.propTypes = {
-  initialState: PropTypes.object.isRequired,
+  initialState: PropTypes.objectOf(PropTypes.string.isRequired).isRequired,
   handleQuestionnaire: PropTypes.func.isRequired,
 };
