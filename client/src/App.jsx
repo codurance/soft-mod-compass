@@ -21,10 +21,7 @@ function App() {
   const [textFields, setTextFields] = useState(initialTextFieldsState);
 
   const handleChoseAnswer = (answer) => {
-    setState({
-      label: translator[answer.label],
-      score: answer.score
-    });
+    setState(answer);
   };
 
   const handleChangeText = (fieldName) => (event) => {
@@ -45,7 +42,7 @@ function App() {
         key={answer.label}
         clickCallback={() => handleChoseAnswer(answer)}
         answer={translator[answer.label]}
-        selectedAnswer={state.label || ''}
+        selectedAnswer={answer === state}
       />
     ));
   }

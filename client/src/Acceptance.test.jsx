@@ -23,7 +23,7 @@ const sentData = {
   companyName: userCompany,
   email: userEmail,
   answer: {
-    label :optionAnswer,
+    label :'stronglyAgree',
     score : 100
   }
 };

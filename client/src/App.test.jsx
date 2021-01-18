@@ -39,7 +39,8 @@ describe('app', () => {
     [NeitherAgree, answerTable],
     [Disagree, answerTable],
     [StronglyDisagree, answerTable],
-  ]).it("when the answer is '%s'", (selectedAnswer, answers) => {
+  ]).it("given an answer '%s' ," +
+    " only that one should be selected", (selectedAnswer, answers) => {
     const { getByText } = render(<App />);
     getByText(selectedAnswer).click();
     answers.forEach((answer) => {

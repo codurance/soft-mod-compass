@@ -4,7 +4,7 @@
   "companyName": "Some Company",
   "email": "user@company.com",
   "answer": {
-    "label": "Strongly Agree",
+    "label": "stronglyAgree",
     "score": 100
   }
 }

@@ -3,17 +3,15 @@ import React from 'react';
 import AnswerButton from './AnswerButton';
 
 const answerValue = 'Strongly Agree';
+const isSelected = true;
 const clickCallback = jest.fn();
-// The first arg of the first call to the function was 'first arg'
-const firstPassedArgumentOf = (mockedFunction) =>
-  mockedFunction.mock.calls[0][0];
 
 describe('AnswerButton', () => {
   it('should display the right value', () => {
     const { getByText } = render(
       <AnswerButton
         answer={answerValue}
-        selectedAnswer=""
+        selectedAnswer={isSelected}
         clickCallback={() => {}}
       />
     );
@@ -25,7 +23,7 @@ describe('AnswerButton', () => {
     const { getByText } = render(
       <AnswerButton
         answer={answerValue}
-        selectedAnswer={answerValue}
+        selectedAnswer={isSelected}
         clickCallback={() => {}}
       />
     );
@@ -33,11 +31,11 @@ describe('AnswerButton', () => {
     expect(getByText(answerValue)).toHaveClass('selected');
   });
 
-  it('contain selected class when answer is different to selectedAnswer', () => {
+  it('doesnt contain selected class when answer is different to selectedAnswer', () => {
     const { getByText } = render(
       <AnswerButton
         answer={answerValue}
-        selectedAnswer=""
+        selectedAnswer={!isSelected}
         clickCallback={() => {}}
       />
     );
@@ -56,8 +54,6 @@ describe('AnswerButton', () => {
 
     getByText(answerValue).click();
 
-    const event = firstPassedArgumentOf(clickCallback);
     expect(clickCallback).toHaveBeenCalledTimes(1);
-    expect(event.target.value).toBe(answerValue);
   });
 });
