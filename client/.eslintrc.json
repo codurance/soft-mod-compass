@@ -12,7 +12,7 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "parser": "babel-eslint",
+  "parser": "babel-es",
   "plugins": ["react", "prettier"],
   "rules": {}
 }

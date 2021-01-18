@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 import React from 'react';
-import Welcome from './Welcome';
 import {
   welcomeFirstParagraph,
   welcomeSecondParagraph,
 } from '../config/en-labels.json';
+import Welcome from './Welcome';
 
 describe('Welcome', () => {
   it('display 2 paragraphs', () => {
