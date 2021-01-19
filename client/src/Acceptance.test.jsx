@@ -4,9 +4,9 @@ import { render } from '@testing-library/react';
 import nock from 'nock';
 import React from 'react';
 import App from './App';
+import config from './config/config';
 import payloadRequest from './mockdata/post_survey_request_body.json';
 import reportService from './services/reportService';
-import config from './config/config';
 
 const userFirstName = 'First Name';
 const userLastName = 'Last Name';
@@ -47,6 +47,9 @@ describe('acceptance test', () => {
 
   it('should submit information about the survey', async () => {
     const { getByText, getByLabelText } = render(<App />);
+
+    fireEvent.click(getByText('Start'));
+
     // when I fill the survey and click on submit
     const answerChoice = getByText(optionAnswer);
     fireEvent.click(answerChoice);
