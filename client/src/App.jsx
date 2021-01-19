@@ -7,7 +7,7 @@ import surveyConfig from './config/surveyModel.json';
 import translator from './config/translator';
 import reportService from './services/reportService';
 import './styles.css';
-import './config/presets.css';
+import './styles/global.scss';
 
 const initialTextFieldsState = {
   firstName: '',
