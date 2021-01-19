@@ -1,6 +1,6 @@
 import esLang from './es-labels.json';
 import enLang from './en-labels.json';
 
-const url = window.location.href;
+const { pathname } = window.location;
 
-export default url.includes('/es') ? esLang : enLang;
+export default pathname === '/es' ? esLang : enLang;
