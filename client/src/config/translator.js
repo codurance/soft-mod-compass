@@ -1,8 +1,6 @@
 import esLang from './es-labels.json';
 import enLang from './en-labels.json';
 
-// if (window.location.pathname === '/es') translator = esLang;
-// else translator = enLang;
+const language = localStorage.getItem('language');
 
-// module.exports = enLang;
-export default enLang;
+export default language === 'es' ? esLang : enLang;

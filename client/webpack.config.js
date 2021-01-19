@@ -13,10 +13,12 @@ module.exports = (env) => {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'index_bundle.js',
+      publicPath: '/',
     },
     devServer: {
       noInfo: false,
       open: true,
+      historyApiFallback: true,
     },
     resolve: {
       extensions: ['.js', '.jsx'],
