@@ -1,0 +1,14 @@
+@import '../../styles/global';
+
+.welcome {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 720px;
+
+  &__text {
+    @include freed;
+    font-family: 'Proxima Nova';
+    text-align: center;
+  }
+}
