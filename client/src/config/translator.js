@@ -1,6 +1,6 @@
 import esLang from './es-labels.json';
 import enLang from './en-labels.json';
 
-const language = localStorage.getItem('language');
+const url = window.location.href;
 
-export default language === 'es' ? esLang : enLang;
+export default url.includes('/es') ? esLang : enLang;
