@@ -6,8 +6,9 @@ import './styles.scss';
 
 function Welcome({ clickCallback }) {
   return (
-    <section className="welcome">
+    <div className="welcome">
       <img
+        className="welcome__image"
         src="https://images.typeform.com/images/BQieVdsGyDW3/image/default"
         alt="Compass by Codurance"
       />
@@ -17,7 +18,7 @@ function Welcome({ clickCallback }) {
         <p>{translator.welcomeSecondParagraph}</p>
       </div>
       <Button label="Start" clickCallback={clickCallback} />
-    </section>
+    </div>
   );
 }
 

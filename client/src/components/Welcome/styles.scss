@@ -5,10 +5,23 @@
   display: flex;
   flex-direction: column;
   max-width: 720px;
+  padding: 60px 0;
 
   &__text {
-    @include freed;
-    font-family: 'Proxima Nova';
-    text-align: center;
+    padding-top: 40px;
+
+    & > p {
+      @include freed;
+      font-family: 'Proxima Nova';
+      text-align: center;
+      font-weight: 400;
+      line-height: var(--freed-line-height);
+      margin-top: 0;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    padding: 0 60px;
   }
 }
