@@ -6,6 +6,8 @@ import Welcome from './components/Welcome';
 import surveyConfig from './config/surveyModel.json';
 import translator from './config/translator';
 import reportService from './services/reportService';
+import './styles.css';
+import './config/presets.css';
 
 const initialTextFieldsState = {
   firstName: '',
@@ -43,7 +45,7 @@ function App({ initialStep = 0 }) {
   };
 
   return (
-    <div>
+    <div className="app">
       {currentStep === 0 && <Welcome clickCallback={setNextStep} />}
       {currentStep === 1 && (
         <Questionnaire
