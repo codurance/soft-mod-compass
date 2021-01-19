@@ -29,6 +29,11 @@ module.exports = (reportingApp) => {
     res.redirect(config.hubspot.thanksLandingPageUrl);
   });
 
+  app.get('/report/submit/:uuid', (req, res) => {
+    handlePostRequest(req.params.uuid);
+    res.redirect(config.hubspot.thanksLandingPageUrl);
+  });
+
   async function generateAndSendReportAsync(uuid) {
     try {
       console.log('Generating report for:', uuid);
@@ -39,7 +44,7 @@ module.exports = (reportingApp) => {
         template: jsReportTemplate,
         data: viewModel,
       });
-
+      console.log('pdf generated ', pdf);
       console.log(`Uploading report to S3 for '${uuid}'`);
       const pdfLink = await uploadToS3(pdf, config.aws.bucket);
       console.log(

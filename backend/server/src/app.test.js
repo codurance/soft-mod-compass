@@ -54,4 +54,16 @@ describe('app', () => {
       .expect('Content-Type', /html/)
       .expect(404, done);
   });
+
+  it('does not allow access to jsreport studio in production', (done) => {
+    const app = appWithMockConfig({
+      jsreport: {
+        studioEditorEnabled: false,
+      },
+    });
+    request(app)
+      .get('/reporting')
+      .expect('Content-Type', /html/)
+      .expect(404, done);
+  });
 });
