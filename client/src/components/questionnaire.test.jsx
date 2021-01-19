@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import each from 'jest-each';
 import React from 'react';
-import Questionnaire from './Questionaire';
+import Questionnaire from './Questionnaire';
 
 const stronglyAgree = 'Strongly Agree';
 const Agree = 'Agree';

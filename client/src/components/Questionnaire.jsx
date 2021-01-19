@@ -37,6 +37,9 @@ function Questionnaire({ initialState, handleQuestionnaire }) {
 export default Questionnaire;
 
 Questionnaire.propTypes = {
-  initialState: PropTypes.objectOf(PropTypes.any.isRequired).isRequired,
+  initialState: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    score: PropTypes.number.isRequired,
+  }).isRequired,
   handleQuestionnaire: PropTypes.func.isRequired,
 };
