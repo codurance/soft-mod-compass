@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import Questionnaire from './components/Questionnaire';
-import UserForm from './components/UserForm';
-import Welcome from './components/Welcome';
+import Questionnaire from './components/Questionnaire/Questionnaire';
+import UserForm from './components/UserForm/UserForm';
+import Welcome from './components/Welcome/Welcome';
 import surveyConfig from './config/surveyModel.json';
 import translator from './config/translator';
 import reportService from './services/reportService';

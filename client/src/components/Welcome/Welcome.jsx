@@ -1,7 +1,7 @@
 import React from 'react';
-import translator from '../config/translator';
-import Button from './Button';
 import PropTypes from 'prop-types';
+import translator from '../../config/translator';
+import Button from '../Button/Button';
 
 function Welcome({ clickCallback }) {
   return (

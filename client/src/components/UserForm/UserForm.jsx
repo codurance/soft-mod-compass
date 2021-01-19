@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import InputText from './InputText';
-import translator from '../config/translator';
-import surveyConfig from '../config/surveyModel.json';
+import InputText from '../InputText/InputText';
+import translator from '../../config/translator';
+import surveyConfig from '../../config/surveyModel.json';
 
 function UserForm({ initialState, updateUserForm }) {
   const [userForm, setUserForm] = useState(initialState);

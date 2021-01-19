@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import surveyConfig from '../config/surveyModel.json';
-import translator from '../config/translator';
-import AnswerButton from './AnswerButton';
+import surveyConfig from '../../config/surveyModel.json';
+import translator from '../../config/translator';
+import AnswerButton from '../AnswerButton/AnswerButton';
 
 function Questionnaire({ initialState, handleQuestionnaire }) {
   const [questionnaire, setQuestionnaire] = useState(initialState);

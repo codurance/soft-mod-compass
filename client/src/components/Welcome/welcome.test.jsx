@@ -3,7 +3,7 @@ import React from 'react';
 import {
   welcomeFirstParagraph,
   welcomeSecondParagraph,
-} from '../config/en-labels.json';
+} from '../../config/en-labels.json';
 import Welcome from './Welcome';
 
 const clickCallback = jest.fn();
