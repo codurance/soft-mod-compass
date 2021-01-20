@@ -58,9 +58,9 @@ describe('Questionnaire', () => {
       getByText(selectedAnswer).click();
       answers.forEach((answer) => {
         if (selectedAnswer === answer) {
-          expect(getByText(answer)).toHaveClass('selected');
+          expect(getByText(answer)).toHaveClass('answer--selected');
         } else {
-          expect(getByText(answer)).not.toHaveClass('selected');
+          expect(getByText(answer)).not.toHaveClass('answer--selected');
         }
       });
     }

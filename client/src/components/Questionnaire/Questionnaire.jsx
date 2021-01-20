@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import surveyConfig from '../../config/surveyModel.json';
 import translator from '../../config/translator';
-import AnswerButton from '../AnswerButton/AnswerButton';
+import AnswerOption from '../AnswerOption/AnswerOption';
 import './styles.scss';
 
 function Questionnaire({ initialState, handleQuestionnaire }) {
@@ -14,14 +14,18 @@ function Questionnaire({ initialState, handleQuestionnaire }) {
   };
 
   function renderAnswers() {
-    return surveyConfig.answers.map((answer) => (
-      <AnswerButton
-        key={answer.label}
-        clickCallback={() => updateState(answer)}
-        answer={translator[answer.label]}
-        selectedAnswer={answer === questionnaire}
-      />
-    ));
+    return (
+      <ul className="questionnaire__answer-list">
+        {surveyConfig.answers.map((answer) => (
+          <AnswerOption
+            key={answer.label}
+            clickCallback={() => updateState(answer)}
+            answer={translator[answer.label]}
+            selectedAnswer={answer === questionnaire}
+          />
+        ))}
+      </ul>
+    );
   }
 
   return (

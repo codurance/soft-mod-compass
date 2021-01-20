@@ -1,0 +1,29 @@
+.answer {
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: solid 1px var(--french-gray);
+  border-radius: 4px;
+  color: var(--french-gray);
+  display: flex;
+  height: 32px;
+  max-width: 100%;
+  min-width: 365px;
+  padding: 10px;
+  transition-duration: 0.1s;
+  transition-property: background-color;
+  transition-timing-function: ease-out;
+
+  &--selected {
+    border: solid 1px var(--white);
+    color: var(--white);
+  }
+
+  & + & {
+    margin-top: 8px;
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+  }
+}
