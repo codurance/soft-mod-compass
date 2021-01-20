@@ -6,7 +6,7 @@ import './styles.scss';
 
 function Welcome({ clickCallback }) {
   return (
-    <div className="welcome">
+    <div className="welcome wrapper">
       <img
         className="welcome__image"
         src="https://images.typeform.com/images/BQieVdsGyDW3/image/default"

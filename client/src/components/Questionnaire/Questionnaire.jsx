@@ -29,7 +29,7 @@ function Questionnaire({ initialState, handleQuestionnaire }) {
   }
 
   return (
-    <div className="questionnaire">
+    <div className="questionnaire wrapper">
       <p className="questionnaire__question">
         Decision making for IT product and projects is based on what will carry
         the most value for the business. *
