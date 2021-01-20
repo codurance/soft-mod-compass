@@ -47,6 +47,10 @@ function App({ initialStep = 0 }) {
     if (currentStep < 2) setCurrentStep(currentStep + 1);
   };
 
+  const handlePreviousStep = () => {
+    if (currentStep > 0) setCurrentStep(currentStep - 1);
+  };
+
   return (
     <div className="app">
       {currentStep === 0 && <Welcome clickCallback={setNextStep} />}
@@ -65,7 +69,10 @@ function App({ initialStep = 0 }) {
           />
         </div>
       )}
-      <ProgressBar nextStep={handleNextStep} />
+      <ProgressBar
+        nextStep={handleNextStep}
+        previousStep={handlePreviousStep}
+      />
     </div>
   );
 }

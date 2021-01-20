@@ -87,4 +87,19 @@ describe('acceptance test', () => {
     // Second screen
     expect(getByText(optionAnswer)).toBeInTheDocument();
   });
+
+  it('should move backward on the steps when the user clicks in the preogres bar', () => {
+    const { getByText, getByTestId, getByPlaceholderText } = render(
+      <App initialStep={2} />
+    );
+
+    // Third screen
+    expect(getByPlaceholderText(userFirstName)).toBeInTheDocument();
+
+    fireEvent.click(getByTestId('previous'));
+    fireEvent.click(getByTestId('previous'));
+
+    // First screen
+    expect(getByText('Start')).toBeInTheDocument();
+  });
 });
