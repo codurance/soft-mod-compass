@@ -1,3 +1,5 @@
+@import '../../styles/global.scss';
+
 .questionnaire {
   align-items: flex-start;
   display: flex;
@@ -8,6 +10,8 @@
 
   &__question {
     margin-bottom: 32px;
+    @include freed();
+    font-weight: 300;
   }
 
   &__answer-list {

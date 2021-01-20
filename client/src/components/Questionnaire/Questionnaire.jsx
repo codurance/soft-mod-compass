@@ -30,10 +30,10 @@ function Questionnaire({ initialState, handleQuestionnaire }) {
 
   return (
     <div className="questionnaire">
-      <span className="questionnaire__question">
+      <p className="questionnaire__question">
         Decision making for IT product and projects is based on what will carry
-        the most value for the business.This question is required.
-      </span>
+        the most value for the business. *
+      </p>
       {renderAnswers()}
     </div>
   );

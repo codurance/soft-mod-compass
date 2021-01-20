@@ -10,7 +10,7 @@ const Disagree = 'Disagree';
 const StronglyDisagree = 'Strongly Disagree';
 const initialState = {
   label: '',
-  score: '',
+  score: 0,
 };
 
 describe('Questionnaire', () => {
@@ -23,7 +23,7 @@ describe('Questionnaire', () => {
     );
     expect(
       getByText(
-        'Decision making for IT product and projects is based on what will carry the most value for the business.This question is required.'
+        'Decision making for IT product and projects is based on what will carry the most value for the business. *'
       )
     ).toBeInTheDocument();
     expect(getByText(stronglyAgree)).toBeInTheDocument();

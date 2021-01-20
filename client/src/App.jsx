@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import Button from './components/Button/Button';
 import Questionnaire from './components/Questionnaire/Questionnaire';
 import UserForm from './components/UserForm/UserForm';
 import Welcome from './components/Welcome/Welcome';
@@ -54,12 +55,13 @@ function App({ initialStep = 0 }) {
         />
       )}
       {currentStep === 2 && (
-        <>
-          <UserForm initialState={textFields} updateUserForm={updateUserForm} />
-          <button type="submit" onClick={handleSubmit}>
-            {translator[surveyConfig.submitLabel]}
-          </button>
-        </>
+        <div>
+          <UserForm
+            initialState={textFields}
+            updateUserForm={updateUserForm}
+            submitForm={handleSubmit}
+          />
+        </div>
       )}
     </div>
   );

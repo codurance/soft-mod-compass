@@ -10,6 +10,7 @@ const initialState = {
   companyName: '',
   email: '',
 };
+const clickCallback = jest.fn();
 
 describe('UserForm ', () =>
   each([
@@ -20,10 +21,14 @@ describe('UserForm ', () =>
   ]).it(
     'should change the text value of the firstname input field when the firstname field is changed',
     (labelName, expectedTextValue) => {
-      const { getByLabelText } = render(
-        <UserForm initialState={initialState} updateUserForm={() => {}} />
+      const { getByPlaceholderText } = render(
+        <UserForm
+          initialState={initialState}
+          updateUserForm={() => {}}
+          submitForm={() => {}}
+        />
       );
-      const inputFirstName = getByLabelText(labelName);
+      const inputFirstName = getByPlaceholderText(labelName);
       expect(inputFirstName.value).not.toBe(expectedTextValue);
       fireEvent.change(inputFirstName, {
         target: { value: expectedTextValue },
@@ -31,3 +36,18 @@ describe('UserForm ', () =>
       expect(inputFirstName.value).toBe(expectedTextValue);
     }
   ));
+
+it('should call submitForm when user clicks in the button', () => {
+  const { getByText } = render(
+    <UserForm
+      initialState={initialState}
+      updateUserForm={() => {}}
+      submitForm={clickCallback}
+    />
+  );
+
+  const submitButton = getByText('Submit');
+  fireEvent.click(submitButton);
+
+  expect(clickCallback).toHaveBeenCalledTimes(1);
+});

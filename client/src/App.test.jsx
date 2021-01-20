@@ -15,7 +15,7 @@ const NeitherAgree = 'Neither Agree Nor Disagree';
 const Disagree = 'Disagree';
 const StronglyDisagree = 'Strongly Disagree';
 const question =
-  'Decision making for IT product and projects is based on what will carry the most value for the business.This question is required.';
+  'Decision making for IT product and projects is based on what will carry the most value for the business. *';
 
 describe('app', () => {
   it('should display the Welcome component', () => {
@@ -27,7 +27,7 @@ describe('app', () => {
     const { getByText } = render(<App initialStep={1} />);
     expect(
       getByText(
-        'Decision making for IT product and projects is based on what will carry the most value for the business.This question is required.'
+        'Decision making for IT product and projects is based on what will carry the most value for the business. *'
       )
     ).toBeInTheDocument();
     expect(getByText(stronglyAgree)).toBeInTheDocument();
@@ -62,7 +62,7 @@ describe('app', () => {
   });
 
   it('should change the content of the screen when the user clicks to move forward', () => {
-    const { getByText, queryByText } = render(<App />);
+    const { getByText, queryByText, getByPlaceholderText } = render(<App />);
 
     getByText('Start').click();
 
@@ -80,8 +80,9 @@ describe('app', () => {
       queryByText(translator.welcomeFirstParagraph)
     ).not.toBeInTheDocument();
     expect(queryByText(question)).not.toBeInTheDocument();
+
     expect(
-      getByText(translator[surveyConfig.firstNameLabel])
+      getByPlaceholderText(translator[surveyConfig.firstNameLabel])
     ).toBeInTheDocument();
   });
 });
