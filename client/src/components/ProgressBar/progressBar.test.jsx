@@ -1,4 +1,4 @@
-import { getByText, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import React from 'react';
 import ProgressBar from './ProgressBar';
 
@@ -7,10 +7,17 @@ const previous = 'previous';
 const nextStep = jest.fn();
 const previousStep = jest.fn();
 
+const className =
+  'progress-bar__buttons__item progress-bar__buttons__item--disabled';
 describe('ProgressBar should', () => {
   it('should contain next and previous icons', () => {
     const { getByTestId } = render(
-      <ProgressBar currentStep={0} stepsNumber={0} />
+      <ProgressBar
+        currentStep={0}
+        stepsNumber={0}
+        nextStep={() => {}}
+        previousStep={() => {}}
+      />
     );
 
     expect(getByTestId(next)).toBeInTheDocument();
@@ -58,5 +65,33 @@ describe('ProgressBar should', () => {
     );
 
     expect(getByText('3 of 5 completed')).toBeInTheDocument();
+  });
+
+  it('next element should contain selected when we are on the last step', () => {
+    const { getByText, getByTestId } = render(
+      <ProgressBar
+        nextStep={() => {}}
+        previousStep={previousStep}
+        currentStep={5}
+        stepsNumber={5}
+      />
+    );
+    expect(getByText('5 of 5 completed')).toBeInTheDocument();
+    expect(getByTestId(previous)).not.toHaveClass(className);
+    expect(getByTestId(next)).toHaveClass(className);
+  });
+
+  it('previous element should contain selected when we are on the first step', () => {
+    const { getByText, getByTestId } = render(
+      <ProgressBar
+        nextStep={() => {}}
+        previousStep={previousStep}
+        currentStep={0}
+        stepsNumber={5}
+      />
+    );
+    expect(getByText('0 of 5 completed')).toBeInTheDocument();
+    expect(getByTestId(previous)).toHaveClass(className);
+    expect(getByTestId(next)).not.toHaveClass(className);
   });
 });

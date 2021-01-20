@@ -1,17 +1,39 @@
+@import '../../styles/global.scss';
+
 .progress-bar {
+  bottom: 20px;
+  color: black;
+  display: flex;
+  position: absolute;
+  right: 20px;
+
+  &__text {
+    @include sejima;
+    background: var(--mid-gray);
+    border-radius: 4px;
+    color: var(--athens-gray);
+    cursor: default;
+    padding: 6px 15px;
+    width: 150px;
+  }
+
   &__buttons {
     background-color: var(--valencia-dark);
     border-radius: 4px;
     display: flex;
+    font-weight: 600;
+    margin-left: 5px;
 
     &__item {
+      align-items: center;
       border-radius: 4px;
+      display: flex;
       height: 32px;
-      text-align: center;
-      width: 32px;
+      justify-content: center;
       transition-property: background-color;
       transition-duration: 0.1s;
       transition-timing-function: ease-out;
+      width: 32px;
 
       & + & {
         border-left: solid thin black;
@@ -22,6 +44,14 @@
       &:hover {
         background-color: var(--valencia);
         cursor: pointer;
+      }
+
+      &--disabled {
+        color: var(--shark);
+        &:hover {
+          background-color: var(--valencia-dark);
+          cursor: default;
+        }
       }
     }
   }

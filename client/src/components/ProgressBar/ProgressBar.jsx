@@ -3,15 +3,23 @@ import React from 'react';
 import './styles.scss';
 
 function ProgressBar({ nextStep, previousStep, currentStep, stepsNumber }) {
+  const isDisabled = (isNextStep) => {
+    if (isNextStep && currentStep === stepsNumber)
+      return 'progress-bar__buttons__item--disabled';
+    if (!isNextStep && currentStep === 0)
+      return 'progress-bar__buttons__item--disabled';
+    return '';
+  };
+
   return (
     <div className="progress-bar">
-      <span>{`${currentStep} of ${stepsNumber} completed`}</span>
+      <span className="progress-bar__text">{`${currentStep} of ${stepsNumber} completed`}</span>
       <div className="progress-bar__buttons">
         <div
           aria-hidden
           onClick={previousStep}
           data-testid="previous"
-          className="progress-bar__buttons__item"
+          className={`progress-bar__buttons__item ${isDisabled(false)}`}
         >
           {'<'}
         </div>
@@ -20,7 +28,7 @@ function ProgressBar({ nextStep, previousStep, currentStep, stepsNumber }) {
           aria-hidden
           onClick={nextStep}
           data-testid="next"
-          className="progress-bar__buttons__item"
+          className={`progress-bar__buttons__item ${isDisabled(true)}`}
         >
           {'>'}
         </div>
