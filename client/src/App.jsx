@@ -19,7 +19,7 @@ const initialAnswerState = {
   score: 0,
 };
 
-function App({ initialStep = 0 }) {
+function App({ initialStep }) {
   const [textFields, setTextFields] = useState(initialTextFieldsState);
   const [questionnaire, setQuestionnaire] = useState(initialAnswerState);
   const [currentStep, setCurrentStep] = useState(initialStep);
@@ -70,6 +70,8 @@ function App({ initialStep = 0 }) {
         </div>
       )}
       <ProgressBar
+        stepsNumber={2}
+        currentStep={currentStep}
         nextStep={handleNextStep}
         previousStep={handlePreviousStep}
       />
