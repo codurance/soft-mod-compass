@@ -6,19 +6,19 @@ const label = 'A label';
 
 describe('InputText', () => {
   it('should display the firstname fields', () => {
-    const { getByLabelText, getByText } = render(
+    const { getByPlaceholderText } = render(
       <InputText textValue="" onChangeCallBack={() => {}} label={label} />
     );
-    expect(getByText(label)).toBeInTheDocument();
-    const inputFirstName = getByLabelText(label);
+    expect(getByPlaceholderText(label)).toBeInTheDocument();
+    const inputFirstName = getByPlaceholderText(label);
     expect(inputFirstName).toBeInTheDocument();
   });
 
   it('should display the given text value', () => {
-    const { getByLabelText } = render(
+    const { getByPlaceholderText } = render(
       <InputText textValue="ALICE" onChangeCallBack={() => {}} label={label} />
     );
-    const inputFirstName = getByLabelText(label);
+    const inputFirstName = getByPlaceholderText(label);
     expect(inputFirstName.value).toBe('ALICE');
   });
 });

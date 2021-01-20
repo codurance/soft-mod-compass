@@ -1,5 +1,14 @@
 .app {
   background-image: url(https://f.hubspotusercontent10.net/hubfs/3042464/Software%20Modernisation/software-modernisation-lp-files/Compass/SoftMod-compass-questionnaire-background.jpg);
   background-repeat: no-repeat;
-  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  min-height: 100vh;
+  height: 100%;
+  width: 100vw;
 }

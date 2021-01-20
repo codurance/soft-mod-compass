@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import Questionnaire from './components/Questionnaire';
-import UserForm from './components/UserForm';
-import Welcome from './components/Welcome';
+import Button from './components/Button/Button';
+import Questionnaire from './components/Questionnaire/Questionnaire';
+import UserForm from './components/UserForm/UserForm';
+import Welcome from './components/Welcome/Welcome';
 import surveyConfig from './config/surveyModel.json';
 import translator from './config/translator';
 import reportService from './services/reportService';
-import './styles.css';
-import './config/presets.css';
+import './styles.scss';
+import './styles/global.scss';
 
 const initialTextFieldsState = {
   firstName: '',
@@ -54,12 +55,13 @@ function App({ initialStep = 0 }) {
         />
       )}
       {currentStep === 2 && (
-        <>
-          <UserForm initialState={textFields} updateUserForm={updateUserForm} />
-          <button type="submit" onClick={handleSubmit}>
-            {translator[surveyConfig.submitLabel]}
-          </button>
-        </>
+        <div>
+          <UserForm
+            initialState={textFields}
+            updateUserForm={updateUserForm}
+            submitForm={handleSubmit}
+          />
+        </div>
       )}
     </div>
   );
@@ -67,6 +69,10 @@ function App({ initialStep = 0 }) {
 
 App.propTypes = {
   initialStep: PropTypes.number,
+};
+
+App.defaultProps = {
+  initialStep: 0,
 };
 
 export default App;

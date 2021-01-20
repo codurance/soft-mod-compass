@@ -9,7 +9,7 @@ module.exports = (env) => {
     return prev;
   }, {});
   return {
-    entry: './src/index.jsx',
+    entry: ['./src/index.jsx', './src/fonts/index.css'],
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'index_bundle.js',
@@ -32,8 +32,17 @@ module.exports = (env) => {
           use: 'babel-loader',
         },
         {
+          test: /\.(woff|woff2|eot|ttf|otf)$/,
+          use: ['file-loader'],
+          include: path.resolve(__dirname, './src/fonts'),
+        },
+        {
           test: /\.css$/,
           use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /\.scss$/,
+          use: ['style-loader', 'css-loader', 'sass-loader'],
         },
       ],
     },

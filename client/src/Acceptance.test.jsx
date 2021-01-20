@@ -46,7 +46,7 @@ describe('acceptance test', () => {
     .reply(201);
 
   it('should submit information about the survey', async () => {
-    const { getByText, getByLabelText } = render(<App />);
+    const { getByText, getByPlaceholderText } = render(<App />);
 
     fireEvent.click(getByText('Start'));
 
@@ -54,16 +54,16 @@ describe('acceptance test', () => {
     const answerChoice = getByText(optionAnswer);
     fireEvent.click(answerChoice);
 
-    const inputFirstName = getByLabelText('First Name');
+    const inputFirstName = getByPlaceholderText('First Name');
     fireEvent.change(inputFirstName, { target: { value: userFirstName } });
 
-    const inputLastName = getByLabelText('Last Name');
+    const inputLastName = getByPlaceholderText('Last Name');
     fireEvent.change(inputLastName, { target: { value: userLastName } });
 
-    const inputCompany = getByLabelText('Company Name');
+    const inputCompany = getByPlaceholderText('Company Name');
     fireEvent.change(inputCompany, { target: { value: userCompany } });
 
-    const inputEmail = getByLabelText('Email');
+    const inputEmail = getByPlaceholderText('Email');
     fireEvent.change(inputEmail, { target: { value: userEmail } });
 
     const button = getByText('Submit');

@@ -1,19 +1,19 @@
-import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
+import './styles.scss';
 
 function InputText({ textValue, onChangeCallBack, label }) {
   return (
-    <>
-      <label htmlFor={label}>{label}</label>
-      <input
-        type="text"
-        id={label}
-        name={label}
-        value={textValue}
-        onChange={onChangeCallBack}
-        required
-      />
-    </>
+    <input
+      className="input"
+      placeholder={label}
+      type="text"
+      id={label}
+      name={label}
+      value={textValue}
+      onChange={onChangeCallBack}
+      required
+    />
   );
 }
 

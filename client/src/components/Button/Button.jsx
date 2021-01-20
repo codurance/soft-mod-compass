@@ -1,8 +1,17 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import './styles.scss';
 
 function Button({ label, clickCallback }) {
-  return <button onClick={clickCallback}>{label}</button>;
+  return (
+    <button
+      className="button color-valencia"
+      type="button"
+      onClick={clickCallback}
+    >
+      {label}
+    </button>
+  );
 }
 
 Button.propTypes = {
