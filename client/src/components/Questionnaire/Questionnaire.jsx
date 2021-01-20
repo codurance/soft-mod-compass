@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import surveyConfig from '../../config/surveyModel.json';
 import translator from '../../config/translator';
 import AnswerButton from '../AnswerButton/AnswerButton';
+import './styles.scss';
 
 function Questionnaire({ initialState, handleQuestionnaire }) {
   const [questionnaire, setQuestionnaire] = useState(initialState);
@@ -24,13 +25,13 @@ function Questionnaire({ initialState, handleQuestionnaire }) {
   }
 
   return (
-    <>
-      <span>
+    <div className="questionnaire">
+      <span className="questionnaire__question">
         Decision making for IT product and projects is based on what will carry
         the most value for the business.This question is required.
       </span>
       {renderAnswers()}
-    </>
+    </div>
   );
 }
 

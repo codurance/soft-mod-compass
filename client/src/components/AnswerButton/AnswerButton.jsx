@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './styles.scss';
 
 function AnswerButton({ answer, selectedAnswer, clickCallback }) {
   return (
-    <button
-      type="button"
-      className={selectedAnswer ? 'selected' : ''}
-      onClick={clickCallback}
-    >
-      {answer}
-    </button>
+    <div className="answer">
+      <button
+        type="button"
+        className={`answer__button ${selectedAnswer ? 'selected' : ''}`}
+        onClick={clickCallback}
+      >
+        {answer}
+      </button>
+    </div>
   );
 }
 
