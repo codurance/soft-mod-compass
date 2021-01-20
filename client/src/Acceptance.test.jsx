@@ -75,4 +75,16 @@ describe('acceptance test', () => {
     const result = await returnFromAsync(submitSurveySpy);
     expect(result).toEqual(successfulResponseFromBackend);
   });
+
+  it('should move forward on the steps when the user clicks in the preogres bar', () => {
+    const { getByText, getByTestId } = render(<App />);
+
+    // first screen
+    expect(getByText('Start')).toBeInTheDocument();
+
+    fireEvent.click(getByTestId('next'));
+
+    // Second screen
+    expect(getByText(optionAnswer)).toBeInTheDocument();
+  });
 });

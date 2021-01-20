@@ -1,0 +1,28 @@
+.progress-bar {
+  &__buttons {
+    background-color: var(--valencia-dark);
+    border-radius: 4px;
+    display: flex;
+
+    &__item {
+      border-radius: 4px;
+      height: 32px;
+      text-align: center;
+      width: 32px;
+      transition-property: background-color;
+      transition-duration: 0.1s;
+      transition-timing-function: ease-out;
+
+      & + & {
+        border-left: solid thin black;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+      }
+
+      &:hover {
+        background-color: var(--valencia);
+        cursor: pointer;
+      }
+    }
+  }
+}

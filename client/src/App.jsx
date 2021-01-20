@@ -1,11 +1,9 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import Button from './components/Button/Button';
+import ProgressBar from './components/ProgressBar/ProgressBar';
 import Questionnaire from './components/Questionnaire/Questionnaire';
 import UserForm from './components/UserForm/UserForm';
 import Welcome from './components/Welcome/Welcome';
-import surveyConfig from './config/surveyModel.json';
-import translator from './config/translator';
 import reportService from './services/reportService';
 import './styles.scss';
 import './styles/global.scss';
@@ -45,6 +43,10 @@ function App({ initialStep = 0 }) {
     setCurrentStep(currentStep + 1);
   };
 
+  const handleNextStep = () => {
+    if (currentStep < 2) setCurrentStep(currentStep + 1);
+  };
+
   return (
     <div className="app">
       {currentStep === 0 && <Welcome clickCallback={setNextStep} />}
@@ -63,6 +65,7 @@ function App({ initialStep = 0 }) {
           />
         </div>
       )}
+      <ProgressBar nextStep={handleNextStep} />
     </div>
   );
 }
