@@ -71,4 +71,8 @@ App.propTypes = {
   initialStep: PropTypes.number,
 };
 
+App.defaultProps = {
+  initialStep: 0,
+};
+
 export default App;

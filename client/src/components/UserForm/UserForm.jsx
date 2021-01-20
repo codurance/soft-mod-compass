@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import InputText from '../InputText/InputText';
-import translator from '../../config/translator';
+import React, { useState } from 'react';
 import surveyConfig from '../../config/surveyModel.json';
-import './styles.scss';
+import translator from '../../config/translator';
 import Button from '../Button/Button';
+import InputText from '../InputText/InputText';
+import './styles.scss';
 
 function UserForm({ initialState, updateUserForm, submitForm }) {
   const [userForm, setUserForm] = useState(initialState);
