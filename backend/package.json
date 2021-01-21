@@ -10,7 +10,7 @@
     "prod:en": "npm run check-aws-region:prod && . ./scripts/envvars-config-prod-EN.sh && babel-node ./server/index.js",
     "prod:es": "npm run check-aws-region:prod && . ./scripts/envvars-config-prod-ES.sh && babel-node ./server/index.js",
     "watch": "nodemon",
-    "test": "jest && npm run lint",
+    "test": "jest",
     "test:tdd": "jest --watch",
     "test:e2e:dev:en": ". ./scripts/envvars-config-dev-EN.sh && cypress run --project testE2E",
     "test:e2e:dev:es": ". ./scripts/envvars-config-dev-ES.sh && cypress run --project testE2E",

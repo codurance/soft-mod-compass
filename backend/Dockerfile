@@ -32,4 +32,4 @@ COPY ./server .
 
 EXPOSE 8080
 
-CMD yarn docker:start
+CMD npx babel-node ./index.js
