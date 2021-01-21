@@ -5,6 +5,7 @@
   "main": "src/index.jsx",
   "scripts": {
     "start": "webpack serve --env REPORT_SERVER_URL=http://fake-report.com",
+    "dev": "webpack serve --env REPORT_SERVER_URL=http://localhost:8080",
     "test": "jest",
     "create": "webpack --env REPORT_SERVER_URL=TO_REPLACE",
     "prettify": "npx prettier --write .",

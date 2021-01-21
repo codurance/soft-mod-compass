@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const generateReport = require('./jsreportAdapter');
-
+const cors = require('cors');
 const config = require('./config');
 
 const {
@@ -11,7 +11,11 @@ const {
 
 module.exports = (reportingApp) => {
   console.log('config ', config);
+
   const app = express();
+
+  app.use(cors());
+  app.options('*', cors());
   app.use(bodyParser.json()); // support json encoded bodies
   app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
   if (config.jsreport.studioEditorEnabled) {

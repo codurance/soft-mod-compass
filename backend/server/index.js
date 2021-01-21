@@ -1,11 +1,9 @@
 const path = require('path');
 const express = require('express');
 const reportingApp = express();
-
 const app = require('./src/app')(reportingApp);
 
 const port = 8080;
-
 const server = app.listen(port, () => {
   console.log(`ready at http://localhost:${port}`);
 });
