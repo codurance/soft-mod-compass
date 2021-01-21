@@ -75,4 +75,35 @@ describe('acceptance test', () => {
     const result = await returnFromAsync(submitSurveySpy);
     expect(result).toEqual(successfulResponseFromBackend);
   });
+
+  it('should move forward on the steps when the user clicks in the preogres bar', () => {
+    const { getByText, getByTestId } = render(<App />);
+
+    // first screen
+    expect(getByText('Start')).toBeInTheDocument();
+    expect(getByText('0 of 2 completed')).toBeInTheDocument();
+
+    fireEvent.click(getByTestId('next'));
+
+    // Second screen
+    expect(getByText(optionAnswer)).toBeInTheDocument();
+    expect(getByText('1 of 2 completed')).toBeInTheDocument();
+  });
+
+  it('should move backward on the steps when the user clicks in the preogres bar', () => {
+    const { getByText, getByTestId, getByPlaceholderText } = render(
+      <App initialStep={2} />
+    );
+
+    // Third screen
+    expect(getByPlaceholderText(userFirstName)).toBeInTheDocument();
+    expect(getByText('2 of 2 completed')).toBeInTheDocument();
+
+    fireEvent.click(getByTestId('previous'));
+    fireEvent.click(getByTestId('previous'));
+
+    // First screen
+    expect(getByText('Start')).toBeInTheDocument();
+    expect(getByText('0 of 2 completed')).toBeInTheDocument();
+  });
 });

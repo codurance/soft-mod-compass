@@ -1,6 +1,7 @@
+import { describe, expect, it, jest } from '@jest/globals';
+import { fireEvent } from '@testing-library/dom';
 import { render } from '@testing-library/react';
 import each from 'jest-each';
-import { fireEvent } from '@testing-library/dom';
 import React from 'react';
 import UserForm from './UserForm';
 
