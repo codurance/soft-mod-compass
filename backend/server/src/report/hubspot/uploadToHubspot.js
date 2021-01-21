@@ -35,17 +35,16 @@ const pdfFilename = (userFirstName, userLastName) => {
 };
 const REPORT_MIME_TYPE = 'application/pdf';
 
-const uploadToHubspot = async (pdfBuffer, uuid) => {
-  const { email, firstName, lastName } = await api.getFormSubmission(uuid);
-  const contactId = await api.getContactId(email);
-  const uploadedReportId = await api.uploadFile(
+const uploadReportToHubspot = (pdfBuffer, user) => {
+  return api.uploadFile(
     pdfBuffer,
-    pdfFilename(firstName, lastName),
+    pdfFilename(user.firstName, user.lastName),
     REPORT_MIME_TYPE,
     config.app.hubspot.reportsFolder
   );
-
-  await api.createNote(contactId, [uploadedReportId]);
+};
+const submitHubspotForm = (pdfLink, user) => {
+  return api.submitForm(pdfLink, user);
 };
 
-module.exports = uploadToHubspot;
+module.exports = { uploadReportToHubspot, submitHubspotForm };
