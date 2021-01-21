@@ -1,0 +1,43 @@
+name: Deploy Workflow
+
+on:
+  push:
+    branches: [dev]
+  workflow_dispatch:
+
+jobs:
+  deploy-frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: dev
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: CI
+        run: |
+          cd ./client
+          npm install
+          npm run test
+
+      - name: Build
+        run: |
+          cd ./client
+          npm run create
+
+      - name: AWS cli install action
+        uses: chrislennon/action-aws-cli@1.1
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Deploy Frontend
+        run: |
+          cd ./client
+          aws s3 sync ./dist ${{secrets.AWS_S3_BUCKET}}
