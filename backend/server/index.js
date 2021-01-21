@@ -1,17 +1,12 @@
 const path = require('path');
 const express = require('express');
 const reportingApp = express();
-const initializeLifecycleConfiguration = require('./src/initializeLifecycleConfiguration');
-
 const app = require('./src/app')(reportingApp);
 
 const port = 8080;
-
 const server = app.listen(port, () => {
   console.log(`ready at http://localhost:${port}`);
 });
-
-initializeLifecycleConfiguration();
 
 const reportDataDir = path.resolve(__dirname, 'reportData');
 const jsreport = require('jsreport')({

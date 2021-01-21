@@ -1,20 +1,25 @@
 const config = require('../../config');
 const request = require('request-promise');
-const retryUntilSuccessful = require('../../network/retryUntilSuccessful');
 
-const hubspotPost = async (path, { formData, body }) => {
+const hubspotPost = (baseUrl, path, { formData, body }) => {
   const requestOptions = {
     method: 'POST',
-    uri: 'https://api.hubapi.com' + path,
-    qs: { hapikey: config.hubspot.authToken },
+    uri: baseUrl + path,
     json: true,
   };
 
   if (formData) requestOptions.formData = formData;
   if (body) requestOptions.body = body;
 
-  return request(requestOptions);
+  return {
+    execute: async () => {
+      requestOptions.qs = { hapikey: config.hubspot.authToken };
+      return request(requestOptions);
+    },
+    executeWithoutQueryString: async () => request(requestOptions),
+  };
 };
+
 const hubspotGet = async (path) => {
   return request({
     uri: `https://api.hubapi.com` + path,
@@ -23,60 +28,15 @@ const hubspotGet = async (path) => {
   });
 };
 
-const getFormSubmission = async (uuid) => {
-  const valueWithName = (values, name) => {
-    for (const valueEntry of values) {
-      if (valueEntry.name === name) return valueEntry.value;
-    }
-    throw `Could not find value with name '${name}' in '${values
-      .map(({ name, _value }) => name)
-      .join(', ')}'`;
-  };
-  const findSubmissionForUuid = (response) => {
-    const resultWithCorrectUuid = (result) =>
-      valueWithName(result.values, 'uuid') === uuid;
-    return response.results.find(resultWithCorrectUuid);
-  };
-  const extractValues = (submission) => submission.values;
-
-  const valuesForUuid = await retryUntilSuccessful(
-    () =>
-      hubspotGet(
-        `/form-integrations/v1/submissions/forms/${config.hubspot.formId}`
-      ),
-    (response) => 'results' in response && response.results.length !== 0
-  )
-    .then(findSubmissionForUuid)
-    .then(extractValues);
-
-  return {
-    firstName: valueWithName(valuesForUuid, 'firstname'),
-    lastName: valueWithName(valuesForUuid, 'lastname'),
-    company: valueWithName(valuesForUuid, 'company'),
-    email: valueWithName(valuesForUuid, 'email'),
-    uuid,
-  };
-};
-
-const getContactId = (email) => {
-  const extractVid = (resp) => resp['canonical-vid'];
-
-  return hubspotGet(`/contacts/v1/contact/email/${email}/profile`)
-    .then(extractVid)
-    .catch((_) => {
-      throw new Error(`Could not find ID of contact with email '${email}'`);
-    });
-};
-
 const uploadFile = (
   fileBufer,
   fileName,
   fileMimeType,
   pathOnHubspotFilemanager
 ) => {
-  const extractUploadedFileId = (resp) => resp['objects'][0]['id'];
+  const extractUploadedFileId = (resp) => resp['objects'][0]['s3_url'];
 
-  return hubspotPost(`/filemanager/api/v2/files`, {
+  return hubspotPost('https://api.hubapi.com', `/filemanager/api/v2/files`, {
     formData: {
       files: {
         value: fileBufer,
@@ -88,45 +48,59 @@ const uploadFile = (
       folder_path: pathOnHubspotFilemanager,
     },
   })
+    .execute()
     .then(extractUploadedFileId)
     .catch((e) => {
+      console.log('error submitting hubspot form ', e);
       throw new Error(`Could not upload file - Reason: ${e.message}`);
     });
 };
-const createNote = (contactId, attachmentsIds, timestamp = Date.now()) => {
-  const newNoteJson = (contactId, attachmentsIds, timestamp, body) => ({
-    engagement: {
-      active: true,
-      ownerId: null,
-      type: 'NOTE',
-      timestamp: timestamp,
-    },
-    associations: {
-      contactIds: [contactId],
-      companyIds: [],
-      dealIds: [],
-      ownerIds: [],
-      ticketIds: [],
-    },
-    attachments: attachmentsIds.map((id) => ({ id })),
-    metadata: { body },
-  });
-  const body = '<b>Compass Report - Automatic Upload</b>';
 
-  const extractEngagementId = (response) => response.engagement.id;
-
-  return hubspotPost('/engagements/v1/engagements', {
-    body: newNoteJson(contactId, attachmentsIds, timestamp, body),
-  })
-    .then(extractEngagementId)
+const submitForm = (pdfLink, user) => {
+  console.log(pdfLink, user);
+  return hubspotPost(
+    'https://api.hsforms.com',
+    `/submissions/v3/integration/submit/${config.hubspot.portalId}/${config.hubspot.formId}`,
+    {
+      body: {
+        fields: [
+          {
+            name: 'email',
+            value: user.email,
+          },
+          {
+            name: 'firstname',
+            value: user.firstName,
+          },
+          {
+            name: 'lastname',
+            value: user.lastName,
+          },
+          {
+            name: 'company',
+            value: user.company,
+          },
+          {
+            name: 'compass_language',
+            value: user.language,
+          },
+          {
+            name: 'report',
+            value: pdfLink,
+          },
+        ],
+      },
+    }
+  )
+    .executeWithoutQueryString()
+    .then((value) => ({ userCreated: user.email }))
     .catch((e) => {
-      throw new Error(`Could not create Note - Reason: ${e.message}`);
+      console.log('error submitting hubspot form ', e);
+      throw new Error(`Could not submit form - Reason: ${e.message}`);
     });
 };
 
 module.exports = {
-  getFormSubmission,
-  getContactId,
   uploadFile,
-  createNote,
+  submitForm,
 };

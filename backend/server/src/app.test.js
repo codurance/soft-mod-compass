@@ -1,57 +1,103 @@
-const request = require('supertest');
+const supertest = require('supertest');
+const express = require('express');
+const fakeRequestBody = require('./mockData/post_survey_request_body.json');
+const nock = require('nock');
 
-function appWithMockConfig(configOverrides) {
-  const config = { ...mockConfig, ...configOverrides };
-  jest.resetModules();
-  jest.doMock('./config', () => config);
-  const fakeReportingApp = (req, res, next) =>
-    res.send('<p>jsreport studio</p>');
-  const app = require('./app')(fakeReportingApp);
-  return app;
-}
+const renderMock = (function () {
+  const renderFunction = jest.fn();
+  jest.doMock('./jsreportAdapter', () => renderFunction);
+  renderFunction.mockReturnValue({ content: 'pdf File' });
+  return renderFunction;
+})();
 
 const mockConfig = {
   jsreport: {
     studioEditorEnabled: true,
   },
-  typeform: {
-    url: 'https://typeform-url.com',
-    formId: 'formId',
-    authToken: 'encoded auth token',
-  },
   hubspot: {
     formLandingPageUrl: 'https://hubspot.com/form',
+    authToken: 'fake token',
+    portalId: 'portalid',
+    formId: 'formId',
   },
   app: {
-    retryUntilSuccessful: {
-      maxRetries: 10,
-      sleepBeforeRetryMs: 0,
+    hubspot: {
+      reportsFolder: 'Compass Reports Folder Path',
     },
   },
 };
+const config = { ...mockConfig };
+jest.doMock('./config', () => config);
+const uploadedFileUrl = 'http://my-pdf';
+
+function mockHubspotFileApi() {
+  const validResponseWithUploadedFileLink = {
+    objects: [{ s3_url: uploadedFileUrl }],
+  };
+
+  return nock('https://api.hubapi.com')
+    .post('/filemanager/api/v2/files')
+    .query({ hapikey: mockConfig.hubspot.authToken })
+    .reply(200, validResponseWithUploadedFileLink);
+}
+
+function mockHubspotFormApi() {
+  return nock('https://api.hsforms.com')
+    .post(
+      `/submissions/v3/integration/submit/${mockConfig.hubspot.portalId}/${mockConfig.hubspot.formId}`,
+      {
+        fields: [
+          {
+            name: 'email',
+            value: 'user@company.com',
+          },
+          {
+            name: 'firstname',
+            value: 'First Name',
+          },
+          {
+            name: 'lastname',
+            value: 'Last Name',
+          },
+          {
+            name: 'company',
+            value: 'Some Company',
+          },
+          {
+            name: 'compass_language',
+            value: 'en',
+          },
+          {
+            name: 'report',
+            value: uploadedFileUrl,
+          },
+        ],
+      }
+    )
+    .reply(200);
+}
 
 describe('app', () => {
-  let app;
   beforeEach(() => {
-    app = appWithMockConfig();
+    jest.clearAllMocks();
   });
+  it('should reply ok when submit survey', async () => {
+    const uploadPdfMockServerCall = mockHubspotFileApi();
+    const submitFormServerCall = mockHubspotFormApi();
 
-  it('allows access to jsreport studio locally in development', (done) => {
-    request(app)
-      .get('/reporting')
-      .expect('Content-Type', /html/)
-      .expect(200, done);
-  });
-
-  it('does not allow access to jsreport studio in production', (done) => {
-    const app = appWithMockConfig({
-      jsreport: {
-        studioEditorEnabled: false,
-      },
+    const app = require('./app')(express());
+    const res = await supertest(app).post('/surveys').send(fakeRequestBody);
+    expect(renderMock).toHaveBeenCalledWith(
+      { engine: 'handlebars', name: 'Compass-EN', recipe: 'chrome-pdf' },
+      fakeRequestBody
+    );
+    expect(uploadPdfMockServerCall.isDone()).toBe(true);
+    expect(submitFormServerCall.isDone()).toBe(true);
+    expect(res.status).toBe(200);
+    expect(res.body).toEqual({
+      status: 'ok',
+      userCreated: 'user@company.com',
+      pdfUrl: uploadedFileUrl,
     });
-    request(app)
-      .get('/reporting')
-      .expect('Content-Type', /html/)
-      .expect(404, done);
   });
 });
