@@ -94,7 +94,7 @@ jobs:
           --environment-name CompassDev-env \
           --version-label "ver-${{ github.sha }}" \
           --option-settings \
-          Namespace='aws:elasticbeanstalk:application:environment',OptionName=HUBSPOT_FORM_ID,Value=${{ secrets.HUBSPOT_FORM_ID }}, \
-          Namespace='aws:elasticbeanstalk:application:environment',OptionName=HUBSPOT_AUTH_TOKEN,Value=${{ secrets.HUBSPOT_AUTH_TOKEN }}, \
-          Namespace='aws:elasticbeanstalk:application:environment',OptionName=HUBSPOT_ACCOUNT_ID,Value=${{ secrets.HUBSPOT_ACCOUNT_ID }}, \
+          Namespace='aws:elasticbeanstalk:application:environment',OptionName=HUBSPOT_FORM_ID,Value=${{ secrets.HUBSPOT_FORM_ID }},\
+          Namespace='aws:elasticbeanstalk:application:environment',OptionName=HUBSPOT_AUTH_TOKEN,Value=${{ secrets.HUBSPOT_AUTH_TOKEN }},\
+          Namespace='aws:elasticbeanstalk:application:environment',OptionName=HUBSPOT_ACCOUNT_ID,Value=${{ secrets.HUBSPOT_ACCOUNT_ID }},\
           Namespace='aws:elasticbeanstalk:application:environment',OptionName=NODE_ENV,Value=production
