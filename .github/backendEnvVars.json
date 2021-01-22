@@ -1,0 +1,17 @@
+[
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "HUBSPOT_FORM_ID",
+    "Value": "236a5759-0193-498a-94f5-7c90474a156e"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "HUBSPOT_AUTH_TOKEN",
+    "Value": "80c8d7d7-1f5d-4f43-a2da-dd8e638bc9b8"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "HUBSPOT_ACCOUNT_ID",
+    "Value": "3042464"
+  }
+]
