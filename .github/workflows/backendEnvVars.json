@@ -11,7 +11,7 @@
   },
   {
     "Namespace": "aws:elasticbeanstalk:application:environment",
-    "OptionName": "HUBSPOT_ACCOUNT_ID",
-    "Value": "3042464"
+    "OptionName": "HUBSPOT_AUTH_TOKEN",
+    "Value": "80c8d7d7-1f5d-4f43-a2da-dd8e638bc9b8"
   }
 ]
