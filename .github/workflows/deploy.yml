@@ -2,46 +2,45 @@ name: Deploy Workflow
 
 on:
   push:
-    branches: [ dev ]
+    branches: [dev]
   workflow_dispatch:
 
 jobs:
-#  deploy-frontend:
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#      - uses: actions/checkout@v2
-#        with:
-#          ref: dev
-#      - uses: actions/setup-node@v1
-#        with:
-#          node-version: 12.x
-#      - name: CI
-#        run: |
-#          cd ./client
-#          npm install
-#          npm run test
-#
-#      - name: Build
-#        run: |
-#          cd ./client
-#          npm run create
-#
-#      - name: AWS cli install action
-#        uses: chrislennon/action-aws-cli@1.1
-#
-#      - name: Configure AWS Credentials
-#        uses: aws-actions/configure-aws-credentials@v1
-#        with:
-#          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#          aws-region: ${{ secrets.AWS_REGION }}
-#
-#      - name: Deploy Frontend
-#        run: |
-#          cd ./client
-#          aws s3 sync ./dist ${{secrets.AWS_S3_BUCKET}}
-
+  #  deploy-frontend:
+  #    runs-on: ubuntu-latest
+  #
+  #    steps:
+  #      - uses: actions/checkout@v2
+  #        with:
+  #          ref: dev
+  #      - uses: actions/setup-node@v1
+  #        with:
+  #          node-version: 12.x
+  #      - name: CI
+  #        run: |
+  #          cd ./client
+  #          npm install
+  #          npm run test
+  #
+  #      - name: Build
+  #        run: |
+  #          cd ./client
+  #          npm run create
+  #
+  #      - name: AWS cli install action
+  #        uses: chrislennon/action-aws-cli@1.1
+  #
+  #      - name: Configure AWS Credentials
+  #        uses: aws-actions/configure-aws-credentials@v1
+  #        with:
+  #          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  #          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  #          aws-region: ${{ secrets.AWS_REGION }}
+  #
+  #      - name: Deploy Frontend
+  #        run: |
+  #          cd ./client
+  #          aws s3 sync ./dist ${{secrets.AWS_S3_BUCKET}}
 
   deploy-backend:
     runs-on: ubuntu-latest
@@ -88,13 +87,12 @@ jobs:
           --version-label "ver-${{ github.sha }}" \
           --description "commit-sha-${{ github.sha }}"
 
+      - name: Create env json
+        run: echo "[{\"Namespace\":\"aws:elasticbeanstalk:application:environment\",\"OptionName\":\"HUBSPOT_FORM_ID\",\"Value\":\"${{secrets.HUBSPOT_FORM_ID}}\"},{\"Namespace\":\"aws:elasticbeanstalk:application:environment\",\"OptionName\":\"HUBSPOT_AUTH_TOKEN\",\"Value\":\"${{secrets.HUBSPOT_AUTH_TOKEN}}\"},{\"Namespace\":\"aws:elasticbeanstalk:application:environment\",\"OptionName\":\"HUBSPOT_ACCOUNT_ID\",\"Value\":\"${{secrets.HUBSPOT_ACCOUNT_ID}}\"}]" > .github/backendEnvVars.json
+
       - name: Deploy new ElasticBeanstalk Application Version
         run: |
           aws elasticbeanstalk update-environment \
           --environment-name CompassDev-env \
           --version-label "ver-${{ github.sha }}" \
-          --option-settings \
-          Namespace='aws:elasticbeanstalk:application:environment',OptionName=HUBSPOT_FORM_ID,Value=${{ secrets.HUBSPOT_FORM_ID }},\
-          Namespace='aws:elasticbeanstalk:application:environment',OptionName=HUBSPOT_AUTH_TOKEN,Value=${{ secrets.HUBSPOT_AUTH_TOKEN }},\
-          Namespace='aws:elasticbeanstalk:application:environment',OptionName=HUBSPOT_ACCOUNT_ID,Value=${{ secrets.HUBSPOT_ACCOUNT_ID }},\
-          Namespace='aws:elasticbeanstalk:application:environment',OptionName=NODE_ENV,Value=production
+          --option-settings file://.github/backendEnvVars.json
