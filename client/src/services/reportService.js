@@ -3,7 +3,7 @@ import config from '../config/config';
 
 const getLanguage = () => {
   const { pathname } = window.location;
-  return pathname === '/es' ? 's' : 'en';
+  return pathname === '/es' ? 'es' : 'en';
 };
 
 export default {
