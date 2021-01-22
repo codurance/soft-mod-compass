@@ -82,7 +82,8 @@ jobs:
               \"OptionName\": \"HUBSPOT_ACCOUNT_ID\",\
               \"Value\": \"3042464\"\
             }\
-          ]" > .github/backendEnvVars.json
+          ]" > .github/backendEnvVars.json \
+          cat .github/backendEnvVars.json
 
       - name: AWS cli install action
         uses: chrislennon/action-aws-cli@1.1
