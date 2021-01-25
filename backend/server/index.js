@@ -26,17 +26,23 @@ const jsreport = require('jsreport')({
       },
     },
     'chrome-pdf': {
-      timeout: 20000,
+      timeout: 200000,
       strategy: 'chrome-pool',
       numberOfWorkers: 2,
       launchOptions: {
         args: ['--no-sandbox', '--disable-setuid-sandbox'],
       },
+      scripts: {
+        timeout: 700000,
+      },
+      express: {
+        renderTimeout: 700000,
+      },
     },
   },
   templatingEngines: {
     strategy: 'dedicated-process',
-    timeout: 40000,
+    timeout: 200000,
     numberOfWorkers: 2,
     allowedModules: '*',
   },
