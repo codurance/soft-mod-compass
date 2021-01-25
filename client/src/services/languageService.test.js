@@ -2,7 +2,7 @@ import { describe, expect, it, beforeEach } from '@jest/globals';
 import languageService from './languageService';
 
 const setUrl = (language) => {
-  const location = new URL(`https://www.example.com/${language}`);
+  const location = new URL(`https://www.example.com/?lang=${language}`);
   delete window.location;
   window.location = location;
 };

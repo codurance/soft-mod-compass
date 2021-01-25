@@ -1,6 +1,6 @@
 import esLang from './es-labels.json';
 import enLang from './en-labels.json';
+import languageService from '../services/languageService';
 
-const { pathname } = window.location;
-
-export default pathname === '/es' ? esLang : enLang;
+const language = languageService.getLanguage();
+export default language === 'es' ? esLang : enLang;

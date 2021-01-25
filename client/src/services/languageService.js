@@ -1,14 +1,16 @@
 export default {
   getLanguage() {
-    const { pathname } = window.location;
-    return pathname === '/es' ? 'es' : 'en';
+    const urlParams = new URLSearchParams(window.location.search);
+    const language = urlParams.get('lang');
+    return language === 'es' ? 'es' : 'en';
   },
 
   getTitle() {
-    const { pathname } = window.location;
+    const urlParams = new URLSearchParams(window.location.search);
+    const language = urlParams.get('lang');
     const title = 'Compass by Codurance |';
 
-    return pathname === '/es'
+    return language === 'es'
       ? `${title} Herramienta de evaluación`
       : `${title} Assessment Tool`;
   },
