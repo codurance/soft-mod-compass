@@ -2,7 +2,8 @@
 Handlebars.registerPartial("gauge-subcategory", "{#asset gauge-subcategory.handlebars @encoding=string}");
 Handlebars.registerPartial("gauge-assessment", "{#asset gauge-assessment.handlebars @encoding=string}");
 Handlebars.registerPartial("gauge-summary", "{#asset gauge-summary.handlebars @encoding=string}");
-
+const enLanguageFile = require('en-labels.json')
+const esLanguageFile = require('es-labels.json')
 
 /** Backgrounds for each category depending on score **/
 Handlebars.registerHelper("categoryScoreClass", function (score) {
@@ -14,6 +15,11 @@ Handlebars.registerHelper("categoryScoreClass", function (score) {
 
 
 /** Gauges **/
+Handlebars.registerHelper("translate", function (answer, language) {
+  if(!language) return answer;
+  if (language === 'es') return esLanguageFile[answer];
+  else return enLanguageFile[answer];
+})
 Handlebars.registerHelper("gaugeCategoryScoreClass", function (score) {
   if (score == 100) return "good";
   if (score == 75) return "good";

@@ -39,7 +39,7 @@ module.exports = (reportingApp) => {
       })
       .catch((reason) => {
         console.error('error in request /surveys ', reason);
-        res.status(500).send(reason);
+        res.status(500).send(reason.message);
       });
     console.log('ready for new requests...');
   });

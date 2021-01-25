@@ -121,3 +121,4 @@ hubspot.config.yml
 
 compassReport_*.png
 # End of https://www.gitignore.io/api/node,macos,visualstudiocode
+/backend/scripts/local-conf.sh

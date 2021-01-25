@@ -25,11 +25,6 @@ const jsreport = require('jsreport')({
         usePolling: true,
       },
     },
-    templatingEngines: {
-      strategy: 'dedicated-process',
-      timeout: 40000,
-      numberOfWorkers: 2,
-    },
     'chrome-pdf': {
       timeout: 20000,
       strategy: 'chrome-pool',
@@ -38,6 +33,12 @@ const jsreport = require('jsreport')({
         args: ['--no-sandbox', '--disable-setuid-sandbox'],
       },
     },
+  },
+  templatingEngines: {
+    strategy: 'dedicated-process',
+    timeout: 40000,
+    numberOfWorkers: 2,
+    allowedModules: '*',
   },
   appPath: '/reporting',
 });
