@@ -8,6 +8,8 @@ module.exports = {
     formId: process.env.HUBSPOT_FORM_ID,
     authToken: process.env.HUBSPOT_AUTH_TOKEN,
     portalId: process.env.HUBSPOT_ACCOUNT_ID,
+    formApiUrl: 'https://api.hsforms.com',
+    fileApiUrl: 'https://api.hubapi.com',
   },
   app: {
     hubspot: {

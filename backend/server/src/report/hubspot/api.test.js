@@ -1,11 +1,14 @@
 const nock = require('nock');
+const HubspotFormApi = 'https://api.fakeform.com';
+const hubspotApiBaseUrl = 'https://api.fakeapi.com';
 
 const mockConfig = {
   hubspot: {
     formId: 'MOCK_FORM_ID',
     authToken: 'MOCK_AUTH_TOKEN',
-    compassEventId: '0000011111',
     portalId: 1234,
+    formApiUrl: HubspotFormApi,
+    fileApiUrl: hubspotApiBaseUrl,
   },
 };
 
@@ -14,7 +17,6 @@ jest.doMock('../../config', () => mockConfig);
 const api = require('./api');
 
 describe('Hubspot API', () => {
-  const hubspotApiBaseUrl = 'https://api.hubapi.com';
   const authQueryString = { hapikey: mockConfig.hubspot.authToken };
 
   beforeEach(() => {
@@ -59,7 +61,7 @@ describe('Hubspot API', () => {
         language: 'en',
       };
       const uploadedFileUrl = 'fakePdfLink';
-      const mockedRequest = nock('https://api.hsforms.com')
+      const mockedRequest = nock(HubspotFormApi)
         .post(
           `/submissions/v3/integration/submit/${mockConfig.hubspot.portalId}/${mockConfig.hubspot.formId}`,
           {
