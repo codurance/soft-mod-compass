@@ -1,10 +1,6 @@
 import fetch from 'node-fetch';
 import config from '../config/config';
-
-const getLanguage = () => {
-  const { pathname } = window.location;
-  return pathname === '/es' ? 'es' : 'en';
-};
+import languageService from './languageService';
 
 export default {
   async submitSurvey(surveyData) {
@@ -14,7 +10,7 @@ export default {
         lastName: surveyData.lastName,
         company: surveyData.companyName,
         email: surveyData.email,
-        language: getLanguage(),
+        language: languageService.getLanguage(),
       },
       categories: {
         organisationalMaturity: {
