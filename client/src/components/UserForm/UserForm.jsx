@@ -19,11 +19,8 @@ function UserForm({ initialState, updateUserForm, submitForm }) {
 
   return (
     <div className="wrapper">
-      <h2>Receive your report</h2>
-      <p>
-        Please provide us with a few details so that we can personalise your
-        report.
-      </p>
+      <h2>{translator.userFormTitle}</h2>
+      <p>{translator.userFormDescription}</p>
       <div className="form">
         <InputText
           textValue={userForm.firstName}
@@ -45,7 +42,7 @@ function UserForm({ initialState, updateUserForm, submitForm }) {
           onChangeCallBack={handleChangeText('email')}
           label={translator[surveyConfig.emailLabel]}
         />
-        <Button label="Submit" clickCallback={submitForm} />
+        <Button label={translator.submit} clickCallback={submitForm} />
       </div>
     </div>
   );

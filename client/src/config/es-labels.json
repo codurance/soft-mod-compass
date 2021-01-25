@@ -10,5 +10,7 @@
   "email": "Email",
   "submit": "Enviar",
   "welcomeFirstParagraph": "Nuestra herramienta de evaluación de entrega de software permite medir el nivel actual de madurez de tu organización en cinco áreas distintas e incluye recomendaciones para aplicar posibles mejoras.",
-  "welcomeSecondParagraph": "Al finalizar la encuesta, te enviaremos un informe detallado en PDF (con recomendaciones para posibles mejoras)."
+  "welcomeSecondParagraph": "Al finalizar la encuesta, te enviaremos un informe detallado en PDF (con recomendaciones para posibles mejoras).",
+  "userFormTitle": "Para recibir tu informe",
+  "userFormDescription": "Por favor, facilítanos algunos datos para que podamos personalizar tu informe."
 }
