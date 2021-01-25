@@ -27,6 +27,9 @@ module.exports = (reportingApp) => {
     app.use('/reporting', reportingApp);
   }
 
+  app.get('/', (req, res) => {
+    res.status(200).send({ status: 'up' });
+  });
   app.post('/surveys', (req, res) => {
     console.log('new request incoming...');
     handlePostRequest(req.body)
