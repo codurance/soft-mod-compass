@@ -2,22 +2,23 @@ import { describe, expect, it, jest } from '@jest/globals';
 import { render } from '@testing-library/react';
 import React from 'react';
 import App from './App';
-import {
-  welcomeFirstParagraph,
-  welcomeSecondParagraph,
-} from './config/en-labels.json';
-import surveyConfig from './config/surveyModel.json';
 import translator from './config/translator';
 import redirectService from './services/redirectService';
 import reportService from './services/reportService';
 
-const stronglyAgree = 'Strongly Agree';
-const Agree = 'Agree';
-const NeitherAgree = 'Neither Agree Nor Disagree';
-const Disagree = 'Disagree';
-const StronglyDisagree = 'Strongly Disagree';
-const question =
-  'Decision making for IT product and projects is based on what will carry the most value for the business. *';
+const {
+  firstName,
+  start,
+  welcomeFirstParagraph,
+  welcomeSecondParagraph,
+  question,
+  stronglyAgree,
+  agree,
+  neitherAgree,
+  disagree,
+  stronglyDisagree,
+  submit,
+} = translator;
 
 describe('app', () => {
   it('should display the Welcome component', () => {
@@ -27,29 +28,25 @@ describe('app', () => {
   });
   it('should display the first question', () => {
     const { getByText } = render(<App initialStep={1} />);
-    expect(
-      getByText(
-        'Decision making for IT product and projects is based on what will carry the most value for the business. *'
-      )
-    ).toBeInTheDocument();
+    expect(getByText(question)).toBeInTheDocument();
     expect(getByText(stronglyAgree)).toBeInTheDocument();
-    expect(getByText(Agree)).toBeInTheDocument();
-    expect(getByText(NeitherAgree)).toBeInTheDocument();
-    expect(getByText(Disagree)).toBeInTheDocument();
-    expect(getByText(StronglyDisagree)).toBeInTheDocument();
+    expect(getByText(agree)).toBeInTheDocument();
+    expect(getByText(neitherAgree)).toBeInTheDocument();
+    expect(getByText(disagree)).toBeInTheDocument();
+    expect(getByText(stronglyDisagree)).toBeInTheDocument();
   });
 
   it('should display the submit button', () => {
     const { getByText } = render(<App initialStep={2} />);
-    expect(getByText('Submit')).toBeInTheDocument();
+    expect(getByText(submit)).toBeInTheDocument();
   });
 
   it('should call submitSurvey service', () => {
     const { getByText } = render(<App initialStep={2} />);
     const spy = jest
       .spyOn(reportService, 'submitSurvey')
-      .mockImplementation((payload) => {});
-    getByText('Submit').click();
+      .mockImplementation(() => {});
+    getByText(submit).click();
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
@@ -57,7 +54,7 @@ describe('app', () => {
     const { getByText } = render(<App initialStep={2} />);
     const spy = jest.spyOn(redirectService, 'redirect');
 
-    getByText('Submit').click();
+    getByText(submit).click();
 
     expect(spy).toHaveBeenCalledTimes(1);
   });
@@ -65,35 +62,25 @@ describe('app', () => {
   it('should only display the Welcome component', () => {
     const { getByText, queryByText } = render(<App />);
 
-    expect(getByText(translator.welcomeFirstParagraph)).toBeInTheDocument();
+    expect(getByText(welcomeFirstParagraph)).toBeInTheDocument();
     expect(queryByText(question)).not.toBeInTheDocument();
-    expect(
-      queryByText(translator[surveyConfig.firstNameLabel])
-    ).not.toBeInTheDocument();
+    expect(queryByText(firstName)).not.toBeInTheDocument();
   });
 
   it('should change the content of the screen when the user clicks to move forward', () => {
     const { getByText, queryByText, getByPlaceholderText } = render(<App />);
 
-    getByText('Start').click();
+    getByText(start).click();
 
-    expect(
-      queryByText(translator.welcomeFirstParagraph)
-    ).not.toBeInTheDocument();
+    expect(queryByText(welcomeFirstParagraph)).not.toBeInTheDocument();
     expect(getByText(question)).toBeInTheDocument();
-    expect(
-      queryByText(translator[surveyConfig.firstNameLabel])
-    ).not.toBeInTheDocument();
+    expect(queryByText(firstName)).not.toBeInTheDocument();
 
-    getByText(NeitherAgree).click();
+    getByText(neitherAgree).click();
 
-    expect(
-      queryByText(translator.welcomeFirstParagraph)
-    ).not.toBeInTheDocument();
+    expect(queryByText(welcomeFirstParagraph)).not.toBeInTheDocument();
     expect(queryByText(question)).not.toBeInTheDocument();
 
-    expect(
-      getByPlaceholderText(translator[surveyConfig.firstNameLabel])
-    ).toBeInTheDocument();
+    expect(getByPlaceholderText(firstName)).toBeInTheDocument();
   });
 });

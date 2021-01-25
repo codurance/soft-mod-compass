@@ -10,6 +10,7 @@
   "companyName": "Nombre de la empresa",
   "email": "Email",
   "submit": "Enviar",
+  "start": "Start",
   "welcomeFirstParagraph": "Nuestra herramienta de evaluación de entrega de software permite medir el nivel actual de madurez de tu organización en cinco áreas distintas e incluye recomendaciones para aplicar posibles mejoras.",
   "welcomeSecondParagraph": "Al finalizar la encuesta, te enviaremos un informe detallado en PDF (con recomendaciones para posibles mejoras).",
   "userFormTitle": "Para recibir tu informe",

@@ -1,12 +1,10 @@
 import { describe, expect, it, jest } from '@jest/globals';
 import { render } from '@testing-library/react';
 import React from 'react';
-import {
-  welcomeFirstParagraph,
-  welcomeSecondParagraph,
-} from '../../config/en-labels.json';
+import translator from '../../config/translator';
 import Welcome from './Welcome';
 
+const { welcomeFirstParagraph, welcomeSecondParagraph, start } = translator;
 const clickCallback = jest.fn();
 
 describe('Welcome', () => {
@@ -18,7 +16,7 @@ describe('Welcome', () => {
 
   it('should execute the callback when the user clicks in the button', () => {
     const { getByText } = render(<Welcome clickCallback={clickCallback} />);
-    getByText('Start').click();
+    getByText(start).click();
 
     expect(clickCallback).toHaveBeenCalledTimes(1);
   });

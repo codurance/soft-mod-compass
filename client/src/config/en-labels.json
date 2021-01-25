@@ -10,6 +10,7 @@
   "companyName": "Company Name",
   "email": "Email",
   "submit": "Submit",
+  "start": "Start",
   "welcomeFirstParagraph": "Our software delivery assessment measures the current level of maturity of your software development organisation across 5 distinct areas and includes recommendations for improvements.",
   "welcomeSecondParagraph": "A detailed PDF report (including recommendations for improvements) will be sent to you upon completion of the survey.",
   "userFormTitle": "Receive your report",

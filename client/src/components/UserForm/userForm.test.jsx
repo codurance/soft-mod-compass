@@ -3,7 +3,10 @@ import { fireEvent } from '@testing-library/dom';
 import { render } from '@testing-library/react';
 import each from 'jest-each';
 import React from 'react';
+import translator from '../../config/translator';
 import UserForm from './UserForm';
+
+const { firstName, lastName, companyName, email, submit } = translator;
 
 const initialState = {
   firstName: '',
@@ -15,10 +18,10 @@ const clickCallback = jest.fn();
 
 describe('UserForm ', () =>
   each([
-    ['First Name', 'Alice'],
-    ['Last Name', 'Cooper'],
-    ['Company Name', 'Codurance'],
-    ['Email', 'alice.cooper@codurance.com'],
+    [firstName, 'Alice'],
+    [lastName, 'Cooper'],
+    [companyName, 'Codurance'],
+    [email, 'alice.cooper@codurance.com'],
   ]).it(
     'should change the text value of the firstname input field when the firstname field is changed',
     (labelName, expectedTextValue) => {
@@ -47,7 +50,7 @@ it('should call submitForm when user clicks in the button', () => {
     />
   );
 
-  const submitButton = getByText('Submit');
+  const submitButton = getByText(submit);
   fireEvent.click(submitButton);
 
   expect(clickCallback).toHaveBeenCalledTimes(1);

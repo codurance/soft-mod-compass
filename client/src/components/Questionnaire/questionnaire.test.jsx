@@ -2,13 +2,18 @@ import { describe, expect, it } from '@jest/globals';
 import { render } from '@testing-library/react';
 import each from 'jest-each';
 import React from 'react';
+import translator from '../../config/translator';
 import Questionnaire from './Questionnaire';
 
-const stronglyAgree = 'Strongly Agree';
-const Agree = 'Agree';
-const NeitherAgree = 'Neither Agree Nor Disagree';
-const Disagree = 'Disagree';
-const StronglyDisagree = 'Strongly Disagree';
+const {
+  stronglyAgree,
+  agree,
+  neitherAgree,
+  disagree,
+  stronglyDisagree,
+  question,
+} = translator;
+
 const initialState = {
   label: '',
   score: 0,
@@ -22,33 +27,29 @@ describe('Questionnaire', () => {
         handleQuestionnaire={() => {}}
       />
     );
-    expect(
-      getByText(
-        'Decision making for IT product and projects is based on what will carry the most value for the business. *'
-      )
-    ).toBeInTheDocument();
+    expect(getByText(question)).toBeInTheDocument();
     expect(getByText(stronglyAgree)).toBeInTheDocument();
-    expect(getByText(Agree)).toBeInTheDocument();
-    expect(getByText(NeitherAgree)).toBeInTheDocument();
-    expect(getByText(Disagree)).toBeInTheDocument();
-    expect(getByText(StronglyDisagree)).toBeInTheDocument();
+    expect(getByText(agree)).toBeInTheDocument();
+    expect(getByText(neitherAgree)).toBeInTheDocument();
+    expect(getByText(disagree)).toBeInTheDocument();
+    expect(getByText(stronglyDisagree)).toBeInTheDocument();
   });
 
   const answerTable = [
     stronglyAgree,
-    Agree,
-    NeitherAgree,
-    Disagree,
-    StronglyDisagree,
+    agree,
+    neitherAgree,
+    disagree,
+    stronglyDisagree,
   ];
   each([
     [stronglyAgree, answerTable],
-    [Agree, answerTable],
-    [NeitherAgree, answerTable],
-    [Disagree, answerTable],
-    [StronglyDisagree, answerTable],
+    [agree, answerTable],
+    [neitherAgree, answerTable],
+    [disagree, answerTable],
+    [stronglyDisagree, answerTable],
   ]).it(
-    "given an answer '%s' ," + ' only that one should be selected',
+    "given an answer '%s' , only that one should be selected",
     (selectedAnswer, answers) => {
       const { getByText } = render(
         <Questionnaire
