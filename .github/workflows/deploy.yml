@@ -25,7 +25,7 @@ jobs:
       - name: Build
         run: |
           cd ./client
-          npm run create
+          npm run create-dev
 
       - name: AWS cli install action
         uses: chrislennon/action-aws-cli@1.1
