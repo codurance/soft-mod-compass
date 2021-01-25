@@ -36,7 +36,7 @@ const uploadFile = (
 ) => {
   const extractUploadedFileId = (resp) => resp['objects'][0]['s3_url'];
 
-  return hubspotPost('https://api.hubapi.com', `/filemanager/api/v2/files`, {
+  return hubspotPost(config.hubspot.fileApiUrl, `/filemanager/api/v2/files`, {
     formData: {
       files: {
         value: fileBufer,
@@ -59,7 +59,7 @@ const uploadFile = (
 const submitForm = (pdfLink, user) => {
   console.log(pdfLink, user);
   return hubspotPost(
-    'https://api.hsforms.com',
+    config.hubspot.formApiUrl,
     `/submissions/v3/integration/submit/${config.hubspot.portalId}/${config.hubspot.formId}`,
     {
       body: {

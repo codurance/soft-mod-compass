@@ -9,22 +9,26 @@ const renderMock = (function () {
   renderFunction.mockReturnValue({ content: 'pdf File' });
   return renderFunction;
 })();
+const HubspotFormApi = 'https://api.fakeform.com';
+const hubspotApiBaseUrl = 'https://api.fakeapi.com';
 
 const mockConfig = {
   jsreport: {
     studioEditorEnabled: true,
   },
   hubspot: {
-    formLandingPageUrl: 'https://hubspot.com/form',
     authToken: 'fake token',
     portalId: 'portalid',
     formId: 'formId',
+    formApiUrl: HubspotFormApi,
+    fileApiUrl: hubspotApiBaseUrl,
   },
   app: {
     hubspot: {
       reportsFolder: 'Compass Reports Folder Path',
     },
   },
+  cors: {},
 };
 const config = { ...mockConfig };
 jest.doMock('./config', () => config);
@@ -35,14 +39,14 @@ function mockHubspotFileApi() {
     objects: [{ s3_url: uploadedFileUrl }],
   };
 
-  return nock('https://api.hubapi.com')
+  return nock(hubspotApiBaseUrl)
     .post('/filemanager/api/v2/files')
     .query({ hapikey: mockConfig.hubspot.authToken })
     .reply(200, validResponseWithUploadedFileLink);
 }
 
 function mockHubspotFormApi() {
-  return nock('https://api.hsforms.com')
+  return nock(HubspotFormApi)
     .post(
       `/submissions/v3/integration/submit/${mockConfig.hubspot.portalId}/${mockConfig.hubspot.formId}`,
       {
