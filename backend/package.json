@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "main": "./server/index.js",
   "scripts": {
-    "dev": ". ./scripts/envvars-config-dev-EN.sh && babel-node ./server/index.js",
+    "dev": ". ./scripts/localConf.sh && babel-node ./server/index.js",
     "dev:es": "npm run check-aws-region:dev && . ./scripts/envvars-config-dev-ES.sh && babel-node ./server/index.js",
     "debug:en": "node --inspect ./server/index.js",
     "debug:es": ". ./scripts/envvars-config-dev-ES.sh &&  node --inspect ./server/index.js",

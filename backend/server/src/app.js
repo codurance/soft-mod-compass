@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const generateReport = require('./jsreportAdapter');
 const cors = require('cors');
 const config = require('./config');
+const fs = require('fs');
+const path = require('path');
 
 const {
   uploadReportToHubspot,
@@ -39,10 +41,23 @@ module.exports = (reportingApp) => {
       })
       .catch((reason) => {
         console.error('error in request /surveys ', reason);
-        res.status(500).send(reason);
+        res.status(500).send(reason.message);
       });
     console.log('ready for new requests...');
   });
+
+  function generatePdfLocally(pdfBuffer) {
+    const pdfPath = path.join(__dirname, `../../tmp/test.pdf`);
+    const route = path.join(__dirname, `../../tmp`);
+
+    if (!fs.existsSync(route)) {
+      fs.mkdirSync(route);
+    }
+
+    fs.writeFileSync(pdfPath, pdfBuffer, (err) =>
+      console.log('Error generating the PDF', err.message)
+    );
+  }
 
   async function handlePostRequest(body) {
     const jsReportTemplate = {
@@ -51,9 +66,18 @@ module.exports = (reportingApp) => {
       recipe: 'chrome-pdf',
     };
     const pdf = await generateReport(jsReportTemplate, body);
-    const pdfLink = await uploadReportToHubspot(pdf.content, body.user);
-    const submittedUser = await submitHubspotForm(pdfLink, body.user);
-    return { status: 'ok', ...submittedUser, pdfUrl: pdfLink };
+
+    if (process.env.LOCAL_MODE) {
+      generatePdfLocally(pdf.content);
+      return {
+        status: 'ok',
+        message: 'Your pdf was generated locally /server/tmp/test.pdf file',
+      };
+    } else {
+      const pdfLink = await uploadReportToHubspot(pdf.content, body.user);
+      const submittedUser = await submitHubspotForm(pdfLink, body.user);
+      return { status: 'ok', ...submittedUser, pdfUrl: pdfLink };
+    }
   }
 
   return app;
