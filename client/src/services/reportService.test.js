@@ -1,8 +1,9 @@
+import { describe, expect, it } from '@jest/globals';
 import nock from 'nock';
+import config from '../config/config';
 import payloadRequest from '../mockdata/post_survey_request_body.json';
 import surveyData from '../mockdata/survey_mock_data.json';
 import reportService from './reportService';
-import config from '../config/config';
 
 const successfulResponseFromBackend = { status: 'ok' };
 config.reportServerBaseUrl = 'http://fake-report.com';
