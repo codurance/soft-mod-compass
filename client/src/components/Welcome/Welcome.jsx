@@ -17,7 +17,7 @@ function Welcome({ clickCallback }) {
         <p>{translator.welcomeFirstParagraph}</p>
         <p>{translator.welcomeSecondParagraph}</p>
       </div>
-      <Button label="Start" clickCallback={clickCallback} />
+      <Button label={translator.start} clickCallback={clickCallback} />
     </div>
   );
 }
