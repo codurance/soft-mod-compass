@@ -4,6 +4,7 @@ import ProgressBar from './components/ProgressBar/ProgressBar';
 import Questionnaire from './components/Questionnaire/Questionnaire';
 import UserForm from './components/UserForm/UserForm';
 import Welcome from './components/Welcome/Welcome';
+import redirectService from './services/redirectService';
 import reportService from './services/reportService';
 import './styles.scss';
 import './styles/global.scss';
@@ -29,9 +30,14 @@ function App({ initialStep }) {
   };
 
   const handleSubmit = () => {
-    const data = { ...textFields };
-    data.answer = questionnaire;
-    reportService.submitSurvey(data);
+    try {
+      const data = { ...textFields };
+      data.answer = questionnaire;
+      reportService.submitSurvey(data);
+      redirectService.redirect();
+    } catch (e) {
+      redirectService.redirect();
+    }
   };
 
   const updateQuestionnaire = (answer) => {

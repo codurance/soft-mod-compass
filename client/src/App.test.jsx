@@ -8,6 +8,7 @@ import {
 } from './config/en-labels.json';
 import surveyConfig from './config/surveyModel.json';
 import translator from './config/translator';
+import redirectService from './services/redirectService';
 import reportService from './services/reportService';
 
 const stronglyAgree = 'Strongly Agree';
@@ -49,6 +50,15 @@ describe('app', () => {
       .spyOn(reportService, 'submitSurvey')
       .mockImplementation((payload) => {});
     getByText('Submit').click();
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
+
+  it('should call redirect afeter click on submit', () => {
+    const { getByText } = render(<App initialStep={2} />);
+    const spy = jest.spyOn(redirectService, 'redirect');
+
+    getByText('Submit').click();
+
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
