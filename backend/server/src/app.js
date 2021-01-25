@@ -13,9 +13,14 @@ module.exports = (reportingApp) => {
   console.log('config ', config);
 
   const app = express();
-
-  app.use(cors());
-  app.options('*', cors());
+  if (config.cors.allowedOrigin)
+    app.use(
+      cors({
+        origin: config.cors.allowedOrigin,
+        methods: 'POST',
+      })
+    );
+  // app.options('*', cors());
   app.use(bodyParser.json()); // support json encoded bodies
   app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
   if (config.jsreport.studioEditorEnabled) {

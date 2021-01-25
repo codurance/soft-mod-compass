@@ -16,4 +16,7 @@ module.exports = {
       reportsFolder: 'Compass Reports',
     },
   },
+  cors: {
+    allowedOrigin: process.env.ALLOWED_ORIGIN,
+  },
 };

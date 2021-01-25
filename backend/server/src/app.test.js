@@ -28,6 +28,7 @@ const mockConfig = {
       reportsFolder: 'Compass Reports Folder Path',
     },
   },
+  cors: {},
 };
 const config = { ...mockConfig };
 jest.doMock('./config', () => config);
