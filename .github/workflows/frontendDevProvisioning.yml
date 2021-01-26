@@ -12,8 +12,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with:
-          ref: feature/provisioning-workflwow
 
       - name: AWS cli install action
         uses: chrislennon/action-aws-cli@1.1
