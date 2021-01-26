@@ -21,7 +21,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Create env json
-        run: echo "[{\"Namespace\":\"aws:aws:autoscaling:launchconfiguration\",\"OptionName\":\"InstanceType\",\"Value\":\"t2.small\"},{\"Namespace\":\"aws:aws:autoscaling:launchconfiguration\",\"OptionName\":\"IamInstanceProfile\",\"Value\":\"aws-elasticbeanstalk-ec2-role\"}]" > .github/backendEnvVars.json
+        run: echo "[{\"Namespace\":\"aws:autoscaling:launchconfiguration\",\"OptionName\":\"InstanceType\",\"Value\":\"t2.small\"},{\"Namespace\":\"aws:autoscaling:launchconfiguration\",\"OptionName\":\"IamInstanceProfile\",\"Value\":\"aws-elasticbeanstalk-ec2-role\"}]" > .github/backendEnvVars.json
 
       - name: Create an ElasticBeanstalk environment
         run: |
