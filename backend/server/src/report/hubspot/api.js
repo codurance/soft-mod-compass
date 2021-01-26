@@ -89,6 +89,15 @@ const submitForm = (pdfLink, user) => {
             value: pdfLink,
           },
         ],
+        legalConsentOptions: {
+          legitimateInterest: {
+            value: true,
+            subscriptionTypeId: 4603721,
+            legalBasis: 'CUSTOMER',
+            text:
+              'Codurance needs the contact information you provide to us to contact you about our products and services. As responsible for the treatment, Codurance has the necessary technical, organizational and human resources to guarantee the security and protection of its information systems, as well as the data and information stored in them. Your personal data will be treated to comply with both the legal obligations that are applicable, as well as the rights and obligations contained in the contracts you may have with us as well as the services you require. For information on how to unsubscribe, as well as our privacy practices and commitment to protecting your privacy, please review our Privacy Policy.',
+          },
+        },
       },
     }
   )
