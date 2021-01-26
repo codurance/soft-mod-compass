@@ -1,10 +1,6 @@
 name: Provisioning frontend dev enviroment
 
-on:
-  workflow_dispatch:
-  push:	
-    branches:	
-      - feature/front-dev-provisioning
+on: workflow_dispatch
 
 jobs:
   Provisioning-frontend-dev-enviroment:
