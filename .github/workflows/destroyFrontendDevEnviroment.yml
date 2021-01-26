@@ -1,10 +1,6 @@
 name: Destroy Frontend Dev Enviroment
 
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - feature/destroy-front-dev-env
+on: workflow_dispatch
 
 jobs:
   Destroy-frontend-dev-enviroment:
