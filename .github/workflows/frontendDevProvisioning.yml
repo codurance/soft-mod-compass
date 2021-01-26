@@ -1,0 +1,33 @@
+name: Provisioning frontend dev enviroment
+
+on: workflow_dispatch
+
+jobs:
+  Provisioning-frontend-dev-enviroment:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: AWS cli install action
+        uses: chrislennon/action-aws-cli@1.1
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Create S3 Bucket
+        run: |
+          aws s3api create-bucket --bucket compass.dev.codurance.io --region ${{ secrets.AWS_REGION }} --create-bucket-configuration LocationConstraint=${{ secrets.AWS_REGION }}
+      - name: Configure Web hosting
+        run: |
+          aws s3 website s3://compass.dev.codurance.io/ --index-document index.html --error-document index.html
+      - name: Configure access control
+        run: |
+          aws s3api put-public-access-block --bucket compass.dev.codurance.io --public-access-block-configuration "BlockPublicAcls=false,IgnorePublicAcls=false,BlockPublicPolicy=false,RestrictPublicBuckets=false"
+      - name: Put S3 Policy
+        run: |
+          aws s3api put-bucket-policy --bucket compass.dev.codurance.io --policy file://.github/frontendDevPolicy.json

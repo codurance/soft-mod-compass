@@ -1,0 +1,13 @@
+{
+  "Version": "2012-10-17",
+  "Id": "Policy1606730607787",
+  "Statement": [
+    {
+      "Sid": "Stmt1606730605189",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::compass.dev.codurance.io/*"
+    }
+  ]
+}
