@@ -1,0 +1,26 @@
+name: Compass dev API - Unprovisionning
+
+on: workflow_dispatch
+
+jobs:
+  manual_destroy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: AWS cli install action
+        uses: chrislennon/action-aws-cli@1.1
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: terminate ElasticBeanstalk environment
+        run: |
+          aws elasticbeanstalk terminate-environment \
+          --environment-name CompassDev-env

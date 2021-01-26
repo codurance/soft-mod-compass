@@ -1,0 +1,30 @@
+name: Compass dev API - Provisioning
+
+on: workflow_dispatch
+
+jobs:
+  manual_deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: AWS cli install action
+        uses: chrislennon/action-aws-cli@1.1
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Create an ElasticBeanstalk environment
+        run: |
+          aws elasticbeanstalk create-environment \
+            --application-name compass-dev \
+            --environment-name CompassDev-env \
+            --cname-prefix compass-dev \
+            --solution-stack-name "64bit Amazon Linux 2018.03 v2.16.3 running Docker 19.03.13-ce" \
+            --option-settings Namespace=aws:autoscaling:launchconfiguration,OptionName=IamInstanceProfile,Value=aws-elasticbeanstalk-ec2-role
