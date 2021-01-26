@@ -25,4 +25,4 @@ jobs:
 
       - name: Delete S3 bucket
         run: |
-          aws s3 rb s3://compass.dev.codurance --force
+          aws s3 rb s3://compass.dev.codurance.io --force
