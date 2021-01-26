@@ -20,6 +20,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
+      - name: Create env json
+        run: echo "[{\"Namespace\":\"aws:aws:autoscaling:launchconfiguration\",\"OptionName\":\"InstanceType\",\"Value\":\"t2.small\"},{\"Namespace\":\"aws:aws:autoscaling:launchconfiguration\",\"OptionName\":\"IamInstanceProfile\",\"Value\":\"aws-elasticbeanstalk-ec2-role\"}]" > .github/backendEnvVars.json
+
       - name: Create an ElasticBeanstalk environment
         run: |
           aws elasticbeanstalk create-environment \
@@ -27,4 +30,4 @@ jobs:
             --environment-name CompassDev-env \
             --cname-prefix compass-dev \
             --solution-stack-name "64bit Amazon Linux 2018.03 v2.16.3 running Docker 19.03.13-ce" \
-            --option-settings Namespace=aws:autoscaling:launchconfiguration,OptionName=IamInstanceProfile,Value=aws-elasticbeanstalk-ec2-role
+            --option-settings file://.github/backendEnvVars.json
