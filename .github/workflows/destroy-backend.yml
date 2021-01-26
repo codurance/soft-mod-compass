@@ -1,15 +1,9 @@
-name: Compass dev API - Provisioning
+name: Compass dev API - Unprovisionning
 
-#on:
-#  repository_dispatch:
-#    types: provisioning
-on:
-  push:
-    branches: [destroy-backend]
-  workflow_dispatch:
+on: workflow_dispatch
 
 jobs:
-  manual_deploy:
+  manual_destroy:
 
     runs-on: ubuntu-latest
 
