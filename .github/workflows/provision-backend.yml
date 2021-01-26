@@ -27,5 +27,5 @@ jobs:
             --environment-name CompassDev-env \
             --cname-prefix compass-dev \
             --solution-stack-name "64bit Amazon Linux 2018.03 v2.16.3 running Docker 19.03.13-ce" \
-            --option-settings Namespace=aws:autoscaling:launchconfiguration,OptionName=IamInstanceProfile,Value=aws-elasticbeanstalk-ec2-role
+            --option-settings Namespace=aws:autoscaling:launchconfiguration,OptionName=IamInstanceProfile,Value=aws-elasticbeanstalk-ec2-role \
             --option-settings Namespace=aws:autoscaling:launchconfiguration,OptionName=InstanceType,Value=t2.small
