@@ -32,4 +32,4 @@ COPY ./server .
 
 EXPOSE 8080
 
-CMD npx babel-node ./index.js
+CMD node ./index.js
