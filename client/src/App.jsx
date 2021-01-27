@@ -29,14 +29,14 @@ function App({ initialStep }) {
     setTextFields(data);
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     try {
       const data = { ...textFields };
       data.answer = questionnaire;
-      await reportService.submitSurvey(data);
+      reportService.submitSurvey(data);
       redirectService.redirect();
     } catch (e) {
-      console.log('error sending request', e);
+      console.log('error while sending request', e);
     }
   };
 

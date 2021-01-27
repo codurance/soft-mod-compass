@@ -3,7 +3,7 @@ import config from '../config/config';
 import languageService from './languageService';
 
 export default {
-  async submitSurvey(surveyData) {
+  submitSurvey(surveyData) {
     const bodyPayload = {
       user: {
         firstName: surveyData.firstName,
