@@ -37,12 +37,11 @@ module.exports = (reportingApp) => {
     handlePostRequest(req.body)
       .then((body) => {
         console.log('request successful with response :', body);
-        res.send(body);
       })
       .catch((reason) => {
         console.error('error in request /surveys ', reason);
-        res.status(500).send(reason.message);
       });
+    res.send({ status: 'ok' });
     console.log('ready for new requests...');
   });
 

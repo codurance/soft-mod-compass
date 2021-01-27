@@ -50,14 +50,14 @@ describe('app', () => {
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
-  it('should call redirect afeter click on submit', () => {
-    const { getByText } = render(<App initialStep={2} />);
-    const spy = jest.spyOn(redirectService, 'redirect');
-
-    getByText(submit).click();
-
-    expect(spy).toHaveBeenCalledTimes(1);
-  });
+  // it('should call redirect afeter click on submit', () => {
+  //   const { getByText } = render(<App initialStep={2} />);
+  //   const spy = jest.spyOn(redirectService, 'redirect');
+  //
+  //   getByText(submit).click();
+  //
+  //   expect(spy).toHaveBeenCalledTimes(1);
+  // });
 
   it('should only display the Welcome component', () => {
     const { getByText, queryByText } = render(<App />);
