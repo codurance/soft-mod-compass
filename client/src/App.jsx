@@ -34,7 +34,7 @@ function App({ initialStep }) {
       const data = { ...textFields };
       data.answer = questionnaire;
       reportService.submitSurvey(data);
-      redirectService.redirect();
+      // redirectService.redirect();
     } catch (e) {
       console.log('error while sending request', e);
     }
