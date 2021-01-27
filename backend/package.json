@@ -30,9 +30,7 @@
     "deploy:dev:en": "npm run check-aws-region:dev && . ./scripts/envvars-config-dev-EN.sh && ./scripts/aws/deploy.sh dev-en",
     "deploy:dev:es": "npm run check-aws-region:dev && . ./scripts/envvars-config-dev-ES.sh && ./scripts/aws/deploy.sh dev-es",
     "deploy:prod:en": "npm run check-aws-region:prod && . ./scripts/envvars-config-prod-EN.sh && ./scripts/aws/deploy.sh prod-en",
-    "deploy:prod:es": "npm run check-aws-region:prod && . ./scripts/envvars-config-prod-ES.sh && ./scripts/aws/deploy.sh prod-es",
-    "build-client": "webpack --config ./client/webpack.config.js",
-    "deploy-client": "npm run build-client && ./scripts/deploy_client_to_hubspot.sh"
+    "deploy:prod:es": "npm run check-aws-region:prod && . ./scripts/envvars-config-prod-ES.sh && ./scripts/aws/deploy.sh prod-es"
   },
   "author": "Codurance",
   "license": "MIT",

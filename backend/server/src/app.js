@@ -33,7 +33,7 @@ module.exports = (reportingApp) => {
     res.status(200).send({ status: 'up' });
   });
   app.post('/surveys', (req, res) => {
-    console.log('new request incoming...');
+    console.log('new request incoming... for' + req.body.user);
     handlePostRequest(req.body)
       .then((body) => {
         console.log('request successful with response :', body);
