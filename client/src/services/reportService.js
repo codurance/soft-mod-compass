@@ -124,11 +124,9 @@ export default {
       method: 'POST',
       body: JSON.stringify(bodyPayload),
       headers: { 'Content-Type': 'application/json' },
-    })
-      .then((success) => {
-        console.log('response successful ', success);
-        return { status: 'ok' };
-      })
-      .catch((reason) => console.log('error from report backend ', reason));
+    }).then((success) => {
+      console.log('response successful ', success);
+      return { status: 'ok' };
+    });
   },
 };

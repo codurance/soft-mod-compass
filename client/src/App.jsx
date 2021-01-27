@@ -30,14 +30,12 @@ function App({ initialStep }) {
   };
 
   const handleSubmit = () => {
-    try {
-      const data = { ...textFields };
-      data.answer = questionnaire;
-      reportService.submitSurvey(data);
-      // redirectService.redirect();
-    } catch (e) {
-      console.log('error while sending request', e);
-    }
+    const data = { ...textFields };
+    data.answer = questionnaire;
+    reportService
+      .submitSurvey(data)
+      .then(() => redirectService.redirect())
+      .catch((reason) => console.log('error from server ', reason));
   };
 
   const updateQuestionnaire = (answer) => {

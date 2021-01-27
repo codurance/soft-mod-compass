@@ -45,7 +45,7 @@ describe('app', () => {
     const { getByText } = render(<App initialStep={2} />);
     const spy = jest
       .spyOn(reportService, 'submitSurvey')
-      .mockImplementation(() => {});
+      .mockImplementation(() => Promise.resolve());
     getByText(submit).click();
     expect(spy).toHaveBeenCalledTimes(1);
   });
@@ -53,7 +53,6 @@ describe('app', () => {
   // it('should call redirect after click on submit', () => {
   //   const { getByText } = render(<App initialStep={2} />);
   //   const spy = jest.spyOn(redirectService, 'redirect');
-  //
   //   getByText(submit).click();
   //
   //   expect(spy).toHaveBeenCalledTimes(1);
