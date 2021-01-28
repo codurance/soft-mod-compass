@@ -6,6 +6,9 @@ import translator from './config/translator';
 import redirectService from './services/redirectService';
 import reportService from './services/reportService';
 
+const submitSurveySpy = jest
+  .spyOn(reportService, 'submitSurvey')
+  .mockImplementation(() => Promise.resolve({ status: 'fake' }));
 const {
   firstName,
   start,
@@ -19,6 +22,10 @@ const {
   stronglyDisagree,
   submit,
 } = translator;
+
+function assertAsyncCallbackIsCalled(done) {
+  done();
+}
 
 describe('app', () => {
   it('should display the Welcome component', () => {
@@ -43,20 +50,17 @@ describe('app', () => {
 
   it('should call submitSurvey service', () => {
     const { getByText } = render(<App initialStep={2} />);
-    const spy = jest
-      .spyOn(reportService, 'submitSurvey')
-      .mockImplementation(() => Promise.resolve());
     getByText(submit).click();
-    expect(spy).toHaveBeenCalledTimes(1);
+    expect(submitSurveySpy).toHaveBeenCalledTimes(1);
   });
 
-  // it('should call redirect after click on submit', () => {
-  //   const { getByText } = render(<App initialStep={2} />);
-  //   const spy = jest.spyOn(redirectService, 'redirect');
-  //   getByText(submit).click();
-  //
-  //   expect(spy).toHaveBeenCalledTimes(1);
-  // });
+  it('should call redirect after click on submit', (done) => {
+    const { getByText } = render(<App initialStep={2} />);
+    jest
+      .spyOn(redirectService, 'redirect')
+      .mockImplementation(() => assertAsyncCallbackIsCalled(done));
+    getByText(submit).click();
+  });
 
   it('should only display the Welcome component', () => {
     const { getByText, queryByText } = render(<App />);
