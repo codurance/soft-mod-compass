@@ -3,8 +3,14 @@
   "lastName": "Last Name",
   "companyName": "Some Company",
   "email": "user@company.com",
-  "answer": {
-    "label": "stronglyAgree",
-    "score": 100
+  "questionnaire": {
+    "devSecOps": {
+      "score": 100,
+      "answer": "stronglyAgree"
+    },
+    "deliveringValue": {
+      "score": 60,
+      "answer": "neitherAgree"
+    }
   }
 }

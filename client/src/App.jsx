@@ -15,14 +15,10 @@ const initialTextFieldsState = {
   companyName: '',
   email: '',
 };
-const initialAnswerState = {
-  label: '',
-  score: 0,
-};
 
 function App({ initialStep }) {
   const [textFields, setTextFields] = useState(initialTextFieldsState);
-  const [questionnaire, setQuestionnaire] = useState(initialAnswerState);
+  const [questionnaire, setQuestionnaire] = useState({});
   const [currentStep, setCurrentStep] = useState(initialStep);
 
   const updateUserForm = (data) => {
@@ -31,7 +27,7 @@ function App({ initialStep }) {
 
   const handleSubmit = () => {
     const data = { ...textFields };
-    data.answer = questionnaire;
+    data.questionnaire = questionnaire;
     reportService
       .submitSurvey(data)
       .then(() => redirectService.redirect())
@@ -59,10 +55,7 @@ function App({ initialStep }) {
     <div className="app">
       {currentStep === 0 && <Welcome clickCallback={setNextStep} />}
       {currentStep === 1 && (
-        <Questionnaire
-          initialState={questionnaire}
-          handleQuestionnaire={updateQuestionnaire}
-        />
+        <Questionnaire handleQuestionnaire={updateQuestionnaire} />
       )}
       {currentStep === 2 && (
         <div>

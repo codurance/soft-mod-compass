@@ -16,14 +16,8 @@ export default {
         organisationalMaturity: {
           score: 75,
           subcategories: {
-            devSecOps: {
-              score: surveyData.answer.score,
-              answer: surveyData.answer.label,
-            },
-            deliveringValue: {
-              score: 60,
-              answer: 'Neither Agree Nor Disagree',
-            },
+            devSecOps: surveyData.questionnaire.devSecOps,
+            deliveringValue: surveyData.questionnaire.deliveringValue,
             technicalDebt: {
               score: 80,
               answer: 'Agree',

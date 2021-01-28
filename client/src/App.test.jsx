@@ -5,6 +5,7 @@ import App from './App';
 import translator from './config/translator';
 import redirectService from './services/redirectService';
 import reportService from './services/reportService';
+import questionList from './config/QuestionnaireModel';
 
 const submitSurveySpy = jest
   .spyOn(reportService, 'submitSurvey')
@@ -21,11 +22,13 @@ const {
   disagree,
   stronglyDisagree,
   submit,
+  devSecOps,
 } = translator;
 
 function assertAsyncCallbackIsCalled(done) {
   done();
 }
+const firstQuestion = translator[questionList[0].label];
 
 describe('app', () => {
   it('should display the Welcome component', () => {
@@ -35,7 +38,8 @@ describe('app', () => {
   });
   it('should display the first question', () => {
     const { getByText } = render(<App initialStep={1} />);
-    expect(getByText(question)).toBeInTheDocument();
+
+    expect(getByText(firstQuestion)).toBeInTheDocument();
     expect(getByText(stronglyAgree)).toBeInTheDocument();
     expect(getByText(agree)).toBeInTheDocument();
     expect(getByText(neitherAgree)).toBeInTheDocument();
@@ -68,22 +72,5 @@ describe('app', () => {
     expect(getByText(welcomeFirstParagraph)).toBeInTheDocument();
     expect(queryByText(question)).not.toBeInTheDocument();
     expect(queryByText(firstName)).not.toBeInTheDocument();
-  });
-
-  it('should change the content of the screen when the user clicks to move forward', () => {
-    const { getByText, queryByText, getByPlaceholderText } = render(<App />);
-
-    getByText(start).click();
-
-    expect(queryByText(welcomeFirstParagraph)).not.toBeInTheDocument();
-    expect(getByText(question)).toBeInTheDocument();
-    expect(queryByText(firstName)).not.toBeInTheDocument();
-
-    getByText(neitherAgree).click();
-
-    expect(queryByText(welcomeFirstParagraph)).not.toBeInTheDocument();
-    expect(queryByText(question)).not.toBeInTheDocument();
-
-    expect(getByPlaceholderText(firstName)).toBeInTheDocument();
   });
 });

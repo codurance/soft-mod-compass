@@ -4,6 +4,7 @@ import each from 'jest-each';
 import React from 'react';
 import translator from '../../config/translator';
 import Questionnaire from './Questionnaire';
+import questionList from '../../config/QuestionnaireModel';
 
 const {
   stronglyAgree,
@@ -11,28 +12,26 @@ const {
   neitherAgree,
   disagree,
   stronglyDisagree,
-  question,
 } = translator;
 
-const initialState = {
-  label: '',
-  score: 0,
-};
-
+const firstQuestion = translator[questionList[0].label];
+const secondQuestion = translator[questionList[1].label];
 describe('Questionnaire', () => {
-  it('should display the first question', () => {
-    const { getByText } = render(
-      <Questionnaire
-        initialState={initialState}
-        handleQuestionnaire={() => {}}
-      />
+  it('should display only the first question', () => {
+    const { getByText, queryByText } = render(
+      <Questionnaire handleQuestionnaire={() => {}} />
     );
-    expect(getByText(question)).toBeInTheDocument();
-    expect(getByText(stronglyAgree)).toBeInTheDocument();
-    expect(getByText(agree)).toBeInTheDocument();
-    expect(getByText(neitherAgree)).toBeInTheDocument();
-    expect(getByText(disagree)).toBeInTheDocument();
-    expect(getByText(stronglyDisagree)).toBeInTheDocument();
+    expect(getByText(firstQuestion)).toBeInTheDocument();
+    expect(queryByText(secondQuestion)).not.toBeInTheDocument();
+  });
+
+  it('should display the second question after answering first question', () => {
+    const { getByText } = render(
+      <Questionnaire handleQuestionnaire={() => {}} />
+    );
+
+    getByText(stronglyAgree).click();
+    expect(getByText(secondQuestion)).toBeInTheDocument();
   });
 
   const answerTable = [
@@ -52,10 +51,7 @@ describe('Questionnaire', () => {
     "given an answer '%s' , only that one should be selected",
     (selectedAnswer, answers) => {
       const { getByText } = render(
-        <Questionnaire
-          initialState={initialState}
-          handleQuestionnaire={() => {}}
-        />
+        <Questionnaire handleQuestionnaire={() => {}} />
       );
       getByText(selectedAnswer).click();
       answers.forEach((answer) => {

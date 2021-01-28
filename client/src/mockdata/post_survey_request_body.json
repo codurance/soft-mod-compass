@@ -16,7 +16,7 @@
         },
         "deliveringValue": {
           "score": 60,
-          "answer": "Neither Agree Nor Disagree"
+          "answer": "neitherAgree"
         },
         "technicalDebt": {
           "score": 80,
