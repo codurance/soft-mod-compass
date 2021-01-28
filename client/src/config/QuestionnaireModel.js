@@ -25,7 +25,6 @@ const questionList = [
   {
     label: 'devSecOps',
     answers: standardAnswers,
-    next: 'deliveringValue',
   },
   {
     label: 'deliveringValue',

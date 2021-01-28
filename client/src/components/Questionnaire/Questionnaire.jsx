@@ -4,51 +4,75 @@ import questionList from '../../config/QuestionnaireModel';
 import translator from '../../config/translator';
 import AnswerOption from '../AnswerOption/AnswerOption';
 import './styles.scss';
-import { createQuestion } from '../../config/factory';
+import { createLinkedList, buildAnswerScore } from '../../config/factory';
 
-function Questionnaire({ handleQuestionnaire }) {
+const linkedList = createLinkedList(questionList);
+
+function Questionnaire({ finishQuestionnaire }) {
   const [questionnaire, setQuestionnaire] = useState({});
-  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [currentQuestionNode, setCurrentQuestionNode] = useState(
+    linkedList.head
+  );
+
+  function renderBackButton() {
+    return (
+      <button
+        value="back"
+        onClick={() => setCurrentQuestionNode(currentQuestionNode.previous)}
+      >
+        back
+      </button>
+    );
+  }
+
+  function isLastQuestion() {
+    return !currentQuestionNode.next;
+  }
 
   const updateState = (answer) => {
-    const questionLabel = questionList[currentQuestion].label;
-    const newState = { ...questionnaire };
-    newState[questionLabel] = createQuestion(answer.label, answer.score);
-    if (currentQuestion === questionList.length - 1)
-      handleQuestionnaire(newState);
-    else setQuestionnaire(newState);
+    const newQuestionnaire = { ...questionnaire };
+    newQuestionnaire[currentQuestionNode.data.label] = buildAnswerScore(
+      answer.label,
+      answer.score
+    );
+    if (isLastQuestion(currentQuestionNode))
+      finishQuestionnaire(newQuestionnaire);
+    else setQuestionnaire(newQuestionnaire);
 
-    setCurrentQuestion(currentQuestion + 1);
+    setCurrentQuestionNode(currentQuestionNode.next);
   };
 
   function isSelected(answer) {
-    if (!questionnaire[questionList[currentQuestion].label]) return false;
+    if (!questionnaire[currentQuestionNode.data.label]) return false;
     return (
-      answer.label === questionnaire[questionList[currentQuestion].label].answer
+      answer.label === questionnaire[currentQuestionNode.data.label].answer
     );
   }
 
   function renderAnswersFor(question) {
     return (
-      <ul className="questionnaire__answer-list">
-        {question.answers.map((answer) => (
-          <AnswerOption
-            key={answer.label}
-            clickCallback={() => updateState(answer)}
-            answer={translator[answer.label]}
-            selectedAnswer={isSelected(answer)}
-          />
-        ))}
-      </ul>
+      <>
+        <ul className="questionnaire__answer-list">
+          {question.answers.map((answer) => (
+            <AnswerOption
+              key={answer.label}
+              clickCallback={() => updateState(answer)}
+              answer={translator[answer.label]}
+              selectedAnswer={isSelected(answer)}
+            />
+          ))}
+        </ul>
+        {renderBackButton()}
+      </>
     );
   }
 
   return (
     <div className="questionnaire wrapper">
       <p className="questionnaire__question">
-        {translator[questionList[currentQuestion].label]}
+        {translator[currentQuestionNode.data.label]}
       </p>
-      {renderAnswersFor(questionList[currentQuestion])}
+      {renderAnswersFor(currentQuestionNode.data)}
     </div>
   );
 }
@@ -56,5 +80,5 @@ function Questionnaire({ handleQuestionnaire }) {
 export default Questionnaire;
 
 Questionnaire.propTypes = {
-  handleQuestionnaire: PropTypes.func.isRequired,
+  finishQuestionnaire: PropTypes.func.isRequired,
 };

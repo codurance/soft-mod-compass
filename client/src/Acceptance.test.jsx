@@ -8,7 +8,7 @@ import config from './config/config';
 import translator from './config/translator';
 import payloadRequest from './mockdata/post_survey_request_body.json';
 import reportService from './services/reportService';
-import { createQuestion } from './config/factory';
+import { buildAnswerScore } from './config/factory';
 
 const {
   firstName,
@@ -36,8 +36,8 @@ const newSentData = {
   companyName: userCompany,
   email: userEmail,
   questionnaire: {
-    devSecOps: createQuestion('stronglyAgree', 100),
-    deliveringValue: createQuestion('neitherAgree', 60),
+    devSecOps: buildAnswerScore('stronglyAgree', 100),
+    deliveringValue: buildAnswerScore('neitherAgree', 60),
   },
 };
 const submitSurveySpy = jest.spyOn(reportService, 'submitSurvey');

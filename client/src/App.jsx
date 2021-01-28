@@ -55,7 +55,7 @@ function App({ initialStep }) {
     <div className="app">
       {currentStep === 0 && <Welcome clickCallback={setNextStep} />}
       {currentStep === 1 && (
-        <Questionnaire handleQuestionnaire={updateQuestionnaire} />
+        <Questionnaire finishQuestionnaire={updateQuestionnaire} />
       )}
       {currentStep === 2 && (
         <div>

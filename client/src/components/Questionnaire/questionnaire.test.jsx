@@ -19,7 +19,7 @@ const secondQuestion = translator[questionList[1].label];
 describe('Questionnaire', () => {
   it('should display only the first question', () => {
     const { getByText, queryByText } = render(
-      <Questionnaire handleQuestionnaire={() => {}} />
+      <Questionnaire finishQuestionnaire={() => {}} />
     );
     expect(getByText(firstQuestion)).toBeInTheDocument();
     expect(queryByText(secondQuestion)).not.toBeInTheDocument();
@@ -27,7 +27,7 @@ describe('Questionnaire', () => {
 
   it('should display the second question after answering first question', () => {
     const { getByText } = render(
-      <Questionnaire handleQuestionnaire={() => {}} />
+      <Questionnaire finishQuestionnaire={() => {}} />
     );
 
     getByText(stronglyAgree).click();
@@ -51,9 +51,10 @@ describe('Questionnaire', () => {
     "given an answer '%s' , only that one should be selected",
     (selectedAnswer, answers) => {
       const { getByText } = render(
-        <Questionnaire handleQuestionnaire={() => {}} />
+        <Questionnaire finishQuestionnaire={() => {}} />
       );
       getByText(selectedAnswer).click();
+      getByText('back').click();
       answers.forEach((answer) => {
         if (selectedAnswer === answer) {
           expect(getByText(answer)).toHaveClass('answer--selected');
