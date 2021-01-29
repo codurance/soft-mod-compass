@@ -1,37 +1,66 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import surveyConfig from '../../config/surveyModel.json';
-import translator from '../../config/translator';
-import AnswerOption from '../AnswerOption/AnswerOption';
+import { buildAnswerScore, createLinkedList } from '../../config/factory';
+import questionList from '../../config/QuestionnaireModel';
+import Question from '../Question/Question';
 import './styles.scss';
 
-function Questionnaire({ initialState, handleQuestionnaire }) {
-  const [questionnaire, setQuestionnaire] = useState(initialState);
+const questionLinkedList = createLinkedList(questionList);
+
+function Questionnaire({ finishQuestionnaire }) {
+  const [questionnaire, setQuestionnaire] = useState({});
+  const [currentQuestionNode, setCurrentQuestionNode] = useState(
+    questionLinkedList.head
+  );
+
+  function renderBackButton() {
+    return (
+      <button
+        type="button"
+        value="back"
+        onClick={() => setCurrentQuestionNode(currentQuestionNode.previous)}
+      >
+        back
+      </button>
+    );
+  }
+
+  function isLastQuestion() {
+    return !currentQuestionNode.next;
+  }
+
+  function isFirstQuestion() {
+    return !currentQuestionNode.previous;
+  }
 
   const updateState = (answer) => {
-    setQuestionnaire(answer);
-    handleQuestionnaire(answer);
+    const newQuestionnaire = { ...questionnaire };
+    newQuestionnaire[currentQuestionNode.data.label] = buildAnswerScore(
+      answer.label,
+      answer.score
+    );
+    if (isLastQuestion(currentQuestionNode))
+      finishQuestionnaire(newQuestionnaire);
+    else setQuestionnaire(newQuestionnaire);
+
+    setCurrentQuestionNode(currentQuestionNode.next);
   };
 
-  function renderAnswers() {
+  function isSelected(answer) {
+    if (!questionnaire[currentQuestionNode.data.label]) return false;
     return (
-      <ul className="questionnaire__answer-list">
-        {surveyConfig.answers.map((answer) => (
-          <AnswerOption
-            key={answer.label}
-            clickCallback={() => updateState(answer)}
-            answer={translator[answer.label]}
-            selectedAnswer={answer === questionnaire}
-          />
-        ))}
-      </ul>
+      answer.label === questionnaire[currentQuestionNode.data.label].answer
     );
   }
 
   return (
     <div className="questionnaire wrapper">
-      <p className="questionnaire__question">{translator.question}</p>
-      {renderAnswers()}
+      <Question
+        question={currentQuestionNode.data}
+        updateQuestionnaire={updateState}
+        isSelectedFunction={(answer) => isSelected(answer)}
+      />
+      {!isFirstQuestion() && renderBackButton()}
     </div>
   );
 }
@@ -39,9 +68,5 @@ function Questionnaire({ initialState, handleQuestionnaire }) {
 export default Questionnaire;
 
 Questionnaire.propTypes = {
-  initialState: PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    score: PropTypes.number.isRequired,
-  }).isRequired,
-  handleQuestionnaire: PropTypes.func.isRequired,
+  finishQuestionnaire: PropTypes.func.isRequired,
 };

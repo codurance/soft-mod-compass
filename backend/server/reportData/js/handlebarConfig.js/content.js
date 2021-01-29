@@ -21,17 +21,16 @@ Handlebars.registerHelper("translate", function (answer, language) {
   else return enLanguageFile[answer];
 })
 Handlebars.registerHelper("gaugeCategoryScoreClass", function (score) {
-  if (score == 100) return "good";
-  if (score == 75) return "good";
-  if (score == 50) return "average";
-  if (score == 25) return "bad";
+  if (score > 50) return "good";
+  if (score > 25) return "average";
+  if (score <= 25) return "bad";
   throw `Invalid category score: ${score}`
 })
 Handlebars.registerHelper("gaugeCategoryScoreIcon", function (score) {
-  if (score == 100) return "good";
-  if (score == 75) return "average-high";
-  if (score == 50) return "average";
-  if (score == 25) return "bad";
+  if (score > 75) return "good";
+  if (score > 50) return "average-high";
+  if (score > 25) return "average";
+  if (score <= 25) return "bad";
   throw `Invalid category score: ${score}`
 })
 Handlebars.registerHelper("gaugeSubcategoryScoreClass", function (score) {

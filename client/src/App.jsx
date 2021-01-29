@@ -4,6 +4,7 @@ import ProgressBar from './components/ProgressBar/ProgressBar';
 import Questionnaire from './components/Questionnaire/Questionnaire';
 import UserForm from './components/UserForm/UserForm';
 import Welcome from './components/Welcome/Welcome';
+import questionnaireMapper from './mappers/questionnaireMapper';
 import redirectService from './services/redirectService';
 import reportService from './services/reportService';
 import './styles.scss';
@@ -15,14 +16,10 @@ const initialTextFieldsState = {
   companyName: '',
   email: '',
 };
-const initialAnswerState = {
-  label: '',
-  score: 0,
-};
 
 function App({ initialStep }) {
   const [textFields, setTextFields] = useState(initialTextFieldsState);
-  const [questionnaire, setQuestionnaire] = useState(initialAnswerState);
+  const [questionnaire, setQuestionnaire] = useState({});
   const [currentStep, setCurrentStep] = useState(initialStep);
 
   const updateUserForm = (data) => {
@@ -31,7 +28,7 @@ function App({ initialStep }) {
 
   const handleSubmit = () => {
     const data = { ...textFields };
-    data.answer = questionnaire;
+    data.categories = questionnaireMapper.generateQuestionnaire(questionnaire);
     reportService
       .submitSurvey(data)
       .then(() => redirectService.redirect())
@@ -59,10 +56,7 @@ function App({ initialStep }) {
     <div className="app">
       {currentStep === 0 && <Welcome clickCallback={setNextStep} />}
       {currentStep === 1 && (
-        <Questionnaire
-          initialState={questionnaire}
-          handleQuestionnaire={updateQuestionnaire}
-        />
+        <Questionnaire finishQuestionnaire={updateQuestionnaire} />
       )}
       {currentStep === 2 && (
         <div>

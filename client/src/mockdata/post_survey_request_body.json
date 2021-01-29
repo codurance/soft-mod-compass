@@ -8,7 +8,7 @@
   },
   "categories": {
     "organisationalMaturity": {
-      "score": 75,
+      "score": 65,
       "subcategories": {
         "devSecOps": {
           "score": 100,
@@ -16,15 +16,15 @@
         },
         "deliveringValue": {
           "score": 60,
-          "answer": "Neither Agree Nor Disagree"
+          "answer": "neitherAgree"
         },
         "technicalDebt": {
           "score": 80,
-          "answer": "Agree"
+          "answer": "agree"
         },
         "methodology": {
-          "score": 100,
-          "answer": "Strongly Agree"
+          "score": 20,
+          "answer": "stronglyDisagree"
         }
       }
     },

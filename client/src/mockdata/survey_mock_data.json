@@ -3,8 +3,111 @@
   "lastName": "Last Name",
   "companyName": "Some Company",
   "email": "user@company.com",
-  "answer": {
-    "label": "stronglyAgree",
-    "score": 100
+  "categories": {
+    "organisationalMaturity": {
+      "score": 65,
+      "subcategories": {
+        "devSecOps": {
+          "score": 100,
+          "answer": "stronglyAgree"
+        },
+        "deliveringValue": {
+          "score": 60,
+          "answer": "neitherAgree"
+        },
+        "technicalDebt": {
+          "score": 80,
+          "answer": "agree"
+        },
+        "methodology": {
+          "score": 20,
+          "answer": "stronglyDisagree"
+        }
+      }
+    },
+    "continuousDelivery": {
+      "score": 50,
+      "subcategories": {
+        "cadence": {
+          "score": 40,
+          "answer": "Monthly"
+        },
+        "rework": {
+          "score": 60,
+          "answer": "Neither Agree Nor Disagree"
+        },
+        "pipeline": {
+          "score": 20,
+          "answer": "Strongly Disagree"
+        },
+        "sideEffects": {
+          "score": 100,
+          "answer": "Strongly Agree"
+        }
+      }
+    },
+    "culture": {
+      "score": 25,
+      "subcategories": {
+        "transparency": {
+          "score": 20,
+          "answer": "Strongly Disagree"
+        },
+        "learning": {
+          "score": 20,
+          "answer": "Strongly Disagree"
+        },
+        "learnFromFailure": {
+          "score": 40,
+          "answer": "Disagree"
+        },
+        "careerPath": {
+          "score": 20,
+          "answer": "Strongly Disagree"
+        }
+      }
+    },
+    "crossFunctionalTeams": {
+      "score": 50,
+      "subcategories": {
+        "diversity": {
+          "score": 100,
+          "answer": "Strongly Agree"
+        },
+        "autonomy": {
+          "score": 40,
+          "answer": "Disagree"
+        },
+        "wholeTeam": {
+          "score": 60,
+          "answer": "Neither Agree Nor Disagree"
+        },
+        "knowledgeSharing": {
+          "score": 20,
+          "answer": "Strongly Disagree"
+        }
+      }
+    },
+    "xpPractices": {
+      "score": 75,
+      "subcategories": {
+        "tdd": {
+          "score": 80,
+          "answer": "Agree"
+        },
+        "architecture": {
+          "score": 60,
+          "answer": "Neither Agree Nor Disagree"
+        },
+        "cleanCode": {
+          "score": 80,
+          "answer": "Agree"
+        },
+        "peerReview": {
+          "score": 100,
+          "answer": "Strongly Agree"
+        }
+      }
+    }
   }
 }
