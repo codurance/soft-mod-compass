@@ -4,6 +4,7 @@ import ProgressBar from './components/ProgressBar/ProgressBar';
 import Questionnaire from './components/Questionnaire/Questionnaire';
 import UserForm from './components/UserForm/UserForm';
 import Welcome from './components/Welcome/Welcome';
+import questionnaireMapper from './mappers/questionnaireMapper';
 import redirectService from './services/redirectService';
 import reportService from './services/reportService';
 import './styles.scss';
@@ -27,7 +28,7 @@ function App({ initialStep }) {
 
   const handleSubmit = () => {
     const data = { ...textFields };
-    data.questionnaire = questionnaire;
+    data.categories = questionnaireMapper.generateQuestionnaire(questionnaire);
     reportService
       .submitSurvey(data)
       .then(() => redirectService.redirect())

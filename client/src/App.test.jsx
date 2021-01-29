@@ -2,17 +2,22 @@ import { describe, expect, it, jest } from '@jest/globals';
 import { render } from '@testing-library/react';
 import React from 'react';
 import App from './App';
+import questionList from './config/QuestionnaireModel';
 import translator from './config/translator';
+import questionnaireMapper from './mappers/questionnaireMapper';
 import redirectService from './services/redirectService';
 import reportService from './services/reportService';
-import questionList from './config/QuestionnaireModel';
 
 const submitSurveySpy = jest
   .spyOn(reportService, 'submitSurvey')
   .mockImplementation(() => Promise.resolve({ status: 'fake' }));
+
+jest
+  .spyOn(questionnaireMapper, 'generateQuestionnaire')
+  .mockImplementation(() => Promise.resolve({ status: 'fake' }));
+
 const {
   firstName,
-  start,
   welcomeFirstParagraph,
   welcomeSecondParagraph,
   question,
@@ -22,7 +27,6 @@ const {
   disagree,
   stronglyDisagree,
   submit,
-  devSecOps,
 } = translator;
 
 function assertAsyncCallbackIsCalled(done) {

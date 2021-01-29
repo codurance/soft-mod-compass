@@ -8,7 +8,7 @@
   },
   "categories": {
     "organisationalMaturity": {
-      "score": 75,
+      "score": 65,
       "subcategories": {
         "devSecOps": {
           "score": 100,
