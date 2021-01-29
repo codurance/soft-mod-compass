@@ -6,12 +6,12 @@ import AnswerOption from '../AnswerOption/AnswerOption';
 import './styles.scss';
 import { createLinkedList, buildAnswerScore } from '../../config/factory';
 
-const linkedList = createLinkedList(questionList);
+const questionLinkedList = createLinkedList(questionList);
 
 function Questionnaire({ finishQuestionnaire }) {
   const [questionnaire, setQuestionnaire] = useState({});
   const [currentQuestionNode, setCurrentQuestionNode] = useState(
-    linkedList.head
+    questionLinkedList.head
   );
 
   function renderBackButton() {
@@ -27,6 +27,10 @@ function Questionnaire({ finishQuestionnaire }) {
 
   function isLastQuestion() {
     return !currentQuestionNode.next;
+  }
+
+  function isFirstQuestion() {
+    return !currentQuestionNode.previous;
   }
 
   const updateState = (answer) => {
@@ -62,7 +66,7 @@ function Questionnaire({ finishQuestionnaire }) {
             />
           ))}
         </ul>
-        {renderBackButton()}
+        {!isFirstQuestion() && renderBackButton()}
       </>
     );
   }
