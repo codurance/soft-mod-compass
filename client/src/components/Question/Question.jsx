@@ -2,13 +2,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import translator from '../../config/translator';
 import AnswerOption from '../AnswerOption/AnswerOption';
-import '../Questionnaire/styles.scss';
+import './styles.scss';
 
 function Question({ question, updateQuestionnaire, isSelectedFunction }) {
   function renderAnswers() {
     return (
       <>
-        <ul className="questionnaire__answer-list">
+        <ul className="answer-list">
           {question.answers.map((answer) => (
             <AnswerOption
               key={answer.label}
