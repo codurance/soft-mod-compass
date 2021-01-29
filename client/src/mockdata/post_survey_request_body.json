@@ -20,11 +20,11 @@
         },
         "technicalDebt": {
           "score": 80,
-          "answer": "Agree"
+          "answer": "agree"
         },
         "methodology": {
-          "score": 100,
-          "answer": "Strongly Agree"
+          "score": 20,
+          "answer": "stronglyDisagree"
         }
       }
     },

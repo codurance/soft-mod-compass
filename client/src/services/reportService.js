@@ -18,14 +18,8 @@ export default {
           subcategories: {
             devSecOps: surveyData.questionnaire.devSecOps,
             deliveringValue: surveyData.questionnaire.deliveringValue,
-            technicalDebt: {
-              score: 80,
-              answer: 'Agree',
-            },
-            methodology: {
-              score: 100,
-              answer: 'Strongly Agree',
-            },
+            technicalDebt: surveyData.questionnaire.technicalDebt,
+            methodology: surveyData.questionnaire.methodology,
           },
         },
         continuousDelivery: {

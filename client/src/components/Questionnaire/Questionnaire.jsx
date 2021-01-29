@@ -18,6 +18,7 @@ function Questionnaire({ finishQuestionnaire }) {
   function renderBackButton() {
     return (
       <button
+        type="button"
         value="back"
         onClick={() => setCurrentQuestionNode(currentQuestionNode.previous)}
       >

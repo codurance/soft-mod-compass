@@ -11,6 +11,14 @@
     "deliveringValue": {
       "score": 60,
       "answer": "neitherAgree"
+    },
+    "technicalDebt": {
+      "score": 80,
+      "answer": "agree"
+    },
+    "methodology": {
+      "score": 20,
+      "answer": "stronglyDisagree"
     }
   }
 }

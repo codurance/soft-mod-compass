@@ -19,6 +19,8 @@ const {
   start,
   stronglyAgree,
   neitherAgree,
+  stronglyDisagree,
+  agree,
 } = translator;
 
 const userFirstName = 'First Name';
@@ -30,7 +32,7 @@ config.reportServerBaseUrl = 'http://fake-report.com';
 const SUBMIT_SURVEY_URI = '/surveys';
 const firstPassedArgumentOf = (mockedFunction) =>
   mockedFunction.mock.calls[0][0];
-const newSentData = {
+const expectedSentData = {
   firstName: userFirstName,
   lastName: userLastName,
   companyName: userCompany,
@@ -38,6 +40,8 @@ const newSentData = {
   questionnaire: {
     devSecOps: buildAnswerScore('stronglyAgree', 100),
     deliveringValue: buildAnswerScore('neitherAgree', 60),
+    technicalDebt: buildAnswerScore('agree', 80),
+    methodology: buildAnswerScore('stronglyDisagree', 20),
   },
 };
 const submitSurveySpy = jest.spyOn(reportService, 'submitSurvey');
@@ -64,8 +68,9 @@ describe('acceptance test', () => {
 
     // when I fill the survey and click on submit
     fireEvent.click(getByText(stronglyAgree));
-
     fireEvent.click(getByText(neitherAgree));
+    fireEvent.click(getByText(agree));
+    fireEvent.click(getByText(stronglyDisagree));
 
     const inputFirstName = getByPlaceholderText(firstName);
     fireEvent.change(inputFirstName, { target: { value: userFirstName } });
@@ -85,7 +90,7 @@ describe('acceptance test', () => {
     // then
     const data = firstPassedArgumentOf(submitSurveySpy);
     console.log('data ', data);
-    expect(data).toEqual(newSentData);
+    expect(data).toEqual(expectedSentData);
     const result = await returnFromAsync(submitSurveySpy);
     expect(result).toEqual(successfulResponseFromBackend);
   });

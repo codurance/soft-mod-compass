@@ -30,6 +30,14 @@ const questionList = [
     label: 'deliveringValue',
     answers: standardAnswers,
   },
+  {
+    label: 'technicalDebt',
+    answers: standardAnswers,
+  },
+  {
+    label: 'methodology',
+    answers: standardAnswers,
+  },
 ];
 
 export default questionList;

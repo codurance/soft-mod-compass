@@ -1,6 +1,8 @@
 {
   "devSecOps": "Operations and security stakeholders are actively engaged throughout the development lifecycle. *",
   "deliveringValue": "Decision making for IT product and projects is based on what will carry the most value for the business",
+  "technicalDebt": "We deploy working code to a production-like environment. *",
+  "methodology": "We have a well-defined methodology for releasing new features to market which involves all areas of the business. *",
   "question": "Decision making for IT product and projects is based on what will carry the most value for the business. *",
   "stronglyAgree": "Strongly Agree",
   "agree": "Agree",
