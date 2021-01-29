@@ -25,7 +25,7 @@ describe('Questionnaire', () => {
     const { getByText, queryByText } = render(
       <Question
         question={questionList[0]}
-        isSelectedFunction={() => {}}
+        isSelectedFunction={mockStronglyAgreeSelected}
         updateQuestionnaire={() => {}}
       />
     );

@@ -1,11 +1,9 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import { buildAnswerScore, createLinkedList } from '../../config/factory';
 import questionList from '../../config/QuestionnaireModel';
-import translator from '../../config/translator';
-import AnswerOption from '../AnswerOption/AnswerOption';
-import './styles.scss';
-import { createLinkedList, buildAnswerScore } from '../../config/factory';
 import Question from '../Question/Question';
+import './styles.scss';
 
 const questionLinkedList = createLinkedList(questionList);
 
