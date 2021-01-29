@@ -5,6 +5,7 @@ import translator from '../../config/translator';
 import AnswerOption from '../AnswerOption/AnswerOption';
 import './styles.scss';
 import { createLinkedList, buildAnswerScore } from '../../config/factory';
+import Question from '../Question/Question';
 
 const questionLinkedList = createLinkedList(questionList);
 
@@ -53,30 +54,14 @@ function Questionnaire({ finishQuestionnaire }) {
     );
   }
 
-  function renderAnswersFor(question) {
-    return (
-      <>
-        <ul className="questionnaire__answer-list">
-          {question.answers.map((answer) => (
-            <AnswerOption
-              key={answer.label}
-              clickCallback={() => updateState(answer)}
-              answer={translator[answer.label]}
-              selectedAnswer={isSelected(answer)}
-            />
-          ))}
-        </ul>
-        {!isFirstQuestion() && renderBackButton()}
-      </>
-    );
-  }
-
   return (
     <div className="questionnaire wrapper">
-      <p className="questionnaire__question">
-        {translator[currentQuestionNode.data.label]}
-      </p>
-      {renderAnswersFor(currentQuestionNode.data)}
+      <Question
+        question={currentQuestionNode.data}
+        updateQuestionnaire={updateState}
+        isSelectedFunction={(answer) => isSelected(answer)}
+      />
+      {!isFirstQuestion() && renderBackButton()}
     </div>
   );
 }
