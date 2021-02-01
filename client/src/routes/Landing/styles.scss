@@ -1,0 +1,32 @@
+.landing {
+  height: 100vh;
+  margin-left: 83px;
+  margin-top: 40px;
+  width: 100vw;
+
+  &__header {
+    align-items: center;
+    display: flex;
+
+    &__separator {
+      border-left: solid 1px grey;
+      height: 50px;
+      margin: 0 15px;
+    }
+  }
+
+  &__main {
+    margin-top: 140px;
+    max-width: 540px;
+    width: 100%;
+
+    &__icons {
+      display: flex;
+      text-align: center;
+
+      div + div {
+        margin-left: 30px;
+      }
+    }
+  }
+}
