@@ -1,14 +1,11 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import ProgressBar from './components/ProgressBar/ProgressBar';
-import Questionnaire from './components/Questionnaire/Questionnaire';
-import UserForm from './components/UserForm/UserForm';
-import Welcome from './components/Welcome/Welcome';
-import questionnaireMapper from './mappers/questionnaireMapper';
-import redirectService from './services/redirectService';
-import reportService from './services/reportService';
+import Questionnaire from '../../components/Questionnaire/Questionnaire';
+import UserForm from '../../components/UserForm/UserForm';
+import questionnaireMapper from '../../mappers/questionnaireMapper';
+import redirectService from '../../services/redirectService';
+import reportService from '../../services/reportService';
 import './styles.scss';
-import './styles/global.scss';
 
 const initialUserDetails = {
   firstName: '',
@@ -36,25 +33,12 @@ function App({ initialStep }) {
     setCurrentStep(currentStep + 1);
   };
 
-  const setNextStep = () => {
-    setCurrentStep(currentStep + 1);
-  };
-
-  const handleNextStep = () => {
-    if (currentStep < 2) setCurrentStep(currentStep + 1);
-  };
-
-  const handlePreviousStep = () => {
-    if (currentStep > 0) setCurrentStep(currentStep - 1);
-  };
-
   return (
     <div className="app">
-      {currentStep === 0 && <Welcome clickCallback={setNextStep} />}
-      {currentStep === 1 && (
+      {currentStep === 0 && (
         <Questionnaire onFinishQuestionnaire={updateQuestionnaire} />
       )}
-      {currentStep === 2 && (
+      {currentStep === 1 && (
         <div>
           <UserForm
             initialState={userDetails}
@@ -63,12 +47,6 @@ function App({ initialStep }) {
           />
         </div>
       )}
-      <ProgressBar
-        stepsNumber={2}
-        currentStep={currentStep}
-        nextStep={handleNextStep}
-        previousStep={handlePreviousStep}
-      />
     </div>
   );
 }
