@@ -12,6 +12,22 @@ function generateQuestionnaire(questionnaire) {
     deliveringValue,
     technicalDebt,
     methodology,
+    cadence,
+    rework,
+    pipeline,
+    sideEffects,
+    transparency,
+    learning,
+    learnFromFailure,
+    careerPath,
+    diversity,
+    autonomy,
+    wholeTeam,
+    knowledgeSharing,
+    tdd,
+    architecture,
+    cleanCode,
+    peerReview,
   } = questionnaire;
 
   return {
@@ -30,87 +46,59 @@ function generateQuestionnaire(questionnaire) {
       },
     },
     continuousDelivery: {
-      score: 50,
+      score: getAverage([
+        cadence.score,
+        rework.score,
+        pipeline.score,
+        sideEffects.score,
+      ]),
       subcategories: {
-        cadence: {
-          score: 40,
-          answer: 'Monthly',
-        },
-        rework: {
-          score: 60,
-          answer: 'Neither Agree Nor Disagree',
-        },
-        pipeline: {
-          score: 20,
-          answer: 'Strongly Disagree',
-        },
-        sideEffects: {
-          score: 100,
-          answer: 'Strongly Agree',
-        },
+        cadence,
+        rework,
+        pipeline,
+        sideEffects,
       },
     },
     culture: {
-      score: 25,
+      score: getAverage([
+        transparency.score,
+        learning.score,
+        learnFromFailure.score,
+        careerPath.score,
+      ]),
       subcategories: {
-        transparency: {
-          score: 20,
-          answer: 'Strongly Disagree',
-        },
-        learning: {
-          score: 20,
-          answer: 'Strongly Disagree',
-        },
-        learnFromFailure: {
-          score: 40,
-          answer: 'Disagree',
-        },
-        careerPath: {
-          score: 20,
-          answer: 'Strongly Disagree',
-        },
+        transparency,
+        learning,
+        learnFromFailure,
+        careerPath,
       },
     },
     crossFunctionalTeams: {
-      score: 50,
+      score: getAverage([
+        diversity.score,
+        autonomy.score,
+        wholeTeam.score,
+        knowledgeSharing.score,
+      ]),
       subcategories: {
-        diversity: {
-          score: 100,
-          answer: 'Strongly Agree',
-        },
-        autonomy: {
-          score: 40,
-          answer: 'Disagree',
-        },
-        wholeTeam: {
-          score: 60,
-          answer: 'Neither Agree Nor Disagree',
-        },
-        knowledgeSharing: {
-          score: 20,
-          answer: 'Strongly Disagree',
-        },
+        diversity,
+        autonomy,
+        wholeTeam,
+        knowledgeSharing,
       },
     },
     xpPractices: {
-      score: 75,
+      score: getAverage([
+        tdd.score,
+        architecture.score,
+        cleanCode.score,
+        peerReview.score,
+      ]),
       subcategories: {
-        tdd: {
-          score: 80,
-          answer: 'Agree',
-        },
-        architecture: {
-          score: 60,
-          answer: 'Neither Agree Nor Disagree',
-        },
-        cleanCode: {
-          score: 80,
-          answer: 'Agree',
-        },
-        peerReview: {
-          score: 100,
-          answer: 'Strongly Agree',
-        },
+        tdd,
+        architecture,
+        cleanCode,
+        peerReview,
       },
     },
   };

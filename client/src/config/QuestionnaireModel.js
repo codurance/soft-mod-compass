@@ -21,6 +21,33 @@ const standardAnswers = [
   },
 ];
 
+const cadenceAnswers = [
+  {
+    label: 'hourly',
+    score: 100,
+  },
+  {
+    label: 'daily',
+    score: 80,
+  },
+  {
+    label: 'weekly',
+    score: 60,
+  },
+  {
+    label: 'monthly',
+    score: 40,
+  },
+  {
+    label: 'lessThanMonthly',
+    score: 20,
+  },
+  {
+    label: 'notSure',
+    score: 20,
+  },
+];
+
 const questionList = [
   {
     label: 'devSecOps',
@@ -36,6 +63,70 @@ const questionList = [
   },
   {
     label: 'methodology',
+    answers: standardAnswers,
+  },
+  {
+    label: 'cadence',
+    answers: cadenceAnswers,
+  },
+  {
+    label: 'rework',
+    answers: standardAnswers,
+  },
+  {
+    label: 'pipeline',
+    answers: standardAnswers,
+  },
+  {
+    label: 'sideEffects',
+    answers: standardAnswers,
+  },
+  {
+    label: 'transparency',
+    answers: standardAnswers,
+  },
+  {
+    label: 'learning',
+    answers: standardAnswers,
+  },
+  {
+    label: 'learnFromFailure',
+    answers: standardAnswers,
+  },
+  {
+    label: 'careerPath',
+    answers: standardAnswers,
+  },
+  {
+    label: 'diversity',
+    answers: standardAnswers,
+  },
+  {
+    label: 'autonomy',
+    answers: standardAnswers,
+  },
+  {
+    label: 'wholeTeam',
+    answers: standardAnswers,
+  },
+  {
+    label: 'knowledgeSharing',
+    answers: standardAnswers,
+  },
+  {
+    label: 'tdd',
+    answers: standardAnswers,
+  },
+  {
+    label: 'architecture',
+    answers: standardAnswers,
+  },
+  {
+    label: 'cleanCode',
+    answers: standardAnswers,
+  },
+  {
+    label: 'peerReview',
     answers: standardAnswers,
   },
 ];
