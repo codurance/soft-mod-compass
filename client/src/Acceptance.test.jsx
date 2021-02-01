@@ -21,6 +21,8 @@ const {
   neitherAgree,
   stronglyDisagree,
   agree,
+  hourly,
+  disagree,
 } = translator;
 
 const userFirstName = 'First Name';
@@ -67,10 +69,31 @@ describe('acceptance test', () => {
     fireEvent.click(getByText('Start'));
 
     // when I fill the survey and click on submit
+    // first category
     fireEvent.click(getByText(stronglyAgree));
     fireEvent.click(getByText(neitherAgree));
     fireEvent.click(getByText(agree));
     fireEvent.click(getByText(stronglyDisagree));
+    // second category
+    fireEvent.click(getByText(hourly));
+    fireEvent.click(getByText(neitherAgree));
+    fireEvent.click(getByText(stronglyDisagree));
+    fireEvent.click(getByText(stronglyAgree));
+    // third category
+    fireEvent.click(getByText(stronglyDisagree));
+    fireEvent.click(getByText(stronglyDisagree));
+    fireEvent.click(getByText(disagree));
+    fireEvent.click(getByText(stronglyDisagree));
+    // fourth
+    fireEvent.click(getByText(stronglyAgree));
+    fireEvent.click(getByText(disagree));
+    fireEvent.click(getByText(neitherAgree));
+    fireEvent.click(getByText(stronglyDisagree));
+    // fifth
+    fireEvent.click(getByText(agree));
+    fireEvent.click(getByText(neitherAgree));
+    fireEvent.click(getByText(agree));
+    fireEvent.click(getByText(stronglyAgree));
 
     const inputFirstName = getByPlaceholderText(firstName);
     fireEvent.change(inputFirstName, { target: { value: userFirstName } });

@@ -26,23 +26,23 @@
       }
     },
     "continuousDelivery": {
-      "score": 50,
+      "score": 70,
       "subcategories": {
         "cadence": {
-          "score": 40,
-          "answer": "Monthly"
+          "score": 100,
+          "answer": "hourly"
         },
         "rework": {
           "score": 60,
-          "answer": "Neither Agree Nor Disagree"
+          "answer": "neitherAgree"
         },
         "pipeline": {
           "score": 20,
-          "answer": "Strongly Disagree"
+          "answer": "stronglyDisagree"
         },
         "sideEffects": {
           "score": 100,
-          "answer": "Strongly Agree"
+          "answer": "stronglyAgree"
         }
       }
     },
@@ -51,61 +51,61 @@
       "subcategories": {
         "transparency": {
           "score": 20,
-          "answer": "Strongly Disagree"
+          "answer": "stronglyDisagree"
         },
         "learning": {
           "score": 20,
-          "answer": "Strongly Disagree"
+          "answer": "stronglyDisagree"
         },
         "learnFromFailure": {
           "score": 40,
-          "answer": "Disagree"
+          "answer": "disagree"
         },
         "careerPath": {
           "score": 20,
-          "answer": "Strongly Disagree"
+          "answer": "stronglyDisagree"
         }
       }
     },
     "crossFunctionalTeams": {
-      "score": 50,
+      "score": 55,
       "subcategories": {
         "diversity": {
           "score": 100,
-          "answer": "Strongly Agree"
+          "answer": "stronglyAgree"
         },
         "autonomy": {
           "score": 40,
-          "answer": "Disagree"
+          "answer": "disagree"
         },
         "wholeTeam": {
           "score": 60,
-          "answer": "Neither Agree Nor Disagree"
+          "answer": "neitherAgree"
         },
         "knowledgeSharing": {
           "score": 20,
-          "answer": "Strongly Disagree"
+          "answer": "stronglyDisagree"
         }
       }
     },
     "xpPractices": {
-      "score": 75,
+      "score": 80,
       "subcategories": {
         "tdd": {
           "score": 80,
-          "answer": "Agree"
+          "answer": "agree"
         },
         "architecture": {
           "score": 60,
-          "answer": "Neither Agree Nor Disagree"
+          "answer": "neitherAgree"
         },
         "cleanCode": {
           "score": 80,
-          "answer": "Agree"
+          "answer": "agree"
         },
         "peerReview": {
           "score": 100,
-          "answer": "Strongly Agree"
+          "answer": "stronglyAgree"
         }
       }
     }

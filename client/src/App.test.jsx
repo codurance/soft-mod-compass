@@ -20,7 +20,6 @@ const {
   firstName,
   welcomeFirstParagraph,
   welcomeSecondParagraph,
-  question,
   stronglyAgree,
   agree,
   neitherAgree,
@@ -74,7 +73,7 @@ describe('app', () => {
     const { getByText, queryByText } = render(<App />);
 
     expect(getByText(welcomeFirstParagraph)).toBeInTheDocument();
-    expect(queryByText(question)).not.toBeInTheDocument();
+    expect(queryByText(firstQuestion)).not.toBeInTheDocument();
     expect(queryByText(firstName)).not.toBeInTheDocument();
   });
 });
