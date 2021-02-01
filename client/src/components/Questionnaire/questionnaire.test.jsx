@@ -17,21 +17,22 @@ const {
 const firstQuestion = translator[questionList[0].label];
 const secondQuestion = translator[questionList[1].label];
 describe('Questionnaire', () => {
-  it('should display only the first question', () => {
+  it('should display only the first question at initial step', () => {
     const { getByText, queryByText } = render(
-      <Questionnaire finishQuestionnaire={() => {}} />
+      <Questionnaire onFinishQuestionnaire={() => {}} />
     );
     expect(getByText(firstQuestion)).toBeInTheDocument();
     expect(queryByText(secondQuestion)).not.toBeInTheDocument();
   });
 
-  it('should display the second question after answering first question', () => {
-    const { getByText } = render(
-      <Questionnaire finishQuestionnaire={() => {}} />
+  it('should display the second question and hide first question after answering first question', () => {
+    const { getByText, queryByText } = render(
+      <Questionnaire onFinishQuestionnaire={() => {}} />
     );
 
     getByText(stronglyAgree).click();
     expect(getByText(secondQuestion)).toBeInTheDocument();
+    expect(queryByText(firstQuestion)).not.toBeInTheDocument();
   });
 
   const answerTable = [
@@ -51,7 +52,7 @@ describe('Questionnaire', () => {
     "given an answer '%s' , only that one should be selected",
     (selectedAnswer, answers) => {
       const { getByText } = render(
-        <Questionnaire finishQuestionnaire={() => {}} />
+        <Questionnaire onFinishQuestionnaire={() => {}} />
       );
       getByText(selectedAnswer).click();
       getByText('back').click();

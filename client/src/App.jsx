@@ -10,7 +10,7 @@ import reportService from './services/reportService';
 import './styles.scss';
 import './styles/global.scss';
 
-const initialTextFieldsState = {
+const initialUserDetails = {
   firstName: '',
   lastName: '',
   companyName: '',
@@ -18,16 +18,12 @@ const initialTextFieldsState = {
 };
 
 function App({ initialStep }) {
-  const [textFields, setTextFields] = useState(initialTextFieldsState);
+  const [userDetails, setUserDetails] = useState(initialUserDetails);
   const [questionnaire, setQuestionnaire] = useState({});
   const [currentStep, setCurrentStep] = useState(initialStep);
 
-  const updateUserForm = (data) => {
-    setTextFields(data);
-  };
-
   const handleSubmit = () => {
-    const data = { ...textFields };
+    const data = { ...userDetails };
     data.categories = questionnaireMapper.generateQuestionnaire(questionnaire);
     reportService
       .submitSurvey(data)
@@ -56,13 +52,13 @@ function App({ initialStep }) {
     <div className="app">
       {currentStep === 0 && <Welcome clickCallback={setNextStep} />}
       {currentStep === 1 && (
-        <Questionnaire finishQuestionnaire={updateQuestionnaire} />
+        <Questionnaire onFinishQuestionnaire={updateQuestionnaire} />
       )}
       {currentStep === 2 && (
         <div>
           <UserForm
-            initialState={textFields}
-            updateUserForm={updateUserForm}
+            initialState={userDetails}
+            updateUserForm={setUserDetails}
             submitForm={handleSubmit}
           />
         </div>

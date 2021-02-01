@@ -4,7 +4,7 @@ import translator from '../../config/translator';
 import AnswerOption from '../AnswerOption/AnswerOption';
 import './styles.scss';
 
-function Question({ question, updateQuestionnaire, isSelectedFunction }) {
+function Question({ question, onClickAnswer, isSelectedFunction }) {
   function renderAnswers() {
     return (
       <>
@@ -12,7 +12,7 @@ function Question({ question, updateQuestionnaire, isSelectedFunction }) {
           {question.answers.map((answer) => (
             <AnswerOption
               key={answer.label}
-              clickCallback={() => updateQuestionnaire(answer)}
+              clickCallback={() => onClickAnswer(answer)}
               answer={translator[answer.label]}
               selectedAnswer={isSelectedFunction(answer)}
             />
@@ -34,6 +34,6 @@ export default Question;
 
 Question.propTypes = {
   question: PropTypes.objectOf(PropTypes.any).isRequired,
-  updateQuestionnaire: PropTypes.func.isRequired,
+  onClickAnswer: PropTypes.func.isRequired,
   isSelectedFunction: PropTypes.func.isRequired,
 };

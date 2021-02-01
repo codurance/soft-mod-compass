@@ -26,7 +26,7 @@ describe('Questionnaire', () => {
       <Question
         question={questionList[0]}
         isSelectedFunction={mockStronglyAgreeSelected}
-        updateQuestionnaire={() => {}}
+        onClickAnswer={() => {}}
       />
     );
     expect(getByText(firstQuestion)).toBeInTheDocument();
@@ -38,12 +38,12 @@ describe('Questionnaire', () => {
     expect(getByText(stronglyDisagree)).toBeInTheDocument();
   });
 
-  it('should display the selected answer ', () => {
+  it('should display the selected answer, stronglyAgree ', () => {
     const { getByText } = render(
       <Question
         question={questionList[0]}
         isSelectedFunction={mockStronglyAgreeSelected}
-        updateQuestionnaire={() => {}}
+        onClickAnswer={() => {}}
       />
     );
 
