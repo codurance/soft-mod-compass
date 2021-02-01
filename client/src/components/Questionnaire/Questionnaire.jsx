@@ -7,7 +7,7 @@ import './styles.scss';
 
 const questionLinkedList = createLinkedList(questionList);
 
-function Questionnaire({ finishQuestionnaire }) {
+function Questionnaire({ onFinishQuestionnaire }) {
   const [questionnaire, setQuestionnaire] = useState({});
   const [currentQuestionNode, setCurrentQuestionNode] = useState(
     questionLinkedList.head
@@ -40,7 +40,7 @@ function Questionnaire({ finishQuestionnaire }) {
       answer.score
     );
     if (isLastQuestion(currentQuestionNode))
-      finishQuestionnaire(newQuestionnaire);
+      onFinishQuestionnaire(newQuestionnaire);
     else setQuestionnaire(newQuestionnaire);
 
     setCurrentQuestionNode(currentQuestionNode.next);
@@ -57,8 +57,8 @@ function Questionnaire({ finishQuestionnaire }) {
     <div className="questionnaire wrapper">
       <Question
         question={currentQuestionNode.data}
-        updateQuestionnaire={updateState}
-        isSelectedFunction={(answer) => isSelected(answer)}
+        onClickAnswer={updateState}
+        isSelectedFunction={isSelected}
       />
       {!isFirstQuestion() && renderBackButton()}
     </div>
@@ -68,5 +68,5 @@ function Questionnaire({ finishQuestionnaire }) {
 export default Questionnaire;
 
 Questionnaire.propTypes = {
-  finishQuestionnaire: PropTypes.func.isRequired,
+  onFinishQuestionnaire: PropTypes.func.isRequired,
 };
