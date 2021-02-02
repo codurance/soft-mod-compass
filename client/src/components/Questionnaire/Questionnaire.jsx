@@ -7,7 +7,7 @@ import './styles.scss';
 
 const questionLinkedList = createLinkedList(questionList);
 
-function Questionnaire({ onFinishQuestionnaire }) {
+function Questionnaire({ onFinishQuestionnaire, onUpdateQuestionnaire }) {
   const [questionnaire, setQuestionnaire] = useState({});
   const [currentQuestionNode, setCurrentQuestionNode] = useState(
     questionLinkedList.head
@@ -21,6 +21,18 @@ function Questionnaire({ onFinishQuestionnaire }) {
         onClick={() => setCurrentQuestionNode(currentQuestionNode.previous)}
       >
         back
+      </button>
+    );
+  }
+
+  function renderNextButton() {
+    return (
+      <button
+        type="button"
+        value="next"
+        onClick={() => setCurrentQuestionNode(currentQuestionNode.next)}
+      >
+        next
       </button>
     );
   }
@@ -39,9 +51,10 @@ function Questionnaire({ onFinishQuestionnaire }) {
       answer.label,
       answer.score
     );
+    setQuestionnaire(newQuestionnaire);
     if (isLastQuestion(currentQuestionNode))
       onFinishQuestionnaire(newQuestionnaire);
-    else setQuestionnaire(newQuestionnaire);
+    else onUpdateQuestionnaire(newQuestionnaire);
 
     setCurrentQuestionNode(currentQuestionNode.next);
   };
@@ -61,6 +74,7 @@ function Questionnaire({ onFinishQuestionnaire }) {
         isSelectedFunction={isSelected}
       />
       {!isFirstQuestion() && renderBackButton()}
+      {questionnaire[currentQuestionNode.data.label] && renderNextButton()}
     </div>
   );
 }
@@ -69,4 +83,5 @@ export default Questionnaire;
 
 Questionnaire.propTypes = {
   onFinishQuestionnaire: PropTypes.func.isRequired,
+  onUpdateQuestionnaire: PropTypes.func.isRequired,
 };

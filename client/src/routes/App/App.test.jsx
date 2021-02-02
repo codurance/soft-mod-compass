@@ -42,6 +42,36 @@ describe('app', () => {
     expect(getByText(stronglyDisagree)).toBeInTheDocument();
   });
 
+  it('should display progress bar without completed stages', () => {
+    const { getByTestId } = render(<App initialStep={0} />);
+
+    questionList.forEach((question) => {
+      expect(getByTestId(question.category)).toBeInTheDocument();
+      expect(getByTestId(question.label)).not.toHaveClass(
+        'progress-bar__step--completed'
+      );
+    });
+  });
+
+  it('should display progress bar with one completed stage', () => {
+    const { getByTestId, getByText } = render(<App initialStep={0} />);
+
+    getByText(stronglyAgree).click();
+    questionList.forEach((question, index) => {
+      if (index === 0) {
+        expect(getByTestId(question.category)).toBeInTheDocument();
+        expect(getByTestId(question.label)).toHaveClass(
+          'progress-bar__step--completed'
+        );
+      } else {
+        expect(getByTestId(question.category)).toBeInTheDocument();
+        expect(getByTestId(question.label)).not.toHaveClass(
+          'progress-bar__step--completed'
+        );
+      }
+    });
+  });
+
   it('should display the submit button', () => {
     const { getByText } = render(<App initialStep={1} />);
     expect(getByText(submit)).toBeInTheDocument();
