@@ -1,98 +1,109 @@
-import { describe, expect, it, jest } from '@jest/globals';
+import { describe, expect, it } from '@jest/globals';
 import { render } from '@testing-library/react';
 import React from 'react';
 import ProgressBar from './ProgressBar';
 
-const next = 'next';
-const previous = 'previous';
-const nextStep = jest.fn();
-const previousStep = jest.fn();
+describe('ProgressBar', () => {
+  it('should contain only 1 category and 1 question uncompleted', () => {
+    const progressBarStages = [
+      {
+        category: 'organisationalMaturity',
+        questions: [{ label: 'devSecOps', isCompleted: false }],
+      },
+    ];
+    const { getByTestId } = render(<ProgressBar stages={progressBarStages} />);
 
-const className =
-  'progress-bar__buttons__item progress-bar__buttons__item--disabled';
-describe('ProgressBar should', () => {
-  it('should contain next and previous icons', () => {
-    const { getByTestId } = render(
-      <ProgressBar
-        currentStep={0}
-        stepsNumber={0}
-        nextStep={() => {}}
-        previousStep={() => {}}
-      />
+    expect(getByTestId('organisationalMaturity')).toBeInTheDocument();
+    expect(getByTestId('devSecOps')).toBeInTheDocument();
+    expect(getByTestId('devSecOps')).not.toHaveClass(
+      'progress-bar__step--completed'
     );
+  });
+  it('should contain only 1 category and 1 question completed', () => {
+    const progressBarStages = [
+      {
+        category: 'organisationalMaturity',
+        questions: [{ label: 'devSecOps', isCompleted: true }],
+      },
+    ];
+    const { getByTestId } = render(<ProgressBar stages={progressBarStages} />);
 
-    expect(getByTestId(next)).toBeInTheDocument();
-    expect(getByTestId(previous)).toBeInTheDocument();
+    expect(getByTestId('organisationalMaturity')).toBeInTheDocument();
+    expect(getByTestId('devSecOps')).toBeInTheDocument();
+    expect(getByTestId('devSecOps')).toHaveClass(
+      'progress-bar__step--completed'
+    );
   });
 
-  it('should execute nextStep function when the user clicks in next', () => {
-    const { getByTestId } = render(
-      <ProgressBar
-        currentStep={0}
-        stepsNumber={0}
-        nextStep={nextStep}
-        previousStep={() => {}}
-      />
-    );
+  it('should contain only 1 category and 2 question completed', () => {
+    const progressBarStages = [
+      {
+        category: 'organisationalMaturity',
+        questions: [
+          { label: 'qu1', isCompleted: true },
+          { label: 'qu2', isCompleted: true },
+        ],
+      },
+    ];
+    const { getByTestId } = render(<ProgressBar stages={progressBarStages} />);
 
-    getByTestId(next).click();
-
-    expect(nextStep).toHaveBeenCalledTimes(1);
+    expect(getByTestId('organisationalMaturity')).toBeInTheDocument();
+    expect(getByTestId('qu1')).toHaveClass('progress-bar__step--completed');
+    expect(getByTestId('qu2')).toHaveClass('progress-bar__step--completed');
   });
 
-  it('should execute previousStep function when the user clicks in previous', () => {
-    const { getByTestId } = render(
-      <ProgressBar
-        currentStep={0}
-        stepsNumber={0}
-        nextStep={() => {}}
-        previousStep={previousStep}
-      />
-    );
+  it('should contain only 2 categories and 2 questions completed', () => {
+    const progressBarStages = [
+      {
+        category: 'cat1',
+        questions: [
+          { label: 'qu1', isCompleted: true },
+          { label: 'qu2', isCompleted: true },
+        ],
+      },
+      {
+        category: 'cat2',
+        questions: [
+          { label: 'qu3', isCompleted: true },
+          { label: 'qu4', isCompleted: true },
+        ],
+      },
+    ];
+    const { getByTestId } = render(<ProgressBar stages={progressBarStages} />);
 
-    getByTestId(previous).click();
-
-    expect(previousStep).toHaveBeenCalledTimes(1);
+    expect(getByTestId('cat1')).toBeInTheDocument();
+    expect(getByTestId('cat2')).toBeInTheDocument();
+    expect(getByTestId('qu1')).toHaveClass('progress-bar__step--completed');
+    expect(getByTestId('qu2')).toHaveClass('progress-bar__step--completed');
+    expect(getByTestId('qu3')).toHaveClass('progress-bar__step--completed');
+    expect(getByTestId('qu4')).toHaveClass('progress-bar__step--completed');
   });
 
-  it('should display current step and the amount of steps', () => {
-    const { getByText } = render(
-      <ProgressBar
-        nextStep={() => {}}
-        previousStep={previousStep}
-        currentStep={3}
-        stepsNumber={5}
-      />
-    );
+  it('should contain only 2 categories and 2 questions by category with only last question uncompleted', () => {
+    const progressBarStages = [
+      {
+        category: 'cat1',
+        questions: [
+          { label: 'qu1', isCompleted: true },
+          { label: 'qu2', isCompleted: true },
+        ],
+      },
+      {
+        category: 'cat2',
+        questions: [
+          { label: 'qu3', isCompleted: true },
+          { label: 'qu4', isCompleted: false },
+        ],
+      },
+    ];
+    const { getByTestId } = render(<ProgressBar stages={progressBarStages} />);
 
-    expect(getByText('3 of 5 completed')).toBeInTheDocument();
-  });
-
-  it('next element should contain selected when we are on the last step', () => {
-    const { getByText, getByTestId } = render(
-      <ProgressBar
-        nextStep={() => {}}
-        previousStep={previousStep}
-        currentStep={5}
-        stepsNumber={5}
-      />
-    );
-    expect(getByText('5 of 5 completed')).toBeInTheDocument();
-    expect(getByTestId(previous)).not.toHaveClass(className);
-    expect(getByTestId(next)).toHaveClass(className);
-  });
-
-  it('previous element should contain selected when we are on the first step', () => {
-    const { getByText, getByTestId } = render(
-      <ProgressBar
-        nextStep={() => {}}
-        previousStep={previousStep}
-        currentStep={0}
-        stepsNumber={5}
-      />
-    );
-    expect(getByText('0 of 5 completed')).toBeInTheDocument();
-    expect(getByTestId(previous)).toHaveClass(className);
-    expect(getByTestId(next)).not.toHaveClass(className);
+    expect(getByTestId('cat1')).toBeInTheDocument();
+    expect(getByTestId('cat2')).toBeInTheDocument();
+    expect(getByTestId('qu1')).toHaveClass('progress-bar__step--completed');
+    expect(getByTestId('qu2')).toHaveClass('progress-bar__step--completed');
+    expect(getByTestId('qu3')).toHaveClass('progress-bar__step--completed');
+    expect(getByTestId('qu4')).not.toHaveClass('progress-bar__step--completed');
+    expect(getByTestId('qu4')).toHaveClass('progress-bar__step');
   });
 });
