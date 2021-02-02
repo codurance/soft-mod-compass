@@ -1,8 +1,14 @@
+@import '../../styles/global.scss';
+
 .landing {
   height: 100vh;
   margin-left: 83px;
-  margin-top: 40px;
+  margin-top: 20px;
   width: 100vw;
+  background-image: url(../../assets/icons/report-bg-landing-page.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 
   &__header {
     align-items: center;
@@ -16,17 +22,40 @@
   }
 
   &__main {
-    margin-top: 140px;
-    max-width: 540px;
+    margin-bottom: 40px;
+    margin-top: 100px;
+    max-width: 500px;
     width: 100%;
+
+    &__title {
+      @include dudler;
+      font-weight: 700;
+    }
 
     &__icons {
       display: flex;
-      text-align: center;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      p {
+        @include sejima;
+        margin-top: 13px;
+        line-height: 0.9rem;
+        font-weight: var(--middle-font-weight);
+        text-align: center;
+      }
 
       div + div {
         margin-left: 30px;
       }
+    }
+
+    button {
+      margin-top: 30px;
     }
   }
 }
