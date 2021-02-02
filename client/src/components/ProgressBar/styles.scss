@@ -1,58 +1,35 @@
 @import '../../styles/global.scss';
 
 .progress-bar {
-  bottom: 20px;
-  color: black;
+  align-items: center;
   display: flex;
-  position: absolute;
-  right: 20px;
 
-  &__text {
-    @include sejima;
-    background: var(--mid-gray);
-    border-radius: 4px;
-    color: var(--athens-gray);
-    cursor: default;
-    padding: 6px 15px;
-    width: 150px;
+  &__category {
+    align-items: center;
+    display: flex;
   }
 
-  &__buttons {
-    background-color: var(--valencia-dark);
-    border-radius: 4px;
-    display: flex;
-    font-weight: 600;
+  &__category + &__category {
     margin-left: 5px;
+  }
 
-    &__item {
-      align-items: center;
-      border-radius: 4px;
-      display: flex;
-      height: 32px;
-      justify-content: center;
-      transition-property: background-color;
-      transition-duration: 0.1s;
-      transition-timing-function: ease-out;
-      width: 32px;
+  &__step {
+    background-color: var(--mid-gray);
+    display: flex;
+    height: 10px;
+    width: 35px;
 
-      & + & {
-        border-left: solid thin black;
-        border-bottom-left-radius: 0;
-        border-top-left-radius: 0;
-      }
+    &--iniciated {
+      background-color: var(--picton-blue);
+      height: 15px;
+      opacity: 0.3;
+      width: 35px;
+    }
 
-      &:hover {
-        background-color: var(--valencia);
-        cursor: pointer;
-      }
-
-      &--disabled {
-        color: var(--shark);
-        &:hover {
-          background-color: var(--valencia-dark);
-          cursor: default;
-        }
-      }
+    &--completed {
+      background-color: var(--picton-blue);
+      height: 15px;
+      width: 35px;
     }
   }
 }

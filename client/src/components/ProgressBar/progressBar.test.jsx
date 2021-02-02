@@ -104,6 +104,6 @@ describe('ProgressBar', () => {
     expect(getByTestId('qu2')).toHaveClass('progress-bar__step--completed');
     expect(getByTestId('qu3')).toHaveClass('progress-bar__step--completed');
     expect(getByTestId('qu4')).not.toHaveClass('progress-bar__step--completed');
-    expect(getByTestId('qu4')).toHaveClass('progress-bar__step');
+    expect(getByTestId('qu4')).toHaveClass('progress-bar__step--iniciated');
   });
 });

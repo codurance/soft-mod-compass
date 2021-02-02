@@ -4,20 +4,38 @@ import './styles.scss';
 
 function ProgressBar({ stages }) {
   function stepCompletionClass(isCompleted) {
-    return isCompleted ? 'progress-bar__step--completed' : 'progress-bar__step';
+    return isCompleted
+      ? 'progress-bar__step--completed'
+      : 'progress-bar__step--iniciated';
   }
+
+  const renderStage = (stage) => {
+    const isIniciated = !!stage.questions.find(
+      (question) => question.isCompleted
+    );
+
+    return stage.questions.map((question) => (
+      <div
+        key={question.label}
+        data-testid={question.label}
+        className={
+          isIniciated
+            ? stepCompletionClass(question.isCompleted)
+            : 'progress-bar__step'
+        }
+      />
+    ));
+  };
 
   return (
     <div className="progress-bar">
       {stages.map((stage) => (
-        <div key={stage.category} data-testid={stage.category}>
-          {stage.questions.map((question) => (
-            <div
-              key={question.label}
-              data-testid={question.label}
-              className={stepCompletionClass(question.isCompleted)}
-            />
-          ))}
+        <div
+          className="progress-bar__category"
+          key={stage.category}
+          data-testid={stage.category}
+        >
+          {renderStage(stage)}
         </div>
       ))}
     </div>
