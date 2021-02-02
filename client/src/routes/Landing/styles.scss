@@ -1,14 +1,20 @@
 @import '../../styles/global.scss';
 
 .landing {
+  background: url(./src/assets/icons/report-bg-landing-page.svg) no-repeat right;
   height: 100vh;
-  margin-left: 83px;
+  margin-left: 100px;
   margin-top: 20px;
   width: 100vw;
-  background-image: url(../../assets/icons/report-bg-landing-page.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+
+  &__assessment {
+    position: absolute;
+    right: 50px;
+    bottom: -50px;
+    height: 100%;
+    width: 100%;
+    background: url(./src/assets/icons/report-landing-page.svg) no-repeat right;
+  }
 
   &__header {
     align-items: center;
@@ -43,9 +49,9 @@
 
       p {
         @include sejima;
-        margin-top: 13px;
-        line-height: 0.9rem;
         font-weight: var(--middle-font-weight);
+        line-height: 0.9rem;
+        margin-top: 13px;
         text-align: center;
       }
 

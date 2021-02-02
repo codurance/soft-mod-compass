@@ -26,10 +26,10 @@ function Landing() {
 
   return (
     <div className="landing">
+      <div className="landing__assessment" />
       <header className="landing__header">
         <img src={CoduranceLogo} alt="Codurance" />
         <span className="landing__header__separator" />
-
         <img src={CompassLogo} alt="Compass" />
       </header>
 
