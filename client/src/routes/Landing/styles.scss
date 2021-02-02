@@ -3,22 +3,43 @@
 .landing {
   background: url(./src/assets/icons/report-bg-landing-page.svg) no-repeat right;
   height: 100vh;
-  margin-left: 100px;
-  margin-top: 20px;
   width: 100vw;
+  background-size: 1607px;
+  background-position-x: 900px;
+  overflow: hidden;
+  position: relative;
 
   &__assessment {
     position: absolute;
-    right: 50px;
-    bottom: -50px;
     height: 100%;
     width: 100%;
     background: url(./src/assets/icons/report-landing-page.svg) no-repeat right;
+    animation: fadeIn ease 2s;
+    -webkit-animation: fadeIn ease 2s;
+    -moz-animation: fadeIn ease 2s;
+    -o-animation: fadeIn ease 2s;
+    -ms-animation: fadeIn ease 2s;
+    bottom: -208px;
+  }
+
+  @keyframes fadeIn{
+    0% {
+      opacity:0;
+      bottom: -408px;
+      transform: rotate(5deg);
+    }
+    100% {
+      opacity:1;
+      bottom: -208px;
+      transform: rotate(0deg);
+    }
   }
 
   &__header {
     align-items: center;
     display: flex;
+    margin-top: 30px;
+    margin-left: 100px;
 
     &__separator {
       border-left: solid 1px grey;
@@ -31,6 +52,7 @@
     margin-bottom: 40px;
     margin-top: 100px;
     max-width: 500px;
+    margin-left: 100px;
     width: 100%;
 
     &__title {
