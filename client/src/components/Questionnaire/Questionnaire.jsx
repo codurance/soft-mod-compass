@@ -4,6 +4,7 @@ import { buildAnswerScore, createLinkedList } from '../../config/factory';
 import questionList from '../../config/QuestionnaireModel';
 import Question from '../Question/Question';
 import './styles.scss';
+import AssessmentLogo from '../../assets/icons/report-landing-page.svg';
 
 const questionLinkedList = createLinkedList(questionList);
 
@@ -67,14 +68,21 @@ function Questionnaire({ onFinishQuestionnaire, onUpdateQuestionnaire }) {
   }
 
   return (
-    <div className="questionnaire wrapper">
-      <Question
-        question={currentQuestionNode.data}
-        onClickAnswer={updateState}
-        isSelectedFunction={isSelected}
+    <div className="questionnaire">
+      <div className="questionnaire__question-wrapper">
+        <Question
+          question={currentQuestionNode.data}
+          onClickAnswer={updateState}
+          isSelectedFunction={isSelected}
+        />
+        {!isFirstQuestion() && renderBackButton()}
+        {questionnaire[currentQuestionNode.data.label] && renderNextButton()}
+      </div>
+      <img
+        className="questionnaire__assessment"
+        src={AssessmentLogo}
+        alt="Section"
       />
-      {!isFirstQuestion() && renderBackButton()}
-      {questionnaire[currentQuestionNode.data.label] && renderNextButton()}
     </div>
   );
 }

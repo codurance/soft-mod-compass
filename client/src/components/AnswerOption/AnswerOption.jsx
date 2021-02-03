@@ -10,7 +10,8 @@ function AnswerOption({ answer, selectedAnswer, clickCallback }) {
       className={`answer ${selectedAnswer ? 'answer--selected' : ''}`}
       onClick={clickCallback}
     >
-      {answer}
+      <span>{answer}</span>
+      <div className="answer__icon" />
     </li>
   );
 }

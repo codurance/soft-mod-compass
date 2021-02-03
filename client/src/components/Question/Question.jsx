@@ -24,7 +24,7 @@ function Question({ question, onClickAnswer, isSelectedFunction }) {
 
   return (
     <>
-      <p className="questionnaire__question">{translator[question.label]}</p>
+      <p className="question">{translator[question.label]}</p>
       {renderAnswers()}
     </>
   );

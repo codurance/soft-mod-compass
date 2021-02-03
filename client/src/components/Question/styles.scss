@@ -1,3 +1,11 @@
+@import '../../styles/global.scss';
+
+.question {
+  margin-bottom: 32px;
+  @include freed();
+  font-weight: var(--welter-font-weight);
+}
+
 .answer-list {
   list-style-type: none;
 }

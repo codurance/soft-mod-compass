@@ -16,7 +16,8 @@
     height: 120%;
     width: 70%;
     right: 0;
-    background: url(./src/assets/icons/report-landing-page.svg) no-repeat right;
+    background: url('./src/assets/icons/report-landing-page.svg') no-repeat
+      right;
     animation: fadeIn ease 2s;
     -webkit-animation: fadeIn ease 2s;
     -moz-animation: fadeIn ease 2s;

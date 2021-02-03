@@ -4,13 +4,14 @@
   background-color: $color;
   display: flex;
   height: $height;
-  width: 35px;
+  width: 45px;
   opacity: $opacity;
 }
 
 .progress-bar {
   align-items: center;
   display: flex;
+  margin-top: 50px;
 
   &__category {
     align-items: center;
@@ -18,18 +19,18 @@
   }
 
   &__category + &__category {
-    margin-left: 5px;
+    margin-left: 3px;
   }
 
   &__step {
-    @include step(var(--mid-gray), 10px);
+    @include step(var(--french-gray), 10px, 0.5);
 
     &--iniciated {
       @include step(var(--picton-blue), 15px, 0.3);
     }
 
     &--completed {
-      @include step(var(--picton-blue), 15px);
+      @include step(var(--picton-blue), 15px, 0.6);
     }
   }
 }
