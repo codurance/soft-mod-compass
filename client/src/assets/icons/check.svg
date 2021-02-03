@@ -1,40 +1,8 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 367.805 367.805" style="enable-background:new 0 0 367.805 367.805;" xml:space="preserve">
-<g>
-	<path style="fill:#1CD8B4;" d="M183.903,0.001c101.566,0,183.902,82.336,183.902,183.902s-82.336,183.902-183.902,183.902
-		S0.001,285.469,0.001,183.903l0,0C-0.288,82.625,81.579,0.29,182.856,0.001C183.205,0,183.554,0,183.903,0.001z"/>
-	<polygon style="fill:#ffffff;" points="285.78,133.225 155.168,263.837 82.025,191.217 111.805,161.96 155.168,204.801 
-		256.001,103.968 	"/>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="Group_2459" data-name="Group 2459" transform="translate(-571 -348)">
+    <circle id="Ellipse_281" data-name="Ellipse 281" cx="12" cy="12" r="12" transform="translate(571 348)" fill="#1cd8b4"/>
+    <g id="Icon_-_tick" data-name="Icon - tick" transform="translate(577 356)">
+      <path id="Path_443" data-name="Path 443" d="M846.681-5361.862l3.631,3.626,7.925-8.285" transform="translate(-846.681 5366.521)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+  </g>
 </svg>
