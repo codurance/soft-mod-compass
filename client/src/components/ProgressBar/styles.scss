@@ -1,10 +1,11 @@
 @import '../../styles/global.scss';
 
-@mixin step($color, $height) {
+@mixin step($color, $height, $opacity: 1) {
   background-color: $color;
   display: flex;
   height: $height;
   width: 35px;
+  opacity: $opacity;
 }
 
 .progress-bar {
@@ -24,8 +25,7 @@
     @include step(var(--mid-gray), 10px);
 
     &--iniciated {
-      @include step(var(--picton-blue), 15px);
-      opacity: 0.3;
+      @include step(var(--picton-blue), 15px, 0.3);
     }
 
     &--completed {
