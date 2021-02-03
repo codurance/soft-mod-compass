@@ -1,21 +1,39 @@
+@mixin icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
 .answer {
   align-items: center;
   background-color: rgba(255, 255, 255, 0.1);
-  border: solid 1px var(--french-gray);
-  border-radius: 4px;
   color: var(--french-gray);
   display: flex;
-  height: 32px;
+  height: 40px;
   max-width: 100%;
   min-width: 365px;
-  padding: 10px;
-  transition-duration: 0.1s;
-  transition-property: background-color;
+  padding: 15px 10px;
+  transition-duration: 0.2s;
+  transition-property: color box-shadow;
   transition-timing-function: ease-out;
+  justify-content: space-between;
+
+  &__icon {
+    @include icon();
+    border: solid 2px var(--french-gray);
+  }
 
   &--selected {
+    border-radius: 4px;
     border: solid 1px var(--white);
-    color: var(--white);
+    box-shadow: 0px 0px 7px 1px var(--french-gray);
+    color: var(--woodsmoke);
+
+    .answer__icon {
+      @include icon();
+      background: url('./src/assets/icons/check.svg') no-repeat;
+      border: none;
+    }
   }
 
   & + & {
@@ -23,7 +41,9 @@
   }
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.3);
     cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0px 0px 7px 1px var(--french-gray);
+    color: var(--woodsmoke);
   }
 }

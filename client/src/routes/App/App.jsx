@@ -9,6 +9,7 @@ import './styles.scss';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import progressBarMapper from '../../mappers/progressBarMapper';
 import questionList from '../../config/QuestionnaireModel';
+import Header from '../../components/Header/Header';
 
 const initialUserDetails = {
   firstName: '',
@@ -38,27 +39,30 @@ function App({ initialStep }) {
 
   return (
     <div className="app">
-      {currentStep === 0 && (
-        <Questionnaire
-          onFinishQuestionnaire={updateQuestionnaire}
-          onUpdateQuestionnaire={setQuestionnaire}
-        />
-      )}
-      {currentStep === 1 && (
-        <div>
-          <UserForm
-            initialState={userDetails}
-            updateUserForm={setUserDetails}
-            submitForm={handleSubmit}
+      <Header />
+      <main>
+        {currentStep === 0 && (
+          <Questionnaire
+            onFinishQuestionnaire={updateQuestionnaire}
+            onUpdateQuestionnaire={setQuestionnaire}
           />
-        </div>
-      )}
-      <ProgressBar
-        stages={progressBarMapper.generateProgressBar(
-          questionnaire,
-          questionList
         )}
-      />
+        {currentStep === 1 && (
+          <div>
+            <UserForm
+              initialState={userDetails}
+              updateUserForm={setUserDetails}
+              submitForm={handleSubmit}
+            />
+          </div>
+        )}
+        <ProgressBar
+          stages={progressBarMapper.generateProgressBar(
+            questionnaire,
+            questionList
+          )}
+        />
+      </main>
     </div>
   );
 }

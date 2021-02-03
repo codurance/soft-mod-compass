@@ -19,7 +19,10 @@ const secondQuestion = translator[questionList[1].label];
 describe('Questionnaire', () => {
   it('should display only the first question at initial step', () => {
     const { getByText, queryByText } = render(
-      <Questionnaire onFinishQuestionnaire={() => {}} />
+      <Questionnaire
+        onFinishQuestionnaire={() => {}}
+        onUpdateQuestionnaire={() => {}}
+      />
     );
     expect(getByText(firstQuestion)).toBeInTheDocument();
     expect(queryByText(secondQuestion)).not.toBeInTheDocument();
@@ -54,19 +57,19 @@ describe('Questionnaire', () => {
   ]).it(
     "given an answer '%s' , only that one should be selected",
     (selectedAnswer, answers) => {
-      const { getByText } = render(
+      const { getByTestId, getByText } = render(
         <Questionnaire
           onFinishQuestionnaire={() => {}}
           onUpdateQuestionnaire={() => {}}
         />
       );
-      getByText(selectedAnswer).click();
+      getByTestId(selectedAnswer).click();
       getByText('back').click();
       answers.forEach((answer) => {
         if (selectedAnswer === answer) {
-          expect(getByText(answer)).toHaveClass('answer--selected');
+          expect(getByTestId(answer)).toHaveClass('answer--selected');
         } else {
-          expect(getByText(answer)).not.toHaveClass('answer--selected');
+          expect(getByTestId(answer)).not.toHaveClass('answer--selected');
         }
       });
     }

@@ -9,8 +9,10 @@ function AnswerOption({ answer, selectedAnswer, clickCallback }) {
       aria-hidden="true"
       className={`answer ${selectedAnswer ? 'answer--selected' : ''}`}
       onClick={clickCallback}
+      data-testid={answer}
     >
-      {answer}
+      <span>{answer}</span>
+      <div className="answer__icon" />
     </li>
   );
 }

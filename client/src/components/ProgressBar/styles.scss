@@ -1,8 +1,17 @@
 @import '../../styles/global.scss';
 
+@mixin step($color, $height, $opacity: 1) {
+  background-color: $color;
+  display: flex;
+  height: $height;
+  width: 45px;
+  opacity: $opacity;
+}
+
 .progress-bar {
   align-items: center;
   display: flex;
+  margin-top: 50px;
 
   &__category {
     align-items: center;
@@ -10,26 +19,18 @@
   }
 
   &__category + &__category {
-    margin-left: 5px;
+    margin-left: 3px;
   }
 
   &__step {
-    background-color: var(--mid-gray);
-    display: flex;
-    height: 10px;
-    width: 35px;
+    @include step(var(--french-gray), 10px, 0.5);
 
     &--iniciated {
-      background-color: var(--picton-blue);
-      height: 15px;
-      opacity: 0.3;
-      width: 35px;
+      @include step(var(--picton-blue), 13px, 0.3);
     }
 
     &--completed {
-      background-color: var(--picton-blue);
-      height: 15px;
-      width: 35px;
+      @include step(var(--picton-blue), 13px, 0.6);
     }
   }
 }

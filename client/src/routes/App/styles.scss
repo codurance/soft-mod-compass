@@ -1,14 +1,17 @@
 .app {
-  background-image: url(https://f.hubspotusercontent10.net/hubfs/3042464/Software%20Modernisation/software-modernisation-lp-files/Compass/SoftMod-compass-questionnaire-background.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  color: var(--white);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding-top: 30px;
+  padding-left: 100px;
+  background: url('./src/assets/icons/report-bg-landing-page.svg') no-repeat;
+  background-size: 600px;
+  background-position-x: 105%;
+  background-position-y: -80%;
 
-  min-height: 100vh;
-  height: 100%;
-  max-width: 100vw;
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    height: 100%;
+    max-width: 100vw;
+  }
 }

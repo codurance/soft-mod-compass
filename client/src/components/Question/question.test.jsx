@@ -39,7 +39,7 @@ describe('Questionnaire', () => {
   });
 
   it('should display the selected answer, stronglyAgree ', () => {
-    const { getByText } = render(
+    const { getByText, getByTestId } = render(
       <Question
         question={questionList[0]}
         isSelectedFunction={mockStronglyAgreeSelected}
@@ -49,7 +49,7 @@ describe('Questionnaire', () => {
 
     expect(getByText(stronglyAgree)).toBeInTheDocument();
     expect(getByText(neitherAgree)).toBeInTheDocument();
-    expect(getByText(stronglyAgree)).toHaveClass('answer--selected');
-    expect(getByText(neitherAgree)).not.toHaveClass('answer--selected');
+    expect(getByTestId(stronglyAgree)).toHaveClass('answer--selected');
+    expect(getByTestId(neitherAgree)).not.toHaveClass('answer--selected');
   });
 });
