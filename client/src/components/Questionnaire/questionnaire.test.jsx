@@ -57,19 +57,19 @@ describe('Questionnaire', () => {
   ]).it(
     "given an answer '%s' , only that one should be selected",
     (selectedAnswer, answers) => {
-      const { getByText } = render(
+      const { getByTestId, getByText } = render(
         <Questionnaire
           onFinishQuestionnaire={() => {}}
           onUpdateQuestionnaire={() => {}}
         />
       );
-      getByText(selectedAnswer).click();
+      getByTestId(selectedAnswer).click();
       getByText('back').click();
       answers.forEach((answer) => {
         if (selectedAnswer === answer) {
-          expect(getByText(answer)).toHaveClass('answer--selected');
+          expect(getByTestId(answer)).toHaveClass('answer--selected');
         } else {
-          expect(getByText(answer)).not.toHaveClass('answer--selected');
+          expect(getByTestId(answer)).not.toHaveClass('answer--selected');
         }
       });
     }

@@ -21,7 +21,7 @@ describe('AnswerOption', () => {
   });
 
   it('contain selected class when answer is equals to selectedAnswer', () => {
-    const { getByText } = render(
+    const { getByTestId } = render(
       <AnswerOption
         answer={answerValue}
         selectedAnswer={isSelected}
@@ -29,7 +29,7 @@ describe('AnswerOption', () => {
       />
     );
 
-    expect(getByText(answerValue)).toHaveClass('answer--selected');
+    expect(getByTestId(answerValue)).toHaveClass('answer--selected');
   });
 
   it('doesnt contain selected class when answer is different to selectedAnswer', () => {
