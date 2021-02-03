@@ -22,14 +22,14 @@
     bottom: -208px;
   }
 
-  @keyframes fadeIn{
+  @keyframes fadeIn {
     0% {
-      opacity:0;
+      opacity: 0;
       bottom: -408px;
       transform: rotate(5deg);
     }
     100% {
-      opacity:1;
+      opacity: 1;
       bottom: -208px;
       transform: rotate(0deg);
     }
@@ -62,11 +62,18 @@
 
     &__icons {
       display: flex;
+      align-items: baseline;
 
       div {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
+
+        img {
+          width: 32px;
+          height: 32px;
+        }
       }
 
       p {
