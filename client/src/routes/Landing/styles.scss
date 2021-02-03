@@ -1,29 +1,55 @@
 @import '../../styles/global.scss';
 
+
+.landing__wrapper {
+  background: url(./src/assets/icons/report-bg-landing-page.svg);
+  background-repeat: no-repeat;
+  background-position-x: 200%;
+  background-position-y: 50%;
+  background-size: 70%;
+  width: 100%;
+  z-index: 1;
+  
+  @media (max-width: 800px) {
+    background-position-x: 0;
+    background-position-y: 180%;
+    background-size: 100%;
+  }
+}
+
 .landing {
-  background: url('./src/assets/icons/report-bg-landing-page.svg') no-repeat
-    right;
   height: 100vh;
   background-size: 1607px;
   background-position-x: 900px;
   overflow: hidden;
   position: relative;
   padding-top: 30px;
-  margin-left: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 1200px;
+  margin: auto;
 
   &__assessment {
     position: absolute;
     height: 120%;
-    width: 70%;
+    width: 50%;
     right: 0;
     background: url('./src/assets/icons/report-landing-page.svg') no-repeat
       right;
+      background-size: 100%;
     animation: fadeIn ease 2s;
     -webkit-animation: fadeIn ease 2s;
     -moz-animation: fadeIn ease 2s;
     -o-animation: fadeIn ease 2s;
     -ms-animation: fadeIn ease 2s;
-    bottom: -220px;
+    bottom: -280px;
+    z-index: 1;
+
+    @media (max-width: 800px) {
+      height: 600px;
+      width: 60%;
+      background-size: 100%;
+    }
   }
 
   @keyframes fadeIn {
@@ -34,7 +60,7 @@
     }
     100% {
       opacity: 1;
-      bottom: -208px;
+      bottom: -280px;
       transform: rotate(0deg);
     }
   }
@@ -44,6 +70,8 @@
     margin-top: 70px;
     max-width: 500px;
     width: 100%;
+    z-index: 2;
+    position: relative;
 
     &__title {
       @include dudler;
