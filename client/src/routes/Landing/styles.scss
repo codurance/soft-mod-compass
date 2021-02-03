@@ -4,11 +4,12 @@
   background: url('./src/assets/icons/report-bg-landing-page.svg') no-repeat
     right;
   height: 100vh;
-  width: 100vw;
   background-size: 1607px;
   background-position-x: 900px;
   overflow: hidden;
   position: relative;
+  padding-top: 30px;
+  margin-left: 100px;
 
   &__assessment {
     position: absolute;
@@ -39,9 +40,8 @@
 
   &__main {
     margin-bottom: 40px;
-    margin-top: 100px;
+    margin-top: 70px;
     max-width: 500px;
-    margin-left: 100px;
     width: 100%;
 
     &__title {
