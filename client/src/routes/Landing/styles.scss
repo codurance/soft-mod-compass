@@ -1,7 +1,8 @@
 @import '../../styles/global.scss';
 
 .landing {
-  background: url(./src/assets/icons/report-bg-landing-page.svg) no-repeat right;
+  background: url('./src/assets/icons/report-bg-landing-page.svg') no-repeat
+    right;
   height: 100vh;
   width: 100vw;
   background-size: 1607px;

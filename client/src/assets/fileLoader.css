@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Proxima Nova';
-  src: url('./ProximaNova-Regular.woff') format('woff');
+  src: url('./fonts/ProximaNova-Regular.woff') format('woff');
 }
 
 @font-face {
@@ -8,7 +8,7 @@
   font-style: normal;
   font-weight: 300;
   src: local('Proxima Nova Thin'),
-    url('./Proxima-Nova-Thin.woff') format('woff');
+    url('./fonts/Proxima-Nova-Thin.woff') format('woff');
 }
 
 @font-face {
@@ -16,7 +16,7 @@
   font-style: normal;
   font-weight: 500;
   src: local('Proxima Nova Regular'),
-    url('./ProximaNova-Regular.woff') format('woff');
+    url('./fonts/ProximaNova-Regular.woff') format('woff');
 }
 
 @font-face {
@@ -24,7 +24,7 @@
   font-style: normal;
   font-weight: 700;
   src: local('Proxima Nova Bold'),
-    url('./Proxima-Nova-Bold.woff') format('woff');
+    url('./fonts/Proxima-Nova-Bold.woff') format('woff');
 }
 
 @font-face {
@@ -32,7 +32,7 @@
   font-style: normal;
   font-weight: 800;
   src: local('Proxima Nova Extra Extrabold'),
-    url('./Proxima-Nova-Extrabold.woff') format('woff');
+    url('./fonts/Proxima-Nova-Extrabold.woff') format('woff');
 }
 
 @font-face {
@@ -40,5 +40,10 @@
   font-style: normal;
   font-weight: 900;
   src: local('Proxima Nova Black'),
-    url('./Proxima-Nova-Black.woff') format('woff');
+    url('./fonts/Proxima-Nova-Black.woff') format('woff');
+}
+
+.loader {
+  background-image: url('./icons/report-bg-landing-page.svg');
+  background-image: url('./icons/report-landing-page.svg');
 }
