@@ -19,7 +19,10 @@ const secondQuestion = translator[questionList[1].label];
 describe('Questionnaire', () => {
   it('should display only the first question at initial step', () => {
     const { getByText, queryByText } = render(
-      <Questionnaire onFinishQuestionnaire={() => {}} />
+      <Questionnaire
+        onFinishQuestionnaire={() => {}}
+        onUpdateQuestionnaire={() => {}}
+      />
     );
     expect(getByText(firstQuestion)).toBeInTheDocument();
     expect(queryByText(secondQuestion)).not.toBeInTheDocument();
