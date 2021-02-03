@@ -1,0 +1,10 @@
+.header {
+  align-items: center;
+  display: flex;
+
+  &__separator {
+    border-left: solid 1px grey;
+    height: 50px;
+    margin: 0 15px;
+  }
+}
