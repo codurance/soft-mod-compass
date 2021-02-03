@@ -9,7 +9,7 @@ module.exports = (env) => {
     return prev;
   }, {});
   return {
-    entry: ['./src/index.jsx', './src/assets/fonts/index.css'],
+    entry: ['./src/index.jsx', './src/assets/fileLoader.css'],
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'index_bundle.js',
