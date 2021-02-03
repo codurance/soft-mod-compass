@@ -28,39 +28,41 @@ function Landing() {
   };
 
   return (
-    <div className="landing">
-      <div className="landing__assessment" />
-      <Header />
+    <div className="landing__wrapper">
+      <div className="landing">
+        <div className="landing__assessment" />
+        <Header />
 
-      <main className="landing__main">
-        <h1 className="landing__main__title">{welcomeFirstParagraph}</h1>
-        <p>{welcomeSecondParagraph}</p>
-        <div className="landing__main__icons">
-          <div>
-            <img src={MaturityIcon} alt="Compass" />
-            <p>Organisational Maturity</p>
+        <main className="landing__main">
+          <h1 className="landing__main__title">{welcomeFirstParagraph}</h1>
+          <p>{welcomeSecondParagraph}</p>
+          <div className="landing__main__icons">
+            <div>
+              <img src={MaturityIcon} alt="Compass" />
+              <p>Organisational Maturity</p>
+            </div>
+            <div>
+              <img src={CrossFunctionalIcon} alt="Compass" />
+              <p>Cross-Functional Teams</p>
+            </div>
+            <div>
+              <img src={CDIcon} alt="Compass" />
+              <p>Continuous Delivery</p>
+            </div>
+            <div>
+              <img src={XPIcon} alt="Compass" />
+              <p>XP Practices</p>
+            </div>
+            <div>
+              <img src={CultureIcon} alt="Compass" />
+              <p>Company Culture</p>
+            </div>
           </div>
-          <div>
-            <img src={CrossFunctionalIcon} alt="Compass" />
-            <p>Cross-Functional Teams</p>
-          </div>
-          <div>
-            <img src={CDIcon} alt="Compass" />
-            <p>Continuous Delivery</p>
-          </div>
-          <div>
-            <img src={XPIcon} alt="Compass" />
-            <p>XP Practices</p>
-          </div>
-          <div>
-            <img src={CultureIcon} alt="Compass" />
-            <p>Company Culture</p>
-          </div>
-        </div>
-        <p>{welcomeThirdParagraph}</p>
+          <p>{welcomeThirdParagraph}</p>
 
-        <Button label={start} clickCallback={questionnaireRedirect} />
-      </main>
+          <Button label={start} clickCallback={questionnaireRedirect} />
+        </main>
+      </div>
     </div>
   );
 }
