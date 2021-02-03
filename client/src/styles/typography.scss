@@ -66,8 +66,8 @@
   --picton-blue: hsl(204.2, 86.3%, 54.3%);
   --dodger-blue: hsl(242.4, 100%, 65.9%);
 
-  --valencia: hsl(2, 71.7%, 58.4%);
-  --valencia--dark: hsl(2, 71.7%, 53.4%);
+  --persimmon: hsl(2, 71.7%, 58.4%);
+  --persimmon--dark: hsl(2, 71.7%, 53.4%);
   --midnight-blue: hsl(209.7, 98%, 19.4%);
   --midnight-blue--dark: hsl(209.7, 98%, 15.4%);
 
@@ -251,7 +251,7 @@ code {
 
 a {
   text-decoration: none;
-  color: var(--valencia--dark);
+  color: var(--persimmon--dark);
   font-weight: var(--font-weight-middle);
 }
 a:hover {
@@ -272,23 +272,23 @@ a.button {
 a.button--primary:hover,
 a.button--secondary:hover {
   color: #ffffff;
-  background: var(--valencia--dark);
-  border: solid 2px var(--valencia--dark);
+  background: var(--persimmon--dark);
+  border: solid 2px var(--persimmon--dark);
   text-decoration: none;
 }
 
 a.button--primary {
   padding: 0.6em 1.5em;
-  background: var(--valencia);
+  background: var(--persimmon);
   color: white;
-  border: solid 2px var(--valencia);
+  border: solid 2px var(--persimmon);
 }
 
 a.button--secondary {
   padding: 0.6em 1.5em;
   background: transparent;
-  color: var(--valencia);
-  border: solid 2px var(--valencia);
+  color: var(--persimmon);
+  border: solid 2px var(--persimmon);
 }
 
 a.text-cta {
@@ -298,11 +298,11 @@ a.text-cta {
   font-size: 1rem;
   line-height: 1rem;
   font-weight: var(--font-weight-middle);
-  color: var(--valencia);
+  color: var(--persimmon);
   transition: var(--cta-transition);
 }
 a.text-cta:hover {
-  color: var(--valencia--dark);
+  color: var(--persimmon--dark);
   text-decoration: underline;
 }
 
@@ -369,7 +369,7 @@ footer {
 }
 
 .dark-mode p a {
-  color: var(--valencia);
+  color: var(--persimmon);
 }
 
 .color-mode {
@@ -378,7 +378,7 @@ footer {
 }
 
 .color-mode p a {
-  color: var(--valencia);
+  color: var(--persimmon);
 }
 
 .color-mode .button--primary {
