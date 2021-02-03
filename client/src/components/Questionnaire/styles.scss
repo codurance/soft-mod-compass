@@ -1,5 +1,16 @@
 @import '../../styles/global.scss';
 
+@keyframes foo {
+  0% {
+    opacity: 0;
+    transform: translateY(500px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
 .questionnaire {
   display: flex;
   align-items: flex-start;
@@ -9,8 +20,13 @@
   width: 100%;
 
   &__question-wrapper {
+    height: 500px;
     padding-top: 50px;
     max-width: 400px;
+    -webkit-animation: foo ease 0.7s;
+    -moz-animation: foo ease 0.7s;
+    -o-animation: foo ease 0.7s;
+    -ms-animation: foo ease 0.7s;
   }
 
   &__assessment {

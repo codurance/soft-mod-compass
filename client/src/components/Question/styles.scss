@@ -2,6 +2,7 @@
 
 .question {
   margin-bottom: 32px;
+  height: 130px;
   @include freed();
   font-weight: var(--welter-font-weight);
 }

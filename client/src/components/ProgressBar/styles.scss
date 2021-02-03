@@ -26,11 +26,11 @@
     @include step(var(--french-gray), 10px, 0.5);
 
     &--iniciated {
-      @include step(var(--picton-blue), 15px, 0.3);
+      @include step(var(--picton-blue), 13px, 0.3);
     }
 
     &--completed {
-      @include step(var(--picton-blue), 15px, 0.6);
+      @include step(var(--picton-blue), 13px, 0.6);
     }
   }
 }
