@@ -9,6 +9,7 @@ import Button from '../../components/Button/Button';
 import Header from '../../components/Header/Header';
 import translator from '../../config/translator';
 import './styles.scss';
+import languageService from '../../services/languageService';
 
 function Landing() {
   const history = useHistory();
@@ -20,7 +21,10 @@ function Landing() {
   } = translator;
 
   const questionnaireRedirect = () => {
-    history.push('/questionnaire');
+    const isSpanish = languageService.getLanguage();
+    const uri =
+      isSpanish === 'es' ? '/questionnaire/?lang=es' : '/questionnaire';
+    history.push(uri);
   };
 
   return (
