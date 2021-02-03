@@ -1,6 +1,6 @@
 @import '../../styles/global.scss';
 
-@keyframes foo {
+@keyframes questionnaireFadeIn {
   0% {
     opacity: 0;
     transform: translateY(500px);
@@ -23,10 +23,10 @@
     height: 500px;
     padding-top: 50px;
     max-width: 400px;
-    -webkit-animation: foo ease 0.7s;
-    -moz-animation: foo ease 0.7s;
-    -o-animation: foo ease 0.7s;
-    -ms-animation: foo ease 0.7s;
+    -webkit-animation: questionnaireFadeIn ease 0.7s;
+    -moz-animation: questionnaireFadeIn ease 0.7s;
+    -o-animation: questionnaireFadeIn ease 0.7s;
+    -ms-animation: questionnaireFadeIn ease 0.7s;
   }
 
   &__assessment {
