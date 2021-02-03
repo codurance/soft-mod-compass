@@ -23,8 +23,9 @@ function App({ initialStep }) {
   const [questionnaire, setQuestionnaire] = useState({});
   const [currentStep, setCurrentStep] = useState(initialStep);
 
-  const handleSubmit = () => {
-    const data = { ...userDetails };
+  const handleSubmit = (userForm) => {
+    console.log('user details ', userForm);
+    const data = { ...userForm };
     data.categories = questionnaireMapper.generateQuestionnaire(questionnaire);
     reportService
       .submitSurvey(data)
