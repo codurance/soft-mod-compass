@@ -5,7 +5,7 @@ import './styles.scss';
 function Button({ label, clickCallback }) {
   return (
     <button
-      className="button color-valencia"
+      className="button color-persimmon"
       type="button"
       onClick={clickCallback}
     >
