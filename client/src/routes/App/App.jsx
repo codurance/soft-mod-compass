@@ -6,6 +6,9 @@ import questionnaireMapper from '../../mappers/questionnaireMapper';
 import redirectService from '../../services/redirectService';
 import reportService from '../../services/reportService';
 import './styles.scss';
+import ProgressBar from '../../components/ProgressBar/ProgressBar';
+import progressBarMapper from '../../mappers/progressBarMapper';
+import questionList from '../../config/QuestionnaireModel';
 
 const initialUserDetails = {
   firstName: '',
@@ -36,7 +39,10 @@ function App({ initialStep }) {
   return (
     <div className="app">
       {currentStep === 0 && (
-        <Questionnaire onFinishQuestionnaire={updateQuestionnaire} />
+        <Questionnaire
+          onFinishQuestionnaire={updateQuestionnaire}
+          onUpdateQuestionnaire={setQuestionnaire}
+        />
       )}
       {currentStep === 1 && (
         <div>
@@ -47,6 +53,12 @@ function App({ initialStep }) {
           />
         </div>
       )}
+      <ProgressBar
+        stages={progressBarMapper.generateProgressBar(
+          questionnaire,
+          questionList
+        )}
+      />
     </div>
   );
 }

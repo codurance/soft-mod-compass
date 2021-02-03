@@ -5,9 +5,8 @@ import CrossFunctionalIcon from '../../assets/icons/icon-cross-functional-team.s
 import CultureIcon from '../../assets/icons/icon-culture.svg';
 import MaturityIcon from '../../assets/icons/icon-maturity.svg';
 import XPIcon from '../../assets/icons/icon-xp-practices.svg';
-import CoduranceLogo from '../../assets/icons/logo-codurance.svg';
-import CompassLogo from '../../assets/icons/logo-compass.svg';
 import Button from '../../components/Button/Button';
+import Header from '../../components/Header/Header';
 import translator from '../../config/translator';
 import './styles.scss';
 
@@ -27,11 +26,7 @@ function Landing() {
   return (
     <div className="landing">
       <div className="landing__assessment" />
-      <header className="landing__header">
-        <img src={CoduranceLogo} alt="Codurance" />
-        <span className="landing__header__separator" />
-        <img src={CompassLogo} alt="Compass" />
-      </header>
+      <Header />
 
       <main className="landing__main">
         <h1 className="landing__main__title">{welcomeFirstParagraph}</h1>

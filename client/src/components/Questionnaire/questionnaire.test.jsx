@@ -27,7 +27,10 @@ describe('Questionnaire', () => {
 
   it('should display the second question and hide first question after answering first question', () => {
     const { getByText, queryByText } = render(
-      <Questionnaire onFinishQuestionnaire={() => {}} />
+      <Questionnaire
+        onFinishQuestionnaire={() => {}}
+        onUpdateQuestionnaire={() => {}}
+      />
     );
 
     getByText(stronglyAgree).click();
@@ -52,7 +55,10 @@ describe('Questionnaire', () => {
     "given an answer '%s' , only that one should be selected",
     (selectedAnswer, answers) => {
       const { getByText } = render(
-        <Questionnaire onFinishQuestionnaire={() => {}} />
+        <Questionnaire
+          onFinishQuestionnaire={() => {}}
+          onUpdateQuestionnaire={() => {}}
+        />
       );
       getByText(selectedAnswer).click();
       getByText('back').click();

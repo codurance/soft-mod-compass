@@ -36,9 +36,9 @@
   "email": "Email",
   "submit": "Enviar",
   "start": "Let's get started",
-  "welcomeFirstParagraph": "How effective is your organisation's software delivery?",
-  "welcomeSecondParagraph": "Take our 20 question quiz to measure your organisation's current level of software maturity across five areas:",
-  "welcomeThirdParagraph": "And we'll send you a personalised report, including actionable steps for how to improve you organisation",
+  "welcomeFirstParagraph": "Cómo es la eficiencia de entrega de tu organización?",
+  "welcomeSecondParagraph": "Responde nuestro cuestionario de 20 preguntas para medir el nivel actual de tu organización acerca de la madurez de software a través de 5 áreas:",
+  "welcomeThirdParagraph": "Y te enviaremos un informe personalizado, incluyendo ejemplos prácticos sobre como mejorar tu organización",
   "userFormTitle": "Para recibir tu informe",
   "userFormDescription": "Por favor, facilítanos algunos datos para que podamos personalizar tu informe."
 }

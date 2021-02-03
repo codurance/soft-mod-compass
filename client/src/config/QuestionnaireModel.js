@@ -52,82 +52,102 @@ const questionList = [
   {
     label: 'devSecOps',
     answers: standardAnswers,
+    category: 'organisationalMaturity',
   },
   {
     label: 'deliveringValue',
     answers: standardAnswers,
+    category: 'organisationalMaturity',
   },
   {
     label: 'technicalDebt',
     answers: standardAnswers,
+    category: 'organisationalMaturity',
   },
   {
     label: 'methodology',
     answers: standardAnswers,
+    category: 'organisationalMaturity',
   },
   {
     label: 'cadence',
     answers: cadenceAnswers,
+    category: 'continuousDelivery',
   },
   {
     label: 'rework',
     answers: standardAnswers,
+    category: 'continuousDelivery',
   },
   {
     label: 'pipeline',
     answers: standardAnswers,
+    category: 'continuousDelivery',
   },
   {
     label: 'sideEffects',
     answers: standardAnswers,
+    category: 'continuousDelivery',
   },
   {
     label: 'transparency',
     answers: standardAnswers,
+    category: 'culture',
   },
   {
     label: 'learning',
     answers: standardAnswers,
+    category: 'culture',
   },
   {
     label: 'learnFromFailure',
     answers: standardAnswers,
+    category: 'culture',
   },
   {
     label: 'careerPath',
     answers: standardAnswers,
+    category: 'culture',
   },
   {
     label: 'diversity',
     answers: standardAnswers,
+    category: 'crossFunctionalTeams',
   },
   {
     label: 'autonomy',
     answers: standardAnswers,
+    category: 'crossFunctionalTeams',
   },
   {
     label: 'wholeTeam',
     answers: standardAnswers,
+    category: 'crossFunctionalTeams',
   },
   {
     label: 'knowledgeSharing',
     answers: standardAnswers,
+    category: 'crossFunctionalTeams',
   },
   {
     label: 'tdd',
     answers: standardAnswers,
+    category: 'xpPractices',
   },
   {
     label: 'architecture',
     answers: standardAnswers,
+    category: 'xpPractices',
   },
   {
     label: 'cleanCode',
     answers: standardAnswers,
+    category: 'xpPractices',
   },
   {
     label: 'peerReview',
     answers: standardAnswers,
+    category: 'xpPractices',
   },
 ];
 
