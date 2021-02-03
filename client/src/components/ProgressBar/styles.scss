@@ -1,5 +1,12 @@
 @import '../../styles/global.scss';
 
+@mixin step($color, $height) {
+  background-color: $color;
+  display: flex;
+  height: $height;
+  width: 35px;
+}
+
 .progress-bar {
   align-items: center;
   display: flex;
@@ -14,22 +21,15 @@
   }
 
   &__step {
-    background-color: var(--mid-gray);
-    display: flex;
-    height: 10px;
-    width: 35px;
+    @include step(var(--mid-gray), 10px);
 
     &--iniciated {
-      background-color: var(--picton-blue);
-      height: 15px;
+      @include step(var(--picton-blue), 15px);
       opacity: 0.3;
-      width: 35px;
     }
 
     &--completed {
-      background-color: var(--picton-blue);
-      height: 15px;
-      width: 35px;
+      @include step(var(--picton-blue), 15px);
     }
   }
 }
