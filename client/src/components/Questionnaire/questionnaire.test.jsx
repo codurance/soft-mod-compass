@@ -64,7 +64,7 @@ describe('Questionnaire', () => {
         />
       );
       getByTestId(selectedAnswer).click();
-      getByText('back').click();
+      getByText('Prev').click();
       answers.forEach((answer) => {
         if (selectedAnswer === answer) {
           expect(getByTestId(answer)).toHaveClass('answer--selected');
