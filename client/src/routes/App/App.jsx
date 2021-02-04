@@ -23,8 +23,9 @@ function App({ initialStep }) {
   const [questionnaire, setQuestionnaire] = useState({});
   const [currentStep, setCurrentStep] = useState(initialStep);
 
-  const handleSubmit = () => {
-    const data = { ...userDetails };
+  const handleSubmit = (userForm) => {
+    console.log('user details ', userForm);
+    const data = { ...userForm };
     data.categories = questionnaireMapper.generateQuestionnaire(questionnaire);
     reportService
       .submitSurvey(data)
@@ -48,13 +49,11 @@ function App({ initialStep }) {
           />
         )}
         {currentStep === 1 && (
-          <div>
-            <UserForm
-              initialState={userDetails}
-              updateUserForm={setUserDetails}
-              submitForm={handleSubmit}
-            />
-          </div>
+          <UserForm
+            initialState={userDetails}
+            updateUserForm={setUserDetails}
+            submitForm={handleSubmit}
+          />
         )}
         <ProgressBar
           stages={progressBarMapper.generateProgressBar(

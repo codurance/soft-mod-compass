@@ -1,10 +1,11 @@
 import { describe, expect, it, jest } from '@jest/globals';
 import { fireEvent } from '@testing-library/dom';
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import each from 'jest-each';
 import React from 'react';
 import translator from '../../config/translator';
 import UserForm from './UserForm';
+import testHelpers from '../../mockdata/testHelpers';
 
 const { firstName, lastName, companyName, email, submit } = translator;
 
@@ -41,17 +42,17 @@ describe('UserForm ', () =>
     }
   ));
 
-it('should call submitForm when user clicks in the button', () => {
-  const { getByText } = render(
+it('should call submitForm when user clicks in the button', async () => {
+  const { getByText, getByPlaceholderText } = render(
     <UserForm
       initialState={initialState}
       updateUserForm={() => {}}
       submitForm={clickCallback}
     />
   );
-
-  const submitButton = getByText(submit);
-  fireEvent.click(submitButton);
-
+  testHelpers.fillUserForm(getByPlaceholderText);
+  await act(async () => {
+    fireEvent.click(getByText(submit));
+  });
   expect(clickCallback).toHaveBeenCalledTimes(1);
 });

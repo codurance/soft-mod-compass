@@ -1,6 +1,6 @@
 import { describe, expect, it, jest } from '@jest/globals';
 import { fireEvent } from '@testing-library/dom';
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import nock from 'nock';
 import React from 'react';
 import AppRouter from './AppRouter';
@@ -9,6 +9,7 @@ import { buildAnswerScore } from './config/factory';
 import translator from './config/translator';
 import payloadRequest from './mockdata/post_survey_request_body.json';
 import reportService from './services/reportService';
+import testHelpers from './mockdata/testHelpers';
 
 const {
   firstName,
@@ -94,21 +95,10 @@ describe('acceptance test', () => {
     fireEvent.click(getByText(agree));
     fireEvent.click(getByText(stronglyAgree));
 
-    const inputFirstName = getByPlaceholderText(firstName);
-    fireEvent.change(inputFirstName, { target: { value: userFirstName } });
-
-    const inputLastName = getByPlaceholderText(lastName);
-    fireEvent.change(inputLastName, { target: { value: userLastName } });
-
-    const inputCompany = getByPlaceholderText(companyName);
-    fireEvent.change(inputCompany, { target: { value: userCompany } });
-
-    const inputEmail = getByPlaceholderText(email);
-    fireEvent.change(inputEmail, { target: { value: userEmail } });
-
-    const button = getByText(submit);
-    fireEvent.click(button);
-
+    testHelpers.fillUserForm(getByPlaceholderText);
+    await act(async () => {
+      fireEvent.click(getByText(submit));
+    });
     // then
     // const data = firstPassedArgumentOf(submitSurveySpy);
     // expect(data).toEqual(expectedSentData);
