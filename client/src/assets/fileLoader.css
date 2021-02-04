@@ -51,4 +51,10 @@
   background-image: url('./icons/brochure-organisational-maturity.png');
   background-image: url('./icons/brochure-xp-culture.png');
   background-image: url('./icons/brochure-xp-practices.png');
+
+  background-image: url('./icons/background-continuousDelivery.svg');
+  background-image: url('./icons/background-crossFunctionalTeams.svg');
+  background-image: url('./icons/background-organisationalMaturity.svg');
+  background-image: url('./icons/background-culture.svg');
+  background-image: url('./icons/background-xpPractices.svg');
 }
