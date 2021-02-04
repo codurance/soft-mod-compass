@@ -49,13 +49,11 @@ function App({ initialStep }) {
           />
         )}
         {currentStep === 1 && (
-          <div>
-            <UserForm
-              initialState={userDetails}
-              updateUserForm={setUserDetails}
-              submitForm={handleSubmit}
-            />
-          </div>
+          <UserForm
+            initialState={userDetails}
+            updateUserForm={setUserDetails}
+            submitForm={handleSubmit}
+          />
         )}
         <ProgressBar
           stages={progressBarMapper.generateProgressBar(
