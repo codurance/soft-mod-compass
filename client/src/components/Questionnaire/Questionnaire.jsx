@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import ArrowIcon from '../../assets/icons/icon-arrow.svg';
+import AssessmentLogo from '../../assets/icons/report-landing-page.svg';
 import { buildAnswerScore, createLinkedList } from '../../config/factory';
 import questionList from '../../config/QuestionnaireModel';
 import Question from '../Question/Question';
 import './styles.scss';
-import AssessmentLogo from '../../assets/icons/report-landing-page.svg';
 
 const questionLinkedList = createLinkedList(questionList);
 
@@ -16,25 +17,25 @@ function Questionnaire({ onFinishQuestionnaire, onUpdateQuestionnaire }) {
 
   function renderBackButton() {
     return (
-      <button
-        type="button"
-        value="back"
+      <div
+        className="arrow-button--prev"
         onClick={() => setCurrentQuestionNode(currentQuestionNode.previous)}
       >
-        back
-      </button>
+        <img src={ArrowIcon} alt="previous step" />
+        <span>Prev</span>
+      </div>
     );
   }
 
   function renderNextButton() {
     return (
-      <button
-        type="button"
-        value="next"
+      <div
+        className="arrow-button--next"
         onClick={() => setCurrentQuestionNode(currentQuestionNode.next)}
       >
-        next
-      </button>
+        <span>Next</span>
+        <img src={ArrowIcon} alt="next step" />
+      </div>
     );
   }
 
@@ -75,8 +76,10 @@ function Questionnaire({ onFinishQuestionnaire, onUpdateQuestionnaire }) {
           onClickAnswer={updateState}
           isSelectedFunction={isSelected}
         />
-        {!isFirstQuestion() && renderBackButton()}
-        {questionnaire[currentQuestionNode.data.label] && renderNextButton()}
+        <div className="buttons-wrapper">
+          {!isFirstQuestion() && renderBackButton()}
+          {questionnaire[currentQuestionNode.data.label] && renderNextButton()}
+        </div>
       </div>
       <img
         className="questionnaire__assessment"
