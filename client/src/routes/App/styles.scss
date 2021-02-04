@@ -1,20 +1,44 @@
-.app {
-  padding-top: 30px;
-  background: url('./src/assets/icons/report-bg-landing-page.svg') no-repeat;
+@mixin backgroundImage($url) {
+  background: url($url) no-repeat;
   background-size: 600px;
   background-position-x: 105%;
   background-position-y: -80%;
+}
+
+.app {
   max-width: 2000px;
   margin: auto;
+  padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
 
+  &--organisationalMaturity {
+    @include backgroundImage(
+      './src/assets/icons/background-organisationalMaturity.svg'
+    );
+  }
+  &--crossFunctionalTeams {
+    @include backgroundImage(
+      './src/assets/icons/background-crossFunctionalTeams.svg'
+    );
+  }
+  &--xpPractices {
+    @include backgroundImage('./src/assets/icons/background-xpPractices.svg');
+  }
+  &--culture {
+    @include backgroundImage('./src/assets/icons/background-culture.svg');
+  }
+  &--continuousDelivery {
+    @include backgroundImage(
+      './src/assets/icons/background-continuousDelivery.svg'
+    );
+  }
   main {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    min-height: 100vh;
+    display: flex;
     height: 100%;
+    flex-direction: column;
+    min-height: 100vh;
     max-width: 100vw;
   }
 }

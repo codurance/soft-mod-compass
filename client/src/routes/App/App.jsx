@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import Header from '../../components/Header/Header';
+import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import Questionnaire from '../../components/Questionnaire/Questionnaire';
 import UserForm from '../../components/UserForm/UserForm';
+import questionList from '../../config/QuestionnaireModel';
+import progressBarMapper from '../../mappers/progressBarMapper';
 import questionnaireMapper from '../../mappers/questionnaireMapper';
 import redirectService from '../../services/redirectService';
 import reportService from '../../services/reportService';
 import './styles.scss';
-import ProgressBar from '../../components/ProgressBar/ProgressBar';
-import progressBarMapper from '../../mappers/progressBarMapper';
-import questionList from '../../config/QuestionnaireModel';
-import Header from '../../components/Header/Header';
 
 const initialUserDetails = {
   firstName: '',
@@ -22,9 +22,9 @@ function App({ initialStep }) {
   const [userDetails, setUserDetails] = useState(initialUserDetails);
   const [questionnaire, setQuestionnaire] = useState({});
   const [currentStep, setCurrentStep] = useState(initialStep);
+  const [background, setBackground] = useState('');
 
   const handleSubmit = (userForm) => {
-    console.log('user details ', userForm);
     const data = { ...userForm };
     data.categories = questionnaireMapper.generateQuestionnaire(questionnaire);
     reportService
@@ -39,11 +39,12 @@ function App({ initialStep }) {
   };
 
   return (
-    <div className="app">
+    <div className={`app app--${background}`}>
       <Header />
       <main>
         {currentStep === 0 && (
           <Questionnaire
+            setBackground={setBackground}
             onFinishQuestionnaire={updateQuestionnaire}
             onUpdateQuestionnaire={setQuestionnaire}
           />

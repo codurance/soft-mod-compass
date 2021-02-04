@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ArrowIcon from '../../assets/icons/icon-arrow.svg';
 import { buildAnswerScore, createLinkedList } from '../../config/factory';
 import questionList from '../../config/QuestionnaireModel';
@@ -7,11 +7,19 @@ import Question from '../Question/Question';
 import './styles.scss';
 
 const questionLinkedList = createLinkedList(questionList);
-function Questionnaire({ onFinishQuestionnaire, onUpdateQuestionnaire }) {
+function Questionnaire({
+  onFinishQuestionnaire,
+  onUpdateQuestionnaire,
+  setBackground,
+}) {
   const [questionnaire, setQuestionnaire] = useState({});
   const [currentQuestionNode, setCurrentQuestionNode] = useState(
     questionLinkedList.head
   );
+
+  useEffect(() => {
+    setBackground(currentQuestionNode.data.category);
+  }, [currentQuestionNode]);
 
   function renderBackButton() {
     return (
@@ -95,4 +103,5 @@ export default Questionnaire;
 Questionnaire.propTypes = {
   onFinishQuestionnaire: PropTypes.func.isRequired,
   onUpdateQuestionnaire: PropTypes.func.isRequired,
+  setBackground: PropTypes.func.isRequired,
 };
