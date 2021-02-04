@@ -54,11 +54,13 @@ function UserForm({ submitForm }) {
           <div className="form__error">
             {errors.email && 'valid email is required'}
           </div>
-          <input
-            className="button color-persimmon"
-            type="submit"
-            value={translator.submit}
-          />
+          <div className="form__submit">
+            <input
+              className="button color-persimmon"
+              type="submit"
+              value={translator.submit}
+            />
+          </div>
         </form>
       </div>
       <img className="form__assessment" src={submissionImage} alt="Section" />

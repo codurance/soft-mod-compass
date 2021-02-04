@@ -12,17 +12,10 @@
 }
 
 .questionnaire {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  max-width: 1000px;
-  width: 100%;
+  @include main-wrapper();
 
   &__question-wrapper {
-    height: 500px;
-    max-width: 400px;
-    padding-top: 50px;
+    @include main-wrapper-left();
     -webkit-animation: questionnaireFadeIn ease 0.7s;
     -moz-animation: questionnaireFadeIn ease 0.7s;
     -o-animation: questionnaireFadeIn ease 0.7s;

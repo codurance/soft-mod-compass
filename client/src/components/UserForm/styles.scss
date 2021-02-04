@@ -1,15 +1,23 @@
+@import '../../styles/global.scss';
+
 .form {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  max-width: 1000px;
-  width: 100%;
+  @include main-wrapper();
+
+  &__fields-wrapper h2 {
+    font-weight: bold;
+    @include base;
+    margin-bottom: 10px;
+    padding-right: 60px;
+  }
+
+  &__fields-wrapper p {
+    @include natus;
+    margin-bottom: 10px;
+    padding-right: 60px;
+  }
 
   &__fields-wrapper {
-    height: 500px;
-    padding-top: 50px;
-    max-width: 400px;
+    @include main-wrapper-left();
   }
 
   &__assessment {
@@ -24,7 +32,13 @@
     font-size: var(--sejima-font-size);
     color: var(--persimmon);
     height: 30px;
-    margin-top: -3px;
+    margin-top: -5px;
+  }
+
+  &__submit {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
   }
 }
 
