@@ -2,9 +2,9 @@ import { describe, expect, it } from '@jest/globals';
 import { render } from '@testing-library/react';
 import each from 'jest-each';
 import React from 'react';
+import questionList from '../../config/QuestionnaireModel';
 import translator from '../../config/translator';
 import Questionnaire from './Questionnaire';
-import questionList from '../../config/QuestionnaireModel';
 
 const {
   stronglyAgree,
@@ -74,4 +74,38 @@ describe('Questionnaire', () => {
       });
     }
   );
+
+  it('first category should has organisationalMaturity background', () => {
+    const { getByTestId } = render(
+      <Questionnaire
+        onFinishQuestionnaire={() => {}}
+        onUpdateQuestionnaire={() => {}}
+      />
+    );
+    const firstCategory = questionList[0].category;
+
+    expect(getByTestId(`background-${firstCategory}`)).toHaveClass(
+      `questionnaire__assessment--${firstCategory}`
+    );
+  });
+
+  it('second category should has crossFunctionalTeams background', () => {
+    const { getByTestId, getByText } = render(
+      <Questionnaire
+        onFinishQuestionnaire={() => {}}
+        onUpdateQuestionnaire={() => {}}
+      />
+    );
+    const secondCategory = questionList[5].category;
+
+    // Advance to the second category
+    getByText(stronglyDisagree).click();
+    getByText(stronglyDisagree).click();
+    getByText(disagree).click();
+    getByText(stronglyDisagree).click();
+
+    expect(getByTestId(`background-${secondCategory}`)).toHaveClass(
+      `questionnaire__assessment--${secondCategory}`
+    );
+  });
 });

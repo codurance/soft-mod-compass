@@ -70,46 +70,6 @@ const questionList = [
     category: 'organisationalMaturity',
   },
   {
-    label: 'cadence',
-    answers: cadenceAnswers,
-    category: 'continuousDelivery',
-  },
-  {
-    label: 'rework',
-    answers: standardAnswers,
-    category: 'continuousDelivery',
-  },
-  {
-    label: 'pipeline',
-    answers: standardAnswers,
-    category: 'continuousDelivery',
-  },
-  {
-    label: 'sideEffects',
-    answers: standardAnswers,
-    category: 'continuousDelivery',
-  },
-  {
-    label: 'transparency',
-    answers: standardAnswers,
-    category: 'culture',
-  },
-  {
-    label: 'learning',
-    answers: standardAnswers,
-    category: 'culture',
-  },
-  {
-    label: 'learnFromFailure',
-    answers: standardAnswers,
-    category: 'culture',
-  },
-  {
-    label: 'careerPath',
-    answers: standardAnswers,
-    category: 'culture',
-  },
-  {
     label: 'diversity',
     answers: standardAnswers,
     category: 'crossFunctionalTeams',
@@ -130,6 +90,26 @@ const questionList = [
     category: 'crossFunctionalTeams',
   },
   {
+    label: 'cadence',
+    answers: cadenceAnswers,
+    category: 'continuousDelivery',
+  },
+  {
+    label: 'rework',
+    answers: standardAnswers,
+    category: 'continuousDelivery',
+  },
+  {
+    label: 'pipeline',
+    answers: standardAnswers,
+    category: 'continuousDelivery',
+  },
+  {
+    label: 'sideEffects',
+    answers: standardAnswers,
+    category: 'continuousDelivery',
+  },
+  {
     label: 'tdd',
     answers: standardAnswers,
     category: 'xpPractices',
@@ -148,6 +128,26 @@ const questionList = [
     label: 'peerReview',
     answers: standardAnswers,
     category: 'xpPractices',
+  },
+  {
+    label: 'transparency',
+    answers: standardAnswers,
+    category: 'culture',
+  },
+  {
+    label: 'learning',
+    answers: standardAnswers,
+    category: 'culture',
+  },
+  {
+    label: 'learnFromFailure',
+    answers: standardAnswers,
+    category: 'culture',
+  },
+  {
+    label: 'careerPath',
+    answers: standardAnswers,
+    category: 'culture',
   },
 ];
 
