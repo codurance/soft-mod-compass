@@ -22,6 +22,7 @@ describe('Questionnaire', () => {
       <Questionnaire
         onFinishQuestionnaire={() => {}}
         onUpdateQuestionnaire={() => {}}
+        setBackground={() => {}}
       />
     );
     expect(getByText(firstQuestion)).toBeInTheDocument();
@@ -33,6 +34,7 @@ describe('Questionnaire', () => {
       <Questionnaire
         onFinishQuestionnaire={() => {}}
         onUpdateQuestionnaire={() => {}}
+        setBackground={() => {}}
       />
     );
 
@@ -61,6 +63,7 @@ describe('Questionnaire', () => {
         <Questionnaire
           onFinishQuestionnaire={() => {}}
           onUpdateQuestionnaire={() => {}}
+          setBackground={() => {}}
         />
       );
       getByTestId(selectedAnswer).click();
@@ -80,6 +83,7 @@ describe('Questionnaire', () => {
       <Questionnaire
         onFinishQuestionnaire={() => {}}
         onUpdateQuestionnaire={() => {}}
+        setBackground={() => {}}
       />
     );
     const firstCategory = questionList[0].category;
@@ -94,6 +98,7 @@ describe('Questionnaire', () => {
       <Questionnaire
         onFinishQuestionnaire={() => {}}
         onUpdateQuestionnaire={() => {}}
+        setBackground={() => {}}
       />
     );
     const secondCategory = questionList[5].category;
