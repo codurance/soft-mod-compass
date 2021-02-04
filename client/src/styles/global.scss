@@ -1,2 +1,17 @@
 @import './colors.scss';
 @import './typography.scss';
+
+@mixin main-wrapper() {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 1000px;
+  width: 100%;
+}
+
+@mixin main-wrapper-left() {
+  height: 500px;
+  padding-top: 50px;
+  max-width: 400px;
+}
