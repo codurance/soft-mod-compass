@@ -1,23 +1,30 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ArrowIcon from '../../assets/icons/icon-arrow.svg';
-import AssessmentLogo from '../../assets/icons/report-landing-page.svg';
 import { buildAnswerScore, createLinkedList } from '../../config/factory';
 import questionList from '../../config/QuestionnaireModel';
 import Question from '../Question/Question';
 import './styles.scss';
 
 const questionLinkedList = createLinkedList(questionList);
-
-function Questionnaire({ onFinishQuestionnaire, onUpdateQuestionnaire }) {
+function Questionnaire({
+  onFinishQuestionnaire,
+  onUpdateQuestionnaire,
+  setBackground,
+}) {
   const [questionnaire, setQuestionnaire] = useState({});
   const [currentQuestionNode, setCurrentQuestionNode] = useState(
     questionLinkedList.head
   );
 
+  useEffect(() => {
+    setBackground(currentQuestionNode.data.category);
+  }, [currentQuestionNode]);
+
   function renderBackButton() {
     return (
       <div
+        aria-hidden="true"
         className="arrow-button--prev"
         onClick={() => setCurrentQuestionNode(currentQuestionNode.previous)}
       >
@@ -30,6 +37,7 @@ function Questionnaire({ onFinishQuestionnaire, onUpdateQuestionnaire }) {
   function renderNextButton() {
     return (
       <div
+        aria-hidden="true"
         className="arrow-button--next"
         onClick={() => setCurrentQuestionNode(currentQuestionNode.next)}
       >
@@ -76,15 +84,15 @@ function Questionnaire({ onFinishQuestionnaire, onUpdateQuestionnaire }) {
           onClickAnswer={updateState}
           isSelectedFunction={isSelected}
         />
+
         <div className="buttons-wrapper">
           {!isFirstQuestion() && renderBackButton()}
           {questionnaire[currentQuestionNode.data.label] && renderNextButton()}
         </div>
       </div>
-      <img
-        className="questionnaire__assessment"
-        src={AssessmentLogo}
-        alt="Section"
+      <div
+        className={`questionnaire__assessment--${currentQuestionNode.data.category}`}
+        data-testid={`background-${currentQuestionNode.data.category}`}
       />
     </div>
   );
@@ -95,4 +103,5 @@ export default Questionnaire;
 Questionnaire.propTypes = {
   onFinishQuestionnaire: PropTypes.func.isRequired,
   onUpdateQuestionnaire: PropTypes.func.isRequired,
+  setBackground: PropTypes.func.isRequired,
 };

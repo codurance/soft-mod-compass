@@ -8,14 +8,10 @@ import config from './config/config';
 import { buildAnswerScore } from './config/factory';
 import translator from './config/translator';
 import payloadRequest from './mockdata/post_survey_request_body.json';
-import reportService from './services/reportService';
 import testHelpers from './mockdata/testHelpers';
+import reportService from './services/reportService';
 
 const {
-  firstName,
-  lastName,
-  companyName,
-  email,
   submit,
   start,
   stronglyAgree,
@@ -75,25 +71,27 @@ describe('acceptance test', () => {
     fireEvent.click(getByText(agree));
     fireEvent.click(getByText(stronglyDisagree));
     // second category
+    fireEvent.click(getByText(stronglyAgree));
+    fireEvent.click(getByText(disagree));
+    fireEvent.click(getByText(neitherAgree));
+    fireEvent.click(getByText(stronglyDisagree));
+
+    // third category
     fireEvent.click(getByText(hourly));
     fireEvent.click(getByText(neitherAgree));
     fireEvent.click(getByText(stronglyDisagree));
     fireEvent.click(getByText(stronglyAgree));
-    // third category
-    fireEvent.click(getByText(stronglyDisagree));
-    fireEvent.click(getByText(stronglyDisagree));
-    fireEvent.click(getByText(disagree));
-    fireEvent.click(getByText(stronglyDisagree));
     // fourth
-    fireEvent.click(getByText(stronglyAgree));
-    fireEvent.click(getByText(disagree));
+    fireEvent.click(getByText(agree));
     fireEvent.click(getByText(neitherAgree));
-    fireEvent.click(getByText(stronglyDisagree));
+    fireEvent.click(getByText(agree));
+    fireEvent.click(getByText(stronglyAgree));
+
     // fifth
-    fireEvent.click(getByText(agree));
-    fireEvent.click(getByText(neitherAgree));
-    fireEvent.click(getByText(agree));
-    fireEvent.click(getByText(stronglyAgree));
+    fireEvent.click(getByText(stronglyDisagree));
+    fireEvent.click(getByText(stronglyDisagree));
+    fireEvent.click(getByText(disagree));
+    fireEvent.click(getByText(stronglyDisagree));
 
     testHelpers.fillUserForm(getByPlaceholderText);
     await act(async () => {

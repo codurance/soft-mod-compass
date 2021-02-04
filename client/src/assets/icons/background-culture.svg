@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="511" height="511" viewBox="0 0 511 511">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#1cd8b4"/>
+      <stop offset="1" stop-color="#5557f6"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="-0.373" y1="1.201" x2="1.312" y2="-0.206" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#2c92e8"/>
+      <stop offset="1" stop-color="#2cd2ac"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="1" x2="0.357" y2="0.64" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#1cd8b4"/>
+      <stop offset="1" stop-color="#fdcb31"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <path id="Path_894" data-name="Path 894" d="M255.5,0C396.609,0,511,114.391,511,255.5S396.609,511,255.5,511,0,396.609,0,255.5,114.391,0,255.5,0Z" transform="translate(-14531 -24702)" fill="url(#linear-gradient)"/>
+    </clipPath>
+  </defs>
+  <g id="Group_2498" data-name="Group 2498" transform="translate(14531 24702)">
+    <g id="Group_2493" data-name="Group 2493">
+      <path id="Path_899" data-name="Path 899" d="M255.5,0C396.609,0,511,114.391,511,255.5S396.609,511,255.5,511,0,396.609,0,255.5,114.391,0,255.5,0Z" transform="translate(-14531 -24702)" opacity="0.255" fill="url(#linear-gradient-2)"/>
+      <path id="Path_858" data-name="Path 858" d="M255.5,0C396.609,0,511,114.391,511,255.5S396.609,511,255.5,511,0,396.609,0,255.5,114.391,0,255.5,0Z" transform="translate(-14531 -24702)" opacity="0.147" fill="url(#linear-gradient-3)"/>
+      <g id="Mask_Group_26" data-name="Mask Group 26" opacity="0.501" clip-path="url(#clip-path)">
+        <g id="Group_2486" data-name="Group 2486" transform="translate(-71 24)">
+          <g id="Group_2481" data-name="Group 2481" transform="translate(-271.688 -90.539)">
+            <g id="Group_2480" data-name="Group 2480" transform="translate(-14155.453 -24411.313)">
+              <g id="Group_2357" data-name="Group 2357" transform="translate(0)">
+                <path id="Path_847" data-name="Path 847" d="M2187.923-18415.387v-160.676s-1.689-87.234,101.461-87.234,107.467,95.793,107.467,95.793l32.678,74.145h-32.678v62.66s1.5,24.492-29.328,24.492" transform="translate(-2187.921 18742.309)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/>
+                <path id="Path_848" data-name="Path 848" d="M2429.532-18415.387v-160.676s1.685-87.234-101.468-87.234-107.474,95.793-107.474,95.793l-32.671,74.145h32.671v62.66s-1.478,24.492,29.338,24.492" transform="translate(-2097.594 18663.297)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/>
+              </g>
+            </g>
+          </g>
+          <g id="Group_2482" data-name="Group 2482" transform="translate(-253.688 -204.223)">
+            <g id="Group_2480-2" data-name="Group 2480" transform="translate(-14155.453 -24411.313)">
+              <g id="Group_2357-2" data-name="Group 2357" transform="translate(0)">
+                <path id="Path_847-2" data-name="Path 847" d="M2187.921-18569.041v-61.09s-.642-33.166,38.575-33.166,40.859,36.42,40.859,36.42l12.424,28.189h-12.424v23.824s.568,9.313-11.151,9.313" transform="translate(-2187.921 18693.338)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+                <path id="Path_848-2" data-name="Path 848" d="M2279.78-18569.041v-61.09s.641-33.166-38.578-33.166-40.862,36.42-40.862,36.42l-12.421,28.189h12.421v23.824s-.562,9.313,11.155,9.313" transform="translate(-2153.577 18663.297)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+              </g>
+            </g>
+          </g>
+          <g id="Group_2483" data-name="Group 2483" transform="translate(-36.688 -300.357)">
+            <g id="Group_2480-3" data-name="Group 2480" transform="translate(-14155.453 -24411.313)">
+              <g id="Group_2357-3" data-name="Group 2357" transform="translate(0)">
+                <path id="Path_847-3" data-name="Path 847" d="M2187.922-18467.705v-126.77s-1.332-68.82,80.049-68.82,84.787,75.574,84.787,75.574l25.782,58.5h-25.782v49.438s1.18,19.324-23.139,19.324" transform="translate(-2187.921 18725.633)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+                <path id="Path_848-3" data-name="Path 848" d="M2378.542-18467.705v-126.77s1.33-68.82-80.054-68.82-84.793,75.574-84.793,75.574l-25.776,58.5h25.776v49.438s-1.167,19.324,23.147,19.324" transform="translate(-2116.656 18663.295)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+              </g>
+            </g>
+          </g>
+          <g id="Group_2484" data-name="Group 2484" transform="translate(-519.688 -124.837)">
+            <g id="Group_2480-4" data-name="Group 2480" transform="translate(-14155.453 -24411.313)">
+              <g id="Group_2357-4" data-name="Group 2357" transform="translate(0)">
+                <path id="Path_847-4" data-name="Path 847" d="M2187.922-18510.133v-99.271s-1.043-53.891,62.685-53.891,66.4,59.18,66.4,59.18l20.189,45.809H2317v38.713s.924,15.133-18.119,15.133" transform="translate(-2187.921 18712.111)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+                <path id="Path_848-4" data-name="Path 848" d="M2337.192-18510.133v-99.271s1.041-53.891-62.689-53.891-66.4,59.18-66.4,59.18l-20.185,45.809H2208.1v38.713s-.913,15.133,18.126,15.133" transform="translate(-2132.115 18663.295)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+              </g>
+            </g>
+          </g>
+          <g id="Group_2485" data-name="Group 2485" transform="translate(-341.775 -564.508)">
+            <g id="Group_2480-5" data-name="Group 2480" transform="translate(-14155.453 -24411.313)">
+              <g id="Group_2357-5" data-name="Group 2357" transform="translate(0)">
+                <path id="Path_847-5" data-name="Path 847" d="M2187.922-18421.863v-156.482s-1.644-84.947,98.811-84.947,104.659,93.285,104.659,93.285l31.824,72.209h-31.824v61.023s1.456,23.854-28.562,23.854" transform="translate(-2187.921 18740.242)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+                <path id="Path_848-5" data-name="Path 848" d="M2423.219-18421.863v-156.482s1.641-84.947-98.817-84.947-104.667,93.285-104.667,93.285l-31.817,72.209h31.817v61.023s-1.44,23.854,28.572,23.854" transform="translate(-2099.954 18663.293)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+              </g>
+            </g>
+          </g>
+          <g id="Group_2487" data-name="Group 2487" transform="translate(103.174 -35.187)">
+            <g id="Group_2480-6" data-name="Group 2480" transform="translate(-14155.453 -24411.313)">
+              <g id="Group_2357-6" data-name="Group 2357" transform="translate(0)">
+                <path id="Path_847-6" data-name="Path 847" d="M2187.922-18547.418v-75.105s-.789-40.77,47.425-40.77,50.232,44.771,50.232,44.771l15.274,34.658h-15.274v29.289s.7,11.449-13.708,11.449" transform="translate(-2187.921 18700.227)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+                <path id="Path_848-6" data-name="Path 848" d="M2300.853-18547.418v-75.105s.788-40.77-47.428-40.77-50.236,44.771-50.236,44.771l-15.271,34.658h15.271v29.289s-.691,11.449,13.714,11.449" transform="translate(-2145.699 18663.293)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

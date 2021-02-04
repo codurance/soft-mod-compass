@@ -46,4 +46,9 @@
 .loader {
   background-image: url('./icons/report-bg-landing-page.svg');
   background-image: url('./icons/report-landing-page.svg');
+  background-image: url('./icons/brochure-continuous-delivery.png');
+  background-image: url('./icons/brochure-cross-functional-teams.png');
+  background-image: url('./icons/brochure-organisational-maturity.png');
+  background-image: url('./icons/brochure-xp-culture.png');
+  background-image: url('./icons/brochure-xp-practices.png');
 }

@@ -1,5 +1,10 @@
 @import '../../styles/global.scss';
 
+@mixin brochure {
+  width: 420px;
+  height: 550px;
+}
+
 @keyframes questionnaireFadeIn {
   0% {
     opacity: 0;
@@ -25,6 +30,27 @@
   &__assessment {
     max-width: 450px;
     width: 100%;
+
+    &--organisationalMaturity {
+      background: url('./src/assets/icons/brochure-organisational-maturity.png');
+      @include brochure();
+    }
+    &--crossFunctionalTeams {
+      background: url('./src/assets/icons/brochure-cross-functional-teams.png');
+      @include brochure();
+    }
+    &--xpPractices {
+      background: url('./src/assets/icons/brochure-xp-practices.png');
+      @include brochure();
+    }
+    &--culture {
+      background: url('./src/assets/icons/brochure-xp-culture.png');
+      @include brochure();
+    }
+    &--continuousDelivery {
+      background: url('./src/assets/icons/brochure-continuous-delivery.png');
+      @include brochure();
+    }
   }
 }
 
