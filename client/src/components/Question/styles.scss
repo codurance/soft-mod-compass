@@ -1,12 +1,13 @@
 @import '../../styles/global.scss';
 
 .question {
-  margin-bottom: 32px;
-  height: 130px;
   @include freed();
   font-weight: var(--welter-font-weight);
+  height: 130px;
+  margin-bottom: 32px;
 }
 
 .answer-list {
+  height: 280px;
   list-style-type: none;
 }
