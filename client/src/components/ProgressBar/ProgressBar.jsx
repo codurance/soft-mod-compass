@@ -2,27 +2,28 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import './styles.scss';
 
-function ProgressBar({ stages }) {
-  function stepCompletionClass(isCompleted) {
-    return isCompleted
-      ? 'progress-bar__step--completed'
-      : 'progress-bar__step--iniciated';
+function ProgressBar({ currentStage, stages }) {
+  function getStageClassName(isCategoryInitiated, question) {
+    if (currentStage === question.label) return 'progress-bar__step--current';
+    if (question.isCompleted) return 'progress-bar__step--completed';
+    if (isCategoryInitiated) return 'progress-bar__step--iniciated';
+    return 'progress-bar__step';
+  }
+
+  function isCompletedOrCurrent(question) {
+    return question.label === currentStage || question.isCompleted;
   }
 
   const renderStage = (stage) => {
-    const isIniciated = !!stage.questions.find(
-      (question) => question.isCompleted
+    const isCategoryInitiated = !!stage.questions.find((question) =>
+      isCompletedOrCurrent(question)
     );
 
     return stage.questions.map((question) => (
       <div
         key={question.label}
         data-testid={question.label}
-        className={
-          isIniciated
-            ? stepCompletionClass(question.isCompleted)
-            : 'progress-bar__step'
-        }
+        className={getStageClassName(isCategoryInitiated, question)}
       />
     ));
   };
@@ -43,6 +44,7 @@ function ProgressBar({ stages }) {
 }
 
 ProgressBar.propTypes = {
+  currentStage: PropTypes.string.isRequired,
   stages: PropTypes.arrayOf(
     PropTypes.shape({
       category: PropTypes.string.isRequired,

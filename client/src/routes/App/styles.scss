@@ -42,3 +42,9 @@
     max-width: 100vw;
   }
 }
+
+.buttons-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+}

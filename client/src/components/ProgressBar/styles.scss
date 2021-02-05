@@ -32,5 +32,9 @@
     &--completed {
       @include step(var(--picton-blue), 10px, 0.6);
     }
+
+    &--current {
+      @include step(var(--picton-blue), 15px, 1);
+    }
   }
 }
