@@ -163,4 +163,19 @@ describe('app', () => {
       });
     }
   );
+
+  it('should have the category background related to the question', () => {
+    const { getByTestId } = render(<App initialStep={0} />);
+    const firstCategory = questionList[0].category;
+
+    expect(getByTestId(`app--${firstCategory}`)).toHaveClass(
+      `app app--${firstCategory}`
+    );
+  });
+
+  it('should have the compass background when app displays de user form', () => {
+    const { getByTestId } = render(<App initialStep={1} />);
+
+    expect(getByTestId(`app--compass`)).toHaveClass(`app app--compass`);
+  });
 });

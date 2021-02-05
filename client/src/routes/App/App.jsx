@@ -20,6 +20,7 @@ const initialUserDetails = {
   email: '',
 };
 const questionLinkedList = createLinkedList(questionList);
+
 function App({ initialStep }) {
   const [userDetails, setUserDetails] = useState(initialUserDetails);
   const [questionnaire, setQuestionnaire] = useState({});
@@ -29,9 +30,15 @@ function App({ initialStep }) {
     questionLinkedList.head
   );
 
+  const setAppBackground = () => {
+    if (currentStep === 0)
+      return setBackground(`app--${currentQuestionNode.data.category}`);
+    return setBackground('app--compass');
+  };
+
   useEffect(() => {
-    setBackground(currentQuestionNode.data.category);
-  }, [currentQuestionNode]);
+    setAppBackground();
+  }, [currentQuestionNode, currentStep]);
 
   const handleSubmit = (userForm) => {
     const data = { ...userForm };
@@ -95,7 +102,7 @@ function App({ initialStep }) {
   }
 
   return (
-    <div className={`app app--${background}`}>
+    <div className={`app ${background}`} data-testid={background}>
       <Header />
       <main>
         {currentStep === 0 && (

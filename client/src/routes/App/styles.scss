@@ -2,7 +2,7 @@
   background: url($url) no-repeat;
   background-size: 600px;
   background-position-x: 89%;
-  background-position-y: -80%;
+  background-position-y: -60%;
 }
 
 .app {
@@ -32,6 +32,9 @@
     @include backgroundImage(
       './src/assets/icons/background-continuousDelivery.svg'
     );
+  }
+  &--compass {
+    @include backgroundImage('./src/assets/icons/background-compass.svg');
   }
   main {
     align-items: center;
