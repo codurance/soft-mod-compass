@@ -3,11 +3,12 @@
 .question {
   @include freed();
   font-weight: var(--welter-font-weight);
-  height: 130px;
+  height: 140px;
   margin-bottom: 32px;
 }
 
 .answer-list {
   height: 280px;
   list-style-type: none;
+  margin-bottom: 10px;
 }

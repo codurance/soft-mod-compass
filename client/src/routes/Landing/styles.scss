@@ -1,6 +1,5 @@
 @import '../../styles/global.scss';
 
-
 .landing__wrapper {
   background: url(./src/assets/icons/report-bg-landing-page.svg);
   background-repeat: no-repeat;
@@ -9,7 +8,7 @@
   background-size: 70%;
   width: 100%;
   z-index: 1;
-  
+
   @media (max-width: 800px) {
     background-position-x: 0;
     background-position-y: 180%;
@@ -36,7 +35,7 @@
     right: 0;
     background: url('./src/assets/icons/report-landing-page.svg') no-repeat
       right;
-      background-size: 100%;
+    background-size: 100%;
     animation: fadeIn ease 2s;
     -webkit-animation: fadeIn ease 2s;
     -moz-animation: fadeIn ease 2s;
@@ -68,7 +67,7 @@
   &__main {
     margin-bottom: 40px;
     margin-top: 70px;
-    max-width: 500px;
+    max-width: 530px;
     width: 100%;
     z-index: 2;
     position: relative;
