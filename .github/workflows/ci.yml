@@ -41,9 +41,3 @@ jobs:
           cd ./backend
           npm install
           npm run test
-
-      - name: bundle
-        run: |
-          cd ./backend
-          mkdir bundle
-          zip ./bundle/compass-backend.zip -r * .[^.]*
