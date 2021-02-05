@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header/Header';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import Questionnaire from '../../components/Questionnaire/Questionnaire';
@@ -10,6 +10,8 @@ import questionnaireMapper from '../../mappers/questionnaireMapper';
 import redirectService from '../../services/redirectService';
 import reportService from '../../services/reportService';
 import './styles.scss';
+import { buildAnswerScore, createLinkedList } from '../../config/factory';
+import ArrowIcon from '../../assets/icons/icon-arrow.svg';
 
 const initialUserDetails = {
   firstName: '',
@@ -17,12 +19,19 @@ const initialUserDetails = {
   companyName: '',
   email: '',
 };
-
+const questionLinkedList = createLinkedList(questionList);
 function App({ initialStep }) {
   const [userDetails, setUserDetails] = useState(initialUserDetails);
   const [questionnaire, setQuestionnaire] = useState({});
   const [currentStep, setCurrentStep] = useState(initialStep);
   const [background, setBackground] = useState('');
+  const [currentQuestionNode, setCurrentQuestionNode] = useState(
+    questionLinkedList.head
+  );
+
+  useEffect(() => {
+    setBackground(currentQuestionNode.data.category);
+  }, [currentQuestionNode]);
 
   const handleSubmit = (userForm) => {
     const data = { ...userForm };
@@ -33,10 +42,57 @@ function App({ initialStep }) {
       .catch((reason) => console.log('error from server ', reason));
   };
 
-  const updateQuestionnaire = (answer) => {
-    setQuestionnaire(answer);
-    setCurrentStep(currentStep + 1);
+  function isLastQuestion() {
+    return !currentQuestionNode.next;
+  }
+
+  function isFirstQuestion() {
+    return !currentQuestionNode.previous;
+  }
+
+  const updateState = (answer) => {
+    const newQuestionnaire = { ...questionnaire };
+    newQuestionnaire[currentQuestionNode.data.label] = buildAnswerScore(
+      answer.label,
+      answer.score
+    );
+    if (isLastQuestion(currentQuestionNode)) setCurrentStep(currentStep + 1);
+    else setCurrentQuestionNode(currentQuestionNode.next);
+    setQuestionnaire(newQuestionnaire);
   };
+
+  function isSelectedAnswer(answer) {
+    if (!questionnaire[currentQuestionNode.data.label]) return false;
+    return (
+      answer.label === questionnaire[currentQuestionNode.data.label].answer
+    );
+  }
+
+  function renderBackButton() {
+    return (
+      <div
+        aria-hidden="true"
+        className="arrow-button--prev"
+        onClick={() => setCurrentQuestionNode(currentQuestionNode.previous)}
+      >
+        <img src={ArrowIcon} alt="previous step" />
+        <span>Prev</span>
+      </div>
+    );
+  }
+
+  function renderNextButton() {
+    return (
+      <div
+        aria-hidden="true"
+        className="arrow-button--next"
+        onClick={() => setCurrentQuestionNode(currentQuestionNode.next)}
+      >
+        <span>Next</span>
+        <img src={ArrowIcon} alt="next step" />
+      </div>
+    );
+  }
 
   return (
     <div className={`app app--${background}`}>
@@ -44,9 +100,9 @@ function App({ initialStep }) {
       <main>
         {currentStep === 0 && (
           <Questionnaire
-            setBackground={setBackground}
-            onFinishQuestionnaire={updateQuestionnaire}
-            onUpdateQuestionnaire={setQuestionnaire}
+            currentQuestion={currentQuestionNode.data}
+            onClickAnswer={updateState}
+            isSelectedAnswer={isSelectedAnswer}
           />
         )}
         {currentStep === 1 && (
@@ -56,6 +112,10 @@ function App({ initialStep }) {
             submitForm={handleSubmit}
           />
         )}
+        <div className="buttons-wrapper">
+          {!isFirstQuestion() && renderBackButton()}
+          {questionnaire[currentQuestionNode.data.label] && renderNextButton()}
+        </div>
         <ProgressBar
           stages={progressBarMapper.generateProgressBar(
             questionnaire,

@@ -106,4 +106,23 @@ describe('ProgressBar', () => {
     expect(getByTestId('qu4')).not.toHaveClass('progress-bar__step--completed');
     expect(getByTestId('qu4')).toHaveClass('progress-bar__step--iniciated');
   });
+
+  // it('should identify the current stage', () => {
+  //   const progressBarStages = [
+  //     {
+  //       category: 'organisationalMaturity',
+  //       questions: [
+  //         { label: 'qu1', isCompleted: true },
+  //         { label: 'qu2', isCompleted: true },
+  //       ],
+  //     },
+  //   ];
+  //   const { getByTestId } = render(
+  //     <ProgressBar currentStage="qu2" stages={progressBarStages} />
+  //   );
+  //
+  //   expect(getByTestId('organisationalMaturity')).toBeInTheDocument();
+  //   expect(getByTestId('qu1')).toHaveClass('progress-bar__step--completed');
+  //   expect(getByTestId('qu2')).toHaveClass('progress-bar__step--current');
+  // });
 });

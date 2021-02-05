@@ -54,12 +54,6 @@
   }
 }
 
-.buttons-wrapper {
-  display: flex;
-  justify-content: flex-start;
-  position: relative;
-}
-
 @mixin arrow($rotation: 0) {
   align-items: center;
   display: flex;
