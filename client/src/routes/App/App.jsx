@@ -75,12 +75,22 @@ function App({ initialStep }) {
     );
   }
 
+  const onPreviousClick = () => {
+    if (currentStep === 0) setCurrentQuestionNode(currentQuestionNode.previous);
+    else setCurrentStep(0);
+  };
+
+  const onNextClick = () => {
+    if (!currentQuestionNode.next) setCurrentStep(1);
+    else setCurrentQuestionNode(currentQuestionNode.next);
+  };
+
   function renderBackButton() {
     return (
       <div
         aria-hidden="true"
         className="arrow-button--prev"
-        onClick={() => setCurrentQuestionNode(currentQuestionNode.previous)}
+        onClick={() => onPreviousClick()}
       >
         <img src={ArrowIcon} alt="previous step" />
         <span>Prev</span>
@@ -93,13 +103,16 @@ function App({ initialStep }) {
       <div
         aria-hidden="true"
         className="arrow-button--next"
-        onClick={() => setCurrentQuestionNode(currentQuestionNode.next)}
+        onClick={() => onNextClick()}
       >
         <span>Next</span>
         <img src={ArrowIcon} alt="next step" />
       </div>
     );
   }
+
+  const isNextButtonRendered = () =>
+    questionnaire[currentQuestionNode.data.label] && currentStep === 0;
 
   return (
     <div className={`app ${background}`} data-testid={background}>
@@ -128,7 +141,7 @@ function App({ initialStep }) {
               questionList
             )}
           />
-          {questionnaire[currentQuestionNode.data.label] && renderNextButton()}
+          {isNextButtonRendered() && renderNextButton()}
         </div>
       </main>
     </div>
