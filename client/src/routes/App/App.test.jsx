@@ -126,13 +126,33 @@ describe('app', () => {
     expect(queryByText('Prev')).toBeInTheDocument();
   });
 
-  // it('should display the back but not next button on the user form', () => {
-  //   const { queryByText, getByText } = render(<App initialStep={0} />);
-  //   getByText(stronglyAgree).click();
-  //   expect(queryByText(translator.userFormTitle)).toBeInTheDocument();
-  //   expect(queryByText('Prev')).not.toBeInTheDocument();
-  //   expect(queryByText('Next')).not.toBeInTheDocument();
-  // });
+  it('should display the back but not next button on the user form', () => {
+    const mockedQuestionList = [
+      {
+        label: 'devSecOps',
+        answers: [
+          {
+            label: 'stronglyAgree',
+            score: 100,
+          },
+        ],
+        category: 'organisationalMaturity',
+      },
+    ];
+    jest.doMock('../../config/QuestionnaireModel', () => {
+      return {
+        __esModule: true,
+        default: jest.fn(() => 42),
+        foo: jest.fn(() => 43),
+      };
+    });
+
+    const { queryByText, getByText } = render(<App initialStep={0} />);
+    getByText(stronglyAgree).click();
+    expect(queryByText(translator.userFormTitle)).toBeInTheDocument();
+    expect(queryByText('Prev')).not.toBeInTheDocument();
+    expect(queryByText('Next')).not.toBeInTheDocument();
+  });
 
   const answerTable = [
     stronglyAgree,
