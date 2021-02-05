@@ -112,15 +112,17 @@ function App({ initialStep }) {
             submitForm={handleSubmit}
           />
         )}
-        {!isFirstQuestion() && renderBackButton()}
-        <ProgressBar
-          currentStage={currentQuestionNode.data.label}
-          stages={progressBarMapper.generateProgressBar(
-            questionnaire,
-            questionList
-          )}
-        />
-        {questionnaire[currentQuestionNode.data.label] && renderNextButton()}
+        <div className="progress-bar__wrapper">
+          {!isFirstQuestion() && renderBackButton()}
+          <ProgressBar
+            currentStage={currentQuestionNode.data.label}
+            stages={progressBarMapper.generateProgressBar(
+              questionnaire,
+              questionList
+            )}
+          />
+          {questionnaire[currentQuestionNode.data.label] && renderNextButton()}
+        </div>
       </main>
     </div>
   );

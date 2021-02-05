@@ -43,8 +43,76 @@
   }
 }
 
-.buttons-wrapper {
+@mixin arrow($rotation: 0) {
+  align-items: center;
   display: flex;
-  justify-content: flex-start;
+
+  img {
+    @include arrowIcon($rotation);
+  }
+  span {
+    @include arrowSpan();
+  }
+}
+
+@mixin arrowIcon($rotate: 0deg) {
+  margin-bottom: 2px;
+  transform: rotate($rotate);
+  transition-duration: 0.3s;
+  transition-property: transform;
+  transition-timing-function: ease-out;
+  width: 20px;
+}
+
+@mixin arrowSpan {
+  font-size: 19px;
+  font-weight: 300;
+  margin-left: 5px;
+  margin-right: 5px;
+  transition-duration: 0.3s;
+  transition-property: color;
+  transition-timing-function: ease-out;
+}
+
+.arrow-button {
+  &--prev {
+    @include arrow(180deg);
+    left: 0;
+    position: absolute;
+
+    &:hover {
+      cursor: pointer;
+      img {
+        transform: translateX(-5px) rotate(180deg);
+      }
+      span {
+        color: var(--picton-blue);
+      }
+    }
+  }
+
+  &--next {
+    @include arrow();
+    right: 0;
+    position: absolute;
+
+    &:hover {
+      cursor: pointer;
+      img {
+        transform: translateX(5px);
+      }
+      span {
+        color: var(--picton-blue);
+      }
+    }
+  }
+}
+
+.progress-bar__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
+  width: 100%;
+  max-width: 930px;
 }
