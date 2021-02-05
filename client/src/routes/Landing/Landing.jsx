@@ -18,6 +18,11 @@ function Landing() {
     welcomeSecondParagraph,
     welcomeThirdParagraph,
     start,
+    organisationalMaturity,
+    continuousDelivery,
+    xpPractices,
+    companyCulture,
+    crossFunctionalTeams,
   } = translator;
 
   const questionnaireRedirect = () => {
@@ -39,23 +44,23 @@ function Landing() {
           <div className="landing__main__icons">
             <div>
               <img src={MaturityIcon} alt="Compass" />
-              <p>Organisational Maturity</p>
+              <p>{organisationalMaturity}</p>
             </div>
             <div>
               <img src={CrossFunctionalIcon} alt="Compass" />
-              <p>Cross-Functional Teams</p>
+              <p>{crossFunctionalTeams}</p>
             </div>
             <div>
               <img src={CDIcon} alt="Compass" />
-              <p>Continuous Delivery</p>
+              <p>{continuousDelivery}</p>
             </div>
             <div>
               <img src={XPIcon} alt="Compass" />
-              <p>XP Practices</p>
+              <p>{xpPractices}</p>
             </div>
             <div>
               <img src={CultureIcon} alt="Compass" />
-              <p>Company Culture</p>
+              <p>{companyCulture}</p>
             </div>
           </div>
           <p>{welcomeThirdParagraph}</p>
