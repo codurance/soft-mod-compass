@@ -6,13 +6,23 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy-frontend:
+  ci-backend:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
         with:
-          ref: dev
+          node-version: 12.x
+      - name: test-backend
+        run: |
+          cd ./backend
+          npm install
+          npm run test
+
+  ci-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 12.x
@@ -25,6 +35,21 @@ jobs:
       - name: Build
         run: |
           cd ./client
+          npm run create-dev
+
+  deploy-frontend:
+    needs: [ci-frontend, ci-backend]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Build
+        run: |
+          cd ./client
+          npm install
           npm run create-dev
 
       - name: AWS cli install action
@@ -43,24 +68,17 @@ jobs:
           aws s3 sync ./dist ${{secrets.AWS_S3_BUCKET}}
 
   deploy-backend:
+    needs: [ci-frontend, ci-backend]
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
-        with:
-          ref: dev
       - uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - name: CI
+      - name: bundle-backend
         run: |
           cd ./backend
           npm install
-          npm run test
-
-      - name: bundle
-        run: |
-          cd ./backend
           mkdir bundle
           zip ./bundle/compass-backend.zip -r * .[^.]*
 
