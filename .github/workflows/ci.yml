@@ -1,0 +1,43 @@
+name: CI Workflow
+
+on:
+  pull_request:
+  push:
+    branches-ignore:
+      - dev
+      - master
+  workflow_dispatch:
+
+jobs:
+  front_end_tests_and_build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Tests
+        run: |
+          cd ./client
+          npm install
+          npm run test
+
+      - name: Build
+        run: |
+          cd ./client
+          npm run create-dev
+
+  backend_tests_and_bundle:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: CI
+        run: |
+          cd ./backend
+          npm install
+          npm run test
