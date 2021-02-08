@@ -1,5 +1,6 @@
 import { fireEvent } from '@testing-library/dom';
 import translator from '../config/translator';
+import userFormValues from '../config/userFormValues';
 
 const { firstName, lastName, companyName, email } = translator;
 
@@ -18,7 +19,9 @@ export default {
     const inputCompany = getByPlaceholderText(companyName);
     fireEvent.change(inputCompany, { target: { value: userCompany } });
 
-    fireEvent.change(getByTestId('select'), { target: { value: 'CEO' } });
+    fireEvent.change(getByTestId('select'), {
+      target: { value: userFormValues[0] },
+    });
 
     const inputEmail = getByPlaceholderText(email);
     fireEvent.change(inputEmail, { target: { value: userEmail } });

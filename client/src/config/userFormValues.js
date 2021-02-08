@@ -1,4 +1,5 @@
 const userFormValues = [
+  'Agile Coach',
   'CEO',
   'CIO',
   'COO',
