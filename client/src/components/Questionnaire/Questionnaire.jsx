@@ -6,13 +6,11 @@ import './styles.scss';
 function Questionnaire({ currentQuestion, onClickAnswer, isSelectedAnswer }) {
   return (
     <div className="questionnaire">
-      <div className="questionnaire__question-wrapper">
-        <Question
-          question={currentQuestion}
-          onClickAnswer={onClickAnswer}
-          isSelectedFunction={isSelectedAnswer}
-        />
-      </div>
+      <Question
+        question={currentQuestion}
+        onClickAnswer={onClickAnswer}
+        isSelectedFunction={isSelectedAnswer}
+      />
       <div
         className={`questionnaire__assessment--${currentQuestion.category}`}
         data-testid={`background-${currentQuestion.category}`}
