@@ -34,3 +34,43 @@
     }
   }
 }
+
+@keyframes questionnaireFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(500px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.fade-enter {
+  -webkit-animation: questionnaireFadeIn ease 1s;
+  -moz-animation: questionnaireFadeIn ease 1s;
+  -o-animation: questionnaireFadeIn ease 1s;
+  -ms-animation: questionnaireFadeIn ease 1s;
+}
+
+.fade-appear {
+  -webkit-animation: questionnaireFadeIn ease 1s;
+  -moz-animation: questionnaireFadeIn ease 1s;
+  -o-animation: questionnaireFadeIn ease 1s;
+  -ms-animation: questionnaireFadeIn ease 1s;
+}
+
+/* exit */
+.fade-exit {
+  opacity: 1;
+  display: none;
+}
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 5ms linear;
+  display: none;
+}
+.fade-exit-done {
+  opacity: 0;
+  display: none;
+}
