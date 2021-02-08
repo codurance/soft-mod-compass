@@ -88,6 +88,10 @@ const submitForm = (pdfLink, user) => {
             name: 'report',
             value: pdfLink,
           },
+          {
+            name: 'job_function',
+            value: user.jobFunction,
+          },
         ],
         legalConsentOptions: {
           legitimateInterest: {

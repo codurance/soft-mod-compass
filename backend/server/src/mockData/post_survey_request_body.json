@@ -4,7 +4,8 @@
     "lastName": "Last Name",
     "company": "Some Company",
     "email": "user@company.com",
-    "language": "en"
+    "language": "en",
+    "jobFunction": "CEO"
   },
   "categories": {
     "organisationalMaturity": {

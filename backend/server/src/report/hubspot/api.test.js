@@ -59,6 +59,7 @@ describe('Hubspot API', () => {
         company: 'Some Company',
         email: 'user@company.com',
         language: 'en',
+        jobFunction: 'CEO',
       };
       const uploadedFileUrl = 'fakePdfLink';
       const mockedRequest = nock(HubspotFormApi)
@@ -89,6 +90,10 @@ describe('Hubspot API', () => {
               {
                 name: 'report',
                 value: uploadedFileUrl,
+              },
+              {
+                name: 'job_function',
+                value: 'CEO',
               },
             ],
             legalConsentOptions: {
