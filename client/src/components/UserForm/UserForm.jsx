@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import translator from '../../config/translator';
 import './styles.scss';
 import submissionImage from '../../assets/icons/report-submission-page.svg';
+import userFormValues from '../../config/userFormValues';
 
 function UserForm({ submitForm }) {
   const { register, errors, handleSubmit } = useForm();
@@ -44,6 +45,26 @@ function UserForm({ submitForm }) {
           />
           <div className="form__error">
             {errors.companyName && 'Company name is required'}
+          </div>
+          <select
+            name="jobFunction"
+            data-testid="select"
+            ref={register({ required: true })}
+            defaultValue={null}
+            className={`input${errors.jobFunction ? '__error' : ''}`}
+          >
+            <option data-testid="option" value={null} label="Job Function" />
+            {userFormValues.map((element) => (
+              <option
+                data-testid="option"
+                value={element}
+                key={element}
+                label={element}
+              />
+            ))}
+          </select>
+          <div className="form__error">
+            {errors.jobFunction && 'valid email is required'}
           </div>
           <input
             className={`input${errors.email ? '__error' : ''}`}

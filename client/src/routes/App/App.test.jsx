@@ -86,8 +86,10 @@ describe('app', () => {
   });
 
   it('should call submitSurvey service', async () => {
-    const { getByText, getByPlaceholderText } = render(<App initialStep={1} />);
-    testHelpers.fillUserForm(getByPlaceholderText);
+    const { getByText, getByPlaceholderText, getByTestId } = render(
+      <App initialStep={1} />
+    );
+    testHelpers.fillUserForm(getByPlaceholderText, getByTestId);
     await act(async () => {
       fireEvent.click(getByText(submit));
     });
@@ -95,12 +97,14 @@ describe('app', () => {
   });
 
   it('should call redirect after click on submit', (done) => {
-    const { getByText, getByPlaceholderText } = render(<App initialStep={1} />);
+    const { getByText, getByPlaceholderText, getByTestId } = render(
+      <App initialStep={1} />
+    );
     jest
       .spyOn(redirectService, 'redirect')
       .mockImplementation(() => assertAsyncCallbackIsCalled(done));
 
-    testHelpers.fillUserForm(getByPlaceholderText);
+    testHelpers.fillUserForm(getByPlaceholderText, getByTestId);
     getByText(submit).click();
   });
 

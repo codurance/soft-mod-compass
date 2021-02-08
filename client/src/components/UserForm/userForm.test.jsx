@@ -6,6 +6,7 @@ import React from 'react';
 import translator from '../../config/translator';
 import UserForm from './UserForm';
 import testHelpers from '../../mockdata/testHelpers';
+import userFormValues from '../../config/userFormValues';
 
 const { firstName, lastName, companyName, email, submit } = translator;
 
@@ -42,15 +43,28 @@ describe('UserForm ', () =>
     }
   ));
 
-it('should call submitForm when user clicks in the button', async () => {
-  const { getByText, getByPlaceholderText } = render(
+it('should display a list of job functions', async () => {
+  const { getAllByTestId } = render(
     <UserForm
       initialState={initialState}
       updateUserForm={() => {}}
       submitForm={clickCallback}
     />
   );
-  testHelpers.fillUserForm(getByPlaceholderText);
+
+  const options = getAllByTestId('option');
+  expect(options.length === userFormValues.length);
+});
+
+it('should call submitForm when user clicks in the button', async () => {
+  const { getByText, getByPlaceholderText, getByTestId } = render(
+    <UserForm
+      initialState={initialState}
+      updateUserForm={() => {}}
+      submitForm={clickCallback}
+    />
+  );
+  testHelpers.fillUserForm(getByPlaceholderText, getByTestId);
   await act(async () => {
     fireEvent.click(getByText(submit));
   });

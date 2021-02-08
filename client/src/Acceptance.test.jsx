@@ -61,7 +61,9 @@ describe('acceptance test', () => {
     .reply(201);
 
   it('should submit information about the survey', async () => {
-    const { getByText, getByPlaceholderText } = render(<AppRouter />);
+    const { getByText, getByPlaceholderText, getByTestId } = render(
+      <AppRouter />
+    );
     fireEvent.click(getByText(start));
 
     // when I fill the survey and click on submit
@@ -93,7 +95,7 @@ describe('acceptance test', () => {
     fireEvent.click(getByText(disagree));
     fireEvent.click(getByText(stronglyDisagree));
 
-    testHelpers.fillUserForm(getByPlaceholderText);
+    testHelpers.fillUserForm(getByPlaceholderText, getByTestId);
     await act(async () => {
       fireEvent.click(getByText(submit));
     });
