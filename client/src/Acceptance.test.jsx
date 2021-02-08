@@ -3,6 +3,7 @@ import { fireEvent } from '@testing-library/dom';
 import { act, render } from '@testing-library/react';
 import nock from 'nock';
 import React from 'react';
+import { config as reactTransitionGroupConfig } from 'react-transition-group';
 import AppRouter from './AppRouter';
 import config from './config/config';
 import { buildAnswerScore } from './config/factory';
@@ -10,6 +11,8 @@ import translator from './config/translator';
 import payloadRequest from './mockdata/post_survey_request_body.json';
 import testHelpers from './mockdata/testHelpers';
 import reportService from './services/reportService';
+
+reactTransitionGroupConfig.disabled = true;
 
 const {
   submit,
@@ -55,6 +58,7 @@ And the user hits submit
 Then the following POST request should be sent (look json file attached)
 Then the user is redirected to thank you page
  */
+
 describe('acceptance test', () => {
   nock(config.reportServerBaseUrl)
     .post(SUBMIT_SURVEY_URI, payloadRequest)
@@ -68,6 +72,7 @@ describe('acceptance test', () => {
 
     // when I fill the survey and click on submit
     // first category
+
     fireEvent.click(getByText(stronglyAgree));
     fireEvent.click(getByText(neitherAgree));
     fireEvent.click(getByText(agree));

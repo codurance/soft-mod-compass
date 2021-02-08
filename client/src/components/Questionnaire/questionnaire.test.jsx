@@ -38,14 +38,13 @@ describe('Questionnaire', () => {
 
   it('should have selected answer', () => {
     const selectedAnswer = questionList[0].answers[0];
-    const { getByTestId, debug } = render(
+    const { getByTestId } = render(
       <Questionnaire
         currentQuestion={questionList[0]}
         onClickAnswer={() => {}}
         isSelectedAnswer={(answer) => answer === selectedAnswer}
       />
     );
-    debug();
     expect(getByTestId(translator[selectedAnswer.label])).toHaveClass(
       'answer--selected'
     );
