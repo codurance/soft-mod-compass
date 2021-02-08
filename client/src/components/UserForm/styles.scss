@@ -1,5 +1,15 @@
 @import '../../styles/global.scss';
 
+@mixin input($border-color) {
+  padding: 10px;
+  border-radius: 4px;
+  font-size: var(--base-font-size);
+  border: 1px solid $border-color;
+  box-shadow: 0px 0px 1px var(--shark);
+  width: 100%;
+  color: var(--mid-gray);
+}
+
 .form {
   @include main-wrapper();
 
@@ -43,19 +53,8 @@
 }
 
 .input {
-  padding: 10px;
-  border-radius: 4px;
-  font-size: var(--base-font-size);
-  border: 1px solid var(--french-gray);
-  box-shadow: 0px 0px 1px #00000029;
-  width: 100%;
-
+  @include input(var(--french-gray));
   &__error {
-    padding: 10px;
-    border-radius: 4px;
-    font-size: var(--base-font-size);
-    border: 1px solid var(--persimmon);
-    box-shadow: 0px 0px 1px #00000029;
-    width: 100%;
+    @include input(var(--persimmon));
   }
 }

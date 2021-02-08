@@ -34,6 +34,7 @@
   "lastName": "Apellido",
   "companyName": "Nombre de la empresa",
   "email": "Email",
+  "jobFunction": "Función laboral",
   "submit": "Enviar",
   "start": "Empecemos!",
   "welcomeFirstParagraph": "Cómo es la eficiencia de entrega de tu organización?",
@@ -45,5 +46,10 @@
   "crossFunctionalTeams": "Equipos Efectivos",
   "continuousDelivery": "Entrega Continua",
   "xpPractices": "Prácticas Técnicas",
-  "companyCulture": "Personas y Cultura"
+  "companyCulture": "Personas y Cultura",
+  "firstNameError": "El campo nombre es obligatorio",
+  "lastNameError": "El campo apellidos es obligatorios",
+  "companyNameError": "El campo nombre de la empresa es obligatorio",
+  "jobFunctionError": "Selecciona una opción del menú desplegable",
+  "emailError": "El campo email debe ser válido"
 }

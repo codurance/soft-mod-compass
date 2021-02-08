@@ -4,6 +4,7 @@
     "lastName": "Last Name",
     "company": "Some Company",
     "email": "user@company.com",
+    "jobFunction": "Agile Coach",
     "language": "en"
   },
   "categories": {

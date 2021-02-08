@@ -34,6 +34,7 @@
   "lastName": "Last Name",
   "companyName": "Company Name",
   "email": "Email",
+  "jobFunction": "Job Function",
   "submit": "Submit",
   "start": "Let's get started",
   "welcomeFirstParagraph": "How effective is your organisation's software delivery?",
@@ -45,5 +46,10 @@
   "crossFunctionalTeams": "Team Effectiveness",
   "continuousDelivery": "Continuous Delivery",
   "xpPractices": "XP Practices",
-  "companyCulture": "Company Culture"
+  "companyCulture": "Company Culture",
+  "firstNameError": "First name is a required field",
+  "lastNameError": "Last name is a required field",
+  "companyNameError": "Company name is a required field",
+  "jobFunctionError": "Please select an option from the dropdown menu",
+  "emailError": "Valid email is required"
 }
