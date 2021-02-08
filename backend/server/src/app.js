@@ -74,7 +74,11 @@ module.exports = (reportingApp) => {
       };
     } else {
       const pdfLink = await uploadReportToHubspot(pdf.content, body.user);
-      const submittedUser = await submitHubspotForm(pdfLink, body.user);
+      const submittedUser = await submitHubspotForm(
+        pdfLink,
+        body.user,
+        body.categories
+      );
       return { status: 'ok', ...submittedUser, pdfUrl: pdfLink };
     }
   }

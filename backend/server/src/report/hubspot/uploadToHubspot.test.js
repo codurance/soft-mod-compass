@@ -52,10 +52,53 @@ describe('Upload report to Hubspot', () => {
   });
 
   it('should call hubspot form submission api', async () => {
-    expect(await submitHubspotForm('pdf-link', fakeUser)).toEqual(
+    const surveyScore = {
+      organisationalMaturity: {
+        score: 50,
+      },
+      continuousDelivery: {
+        score: 50,
+      },
+      culture: {
+        score: 25,
+      },
+      crossFunctionalTeams: {
+        score: 50,
+      },
+      xpPractices: {
+        score: 75,
+      },
+    };
+    expect(await submitHubspotForm('pdf-link', fakeUser, surveyScore)).toEqual(
       fakeApiResponse
     );
+    const scores = [
+      {
+        name: 'xp_practices_score',
+        value: 75,
+      },
+      {
+        name: 'team_effectiveness_score',
+        value: 50,
+      },
+      {
+        name: 'organisationalmaturity_score',
+        value: 50,
+      },
+      {
+        name: 'continuousdelivery_score',
+        value: 50,
+      },
+      {
+        name: 'culture_score',
+        value: 25,
+      },
+    ];
 
-    expect(apiMock.submitForm).toHaveBeenCalledWith('pdf-link', fakeUser);
+    expect(apiMock.submitForm).toHaveBeenCalledWith(
+      'pdf-link',
+      fakeUser,
+      scores
+    );
   });
 });
