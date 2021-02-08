@@ -18,6 +18,7 @@ const initialUserDetails = {
   lastName: '',
   companyName: '',
   email: '',
+  jobFunction: '',
 };
 const questionLinkedList = createLinkedList(questionList);
 

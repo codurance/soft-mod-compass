@@ -10,6 +10,7 @@ export default {
         lastName: surveyData.lastName,
         company: surveyData.companyName,
         email: surveyData.email,
+        jobFunction: surveyData.jobFunction,
         language: languageService.getLanguage(),
       },
       categories: surveyData.categories,
