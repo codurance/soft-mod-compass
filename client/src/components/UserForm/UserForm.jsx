@@ -64,7 +64,7 @@ function UserForm({ submitForm }) {
             ))}
           </select>
           <div className="form__error">
-            {errors.jobFunction && 'valid email is required'}
+            {errors.jobFunction && 'Job function is required'}
           </div>
           <input
             className={`input${errors.email ? '__error' : ''}`}

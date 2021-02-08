@@ -18,7 +18,7 @@ export default {
     const inputCompany = getByPlaceholderText(companyName);
     fireEvent.change(inputCompany, { target: { value: userCompany } });
 
-    fireEvent.change(getByTestId('select'), { target: { value: 2 } });
+    fireEvent.change(getByTestId('select'), { target: { value: 'CEO' } });
 
     const inputEmail = getByPlaceholderText(email);
     fireEvent.change(inputEmail, { target: { value: userEmail } });
