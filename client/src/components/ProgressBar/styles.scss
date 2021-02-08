@@ -11,7 +11,6 @@
 .progress-bar {
   align-items: center;
   display: flex;
-  margin-top: 15px;
 
   &__category {
     align-items: center;
@@ -31,6 +30,11 @@
 
     &--completed {
       @include step(var(--picton-blue), 10px, 0.6);
+    }
+
+    &--current {
+      @include step(var(--picton-blue), 12px, 1);
+      border-radius: 2px;
     }
   }
 }

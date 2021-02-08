@@ -11,7 +11,9 @@ describe('ProgressBar', () => {
         questions: [{ label: 'devSecOps', isCompleted: false }],
       },
     ];
-    const { getByTestId } = render(<ProgressBar stages={progressBarStages} />);
+    const { getByTestId } = render(
+      <ProgressBar currentStage="" stages={progressBarStages} />
+    );
 
     expect(getByTestId('organisationalMaturity')).toBeInTheDocument();
     expect(getByTestId('devSecOps')).toBeInTheDocument();
@@ -26,7 +28,9 @@ describe('ProgressBar', () => {
         questions: [{ label: 'devSecOps', isCompleted: true }],
       },
     ];
-    const { getByTestId } = render(<ProgressBar stages={progressBarStages} />);
+    const { getByTestId } = render(
+      <ProgressBar currentStage="" stages={progressBarStages} />
+    );
 
     expect(getByTestId('organisationalMaturity')).toBeInTheDocument();
     expect(getByTestId('devSecOps')).toBeInTheDocument();
@@ -45,7 +49,9 @@ describe('ProgressBar', () => {
         ],
       },
     ];
-    const { getByTestId } = render(<ProgressBar stages={progressBarStages} />);
+    const { getByTestId } = render(
+      <ProgressBar currentStage="" stages={progressBarStages} />
+    );
 
     expect(getByTestId('organisationalMaturity')).toBeInTheDocument();
     expect(getByTestId('qu1')).toHaveClass('progress-bar__step--completed');
@@ -69,7 +75,9 @@ describe('ProgressBar', () => {
         ],
       },
     ];
-    const { getByTestId } = render(<ProgressBar stages={progressBarStages} />);
+    const { getByTestId } = render(
+      <ProgressBar currentStage="" stages={progressBarStages} />
+    );
 
     expect(getByTestId('cat1')).toBeInTheDocument();
     expect(getByTestId('cat2')).toBeInTheDocument();
@@ -96,7 +104,9 @@ describe('ProgressBar', () => {
         ],
       },
     ];
-    const { getByTestId } = render(<ProgressBar stages={progressBarStages} />);
+    const { getByTestId } = render(
+      <ProgressBar currentStage="" stages={progressBarStages} />
+    );
 
     expect(getByTestId('cat1')).toBeInTheDocument();
     expect(getByTestId('cat2')).toBeInTheDocument();
@@ -105,5 +115,24 @@ describe('ProgressBar', () => {
     expect(getByTestId('qu3')).toHaveClass('progress-bar__step--completed');
     expect(getByTestId('qu4')).not.toHaveClass('progress-bar__step--completed');
     expect(getByTestId('qu4')).toHaveClass('progress-bar__step--iniciated');
+  });
+
+  it('should identify the current stage', () => {
+    const progressBarStages = [
+      {
+        category: 'organisationalMaturity',
+        questions: [
+          { label: 'qu1', isCompleted: true },
+          { label: 'qu2', isCompleted: true },
+        ],
+      },
+    ];
+    const { getByTestId } = render(
+      <ProgressBar currentStage="qu2" stages={progressBarStages} />
+    );
+
+    expect(getByTestId('organisationalMaturity')).toBeInTheDocument();
+    expect(getByTestId('qu1')).toHaveClass('progress-bar__step--completed');
+    expect(getByTestId('qu2')).toHaveClass('progress-bar__step--current');
   });
 });
