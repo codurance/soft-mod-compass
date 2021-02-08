@@ -43,8 +43,30 @@ const uploadReportToHubspot = (pdfBuffer, user) => {
     config.app.hubspot.reportsFolder
   );
 };
-const submitHubspotForm = (pdfLink, user) => {
-  return api.submitForm(pdfLink, user);
+const submitHubspotForm = (pdfLink, user, survey) => {
+  const scores = [
+    {
+      name: 'xp_practices_score',
+      value: survey.xpPractices.score,
+    },
+    {
+      name: 'team_effectiveness_score',
+      value: survey.crossFunctionalTeams.score,
+    },
+    {
+      name: 'organisationalmaturity_score',
+      value: survey.organisationalMaturity.score,
+    },
+    {
+      name: 'continuousdelivery_score',
+      value: survey.continuousDelivery.score,
+    },
+    {
+      name: 'culture_score',
+      value: survey.culture.score,
+    },
+  ];
+  return api.submitForm(pdfLink, user, scores);
 };
 
 module.exports = { uploadReportToHubspot, submitHubspotForm };

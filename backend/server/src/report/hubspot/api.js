@@ -56,8 +56,9 @@ const uploadFile = (
     });
 };
 
-const submitForm = (pdfLink, user) => {
+const submitForm = (pdfLink, user, scores) => {
   console.log(pdfLink, user);
+  console.log(scores);
   return hubspotPost(
     config.hubspot.formApiUrl,
     `/submissions/v3/integration/submit/${config.hubspot.portalId}/${config.hubspot.formId}`,
@@ -92,6 +93,7 @@ const submitForm = (pdfLink, user) => {
             name: 'job_function',
             value: user.jobFunction,
           },
+          ...scores,
         ],
         legalConsentOptions: {
           legitimateInterest: {

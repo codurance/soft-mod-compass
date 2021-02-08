@@ -95,6 +95,26 @@ describe('Hubspot API', () => {
                 name: 'job_function',
                 value: 'CEO',
               },
+              {
+                name: 'xp_practices_score',
+                value: 75,
+              },
+              {
+                name: 'team_effectiveness_score',
+                value: 50,
+              },
+              {
+                name: 'organisationalmaturity_score',
+                value: 75,
+              },
+              {
+                name: 'continuousdelivery_score',
+                value: 50,
+              },
+              {
+                name: 'culture_score',
+                value: 25,
+              },
             ],
             legalConsentOptions: {
               legitimateInterest: {
@@ -108,7 +128,29 @@ describe('Hubspot API', () => {
           }
         )
         .reply(200);
-      const resp = await api.submitForm(uploadedFileUrl, fakeUser);
+      const scores = [
+        {
+          name: 'xp_practices_score',
+          value: 75,
+        },
+        {
+          name: 'team_effectiveness_score',
+          value: 50,
+        },
+        {
+          name: 'organisationalmaturity_score',
+          value: 75,
+        },
+        {
+          name: 'continuousdelivery_score',
+          value: 50,
+        },
+        {
+          name: 'culture_score',
+          value: 25,
+        },
+      ];
+      const resp = await api.submitForm(uploadedFileUrl, fakeUser, scores);
       expect(mockedRequest.isDone()).toBe(true);
       expect(resp).toEqual({
         userCreated: fakeUser.email,
