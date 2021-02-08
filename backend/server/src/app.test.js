@@ -74,6 +74,10 @@ function mockHubspotFormApi() {
           name: 'report',
           value: uploadedFileUrl,
         },
+        {
+          name: 'job_function',
+          value: 'CEO',
+        },
       ],
       legalConsentOptions: {
         legitimateInterest: {
