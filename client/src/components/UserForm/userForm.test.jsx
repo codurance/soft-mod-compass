@@ -8,7 +8,15 @@ import UserForm from './UserForm';
 import testHelpers from '../../mockdata/testHelpers';
 import userFormValues from '../../config/userFormValues';
 
-const { firstName, lastName, companyName, email, submit } = translator;
+const {
+  firstName,
+  lastName,
+  companyName,
+  email,
+  submit,
+  gdprText,
+  privacyPolicy,
+} = translator;
 
 const initialState = {
   firstName: '',
@@ -54,6 +62,20 @@ it('should display a list of job functions', async () => {
 
   const options = getAllByTestId('option');
   expect(options.length === userFormValues.length);
+});
+
+it('should display the gdpr text', async () => {
+  const { getByText, getByTestId } = render(
+    <UserForm
+      initialState={initialState}
+      updateUserForm={() => {}}
+      submitForm={clickCallback}
+    />
+  );
+
+  expect(getByText(gdprText)).toBeInTheDocument();
+  expect(getByText(privacyPolicy)).toBeInTheDocument();
+  expect(getByTestId('gdprCheckbox')).toBeInTheDocument();
 });
 
 it('should call submitForm when user clicks in the button', async () => {

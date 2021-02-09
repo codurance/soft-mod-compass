@@ -28,6 +28,8 @@
 
   &__fields-wrapper {
     @include main-wrapper-left();
+    max-height: 750px;
+    height: 100%;
   }
 
   &__assessment {
@@ -43,6 +45,30 @@
     color: var(--persimmon);
     height: 30px;
     margin-top: -5px;
+  }
+
+  &__gdpr {
+    display: flex;
+    align-items: center;
+    height: 25px;
+
+    &__text {
+      @include sejima;
+    }
+
+    .privacyPolicy {
+      color: var(--persimmon);
+      margin-left: 4px;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+
+    input {
+      margin-right: 10px;
+    }
   }
 
   &__submit {
