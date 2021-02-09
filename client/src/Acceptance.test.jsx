@@ -58,7 +58,6 @@ And the user hits submit
 Then the following POST request should be sent (look json file attached)
 Then the user is redirected to thank you page
  */
-
 describe('acceptance test', () => {
   nock(config.reportServerBaseUrl)
     .post(SUBMIT_SURVEY_URI, payloadRequest)
@@ -72,7 +71,6 @@ describe('acceptance test', () => {
 
     // when I fill the survey and click on submit
     // first category
-
     fireEvent.click(getByText(stronglyAgree));
     fireEvent.click(getByText(neitherAgree));
     fireEvent.click(getByText(agree));
