@@ -1,8 +1,9 @@
 @import '../../styles/global.scss';
 
-@mixin brochure {
+@mixin brochure($backgroundUrl) {
   width: 420px;
   height: 550px;
+  background: url($backgroundUrl);
 }
 
 .questionnaire {
@@ -13,24 +14,23 @@
     width: 100%;
 
     &--organisationalMaturity {
-      background: url('./src/assets/icons/brochure-organisational-maturity.png');
-      @include brochure();
+      @include brochure(
+        './src/assets/icons/brochure-organisational-maturity.png'
+      );
     }
     &--crossFunctionalTeams {
-      background: url('./src/assets/icons/brochure-cross-functional-teams.png');
-      @include brochure();
+      @include brochure(
+        './src/assets/icons/brochure-cross-functional-teams.png'
+      );
     }
     &--xpPractices {
-      background: url('./src/assets/icons/brochure-xp-practices.png');
-      @include brochure();
+      @include brochure('./src/assets/icons/brochure-xp-practices.png');
     }
     &--culture {
-      background: url('./src/assets/icons/brochure-xp-culture.png');
-      @include brochure();
+      @include brochure('./src/assets/icons/brochure-xp-culture.png');
     }
     &--continuousDelivery {
-      background: url('./src/assets/icons/brochure-continuous-delivery.png');
-      @include brochure();
+      @include brochure('./src/assets/icons/brochure-continuous-delivery.png');
     }
   }
 }
@@ -47,6 +47,7 @@
 }
 
 .fade-enter {
+  animation: questionnaireFadeIn ease 1s;
   -webkit-animation: questionnaireFadeIn ease 1s;
   -moz-animation: questionnaireFadeIn ease 1s;
   -o-animation: questionnaireFadeIn ease 1s;
@@ -54,6 +55,7 @@
 }
 
 .fade-appear {
+  animation: questionnaireFadeIn ease 1s;
   -webkit-animation: questionnaireFadeIn ease 1s;
   -moz-animation: questionnaireFadeIn ease 1s;
   -o-animation: questionnaireFadeIn ease 1s;
