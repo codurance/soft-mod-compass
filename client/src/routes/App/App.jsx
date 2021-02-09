@@ -1,17 +1,17 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
+import ArrowIcon from '../../assets/icons/icon-arrow.svg';
 import Header from '../../components/Header/Header';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import Questionnaire from '../../components/Questionnaire/Questionnaire';
 import UserForm from '../../components/UserForm/UserForm';
+import { buildAnswerScore, createLinkedList } from '../../config/factory';
 import questionList from '../../config/QuestionnaireModel';
 import progressBarMapper from '../../mappers/progressBarMapper';
 import questionnaireMapper from '../../mappers/questionnaireMapper';
 import redirectService from '../../services/redirectService';
 import reportService from '../../services/reportService';
 import './styles.scss';
-import { buildAnswerScore, createLinkedList } from '../../config/factory';
-import ArrowIcon from '../../assets/icons/icon-arrow.svg';
 
 const initialUserDetails = {
   firstName: '',
@@ -22,7 +22,7 @@ const initialUserDetails = {
 };
 const questionLinkedList = createLinkedList(questionList);
 
-function App({ initialStep }) {
+function App({ initialStep, animationDelay }) {
   const [userDetails, setUserDetails] = useState(initialUserDetails);
   const [questionnaire, setQuestionnaire] = useState({});
   const [currentStep, setCurrentStep] = useState(initialStep);
@@ -58,17 +58,22 @@ function App({ initialStep }) {
     return !currentQuestionNode.previous;
   }
 
-  const updateState = (answer) => {
+  function executeAsyncIfTimer(executor) {
+    if (animationDelay) setTimeout(() => executor(), animationDelay);
+    else executor();
+  }
+  const updateState = async (answer) => {
     const newQuestionnaire = { ...questionnaire };
     newQuestionnaire[currentQuestionNode.data.label] = buildAnswerScore(
       answer.label,
       answer.score
     );
-    if (isLastQuestion(currentQuestionNode)) setCurrentStep(currentStep + 1);
-    else setCurrentQuestionNode(currentQuestionNode.next);
     setQuestionnaire(newQuestionnaire);
+    executeAsyncIfTimer(() => {
+      if (isLastQuestion(currentQuestionNode)) setCurrentStep(currentStep + 1);
+      else setCurrentQuestionNode(currentQuestionNode.next);
+    });
   };
-
   function isSelectedAnswer(answer) {
     if (!questionnaire[currentQuestionNode.data.label]) return false;
     return (
@@ -151,10 +156,12 @@ function App({ initialStep }) {
 
 App.propTypes = {
   initialStep: PropTypes.number,
+  animationDelay: PropTypes.number,
 };
 
 App.defaultProps = {
   initialStep: 0,
+  animationDelay: null,
 };
 
 export default App;
