@@ -53,6 +53,6 @@
   "jobFunctionError": "Please select an option from the dropdown menu",
   "emailError": "Valid email is required",
   "checkboxError": "Accept Privacy Policy is required",
-  "gdprText": "By continuing I agree to the",
+  "gdprText": "Click here to agree the",
   "privacyPolicy": "Privacy Policy."
 }
