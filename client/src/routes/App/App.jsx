@@ -22,11 +22,20 @@ const initialUserDetails = {
 };
 const questionLinkedList = createLinkedList(questionList);
 
+// TODO implement head and tail in linkedList could be better
+const isLastQuestion = (questionNode) => !questionNode.next;
+const isFirstQuestion = (questionNode) => !questionNode.previous;
+const executeAsyncIfTimer = (executor, delay) => {
+  if (delay) setTimeout(() => executor(), delay);
+  else executor();
+};
+
 function App({ initialStep, animationDelay }) {
   const [userDetails, setUserDetails] = useState(initialUserDetails);
   const [questionnaire, setQuestionnaire] = useState({});
   const [currentStep, setCurrentStep] = useState(initialStep);
   const [background, setBackground] = useState('');
+  const [executingAnimation, setExecutingAnimation] = useState(false);
   const [currentQuestionNode, setCurrentQuestionNode] = useState(
     questionLinkedList.head
   );
@@ -50,19 +59,8 @@ function App({ initialStep, animationDelay }) {
       .catch((reason) => console.log('error from server ', reason));
   };
 
-  function isLastQuestion() {
-    return !currentQuestionNode.next;
-  }
-
-  function isFirstQuestion() {
-    return !currentQuestionNode.previous;
-  }
-
-  function executeAsyncIfTimer(executor) {
-    if (animationDelay) setTimeout(() => executor(), animationDelay);
-    else executor();
-  }
   const updateState = async (answer) => {
+    setExecutingAnimation(true);
     const newQuestionnaire = { ...questionnaire };
     newQuestionnaire[currentQuestionNode.data.label] = buildAnswerScore(
       answer.label,
@@ -72,14 +70,16 @@ function App({ initialStep, animationDelay }) {
     executeAsyncIfTimer(() => {
       if (isLastQuestion(currentQuestionNode)) setCurrentStep(currentStep + 1);
       else setCurrentQuestionNode(currentQuestionNode.next);
-    });
+      setExecutingAnimation(false);
+    }, animationDelay);
   };
-  function isSelectedAnswer(answer) {
+
+  const isSelectedAnswer = (answer) => {
     if (!questionnaire[currentQuestionNode.data.label]) return false;
     return (
       answer.label === questionnaire[currentQuestionNode.data.label].answer
     );
-  }
+  };
 
   const onPreviousClick = () => {
     if (currentStep === 0) setCurrentQuestionNode(currentQuestionNode.previous);
@@ -91,7 +91,7 @@ function App({ initialStep, animationDelay }) {
     else setCurrentQuestionNode(currentQuestionNode.next);
   };
 
-  function renderBackButton() {
+  const renderBackButton = () => {
     return (
       <div
         aria-hidden="true"
@@ -102,9 +102,9 @@ function App({ initialStep, animationDelay }) {
         <span>Prev</span>
       </div>
     );
-  }
+  };
 
-  function renderNextButton() {
+  const renderNextButton = () => {
     return (
       <div
         aria-hidden="true"
@@ -115,10 +115,12 @@ function App({ initialStep, animationDelay }) {
         <img src={ArrowIcon} alt="next step" />
       </div>
     );
-  }
+  };
 
   const isNextButtonRendered = () =>
-    questionnaire[currentQuestionNode.data.label] && currentStep === 0;
+    !executingAnimation &&
+    questionnaire[currentQuestionNode.data.label] &&
+    currentStep === 0;
 
   return (
     <div className={`app ${background}`} data-testid={background}>
@@ -139,7 +141,7 @@ function App({ initialStep, animationDelay }) {
           />
         )}
         <div className="progress-bar__wrapper">
-          {!isFirstQuestion() && renderBackButton()}
+          {!isFirstQuestion(currentQuestionNode) && renderBackButton()}
           <ProgressBar
             currentStage={currentQuestionNode.data.label}
             stages={progressBarMapper.generateProgressBar(
