@@ -12,6 +12,7 @@ import questionnaireMapper from '../../mappers/questionnaireMapper';
 import redirectService from '../../services/redirectService';
 import reportService from '../../services/reportService';
 import './styles.scss';
+import enLabels from '../../config/en-labels.json';
 
 const initialUserDetails = {
   firstName: '',
@@ -28,6 +29,15 @@ const isFirstQuestion = (questionNode) => !questionNode.previous;
 const executeAsyncIfTimer = (executor, delay) => {
   if (delay) setTimeout(() => executor(), delay);
   else executor();
+};
+
+const googleAnalytics = (questionNode) => {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    compassQuestionNo: questionNode.index,
+    compassQuestionDescription: enLabels[questionNode.data.label],
+    event: 'compassQuestion',
+  });
 };
 
 function App({ initialStep, animationDelay }) {
@@ -47,6 +57,7 @@ function App({ initialStep, animationDelay }) {
   };
 
   useEffect(() => {
+    googleAnalytics(currentQuestionNode);
     setAppBackground();
   }, [currentQuestionNode, currentStep]);
 
