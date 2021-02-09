@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import submissionImage from '../../assets/icons/report-submission-page.svg';
 import translator from '../../config/translator';
 import userFormValues from '../../config/userFormValues';
@@ -33,91 +34,99 @@ function UserForm({ submitForm }) {
 
   return (
     <div className="form">
-      <div className="form__fields-wrapper">
-        <h2>{userFormTitle}</h2>
-        <p>{userFormDescription}</p>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <input
-            className={`input${errors.firstName ? '__error' : ''}`}
-            placeholder={firstName}
-            name="firstName"
-            ref={register({ required: true })}
-          />
-          <div className="form__error">
-            {errors.firstName && firstNameError}
-          </div>
-          <input
-            className={`input${errors.lastName ? '__error' : ''}`}
-            placeholder={lastName}
-            name="lastName"
-            ref={register({ required: true })}
-          />
-          <div className="form__error">{errors.lastName && lastNameError}</div>
-          <input
-            className={`input${errors.companyName ? '__error' : ''}`}
-            placeholder={companyName}
-            name="companyName"
-            ref={register({ required: true })}
-          />
-          <div className="form__error">
-            {errors.companyName && companyNameError}
-          </div>
-          <select
-            name="jobFunction"
-            data-testid="select"
-            ref={register({ required: true })}
-            defaultValue={null}
-            className={`input${errors.jobFunction ? '__error' : ''}`}
-          >
-            <option data-testid="option" value={null} label={jobFunction} />
-            {userFormValues.map((element) => (
-              <option
-                data-testid="option"
-                value={element}
-                key={element}
-                label={element}
+      <SwitchTransition className="animation-wrapper">
+        <CSSTransition timeout={500} appear key="" classNames="fade">
+          <div className="form__fields-wrapper">
+            <h2>{userFormTitle}</h2>
+            <p>{userFormDescription}</p>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <input
+                className={`input${errors.firstName ? '__error' : ''}`}
+                placeholder={firstName}
+                name="firstName"
+                ref={register({ required: true })}
               />
-            ))}
-          </select>
-          <div className="form__error">
-            {errors.jobFunction && jobFunctionError}
-          </div>
-          <input
-            className={`input${errors.email ? '__error' : ''}`}
-            placeholder={email}
-            name="email"
-            ref={register({ required: true, pattern: emailRegex })}
-          />
-          <div className="form__error">{errors.email && emailError}</div>
-          <div className="form__gdpr">
-            <input
-              type="checkbox"
-              name="checkbox"
-              data-testid="gdprCheckbox"
-              ref={register({ required: true })}
-            />
-            <span className="form__gdpr__text">{translator.gdprText}</span>
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href={privacyPolicyUrl()}
-              className=" form__gdpr__text privacyPolicy"
-            >
-              {translator.privacyPolicy}
-            </a>
-          </div>
+              <div className="form__error">
+                {errors.firstName && firstNameError}
+              </div>
+              <input
+                className={`input${errors.lastName ? '__error' : ''}`}
+                placeholder={lastName}
+                name="lastName"
+                ref={register({ required: true })}
+              />
+              <div className="form__error">
+                {errors.lastName && lastNameError}
+              </div>
+              <input
+                className={`input${errors.companyName ? '__error' : ''}`}
+                placeholder={companyName}
+                name="companyName"
+                ref={register({ required: true })}
+              />
+              <div className="form__error">
+                {errors.companyName && companyNameError}
+              </div>
+              <select
+                name="jobFunction"
+                data-testid="select"
+                ref={register({ required: true })}
+                defaultValue={null}
+                className={`input${errors.jobFunction ? '__error' : ''}`}
+              >
+                <option data-testid="option" value={null} label={jobFunction} />
+                {userFormValues.map((element) => (
+                  <option
+                    data-testid="option"
+                    value={element}
+                    key={element}
+                    label={element}
+                  />
+                ))}
+              </select>
+              <div className="form__error">
+                {errors.jobFunction && jobFunctionError}
+              </div>
+              <input
+                className={`input${errors.email ? '__error' : ''}`}
+                placeholder={email}
+                name="email"
+                ref={register({ required: true, pattern: emailRegex })}
+              />
+              <div className="form__error">{errors.email && emailError}</div>
+              <div className="form__gdpr">
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  data-testid="gdprCheckbox"
+                  ref={register({ required: true })}
+                />
+                <span className="form__gdpr__text">{translator.gdprText}</span>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href={privacyPolicyUrl()}
+                  className=" form__gdpr__text privacyPolicy"
+                >
+                  {translator.privacyPolicy}
+                </a>
+              </div>
 
-          <div className="form__error">{errors.checkbox && checkboxError}</div>
+              <div className="form__error">
+                {errors.checkbox && checkboxError}
+              </div>
 
-          <div className="form__submit">
-            <input
-              className="button color-persimmon"
-              type="submit"
-              value={submit}
-            />
+              <div className="form__submit">
+                <input
+                  className="button color-persimmon"
+                  type="submit"
+                  value={submit}
+                />
+              </div>
+            </form>
           </div>
-        </form>
-      </div>
+        </CSSTransition>
+      </SwitchTransition>
       <img className="form__assessment" src={submissionImage} alt="Section" />
     </div>
   );

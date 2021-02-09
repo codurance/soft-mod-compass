@@ -1,0 +1,49 @@
+@keyframes questionnaireFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(70px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes questionnaireFadeLeftOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-70px);
+  }
+}
+
+.fade-enter {
+  animation: questionnaireFadeIn ease 0.5s;
+  -webkit-animation: questionnaireFadeIn ease 0.5s;
+  -moz-animation: questionnaireFadeIn ease 0.5s;
+  -o-animation: questionnaireFadeIn ease 0.5s;
+  -ms-animation: questionnaireFadeIn ease 0.5s;
+}
+
+.fade-appear {
+  animation: questionnaireFadeIn ease 0.5s;
+  -webkit-animation: questionnaireFadeIn ease 0.5s;
+  -moz-animation: questionnaireFadeIn ease 0.5s;
+  -o-animation: questionnaireFadeIn ease 0.5s;
+  -ms-animation: questionnaireFadeIn ease 0.5s;
+}
+
+/* exit */
+.fade-exit {
+  opacity: 0;
+}
+.fade-exit-active {
+  animation: questionnaireFadeLeftOut ease 0.5s;
+  -webkit-animation: questionnaireFadeLeftOut ease 0.5s;
+  -moz-animation: questionnaireFadeLeftOut ease 0.5s;
+  -o-animation: questionnaireFadeLeftOut ease 0.5s;
+  -ms-animation: questionnaireFadeLeftOut ease 0.5s;
+}

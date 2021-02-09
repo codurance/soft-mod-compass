@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import Question from '../Question/Question';
 import './styles.scss';
 
 function Questionnaire({ currentQuestion, onClickAnswer, isSelectedAnswer }) {
   return (
     <div className="questionnaire">
-      <TransitionGroup className="foo-wrapper">
+      <SwitchTransition className="animation-wrapper">
         <CSSTransition
-          timeout={1000}
+          timeout={500}
           appear
           key={currentQuestion.label}
           classNames="fade"
@@ -20,7 +20,7 @@ function Questionnaire({ currentQuestion, onClickAnswer, isSelectedAnswer }) {
             isSelectedFunction={isSelectedAnswer}
           />
         </CSSTransition>
-      </TransitionGroup>
+      </SwitchTransition>
       <div
         className={`questionnaire__assessment--${currentQuestion.category}`}
         data-testid={`background-${currentQuestion.category}`}
