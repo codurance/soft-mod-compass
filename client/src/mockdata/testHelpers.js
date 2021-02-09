@@ -25,5 +25,8 @@ export default {
 
     const inputEmail = getByPlaceholderText(email);
     fireEvent.change(inputEmail, { target: { value: userEmail } });
+
+    const gdprCheckbox = getByTestId('gdprCheckbox');
+    fireEvent.click(gdprCheckbox);
   },
 };
