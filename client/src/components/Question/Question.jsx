@@ -23,10 +23,10 @@ function Question({ question, onClickAnswer, isSelectedFunction }) {
   }
 
   return (
-    <>
-      <p className="question">{translator[question.label]}</p>
+    <div className="question">
+      <p className="question__label">{translator[question.label]}</p>
       {renderAnswers()}
-    </>
+    </div>
   );
 }
 

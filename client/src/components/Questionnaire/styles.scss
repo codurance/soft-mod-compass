@@ -5,27 +5,8 @@
   height: 550px;
 }
 
-@keyframes questionnaireFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(500px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-}
-
 .questionnaire {
   @include main-wrapper();
-
-  &__question-wrapper {
-    @include main-wrapper-left();
-    -webkit-animation: questionnaireFadeIn ease 0.7s;
-    -moz-animation: questionnaireFadeIn ease 0.7s;
-    -o-animation: questionnaireFadeIn ease 0.7s;
-    -ms-animation: questionnaireFadeIn ease 0.7s;
-  }
 
   &__assessment {
     max-width: 450px;
@@ -52,4 +33,34 @@
       @include brochure();
     }
   }
+}
+
+@keyframes questionnaireFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(500px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.fade-enter {
+  -webkit-animation: questionnaireFadeIn ease 1s;
+  -moz-animation: questionnaireFadeIn ease 1s;
+  -o-animation: questionnaireFadeIn ease 1s;
+  -ms-animation: questionnaireFadeIn ease 1s;
+}
+
+.fade-appear {
+  -webkit-animation: questionnaireFadeIn ease 1s;
+  -moz-animation: questionnaireFadeIn ease 1s;
+  -o-animation: questionnaireFadeIn ease 1s;
+  -ms-animation: questionnaireFadeIn ease 1s;
+}
+
+/* exit */
+.fade-exit {
+  display: none;
 }

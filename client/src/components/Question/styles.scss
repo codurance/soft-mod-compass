@@ -1,14 +1,18 @@
 @import '../../styles/global.scss';
 
 .question {
-  @include freed();
-  font-weight: var(--welter-font-weight);
-  height: 140px;
-  margin-bottom: 32px;
-}
+  @include main-wrapper-left();
 
-.answer-list {
-  height: 280px;
-  list-style-type: none;
-  margin-bottom: 10px;
+  &__label {
+    @include freed();
+    font-weight: var(--welter-font-weight);
+    height: 140px;
+    margin-bottom: 32px;
+  }
+
+  .answer-list {
+    height: 280px;
+    list-style-type: none;
+    margin-bottom: 10px;
+  }
 }

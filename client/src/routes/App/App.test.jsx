@@ -1,15 +1,18 @@
-import { describe, expect, it, jest, beforeEach } from '@jest/globals';
+import { beforeEach, describe, expect, it, jest } from '@jest/globals';
+import { fireEvent, waitFor } from '@testing-library/dom';
 import { act, render } from '@testing-library/react';
-import React from 'react';
-import { fireEvent } from '@testing-library/dom';
 import each from 'jest-each';
+import React from 'react';
+import { config as reactTransitionGroupConfig } from 'react-transition-group';
 import questionList from '../../config/QuestionnaireModel';
 import translator from '../../config/translator';
 import questionnaireMapper from '../../mappers/questionnaireMapper';
+import testHelpers from '../../mockdata/testHelpers';
 import redirectService from '../../services/redirectService';
 import reportService from '../../services/reportService';
 import App from './App';
-import testHelpers from '../../mockdata/testHelpers';
+
+reactTransitionGroupConfig.disabled = true;
 
 const submitSurveySpy = jest
   .spyOn(reportService, 'submitSurvey')
@@ -108,12 +111,14 @@ describe('app', () => {
     getByText(submit).click();
   });
 
-  it('should display the second question and hide first question after answering first question', () => {
+  it('should display the second question and hide first question after answering first question', async () => {
     const { getByText, queryByText } = render(<App initialStep={0} />);
 
     getByText(stronglyAgree).click();
-    expect(getByText(secondQuestion)).toBeInTheDocument();
-    expect(queryByText(firstQuestion)).not.toBeInTheDocument();
+    await waitFor(() => {
+      expect(getByText(secondQuestion)).toBeInTheDocument();
+      expect(queryByText(firstQuestion)).not.toBeInTheDocument();
+    });
   });
 
   it('should not display the next and back button on first question', () => {
@@ -159,11 +164,13 @@ describe('app', () => {
       getByTestId(selectedAnswer).click();
       getByText('Prev').click();
       answers.forEach((answer) => {
-        if (selectedAnswer === answer) {
-          expect(getByTestId(answer)).toHaveClass('answer--selected');
-        } else {
-          expect(getByTestId(answer)).not.toHaveClass('answer--selected');
-        }
+        setTimeout(() => {
+          if (selectedAnswer === answer) {
+            expect(getByTestId(answer)).toHaveClass('answer--selected');
+          } else {
+            expect(getByTestId(answer)).not.toHaveClass('answer--selected');
+          }
+        }, 800);
       });
     }
   );
