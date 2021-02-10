@@ -101,15 +101,17 @@ function UserForm({ submitForm }) {
                   data-testid="gdprCheckbox"
                   ref={register({ required: true })}
                 />
-                <span className="form__gdpr__text">{translator.gdprText}</span>
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href={privacyPolicyUrl()}
-                  className=" form__gdpr__text privacyPolicy"
-                >
-                  {translator.privacyPolicy}
-                </a>
+                <span className="form__gdpr__text">
+                  {translator.gdprText}
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={privacyPolicyUrl()}
+                    className=" form__gdpr__text privacyPolicy"
+                  >
+                    {translator.privacyPolicy}
+                  </a>
+                </span>
               </div>
 
               <div className="form__error">

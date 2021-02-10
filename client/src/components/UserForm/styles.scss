@@ -29,7 +29,6 @@
   &__fields-wrapper {
     @include main-wrapper-left();
     max-height: 750px;
-    height: 100%;
   }
 
   &__assessment {
@@ -49,11 +48,12 @@
 
   &__gdpr {
     display: flex;
-    align-items: center;
-    height: 25px;
+    align-items: flex-start;
+    // height: 25px;
 
     &__text {
       @include sejima;
+      margin-top: -4px;
     }
 
     .privacyPolicy {
