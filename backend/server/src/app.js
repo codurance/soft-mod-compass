@@ -5,6 +5,7 @@ const cors = require('cors');
 const config = require('./config');
 const fs = require('fs');
 const path = require('path');
+const handleGetSurveys = require('./dynamoDB/handleGetSurveys');
 
 const {
   uploadReportToHubspot,
@@ -32,6 +33,7 @@ module.exports = (reportingApp) => {
   app.get('/', (req, res) => {
     res.status(200).send({ status: 'up' });
   });
+
   app.post('/surveys', (req, res) => {
     console.log('new request incoming... for' + req.body.user.firstName);
     handlePostRequest(req.body)
@@ -43,6 +45,19 @@ module.exports = (reportingApp) => {
       });
     res.send({ status: 'ok' });
     console.log('ready for new requests...');
+  });
+
+  //  ***************************************************
+  //    POC store survey, get survey and updateSurvey
+  //  ***************************************************
+
+  app.get('/dynamodb/surveys', (req, res) => {
+    console.log('entro');
+    handleGetSurveys().then((body) => res.send(body));
+  });
+  app.post('/dynamodb/surveys', (req, res) => {
+    console.log('entro');
+    handleCreateSurveys().then((body) => res.send(body));
   });
 
   function generatePdfLocally(pdfBuffer) {
