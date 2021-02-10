@@ -6,6 +6,7 @@ const config = require('./config');
 const fs = require('fs');
 const path = require('path');
 const handleGetSurveys = require('./dynamoDB/handleGetSurveys');
+const handleCreateSurveys = require('./dynamoDB/dynamoCreateSurvey');
 
 const {
   uploadReportToHubspot,
