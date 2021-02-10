@@ -95,13 +95,13 @@ jobs:
       - name: push bundle to S3
         run: |
           cd ./backend/bundle
-          aws s3 sync . s3://compass-service-dev
+          aws s3 sync . s3://compass-service-package
 
       - name: Create new ElasticBeanstalk Application Version from S3
         run: |
           aws elasticbeanstalk create-application-version \
           --application-name compass-dev \
-          --source-bundle S3Bucket="compass-service-dev",S3Key="compass-backend.zip" \
+          --source-bundle S3Bucket="compass-service-package",S3Key="compass-backend.zip" \
           --version-label "ver-${{ github.sha }}" \
           --description "commit-sha-${{ github.sha }}"
 
