@@ -7,6 +7,7 @@ const fs = require('fs');
 const path = require('path');
 const handleGetSurveys = require('./dynamoDB/handleGetSurveys');
 const handleCreateSurveys = require('./dynamoDB/dynamoCreateSurvey');
+const handleUpdateSurvey = require('./dynamoDB/dynamoUpdateSurvey');
 
 const {
   uploadReportToHubspot,
@@ -53,12 +54,13 @@ module.exports = (reportingApp) => {
   //  ***************************************************
 
   app.get('/dynamodb/surveys', (req, res) => {
-    console.log('entro');
     handleGetSurveys().then((body) => res.send(body));
   });
   app.post('/dynamodb/surveys', (req, res) => {
-    console.log('entro');
     handleCreateSurveys().then((body) => res.send(body));
+  });
+  app.patch('/dynamodb/surveys', (req, res) => {
+    handleUpdateSurvey().then((body) => res.send(body));
   });
 
   function generatePdfLocally(pdfBuffer) {
