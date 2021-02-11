@@ -7,9 +7,9 @@ const fs = require('fs');
 const path = require('path');
 const handleGetSurveysByState = require('./dynamoDB/handleGetSurveysByState');
 const handleCreateSurveys = require('./dynamoDB/dynamoCreateSurvey');
-const handleUpdateSurvey = require('./dynamoDB/dynamoUpdateSurvey');
+const { updateToSucceedState } = require('./dynamoDB/dynamoUpdateSurvey');
 const { saveFailedSurvey } = require('./dynamoDB/dynamoCreateSurvey');
-
+const getSurveyById = require('./dynamoDB/getSurveyById');
 const {
   uploadReportToHubspot,
   submitHubspotForm,
@@ -37,6 +37,7 @@ module.exports = (reportingApp) => {
 
   app.post('/surveys', (req, res) => {
     console.log('new request incoming... request body' + req.body);
+
     submitSurvey(req.body)
       .then((body) => {
         console.log('request successful with response :', body);
@@ -46,6 +47,26 @@ module.exports = (reportingApp) => {
       });
     res.sendStatus(202);
     console.log('ready for new requests...');
+  });
+
+  app.patch('/surveys/:id', async (req, res) => {
+    try {
+      const { id } = req.params;
+      console.log('Reproccesing survey with id:' + id);
+      const survey = await getSurveyById(id);
+      await submitSurvey(survey.bodyRequest);
+      await updateToSucceedState(id);
+      res.status(200).send({ status: 'succeed', id });
+    } catch (reason) {
+      handleInternalFailure(reason, req);
+      res.status(500).send({
+        status: 'Error',
+        message: `Error reproccesing the survey with id: ${id}`,
+        id,
+        surveyStatus: 'failed',
+        reason,
+      });
+    }
   });
 
   function handleInternalFailure(reason, req) {
@@ -76,12 +97,12 @@ module.exports = (reportingApp) => {
         res.send({ status: 'Error', message: err.message });
       });
   });
-  app.post('/dynamodb/surveys', (req, res) => {
+  app.post('/failed-surveys', (req, res) => {
     handleCreateSurveys(req.body).then((body) => res.send(body));
   });
   app.patch('/dynamodb/surveys', (req, res) => {
-    const { id, surveyState } = req.body;
-    handleUpdateSurvey(id, surveyState).then(() =>
+    const { id } = req.body;
+    updateToSuccedState(id).then(() =>
       res.send({
         status: 'ok',
         message: `Survey with id ${id} has been updated, ${surveyState}`,

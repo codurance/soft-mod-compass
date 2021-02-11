@@ -1,5 +1,5 @@
 const AWS = require('aws-sdk');
-const isTest = process.env.MOCK_DYNAMODB_ENDPOINT;
+const isTest = process.env.MOCK_DYNAMODB_ENDPOINT || process.env.LOCAL_MODE;
 
 AWS.config.update(
   isTest

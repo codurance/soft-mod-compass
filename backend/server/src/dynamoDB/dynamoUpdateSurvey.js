@@ -10,10 +10,12 @@ const buildParams = (surveyId, surveyState) => ({
   ReturnValues: 'UPDATED_NEW',
 });
 
-module.exports = async (id, surveyState) => {
-  const params = buildParams(id, surveyState);
-  documentDynamoClient.update(params, function (err, data) {
-    if (err) console.log(err, err.stack);
-    else console.log(data);
-  });
+module.exports = {
+  updateToSucceedState: async (id) => {
+    const params = buildParams(id, 'succeed');
+    documentDynamoClient.update(params, function (err, data) {
+      if (err) console.log(err, err.stack);
+      else console.log(data);
+    });
+  },
 };

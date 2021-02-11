@@ -113,6 +113,35 @@ describe('app', () => {
         }, 1000);
       });
   });
+
+  it('should reprocess the report given a survey id', async (done) => {
+    // Initialize the database
+    const id = '1234';
+    const bodyRequest = { user: { language: 'es' } };
+    await createFailedSurvey(id, bodyRequest);
+
+    // mock jsReport ,hubspot upload and submit
+    jsReportMock.mockImplementation(() => ({}));
+    uploadReportToHubspotMock.uploadReportToHubspot.mockImplementation(
+      () => {}
+    );
+    uploadReportToHubspotMock.submitHubspotForm.mockImplementation(() => {});
+
+    const app = require('./app')(express());
+    supertest(app)
+      .patch(`/surveys/${id}`)
+      .send()
+      .then(async (res) => {
+        const updatedSurvey = await findSurveyWithId(id);
+
+        expect(res.status).toBe(200);
+        expect(res.body).toEqual({ status: 'succeed', id });
+        expect(updatedSurvey.surveyState).toEqual('succeed');
+        expect(updatedSurvey.id).toEqual(res.body.id);
+        expect(updatedSurvey.bodyRequest).toEqual(bodyRequest);
+        done();
+      });
+  });
 });
 
 async function findSurveyWithId(uuidMock) {
@@ -121,4 +150,16 @@ async function findSurveyWithId(uuidMock) {
     .promise();
   console.log('Item ', Item);
   return Item;
+}
+
+async function createFailedSurvey(id, survey) {
+  const params = {
+    TableName: 'Surveys',
+    Item: {
+      bodyRequest: survey,
+      id,
+      surveyState: 'failed',
+    },
+  };
+  await documentDynamoClient.put(params).promise();
 }
