@@ -129,10 +129,8 @@ describe('app', () => {
           { engine: 'handlebars', name: 'Compass-EN', recipe: 'chrome-pdf' },
           fakeRequestBody
         );
-        expect(res.status).toBe(200);
-        expect(res.body).toEqual({
-          status: 'ok',
-        });
+        expect(res.status).toBe(202);
+        expect(res.body).toEqual({});
         submitFormServerCall.reply(200, function (uri, requestBody) {
           expect(uploadPdfMockServerCall.isDone()).toBe(true);
           done();

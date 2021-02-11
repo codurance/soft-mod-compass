@@ -6,18 +6,19 @@ const buildParams = (survey) => ({
   Item: survey,
 });
 
-const buildSurveyDAO = (survey) => {
-  const id = generateUuid();
-  const surveyState = 'initialize';
-  return { ...survey, id, surveyState };
-};
+module.exports = {
+  saveFailedSurvey: async (survey) => {
+    const id = generateUuid();
+    const params = buildParams({
+      bodyRequest: survey,
+      id,
+      surveyState: 'failed',
+    });
 
-module.exports = async (survey) => {
-  const surveyDTO = buildSurveyDAO(survey);
-  const params = buildParams(surveyDTO);
-
-  documentDynamoClient.put(params, function (err, data) {
-    if (err) console.log(err, err.stack);
-    else console.log(data);
-  });
+    documentDynamoClient.put(params, function (err, data) {
+      if (err) console.log(err, err.stack);
+      else console.log(data);
+    });
+    return id;
+  },
 };

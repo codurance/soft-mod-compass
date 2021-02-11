@@ -8,6 +8,7 @@ const path = require('path');
 const handleGetSurveysByState = require('./dynamoDB/handleGetSurveysByState');
 const handleCreateSurveys = require('./dynamoDB/dynamoCreateSurvey');
 const handleUpdateSurvey = require('./dynamoDB/dynamoUpdateSurvey');
+const { saveFailedSurvey } = require('./dynamoDB/dynamoCreateSurvey');
 
 const {
   uploadReportToHubspot,
@@ -15,8 +16,6 @@ const {
 } = require('./report/hubspot/uploadToHubspot');
 
 module.exports = (reportingApp) => {
-  console.log('config ', config);
-
   const app = express();
   if (config.cors.allowedOrigin)
     app.use(
@@ -37,17 +36,30 @@ module.exports = (reportingApp) => {
   });
 
   app.post('/surveys', (req, res) => {
-    console.log('new request incoming... for' + req.body.user.firstName);
-    handlePostRequest(req.body)
+    console.log('new request incoming... request body' + req.body);
+    submitSurvey(req.body)
       .then((body) => {
         console.log('request successful with response :', body);
       })
       .catch((reason) => {
-        console.error('error in request /surveys ', reason);
+        handleInternalFailure(reason, req);
       });
-    res.send({ status: 'ok' });
+    res.sendStatus(202);
     console.log('ready for new requests...');
   });
+
+  function handleInternalFailure(reason, req) {
+    console.error('error in request /surveys ', reason);
+    saveFailedSurvey(req.body).then((id) =>
+      console.log({
+        failedSurvey: {
+          surveyId: id,
+          surveyRequestBody: req.body,
+          errorDetails: reason,
+        },
+      })
+    );
+  }
 
   //  ***************************************************
   //    POC store survey, get survey and updateSurvey
@@ -90,7 +102,7 @@ module.exports = (reportingApp) => {
     );
   }
 
-  async function handlePostRequest(body) {
+  async function submitSurvey(body) {
     const jsReportTemplate = {
       name: body.user.language === 'es' ? 'Compass-ES' : 'Compass-EN',
       engine: 'handlebars',
