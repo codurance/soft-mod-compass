@@ -12,13 +12,5 @@ const buildParams = (surveyState) => ({
 
 module.exports = async (surveyState) => {
   const params = buildParams(surveyState);
-
-  dynamoClient.scan(params, function (err, data) {
-    if (err) {
-      console.error('Unable to query. Error:', JSON.stringify(err, null, 2));
-    } else {
-      console.log('Query succeeded.');
-      console.log('************************************', data);
-    }
-  });
+  return await dynamoClient.scan(params).promise();
 };

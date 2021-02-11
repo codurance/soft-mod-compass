@@ -55,7 +55,14 @@ module.exports = (reportingApp) => {
 
   app.get('/dynamodb/surveys/:state', (req, res) => {
     const { state } = req.params;
-    handleGetSurveysByState(state).then((body) => res.send(body));
+    handleGetSurveysByState(state)
+      .then((body) => {
+        res.send(body);
+      })
+      .catch((err) => {
+        console.error('Unable to query. Error:', JSON.stringify(err, null, 2));
+        res.send({ status: 'Error', message: err.message });
+      });
   });
   app.post('/dynamodb/surveys', (req, res) => {
     handleCreateSurveys(req.body).then((body) => res.send(body));
