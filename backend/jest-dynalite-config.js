@@ -1,3 +1,4 @@
+console.log('local dynamodb config');
 module.exports = {
   tables: [
     {
@@ -8,5 +9,5 @@ module.exports = {
     },
     // etc
   ],
-  port: 8000,
+  basePort: 8000,
 };

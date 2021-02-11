@@ -37,7 +37,7 @@
   "private": true,
   "dependencies": {
     "@hubspot/cms-cli": "^1.1.8",
-    "@shelf/jest-dynamodb": "^1.7.0",
+    "jest-dynalite": "^3.3.1",
     "@typeform/embed": "^0.22.0",
     "aws-sdk": "^2.638.0",
     "body-parser": "^1.19.0",
@@ -108,6 +108,6 @@
     "testPathIgnorePatterns": [
       "/cypress/"
     ],
-    "preset": "@shelf/jest-dynamodb"
+    "preset": "jest-dynalite"
   }
 }

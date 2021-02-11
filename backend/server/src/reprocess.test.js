@@ -1,7 +1,7 @@
 const supertest = require('supertest');
 const express = require('express');
 const fakeRequestBody = require('./mockData/post_survey_request_body.json');
-const dynamoClient = require('./mockData/DynamoDbTestClient');
+const { documentDynamoClient } = require('./dynamoDB/dynamodbClient');
 const mockConfig = {
   jsreport: {
     studioEditorEnabled: true,
@@ -33,7 +33,7 @@ describe('app', () => {
 
   it('should store survey in failed state when generate pdf fails', (done) => {
     // create generate pdf report mock
-    jsReportMock.mockImplementation((args) => {
+    jsReportMock.mockImplementation(() => {
       throw new Error('mocked error');
     });
     const uuidMock = '1111';
@@ -60,7 +60,7 @@ describe('app', () => {
 });
 
 async function findSurveyWithId(uuidMock) {
-  const { Item } = await dynamoClient
+  const { Item } = await documentDynamoClient
     .get({ TableName: 'Surveys', Key: { id: uuidMock } })
     .promise();
   console.log('Item ', Item);
