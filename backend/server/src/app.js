@@ -60,7 +60,13 @@ module.exports = (reportingApp) => {
     handleCreateSurveys(req.body).then((body) => res.send(body));
   });
   app.patch('/dynamodb/surveys', (req, res) => {
-    handleUpdateSurvey().then((body) => res.send(body));
+    const { id, surveyState } = req.body;
+    handleUpdateSurvey(id, surveyState).then(() =>
+      res.send({
+        status: 'ok',
+        message: `Survey with id ${id} has been updated, ${surveyState}`,
+      })
+    );
   });
 
   function generatePdfLocally(pdfBuffer) {
