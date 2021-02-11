@@ -5,7 +5,7 @@ const cors = require('cors');
 const config = require('./config');
 const fs = require('fs');
 const path = require('path');
-const handleGetSurveys = require('./dynamoDB/handleGetSurveys');
+const handleGetSurveysByState = require('./dynamoDB/handleGetSurveysByState');
 const handleCreateSurveys = require('./dynamoDB/dynamoCreateSurvey');
 const handleUpdateSurvey = require('./dynamoDB/dynamoUpdateSurvey');
 
@@ -53,8 +53,9 @@ module.exports = (reportingApp) => {
   //    POC store survey, get survey and updateSurvey
   //  ***************************************************
 
-  app.get('/dynamodb/surveys', (req, res) => {
-    handleGetSurveys().then((body) => res.send(body));
+  app.get('/dynamodb/surveys/:state', (req, res) => {
+    const { state } = req.params;
+    handleGetSurveysByState(state).then((body) => res.send(body));
   });
   app.post('/dynamodb/surveys', (req, res) => {
     handleCreateSurveys(req.body).then((body) => res.send(body));
