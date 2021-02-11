@@ -57,7 +57,7 @@ module.exports = (reportingApp) => {
     handleGetSurveys().then((body) => res.send(body));
   });
   app.post('/dynamodb/surveys', (req, res) => {
-    handleCreateSurveys().then((body) => res.send(body));
+    handleCreateSurveys(req.body).then((body) => res.send(body));
   });
   app.patch('/dynamodb/surveys', (req, res) => {
     handleUpdateSurvey().then((body) => res.send(body));
