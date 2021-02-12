@@ -18,7 +18,6 @@ AWS.config.update(
       }
 );
 
-const dynamoClient = new AWS.DynamoDB();
 const documentDynamoClient = new AWS.DynamoDB.DocumentClient();
 
-module.exports = { dynamoClient, documentDynamoClient };
+module.exports = { documentDynamoClient };

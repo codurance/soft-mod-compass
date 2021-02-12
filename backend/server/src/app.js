@@ -5,8 +5,6 @@ const cors = require('cors');
 const config = require('./config');
 const fs = require('fs');
 const path = require('path');
-const handleGetSurveysByState = require('./dynamoDB/handleGetSurveysByState');
-const handleCreateSurveys = require('./dynamoDB/dynamoCreateSurvey');
 const { updateToSucceedState } = require('./dynamoDB/dynamoUpdateSurvey');
 const { saveFailedSurvey } = require('./dynamoDB/dynamoCreateSurvey');
 const getSurveyById = require('./dynamoDB/getSurveyById');
@@ -39,8 +37,8 @@ module.exports = (reportingApp) => {
     console.log('new request incoming... request body' + req.body);
 
     submitSurvey(req.body)
-      .then((body) => {
-        console.log('request successful with response :', body);
+      .then((result) => {
+        console.log('request successful :', result);
       })
       .catch((reason) => {
         handleInternalFailure(reason, req);
@@ -70,7 +68,7 @@ module.exports = (reportingApp) => {
   });
 
   function handleInternalFailure(reason, req) {
-    console.error('error in request /surveys ', reason);
+    console.error(`error in request ${req.method} ${req.uri} `, reason);
     saveFailedSurvey(req.body).then((id) =>
       console.log({
         failedSurvey: {
@@ -82,32 +80,9 @@ module.exports = (reportingApp) => {
     );
   }
 
-  //  ***************************************************
-  //    POC store survey, get survey and updateSurvey
-  //  ***************************************************
-
-  app.get('/dynamodb/surveys/:state', (req, res) => {
-    const { state } = req.params;
-    handleGetSurveysByState(state)
-      .then((body) => {
-        res.send(body);
-      })
-      .catch((err) => {
-        console.error('Unable to query. Error:', JSON.stringify(err, null, 2));
-        res.send({ status: 'Error', message: err.message });
-      });
-  });
+  // allow to create failed survey (for testing only)
   app.post('/failed-surveys', (req, res) => {
-    handleCreateSurveys(req.body).then((body) => res.send(body));
-  });
-  app.patch('/dynamodb/surveys', (req, res) => {
-    const { id } = req.body;
-    updateToSuccedState(id).then(() =>
-      res.send({
-        status: 'ok',
-        message: `Survey with id ${id} has been updated, ${surveyState}`,
-      })
-    );
+    saveFailedSurvey(req.body).then((body) => res.send(body));
   });
 
   function generatePdfLocally(pdfBuffer) {
