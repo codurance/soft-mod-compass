@@ -3,7 +3,7 @@ name: DynamoDB provisioning
 on: workflow_dispatch
 
 jobs:
-  Provisioning-frontend-dev-enviroment:
+  Provisioning-dynamodb-table:
     runs-on: ubuntu-latest
 
     steps:
