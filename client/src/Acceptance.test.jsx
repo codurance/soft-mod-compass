@@ -11,6 +11,7 @@ import translator from './config/translator';
 import payloadRequest from './mockdata/post_survey_request_body.json';
 import testHelpers from './mockdata/testHelpers';
 import reportService from './services/reportService';
+import ipProvider from './services/ipProvider';
 
 reactTransitionGroupConfig.disabled = true;
 
@@ -47,7 +48,9 @@ const expectedSentData = {
   },
 };
 const submitSurveySpy = jest.spyOn(reportService, 'submitSurvey');
-
+const ipProviderSpy = jest
+  .spyOn(ipProvider, 'getIp')
+  .mockImplementation(() => Promise.resolve('mockedIp'));
 const returnFromAsync = (spy) => spy.mock.results[0].value;
 
 /*
@@ -107,5 +110,6 @@ describe('acceptance test', () => {
     // expect(data).toEqual(expectedSentData);
     const result = await returnFromAsync(submitSurveySpy);
     expect(result).toEqual(successfulResponseFromBackend);
+    expect(ipProviderSpy).toHaveBeenCalledTimes(1);
   });
 });
