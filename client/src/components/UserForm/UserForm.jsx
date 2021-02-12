@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
-import submissionImage from '../../assets/icons/report-submission-page.svg';
+import submissionImage from '../../assets/icons/report-submission-page.png';
 import translator from '../../config/translator';
 import userFormValues from '../../config/userFormValues';
 import privacyPolicyUrl from '../../services/privacyPolicyUrl';
