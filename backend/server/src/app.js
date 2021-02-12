@@ -7,9 +7,9 @@ const fs = require('fs');
 const path = require('path');
 const {
   saveFailedSurvey,
-  updateToSucceedState,
+  getSurveyById,
+  updateSurveyToSucceedState,
 } = require('./dynamoDB/surveyRepository');
-const getSurveyById = require('./dynamoDB/getSurveyById');
 const {
   uploadReportToHubspot,
   submitHubspotForm,
@@ -55,7 +55,7 @@ module.exports = (reportingApp) => {
       console.log('Reproccesing survey with id:' + id);
       const survey = await getSurveyById(id);
       await submitSurvey(survey.bodyRequest);
-      await updateToSucceedState(id);
+      await updateSurveyToSucceedState(id);
       res.status(200).send({ status: 'succeed', id });
     } catch (reason) {
       handleInternalFailure(reason, req);

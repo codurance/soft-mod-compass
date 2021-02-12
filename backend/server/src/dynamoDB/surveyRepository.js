@@ -21,7 +21,7 @@ async function saveFailedSurvey(survey) {
     });
 }
 
-async function updateToSucceedState(id) {
+async function updateSurveyToSucceedState(id) {
   const params = {
     TableName: 'Surveys',
     Key: { id },
@@ -40,4 +40,24 @@ async function updateToSucceedState(id) {
     });
 }
 
-module.exports = { saveFailedSurvey, updateToSucceedState };
+async function getSurveyById(id) {
+  const params = {
+    TableName: 'Surveys',
+    Key: {
+      id,
+    },
+  };
+  return documentDynamoClient
+    .get(params)
+    .promise()
+    .then(({ Item }) => Item)
+    .catch((err) => {
+      throw new Error(`Could not update the survey - Reason: ${err.message}`);
+    });
+}
+
+module.exports = {
+  saveFailedSurvey,
+  updateSurveyToSucceedState,
+  getSurveyById,
+};
