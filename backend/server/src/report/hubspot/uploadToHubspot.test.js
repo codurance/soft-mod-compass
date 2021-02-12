@@ -31,6 +31,7 @@ describe('Upload report to Hubspot', () => {
     company: 'Some Company',
     email: 'user@company.com',
     jobFunction: 'CEO',
+    id: 'mockedIp',
   };
   const fakeApiResponse = { userCreated: 'user@company.com' };
 
