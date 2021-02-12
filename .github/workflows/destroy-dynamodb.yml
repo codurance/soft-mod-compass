@@ -1,9 +1,9 @@
-name: DynamoDB provisioning
+name: DynamoDB destroy
 
 on: workflow_dispatch
 
 jobs:
-  Provisioning-dynamodb-table:
+  Destroying-dynamodb-table:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,13 +19,5 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Create Surveys table
-        run: |
-          aws dynamodb create-table \
-              --table-name Surveys \
-              --attribute-definitions \
-                  AttributeName=id,AttributeType=S \
-              --key-schema \
-                  AttributeName=id,KeyType=HASH \
-              --provisioned-throughput \
-                  ReadCapacityUnits=10,WriteCapacityUnits=5
+      - name: Delete Surveys table
+        run: aws dynamodb delete-table --table-name Surveys
