@@ -2,12 +2,15 @@
 
 @mixin brochure($backgroundUrl) {
   width: 420px;
-  height: 550px;
+  height: 500px;
+  background-repeat: no-repeat;
   background: url($backgroundUrl);
 }
 
 .questionnaire {
   @include main-wrapper();
+
+  margin-top: 30px;
 
   &__assessment {
     max-width: 450px;
