@@ -5,8 +5,10 @@ const cors = require('cors');
 const config = require('./config');
 const fs = require('fs');
 const path = require('path');
-const { updateToSucceedState } = require('./dynamoDB/dynamoUpdateSurvey');
-const { saveFailedSurvey } = require('./dynamoDB/surveyRepository');
+const {
+  saveFailedSurvey,
+  updateToSucceedState,
+} = require('./dynamoDB/surveyRepository');
 const getSurveyById = require('./dynamoDB/getSurveyById');
 const {
   uploadReportToHubspot,
