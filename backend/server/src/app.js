@@ -1,19 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const generateReport = require('./jsreportAdapter');
 const cors = require('cors');
 const config = require('./config');
-const fs = require('fs');
-const path = require('path');
 const {
   saveFailedSurvey,
   getSurveyById,
   updateSurveyToSucceedState,
-} = require('./dynamoDB/surveyRepository');
-const {
-  uploadReportToHubspot,
-  submitHubspotForm,
-} = require('./report/hubspot/uploadToHubspot');
+} = require('./survey/surveyRepository');
+const { submitSurvey } = require('./survey/surveyService');
 
 module.exports = (reportingApp) => {
   const app = express();
@@ -95,44 +89,6 @@ module.exports = (reportingApp) => {
       res.send(id);
     });
   });
-
-  function generatePdfLocally(pdfBuffer) {
-    const pdfPath = path.join(__dirname, `../../tmp/test.pdf`);
-    const route = path.join(__dirname, `../../tmp`);
-
-    if (!fs.existsSync(route)) {
-      fs.mkdirSync(route);
-    }
-
-    fs.writeFileSync(pdfPath, pdfBuffer, (err) =>
-      console.log('Error generating the PDF', err.message)
-    );
-  }
-
-  async function submitSurvey(body) {
-    const jsReportTemplate = {
-      name: body.user.language === 'es' ? 'Compass-ES' : 'Compass-EN',
-      engine: 'handlebars',
-      recipe: 'chrome-pdf',
-    };
-    const pdf = await generateReport(jsReportTemplate, body);
-
-    if (process.env.LOCAL_MODE) {
-      generatePdfLocally(pdf.content);
-      return {
-        status: 'ok',
-        message: 'Your pdf was generated locally /server/tmp/test.pdf file',
-      };
-    } else {
-      const pdfLink = await uploadReportToHubspot(pdf.content, body.user);
-      const submittedUser = await submitHubspotForm(
-        pdfLink,
-        body.user,
-        body.categories
-      );
-      return { status: 'ok', ...submittedUser, pdfUrl: pdfLink };
-    }
-  }
 
   return app;
 };

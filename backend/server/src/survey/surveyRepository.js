@@ -1,4 +1,4 @@
-const { documentDynamoClient } = require('./dynamodbClient');
+const { documentDynamoClient } = require('../dynamodbClient');
 const generateUuid = require('uuid/v4');
 const TABLE_NAME = 'Surveys';
 
