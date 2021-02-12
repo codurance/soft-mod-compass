@@ -4,9 +4,9 @@
   @include main-wrapper-left();
 
   &__label {
-    @include freed();
+    @include base();
     font-weight: var(--welter-font-weight);
-    height: 140px;
+    height: 100px;
     margin-bottom: 32px;
   }
 
