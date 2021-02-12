@@ -1,4 +1,3 @@
-console.log('local dynamodb config');
 module.exports = {
   tables: [
     {

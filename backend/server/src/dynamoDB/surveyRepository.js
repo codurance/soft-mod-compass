@@ -1,10 +1,11 @@
 const { documentDynamoClient } = require('./dynamodbClient');
 const generateUuid = require('uuid/v4');
+const TABLE_NAME = 'Surveys';
 
 async function saveFailedSurvey(survey) {
   const id = generateUuid();
   const params = {
-    TableName: 'Surveys',
+    TableName: TABLE_NAME,
     Item: {
       bodyRequest: survey,
       id,
@@ -23,7 +24,7 @@ async function saveFailedSurvey(survey) {
 
 async function updateSurveyToSucceedState(id) {
   const params = {
-    TableName: 'Surveys',
+    TableName: TABLE_NAME,
     Key: { id },
     UpdateExpression: 'set surveyState = :surveyState',
     ExpressionAttributeValues: {
@@ -42,7 +43,7 @@ async function updateSurveyToSucceedState(id) {
 
 async function getSurveyById(id) {
   const params = {
-    TableName: 'Surveys',
+    TableName: TABLE_NAME,
     Key: {
       id,
     },
