@@ -22,7 +22,7 @@ jobs:
       - name: Create Surveys table
         run: |
           aws dynamodb create-table \
-              --table-name SurveysWorkflow \
+              --table-name Surveys \
               --attribute-definitions \
                   AttributeName=id,AttributeType=S \
               --key-schema \
