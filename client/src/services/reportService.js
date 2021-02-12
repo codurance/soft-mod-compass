@@ -1,11 +1,13 @@
 import fetch from 'node-fetch';
 import config from '../config/config';
+import ipProvider from './ipProvider';
 import languageService from './languageService';
 
 export default {
-  submitSurvey(surveyData) {
+  async submitSurvey(surveyData) {
     const bodyPayload = {
       user: {
+        ip: await ipProvider.getIp(),
         firstName: surveyData.firstName,
         lastName: surveyData.lastName,
         company: surveyData.companyName,

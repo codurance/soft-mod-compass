@@ -5,7 +5,8 @@
     "company": "Some Company",
     "email": "user@company.com",
     "language": "en",
-    "jobFunction": "CEO"
+    "jobFunction": "CEO",
+    "ip": "mockedIp"
   },
   "categories": {
     "organisationalMaturity": {
@@ -115,4 +116,3 @@
     }
   }
 }
-    

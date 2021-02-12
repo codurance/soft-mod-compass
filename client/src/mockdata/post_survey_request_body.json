@@ -1,5 +1,6 @@
 {
   "user": {
+    "ip": "mockedIp",
     "firstName": "First Name",
     "lastName": "Last Name",
     "company": "Some Company",
