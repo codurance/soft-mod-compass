@@ -1,4 +1,4 @@
-name: DynamoDB destroy
+name: DynamoDB dev destroy
 
 on: workflow_dispatch
 

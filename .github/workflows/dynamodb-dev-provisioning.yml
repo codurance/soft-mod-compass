@@ -1,4 +1,4 @@
-name: DynamoDB provisioning
+name: DynamoDB dev provisioning
 
 on: workflow_dispatch
 
