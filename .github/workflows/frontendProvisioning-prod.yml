@@ -1,9 +1,9 @@
-name: Provisioning frontend dev enviroment
+name: Provisioning frontend prod enviroment
 
 on: workflow_dispatch
 
 jobs:
-  Provisioning-frontend-dev-enviroment:
+  Provisioning-frontend-prod-enviroment:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,8 +15,8 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.PRODUCTION_AWS_ACCESS_KEY_ID_PROD }}
-          aws-secret-access-key: ${{ secrets.PRODUCTION_AWS_SECRET_ACCESS_KEY_PROD }}
+          aws-access-key-id: ${{ secrets.PRODUCTION_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.PRODUCTION_AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Create S3 Bucket
