@@ -6,8 +6,12 @@ const generateReport = require('../jsreportAdapter');
 const fs = require('fs');
 const path = require('path');
 const { localMode } = require('../config');
+const {
+  updateSurveyToSucceedState,
+  getSurveyById,
+} = require('./surveyRepository');
 
-async function submitSurvey(body) {
+async function proccessSurvey(body) {
   const jsReportTemplate = {
     name: body.user.language === 'es' ? 'Compass-ES' : 'Compass-EN',
     engine: 'handlebars',
@@ -32,6 +36,16 @@ async function submitSurvey(body) {
   }
 }
 
+async function reProccessSurvey(id) {
+  try {
+    const survey = await getSurveyById(id);
+    await proccessSurvey(survey.bodyRequest);
+    await updateSurveyToSucceedState(id);
+  } catch (err) {
+    throw new err();
+  }
+}
+
 function generatePdfLocally(pdfBuffer) {
   const pdfPath = path.join(__dirname, `../../../tmp/test.pdf`);
   const route = path.join(__dirname, `../../../tmp`);
@@ -46,5 +60,6 @@ function generatePdfLocally(pdfBuffer) {
 }
 
 module.exports = {
-  submitSurvey,
+  proccessSurvey,
+  reProccessSurvey,
 };
