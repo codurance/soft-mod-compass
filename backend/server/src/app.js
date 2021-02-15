@@ -82,7 +82,16 @@ module.exports = (reportingApp) => {
 
   // allow to create failed survey (for testing only)
   app.post('/failed-surveys', (req, res) => {
-    saveFailedSurvey(req.body).then((body) => res.send(body));
+    saveFailedSurvey(req.body).then((id) => {
+      console.log({
+        failedSurvey: {
+          surveyId: id,
+          surveyRequestBody: req.body,
+          errorDetails: 'fake failure',
+        },
+      });
+      res.send(id);
+    });
   });
 
   function generatePdfLocally(pdfBuffer) {
