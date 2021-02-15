@@ -1,7 +1,7 @@
 const supertest = require('supertest');
 const express = require('express');
 const fakeRequestBody = require('./mockData/post_survey_request_body.json');
-const { documentDynamoClient } = require('./dynamoDB/dynamodbClient');
+const { documentDynamoClient } = require('./dynamodbClient');
 const mockConfig = {
   jsreport: {
     studioEditorEnabled: true,
