@@ -1,0 +1,42 @@
+[
+  {
+    "Namespace": "aws:autoscaling:launchconfiguration",
+    "OptionName": "InstanceType",
+    "Value": "t2.small"
+  },
+  {
+    "Namespace": "aws:autoscaling:launchconfiguration",
+    "OptionName": "IamInstanceProfile",
+    "Value": "compass-instance-profile"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:cloudwatch:logs",
+    "OptionName": "StreamLogs",
+    "Value": "true"
+  },
+  {
+    "Namespace": "aws:autoscaling:asg",
+    "OptionName": "Availability Zones",
+    "Value": "Any"
+  },
+  {
+    "Namespace": "aws:autoscaling:asg",
+    "OptionName": "Cooldown",
+    "Value": "360"
+  },
+  {
+    "Namespace": "aws:autoscaling:asg",
+    "OptionName": "Custom Availability Zones",
+    "Value": "eu-west-3a,eu-west-3b"
+  },
+  {
+    "Namespace": "aws:autoscaling:asg",
+    "OptionName": "MaxSize",
+    "Value": "2"
+  },
+  {
+    "Namespace": "aws:autoscaling:asg",
+    "OptionName": "MinSize",
+    "Value": "2"
+  }
+]
