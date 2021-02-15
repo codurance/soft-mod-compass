@@ -19,4 +19,6 @@ module.exports = {
   cors: {
     allowedOrigin: process.env.ALLOWED_ORIGIN,
   },
+  dynamoDBMockEndpoint: process.env.MOCK_DYNAMODB_ENDPOINT,
+  localMode: process.env.LOCAL_MODE,
 };

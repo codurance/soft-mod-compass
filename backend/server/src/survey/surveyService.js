@@ -5,6 +5,7 @@ const {
 const generateReport = require('../jsreportAdapter');
 const fs = require('fs');
 const path = require('path');
+const { localMode } = require('../config');
 
 async function submitSurvey(body) {
   const jsReportTemplate = {
@@ -14,7 +15,7 @@ async function submitSurvey(body) {
   };
   const pdf = await generateReport(jsReportTemplate, body);
 
-  if (process.env.LOCAL_MODE) {
+  if (localMode) {
     generatePdfLocally(pdf.content);
     return {
       status: 'ok',

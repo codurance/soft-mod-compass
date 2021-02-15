@@ -1,15 +1,15 @@
 const AWS = require('aws-sdk');
-const isTest = process.env.MOCK_DYNAMODB_ENDPOINT || process.env.LOCAL_MODE;
+const { localMode, dynamoDBMockEndpoint } = require('./config');
 
 AWS.config.update(
-  isTest
+  localMode || dynamoDBMockEndpoint
     ? {
         convertEmptyValues: true,
-        ...(process.env.MOCK_DYNAMODB_ENDPOINT && {
-          endpoint: process.env.MOCK_DYNAMODB_ENDPOINT,
+        ...{
+          endpoint: dynamoDBMockEndpoint,
           sslEnabled: false,
           region: 'local',
-        }),
+        },
       }
     : {
         region: 'eu-west-3',
