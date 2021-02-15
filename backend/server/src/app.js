@@ -42,14 +42,13 @@ module.exports = (reportingApp) => {
   app.patch('/surveys/:id', async (req, res) => {
     try {
       const { id } = req.params;
-      console.log('Reproccesing survey with id:' + id);
+      console.log('Reprocessing survey with id:' + id);
       await reProcessSurvey(id);
       res.status(200).send({ status: 'succeed', id });
     } catch (reason) {
-      handleInternalFailure(reason, req);
       res.status(500).send({
         status: 'Error',
-        message: `Error reproccesing the survey with id: ${id}`,
+        message: `Error reprocessing the survey with id: ${id}`,
         id,
         surveyStatus: 'failed',
         reason,
@@ -73,13 +72,17 @@ module.exports = (reportingApp) => {
   // allow to create failed survey (for testing only)
   app.post('/failed-surveys', (req, res) => {
     saveFailedSurvey(req.body).then((id) => {
-      console.log({
-        failedSurvey: {
-          surveyId: id,
-          surveyRequestBody: req.body,
-          errorDetails: 'fake failure',
-        },
-      });
+      console.log(
+        new Date().getTime() +
+          ' - ' +
+          {
+            failedSurvey: {
+              surveyId: id,
+              surveyRequestBody: req.body,
+              errorDetails: 'fake failure',
+            },
+          }
+      );
       res.send(id);
     });
   });

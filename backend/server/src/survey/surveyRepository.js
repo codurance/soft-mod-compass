@@ -2,7 +2,7 @@ const { documentDynamoClient } = require('../dynamodbClient');
 const generateUuid = require('uuid/v4');
 const TABLE_NAME = 'Surveys';
 
-async function saveFailedSurvey(survey) {
+function saveFailedSurvey(survey) {
   const id = generateUuid();
   const params = {
     TableName: TABLE_NAME,
@@ -13,7 +13,7 @@ async function saveFailedSurvey(survey) {
     },
   };
 
-  documentDynamoClient
+  return documentDynamoClient
     .put(params)
     .promise()
     .then(() => id)
