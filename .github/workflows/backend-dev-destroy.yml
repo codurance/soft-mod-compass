@@ -46,6 +46,18 @@ jobs:
           aws iam delete-role \
             --role-name compass-role
 
+      - name: detach policy AWSElasticBeanstalkWorkerTier
+        run: |
+          aws iam detach-role-policy \
+            --role-name compass-role \
+            --policy-arn "arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier"
+
+      - name: detach policy AWSElasticBeanstalkWebTier
+        run: |
+          aws iam detach-role-policy \
+            --role-name compass-role \
+            --policy-arn "arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier"
+
       - name: Delete S3 bucket
         run: |
           aws s3 rb s3://compass-service-package --force
