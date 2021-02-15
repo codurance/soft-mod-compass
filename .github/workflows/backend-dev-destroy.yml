@@ -1,10 +1,9 @@
-name: Compass dev API - Unprovisionning
+name: API dev destroy
 
 on: workflow_dispatch
 
 jobs:
   manual_destroy:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -19,7 +18,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
-             
+
       - name: remove roles from instance profile
         run: |
           aws iam remove-role-from-instance-profile \

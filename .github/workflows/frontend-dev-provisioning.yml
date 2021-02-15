@@ -1,9 +1,9 @@
-name: Provisioning frontend dev enviroment
+name: Frontend dev provisioning
 
 on: workflow_dispatch
 
 jobs:
-  Provisioning-frontend-dev-enviroment:
+  frontend-dev-provisioning:
     runs-on: ubuntu-latest
 
     steps:

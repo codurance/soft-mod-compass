@@ -1,10 +1,9 @@
-name: Compass dev API - Provisioning
+name: API dev provisioning
 
 on: workflow_dispatch
 
 jobs:
   manual_provisionning:
-
     runs-on: ubuntu-latest
 
     steps:
