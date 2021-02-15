@@ -11,7 +11,7 @@ const {
   getSurveyById,
 } = require('./surveyRepository');
 
-async function proccessSurvey(body) {
+async function processSurvey(body) {
   const jsReportTemplate = {
     name: body.user.language === 'es' ? 'Compass-ES' : 'Compass-EN',
     engine: 'handlebars',
@@ -36,10 +36,10 @@ async function proccessSurvey(body) {
   }
 }
 
-async function reProccessSurvey(id) {
+async function reProcessSurvey(id) {
   try {
     const survey = await getSurveyById(id);
-    await proccessSurvey(survey.bodyRequest);
+    await processSurvey(survey.bodyRequest);
     await updateSurveyToSucceedState(id);
   } catch (err) {
     throw new err();
@@ -60,6 +60,6 @@ function generatePdfLocally(pdfBuffer) {
 }
 
 module.exports = {
-  proccessSurvey,
-  reProccessSurvey,
+  processSurvey,
+  reProcessSurvey,
 };

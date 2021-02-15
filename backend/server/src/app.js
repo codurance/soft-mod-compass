@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const config = require('./config');
 const { saveFailedSurvey } = require('./survey/surveyRepository');
-const { proccessSurvey, reProccessSurvey } = require('./survey/surveyService');
+const { processSurvey, reProcessSurvey } = require('./survey/surveyService');
 
 module.exports = (reportingApp) => {
   const app = express();
@@ -28,7 +28,7 @@ module.exports = (reportingApp) => {
   app.post('/surveys', (req, res) => {
     console.log('new request incoming... request body' + req.body);
 
-    proccessSurvey(req.body)
+    processSurvey(req.body)
       .then((result) => {
         console.log('request successful :', result);
       })
@@ -43,7 +43,7 @@ module.exports = (reportingApp) => {
     try {
       const { id } = req.params;
       console.log('Reproccesing survey with id:' + id);
-      await reProccessSurvey(id);
+      await reProcessSurvey(id);
       res.status(200).send({ status: 'succeed', id });
     } catch (reason) {
       handleInternalFailure(reason, req);
