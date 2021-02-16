@@ -2,8 +2,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const config = require('./config');
-const { saveFailedSurvey } = require('./survey/surveyRepository');
+const {
+  saveFailedSurvey,
+  dbHealthCheck,
+} = require('./survey/surveyRepository');
 const { processSurvey, reProcessSurvey } = require('./survey/surveyService');
+//put a timestamp on each line of logs - required for cloudwatch log streaming
 require('log-timestamp');
 
 module.exports = (reportingApp) => {
@@ -23,7 +27,11 @@ module.exports = (reportingApp) => {
   }
 
   app.get('/', (req, res) => {
-    res.status(200).send({ status: 'up' });
+    dbHealthCheck()
+      .then((up) => res.status(200).send({ status: 'up', database: 'up' }))
+      .catch((reason) =>
+        res.status(500).send({ status: 'up', database: 'down' })
+      );
   });
 
   app.post('/surveys', (req, res) => {
