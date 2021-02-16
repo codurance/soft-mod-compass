@@ -4,6 +4,7 @@ const cors = require('cors');
 const config = require('./config');
 const { saveFailedSurvey } = require('./survey/surveyRepository');
 const { processSurvey, reProcessSurvey } = require('./survey/surveyService');
+require('log-timestamp');
 
 module.exports = (reportingApp) => {
   const app = express();
@@ -27,12 +28,12 @@ module.exports = (reportingApp) => {
 
   app.post('/surveys', (req, res) => {
     console.log(
-      new Date() + ' - new request incoming... request body' + req.body
+      'new request incoming... request body :' + JSON.stringify(req.body)
     );
 
     processSurvey(req.body)
       .then((result) => {
-        console.log(new Date() + ' - request successful :', result);
+        console.log('request successful :', result);
       })
       .catch((reason) => {
         handleInternalFailure(reason, req);
@@ -43,7 +44,7 @@ module.exports = (reportingApp) => {
   app.patch('/surveys/:id', async (req, res) => {
     try {
       const { id } = req.params;
-      console.log(new Date() + ' - Reprocessing survey with id:' + id);
+      console.log('Reprocessing survey with id: ' + id);
       await reProcessSurvey(id);
       res.status(200).send({ status: 'succeed', id });
     } catch (reason) {
@@ -58,21 +59,15 @@ module.exports = (reportingApp) => {
   });
 
   function handleInternalFailure(reason, req) {
-    console.error(
-      `${new Date()} - error in request ${req.method} ${req.uri} `,
-      reason
-    );
     saveFailedSurvey(req.body).then((id) =>
-      console.log(
-        new Date() +
-          ' - ' +
-          JSON.stringify({
-            failedSurvey: {
-              surveyId: id,
-              surveyRequestBody: req.body,
-              errorDetails: 'fake failure',
-            },
-          })
+      console.error(
+        JSON.stringify({
+          failedSurvey: {
+            surveyId: id,
+            surveyRequestBody: req.body,
+            errorDetails: reason,
+          },
+        })
       )
     );
   }
@@ -80,16 +75,14 @@ module.exports = (reportingApp) => {
   // allow to create failed survey (for testing only)
   app.post('/failed-surveys', (req, res) => {
     saveFailedSurvey(req.body).then((id) => {
-      console.log(
-        JSON.stringify(new Date()) +
-          ' - ' +
-          JSON.stringify({
-            failedSurvey: {
-              surveyId: id,
-              surveyRequestBody: req.body,
-              errorDetails: 'fake failure',
-            },
-          })
+      console.error(
+        JSON.stringify({
+          failedSurvey: {
+            surveyId: id,
+            surveyRequestBody: req.body,
+            errorDetails: 'fake failure',
+          },
+        })
       );
       res.send(id);
     });
