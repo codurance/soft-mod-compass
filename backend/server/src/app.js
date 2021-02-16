@@ -26,23 +26,24 @@ module.exports = (reportingApp) => {
   });
 
   app.post('/surveys', (req, res) => {
-    console.log('new request incoming... request body' + req.body);
+    console.log(
+      new Date() + ' - new request incoming... request body' + req.body
+    );
 
     processSurvey(req.body)
       .then((result) => {
-        console.log('request successful :', result);
+        console.log(new Date() + ' - request successful :', result);
       })
       .catch((reason) => {
         handleInternalFailure(reason, req);
       });
     res.sendStatus(202);
-    console.log('ready for new requests...');
   });
 
   app.patch('/surveys/:id', async (req, res) => {
     try {
       const { id } = req.params;
-      console.log('Reprocessing survey with id:' + id);
+      console.log(new Date() + ' - Reprocessing survey with id:' + id);
       await reProcessSurvey(id);
       res.status(200).send({ status: 'succeed', id });
     } catch (reason) {
@@ -57,15 +58,22 @@ module.exports = (reportingApp) => {
   });
 
   function handleInternalFailure(reason, req) {
-    console.error(`error in request ${req.method} ${req.uri} `, reason);
+    console.error(
+      `${new Date()} - error in request ${req.method} ${req.uri} `,
+      reason
+    );
     saveFailedSurvey(req.body).then((id) =>
-      console.log({
-        failedSurvey: {
-          surveyId: id,
-          surveyRequestBody: req.body,
-          errorDetails: reason,
-        },
-      })
+      console.log(
+        new Date() +
+          ' - ' +
+          JSON.stringify({
+            failedSurvey: {
+              surveyId: id,
+              surveyRequestBody: req.body,
+              errorDetails: 'fake failure',
+            },
+          })
+      )
     );
   }
 
@@ -73,15 +81,15 @@ module.exports = (reportingApp) => {
   app.post('/failed-surveys', (req, res) => {
     saveFailedSurvey(req.body).then((id) => {
       console.log(
-        new Date().getTime() +
+        new Date() +
           ' - ' +
-          {
+          JSON.stringify({
             failedSurvey: {
               surveyId: id,
               surveyRequestBody: req.body,
               errorDetails: 'fake failure',
             },
-          }
+          })
       );
       res.send(id);
     });

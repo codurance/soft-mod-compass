@@ -5,7 +5,7 @@ const app = require('./src/app')(reportingApp);
 
 const port = 8080;
 const server = app.listen(port, () => {
-  console.log(`ready at http://localhost:${port}`);
+  console.log(`${new Date()} - ready at http://localhost:${port}`);
 });
 
 const reportDataDir = path.resolve(__dirname, 'reportData');
@@ -46,7 +46,7 @@ const jsreport = require('jsreport')({
 jsreport
   .init()
   .then(() => {
-    console.log('jsreport server started');
+    console.log(new Date() + ' - jsreport server started');
   })
   .catch((e) => {
     console.error(e);
@@ -54,13 +54,13 @@ jsreport
 
 process.on('SIGTERM', function () {
   server.close(() => {
-    console.log('Received SIGTERM, shutting down');
+    console.log(new Date() + ' - Received SIGTERM, shutting down');
     process.exit(0);
   });
 });
 
 process.on('SIGINT', function () {
-  console.log('Received SIGINT, shutting down');
+  console.log(new Date() + ' - Received SIGINT, shutting down');
   server.close(() => {
     process.exit(0);
   });

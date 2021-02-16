@@ -55,7 +55,7 @@ function generatePdfLocally(pdfBuffer) {
   }
 
   fs.writeFileSync(pdfPath, pdfBuffer, (err) =>
-    console.log('Error generating the PDF', err.message)
+    console.log(new Date() + ' - Error generating the PDF', err.message)
   );
 }
 
