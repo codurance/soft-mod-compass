@@ -51,14 +51,12 @@ const uploadFile = (
     .execute()
     .then(extractUploadedFileId)
     .catch((e) => {
-      console.log('error submitting hubspot form ', e);
+      console.log('error uploading hubspot file ', e);
       throw new Error(`Could not upload file - Reason: ${e.message}`);
     });
 };
 
 const submitForm = (pdfLink, user, scores) => {
-  console.log(pdfLink, user);
-  console.log(scores);
   return hubspotPost(
     config.hubspot.formApiUrl,
     `/submissions/v3/integration/submit/${config.hubspot.portalId}/${config.hubspot.formId}`,

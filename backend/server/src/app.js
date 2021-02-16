@@ -4,6 +4,7 @@ const cors = require('cors');
 const config = require('./config');
 const { saveFailedSurvey } = require('./survey/surveyRepository');
 const { processSurvey, reProcessSurvey } = require('./survey/surveyService');
+require('log-timestamp');
 
 module.exports = (reportingApp) => {
   const app = express();
@@ -26,7 +27,9 @@ module.exports = (reportingApp) => {
   });
 
   app.post('/surveys', (req, res) => {
-    console.log('new request incoming... request body' + req.body);
+    console.log(
+      'new request incoming... request body :' + JSON.stringify(req.body)
+    );
 
     processSurvey(req.body)
       .then((result) => {
@@ -36,13 +39,12 @@ module.exports = (reportingApp) => {
         handleInternalFailure(reason, req);
       });
     res.sendStatus(202);
-    console.log('ready for new requests...');
   });
 
   app.patch('/surveys/:id', async (req, res) => {
     try {
       const { id } = req.params;
-      console.log('Reprocessing survey with id:' + id);
+      console.log('Reprocessing survey with id: ' + id);
       await reProcessSurvey(id);
       res.status(200).send({ status: 'succeed', id });
     } catch (reason) {
@@ -57,31 +59,30 @@ module.exports = (reportingApp) => {
   });
 
   function handleInternalFailure(reason, req) {
-    console.error(`error in request ${req.method} ${req.uri} `, reason);
     saveFailedSurvey(req.body).then((id) =>
-      console.log({
-        failedSurvey: {
-          surveyId: id,
-          surveyRequestBody: req.body,
-          errorDetails: reason,
-        },
-      })
+      console.error(
+        JSON.stringify({
+          failedSurvey: {
+            surveyId: id,
+            surveyRequestBody: req.body,
+            errorDetails: reason,
+          },
+        })
+      )
     );
   }
 
   // allow to create failed survey (for testing only)
   app.post('/failed-surveys', (req, res) => {
     saveFailedSurvey(req.body).then((id) => {
-      console.log(
-        new Date().getTime() +
-          ' - ' +
-          {
-            failedSurvey: {
-              surveyId: id,
-              surveyRequestBody: req.body,
-              errorDetails: 'fake failure',
-            },
-          }
+      console.error(
+        JSON.stringify({
+          failedSurvey: {
+            surveyId: id,
+            surveyRequestBody: req.body,
+            errorDetails: 'fake failure',
+          },
+        })
       );
       res.send(id);
     });

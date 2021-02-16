@@ -148,7 +148,6 @@ async function findSurveyWithId(uuidMock) {
   const { Item } = await documentDynamoClient
     .get({ TableName: 'Surveys', Key: { id: uuidMock } })
     .promise();
-  console.log('Item ', Item);
   return Item;
 }
 
