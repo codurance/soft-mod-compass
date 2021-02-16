@@ -6,6 +6,10 @@
   height: $height;
   width: 38px;
   opacity: $opacity;
+
+  @media (max-width: 800px) {
+    width: 16px;
+  }
 }
 
 .progress-bar {

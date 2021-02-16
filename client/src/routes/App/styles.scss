@@ -2,7 +2,13 @@
   background: url($url) no-repeat;
   background-size: 500px;
   background-position-x: 100%;
-  background-position-y: -40%;
+  background-position-y: -217px;
+
+  @media (max-width: 800px) {
+    background-size: 100%;
+    background-position-x: 0;
+    background-position-y: -250px;
+  }
 }
 
 .app {
@@ -83,6 +89,11 @@
     left: 0;
     position: absolute;
 
+    @media (max-width: 800px) {
+      top: -30px;
+      left: 40px;
+    }
+
     &:hover {
       cursor: pointer;
       img {
@@ -98,6 +109,11 @@
     @include arrow();
     right: 0;
     position: absolute;
+
+    @media (max-width: 800px) {
+      top: -30px;
+      right: 40px;
+    }
 
     &:hover {
       cursor: pointer;
@@ -115,8 +131,32 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  position: fixed;
+  bottom: 45px;
   width: 100%;
-  max-width: 930px;
+  max-width: 938px;
   margin-top: 20px;
+  z-index: 2;
+
+  @media (max-width: 800px) {
+    bottom: 20px;
+  }
+
+  &:after {
+    content: '';
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 1050px;
+    border-radius: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 55px;
+    position: fixed;
+    z-index: -1;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+
+    @media (max-width: 800px) {
+      height: 95px;
+    }
+  }
 }
