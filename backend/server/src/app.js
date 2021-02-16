@@ -30,7 +30,7 @@ module.exports = (reportingApp) => {
     dbHealthCheck()
       .then((up) => res.status(200).send({ status: 'up', database: 'up' }))
       .catch((reason) =>
-        res.status(500).send({ status: 'up', database: 'down' })
+        res.status(500).send({ status: 'up', database: 'down', reason })
       );
   });
 
