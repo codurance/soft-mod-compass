@@ -1,9 +1,118 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="895" height="895" viewBox="0 0 895 895">
-  <defs>
-    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
-      <stop offset="0" stop-color="#1cd8b4"/>
-      <stop offset="1" stop-color="#5557f6"/>
-    </linearGradient>
-  </defs>
-  <path id="Path_858" data-name="Path 858" d="M447.5,0C694.647,0,895,200.353,895,447.5S694.647,895,447.5,895,0,694.647,0,447.5,200.353,0,447.5,0Z" opacity="0.139" fill="url(#linear-gradient)"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 895 895" style="enable-background:new 0 0 895 895;" xml:space="preserve">
+<style type="text/css">
+	.st0{opacity:0.139;fill:url(#Path_858_1_);enable-background:new    ;}
+	.st1{opacity:0.32;}
+	.st2{opacity:0.139;fill:url(#Path_900_1_);enable-background:new    ;}
+	.st3{clip-path:url(#SVGID_2_);}
+	.st4{opacity:0.633;}
+	.st5{fill:#FFFFFF;}
+</style>
+<linearGradient id="Path_858_1_" gradientUnits="userSpaceOnUse" x1="150.3349" y1="867.9161" x2="150.3349" y2="866.9161" gradientTransform="matrix(895 0 0 -895 -134100 776787.375)">
+	<stop  offset="0" style="stop-color:#1CD8B4"/>
+	<stop  offset="1" style="stop-color:#5557F6"/>
+</linearGradient>
+<path id="Path_858" class="st0" d="M449.8,2.4c247.1,0,447.5,200.4,447.5,447.5S696.9,897.4,449.8,897.4S2.3,697.1,2.3,449.9
+	S202.6,2.4,449.8,2.4z"/>
+<g id="Group_2499" transform="translate(13851.75 24679)" class="st1">
+	
+		<linearGradient id="Path_900_1_" gradientUnits="userSpaceOnUse" x1="-13701.1631" y1="-23811.0645" x2="-13701.1631" y2="-23812.8164" gradientTransform="matrix(511 0 0 -511 6987892.5 -12192130)">
+		<stop  offset="0" style="stop-color:#1CD8B4"/>
+		<stop  offset="1" style="stop-color:#5557F6"/>
+	</linearGradient>
+	<path id="Path_900" class="st2" d="M-13402-24676.6c247.1,0,447.5,200.4,447.5,447.5c0,247.1-200.4,447.5-447.5,447.5
+		c-247.1,0-447.5-200.4-447.5-447.5C-13849.5-24476.2-13649.1-24676.6-13402-24676.6z"/>
+	<g>
+		<defs>
+			<circle id="SVGID_1_" cx="-13402" cy="-24229.1" r="447.5"/>
+		</defs>
+		<clipPath id="SVGID_2_">
+			<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+		</clipPath>
+		<g id="Mask_Group_27" class="st3">
+			<g id="Heer" transform="translate(-13960.373 -24857.184)" class="st4">
+				<g id="Group_2322" transform="translate(202.364 452.527)">
+					<path id="Path_813" class="st5" d="M279.3,453.9C175.9,423.8,96,336.2,75.8,230.6c-1.1-6-2.1-12.6-3.1-20.2l15.1-1.8
+						c0.9,7.3,1.8,13.5,2.9,19.1c19.2,100,94.9,183.1,192.9,211.6L279.3,453.9z"/>
+				</g>
+				<g id="Group_2323" transform="translate(127.576 194.625)">
+					<path id="Path_814" class="st5" d="M435.2,852.2c-230.9,0-418.7-187.8-418.7-418.7S204.3,14.8,435.2,14.8
+						C539,14.7,639.1,53.3,716.1,123l8.8,7.9l-151.2,65.3l-3.3-1.9c-132.1-74.7-299.7-28.1-374.3,104
+						c-15.5,27.4-26.2,57.4-31.6,88.4c-0.8,4.6-1.5,9.7-2.1,15.5l-15.1-1.7c0.7-6.1,1.4-11.5,2.3-16.4
+						c27.3-157.8,177.3-263.6,335-236.3c31.5,5.4,61.9,16.1,90,31.4l122.4-52.9C624,64.1,531.2,29.9,435.2,30
+						C212.7,30,31.7,211,31.7,433.5S212.7,837,435.2,837c117.9,0.2,230-51.4,306.5-141.1l-97.3-61.9c-53.8,55.9-127.6,88-205.2,89.2
+						l-0.2-15.2c75.7-0.7,147.6-33,198.6-88.9l4.3-4.7l122.5,77.9L759,699C679.6,796.1,560.7,852.4,435.2,852.2z"/>
+				</g>
+				<g id="Group_2324" transform="translate(196.218 236.495)">
+					<path id="Path_815" class="st5" d="M817.8,70.4l-496.9,619l-17.1-215.7l-0.5-6l-5.7-2L93.2,394.5L817.8,70.4 M849.1,46.3
+						l-781,349.3l226.4,78.9l19,239L849.1,46.3L849.1,46.3z"/>
+				</g>
+				<g id="Group_2326" transform="translate(326.124 242.299)">
+					<g id="Group_2325" transform="translate(0 0)">
+						
+							<rect id="Rectangle_1308" x="98.5" y="255.2" transform="matrix(0.7918 -0.6108 0.6108 0.7918 -68.1337 319.7809)" class="st5" width="673" height="9.3"/>
+					</g>
+				</g>
+				<g id="Group_2329" transform="translate(326.938 256.01)">
+					<g id="Group_2328" transform="translate(0 0)">
+						<g id="Group_2327" transform="translate(0)">
+							
+								<rect id="Rectangle_1309" x="175.3" y="451.1" transform="matrix(0.9969 -7.915506e-02 7.915506e-02 0.9969 -44.1242 15.8301)" class="st5" width="4.6" height="226.9"/>
+							
+								<rect id="Rectangle_1310" x="196" y="434.8" transform="matrix(0.9969 -7.915506e-02 7.915506e-02 0.9969 -42.424 17.4052)" class="st5" width="4.6" height="218"/>
+							
+								<rect id="Rectangle_1311" x="216.7" y="418.6" transform="matrix(0.9969 -7.915506e-02 7.915506e-02 0.9969 -40.7237 18.9801)" class="st5" width="4.6" height="209.2"/>
+							
+								<rect id="Rectangle_1312" x="237.4" y="402.3" transform="matrix(0.9969 -7.915506e-02 7.915506e-02 0.9969 -39.0235 20.5552)" class="st5" width="4.6" height="200.4"/>
+							
+								<rect id="Rectangle_1313" x="258.2" y="386.1" transform="matrix(0.9969 -7.915506e-02 7.915506e-02 0.9969 -37.3232 22.1301)" class="st5" width="4.6" height="191.6"/>
+							
+								<rect id="Rectangle_1314" x="278.9" y="369.8" transform="matrix(0.9969 -7.915506e-02 7.915506e-02 0.9969 -35.6229 23.7052)" class="st5" width="4.6" height="182.8"/>
+							
+								<rect id="Rectangle_1315" x="299.6" y="353.6" transform="matrix(0.9969 -7.915506e-02 7.915506e-02 0.9969 -33.9227 25.2801)" class="st5" width="4.6" height="173.9"/>
+							
+								<rect id="Rectangle_1316" x="320.3" y="337.3" transform="matrix(0.9969 -7.915506e-02 7.915506e-02 0.9969 -32.2224 26.8552)" class="st5" width="4.6" height="165.1"/>
+							
+								<rect id="Rectangle_1317" x="341" y="321.1" transform="matrix(0.9969 -7.915506e-02 7.915506e-02 0.9969 -30.5222 28.4302)" class="st5" width="4.6" height="156.3"/>
+							
+								<rect id="Rectangle_1318" x="361.7" y="304.8" transform="matrix(0.9969 -7.915506e-02 7.915506e-02 0.9969 -28.8219 30.0052)" class="st5" width="4.6" height="147.5"/>
+							
+								<rect id="Rectangle_1319" x="382.5" y="288.6" transform="matrix(0.9969 -7.915506e-02 7.915506e-02 0.9969 -27.1217 31.5802)" class="st5" width="4.6" height="138.6"/>
+							
+								<rect id="Rectangle_1320" x="403.2" y="272.3" transform="matrix(0.9969 -7.899013e-02 7.899013e-02 0.9969 -25.3719 33.0832)" class="st5" width="4.6" height="129.8"/>
+							
+								<rect id="Rectangle_1321" x="423.9" y="256.1" transform="matrix(0.9969 -7.899013e-02 7.899013e-02 0.9969 -23.6751 34.6551)" class="st5" width="4.6" height="121"/>
+							
+								<rect id="Rectangle_1322" x="444.6" y="239.8" transform="matrix(0.9969 -7.915506e-02 7.915506e-02 0.9969 -22.0207 36.3053)" class="st5" width="4.6" height="112.2"/>
+							
+								<rect id="Rectangle_1323" x="465.3" y="223.6" transform="matrix(0.9969 -7.915506e-02 7.915506e-02 0.9969 -20.3205 37.8802)" class="st5" width="4.6" height="103.4"/>
+							
+								<rect id="Rectangle_1324" x="486" y="207.3" transform="matrix(0.9969 -7.899013e-02 7.899013e-02 0.9969 -18.5852 39.3709)" class="st5" width="4.6" height="94.6"/>
+							
+								<rect id="Rectangle_1325" x="506.8" y="191.1" transform="matrix(0.9969 -7.915506e-02 7.915506e-02 0.9969 -16.92 41.0302)" class="st5" width="4.6" height="85.7"/>
+							
+								<rect id="Rectangle_1326" x="527.5" y="174.8" transform="matrix(0.9969 -7.915506e-02 7.915506e-02 0.9969 -15.2198 42.6053)" class="st5" width="4.6" height="76.9"/>
+							
+								<rect id="Rectangle_1327" x="548.2" y="158.6" transform="matrix(0.9969 -7.899013e-02 7.899013e-02 0.9969 -13.4954 44.0866)" class="st5" width="4.6" height="68.1"/>
+							
+								<rect id="Rectangle_1328" x="568.9" y="142.3" transform="matrix(0.9969 -7.917245e-02 7.917245e-02 0.9969 -11.8215 45.7655)" class="st5" width="4.6" height="59.3"/>
+							
+								<rect id="Rectangle_1329" x="589.6" y="126.1" transform="matrix(0.9969 -7.917245e-02 7.917245e-02 0.9969 -10.1208 47.3408)" class="st5" width="4.6" height="50.4"/>
+							
+								<rect id="Rectangle_1330" x="610.3" y="109.8" transform="matrix(0.9969 -7.917245e-02 7.917245e-02 0.9969 -8.4201 48.9162)" class="st5" width="4.6" height="41.6"/>
+							
+								<rect id="Rectangle_1331" x="631.1" y="93.6" transform="matrix(0.9969 -7.899013e-02 7.899013e-02 0.9969 -6.7088 50.3744)" class="st5" width="4.6" height="32.8"/>
+							
+								<rect id="Rectangle_1332" x="651.8" y="77.3" transform="matrix(0.9969 -7.918985e-02 7.918985e-02 0.9969 -5.0195 52.0784)" class="st5" width="4.6" height="24"/>
+							
+								<rect id="Rectangle_1333" x="672.5" y="61.1" transform="matrix(0.9969 -7.920726e-02 7.920726e-02 0.9969 -3.3187 53.666)" class="st5" width="4.6" height="15.2"/>
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
 </svg>

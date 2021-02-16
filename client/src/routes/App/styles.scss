@@ -1,12 +1,12 @@
 @mixin backgroundImage($url) {
   background: url($url) no-repeat;
-  background-size: 600px;
-  background-position-x: 89%;
-  background-position-y: -60%;
+  background-size: 500px;
+  background-position-x: 100%;
+  background-position-y: -40%;
 }
 
 .app {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: auto;
   padding-top: 30px;
   padding-left: 20px;

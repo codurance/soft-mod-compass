@@ -25,15 +25,15 @@
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: auto;
 
   &__assessment {
     position: absolute;
     height: 120%;
-    width: 50%;
+    width: 43%;
     right: 0;
-    background: url('./src/assets/icons/report-landing-page.svg') no-repeat
+    background: url('./src/assets/icons/report-landing-page.png') no-repeat
       right;
     background-size: 100%;
     animation: fadeIn ease 2s;
@@ -41,7 +41,7 @@
     -moz-animation: fadeIn ease 2s;
     -o-animation: fadeIn ease 2s;
     -ms-animation: fadeIn ease 2s;
-    bottom: -280px;
+    bottom: -80px;
     z-index: 1;
 
     @media (max-width: 800px) {
@@ -54,12 +54,12 @@
   @keyframes fadeIn {
     0% {
       opacity: 0;
-      bottom: -408px;
+      bottom: -208px;
       transform: rotate(5deg);
     }
     100% {
       opacity: 1;
-      bottom: -280px;
+      bottom: -80px;
       transform: rotate(0deg);
     }
   }
