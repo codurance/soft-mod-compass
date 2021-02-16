@@ -1,4 +1,4 @@
-const { documentDynamoClient } = require('../dynamodbClient');
+const { documentDynamoClient, dbHealthCheck } = require('../dynamodbClient');
 const generateUuid = require('uuid/v4');
 const TABLE_NAME = 'Surveys';
 
@@ -57,22 +57,9 @@ function getSurveyById(id) {
     });
 }
 
-function dbHealthCheck() {
-  const params = {
-    TableName: TABLE_NAME,
-  };
-  // Call DynamoDB to retrieve the selected table descriptions
-  return documentDynamoClient
-    .describeTable(params)
-    .promise()
-    .catch((reason) => {
-      console.error(`Database describe ${TABLE_NAME} table failed, ${reason}`);
-      throw reason;
-    });
-}
 module.exports = {
   saveFailedSurvey,
   updateSurveyToSucceedState,
   getSurveyById,
-  dbHealthCheck,
+  dbHealthCheck: () => dbHealthCheck(TABLE_NAME),
 };
