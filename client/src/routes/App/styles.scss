@@ -90,8 +90,8 @@
     position: absolute;
 
     @media (max-width: 800px) {
-      top: -30px;
-      left: 40px;
+      top: -35px;
+      left: 25px;
     }
 
     &:hover {
@@ -111,8 +111,8 @@
     position: absolute;
 
     @media (max-width: 800px) {
-      top: -30px;
-      right: 40px;
+      top: -35px;
+      right: 25px;
     }
 
     &:hover {
@@ -156,7 +156,7 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 
     @media (max-width: 800px) {
-      height: 95px;
+      height: 115px;
     }
   }
 }
