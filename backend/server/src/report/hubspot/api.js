@@ -51,7 +51,7 @@ const uploadFile = (
     .execute()
     .then(extractUploadedFileId)
     .catch((e) => {
-      console.log(new Date() + ' - error uploading hubspot file ', e);
+      console.log('error uploading hubspot file ', e);
       throw new Error(`Could not upload file - Reason: ${e.message}`);
     });
 };
@@ -111,7 +111,7 @@ const submitForm = (pdfLink, user, scores) => {
     .executeWithoutQueryString()
     .then((value) => ({ userCreated: user.email }))
     .catch((e) => {
-      console.log(new Date() + ' - error submitting hubspot form ', e);
+      console.log('error submitting hubspot form ', e);
       throw new Error(`Could not submit form - Reason: ${e.message}`);
     });
 };
