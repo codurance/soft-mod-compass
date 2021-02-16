@@ -41,7 +41,7 @@ async function updateSurveyToSucceedState(id) {
     });
 }
 
-async function getSurveyById(id) {
+function getSurveyById(id) {
   const params = {
     TableName: TABLE_NAME,
     Key: {
@@ -57,8 +57,25 @@ async function getSurveyById(id) {
     });
 }
 
+function dbHealthCheck() {
+  const params = {
+    TableName: TABLE_NAME,
+  };
+  return new Promise((resolve, reject) => {
+    // Call DynamoDB to retrieve the selected table descriptions
+    documentDynamoClient.describeTable(params, function (err, data) {
+      if (err) {
+        console.error(`Database describe ${TABLE_NAME} table failed, ${err}`);
+        reject(err);
+      } else {
+        resolve(data);
+      }
+    });
+  });
+}
 module.exports = {
   saveFailedSurvey,
   updateSurveyToSucceedState,
   getSurveyById,
+  dbHealthCheck,
 };
