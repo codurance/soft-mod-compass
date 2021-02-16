@@ -61,17 +61,14 @@ function dbHealthCheck() {
   const params = {
     TableName: TABLE_NAME,
   };
-  return new Promise((resolve, reject) => {
-    // Call DynamoDB to retrieve the selected table descriptions
-    documentDynamoClient.describeTable(params, function (err, data) {
-      if (err) {
-        console.error(`Database describe ${TABLE_NAME} table failed, ${err}`);
-        reject(err);
-      } else {
-        resolve(data);
-      }
+  // Call DynamoDB to retrieve the selected table descriptions
+  return documentDynamoClient
+    .describeTable(params)
+    .promise()
+    .catch((reason) => {
+      console.error(`Database describe ${TABLE_NAME} table failed, ${reason}`);
+      throw reason;
     });
-  });
 }
 module.exports = {
   saveFailedSurvey,
