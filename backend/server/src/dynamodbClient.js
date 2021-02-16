@@ -19,5 +19,20 @@ AWS.config.update(
 );
 
 const documentDynamoClient = new AWS.DynamoDB.DocumentClient();
+const dynamoClient = new AWS.DynamoDB();
 
-module.exports = { documentDynamoClient };
+function dbHealthCheck(tableName) {
+  const params = {
+    TableName: tableName,
+  };
+  // Call DynamoDB to retrieve the selected table descriptions
+  return dynamoClient
+    .describeTable(params)
+    .promise()
+    .catch((reason) => {
+      console.error(`Database describe ${TABLE_NAME} table failed, ${reason}`);
+      throw reason;
+    });
+}
+
+module.exports = { documentDynamoClient, dbHealthCheck };
