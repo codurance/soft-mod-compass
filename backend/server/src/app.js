@@ -81,7 +81,7 @@ module.exports = (reportingApp) => {
   app.post('/failed-surveys', (req, res) => {
     saveFailedSurvey(req.body).then((id) => {
       console.log(
-        new Date() +
+        JSON.stringify(new Date()) +
           ' - ' +
           JSON.stringify({
             failedSurvey: {
