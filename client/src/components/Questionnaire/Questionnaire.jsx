@@ -22,7 +22,7 @@ function Questionnaire({ currentQuestion, onClickAnswer, isSelectedAnswer }) {
         </CSSTransition>
       </SwitchTransition>
       <div
-        className={`questionnaire__assessment--${currentQuestion.category}`}
+        className={`questionnaire-area questionnaire__assessment--${currentQuestion.category}`}
         data-testid={`background-${currentQuestion.category}`}
       />
     </div>

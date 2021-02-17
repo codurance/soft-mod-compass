@@ -7,6 +7,7 @@ import MaturityIcon from '../../assets/icons/icon-maturity.svg';
 import XPIcon from '../../assets/icons/icon-xp-practices.svg';
 import Button from '../../components/Button/Button';
 import Header from '../../components/Header/Header';
+
 import translator from '../../config/translator';
 import './styles.scss';
 import languageService from '../../services/languageService';

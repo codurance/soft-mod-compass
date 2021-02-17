@@ -1,13 +1,17 @@
 @import '../../styles/global.scss';
 
 @mixin input($border-color) {
-  padding: 7px;
+  padding: 3px 7px;
   border-radius: 3px;
   font-size: var(--natus-font-size);
   border: 1px solid $border-color;
   box-shadow: 0px 0px 1px var(--shark);
   width: 100%;
   color: var(--mid-gray);
+}
+
+.form__fields-wrapper {
+  padding-top: 30px;
 }
 
 .form {
@@ -49,7 +53,6 @@
   &__gdpr {
     display: flex;
     align-items: flex-start;
-    // height: 25px;
 
     &__text {
       @include sejima;
@@ -82,5 +85,11 @@
   @include input(var(--french-gray));
   &__error {
     @include input(var(--persimmon));
+  }
+}
+
+.form__assessment {
+  @media (max-width: 800px) {
+    display: none;
   }
 }

@@ -7,4 +7,12 @@
     height: 50px;
     margin: 0 15px;
   }
+
+  img {
+
+    @media (max-width: 800px) {
+      width: 25%;
+      height: auto;     
+    }
+  }
 }
