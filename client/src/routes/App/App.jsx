@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { enLabels } from 'translations';
 import React, { useEffect, useState } from 'react';
 import ArrowIcon from '../../assets/icons/icon-arrow.svg';
 import Header from '../../components/Header/Header';
@@ -12,7 +13,6 @@ import questionnaireMapper from '../../mappers/questionnaireMapper';
 import redirectService from '../../services/redirectService';
 import reportService from '../../services/reportService';
 import './styles.scss';
-import enLabels from '../../config/en-labels.json';
 
 const initialUserDetails = {
   firstName: '',
