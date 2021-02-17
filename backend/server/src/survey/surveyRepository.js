@@ -1,5 +1,6 @@
 const { documentDynamoClient, dbHealthCheck } = require('../dynamodbClient');
 const generateUuid = require('uuid/v4');
+const SurveyState = require('./SurveyState');
 const TABLE_NAME = 'Surveys';
 
 function saveFailedSurvey(survey) {
@@ -9,7 +10,7 @@ function saveFailedSurvey(survey) {
     Item: {
       bodyRequest: survey,
       id,
-      surveyState: 'failed',
+      surveyState: SurveyState.FAILED,
     },
   };
   return documentDynamoClient
@@ -30,7 +31,7 @@ function saveRequestedSurvey(survey) {
     Item: {
       bodyRequest: survey,
       id,
-      surveyState: 'requested',
+      surveyState: SurveyState.REQUESTED,
     },
   };
   return documentDynamoClient
@@ -44,13 +45,13 @@ function saveRequestedSurvey(survey) {
     });
 }
 
-async function updateSurveyToSucceedState(id) {
+function updateSurveyState(id, state) {
   const params = {
     TableName: TABLE_NAME,
     Key: { id },
     UpdateExpression: 'set surveyState = :surveyState',
     ExpressionAttributeValues: {
-      ':surveyState': 'succeed',
+      ':surveyState': state,
     },
     ReturnValues: 'UPDATED_NEW',
   };
@@ -59,8 +60,18 @@ async function updateSurveyToSucceedState(id) {
     .update(params)
     .promise()
     .catch((err) => {
-      throw new Error(`Could not update the survey - Reason: ${err.message}`);
+      throw new Error(
+        `Could not update the survey to ${state} - Reason: ${err.message}`
+      );
     });
+}
+
+function updateSurveyToSucceedState(id) {
+  return updateSurveyState(id, SurveyState.SUCCEED);
+}
+
+function updateSurveyToFailedState(id) {
+  return updateSurveyState(id, SurveyState.FAILED);
 }
 
 function getSurveyById(id) {
@@ -85,4 +96,5 @@ module.exports = {
   updateSurveyToSucceedState,
   getSurveyById,
   dbHealthCheck: () => dbHealthCheck(TABLE_NAME),
+  updateSurveyToFailedState,
 };

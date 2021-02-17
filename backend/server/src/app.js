@@ -19,7 +19,6 @@ module.exports = (reportingApp) => {
         methods: 'POST',
       })
     );
-  // app.options('*', cors());
   app.use(bodyParser.json()); // support json encoded bodies
   app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
   if (config.jsreport.studioEditorEnabled) {
@@ -28,7 +27,7 @@ module.exports = (reportingApp) => {
 
   app.get('/', (req, res) => {
     dbHealthCheck()
-      .then((up) => res.status(200).send({ status: 'up', database: 'up' }))
+      .then(() => res.status(200).send({ status: 'up', database: 'up' }))
       .catch((reason) =>
         res.status(500).send({ status: 'up', database: 'down', reason })
       );
@@ -45,7 +44,6 @@ module.exports = (reportingApp) => {
       })
       .catch((reason) => {
         console.error('error in processSurvey app ', reason);
-        handleInternalFailure(reason, req);
       });
     res.sendStatus(202);
   });
@@ -57,6 +55,7 @@ module.exports = (reportingApp) => {
       await reProcessSurvey(id);
       res.status(200).send({ status: 'succeed', id });
     } catch (reason) {
+      console.error('error in reProcessSurvey app ', reason);
       res.status(500).send({
         status: 'Error',
         message: `Error reprocessing the survey with id: ${id}`,
@@ -66,20 +65,6 @@ module.exports = (reportingApp) => {
       });
     }
   });
-
-  function handleInternalFailure(reason, req) {
-    saveFailedSurvey(req.body).then((id) =>
-      console.error(
-        JSON.stringify({
-          failedSurvey: {
-            surveyId: id,
-            surveyRequestBody: req.body,
-            errorDetails: reason,
-          },
-        })
-      )
-    );
-  }
 
   // allow to create failed survey (for testing only)
   app.post('/failed-surveys', (req, res) => {

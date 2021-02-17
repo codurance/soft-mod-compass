@@ -4,6 +4,8 @@ const surveyRepositoryMock = {
   saveRequestedSurvey: jest.fn(),
   updateSurveyToSucceedState: jest.fn(),
   getSurveyById: jest.fn(),
+  saveFailedSurvey: jest.fn(),
+  updateSurveyToFailedState: jest.fn(() => Promise.resolve()),
 };
 jest.doMock('./surveyRepository', () => surveyRepositoryMock);
 
@@ -15,6 +17,7 @@ jest.doMock('./surveyOrchestrator', () => surveyOrchestratorMock);
 const { processSurvey, reProcessSurvey } = require('./surveyService');
 const mockedId = '123';
 
+const submitError = new Error('submit fails');
 describe('surveyService', () => {
   beforeEach(() => {
     jest.clearAllMocks();
@@ -31,6 +34,35 @@ describe('surveyService', () => {
     expect(resultId).toBe(mockedId);
   });
 
+  it('should save failed survey status when process fails', async () => {
+    surveyRepositoryMock.saveRequestedSurvey.mockImplementation(() => mockedId);
+    surveyOrchestratorMock.submitSurvey.mockImplementation(() => {
+      throw submitError;
+    });
+    await expect(processSurvey(requestBody)).rejects.toThrow(
+      JSON.stringify({
+        failedSurvey: {
+          surveyId: mockedId,
+          surveyRequestBody: requestBody,
+          errorDetails: submitError.message,
+        },
+      })
+    );
+
+    expect(surveyRepositoryMock.saveRequestedSurvey).toHaveBeenCalledWith(
+      requestBody
+    );
+    expect(surveyOrchestratorMock.submitSurvey).toHaveBeenCalledWith(
+      requestBody
+    );
+    expect(
+      surveyRepositoryMock.updateSurveyToSucceedState
+    ).toHaveBeenCalledTimes(0);
+    expect(surveyRepositoryMock.updateSurveyToFailedState).toHaveBeenCalledWith(
+      mockedId
+    );
+  });
+
   it('should reprocess a failed survey', async () => {
     const surveyDbItem = {
       id: mockedId,
@@ -38,7 +70,7 @@ describe('surveyService', () => {
       bodyRequest: { user: 'fakeUser' },
     };
     surveyRepositoryMock.getSurveyById.mockImplementation(() => surveyDbItem);
-
+    surveyOrchestratorMock.submitSurvey.mockImplementation(() => {});
     await reProcessSurvey(requestBody);
 
     expect(surveyRepositoryMock.getSurveyById).toHaveBeenCalledTimes(1);

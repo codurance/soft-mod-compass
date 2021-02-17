@@ -2,6 +2,9 @@ const supertest = require('supertest');
 const express = require('express');
 const fakeRequestBody = require('./mockData/post_survey_request_body.json');
 const nock = require('nock');
+const { documentDynamoClient } = require('./dynamodbClient');
+const uuidGenerator = jest.fn();
+jest.doMock('uuid/v4', () => uuidGenerator);
 
 const renderMock = (function () {
   const renderFunction = jest.fn();
@@ -123,7 +126,8 @@ describe('app', () => {
   it('should reply ok when submit survey', (done) => {
     const uploadPdfMockServerCall = mockHubspotFileApi();
     const submitFormServerCall = mockHubspotFormApi();
-
+    const uuidMock = '1111';
+    uuidGenerator.mockReturnValue(uuidMock);
     const app = require('./app')(express());
 
     supertest(app)
@@ -144,9 +148,19 @@ describe('app', () => {
             fakeRequestBody
           );
           setTimeout(async () => {
+            const surveySucceed = await findSurveyWithId(uuidMock);
+            expect(surveySucceed.surveyState).toEqual('succeed');
+            expect(surveySucceed.bodyRequest).toEqual(fakeRequestBody);
             done();
           }, 1000);
         });
       });
   });
 });
+
+async function findSurveyWithId(uuidMock) {
+  const { Item } = await documentDynamoClient
+    .get({ TableName: 'Surveys', Key: { id: uuidMock } })
+    .promise();
+  return Item;
+}
