@@ -19,7 +19,8 @@
 }
 
 .landing {
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   background-size: 1607px;
   background-position-x: 900px;
   overflow: hidden;
@@ -35,7 +36,8 @@
     height: 120%;
     width: 43%;
     right: 0;
-    background: url('./src/assets/icons/report-landing-page.png') no-repeat right;
+    background: url('./src/assets/icons/report-landing-page.png') no-repeat
+      right;
     background-size: 100%;
     animation: fadeIn ease 2s;
     -webkit-animation: fadeIn ease 2s;
