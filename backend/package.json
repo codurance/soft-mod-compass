@@ -49,7 +49,8 @@
     "request-promise": "4.2.2",
     "sleep-promise": "8.0.1",
     "uuid": "3.3.2",
-    "uuidgen": "^1.0.0"
+    "uuidgen": "^1.0.0",
+    "translations": "file:../translations/"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.5",
