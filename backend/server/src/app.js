@@ -44,6 +44,7 @@ module.exports = (reportingApp) => {
         console.log('request successful :', result);
       })
       .catch((reason) => {
+        console.error('error in processSurvey app ', reason);
         handleInternalFailure(reason, req);
       });
     res.sendStatus(202);

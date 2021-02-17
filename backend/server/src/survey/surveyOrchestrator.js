@@ -33,8 +33,8 @@ async function submitSurvey(body) {
 }
 
 function generatePdfLocally(pdfBuffer) {
-  const pdfPath = path.join(__dirname, `../../tmp/test.pdf`);
-  const route = path.join(__dirname, `../../tmp`);
+  const pdfPath = path.join(__dirname, `../../../tmp/test.pdf`);
+  const route = path.join(__dirname, `../../../tmp`);
 
   if (!fs.existsSync(route)) {
     fs.mkdirSync(route);
