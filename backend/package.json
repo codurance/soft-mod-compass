@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "main": "./server/index.js",
   "scripts": {
-    "dev": ". ./scripts/localConf.sh && babel-node ./server/index.js",
+    "local": ". ./scripts/localConf.sh && ./scripts/localDB.sh && babel-node ./server/index.js",
     "dev:es": "npm run check-aws-region:dev && . ./scripts/envvars-config-dev-ES.sh && babel-node ./server/index.js",
     "debug:en": "node --inspect ./server/index.js",
     "debug:es": ". ./scripts/envvars-config-dev-ES.sh &&  node --inspect ./server/index.js",
@@ -41,6 +41,7 @@
     "aws-sdk": "^2.638.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "dynalite": "^3.2.1",
     "express": "4.16.4",
     "jest-dynalite": "^3.3.1",
     "jsreport": "2.4.0",
