@@ -29,6 +29,7 @@ const mockConfig = {
     },
   },
   cors: {},
+  dynamoDBMockEndpoint: process.env.MOCK_DYNAMODB_ENDPOINT,
 };
 const config = { ...mockConfig };
 jest.doMock('./config', () => config);
@@ -124,19 +125,27 @@ describe('app', () => {
     const submitFormServerCall = mockHubspotFormApi();
 
     const app = require('./app')(express());
+
     supertest(app)
       .post('/surveys')
       .send(fakeRequestBody)
       .then((res) => {
-        expect(renderMock).toHaveBeenCalledWith(
-          { engine: 'handlebars', name: 'Compass-EN', recipe: 'chrome-pdf' },
-          fakeRequestBody
-        );
         expect(res.status).toBe(202);
         expect(res.body).toEqual({});
         submitFormServerCall.reply(200, function (uri, requestBody) {
           expect(uploadPdfMockServerCall.isDone()).toBe(true);
-          done();
+
+          expect(renderMock).toHaveBeenCalledWith(
+            {
+              engine: 'handlebars',
+              name: 'Compass-EN',
+              recipe: 'chrome-pdf',
+            },
+            fakeRequestBody
+          );
+          setTimeout(async () => {
+            done();
+          }, 1000);
         });
       });
   });
