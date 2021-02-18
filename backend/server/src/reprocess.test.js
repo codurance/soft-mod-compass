@@ -1,6 +1,7 @@
 const supertest = require('supertest');
 const express = require('express');
 const fakeRequestBody = require('./mockData/post_survey_request_body.json');
+const SurveyState = require('./survey/SurveyState');
 const { documentDynamoClient } = require('./dynamodbClient');
 const mockConfig = {
   jsreport: {
@@ -144,6 +145,28 @@ describe('app', () => {
   });
 });
 
+it('should not reprocess an already succeed survey', async (done) => {
+  // Initialize the database
+  const id = '1234';
+  const bodyRequest = { user: { language: 'es' } };
+  await createSucceedSurvey(id, bodyRequest);
+
+  const app = require('./app')(express());
+  supertest(app)
+    .patch(`/surveys/${id}`)
+    .send()
+    .then(async (res) => {
+      const updatedSurvey = await findSurveyWithId(id);
+
+      expect(res.status).toBe(400);
+      expect(res.body).toEqual({ status: 'already succeed', id });
+      expect(updatedSurvey.surveyState).toEqual(SurveyState.SUCCEED);
+      expect(updatedSurvey.id).toEqual(res.body.id);
+      expect(updatedSurvey.bodyRequest).toEqual(bodyRequest);
+      done();
+    });
+});
+
 async function findSurveyWithId(uuidMock) {
   const { Item } = await documentDynamoClient
     .get({ TableName: 'Surveys', Key: { id: uuidMock } })
@@ -152,12 +175,20 @@ async function findSurveyWithId(uuidMock) {
 }
 
 async function createFailedSurvey(id, survey) {
+  await createSurvey(survey, id, SurveyState.FAILED);
+}
+
+async function createSucceedSurvey(id, survey) {
+  await createSurvey(survey, id, SurveyState.SUCCEED);
+}
+
+async function createSurvey(survey, id, state) {
   const params = {
     TableName: 'Surveys',
     Item: {
       bodyRequest: survey,
       id,
-      surveyState: 'failed',
+      surveyState: state,
     },
   };
   await documentDynamoClient.put(params).promise();

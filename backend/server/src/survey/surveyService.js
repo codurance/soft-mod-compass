@@ -1,3 +1,4 @@
+const SurveyState = require('./SurveyState');
 const {
   updateSurveyToSucceedState,
   getSurveyById,
@@ -40,8 +41,10 @@ async function reProcessSurvey(id) {
   let survey;
   try {
     survey = await getSurveyById(id);
+    if (survey.surveyState === SurveyState.SUCCEED) return 'already succeed';
     await submitSurvey(survey.bodyRequest);
     await updateSurveyToSucceedState(id);
+    return SurveyState.SUCCEED;
   } catch (e) {
     propagateFailedSurveyError(e, id, survey.bodyRequest);
   }
