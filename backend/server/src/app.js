@@ -9,6 +9,7 @@ const {
 const { processSurvey, reProcessSurvey } = require('./survey/surveyService');
 //put a timestamp on each line of logs - required for cloudwatch log streaming
 require('log-timestamp');
+const SurveyStatus = require('./survey/SurveyState');
 
 module.exports = (reportingApp) => {
   const app = express();
@@ -52,8 +53,10 @@ module.exports = (reportingApp) => {
     try {
       const { id } = req.params;
       console.log('Reprocessing survey with id: ' + id);
-      await reProcessSurvey(id);
-      res.status(200).send({ status: 'succeed', id });
+      const status = await reProcessSurvey(id);
+      if (status === SurveyStatus.SUCCEED)
+        res.status(200).send({ status: status, id });
+      else res.status(400).send({ status: status, id });
     } catch (reason) {
       console.error('error in reProcessSurvey app ', reason);
       res.status(500).send({
