@@ -1,4 +1,4 @@
-name: API dev destroy
+name: API prod destroy
 
 on: workflow_dispatch
 
@@ -15,8 +15,8 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-access-key-id: ${{ secrets.PRODUCTION_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.PRODUCTION_AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: remove roles from instance profile
@@ -24,43 +24,35 @@ jobs:
           aws iam remove-role-from-instance-profile \
             --instance-profile-name compass-instance-profile \
             --role-name compass-role
-
       - name: delete instance profile
         run: |
           aws iam delete-instance-profile \
             --instance-profile-name compass-instance-profile
-
       - name: delete policy
         run: |
           aws iam delete-role-policy \
             --role-name compass-role \
             --policy-name compass-custom-policy
-
       - name: detach policy AWSElasticBeanstalkWorkerTier
         run: |
           aws iam detach-role-policy \
             --role-name compass-role \
             --policy-arn "arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier"
-
       - name: detach policy AWSElasticBeanstalkWebTier
         run: |
           aws iam detach-role-policy \
             --role-name compass-role \
             --policy-arn "arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier"
-
       - name: delete role
         run: |
           aws iam delete-role \
             --role-name compass-role
-
       - name: terminate ElasticBeanstalk environment
         run: |
           aws elasticbeanstalk terminate-environment \
-            --environment-name compassDev-env
-
+            --environment-name compassProd-env
       - name: Delete S3 bucket
         run: |
-          aws s3 rb s3://compass-service-package --force
-
+          aws s3 rb s3://compass-service-package-prod --force
       - name: Delete ElasticBeanstalk application
-        run: aws elasticbeanstalk delete-application --application-name compass-dev
+        run: aws elasticbeanstalk delete-application --application-name compass-prod
