@@ -55,6 +55,9 @@ jobs:
             --role-name compass-role \
             --instance-profile-name compass-instance-profile
 
+      - name:
+        run: aws elasticbeanstalk create-application --application-name compass-dev
+
       - name: Create an ElasticBeanstalk environment
         run: |
           aws elasticbeanstalk create-environment \
