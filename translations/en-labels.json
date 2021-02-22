@@ -15,7 +15,7 @@
   "autonomy": "Teams have autonomy to decide on the tools, technologies, practices and methodologies they use to complete their tasks. *",
   "wholeTeam": "The team have immediate access to all the people and knowledge they require to complete their work. *",
   "knowledgeSharing": "Knowledge is shared at all levels throughout the team and each member can perform any required task. *",
-  "tdd": "We value Test-driven Development (TDD) and never write production code without first writing a test. *",
+  "tdd": "We value Test-Driven Development (TDD) and never write production code without first writing a test. *",
   "architecture": "Change is localised and tested with minimal impact on other parts of the application. *",
   "cleanCode": "Our code is easy to understand and maintain. *",
   "peerReview": "All production code is peer-reviewed comprehensively before it is considered “done”. *",
