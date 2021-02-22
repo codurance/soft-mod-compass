@@ -29,7 +29,7 @@ function Landing() {
   const questionnaireRedirect = () => {
     const isSpanish = languageService.getLanguage();
     const uri =
-      isSpanish === 'es' ? '/questionnaire/?lang=es' : '/questionnaire';
+      isSpanish === 'es' ? '/questionnaire?lang=es' : '/questionnaire';
     history.push(uri);
   };
 
