@@ -1,0 +1,108 @@
+name: Deploy prod
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  ci-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: test-backend
+        run: |
+          cd ./backend
+          npm install
+          npm run test
+  ci-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: CI
+        run: |
+          cd ./client
+          npm install
+          npm run test
+      - name: Build
+        run: |
+          cd ./client
+          npm run create-prod
+  deploy-frontend:
+    needs: [ci-frontend, ci-backend]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Build
+        run: |
+          cd ./client
+          npm install
+          npm run create-prod
+      - name: AWS cli install action
+        uses: chrislennon/action-aws-cli@1.1
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.PRODUCTION_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.PRODUCTION_AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Deploy Frontend
+        run: |
+          cd ./client
+          aws s3 sync ./dist s3://compass.codurance.com
+  deploy-backend:
+    needs: [ci-frontend, ci-backend]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: bundle-backend
+        run: |
+          cd ./backend
+          npm install
+          mkdir bundle
+          zip ./bundle/compass-backend.zip -r * .[^.]*
+      - name: AWS cli install action
+        uses: chrislennon/action-aws-cli@1.1
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.PRODUCTION_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.PRODUCTION_AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: push bundle to S3
+        run: |
+          cd ./backend/bundle
+          aws s3 sync . s3://compass-service-package-prod
+      - name: Create new ElasticBeanstalk Application Version from S3
+        run: |
+          aws elasticbeanstalk create-application-version \
+          --application-name compass-prod \
+          --source-bundle S3Bucket="compass-service-package-prod",S3Key="compass-backend.zip" \
+          --version-label "ver-${{ github.sha }}" \
+          --description "commit-sha-${{ github.sha }}"
+      - name: Create env json
+        run: echo "[{\"Namespace\":\"aws:elasticbeanstalk:application:environment\",\"OptionName\":\"ALLOWED_ORIGIN\",\"Value\":\"https://compass-prod.codurance.com\"},{\"Namespace\":\"aws:elasticbeanstalk:application:environment\",\"OptionName\":\"HUBSPOT_FORM_ID\",\"Value\":\"${{secrets.PRODUCTION_HUBSPOT_FORM_ID}}\"},{\"Namespace\":\"aws:elasticbeanstalk:application:environment\",\"OptionName\":\"HUBSPOT_AUTH_TOKEN\",\"Value\":\"${{secrets.HUBSPOT_AUTH_TOKEN}}\"},{\"Namespace\":\"aws:elasticbeanstalk:application:environment\",\"OptionName\":\"HUBSPOT_ACCOUNT_ID\",\"Value\":\"${{secrets.HUBSPOT_ACCOUNT_ID}}\"},{\"Namespace\":\"aws:elb:listener:443\",\"OptionName\":\"ListenerProtocol\",\"Value\":\"HTTPS\"},{\"Namespace\":\"aws:elb:listener:443\",\"OptionName\":\"InstancePort\",\"Value\":\"80\"},{\"Namespace\":\"aws:elb:listener:443\",\"OptionName\":\"InstanceProtocol\",\"Value\":\"HTTP\"},{\"Namespace\":\"aws:elb:listener:443\",\"OptionName\":\"SSLCertificateId\",\"Value\":\"${{secrets.SSL_CERTIFICATE_ARN}}\"}]" > .github/backendEnvVars.json
+
+      - name: Deploy new ElasticBeanstalk Application Version
+        run: |
+          aws elasticbeanstalk update-environment \
+          --environment-name CompassProd-env \
+          --version-label "ver-${{ github.sha }}" \
+          --option-settings file://.github/backendEnvVars.json

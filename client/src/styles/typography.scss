@@ -1,0 +1,418 @@
+:root {
+  --min-font-size: 110%;
+  --max-font-size: 131.3%;
+
+  --type-font-size: 110%;
+  @media (min-width: 37.03em) {
+    --type-font-size: 2.97vw;
+  }
+  @media (min-width: 705px) {
+    --type-font-size: 131.3%;
+  }
+
+  --light-font-weight: 300;
+  --welter-font-weight: 400;
+  --middle-font-weight: 600;
+  --heavy-font-weight: 800;
+
+  --habib-font-size: 3.095rem;
+  --habib-line-height: 3.47619rem;
+  --habib-margin: 1.38095476rem;
+  --habib-max-width: 20ch;
+
+  --gaudi-font-size: 2.4285714rem;
+  --gaudi-line-height: 2.7142857rem;
+  --gaudi-margin: 1.3809524rem;
+  --gaudi-max-width: 25ch;
+
+  --eames-font-size: 1.952381rem;
+  --eames-line-height: 2.047619rem;
+  --eames-margin: 1.3809524rem;
+  --eames-max-width: 31ch;
+
+  --dudler-font-size: 1.5714286rem;
+  --dudler-line-height: 2.047619rem;
+  --dudler-margin: 1.3809524rem;
+  --dudler-max-width: 38ch;
+
+  --freed-font-size: 1.2380952rem;
+  --freed-line-height: 1.5714rem;
+  --freed-margin: 1.142857rem;
+  --freed-max-width: 49ch;
+
+  --base-font-size: 1rem;
+  --base-line-height: 1.3809524rem;
+  --base-margin: 1.3809524rem;
+  --base-max-width: 50ch;
+
+  --ponti-font-size: 1rem;
+  --ponti-line-height: 1rem;
+
+  --natus-font-size: 0.8rem;
+  --natus-line-height: 1.095rem;
+
+  --sejima-font-size: 0.6rem;
+  --sejima-line-height: 0.9rem;
+
+  --type-font-size: 110%;
+
+  --cta-transition: all 0.3s ease;
+
+  --crimson: hsl(342.7, 88.5%, 44.5%);
+  --tango: hsl(24.2, 86.3%, 54.3%);
+  --gold: hsl(48.9, 100%, 50%);
+
+  --bright-turquoise: hsl(168.5, 100%, 60.2%);
+  --picton-blue: hsl(204.2, 86.3%, 54.3%);
+  --dodger-blue: hsl(242.4, 100%, 65.9%);
+
+  --persimmon: hsl(2, 71.7%, 58.4%);
+  --persimmon--dark: hsl(2, 71.7%, 53.4%);
+  --midnight-blue: hsl(209.7, 98%, 19.4%);
+  --midnight-blue--dark: hsl(209.7, 98%, 15.4%);
+
+  --athens-gray: hsl(240, 4%, 95.1%);
+  --french-gray: hsl(240, 3.9%, 75.1%);
+  --mid-gray: hsl(240, 3.9%, 40%);
+  --shark: hsl(240, 3.9%, 20%);
+  --woodsmoke: hsl(240, 3%, 5%);
+}
+
+@mixin habib {
+  font-size: var(--habib-font-size);
+  line-height: var(--habib-line-height);
+  margin-bottom: var(--habib-margin);
+  margin-top: var(--habib-margin);
+  font-weight: var(--font-weight-heavy);
+  max-width: var(--habib-max-width);
+}
+
+@mixin gaudi {
+  font-size: var(--gaudi-font-size);
+  line-height: var(--gaudi-line-height);
+  margin-bottom: var(--gaudi-margin);
+  margin-bottom: var(--gaudi-margin);
+  font-weight: var(--font-weight-heavy);
+  max-width: var(--gaudi-max-width);
+}
+
+@mixin eames {
+  font-size: var(--eames-font-size);
+  line-height: var(--eames-line-height);
+  margin-bottom: var(--eames-margin);
+  margin-top: var(--eames-margin);
+  font-weight: var(--font-weight-heavy);
+  max-width: var(--eames-max-width);
+}
+
+@mixin dudler {
+  font-size: var(--dudler-font-size);
+  line-height: var(--dudler-line-height);
+  margin-bottom: var(--dudler-margin);
+  margin-top: var(--dudler-margin);
+  font-weight: var(--font-weight-middle);
+  max-width: var(--dudler-max-width);
+}
+
+@mixin freed {
+  font-size: var(--freed-font-size);
+  line-height: var(--freed-line-height);
+  margin-bottom: var(--freed-margin);
+  margin-top: var(--freed-margin);
+  //font-weight: var(--font-weight-middle);
+  max-width: var(--freed-max-width);
+}
+
+@mixin base {
+  font-size: var(--type-base-font-size);
+  line-height: var(--base-line-height);
+  margin-top: 0;
+  margin-bottom: var(--base-margin);
+  max-width: var(--base-max-width);
+}
+
+@mixin ponti {
+  font-size: var(--ponti-font-size);
+  line-height: var(--ponti-line-height);
+  font-variant: small-caps;
+  letter-spacing: 0.15rem;
+  text-transform: lowercase;
+}
+
+@mixin natus {
+  font-size: var(--natus-font-size);
+  font-weight: var(--font-weight-welter);
+  line-height: var(--natus-line-height);
+}
+
+@mixin sejima {
+  font-size: var(--sejima-font-size);
+  font-weight: var(--font-weight-middle);
+  line-height: var(--sejima-line-height);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--type-font-size);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Proxima Nova', serif;
+  font-size: 1rem;
+  font-weight: var(--font-weight-light);
+  color: var(--shark);
+  line-height: var(--base-line-height);
+  text-rendering: optimizeLegibility;
+}
+
+h1 {
+  @include habib();
+}
+
+h2 {
+  @include gaudi();
+}
+
+h3 {
+  @include eames();
+}
+
+h4 {
+  @include dudler();
+}
+
+h5,
+h6 {
+  @include freed();
+}
+
+p,
+ul,
+ol,
+pre,
+table,
+blockquote {
+  @include base();
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+blockquote {
+  border-left: 5px solid #1d1d1f;
+  padding: 0.8em 1.6em;
+  margin: 0;
+  font-size: var(--freed-font-size);
+  line-height: var(--freed-line-height);
+}
+
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+}
+
+/* Let's make sure all's aligned */
+hr,
+.hr {
+  border: 1px solid;
+  margin: -1px 0;
+}
+
+a,
+b,
+i,
+strong,
+em,
+small,
+code {
+  line-height: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--persimmon--dark);
+  font-weight: var(--font-weight-middle);
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a.button {
+  display: inline-block;
+  margin: 0.5rem 0;
+  text-decoration: none;
+  font-size: 1rem;
+  line-height: 1rem;
+  font-weight: var(--font-weight-middle);
+  border-radius: 3px;
+  transition: var(--cta-transition);
+}
+
+a.button--primary:hover,
+a.button--secondary:hover {
+  color: #ffffff;
+  background: var(--persimmon--dark);
+  border: solid 2px var(--persimmon--dark);
+  text-decoration: none;
+}
+
+a.button--primary {
+  padding: 0.6em 1.5em;
+  background: var(--persimmon);
+  color: white;
+  border: solid 2px var(--persimmon);
+}
+
+a.button--secondary {
+  padding: 0.6em 1.5em;
+  background: transparent;
+  color: var(--persimmon);
+  border: solid 2px var(--persimmon);
+}
+
+a.text-cta {
+  display: inline-block;
+  margin: 0.5rem 0;
+  text-decoration: none;
+  font-size: 1rem;
+  line-height: 1rem;
+  font-weight: var(--font-weight-middle);
+  color: var(--persimmon);
+  transition: var(--cta-transition);
+}
+a.text-cta:hover {
+  color: var(--persimmon--dark);
+  text-decoration: underline;
+}
+
+a.text-cta i {
+  transition: var(--cta-transition);
+  transform: translate(0.142em, 0.047em);
+}
+a.text-cta:hover i {
+  transform: translate(0.238em, 0.047em);
+}
+
+i {
+  font-style: italic;
+}
+
+strong {
+  font-weight: var(--font-weight-heavy);
+}
+
+sub,
+sup {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+
+.content-type {
+  @include ponti();
+}
+
+.sub-heading {
+  @include freed();
+}
+
+.card-text {
+  @include natus();
+}
+
+.extra-small {
+  @include sejima();
+}
+
+/* Layout */
+
+.wrapper {
+  padding: 4rem;
+}
+
+footer {
+  padding: 4rem;
+  background: var(--shark);
+  color: white;
+}
+
+.dark-mode {
+  color: var(--athens-gray);
+  background: var(--woodsmoke);
+}
+
+.dark-mode p a {
+  color: var(--persimmon);
+}
+
+.color-mode {
+  color: var(--woodsmoke);
+  background: var(--bright-turquoise);
+}
+
+.color-mode p a {
+  color: var(--persimmon);
+}
+
+.color-mode .button--primary {
+  background: var(--woodsmoke);
+  border: 2px solid var(--woodsmoke);
+}
+
+.color-mode .button--primary:hover {
+  background: var(--shark);
+  border: 2px solid var(--shark);
+}
+
+.color-mode-2 {
+  color: var(--athens-gray);
+  background: var(--midnight-blue);
+}
+
+.color-mode-2 .button--primary {
+  color: var(--woodsmoke);
+  background: var(--athens-gray);
+  border: 2px solid var(--athens-gray);
+}
+
+.color-mode-2 .button--primary:hover {
+  background: white;
+  border: 2px solid white;
+}
+
+.image {
+  width: 100%;
+  margin: 3rem 0;
+  height: auto;
+}
+
+.icon-large {
+  font-size: 400px;
+}

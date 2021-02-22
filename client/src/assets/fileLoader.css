@@ -1,0 +1,65 @@
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('./fonts/ProximaNova-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Proxima Nova Thin'),
+    url('./fonts/Proxima-Nova-Thin.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Proxima Nova Regular'),
+    url('./fonts/ProximaNova-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Proxima Nova Bold'),
+    url('./fonts/Proxima-Nova-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Proxima Nova Extra Extrabold'),
+    url('./fonts/Proxima-Nova-Extrabold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Proxima Nova Black'),
+    url('./fonts/Proxima-Nova-Black.woff') format('woff');
+}
+
+.loader {
+  background-image: url('./icons/report-bg-landing-page.svg');
+  background-image: url('./icons/report-landing-page.png');
+  background-image: url('./icons/brochure-continuous-delivery.png');
+  background-image: url('./icons/brochure-cross-functional-teams.png');
+  background-image: url('./icons/brochure-organisational-maturity.png');
+  background-image: url('./icons/brochure-xp-culture.png');
+  background-image: url('./icons/brochure-xp-practices.png');
+
+  background-image: url('./icons/background-continuousDelivery.svg');
+  background-image: url('./icons/background-crossFunctionalTeams.svg');
+  background-image: url('./icons/background-organisationalMaturity.svg');
+  background-image: url('./icons/background-culture.svg');
+  background-image: url('./icons/background-xpPractices.svg');
+  background-image: url('./icons/background-xpPractices.svg');
+  background-image: url('./icons/background-compass.svg');
+  background-image: url('./icons/report-bg-landing-page-mobile.jpg');
+
+  background-image: url('./icons/check.svg');
+}

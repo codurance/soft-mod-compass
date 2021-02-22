@@ -2,7 +2,8 @@
 
 A survey for checking the level of practices at your company.
 
-## User flow
+
+## User flow TODO
 
 ### In picture
 

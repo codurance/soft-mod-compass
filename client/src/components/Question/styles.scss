@@ -1,0 +1,20 @@
+@import '../../styles/global.scss';
+
+.question {
+  @include main-wrapper-left();
+  width: 100%;
+
+  &__label {
+    @include base();
+    font-weight: var(--welter-font-weight);
+    height: 100px;
+    margin-bottom: 32px;
+  }
+
+  .answer-list {
+    height: 280px;
+    list-style-type: none;
+    margin-bottom: 10px;
+    max-width: 300px;
+  }
+}

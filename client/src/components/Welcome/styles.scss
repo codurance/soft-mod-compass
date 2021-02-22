@@ -1,0 +1,26 @@
+@import '../../styles/global';
+
+.welcome {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 850px;
+
+  &__text {
+    padding-top: 40px;
+
+    & > p {
+      @include freed;
+      font-family: 'Proxima Nova';
+      text-align: center;
+      font-weight: 400;
+      line-height: var(--freed-line-height);
+      margin-top: 0;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    padding: 0 60px;
+  }
+}

@@ -1,0 +1,44 @@
+@import '../../styles/global.scss';
+
+@mixin step($color, $height, $opacity: 1) {
+  background-color: $color;
+  display: flex;
+  height: $height;
+  width: 38px;
+  opacity: $opacity;
+
+  @media (max-width: 800px) {
+    width: 16px;
+  }
+}
+
+.progress-bar {
+  align-items: center;
+  display: flex;
+
+  &__category {
+    align-items: center;
+    display: flex;
+  }
+
+  &__category + &__category {
+    margin-left: 3px;
+  }
+
+  &__step {
+    @include step(var(--french-gray), 8px, 0.5);
+
+    &--iniciated {
+      @include step(var(--picton-blue), 10px, 0.3);
+    }
+
+    &--completed {
+      @include step(var(--picton-blue), 10px, 0.6);
+    }
+
+    &--current {
+      @include step(var(--picton-blue), 12px, 1);
+      border-radius: 2px;
+    }
+  }
+}

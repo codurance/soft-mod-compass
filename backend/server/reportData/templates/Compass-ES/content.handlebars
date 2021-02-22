@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Proxima Nova font from Typekit -->
+  <link rel="stylesheet" href="https://use.typekit.net/gpw7xtk.css">
+  <title>Codurance Compass</title>
+  <style>
+    {#asset /css/main.css @encoding=utf8}
+    {#asset /css/background-imgs-es.css @encoding=utf8}
+  </style>
+</head>
+<body>
+    
+
+
+  <!-- BEGIN FRONT PAGE ---------------------------------------------------------- -->
+  <section id="front-page-es" class="page page-break-after with-background-img">
+    <span id="front-page_full-name">{{user.firstName}} {{user.lastName}}</span>
+    <span id="front-page_company-name">{{user.company}}</span>
+    <span id="front-page_date">{{ currentDate }}</span>
+  </section>
+  <!-- END FRONT PAGE ---------------------------------------------------------- -->
+
+  <!-- BEGIN INTRO PAGE ---------------------------------------------------------- -->
+  <section id="intro-page-es" class="page page-break-after with-background-img">
+    <ul class="intro-page__contact-info">
+        <li class="intro-page__contact-header">
+            Londres / Manchester
+        </li>
+      <li>
+          Teléfono: <a href="tel:+442074902967">+44 207 490 2967</a>
+      </li>
+      <li>
+          Email: <a href="mailto:david.hall@codurance.com">david.hall@codurance.com</a>
+      </li>
+    </ul>
+    <ul class="intro-page__contact-info second">
+        <li class="intro-page__contact-header">
+            Barcelona
+        </li>
+        <li>
+            Teléfono:: <a href="tel:+34937822882">+34 937 82 28 82</a>
+        </li>
+        <li>
+            Email: <a href="mailto:jack.coleman@codurance.com">jack.coleman@codurance.com</a>
+        </li>
+    </ul>
+  </section>
+  <!-- END INTRO PAGE ---------------------------------------------------------- -->
+
+  <!-- BEGIN YOUR ASSESSMENT PAGE ---------------------------------------------------------- -->
+  <section id="assessment-page-es" class="page page-break-after with-background-img">
+    {{> gauge-assessment 
+        score=categories.organisationalMaturity.score
+        category="organisational-maturity"
+        lang="es" }}
+        
+    {{> gauge-assessment 
+        score=categories.continuousDelivery.score
+        category="continuous-delivery"
+        lang="es" }}
+        
+    {{> gauge-assessment 
+        score=categories.culture.score
+        category="people-culture"
+        lang="es" }}
+        
+    {{> gauge-assessment 
+        score=categories.crossFunctionalTeams.score
+        category="effective-team"
+        lang="es" }}
+        
+    {{> gauge-assessment 
+        score=categories.xpPractices.score
+        category="technical-practices"
+        lang="es" }}
+
+  </section>
+  <!-- END YOUR ASSESSMENT PAGE ---------------------------------------------------------- -->
+
+  <!-- BEGIN TOC PAGE ---------------------------------------------------------- -->
+  <section id="toc-page-es" class="page page-break-after with-background-img">
+      
+      <ul class="toc-page__contents">
+          <a href="#organisational-maturity-page-es"><li>
+            <span class="toc-page__numbers">4.</span>
+            <span class="toc-page__sections">Madurez organizacional</span>
+          </li></a>
+          <li><a href="#continuous-delivery-page-es">
+            <span class="toc-page__numbers">7.</span>
+            <span class="toc-page__sections">Entrega continua</span>
+          </a></li>
+          <li><a href="#people-culture-page-es">
+            <span class="toc-page__numbers">10.</span>
+            <span class="toc-page__sections">Cultura y personas</span>
+          </a></li>
+          <li><a href="#effective-team-page-es">
+            <span class="toc-page__numbers">13.</span>
+            <span class="toc-page__sections">Equipos efectivos</span>
+          </a></li>
+          <li><a href="#technical-practices-page-es">
+            <span class="toc-page__numbers">16.</span>
+            <span class="toc-page__sections">Prácticas técnicas</span>
+          </a></li>
+          <li><a href="#summary-page-es">
+            <span class="toc-page__numbers">19.</span>
+            <span class="toc-page__sections">Resumen</span>
+          </a></li>
+      </ul>
+
+  </section>
+  <!-- END TOC PAGE ---------------------------------------------------------- -->
+
+
+
+  <!-- BEGIN ORGANISATIONAL MATURITY INTRO ---------------------------------------------------------- -->
+  <section id="organisational-maturity-page-es" class="page page-break-after with-background-img"></section>
+  <!-- END ORGANISATIONAL MATURITY INTRO ---------------------------------------------------------- -->
+
+  <!-- BEGIN ORGANISATIONAL MATURITY RESULTS -------------------------------------------------------- -->
+  <section id="organisational-maturity-results-page-es" class="page page-break-after with-background-img">
+    {{> gauge-subcategory 
+        id="gauge-organisationalmaturity-devsecops-es"
+        subcategory=categories.organisationalMaturity.subcategories.devSecOps
+        lang="es"
+        onDark=true }}
+
+    {{> gauge-subcategory
+        id="gauge-organisationalmaturity-deliveringvalue-es"
+        subcategory=categories.organisationalMaturity.subcategories.deliveringValue 
+        lang="es"
+        onDark=true }}
+
+    {{> gauge-subcategory 
+        id="gauge-organisationalmaturity-technicaldebt-es"
+        subcategory=categories.organisationalMaturity.subcategories.technicalDebt 
+        lang="es"
+        onDark=true }}
+
+    {{> gauge-subcategory 
+        id="gauge-organisationalmaturity-methodology-es"
+        subcategory=categories.organisationalMaturity.subcategories.methodology 
+        lang="es"
+        onDark=true }}
+  </section>
+  <!---- END ORGANISATIONAL MATURITY RESULTS -------------------------------------------------------- -->
+
+  <!-- BEGIN ORGANISATIONAL MATURITY BREAKDOWN ---------------------------------------------------------- -->
+  <section
+    id="organisational-maturity-breakdown-page-es"
+    class="page page-break-after with-background-img {{{categoryScoreClass categories.organisationalMaturity.score}}}"></section>
+  <!-- END ORGANISATIONAL MATURITY BREAKDOWN ---------------------------------------------------------- -->
+
+
+
+  <!-- BEGIN CONTINUOUS DELIVERY INTRO ---------------------------------------------------------- -->
+  <section id="continuous-delivery-page-es" class="page page-break-after with-background-img"></section>
+  <!-- END CONTINUOUS DELIVERY INTRO ---------------------------------------------------------- -->
+
+  <!-- BEGIN CONTINUOUS DELIVERY RESULTS ------------------------------------------------------------ -->
+  <section id="continuous-delivery-results-page-es" class="page page-break-after with-background-img">
+    {{> gauge-subcategory 
+        id="gauge-continuousdelivery-cadence-es"
+        subcategory=categories.continuousDelivery.subcategories.cadence
+        lang="es"
+        onDark=false }}
+
+    {{> gauge-subcategory 
+        id="gauge-continuousdelivery-rework-es"
+        subcategory=categories.continuousDelivery.subcategories.rework
+        lang="es"
+        onDark=false }}
+
+    {{> gauge-subcategory 
+        id="gauge-continuousdelivery-pipeline-es"
+        subcategory=categories.continuousDelivery.subcategories.pipeline
+        lang="es"
+        onDark=false }}
+
+    {{> gauge-subcategory 
+        id="gauge-continuousdelivery-sideeffects-es"
+        subcategory=categories.continuousDelivery.subcategories.sideEffects
+        lang="es"
+        onDark=false }}
+  </section>
+  <!---- END CONTINUOUS DELIVERY RESULTS ------------------------------------------------------------ -->
+
+  <!-- BEGIN CONTINUOUS DELIVERY BREAKDOWN ---------------------------------------------------------- -->
+  <section
+    id="continuous-delivery-breakdown-page-es"
+    class="page page-break-after with-background-img {{{categoryScoreClass categories.continuousDelivery.score}}}"></section>
+  <!-- END CONTINUOUS DELIVERY BREAKDOWN ---------------------------------------------------------- -->
+
+
+
+  <!-- BEGIN PEOPLE CULTURE INTRO ---------------------------------------------------------- -->
+  <section id="people-culture-page-es" class="page page-break-after with-background-img"></section>
+  <!-- END PEOPLE CULTURE INTRO ---------------------------------------------------------- -->
+
+  <!-- BEGIN PEOPLE CULTURE RESULTS ------------------------------------------------------------ -->
+  <section id="people-culture-results-page-es" class="page page-break-after with-background-img">
+    {{> gauge-subcategory 
+        id="gauge-culture-transparency-es"
+        subcategory=categories.culture.subcategories.transparency
+        lang="es"
+        onDark=true }}
+
+    {{> gauge-subcategory 
+        id="gauge-culture-learning-es"
+        subcategory=categories.culture.subcategories.learning
+        lang="es"
+        onDark=true }}
+
+    {{> gauge-subcategory 
+        id="gauge-culture-learnfromfailure-es"
+        subcategory=categories.culture.subcategories.learnFromFailure
+        lang="es"
+        onDark=true }}
+
+    {{> gauge-subcategory 
+        id="gauge-culture-careerpath-es"
+        subcategory=categories.culture.subcategories.careerPath
+        lang="es"
+        onDark=true }}
+  </section>
+  <!---- END PEOPLE CULTURE RESULTS ------------------------------------------------------------ -->
+
+  <!-- BEGIN PEOPLE CULTURE BREAKDOWN ---------------------------------------------------------- -->
+  <section
+    id="people-culture-breakdown-page-es"
+    class="page page-break-after with-background-img {{{categoryScoreClass categories.culture.score}}}"></section>
+  <!-- END PEOPLE CULTURE BREAKDOWN ---------------------------------------------------------- -->
+
+
+
+  <!-- BEGIN EFFECTIVE TEAM INTRO ---------------------------------------------------------- -->
+   <section id="effective-team-page-es" class="page page-break-after with-background-img"></section>
+  <!-- END EFFECTIVE TEAM INTRO ---------------------------------------------------------- -->
+
+  <!-- BEGIN EFFECTIVE TEAM RESULTS ------------------------------------------------------------ -->
+  <section id="effective-team-results-page-es" class="page page-break-after with-background-img">
+    {{> gauge-subcategory 
+        id="gauge-crossfunctionalteams-diversity-es"
+        subcategory=categories.crossFunctionalTeams.subcategories.diversity
+        lang="es"
+        onDark=false }}
+
+    {{> gauge-subcategory 
+        id="gauge-crossfunctionalteams-autonomy-es"
+        subcategory=categories.crossFunctionalTeams.subcategories.autonomy
+        lang="es"
+        onDark=false }}
+
+    {{> gauge-subcategory 
+        id="gauge-crossfunctionalteams-wholeteam-es"
+        subcategory=categories.crossFunctionalTeams.subcategories.wholeTeam
+        lang="es"
+        onDark=false }}
+
+    {{> gauge-subcategory 
+        id="gauge-crossfunctionalteams-knowledgesharing-es"
+        subcategory=categories.crossFunctionalTeams.subcategories.knowledgeSharing
+        lang="es"
+        onDark=false }}
+  </section>
+  <!---- END EFFECTIVE TEAM RESULTS ------------------------------------------------------------ -->
+
+  <!-- BEGIN EFFECTIVE TEAM BREAKDOWN ---------------------------------------------------------- -->
+  <section
+    id="effective-team-breakdown-page-es"
+    class="page page-break-after with-background-img {{{categoryScoreClass categories.crossFunctionalTeams.score}}}"></section>
+  <!-- END EFFECTIVE TEAM BREAKDOWN ---------------------------------------------------------- -->
+
+
+
+  <!-- BEGIN TECHNICAL PRACTICES INTRO ---------------------------------------------------------- -->
+  <section id="technical-practices-page-es" class="page page-break-after with-background-img"></section>
+  <!-- END TECHNICAL PRACTICES INTRO ---------------------------------------------------------- -->
+
+  <!-- BEGIN TECHNICAL PRACTICES RESULTS ------------------------------------------------------- -->
+  <section id="technical-practices-results-page-es" class="page page-break-after with-background-img">
+    {{> gauge-subcategory 
+        id="gauge-xppractices-tdd-es"
+        subcategory=categories.xpPractices.subcategories.tdd
+        lang="es"
+        onDark=true }}
+
+    {{> gauge-subcategory 
+        id="gauge-xppractices-architecture-es"
+        subcategory=categories.xpPractices.subcategories.architecture
+        lang="es"
+        onDark=true }}
+
+    {{> gauge-subcategory 
+        id="gauge-xppractices-cleancode-es"
+        subcategory=categories.xpPractices.subcategories.cleanCode
+        lang="es"
+        onDark=true }}
+
+    {{> gauge-subcategory 
+        id="gauge-xppractices-peerreview-es"
+        subcategory=categories.xpPractices.subcategories.peerReview
+        lang="es"
+        onDark=true }}
+  </section>
+  <!---- END TECHNICAL PRACTICES RESULTS ------------------------------------------------------- -->
+
+  <!-- BEGIN TECHNICAL PRACTICES BREAKDOWN ---------------------------------------------------------- -->
+  <section
+    id="technical-practices-breakdown-page-es"
+    class="page page-break-after with-background-img {{{categoryScoreClass categories.xpPractices.score}}}"></section>
+  <!-- END TECHNICAL PRACTICES BREAKDOWN ---------------------------------------------------------- -->
+
+
+
+  <!-- BEGIN SUMMARY ---------------------------------------------------------- -->
+  <section id="summary-page-es" class="page page-break-after with-background-img">
+      
+    <ul class="summary-contact__london-container">
+        <li>Contacto de ventas: <span class="summary-contact__name">David Hall</span></li>
+        <li>
+            <ul class="summary-contact__london">
+                <li><a href="tel:+447447062036">
+                    <i class="summary-contact__phone"></i>
+                    <span>+44 744 70 62 036</span>
+                </a></li>
+                <li><a href="mailto:david.hall@codurance.com">
+                    <i class="summary-contact__email"></i>
+                    <span>david.hall@codurance.com</span>
+                </a></li>
+                <li><a href="https://codurance.com/" target="_blank">
+                    <i class="summary-contact__web"></i>
+                    <span>codurance.com</span>
+                </a></li>
+            </ul>
+        </li>
+        <li>3 Sutton Lane, 3rd floor<br>London, EC1M 5PU</li>
+        <li>2 Mount Street<br>Manchester, M2 5WQ</li>
+    </ul>
+    
+    <ul class="summary-contact__barcelona-container">
+        <li>Contacto de ventas: <span class="summary-contact__name">Jack Colemanzo</span></li>
+        <li>
+            <ul class="summary-contact__barcelona">
+                <li><a href="tel:+34937822882">
+                    <i class="summary-contact__phone"></i>
+                    <span>+34 937 82 28 82</span>
+                </a></li>
+                <li><a href="mailto:jack.coleman@codurance.com">
+                    <i class="summary-contact__email"></i>
+                    <span>jack.coleman@codurance.com</span>
+                </a></li>
+                <li><a href="https://codurance.es/" target="_blank">
+                    <i class="summary-contact__web"></i>
+                    <span>codurance.es</span>
+                </a></li>
+            </ul>
+        </li>
+        <li>Carrer de Pallars 99,<br>4th piso, room 41<br>Barcelona, 08018</li>
+    </ul>
+
+    {{> gauge-summary 
+        score=categories.organisationalMaturity.score
+        category="organisational-maturity"
+        lang="es" }}
+        
+    {{> gauge-summary 
+        score=categories.continuousDelivery.score
+        category="continuous-delivery"
+        lang="es" }}
+        
+    {{> gauge-summary 
+        score=categories.culture.score
+        category="people-culture"
+        lang="es" }}
+        
+    {{> gauge-summary 
+        score=categories.crossFunctionalTeams.score
+        category="effective-team"
+        lang="es" }}
+        
+    {{> gauge-summary 
+        score=categories.xpPractices.score
+        category="technical-practices"
+        lang="es" }}
+    
+  </section>
+  <!-- END SUMMARY ---------------------------------------------------------- -->
+
+
+
+</body>
+<script>
+    {#asset /js/copyright.js @encoding=utf8}
+</script>
+<!-- Convert CSS Variables -->
+<script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+<script>
+    cssVars({
+        rootElement   : document,
+        include: 'style',
+        exclude: 'link',
+        onlyLegacy: false,
+        preserveStatic: true,
+        preserveVars  : false,
+        updateDOM: true,
+        updateURLs: false
+    });
+</script>
+</html>

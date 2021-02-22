@@ -1,0 +1,116 @@
+name: Deploy dev
+
+on:
+  push:
+    branches: [dev]
+  workflow_dispatch:
+
+jobs:
+  ci-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: test-backend
+        run: |
+          cd ./backend
+          npm install
+          npm run test
+
+  ci-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: CI
+        run: |
+          cd ./client
+          npm install
+          npm run test
+
+      - name: Build
+        run: |
+          cd ./client
+          npm run create-dev
+
+  deploy-frontend:
+    needs: [ci-frontend, ci-backend]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Build
+        run: |
+          cd ./client
+          npm install
+          npm run create-dev
+
+      - name: AWS cli install action
+        uses: chrislennon/action-aws-cli@1.1
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Deploy Frontend
+        run: |
+          cd ./client
+          aws s3 sync ./dist ${{secrets.AWS_S3_BUCKET}}
+
+  deploy-backend:
+    needs: [ci-frontend, ci-backend]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: bundle-backend
+        run: |
+          cd ./backend
+          npm install
+          mkdir bundle
+          zip ./bundle/compass-backend.zip -r * .[^.]*
+
+      - name: AWS cli install action
+        uses: chrislennon/action-aws-cli@1.1
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: push bundle to S3
+        run: |
+          cd ./backend/bundle
+          aws s3 sync . s3://compass-service-package
+
+      - name: Create new ElasticBeanstalk Application Version from S3
+        run: |
+          aws elasticbeanstalk create-application-version \
+          --application-name compass-dev \
+          --source-bundle S3Bucket="compass-service-package",S3Key="compass-backend.zip" \
+          --version-label "ver-${{ github.sha }}" \
+          --description "commit-sha-${{ github.sha }}"
+
+      - name: Create env json
+        run: echo "[{\"Namespace\":\"aws:elasticbeanstalk:application:environment\",\"OptionName\":\"ALLOWED_ORIGIN\",\"Value\":\"http://compass.dev.codurance.io\"},{\"Namespace\":\"aws:elasticbeanstalk:application:environment\",\"OptionName\":\"HUBSPOT_FORM_ID\",\"Value\":\"${{secrets.HUBSPOT_FORM_ID}}\"},{\"Namespace\":\"aws:elasticbeanstalk:application:environment\",\"OptionName\":\"HUBSPOT_AUTH_TOKEN\",\"Value\":\"${{secrets.HUBSPOT_AUTH_TOKEN}}\"},{\"Namespace\":\"aws:elasticbeanstalk:application:environment\",\"OptionName\":\"HUBSPOT_ACCOUNT_ID\",\"Value\":\"${{secrets.HUBSPOT_ACCOUNT_ID}}\"}]" > .github/backendEnvVars.json
+
+      - name: Deploy new ElasticBeanstalk Application Version
+        run: |
+          aws elasticbeanstalk update-environment \
+          --environment-name CompassDev-env \
+          --version-label "ver-${{ github.sha }}" \
+          --option-settings file://.github/backendEnvVars.json

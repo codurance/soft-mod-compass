@@ -1,0 +1,29 @@
+import fetch from 'node-fetch';
+import config from '../config/config';
+import ipProvider from './ipProvider';
+import languageService from './languageService';
+
+export default {
+  async submitSurvey(surveyData) {
+    const bodyPayload = {
+      user: {
+        ip: await ipProvider.getIp(),
+        firstName: surveyData.firstName,
+        lastName: surveyData.lastName,
+        company: surveyData.companyName,
+        email: surveyData.email,
+        jobFunction: surveyData.jobFunction,
+        language: languageService.getLanguage(),
+      },
+      categories: surveyData.categories,
+    };
+    return fetch(`${config.reportServerBaseUrl}/surveys`, {
+      method: 'POST',
+      body: JSON.stringify(bodyPayload),
+      headers: { 'Content-Type': 'application/json' },
+    }).then((success) => {
+      console.log('response successful ', success);
+      return { status: 'ok' };
+    });
+  },
+};

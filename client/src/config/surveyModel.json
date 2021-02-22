@@ -1,0 +1,29 @@
+{
+  "answers": [
+    {
+      "label": "stronglyAgree",
+      "score": 100
+    },
+    {
+      "label": "agree",
+      "score": 80
+    },
+    {
+      "label": "neitherAgree",
+      "score": 60
+    },
+    {
+      "label": "disagree",
+      "score": 40
+    },
+    {
+      "label": "stronglyDisagree",
+      "score": 20
+    }
+  ],
+  "firstNameLabel": "firstName",
+  "lastNameLabel": "lastName",
+  "companyLabel": "companyName",
+  "emailLabel": "email",
+  "submitLabel": "submit"
+}

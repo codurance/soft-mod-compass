@@ -1,0 +1,73 @@
+@import '../../styles/global.scss';
+
+@mixin brochure($backgroundUrl) {
+  width: 420px;
+  height: 500px;
+  background-repeat: no-repeat;
+  background: url($backgroundUrl);
+}
+
+.questionnaire {
+  @include main-wrapper();
+
+  margin-top: 30px;
+
+  &__assessment {
+    max-width: 450px;
+    width: 100%;
+
+    &--organisationalMaturity {
+      @include brochure(
+        './src/assets/icons/brochure-organisational-maturity.png'
+      );
+
+      @media (max-width: 800px) {
+        background-position: 744px 1953px;
+      }
+    }
+    &--crossFunctionalTeams {
+      @include brochure(
+        './src/assets/icons/brochure-cross-functional-teams.png'
+      );
+
+      @media (max-width: 800px) {
+        background-position: 624px 1953px;
+      }
+    }
+    &--xpPractices {
+      @include brochure('./src/assets/icons/brochure-xp-practices.png');
+
+      @media (max-width: 800px) {
+        background-position: 625px 1838px;
+      }      
+    }
+    &--culture {
+      @include brochure('./src/assets/icons/brochure-xp-culture.png');
+
+      @media (max-width: 800px) {
+        background-position: 689px 1739px;
+      }
+    }
+    &--continuousDelivery {
+      @include brochure('./src/assets/icons/brochure-continuous-delivery.png');
+
+      @media (max-width: 800px) {
+        background-position: 744px 1839px;
+      }
+    }
+  }
+}
+
+.questionnaire-area {
+
+  @media (max-width: 800px) {
+      width: 101px;
+      height: 101px;
+      position: absolute;
+      display: block;
+      top: 10px;
+      right: 10px;
+      border-radius: 50px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+}

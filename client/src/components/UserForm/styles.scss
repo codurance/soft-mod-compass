@@ -1,0 +1,95 @@
+@import '../../styles/global.scss';
+
+@mixin input($border-color) {
+  padding: 3px 7px;
+  border-radius: 3px;
+  font-size: var(--natus-font-size);
+  border: 1px solid $border-color;
+  box-shadow: 0px 0px 1px var(--shark);
+  width: 100%;
+  color: var(--mid-gray);
+}
+
+.form__fields-wrapper {
+  padding-top: 30px;
+}
+
+.form {
+  @include main-wrapper();
+
+  &__fields-wrapper h2 {
+    font-weight: var(--heavy-font-weight);
+    @include freed;
+    margin-bottom: 10px;
+    padding-right: 60px;
+  }
+
+  &__fields-wrapper p {
+    @include natus;
+    margin-bottom: 20px;
+    padding-right: 60px;
+  }
+
+  &__fields-wrapper {
+    @include main-wrapper-left();
+    max-height: 750px;
+  }
+
+  &__assessment {
+    width: 100%;
+    max-width: 450px;
+  }
+  & > .button {
+    width: 150px;
+  }
+
+  &__error {
+    font-size: var(--sejima-font-size);
+    color: var(--persimmon);
+    height: 25px;
+    margin-top: -5px;
+  }
+
+  &__gdpr {
+    display: flex;
+    align-items: flex-start;
+
+    &__text {
+      @include sejima;
+      margin-top: -4px;
+    }
+
+    .privacyPolicy {
+      color: var(--persimmon);
+      margin-left: 4px;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+
+    input {
+      margin-right: 10px;
+    }
+  }
+
+  &__submit {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.input {
+  @include input(var(--french-gray));
+  &__error {
+    @include input(var(--persimmon));
+  }
+}
+
+.form__assessment {
+  @media (max-width: 800px) {
+    display: none;
+  }
+}

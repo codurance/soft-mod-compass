@@ -1,0 +1,14 @@
+.button {
+  border: 1px solid transparent;
+  color: var(--white);
+  font-weight: 700;
+  padding: 8px 18px;
+  font-size: var(--base-font-size);
+  border-radius: 4px;
+  min-height: 48px;
+  cursor: pointer;
+  transition-property: background-color, opacity;
+  transition-duration: 0.1s;
+  transition-timing-function: ease-out;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 12px 0px;
+}

@@ -1,0 +1,115 @@
+:root {
+  --crimson: hsl(342.7, 88.5%, 44.5%);
+  --tango: hsl(24.2, 86.3%, 54.3%);
+  --gold: hsl(48.9, 100%, 50%);
+
+  --java: hsl(168.5, 77%, 47.8%);
+  --picton-blue: hsl(204.2, 86.3%, 54.3%);
+  --dodger-blue: hsl(242.4, 100%, 65.9%);
+
+  --persimmon: hsl(2.4, 100%, 65.9%);
+  --persimmon-dark: hsl(8.2, 100%, 60%);
+  --midnight-blue: hsl(209.7, 98%, 19.4%);
+  --midnight-blue-dark: hsl(209.7, 98%, 15.4%);
+
+  --white: hsl(0, 0%, 100%);
+  --athens-gray: hsl(240, 4%, 95.1%);
+  --french-gray: hsl(240, 3.9%, 75.1%);
+  --mid-gray: hsl(240, 3.9%, 40%);
+  --shark: hsl(240, 3.9%, 20%);
+  --woodsmoke: hsl(240, 3%, 5%);
+}
+
+body {
+  font-family: proxima-nova, sans-serif;
+  color: var(--shark);
+}
+
+section {
+  padding: 2em;
+  width: 100%;
+  display: block;
+}
+
+.color-swatch {
+  width: 200px;
+  height: 100px;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+}
+
+.color-persimmon {
+  background-color: var(--persimmon);
+  color: var(--white);
+
+  &:hover {
+    background-color: var(--persimmon-dark);
+  }
+}
+
+.color-midnight-blue {
+  background-color: var(--midnight-blue);
+  color: var(--white);
+
+  &:hover {
+    background-color: var(--midnight-blue-dark);
+  }
+}
+
+.color-crimson {
+  background-color: var(--crimson);
+  color: var(--white);
+}
+
+.color-tango {
+  background-color: var(--tango);
+  color: var(--white);
+}
+
+.color-gold {
+  background-color: var(--gold);
+  color: var(--shark);
+}
+
+.color-java {
+  background-color: var(--java);
+  color: var(--shark);
+}
+
+.color-picton-blue {
+  background-color: var(--picton-blue);
+  color: var(--white);
+}
+
+.color-dodger-blue {
+  background-color: var(--dodger-blue);
+  color: var(--white);
+}
+
+.color-athens-gray {
+  background-color: var(--athens-gray);
+  color: var(--shark);
+}
+
+.color-french-gray {
+  background-color: var(--french-gray);
+  color: var(--shark);
+}
+
+.color-mid-gray {
+  background-color: var(--mid-gray);
+  color: var(--athens-gray);
+}
+
+.color-shark {
+  background-color: var(--shark);
+  color: var(--athens-gray);
+}
+
+.color-woodsmoke {
+  background-color: var(--woodsmoke);
+  color: var(--athens-gray);
+}

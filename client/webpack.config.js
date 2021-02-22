@@ -1,61 +1,60 @@
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { DefinePlugin } = require('webpack');
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
-const config = require('./src/config');
 
-const htmlPluginOptions = {
-  template: path.resolve(__dirname, 'src/index.handlebars'),
-  inject: true,
-  minify: {
-    collapseWhitespace: true,
-    removeComments: false,
-    removeRedundantAttributes: true,
-    removeScriptTypeAttributes: true,
-    removeStyleLinkTypeAttributes: true,
-    useShortDoctype: true,
-    preserveLineBreaks: true,
-  },
-};
-
-module.exports = {
-  entry: [path.resolve(__dirname, 'src/app.js')],
-  mode: 'production',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-  },
-  module: {
-    rules: [{ test: /\.handlebars$/, loader: 'handlebars-loader' }],
-  },
-  plugins: [
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        handlebarsLoader: {},
+module.exports = (env) => {
+  const envKeys = Object.keys(env).reduce((prev, next) => {
+    // eslint-disable-next-line no-param-reassign
+    prev[`process.env.${next}`] = JSON.stringify(env[next]);
+    return prev;
+  }, {});
+  return {
+    entry: ['./src/index.jsx', './src/assets/fileLoader.css'],
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'index_bundle.js',
+    },
+    devServer: {
+      noInfo: false,
+      open: true,
+      historyApiFallback: true,
+      port: 3000,
+    },
+    resolve: {
+      extensions: ['.js', '.jsx'],
+      fallback: {
+        util: require.resolve('util/'),
       },
-    }),
-    new HtmlWebpackPlugin({
-      ...htmlPluginOptions,
-      filename: config.devEn.filename,
-      compassConfig: config.devEn,
-    }),
-    new HtmlWebpackPlugin({
-      ...htmlPluginOptions,
-      filename: config.devEs.filename,
-      compassConfig: config.devEs,
-    }),
-    new HtmlWebpackPlugin({
-      ...htmlPluginOptions,
-      filename: config.prodEn.filename,
-      compassConfig: config.prodEn,
-    }),
-    new HtmlWebpackPlugin({
-      ...htmlPluginOptions,
-      filename: config.prodEs.filename,
-      compassConfig: config.prodEs,
-    }),
-    new CleanWebpackPlugin(),
-    new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/bundle/]),
-  ],
+    },
+    module: {
+      rules: [
+        {
+          test: /\.(js|jsx)$/,
+          use: 'babel-loader',
+        },
+        {
+          test: /\.(jpe?g|png|gif|ico|woff|woff2|eot|ttf|otf|svg)$/i,
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]',
+          },
+        },
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /\.scss$/,
+          use: ['style-loader', 'css-loader', 'sass-loader'],
+        },
+      ],
+    },
+    mode: 'development',
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: 'src/index.html',
+      }),
+      new DefinePlugin(envKeys),
+    ],
+  };
 };
