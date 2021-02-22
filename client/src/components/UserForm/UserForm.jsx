@@ -81,7 +81,9 @@ function UserForm({ submitForm }) {
                     value={element}
                     key={element}
                     label={element}
-                  />
+                  >
+                    {element}
+                  </option>
                 ))}
               </select>
               <div className="form__error">
