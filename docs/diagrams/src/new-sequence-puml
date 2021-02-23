@@ -1,0 +1,41 @@
+@startuml
+skinparam BoxPadding 10
+title Compass Sequence Diagram
+
+actor "User"
+participant "React App" as React
+participant "Google Tag Manager" as TGM
+participant "Node App" as NodeApp
+participant "HubSpot"
+participant "DynamoDB" as DB
+
+User -> React: Loads Compass
+User -> React: Answeres the questions
+
+React -> TGM: Sends an event for each question
+User -> React: Completes submission form
+
+React -> NodeApp: Sends user, language and survey information
+React <-- NodeApp:
+React -> HubSpot: Redirects to HubSpot Thanks Landing Page\n"""https://info.codurance.com/en/compass-successful-submission"""
+
+
+activate NodeApp
+NodeApp -> DB: Stores survey (requested flag)
+NodeApp -> NodeApp: generate report pdf
+note left: report task
+NodeApp -> HubSpot: Upload pdf to HubSpot
+NodeApp <-- HubSpot:
+note left: Uploads to failed flag if there is an error
+NodeApp -> HubSpot: Sends user data and pdf link
+NodeApp -> DB: Updates survey (succeed flag)
+deactivate NodeApp
+
+activate HubSpot
+HubSpot -> HubSpot: Creates a contact
+HubSpot -> HubSpot: Updates dashboards
+HubSpot -> HubSpot: Queue email for sending
+HubSpot -> User: Send email to user
+deactivate HubSpot
+
+@enduml 
