@@ -3,12 +3,12 @@ const requestPromise = require('request-promise');
 const TESTMAIL_ENDPOINT = (tag) =>
   `https://api.testmail.app/api/json?apikey=1fac9f34-9341-45f7-9365-ced88e961a37&namespace=9cmtz&tag=${tag}&livequery=true`;
 
-// function requestPdfBody(pdfOptions) {
-//   // using request because of issue with requesting files : https://github.com/request/request-promise/issues/171
-//   return new Promise((resolve) => {
-//     request.get(pdfOptions, (err, res, body) => resolve(body));
-//   });
-// }
+function requestPdfBody(pdfOptions) {
+  // using request because of issue with requesting files : https://github.com/request/request-promise/issues/171
+  return new Promise((resolve) => {
+    request.get(pdfOptions, (err, res, body) => resolve(body));
+  });
+}
 
 module.exports = (on, config) => {
   function setBaseUrlBasedOnLanguage() {
@@ -20,7 +20,7 @@ module.exports = (on, config) => {
       console.log(`sending testmail query... tag : ${tag}`);
       const response = await requestPromise(TESTMAIL_ENDPOINT(tag));
       const parsedResponse = JSON.parse(response);
-      console.log('response from testmail', parsedResponse);
+      // console.log('response from testmail', parsedResponse);
       return {
         reportLink: parsedResponse.emails[0].text.match(
           '(https:\\/\\/email\\.codurance\\.com\\/e2t\\/sc2.+)\\\n'
@@ -32,16 +32,16 @@ module.exports = (on, config) => {
     async assertOnPdfLink(reportLink) {
       console.log('link ', reportLink);
 
-      // const reportLinkOptions = {
-      //   url: reportLink,
-      //   encoding: null,
-      // };
-      //
-      // const pdfBuffer = Buffer.from(
-      //   await requestPdfBody(reportLinkOptions),
-      //   'utf8'
-      // );
-      return "";
+      const reportLinkOptions = {
+        url: reportLink,
+        encoding: null,
+      };
+
+      const pdfBuffer = Buffer.from(
+        await requestPdfBody(reportLinkOptions),
+        'utf8'
+      );
+      return pdfBuffer;
     }
   });
 

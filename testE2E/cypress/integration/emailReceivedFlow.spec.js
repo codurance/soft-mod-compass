@@ -16,17 +16,15 @@ context('Email Received', () => {
     it('should send email with pdf report in english', () => {
       cy.task('queryTestmail', randomTag).then((email) => {
         assertLanguage(email);
-        comparePdfReport(email);
+        cy.task('assertOnPdfLink', email.reportLink).then(pdf =>{
+          console.log('pdf content', pdf);
+          expect(pdf).not.to.be.undefined;
+        })
       });
     });
 
   function assertLanguage(email) {
     expect(email.subject).to.eq('Here is your Codurance Compass report');
-  }
-
-  function comparePdfReport(email) {
-    return cy
-      .task('assertOnPdfLink', email.reportLink)
   }
 
 });
