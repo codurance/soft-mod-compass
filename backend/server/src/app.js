@@ -50,8 +50,8 @@ module.exports = (reportingApp) => {
   });
 
   app.patch('/surveys/:id', async (req, res) => {
+    const { id } = req.params;
     try {
-      const { id } = req.params;
       console.log('Reprocessing survey with id: ' + id);
       const status = await reProcessSurvey(id);
       if (status === SurveyStatus.SUCCEED)
