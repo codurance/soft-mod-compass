@@ -39,7 +39,7 @@
 
       @media (max-width: 800px) {
         background-position: 625px 1838px;
-      }      
+      }
     }
     &--culture {
       @include brochure('./src/assets/icons/brochure-xp-culture.png');
@@ -59,15 +59,14 @@
 }
 
 .questionnaire-area {
-
   @media (max-width: 800px) {
-      width: 101px;
-      height: 101px;
-      position: absolute;
-      display: block;
-      top: 10px;
-      right: 10px;
-      border-radius: 50px;
-      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    width: 101px;
+    height: 101px;
+    position: absolute;
+    display: block;
+    top: 10px;
+    right: 10px;
+    border-radius: 50px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
 }
