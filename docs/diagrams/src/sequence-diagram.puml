@@ -21,14 +21,14 @@ React -> HubSpot: Redirects to HubSpot Thanks Landing Page\n"""https://info.codu
 
 
 activate NodeApp
-NodeApp -> DB: Stores survey (requested flag)
-NodeApp -> NodeApp: generate report pdf
+NodeApp -> DB: Stores survey (requested status)
+NodeApp -> NodeApp: generates report pdf
 note left: report task
-NodeApp -> HubSpot: Upload pdf to HubSpot
+NodeApp -> HubSpot: Uploads pdf to HubSpot
 NodeApp <-- HubSpot:
-note left: Uploads to failed flag if there is an error
+note left: Updates to failed status if there is an error
 NodeApp -> HubSpot: Sends user data and pdf link
-NodeApp -> DB: Updates survey (succeed flag)
+NodeApp -> DB: Updates survey to succeed status
 deactivate NodeApp
 
 activate HubSpot
