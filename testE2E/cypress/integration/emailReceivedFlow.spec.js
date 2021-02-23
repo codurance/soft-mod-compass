@@ -3,43 +3,30 @@ const generateUuid = require('uuid/v4');
 const comparisonMismatchThreshold = 10;
 
 context('Email Received', () => {
-  if (Cypress.env('langToTest') === 'EN') {
     const randomTag = generateUuid();
     before('given a survey filled in english', () => {
       cy.visit('/');
+      cy.get('#hs-eu-confirmation-button').click();
+      cy.get('[type=button]').click();
       Survey()
-        .fillSurveyWith('Strongly Agree', 'Hourly', 'Submit')
+        .fillSurveyWith('Strongly Agree', 'Hourly')
         .submitToReceiveReportAt(`9cmtz.${randomTag}@inbox.testmail.app`);
     });
 
     it('should send email with pdf report in english', () => {
       cy.task('queryTestmail', randomTag).then((email) => {
         assertLanguage(email);
-        comparePdfReport(email).then(assertComparisonIsSuccessful());
+        comparePdfReport(email);
       });
     });
-  }
 
   function assertLanguage(email) {
     expect(email.subject).to.eq('Here is your Codurance Compass report');
-    expect(email.textFirstLine).to.eq('Your report expires in 30 days.\n');
   }
 
   function comparePdfReport(email) {
     return cy
-      .task('convertPDFToPng', email.reportLink)
-      .then((convertedImage) => cy.task('compareImage', convertedImage));
+      .task('assertOnPdfLink', email.reportLink)
   }
 
-  function assertComparisonIsSuccessful() {
-    return (imageComparisonResult) => {
-      console.log(
-        'mismatch percentage is ',
-        imageComparisonResult.rawMisMatchPercentage
-      );
-      expect(imageComparisonResult.rawMisMatchPercentage).to.lessThan(
-        comparisonMismatchThreshold
-      );
-    };
-  }
 });
