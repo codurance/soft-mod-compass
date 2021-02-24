@@ -1,0 +1,19 @@
+name: E2E test
+
+on:
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  e2e-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: e2e test against dev environment
+        run: |
+          cd ./testE2E
+          npm run e2e-

@@ -1,1 +1,0 @@
-Hi, this is some text in a file. It should be totally ok to handle 😃
