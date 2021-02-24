@@ -44,7 +44,7 @@ function mockHubspotFileApi() {
   };
 
   return nock(hubspotApiBaseUrl)
-    .post('/filemanager/api/v2/files')
+    .post('/filemanager/api/v3/files/upload')
     .query({ hapikey: mockConfig.hubspot.authToken })
     .reply(200, validResponseWithUploadedFileLink);
 }
