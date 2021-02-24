@@ -47,7 +47,7 @@
     "jsreport": "2.4.0",
     "log-timestamp": "^0.3.0",
     "request": "^2.88.2",
-    "request-promise": "4.2.2",
+    "request-promise": "4.2.6",
     "sleep-promise": "8.0.1",
     "uuid": "3.3.2",
     "uuidgen": "^1.0.0",

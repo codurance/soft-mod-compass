@@ -1,5 +1,7 @@
 const config = require('../../config');
 const request = require('request-promise');
+const fs = require('fs');
+const path = require('path');
 
 const hubspotPost = (baseUrl, path, { formData, body }) => {
   const requestOptions = {
@@ -20,13 +22,15 @@ const hubspotPost = (baseUrl, path, { formData, body }) => {
   };
 };
 
-const hubspotGet = async (path) => {
-  return request({
-    uri: `https://api.hubapi.com` + path,
-    qs: { hapikey: config.hubspot.authToken },
-    json: true,
-  });
-};
+function generatePdfStream(pdfBuffer, pdfName) {
+  const pdfPath = path.join(__dirname, `./${pdfName}`);
+
+  fs.writeFileSync(pdfPath, pdfBuffer, (err) =>
+    console.log('Error generating the PDF ', err.message)
+  );
+
+  return fs.createReadStream(pdfPath);
+}
 
 const uploadFile = (
   fileBufer,
@@ -36,23 +40,36 @@ const uploadFile = (
 ) => {
   const extractUploadedFileId = (resp) => resp['objects'][0]['s3_url'];
 
-  return hubspotPost(config.hubspot.fileApiUrl, `/filemanager/api/v2/files`, {
-    formData: {
-      files: {
-        value: fileBufer,
-        options: {
-          filename: fileName,
-          contentType: fileMimeType,
-        },
+  var fileOptions = {
+    access: 'PUBLIC_INDEXABLE',
+    ttl: 'P3M',
+    overwrite: false,
+    duplicateValidationStrategy: 'NONE',
+    duplicateValidationScope: 'ENTIRE_PORTAL',
+  };
+
+  return hubspotPost(
+    config.hubspot.fileApiUrl,
+    `/filemanager/api/v3/files/upload`,
+    {
+      formData: {
+        file: generatePdfStream(fileBufer, fileName),
+        options: JSON.stringify(fileOptions),
+        folderPath: pathOnHubspotFilemanager,
       },
-      folder_path: pathOnHubspotFilemanager,
-    },
-  })
+    }
+  )
     .execute()
     .then(extractUploadedFileId)
     .catch((e) => {
       console.log('error uploading hubspot file ', e);
       throw new Error(`Could not upload file - Reason: ${e.message}`);
+    })
+    .finally(() => {
+      const pdfPath = path.join(__dirname, `./${fileName}`);
+      if (fs.existsSync(pdfPath)) {
+        fs.unlinkSync(pdfPath);
+      }
     });
 };
 

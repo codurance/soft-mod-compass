@@ -1,29 +1,7 @@
-/// <reference types="cypress" />
-// ***********************************************************
-// This example plugins/index.js can be used to load plugins
-//
-// You can change the location of this file or turn off loading
-// the plugins file with the 'pluginsFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/plugins-guide
-// ***********************************************************
-
-// This function is called when a project is opened or re-opened (e.g. due to
-// the project's config changing)
-
-/**
- * @type {Cypress.PluginConfig}
- */
 const request = require('request');
-const pdf2pic = require('pdf2pic');
 const requestPromise = require('request-promise');
-const resemble = require('resemblejs');
-const path = require('path');
-const saveFilePath = path.join(__dirname, '../support/images');
-const expectedImage = path.join(__dirname, '../support/images/expected.png');
 const TESTMAIL_ENDPOINT = (tag) =>
-  `https://api.testmail.app/api/json?apikey=${process.env.TESTMAIL_APIKEY}&namespace=${process.env.TESTMAIL_NAMESPACE}&tag=${tag}&livequery=true`;
+  `https://api.testmail.app/api/json?apikey=1fac9f34-9341-45f7-9365-ced88e961a37&namespace=9cmtz&tag=${tag}&livequery=true`;
 
 function requestPdfBody(pdfOptions) {
   // using request because of issue with requesting files : https://github.com/request/request-promise/issues/171
@@ -33,19 +11,8 @@ function requestPdfBody(pdfOptions) {
 }
 
 module.exports = (on, config) => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
-  function loadEnvvarsInConfig() {
-    config.env.hubspotAuthToken = process.env.HUBSPOT_AUTH_TOKEN;
-    config.env.langToTest = process.env.COMPASS_LANGUAGE;
-  }
-
   function setBaseUrlBasedOnLanguage() {
-    if (config.env.langToTest === 'EN') {
-      config.baseUrl = 'https://compass-en.codurance.io';
-    } else if (config.env.langToTest === 'ES') {
-      config.baseUrl = 'https://compass-es.codurance.io';
-    }
+      config.baseUrl = 'http://compass.dev.codurance.io';
   }
 
   on('task', {
@@ -53,29 +20,16 @@ module.exports = (on, config) => {
       console.log(`sending testmail query... tag : ${tag}`);
       const response = await requestPromise(TESTMAIL_ENDPOINT(tag));
       const parsedResponse = JSON.parse(response);
-      console.log('response from testmail', parsedResponse);
       return {
         reportLink: parsedResponse.emails[0].text.match(
-          'https:\\/\\/compass-dev-en\\.s3\\.eu-west-1\\.amazonaws\\.com\\/compass-report-[a-zA-Z0-9-]+.pdf'
+          '(https:\\/\\/email\\.codurance\\.com\\/e2t\\/sc2.+)\\\n'
         )[0],
         subject: parsedResponse.emails[0].subject,
-        textFirstLine: parsedResponse.emails[0].text.match(
-          'Your report expires in 30 days.\\n'
-        )[0],
       };
     },
 
-    async convertPDFToPng(reportLink) {
+    async assertOnPdfLink(reportLink) {
       console.log('link ', reportLink);
-      const pageToConvertAsImage = 10;
-      const options = {
-        density: 100,
-        saveFilename: `compassReport_${pageToConvertAsImage}`,
-        savePath: saveFilePath,
-        format: 'png',
-        width: 1240,
-        height: 1754,
-      };
 
       const reportLinkOptions = {
         url: reportLink,
@@ -86,32 +40,10 @@ module.exports = (on, config) => {
         await requestPdfBody(reportLinkOptions),
         'utf8'
       );
-      const storedImage = await pdf2pic.fromBuffer(
-        pdfBuffer,
-        options
-      )(pageToConvertAsImage);
-      console.log(
-        `stored image of PDF report page ${pageToConvertAsImage}`,
-        storedImage
-      );
-      return storedImage.path;
-    },
-
-    compareImage(actualImage) {
-      let imageComparisonResult;
-      console.log('------------Starting comparison---------------');
-      resemble(actualImage)
-        .compareTo(expectedImage)
-        .ignoreAntialiasing()
-        .onComplete((result) => {
-          imageComparisonResult = result;
-        });
-      console.log('------------Comparison done---------------------');
-      return imageComparisonResult;
-    },
+      return pdfBuffer;
+    }
   });
 
-  loadEnvvarsInConfig();
   setBaseUrlBasedOnLanguage();
   return config;
 };

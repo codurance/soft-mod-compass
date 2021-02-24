@@ -30,7 +30,7 @@ describe('Hubspot API', () => {
     const fileMimeType = 'application/pdf';
     const pathOnHubspotFilemanager = 'Some/Nested Path';
 
-    const uploadFileApiPath = '/filemanager/api/v2/files';
+    const uploadFileApiPath = '/filemanager/api/v3/files/upload';
 
     const validResponseWithUploadedFileLink = {
       objects: [{ s3_url: uploadedFileId }],
