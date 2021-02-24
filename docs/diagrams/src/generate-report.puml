@@ -1,0 +1,28 @@
+@startuml
+skinparam BoxPadding 10
+title Generate Report Sequence Diagram
+
+participant "React App" as React
+participant "Node App" as NodeApp
+participant "HubSpot"
+Participant "DynamoDB" as DB
+
+
+
+React -> NodeApp: Sends User and survey information
+React <-- NodeApp:
+
+
+activate NodeApp
+NodeApp -> DB: Stores the survey data (requested flag)
+NodeApp -> NodeApp: generate report pdf
+NodeApp -> HubSpot: Upload pdf to HubSpot
+note left: If error set flag to failure
+NodeApp <-- HubSpot:
+NodeApp -> HubSpot: Sends user data and pdf link
+NodeApp -> DB: Updates the survey data (succeed flag)
+deactivate NodeApp
+
+HubSpot -> HubSpot: HubSpot workflow and sends email
+
+@enduml 

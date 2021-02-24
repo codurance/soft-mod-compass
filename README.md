@@ -1,279 +1,177 @@
 # Codurance Compass
 
-A survey for checking the level of practices at your company.
+A survey for checking how effective is your organisation's software delivery
 
+## User flow
 
-## User flow TODO
-
-### In picture
-
-> Througout the whole flow, the client is identified by the `UUID` generated at the start.
-
-![compass sequence diagram](docs/diagrams/out/compass-sequence-diagram-hs-flow/sequence-diagram.png?raw=true)
+> ![compass sequence diagram](docs/diagrams/out/compass-sequence-diagram-hs-flow/sequence-diagram.png?raw=true)
 
 The above diagram in the `docs` folder is generated from the PlantUML file: `sequence-diagram.puml`.
 To edit and generate png from plantUML files, check out this [VSCode extension](https://github.com/qjebbs/vscode-plantuml)
 
-### TypeForm
-
-TypeForm is used to build and deliver the survey itself. It is a paid service and we have a subscription for the PRO+ tier. Login credentials can be found on bitwarden.
-
-When a user completes the survey the `UUID` from the hidden field is saved along with their answers. We then use the `UUID` to query the TypeForm Responses API for a specific user's answers. We use the answers to calculate scores that are used in the report.
-
-The `UUID` is also passed along in the query string when we redirect the user to HubSpot so that we can uniquely identify them.
-
-#### Passing the UUID
-Typeform supports hidden fields, when loading the Typeform survey the `UUID` is passed as a hidden field. Then when the form is submitted this `UUID` will be stored along with the answers provided.  
-See: [client/src/typeform.js](https://github.com/codurance/soft-mod-compass/blob/master/client/src/typeform.js)
-
 #### Question categories
 
 Questions are grouped in 5 categories
- - Organisational Maturity
- - Continuous Delivery
- - Culture
- - Cross Functional Teams
- - Xp Practices
+
+- Organisational Maturity
+- Team Effectiveness
+- Continuous Delivery
+- XP Practices
+- Organisational Culture
 
 Each category contains 4 questions.
 
-### HubSpot
+<br/>
+<br/>
+<br/>
 
-Hubspot hosts the whole client flow, that is the pages the user would see when going through Compass.
-Husbpot also captures the contact information and stores it as a contact. Hubspot is a tool used by the Sales team to manage client relationships (CRM)
-(SoonⓇ: When the report is generated it is automatically uploaded to Hubspot and attached to the contact)
+## React frontend
 
-To understand the client flow in more detail, see: [User Flow - In picture](#in-picture)
+React hosts the whole client flow, that is the pages the user would see when going through Compass. Reacts will collect answers, user information and the language (en/es). Every time the user sees a new question, React sends an event to Google Tag Manager with the index and the label of the question.
+When an user ends, the data is will be sent to NodeJS app and the user will be redirected to HubSpot thank you page.
 
 To update the pages stored on Hubspot, aka client flow:
- - **For the page hosting the typeform survey:** See TODO ADD LINK TO RELEVANT SECTION
- - **For the form and thank you page:** Edit directly in Hubspot: `Marketing -> Website -> Landing Pages`
 
-#### Passing the UUID
-We store the UUID in a hidden field on the HubSpot report download form, this is then saved along with their interaction so that we can link the contact with the report. To pass the UUID as a hidden field, it is simply passed as a query parameter in the URL, then on the Hubspot end, it will be available via the following variable `{{request.query_dict.XXX}}`.  
-See: [Hubspot Documentation on Hidden Fields](https://knowledge.hubspot.com/forms/can-i-auto-populate-form-fields-through-a-query-string) and [client/index.js](https://github.com/codurance/soft-mod-compass/blob/master/src/client/index.js) (where we inject the Hubspot redirection URL).
-See: [client/src/typeform.js](https://github.com/codurance/soft-mod-compass/blob/master/client/src/typeform.js)
+- **For the form and thank you page:** Edit directly in Hubspot: `Marketing -> Website -> Landing Pages`
 
-### Reporting (jsreport)
+<br/>
+<br/>
+<br/>
 
-The `/report/submit/:UUID` endpoint of the Node app uses the `UUID` to retrieve the user's answers from Typeform, retreive the user details from Hubspot, generate their scores and then creates a view model for the report which is piped into [jsreport](https://jsreport.net/learn/adapting-jsreport). jsreport combines the view model with a Handlebars template and returns a pdf file download.
+## NodeJS backend
 
-The jsreport console can be found at `/reporting`. This is where you will find the jsreport development environment for updating the report template.
+### Reporting flow
 
-## Running the project
+> ![compass sequence diagram](docs/diagrams/out/report-diagram.png?raw=true)
 
-### Config
+The `post /survey` endpoint receives the user details, survey data and the language, stores the survey in DynanoDB, generates their scores and then creates a view model for the report which is piped into [jsreport](https://jsreport.net/learn/adapting-jsreport). jsreport combines the view model with a Handlebars template and returns a pdf file.
+The pdf will be uploaded to HubSpot.
+Finally Node app will sends a request to Hubspot with the user data and the pdf link and Hubspot will create a contact and send the email.
 
-#### Automatic config download with the Bitwarden CLI
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
-1. Install the Bitwarden CLI: `npm install -g @bitwarden/cli`
-1. Install the `jq`: `brew install jq`
-1. Login to Bitwarden: `bw login EMAIL@codurance.com`  
-   _You can ignore the message about `BW_SESSION`_
-1. Run `./scripts/download_config_from_bitwarden.sh`
+## Running the project Locally
 
-This will download the latest config files from Bitwarden and place them in the `./scripts/` directory:
+> **Important**: Before running locally, you **need**:
+>
+> - Create a localConf.sh and localDB.sh files inside of /backend/scripts , the information to fill the file is in bitwarden (localConf and localDB).
+> - Add execution permissions for both files, inside of /backend/scripts execute the following command
 
-- `./scripts/envvars-config-dev-EN.sh`
-- `./scripts/envvars-config-dev-ES.sh`
-- `./scripts/envvars-config-prod-EN.sh`
-- `./scripts/envvars-config-prod-ES.sh`
+```bash
+chmod 711 localConf.sh localDB.sh
 
-Also it will generate the hubspot cli configuration needed to deploy the client with `yarn deploy-client` in:
+```
 
-- `./hubspot.config.yml`
+> **NodeJS App**
+>
+> - move inside /backend
+> - npm install
+> - npm run local
+> - NodeJS will load the dev enviroment at http://localhost:8080
 
-### Modifying Compass Survey Template
+> **React**
+>
+> - move inside /client
+> - npm install
+> - npm run start
+> - Webpack will load the dev enviroment at http://localhost:3000
+
+> **User flow**
+>
+> - Go to `http://localhost:3000` or `http://localhost:3000?lang=es` and complete survey
+> - Submit the form
+> - _(Redirected to Hubspot thank you page)_
+> - _(Report is generated)_
+> - When we run the application locally, the pdf will be generated in `/backend/tmp` and not sended to the email
+
+<br/>
+<br/>
+<br/>
+
+## Running tests locally
+
+```bash
+# Unit tests go to /client or /backend and execute
+npm run test
+
+# E2E go to /TestE2E
+npm install
+npm run e2e
+```
+
+<br/>
+<br/>
+<br/>
+
+## Modifying Compass Survey Template
+
 - Update `index.handlebars` file located in `./client/src`
-- Run `yarn deploy-client`, which uploads the files to the [Hubspot Design Manager](https://app.hubspot.com/design-manager/3042464/) and creates the following files in `./dist` folder:     
+- Run `yarn deploy-client`, which uploads the files to the [Hubspot Design Manager](https://app.hubspot.com/design-manager/3042464/) and creates the following files in `./dist` folder:
   - compass-survey-dev-en.html
   - compass-survey-dev-es.html
   - compass-survey-prod-en.html
   - compass-survey-prod-es.html
 
-  
-### Running Locally
-
-> **Important**: Before running locally, you **need**:
->
-> - **The compass config files saved in `/scripts`. See [Config section](#config)**
-> - The `aws` cli installed
->   - `brew install awscli`
-> - To be logged in with the corresponding account (`codurance` or `codurance-playground`) and region in the `aws` cli
->   - `aws configure`
->     - https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
->     - Check the correct region in each section below (`playground`/`prod`).  
->       If the region is incorrect, an error will be thrown.
-> - Run `yarn install`
-
-Due to the Typeform survey being hosted on [Hubspot](#hubspot) there is no way to run the Typeform portion of Compass locally. However, the following steps enable you to go through the flow and test local changes made to the server part (report generation part):
-
-1. Go to `https://compass-en.codurance.io` and complete survey
-   - or `https://compass-es.codurance.io`
-1. _(Redirected to the Hubspot details submissions page)_
-1. Fill in the form with the email `compass-test@codurance.com`
-    - To ensure we don't add unecessary contacts to contact list (polluting the CRM analytics)
-1. **BEFORE CLICKING SUBMIT:** Copy the `uuid` that is located in the url and store it somewhere temporarily 
-1. Submit the form
-1. _(Report is generated)_
-1. _(Report is sent to email compass-test@codurance.com)_
-1. _(Redirected to Hubspot thank you page)_
-1. Run `yarn dev:en` to start the report server
-   - or `yarn dev:es`
-1. Open another terminal window
-1. Make a request to server for the report with `curl http://localhost:8080/report/submit/UUID`
-   - `UUID` from step 4.
-1. You should be able to see the user's details
-1. (Now the report is generated locally)
-   - Any log statement will be printed in the terminal where you ran `yarn dev:en` 
-   - To make new changes to the code repeat all steps starting from `yarn dev:en` (you can reuse the `uuid`)
-
-
 > `yarn` can be substituted for `npm`/`npm run` if you don't have yarn. (Yarn is easily installed on mac with `brew install yarn`)
 
-#### Running Locally - With Docker
+## Modifying PDF report
 
-> To run with Docker you need:
-> - Everything needed to run locally (see above)
-> - `docker` installed
-> - `docker-compose` installed
+To modify the pdf from a graphic ui, we need to run the project locally and then go to https://localhost:8080/reporting This is where you will find the jsreport development environment for updating the report template.
 
-Run the dev environment:
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
-```bash
-# Step 1
-./scripts/run_in_docker.sh en # or './scripts/run_in_docker.sh es'
+## CI/CD
 
-# Step 2
-# Go to http://localhost:8080
-```
+> There are multiples Github Actions prepared to be executed each time we push. If we push a branch (not dev or master) the CI workflow will be executed, this workflow will run tests for front and backend application and create build for frontend.
 
-#### Running tests locally
+### Deploy Development Enviroment
 
-```bash
-# Unit tests
-yarn test:tdd
+> Every time we push code in dev branch, the code will be deployed through a Github Action
 
-# E2E Tests
-yarn test:e2e:dev:en
-yarn test:e2e:dev:es
-```
+### Deploy Production Enviroment
 
-## Deploying the Server side - AWS
+> Every time we push code in master branch, the code will be deployed through a Github Action
 
-#### Modifying AWS Policies
-- **DEV environment**
-    1. Go to `scripts/aws/iam/compass-policies.json`
-    1. Add policy to **Action** list in the first **Statement**
-        ```
-        {
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Action": [
-                "s3:GetObject",
-                ...
-              ],
-              "Resource": "arn:aws:s3:::$REPORT_BUCKET/*"
-            },
-        }
-        ```
-    1. Destroy environment
-    1. Re-create environment
-    
-- **Prod environment**
-    1. Modify manually on AWS console
-    
-**Important**: When deploying to `codurance` or `codurance-playground`, you **need**:
+<br/>
+<br/>
+<br/>
 
-- **The compass config files saved in `/scripts`. See [Config section](#config)**
-- The `aws` cli installed
-  - `brew install awscli`
-- To be logged in with the corresponding account (`codurance` or `codurance-playground`) and region in the `aws` cli
-  - `aws configure`
-    - https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
-    - Check the correct region in each section below (`playground`/`prod`).  
-      If the region is incorrect, an error will be thrown.
-- The `gettext` utility
-  - `brew install gettext`
-- The `jq` utility
-  - `brew install jq`
+## Infrastruscture
 
-### Playground - AWS Region: `eu-west-1`
+All the infrastructure is managed in Amazon Web Services, we use the following services.
 
-> **Note:** In all following commands, the language `en` can be swapped for `es`.
+- [S3 Bucket](https://aws.amazon.com/s3/) to host the frontend and store the backend package
+- [Elasticbeanstalk](https://aws.amazon.com/elasticbeanstalk/) to deploy NodeJS app
+- [CloudFront](https://aws.amazon.com/cloudfront/) allow us to add ssl certificate for the React app
+- [DynanoDB](https://aws.amazon.com/dynamodb/) stores the surveys in order to reproduce the failing ones
+- [Route 53](https://aws.amazon.com/route53/) allows us to create friendly urls like compass.codurance.com
 
-Create a dev environment called `compass-dev-en` on AWS (with roles, bucket, EBS, etc.):
+### Development enviromnent diagram
 
-> The environment creation will take a couple of minutes.  
-> You can check the progress at [Compass Application Dashboard on Elasticbeanstalk](https://eu-west-1.console.aws.amazon.com/elasticbeanstalk/home?region=eu-west-1#/application/overview?applicationName=compass)
+> ![Infrastructure dev enviromnent](docs/diagrams/out/dev-infrastructure.png?raw=true)
 
-```sh
+### Production enviromnent diagram
 
-yarn create-env:dev:en
+> ![Infrastructure dev enviromnent](docs/diagrams/out/prod-infrastructure.png?raw=true)
 
-```
-
-Deploy current (checked-out) branch to `compass-dev-en`
-
-```sh
-
-yarn deploy:dev:en
-
-```
-
-**Clean Up:** Destroy `compass-dev-en` (and all corresponding resources):
-
-```sh
-
-yarn destroy-env:dev:en
-
-```
-
-### Production - AWS Region: `eu-central-1`
-
-> **Note:** In all following commands, the language `en` can be swapped for `es`.
-
-Deploy current (checked-out) branch to `compass-prod-en`
-
-```sh
-
-yarn deploy:prod:en
-
-```
-
-In production, the environment should already exist.
-
-Create a dev environment called `compass-prod-en` on AWS (with roles, bucket, EBS, etc.):
-
-> The environment creation will take a couple of minutes.  
-> You can check the progress at [Compass Application Dashboard on Elasticbeanstalk](https://eu-central-1.console.aws.amazon.com/elasticbeanstalk/home?region=eu-central-1#/application/overview?applicationName=compass)
-
-```sh
-
-yarn create-env:prod:en
-
-```
-
-**Clean Up:** Destroy `compass-prod-en` (and all corresponding resources):
-
-> Note: Destroying Prod environment **DELETES ALL THE REPORTS**
-```sh
-
-yarn destroy-env:prod:en
-
-```
 ### HTTPS
 
-The elasticbeanstalk instance will redirect HTTP traffic to HTTPS.
+In prod environment elasticbeanstalk instance will redirect HTTP traffic to HTTPS.
 When creating a new enviromnent, you need to manually add an HTTPS listener with a valid certificate.
 
 ## Additional Notes
 
 ### Generate a Report Manually
 
-To generate a report manually, checkout this branch [use-this-if-need-to-provide-reports-manually](https://github.com/codurance/soft-mod-compass/tree/use-this-if-need-to-provide-reports-manually)
+If you want to generate the pdf report manually, just need to run the project locally, the pdf will be under /backend/temp/test.pdf
 
 ### Deprecated code
 

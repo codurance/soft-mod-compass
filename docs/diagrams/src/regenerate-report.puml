@@ -1,0 +1,23 @@
+@startuml
+skinparam BoxPadding 10
+title ReGenerate Reports Sequence Diagram
+
+actor "User"
+actor "Dev"
+participant "Node App" as NodeApp
+Participant "DynamoDB" as DB
+participant "HubSpot"
+
+
+Dev -> NodeApp: patch to /surveys/:id
+activate NodeApp
+NodeApp -> DB:Queries survey by id
+DB --> NodeApp
+NodeApp -> NodeApp: generate report
+NodeApp -> DB: Updates survey to succeed state
+NodeApp -> HubSpot: uploads the pdf
+HubSpot --> NodeApp
+NodeApp -> HubSpot: sends the contact info
+HubSpot -> User: Sends the email with the pdf
+
+@enduml 
