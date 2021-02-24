@@ -11,6 +11,7 @@
     "cypress": "^4.7.0",
     "cypress-iframe": "^1.0.1",
     "cypress-wait-until": "^1.7.1",
-    "request-promise": "^4.2.6"
+    "request-promise": "^4.2.6",
+    "request": "^2.88.2"
   }
 }

@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  e2e-backend:
+  e2e-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -16,4 +16,5 @@ jobs:
       - name: e2e test against dev environment
         run: |
           cd ./testE2E
+          npm install
           npm run e2e-
