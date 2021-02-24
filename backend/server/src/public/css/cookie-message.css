@@ -13,7 +13,7 @@
 }
 
 .cookie-message__text {
-  font-family: proxima-nova, sans-serif; /* TODO: add proxima-nova font to project? */
+  font-family: proxima-nova, sans-serif;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.8);
   padding: 0.5em 0;
@@ -32,7 +32,7 @@
   border-radius: 0.25rem;
   padding: 0.63rem 1.87rem;
   margin-left: 2em;
-  font-family: proxima-nova, sans-serif; /* TODO: add proxima-nova font to project? */
+  font-family: proxima-nova, sans-serif;
   font-size: 0.9rem;
   font-weight: 400;
   cursor: pointer;

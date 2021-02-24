@@ -11,9 +11,9 @@
   --accent-blue--light-bkg: #00a0bb;
   --functional-light-grey: #e0e0e0;
   --functional-medium-grey: #85898f;
-  
+
   --background-peach: #fff0e0;
-  
+
   /* TYPE */
   --font-weight-regular: 400;
   --font-weight-bold: 700;
@@ -27,7 +27,7 @@
 
 /* TYPE -------------------------------------- */
 html, body {
-  font-family: proxima-nova;
+  font-family: proxima-nova, sans-serif;
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
   color: var(--text-black);
@@ -43,7 +43,7 @@ html, body {
   min-height: 297mm;
   max-width: 210mm;
   max-height: 297mm;
-  
+
 }
 .page-break-before {
   break-before: page;
