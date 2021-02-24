@@ -20,7 +20,6 @@ module.exports = (on, config) => {
       console.log(`sending testmail query... tag : ${tag}`);
       const response = await requestPromise(TESTMAIL_ENDPOINT(tag));
       const parsedResponse = JSON.parse(response);
-      // console.log('response from testmail', parsedResponse);
       return {
         reportLink: parsedResponse.emails[0].text.match(
           '(https:\\/\\/email\\.codurance\\.com\\/e2t\\/sc2.+)\\\n'
