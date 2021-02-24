@@ -98,12 +98,16 @@ function UserForm({ submitForm }) {
               <div className="form__error">{errors.email && emailError}</div>
               <div className="form__gdpr">
                 <input
+                  id="privacy-policy-checkbox"
                   type="checkbox"
                   name="checkbox"
                   data-testid="gdprCheckbox"
                   ref={register({ required: true })}
                 />
-                <span className="form__gdpr__text">
+                <label
+                  className="form__gdpr__text"
+                  htmlFor="privacy-policy-checkbox"
+                >
                   {translator.gdprText}
                   <a
                     target="_blank"
@@ -113,7 +117,7 @@ function UserForm({ submitForm }) {
                   >
                     {translator.privacyPolicy}
                   </a>
-                </span>
+                </label>
               </div>
 
               <div className="form__error">
