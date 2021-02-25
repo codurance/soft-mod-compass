@@ -135,7 +135,7 @@ To modify the pdf from a graphic ui, we need to run the project locally and then
 
 ## CI/CD
 
-> There are multiples Github Actions prepared to be executed each time we push. If we push a branch (not dev or master) the CI workflow will be executed, this workflow will run tests for front and backend application and create build for frontend.
+> There are multiple Github Actions prepared to be executed each time we push. If we push a branch (not dev or master) the CI workflow will be executed, this workflow will run tests for front and backend application and create build for frontend.
 > On a merge request creation against Master, the e2e test is run
 ### Deploy Development Enviroment
 
