@@ -10,7 +10,6 @@ const { processSurvey, reProcessSurvey } = require('./survey/surveyService');
 //put a timestamp on each line of logs - required for cloudwatch log streaming
 require('log-timestamp');
 const SurveyStatus = require('./survey/SurveyState');
-const { surveyValidation } = require('./validation/surveyValidation');
 
 module.exports = (reportingApp) => {
   const app = express();
@@ -39,12 +38,6 @@ module.exports = (reportingApp) => {
     console.log(
       'new request incoming... request body :' + JSON.stringify(req.body)
     );
-
-    try {
-      await surveyValidation(req.body);
-    } catch (err) {
-      return res.status(400).send({ error: err.details });
-    }
 
     processSurvey(req.body)
       .then((result) => {

@@ -6,6 +6,7 @@ const {
   updateSurveyToFailedState,
 } = require('./surveyRepository');
 const { submitSurvey } = require('./surveyOrchestrator');
+const { surveyValidation } = require('../validation/surveyValidation');
 
 function propagateFailedSurveyError(e, surveyId, surveyBody) {
   console.error(e);
@@ -27,6 +28,7 @@ async function processSurvey(surveyBody) {
   let surveyId;
   try {
     surveyId = await saveRequestedSurvey(surveyBody);
+    await surveyValidation(surveyBody);
     await submitSurvey(surveyBody);
     await updateSurveyToSucceedState(surveyId);
     return surveyId;
