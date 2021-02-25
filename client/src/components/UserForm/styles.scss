@@ -57,6 +57,8 @@
     &__text {
       @include sejima;
       margin-top: -4px;
+      cursor: pointer;
+      user-select: none;
     }
 
     .privacyPolicy {
