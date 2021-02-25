@@ -25,9 +25,9 @@ Each category contains 4 questions.
 
 ## React frontend
 
-React hosts the whole client flow, that is the pages the user would see when going through Compass. 
-Reacts will collect answers, user information and the language (en/es). Every time the user sees a new question, React sends an event to Google Tag Manager with the index and the label of the question.
-When an user ends, the data is will be sent to NodeJS app and the user will be redirected to HubSpot thank you page.
+React hosts the whole client flow, that is the pages the user would see when going through Compass.
+React will collect answers, user information and the language (en/es). Every time the user sees a new question, React sends an event to Google Tag Manager with the index and the label of the question.
+When a user ends, the data will be sent to NodeJS app and the user will be redirected to the HubSpot thank you page.
 
 To update the pages stored on Hubspot, aka client flow:
 
@@ -101,7 +101,7 @@ update the localConf.sh file with the one located in bitwarden.
 > **reprocess flow**
 > - the logs are monitored in cloudwatch, and a compass dashboard filters the failed surveys
 > - find the id of surveys that can be reprocessed ( compare dynamodb surveys table and cloudwatch compass report to find which id has not been reprocessed)
-> - execute the reprocess with postman 
+> - execute the reprocess with postman
 example of local request (replace :id)
 ```
 curl --location --request PATCH 'http://localhost:8080/surveys/:id' \
