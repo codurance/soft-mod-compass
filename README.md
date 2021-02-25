@@ -29,10 +29,6 @@ React hosts the whole client flow, that is the pages the user would see when goi
 React will collect answers, user information and the language (en/es). Every time the user sees a new question, React sends an event to Google Tag Manager with the index and the label of the question.
 When a user ends, the data will be sent to NodeJS app and the user will be redirected to the HubSpot thank you page.
 
-To update the pages stored on Hubspot, aka client flow:
-
-- **For the form and thank you page:** Edit directly in Hubspot: `Marketing -> Website -> Landing Pages`
-<br/>
 <br/>
 
 ## NodeJS backend
@@ -63,7 +59,7 @@ Finally Node app will send a request to Hubspot with the user data and the pdf l
 export LOCAL_MODE=true
 export ALLOWED_ORIGIN=http://localhost:3000
 ```
-> - Add execution permissions for both files, inside of /backend/scripts execute the following command
+> - Add execution permissions, inside of /backend/scripts execute the following command
 ```bash
 chmod 711 localConf.sh
 ```
@@ -77,8 +73,8 @@ chmod 711 localConf.sh
 > **React**
 >
 > - move inside /client
-> - npm install
-> - npm run start
+> - run ```npm install```
+> - run ```npm run start```
 > - Webpack will load the application at http://localhost:3000
 
 > **User flow**
@@ -94,11 +90,17 @@ chmod 711 localConf.sh
 
 ### run local app against dev database and hubspot account
 
-update the localConf.sh file with the one located in bitwarden.
+why ? If you need to debug locally or replicate an issue happening in dev, It can
+be useful to have access to the DB and Hubspot.
+
+update the localConf.sh file with the one located in bitwarden, to get the environment variable containing secret values :
+- hubspot form id
+- hubspot auth token id
+- aws keys
 <br/>
 <br/>
 
-> **reprocess flow**
+## reprocess flow
 > - the logs are monitored in cloudwatch, and a compass dashboard filters the failed surveys
 > - find the id of surveys that can be reprocessed ( compare dynamodb surveys table and cloudwatch compass report to find which id has not been reprocessed)
 > - execute the reprocess with postman
@@ -159,6 +161,13 @@ All the infrastructure is managed in Amazon Web Services, we use the following s
 - [DynanoDB](https://aws.amazon.com/dynamodb/) stores the surveys in order to reproduce the failing ones
 - [Route 53](https://aws.amazon.com/route53/) allows us to create friendly urls like compass.codurance.com
 - [CloudWatch](https://aws.amazon.com/cloudwatch/) allows us monitor the app, and send alarms to devs in case of failures
+
+Development environment is located in playground AWS account
+Production is located in the AWS production account
+
+IAM users that contain the permissions to run provisioning and deploy are :
+- compass-production
+- compass-local-dev
 
 ### Development enviromnent diagram
 
