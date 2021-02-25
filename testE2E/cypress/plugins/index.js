@@ -18,7 +18,16 @@ module.exports = (on, config) => {
   on('task', {
     async queryTestmail(tag) {
       console.log(`sending testmail query... tag : ${tag}`);
-      const response = await requestPromise(TESTMAIL_ENDPOINT(tag));
+      var options = {
+        uri: TESTMAIL_ENDPOINT(tag),
+        simple: false
+      };
+      let requestSucceeded = false;
+      setTimeout( () => {
+        if(!requestSucceeded) throw new Error('query email timed out');
+      }, 120000);
+      const response = await requestPromise(options);
+      requestSucceeded = true;
       const parsedResponse = JSON.parse(response);
       return {
         reportLink: parsedResponse.emails[0].text.match(
