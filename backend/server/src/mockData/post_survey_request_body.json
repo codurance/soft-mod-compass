@@ -18,15 +18,15 @@
         },
         "deliveringValue": {
           "score": 60,
-          "answer": "Neither Agree Nor Disagree"
+          "answer": "neitherAgree"
         },
         "technicalDebt": {
           "score": 80,
-          "answer": "Agree"
+          "answer": "agree"
         },
         "methodology": {
           "score": 100,
-          "answer": "Strongly Agree"
+          "answer": "stronglyAgree"
         }
       }
     },
@@ -35,19 +35,19 @@
       "subcategories": {
         "cadence": {
           "score": 40,
-          "answer": "Monthly"
+          "answer": "monthly"
         },
         "rework": {
           "score": 60,
-          "answer": "Neither Agree Nor Disagree"
+          "answer": "neitherAgree"
         },
         "pipeline": {
           "score": 20,
-          "answer": "Strongly Disagree"
+          "answer": "stronglyDisagree"
         },
         "sideEffects": {
           "score": 100,
-          "answer": "Strongly Agree"
+          "answer": "stronglyAgree"
         }
       }
     },
@@ -56,19 +56,19 @@
       "subcategories": {
         "transparency": {
           "score": 20,
-          "answer": "Strongly Disagree"
+          "answer": "stronglyDisagree"
         },
         "learning": {
           "score": 20,
-          "answer": "Strongly Disagree"
+          "answer": "stronglyDisagree"
         },
         "learnFromFailure": {
           "score": 40,
-          "answer": "Disagree"
+          "answer": "disagree"
         },
         "careerPath": {
           "score": 20,
-          "answer": "Strongly Disagree"
+          "answer": "stronglyDisagree"
         }
       }
     },
@@ -77,19 +77,19 @@
       "subcategories": {
         "diversity": {
           "score": 100,
-          "answer": "Strongly Agree"
+          "answer": "stronglyAgree"
         },
         "autonomy": {
           "score": 40,
-          "answer": "Disagree"
+          "answer": "disagree"
         },
         "wholeTeam": {
           "score": 60,
-          "answer": "Neither Agree Nor Disagree"
+          "answer": "neitherAgree"
         },
         "knowledgeSharing": {
           "score": 20,
-          "answer": "Strongly Disagree"
+          "answer": "stronglyDisagree"
         }
       }
     },
@@ -98,19 +98,19 @@
       "subcategories": {
         "tdd": {
           "score": 80,
-          "answer": "Agree"
+          "answer": "agree"
         },
         "architecture": {
           "score": 60,
-          "answer": "Neither Agree Nor Disagree"
+          "answer": "neitherAgree"
         },
         "cleanCode": {
           "score": 80,
-          "answer": "Agree"
+          "answer": "agree"
         },
         "peerReview": {
           "score": 100,
-          "answer": "Strongly Agree"
+          "answer": "stronglyAgree"
         }
       }
     }
