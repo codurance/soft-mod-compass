@@ -33,7 +33,7 @@ function dbHealthCheck(tableName) {
 }
 function getAwsSdkConfig() {
   const localConf = {
-    endpoint: 'http://localhost:8001',
+    endpoint: 'http://localhost:8000',
     region: 'local',
     accessKeyId: 'dummy',
     secretAccessKey: 'dummy',

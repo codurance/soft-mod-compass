@@ -1,6 +1,6 @@
 #front-page-es.page,
 #front-page-en.page {
-    color: white;
+    color: #313135;
     font-size: 13.33pt;
     font-weight: var(--font-weight-bold);
     text-align: right;
@@ -9,30 +9,27 @@
 #front-page_full-name {
   display: inline-block;
   position: absolute;
-  top: 198mm;
-  right: 26mm;
+  top: 232mm;
+  left: 16.5mm;
   width: 109mm;
-  text-align: right;
-  color: white;
+  text-align: left;
 }
 
 
 #front-page_company-name {
   display: inline-block;
   position: absolute;
-  top: 225mm;
-  right: 26mm;
+  top: 251mm;
+  left: 16.5mm;
   width: 109mm;
-  text-align: right;
-  color: white;
+  text-align: left;
 }
 
 #front-page_date {
   display: inline-block;
   position: absolute;
-  top: 251mm;
-  right: 26mm;
+  top: 270mm;
+  left: 16.5mm;
   width: 39mm;
-  text-align: right;
-  color: white;
+  text-align: left;
 }
