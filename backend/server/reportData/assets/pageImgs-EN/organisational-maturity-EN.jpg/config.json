@@ -3,12 +3,13 @@
         "shortid": "VInnKwb"
     },
     "name": "organisational-maturity-EN.jpg",
-    "creationDate": "2020-03-20T15:15:58.468Z",
-    "modificationDate": {
-        "$$date": 1595441056781
+    "creationDate": {
+        "$$date": 1614276433980
     },
-    "shortid": "j5O1nRC",
-    "_id": "1ZurIfXipKwEtfVU",
-    "$entitySet": "assets",
-    "link": null
+    "modificationDate": {
+        "$$date": 1614276433980
+    },
+    "shortid": "dE41x9H",
+    "_id": "83zVOMpfXUb6l0Y4",
+    "$entitySet": "assets"
 }

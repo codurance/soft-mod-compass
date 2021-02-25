@@ -3,11 +3,13 @@
         "shortid": "VInnKwb"
     },
     "name": "organisational-maturity-avg-EN.jpg",
-    "creationDate": "2020-03-20T15:14:26.567Z",
-    "modificationDate": {
-        "$$date": 1589543451413
+    "creationDate": {
+        "$$date": 1614276415078
     },
-    "shortid": "8ONdveC",
-    "_id": "XMkTmRhcl5yduC2u",
+    "modificationDate": {
+        "$$date": 1614276415078
+    },
+    "shortid": "DcIfY3T",
+    "_id": "6c2L3vPjd6SK497t",
     "$entitySet": "assets"
 }
