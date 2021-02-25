@@ -9,8 +9,8 @@ participant "Node App" as NodeApp
 participant "HubSpot"
 participant "DynamoDB" as DB
 
-User -> React: Loads Compass
-User -> React: Answeres the questions
+User -> React: Opens Compass in the browser
+User -> React: Answers the questions
 
 React -> TGM: Sends an event for each question
 User -> React: Completes submission form
@@ -25,7 +25,7 @@ NodeApp -> DB: Stores survey (requested status)
 NodeApp -> NodeApp: generates report pdf
 note left: report task
 NodeApp -> HubSpot: Uploads pdf to HubSpot
-NodeApp <-- HubSpot:
+NodeApp <-- HubSpot: return pdf link
 note left: Updates to failed status if there is an error
 NodeApp -> HubSpot: Sends user data and pdf link
 NodeApp -> DB: Updates survey to succeed status
