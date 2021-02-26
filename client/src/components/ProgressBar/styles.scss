@@ -1,5 +1,3 @@
-@import '../../styles/global.scss';
-
 @mixin step($color, $height, $opacity: 1) {
   background-color: $color;
   display: flex;
