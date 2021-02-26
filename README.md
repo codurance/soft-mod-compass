@@ -37,9 +37,11 @@ When a user ends, the data will be sent to NodeJS app and the user will be redir
 
 TODO : class diagram
 
-The `post /survey` endpoint receives the user details, survey data and the language, stores the survey in DynanoDB, generates their scores and then creates a view model for the report which is piped into [jsreport](https://jsreport.net/learn/adapting-jsreport). jsreport combines the view model with a Handlebars template and returns a pdf file.
+The `post /survey` endpoint receives the user details, survey data and the language, stores the survey in DynanoDB, generates their scores and then creates pdf report with [jsreport](https://jsreport.net/learn/adapting-jsreport). jsreport combines the view model with a Handlebars template and returns a pdf file.
 The pdf is uploaded to HubSpot.
-Finally Node app will send a request to Hubspot with the user data and the pdf link and Hubspot will create a contact and send the email.
+Finally Node app will send a request to Hubspot file manager api to upload the pdf,
+a request to the hubspot form api with the user data and the pdf link to create a contact,
+which will trigger a workflow to send the email
 <br/>
 <br/>
 
@@ -169,10 +171,18 @@ IAM users that contain the permissions to run provisioning and deploy are :
 - compass-production
 - compass-local-dev
 
-### Development enviromnent diagram
+### Development enviromnent 
 
-> ![Infrastructure dev enviromnent](docs/diagrams/out/dev-infrastructure.png?raw=true)
+>diagram 
+>![Infrastructure dev enviromnent](docs/diagrams/out/dev-infrastructure.png?raw=true)
+>hubspot form : [Dev] - Compass Details Submission (v2)
+>hubspot emails : Compass report email - EN - Dev , Compass report email - ES - Dev
+>hubspot workflow : Send Email On Compass Report Upload
 
 ### Production enviromnent diagram
 
-> ![Infrastructure dev enviromnent](docs/diagrams/out/prod-infrastructure.png?raw=true)
+>diagram
+>![Infrastructure dev enviromnent](docs/diagrams/out/prod-infrastructure.png?raw=true)
+>hubspot form : [Prod] - Compass Details Submission (v2)
+>hubspot emails : Compass report email - EN - Prod , Compass report email - ES - Prod
+>hubspot workflow : Send Email On Compass Report Upload PROD
