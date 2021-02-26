@@ -1,22 +1,12 @@
 const userFormValues = [
-  'Agile Coach',
-  'CEO',
-  'CIO',
-  'COO',
-  'CTO',
+  'Founder/ CEO',
   'Finance',
   'Human Resources',
   'Marketing',
   'Operations',
-  'Other',
-  'Product Manager',
-  'Product Owner',
-  'Project Manager',
-  'Quality Assurance',
-  'Recruitment',
   'Sales',
-  'Software Engineer',
-  'VP of Engineering',
+  'Software Development',
+  'Other',
 ];
 
 export default userFormValues;
