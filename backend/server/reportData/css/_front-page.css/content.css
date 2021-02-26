@@ -1,8 +1,8 @@
 #front-page-es.page,
 #front-page-en.page {
-    color: #313135;
+    color: var(--mid-gray);
     font-size: 13.33pt;
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--middle-font-weight);
     text-align: right;
 }
 

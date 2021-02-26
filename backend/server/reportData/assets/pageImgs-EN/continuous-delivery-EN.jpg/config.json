@@ -3,12 +3,13 @@
         "shortid": "VInnKwb"
     },
     "name": "continuous-delivery-EN.jpg",
-    "creationDate": "2020-03-20T15:13:13.185Z",
-    "modificationDate": {
-        "$$date": 1595441010582
+    "creationDate": {
+        "$$date": 1614276336539
     },
-    "shortid": "rt78O62",
-    "_id": "LSz2z5nqMTDqU150",
-    "$entitySet": "assets",
-    "link": null
+    "modificationDate": {
+        "$$date": 1614276336539
+    },
+    "shortid": "PyzarMS",
+    "_id": "NP3qq5y5vcJa1Pse",
+    "$entitySet": "assets"
 }

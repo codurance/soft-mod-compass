@@ -13,7 +13,7 @@
   </style>
 </head>
 <body>
-    
+
 
 
   <!-- BEGIN FRONT PAGE ---------------------------------------------------------- -->
@@ -53,29 +53,29 @@
 
   <!-- BEGIN YOUR ASSESSMENT PAGE ---------------------------------------------------------- -->
   <section id="assessment-page-es" class="page page-break-after with-background-img">
-    {{> gauge-assessment 
+    {{> gauge-assessment
         score=categories.organisationalMaturity.score
         category="organisational-maturity"
         lang="es" }}
-        
-    {{> gauge-assessment 
+
+    {{> gauge-assessment
         score=categories.continuousDelivery.score
         category="continuous-delivery"
         lang="es" }}
-        
-    {{> gauge-assessment 
+
+    {{> gauge-assessment
         score=categories.culture.score
-        category="people-culture"
+        category="organisational-culture"
         lang="es" }}
-        
-    {{> gauge-assessment 
+
+    {{> gauge-assessment
         score=categories.crossFunctionalTeams.score
-        category="effective-team"
+        category="team-effectiveness"
         lang="es" }}
-        
-    {{> gauge-assessment 
+
+    {{> gauge-assessment
         score=categories.xpPractices.score
-        category="technical-practices"
+        category="xp-practices"
         lang="es" }}
 
   </section>
@@ -83,7 +83,7 @@
 
   <!-- BEGIN TOC PAGE ---------------------------------------------------------- -->
   <section id="toc-page-es" class="page page-break-after with-background-img">
-      
+
       <ul class="toc-page__contents">
           <a href="#organisational-maturity-page-es"><li>
             <span class="toc-page__numbers">4.</span>
@@ -93,15 +93,15 @@
             <span class="toc-page__numbers">7.</span>
             <span class="toc-page__sections">Entrega continua</span>
           </a></li>
-          <li><a href="#people-culture-page-es">
+          <li><a href="#organisational-culture-page-es">
             <span class="toc-page__numbers">10.</span>
             <span class="toc-page__sections">Cultura y personas</span>
           </a></li>
-          <li><a href="#effective-team-page-es">
+          <li><a href="#team-effectiveness-page-es">
             <span class="toc-page__numbers">13.</span>
             <span class="toc-page__sections">Equipos efectivos</span>
           </a></li>
-          <li><a href="#technical-practices-page-es">
+          <li><a href="#xp-practices-page-es">
             <span class="toc-page__numbers">16.</span>
             <span class="toc-page__sections">Prácticas técnicas</span>
           </a></li>
@@ -122,7 +122,7 @@
 
   <!-- BEGIN ORGANISATIONAL MATURITY RESULTS -------------------------------------------------------- -->
   <section id="organisational-maturity-results-page-es" class="page page-break-after with-background-img">
-    {{> gauge-subcategory 
+    {{> gauge-subcategory
         id="gauge-organisationalmaturity-devsecops-es"
         subcategory=categories.organisationalMaturity.subcategories.devSecOps
         lang="es"
@@ -130,19 +130,19 @@
 
     {{> gauge-subcategory
         id="gauge-organisationalmaturity-deliveringvalue-es"
-        subcategory=categories.organisationalMaturity.subcategories.deliveringValue 
+        subcategory=categories.organisationalMaturity.subcategories.deliveringValue
         lang="es"
         onDark=true }}
 
-    {{> gauge-subcategory 
+    {{> gauge-subcategory
         id="gauge-organisationalmaturity-technicaldebt-es"
-        subcategory=categories.organisationalMaturity.subcategories.technicalDebt 
+        subcategory=categories.organisationalMaturity.subcategories.technicalDebt
         lang="es"
         onDark=true }}
 
-    {{> gauge-subcategory 
+    {{> gauge-subcategory
         id="gauge-organisationalmaturity-methodology-es"
-        subcategory=categories.organisationalMaturity.subcategories.methodology 
+        subcategory=categories.organisationalMaturity.subcategories.methodology
         lang="es"
         onDark=true }}
   </section>
@@ -162,25 +162,25 @@
 
   <!-- BEGIN CONTINUOUS DELIVERY RESULTS ------------------------------------------------------------ -->
   <section id="continuous-delivery-results-page-es" class="page page-break-after with-background-img">
-    {{> gauge-subcategory 
+    {{> gauge-subcategory
         id="gauge-continuousdelivery-cadence-es"
         subcategory=categories.continuousDelivery.subcategories.cadence
         lang="es"
         onDark=false }}
 
-    {{> gauge-subcategory 
+    {{> gauge-subcategory
         id="gauge-continuousdelivery-rework-es"
         subcategory=categories.continuousDelivery.subcategories.rework
         lang="es"
         onDark=false }}
 
-    {{> gauge-subcategory 
+    {{> gauge-subcategory
         id="gauge-continuousdelivery-pipeline-es"
         subcategory=categories.continuousDelivery.subcategories.pipeline
         lang="es"
         onDark=false }}
 
-    {{> gauge-subcategory 
+    {{> gauge-subcategory
         id="gauge-continuousdelivery-sideeffects-es"
         subcategory=categories.continuousDelivery.subcategories.sideEffects
         lang="es"
@@ -197,30 +197,30 @@
 
 
   <!-- BEGIN PEOPLE CULTURE INTRO ---------------------------------------------------------- -->
-  <section id="people-culture-page-es" class="page page-break-after with-background-img"></section>
+  <section id="organisational-culture-page-es" class="page page-break-after with-background-img"></section>
   <!-- END PEOPLE CULTURE INTRO ---------------------------------------------------------- -->
 
   <!-- BEGIN PEOPLE CULTURE RESULTS ------------------------------------------------------------ -->
-  <section id="people-culture-results-page-es" class="page page-break-after with-background-img">
-    {{> gauge-subcategory 
+  <section id="organisational-culture-results-page-es" class="page page-break-after with-background-img">
+    {{> gauge-subcategory
         id="gauge-culture-transparency-es"
         subcategory=categories.culture.subcategories.transparency
         lang="es"
         onDark=true }}
 
-    {{> gauge-subcategory 
+    {{> gauge-subcategory
         id="gauge-culture-learning-es"
         subcategory=categories.culture.subcategories.learning
         lang="es"
         onDark=true }}
 
-    {{> gauge-subcategory 
+    {{> gauge-subcategory
         id="gauge-culture-learnfromfailure-es"
         subcategory=categories.culture.subcategories.learnFromFailure
         lang="es"
         onDark=true }}
 
-    {{> gauge-subcategory 
+    {{> gauge-subcategory
         id="gauge-culture-careerpath-es"
         subcategory=categories.culture.subcategories.careerPath
         lang="es"
@@ -230,37 +230,37 @@
 
   <!-- BEGIN PEOPLE CULTURE BREAKDOWN ---------------------------------------------------------- -->
   <section
-    id="people-culture-breakdown-page-es"
+    id="organisational-culture-breakdown-page-es"
     class="page page-break-after with-background-img {{{categoryScoreClass categories.culture.score}}}"></section>
   <!-- END PEOPLE CULTURE BREAKDOWN ---------------------------------------------------------- -->
 
 
 
   <!-- BEGIN EFFECTIVE TEAM INTRO ---------------------------------------------------------- -->
-   <section id="effective-team-page-es" class="page page-break-after with-background-img"></section>
+   <section id="team-effectiveness-page-es" class="page page-break-after with-background-img"></section>
   <!-- END EFFECTIVE TEAM INTRO ---------------------------------------------------------- -->
 
   <!-- BEGIN EFFECTIVE TEAM RESULTS ------------------------------------------------------------ -->
-  <section id="effective-team-results-page-es" class="page page-break-after with-background-img">
-    {{> gauge-subcategory 
+  <section id="team-effectiveness-results-page-es" class="page page-break-after with-background-img">
+    {{> gauge-subcategory
         id="gauge-crossfunctionalteams-diversity-es"
         subcategory=categories.crossFunctionalTeams.subcategories.diversity
         lang="es"
         onDark=false }}
 
-    {{> gauge-subcategory 
+    {{> gauge-subcategory
         id="gauge-crossfunctionalteams-autonomy-es"
         subcategory=categories.crossFunctionalTeams.subcategories.autonomy
         lang="es"
         onDark=false }}
 
-    {{> gauge-subcategory 
+    {{> gauge-subcategory
         id="gauge-crossfunctionalteams-wholeteam-es"
         subcategory=categories.crossFunctionalTeams.subcategories.wholeTeam
         lang="es"
         onDark=false }}
 
-    {{> gauge-subcategory 
+    {{> gauge-subcategory
         id="gauge-crossfunctionalteams-knowledgesharing-es"
         subcategory=categories.crossFunctionalTeams.subcategories.knowledgeSharing
         lang="es"
@@ -270,37 +270,37 @@
 
   <!-- BEGIN EFFECTIVE TEAM BREAKDOWN ---------------------------------------------------------- -->
   <section
-    id="effective-team-breakdown-page-es"
+    id="team-effectiveness-breakdown-page-es"
     class="page page-break-after with-background-img {{{categoryScoreClass categories.crossFunctionalTeams.score}}}"></section>
   <!-- END EFFECTIVE TEAM BREAKDOWN ---------------------------------------------------------- -->
 
 
 
   <!-- BEGIN TECHNICAL PRACTICES INTRO ---------------------------------------------------------- -->
-  <section id="technical-practices-page-es" class="page page-break-after with-background-img"></section>
+  <section id="xp-practices-page-es" class="page page-break-after with-background-img"></section>
   <!-- END TECHNICAL PRACTICES INTRO ---------------------------------------------------------- -->
 
   <!-- BEGIN TECHNICAL PRACTICES RESULTS ------------------------------------------------------- -->
-  <section id="technical-practices-results-page-es" class="page page-break-after with-background-img">
-    {{> gauge-subcategory 
+  <section id="xp-practices-results-page-es" class="page page-break-after with-background-img">
+    {{> gauge-subcategory
         id="gauge-xppractices-tdd-es"
         subcategory=categories.xpPractices.subcategories.tdd
         lang="es"
         onDark=true }}
 
-    {{> gauge-subcategory 
+    {{> gauge-subcategory
         id="gauge-xppractices-architecture-es"
         subcategory=categories.xpPractices.subcategories.architecture
         lang="es"
         onDark=true }}
 
-    {{> gauge-subcategory 
+    {{> gauge-subcategory
         id="gauge-xppractices-cleancode-es"
         subcategory=categories.xpPractices.subcategories.cleanCode
         lang="es"
         onDark=true }}
 
-    {{> gauge-subcategory 
+    {{> gauge-subcategory
         id="gauge-xppractices-peerreview-es"
         subcategory=categories.xpPractices.subcategories.peerReview
         lang="es"
@@ -310,7 +310,7 @@
 
   <!-- BEGIN TECHNICAL PRACTICES BREAKDOWN ---------------------------------------------------------- -->
   <section
-    id="technical-practices-breakdown-page-es"
+    id="xp-practices-breakdown-page-es"
     class="page page-break-after with-background-img {{{categoryScoreClass categories.xpPractices.score}}}"></section>
   <!-- END TECHNICAL PRACTICES BREAKDOWN ---------------------------------------------------------- -->
 
@@ -318,7 +318,7 @@
 
   <!-- BEGIN SUMMARY ---------------------------------------------------------- -->
   <section id="summary-page-es" class="page page-break-after with-background-img">
-      
+
     <ul class="summary-contact__london-container">
         <li>Contacto de ventas: <span class="summary-contact__name">David Hall</span></li>
         <li>
@@ -340,7 +340,7 @@
         <li>3 Sutton Lane, 3rd floor<br>London, EC1M 5PU</li>
         <li>2 Mount Street<br>Manchester, M2 5WQ</li>
     </ul>
-    
+
     <ul class="summary-contact__barcelona-container">
         <li>Contacto de ventas: <span class="summary-contact__name">Jack Colemanzo</span></li>
         <li>
@@ -362,31 +362,31 @@
         <li>Carrer de Pallars 99,<br>4th piso, room 41<br>Barcelona, 08018</li>
     </ul>
 
-    {{> gauge-summary 
+    {{> gauge-summary
         score=categories.organisationalMaturity.score
         category="organisational-maturity"
         lang="es" }}
-        
-    {{> gauge-summary 
+
+    {{> gauge-summary
         score=categories.continuousDelivery.score
         category="continuous-delivery"
         lang="es" }}
-        
-    {{> gauge-summary 
+
+    {{> gauge-summary
         score=categories.culture.score
-        category="people-culture"
+        category="organisational-culture"
         lang="es" }}
-        
-    {{> gauge-summary 
+
+    {{> gauge-summary
         score=categories.crossFunctionalTeams.score
-        category="effective-team"
+        category="team-effectiveness"
         lang="es" }}
-        
-    {{> gauge-summary 
+
+    {{> gauge-summary
         score=categories.xpPractices.score
-        category="technical-practices"
+        category="xp-practices"
         lang="es" }}
-    
+
   </section>
   <!-- END SUMMARY ---------------------------------------------------------- -->
 

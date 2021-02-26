@@ -3,11 +3,13 @@
         "shortid": "mgrYzft"
     },
     "name": "assessment-ES.jpg",
-    "creationDate": "2020-05-14T10:33:41.084Z",
-    "modificationDate": {
-        "$$date": 1589452440939
+    "creationDate": {
+        "$$date": 1614339686928
     },
-    "shortid": "Le9VKll",
-    "_id": "N8ndyttomjJaMo8S",
+    "modificationDate": {
+        "$$date": 1614339686928
+    },
+    "shortid": "9WCdEKO",
+    "_id": "dSDZCXPI7Eg4IWmd",
     "$entitySet": "assets"
 }

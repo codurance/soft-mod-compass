@@ -12,7 +12,7 @@
     margin-bottom: 3mm;
 }
 .summary-contact__name {
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--middle-font-weight);
 }
 .summary-contact__london li a,
 .summary-contact__barcelona li a {
@@ -21,7 +21,7 @@
     align-items: center;
     justify-content: flex-start;
     text-decoration: none;
-    color: var(--text-black);
+    color: var(--shark);
 }
 
 .summary-contact__web {
@@ -31,7 +31,7 @@
     display: inline-block;
     background-size: contain;
     margin-right: 2.8mm;
-} 
+}
 .summary-contact__phone {
     width: 3.27mm;
     height: 3.27mm;
