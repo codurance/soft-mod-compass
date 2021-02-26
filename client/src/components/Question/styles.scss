@@ -1,4 +1,4 @@
-@import '../../styles/global.scss';
+@import '../../styles/mixins/mixins.scss';
 
 .question {
   @include main-wrapper-left();
