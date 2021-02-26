@@ -45,7 +45,6 @@
 .gauge-subcategory__rule {
     width: 2pt;
     height: 100%;
-    background: var(--accent-green--dark-bkg);
 }
 
 
@@ -61,44 +60,18 @@
 /* Result - Answer */
 .gauge-subcategory__answer {
     font-size: 10pt;
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--middle-font-weight);
     margin-bottom: 7px;
-}
-.on-dark .gauge-subcategory__answer.good {
-    color: var(--accent-green--dark-bkg);
+    color: var(--shark);
     background: unset;
 }
-.on-dark .gauge-subcategory__answer.average {
-    color: var(--accent-blue--dark-bkg);
-    background: unset;
-}
-.on-dark .gauge-subcategory__answer.bad {
-    color: var(--accent-yellow--dark-bkg);
-    background: unset;
-}
-.on-light .gauge-subcategory__answer.good {
-    color: var(--accent-green--light-bkg);
-    background: unset;
-}
-.on-light .gauge-subcategory__answer.average {
-    color: var(--accent-blue--light-bkg);
-    background: unset;
-}
-.on-light .gauge-subcategory__answer.bad {
-    color: var(--accent-yellow--light-bkg);
-    background: unset;
-}
-
 
 /* Result - Bar */
 .gauge-subcategory__bar {
     height: 3mm;
 }
-.on-dark .gauge-subcategory__bar {
-    background: var(--functional-medium-grey);
-}
-.on-light .gauge-subcategory__bar {
-    background: #dcd1c4;
+.gauge-subcategory__bar {
+    background: var(--french-gray);
 }
 .gauge-subcategory__inner-fill {
     height: 100%;
@@ -114,11 +87,8 @@
     height: 2.269mm;
     width: 0.5mm;
 }
-.on-dark .gauge-subcategory__marker {
-    background: var(--functional-medium-grey);
-}
-.on-light .gauge-subcategory__marker {
-    background: #dcd1c4;
+.gauge-subcategory__marker {
+    background: var(--french-gray);
 }
 
 
@@ -156,7 +126,7 @@
     top: 23.71cm;
     height: var(--gauge-subcategory-height-two-lines);
 }
- 
+
 #gauge-continuousdelivery-cadence-en {
     top: 6.24cm;
     height: var(--gauge-subcategory-height-one-line);
@@ -189,7 +159,7 @@
     top: 23.73cm;
     height: var(--gauge-subcategory-height-two-lines);
 }
- 
+
 #gauge-culture-transparency-en {
     top: 6.24cm;
     height: var(--gauge-subcategory-height-one-line);
@@ -222,7 +192,7 @@
     top: 23.66cm;
     height: var(--gauge-subcategory-height-two-lines);
 }
- 
+
 #gauge-crossfunctionalteams-diversity-en {
     top: 6.24cm;
     height: var(--gauge-subcategory-height-one-line);

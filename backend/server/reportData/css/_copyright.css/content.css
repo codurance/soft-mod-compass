@@ -1,16 +1,12 @@
 .copyright {
     position: absolute;
-    right: 9.3mm;
+    left: 10mm;
     bottom: 3mm;
     font-size: 8pt;
-    color: var(--primary-coral);
+    color: var(--shark);
 }
 
 #front-page-es .copyright,
 #front-page-en .copyright {
-  color: white;
-  position: absolute;
-  bottom: 10mm;
-  right: 26.3mm;
-  font-weight: var(--font-weight-regular);
+  display: none;
 }

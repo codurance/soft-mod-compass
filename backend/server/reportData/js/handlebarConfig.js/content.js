@@ -15,7 +15,7 @@ const { enLabels, esLabels } = require('translations');
 
 /** Backgrounds for each category depending on score **/
 Handlebars.registerHelper('categoryScoreClass', function (score) {
-  if (score > 75) return 'good';
+  if (score >= 75) return 'good';
   if (score >= 50) return 'average';
   return 'bad';
 });

@@ -3,10 +3,10 @@
     left: 2mm;
     left: 26mm;
     top: 80.5mm;
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--middle-font-weight);
 }
 .toc-page__contents a {
-    color: var(--text-black);
+    color: var(--shark);
     display: block;
     text-decoration: none;
 }
@@ -17,6 +17,8 @@
 
 .toc-page__numbers {
     font-size: 31pt;
+    color: var(--french-gray);
+    font-weight: var(--middle-font-weight);
 }
 
 .toc-page__sections {
@@ -24,6 +26,8 @@
     font-size: 24pt;
     left: 23.2mm;
     white-space: nowrap;
+    font-weight: var(--middle-font-weight);
+    color: var(--shark);
 }
 
 

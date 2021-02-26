@@ -1,11 +1,11 @@
 .intro-page__contact-info {
   list-style: none;
   display: inline;
-  font-weight: var(--font-weight-bold);
   position: absolute;
   left: 26.1mm;
   top: 170mm;
-  color: var(--accent-blue--dark-bkg);
+  font-weight: var(--heavy-font-weight);
+  color: var(--shark);
 }
 .intro-page__contact-info.second {
     left: 90.8mm;
@@ -13,11 +13,11 @@
 
 .intro-page__contact-info a {
   text-decoration: none;
-  color: var(--accent-blue--dark-bkg);
+  color: var(--shark);
 }
 
 .intro-page__contact-header {
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--heavy-font-weight);
     font-size: 13.33pt;
     margin-bottom: 6mm;
 }
