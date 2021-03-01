@@ -1,0 +1,19 @@
+@mixin bg-fade-transition {
+  transition: opacity 0.3s linear;
+}
+
+.bg-fade-enter {
+  opacity: 0;
+}
+.bg-fade-enter-active {
+  opacity: 1;
+  @include bg-fade-transition();
+}
+
+.bg-fade-exit {
+  opacity: 1;
+}
+.bg-fade-exit-active {
+  opacity: 0;
+  @include bg-fade-transition();
+}
