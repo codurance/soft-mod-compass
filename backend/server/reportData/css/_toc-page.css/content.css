@@ -30,9 +30,11 @@
     color: var(--shark);
 }
 
-#toc-page-es a[href="#organisational-maturity-page-es"] .toc-page__sections {
+#toc-page-es a[href="#organisational-maturity-page-es"] .toc-page__sections,
+#toc-page-en a[href="#organisational-maturity-page"] .toc-page__sections {
     margin-left: 17.3mm;
 }
-#toc-page-es a[href="#continuous-delivery-page-es"] .toc-page__sections {
+#toc-page-es a[href="#continuous-delivery-page-es"] .toc-page__sections,
+#toc-page-en a[href="#continuous-delivery-page"] .toc-page__sections {
     margin-left: 19mm;
 }
