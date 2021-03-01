@@ -9,6 +9,7 @@ import UserForm from '../../components/UserForm/UserForm';
 import { buildAnswerScore, createLinkedList } from '../../config/factory';
 import questionList from '../../config/QuestionnaireModel';
 import progressBarMapper from '../../mappers/progressBarMapper';
+import BackgroundImage from '../../components/BackgroundImage/BackgroundImage';
 import questionnaireMapper from '../../mappers/questionnaireMapper';
 import redirectService from '../../services/redirectService';
 import reportService from '../../services/reportService';
@@ -134,8 +135,8 @@ function App({ initialStep, animationDelay }) {
     currentStep === 0;
 
   return (
-    <div className="app" data-testid={background}>
-      <div className={`${background}`} />
+    <div className="app">
+      <BackgroundImage imageClass={`${background}`} testId={`${background}`} />
       <Header />
       <main>
         {currentStep === 0 && (
