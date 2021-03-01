@@ -3,11 +3,16 @@
   background-size: 500px;
   background-position-x: 100%;
   background-position-y: -217px;
+  width: 500px;
+  height: 300px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
 
-  @media (max-width: 800px) {
-    background-size: 100%;
-    background-position-x: 0;
-    background-position-y: -250px;
+  @media (max-width: 500px) {
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
@@ -17,6 +22,7 @@
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
+  position: relative;
 
   &--organisationalMaturity {
     @include backgroundImage(
