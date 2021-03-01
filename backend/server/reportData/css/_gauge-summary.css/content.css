@@ -11,17 +11,17 @@
 .gauge-summary__container[data-category="continuous-delivery-es"]{
     top: 256mm;
 }
-.gauge-summary__container[data-category="people-culture-en"],
-.gauge-summary__container[data-category="people-culture-es"]{
+.gauge-summary__container[data-category="organisational-culture-en"],
+.gauge-summary__container[data-category="organisational-culture-es"]{
     top: 278.1mm;
 }
-.gauge-summary__container[data-category="effective-team-en"],
-.gauge-summary__container[data-category="effective-team-es"] {
+.gauge-summary__container[data-category="team-effectiveness-en"],
+.gauge-summary__container[data-category="team-effectiveness-es"] {
     top: 233.5mm;
     left: 122.8mm;
 }
-.gauge-summary__container[data-category="technical-practices-en"],
-.gauge-summary__container[data-category="technical-practices-es"] {
+.gauge-summary__container[data-category="xp-practices-en"],
+.gauge-summary__container[data-category="xp-practices-es"] {
     top: 256mm;
     left: 122.8mm;
 }
@@ -98,10 +98,10 @@
     left: 0.1mm;
     width: 60.3mm;
 }
-.gauge-summary__container[data-category="technical-practices-en"] .gauge-summary__markers,
-.gauge-summary__container[data-category="technical-practices-es"] .gauge-summary__markers,
-.gauge-summary__container[data-category="effective-team-en"] .gauge-summary__markers,
-.gauge-summary__container[data-category="effective-team-es"] .gauge-summary__markers {
+.gauge-summary__container[data-category="xp-practices-en"] .gauge-summary__markers,
+.gauge-summary__container[data-category="xp-practices-es"] .gauge-summary__markers,
+.gauge-summary__container[data-category="team-effectiveness-en"] .gauge-summary__markers,
+.gauge-summary__container[data-category="team-effectiveness-es"] .gauge-summary__markers {
     width: 60.4mm;
     left: 0;
 }

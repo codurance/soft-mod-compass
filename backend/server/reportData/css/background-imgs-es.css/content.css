@@ -51,52 +51,52 @@
   background-image: url('{#asset /assets/pageImgs-ES/continuous-delivery-bad-ES.jpg @encoding=dataURI}');
 }
 
-#people-culture-page-es {
-  background-image: url('{#asset /assets/pageImgs-ES/people-culture-ES.jpg @encoding=dataURI}');
+#organisational-culture-page-es {
+  background-image: url('{#asset /assets/pageImgs-ES/organisational-culture-ES.jpg @encoding=dataURI}');
 }
-#people-culture-results-page-es {
-  background-image: url('{#asset /assets/pageImgs-ES/people-culture-results-ES.jpg @encoding=dataURI}');
+#organisational-culture-results-page-es {
+  background-image: url('{#asset /assets/pageImgs-ES/organisational-culture-results-ES.jpg @encoding=dataURI}');
 }
-#people-culture-breakdown-page-es.good {
-  background-image: url('{#asset /assets/pageImgs-ES/people-culture-good-ES.jpg @encoding=dataURI}');
+#organisational-culture-breakdown-page-es.good {
+  background-image: url('{#asset /assets/pageImgs-ES/organisational-culture-good-ES.jpg @encoding=dataURI}');
 }
-#people-culture-breakdown-page-es.average {
-  background-image: url('{#asset /assets/pageImgs-ES/people-culture-avg-ES.jpg @encoding=dataURI}');
+#organisational-culture-breakdown-page-es.average {
+  background-image: url('{#asset /assets/pageImgs-ES/organisational-culture-avg-ES.jpg @encoding=dataURI}');
 }
-#people-culture-breakdown-page-es.bad {
-  background-image: url('{#asset /assets/pageImgs-ES/people-culture-bad-ES.jpg @encoding=dataURI}');
-}
-
-#effective-team-page-es {
-  background-image: url('{#asset /assets/pageImgs-ES/effective-team-ES.jpg @encoding=dataURI}');
-}
-#effective-team-results-page-es {
-  background-image: url('{#asset /assets/pageImgs-ES/effective-team-results-ES.jpg @encoding=dataURI}');
-}
-#effective-team-breakdown-page-es.good {
-  background-image: url('{#asset /assets/pageImgs-ES/effective-team-good-ES.jpg @encoding=dataURI}');
-}
-#effective-team-breakdown-page-es.average {
-  background-image: url('{#asset /assets/pageImgs-ES/effective-team-avg-ES.jpg @encoding=dataURI}');
-}
-#effective-team-breakdown-page-es.bad {
-  background-image: url('{#asset /assets/pageImgs-ES/effective-team-bad-ES.jpg @encoding=dataURI}');
+#organisational-culture-breakdown-page-es.bad {
+  background-image: url('{#asset /assets/pageImgs-ES/organisational-culture-bad-ES.jpg @encoding=dataURI}');
 }
 
-#technical-practices-page-es {
-  background-image: url('{#asset /assets/pageImgs-ES/technical-practices-ES.jpg @encoding=dataURI}');
+#team-effectiveness-page-es {
+  background-image: url('{#asset /assets/pageImgs-ES/team-effectiveness-ES.jpg @encoding=dataURI}');
 }
-#technical-practices-results-page-es {
-  background-image: url('{#asset /assets/pageImgs-ES/technical-practices-results-ES.jpg @encoding=dataURI}');
+#team-effectiveness-results-page-es {
+  background-image: url('{#asset /assets/pageImgs-ES/team-effectiveness-results-ES.jpg @encoding=dataURI}');
 }
-#technical-practices-breakdown-page-es.good {
-  background-image: url('{#asset /assets/pageImgs-ES/technical-practices-good-ES.jpg @encoding=dataURI}');
+#team-effectiveness-breakdown-page-es.good {
+  background-image: url('{#asset /assets/pageImgs-ES/team-effectiveness-good-ES.jpg @encoding=dataURI}');
 }
-#technical-practices-breakdown-page-es.average {
-  background-image: url('{#asset /assets/pageImgs-ES/technical-practices-avg-ES.jpg @encoding=dataURI}');
+#team-effectiveness-breakdown-page-es.average {
+  background-image: url('{#asset /assets/pageImgs-ES/team-effectiveness-avg-ES.jpg @encoding=dataURI}');
 }
-#technical-practices-breakdown-page-es.bad {
-  background-image: url('{#asset /assets/pageImgs-ES/technical-practices-bad-ES.jpg @encoding=dataURI}');
+#team-effectiveness-breakdown-page-es.bad {
+  background-image: url('{#asset /assets/pageImgs-ES/team-effectiveness-bad-ES.jpg @encoding=dataURI}');
+}
+
+#xp-practices-page-es {
+  background-image: url('{#asset /assets/pageImgs-ES/xp-practices-ES.jpg @encoding=dataURI}');
+}
+#xp-practices-results-page-es {
+  background-image: url('{#asset /assets/pageImgs-ES/xp-practices-results-ES.jpg @encoding=dataURI}');
+}
+#xp-practices-breakdown-page-es.good {
+  background-image: url('{#asset /assets/pageImgs-ES/xp-practices-good-ES.jpg @encoding=dataURI}');
+}
+#xp-practices-breakdown-page-es.average {
+  background-image: url('{#asset /assets/pageImgs-ES/xp-practices-avg-ES.jpg @encoding=dataURI}');
+}
+#xp-practices-breakdown-page-es.bad {
+  background-image: url('{#asset /assets/pageImgs-ES/xp-practices-bad-ES.jpg @encoding=dataURI}');
 }
 
 #summary-page-es {

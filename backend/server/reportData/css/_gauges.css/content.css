@@ -3,11 +3,11 @@
 {#asset /css/_gauge-summary.css @encoding=utf8}
 
 .good {
-    background: var(--accent-green--dark-bkg);
+    background: var(--java);
 }
 .average {
-    background: var(--accent-blue--dark-bkg);
+    background: var(--picton-blue);
 }
 .bad {
-    background: var(--accent-yellow--dark-bkg);
+    background: var(--gold);
 }

@@ -14,7 +14,7 @@ module.exports = () => ({
     cy.get('[name=firstName]').type('Compass');
     cy.get('[name=lastName]').type('Test');
     cy.get('[name=companyName]').type('Codurance');
-    cy.get('[name=jobFunction]').select('COO');
+    cy.get('[name=jobFunction]').select('Other');
     cy.get('[type=checkbox]').click();
     cy.get('[type=submit]').click();
     return this;

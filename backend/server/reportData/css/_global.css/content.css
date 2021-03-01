@@ -1,22 +1,30 @@
 /* VARIABLES -------------------------------------- */
 :root {
   /* COLOURS */
-  --primary-coral: #fa7268;
-  --text-black: #404040;
-  --accent-yellow--dark-bkg: #ffca4d;
-  --accent-yellow--light-bkg: #d2a224;
-  --accent-green--dark-bkg: #63f1a4;
-  --accent-green--light-bkg: #27c27a;
-  --accent-blue--dark-bkg: #53ceea;
-  --accent-blue--light-bkg: #00a0bb;
-  --functional-light-grey: #e0e0e0;
-  --functional-medium-grey: #85898f;
+  --crimson: hsl(342.7, 88.5%, 44.5%);
+  --tango: hsl(24.2, 86.3%, 54.3%);
+  --gold: hsl(48.9, 100%, 50%);
 
-  --background-peach: #fff0e0;
+  --java: hsl(168.5,77%,47.8%);
+  --picton-blue: hsl(204.2, 86.3%, 54.3%);
+  --dodger-blue: hsl(242.4, 100%, 65.9%);
+
+  --persimmon: hsl(2.4,100%,65.9%);
+  --persimmon--dark: hsl(8.2,100%,60%);
+  --midnight-blue: hsl(209.7, 98%, 19.4%);
+  --midnight-blue--dark: hsl(209.7, 98%, 15.4%);
+
+  --athens-gray: hsl(240, 4%, 95.1%);
+  --french-gray: hsl(240, 3.9%, 75.1%);
+  --mid-gray: hsl(240, 3.9%, 40%);
+  --shark: hsl(240, 3.9%, 20%);
+  --woodsmoke: hsl(240, 3%, 5%);
 
   /* TYPE */
-  --font-weight-regular: 400;
-  --font-weight-bold: 500;
+  --light-font-weight: 300;
+  --welter-font-weight: 400;
+  --middle-font-weight: 600;
+  --heavy-font-weight: 800;
 
   --font-size-body: 10pt;
   --line-height-body: 1.5em;
@@ -30,7 +38,7 @@ html, body {
   font-family: proxima-nova, sans-serif;
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
-  color: var(--text-black);
+  color: var(--shark);
 }
 
 /* LAYOUTS -------------------------------------- */
@@ -64,5 +72,5 @@ body {
 
 /* Remove after refactoring assesment bars */
 .hidden {
-    display: none !important;
+  display: none !important;
 }
