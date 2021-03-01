@@ -134,7 +134,8 @@ function App({ initialStep, animationDelay }) {
     currentStep === 0;
 
   return (
-    <div className={`app ${background}`} data-testid={background}>
+    <div className="app" data-testid={background}>
+      <div className={`${background}`} />
       <Header />
       <main>
         {currentStep === 0 && (
