@@ -68,6 +68,7 @@ function App({ initialStep, animationDelay }) {
     reportService
       .submitSurvey(data)
       .then(() => redirectService.redirect())
+      // eslint-disable-next-line no-console
       .catch((reason) => console.log('error from server ', reason));
   };
 
