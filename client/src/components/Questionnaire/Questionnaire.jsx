@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import Question from '../Question/Question';
+import ReportCover from '../ReportCover/ReportCover';
 import './styles.scss';
 
 function Questionnaire({ currentQuestion, onClickAnswer, isSelectedAnswer }) {
@@ -21,10 +22,11 @@ function Questionnaire({ currentQuestion, onClickAnswer, isSelectedAnswer }) {
           />
         </CSSTransition>
       </SwitchTransition>
-      <div
+      {/* <div
         className={`questionnaire-area questionnaire__assessment--${currentQuestion.category}`}
         data-testid={`background-${currentQuestion.category}`}
-      />
+      /> */}
+      <ReportCover />
     </div>
   );
 }
