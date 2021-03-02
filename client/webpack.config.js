@@ -33,15 +33,11 @@ module.exports = (env) => {
           use: 'babel-loader',
         },
         {
-          test: /\.(jpe?g|png|gif|ico|woff|woff2|eot|ttf|otf)$/i,
+          test: /\.(jpe?g|png|gif|ico|woff|woff2|eot|ttf|otf|svg)$/i,
           loader: 'file-loader',
           options: {
             name: '[path][name].[ext]',
           },
-        },
-        {
-          test: /\.svg$/,
-          use: ['@svgr/webpack', 'file-loader'],
         },
         {
           test: /\.css$/,
