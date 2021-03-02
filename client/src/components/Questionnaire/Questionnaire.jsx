@@ -5,7 +5,12 @@ import Question from '../Question/Question';
 import ReportCover from '../ReportCover/ReportCover';
 import './styles.scss';
 
-function Questionnaire({ currentQuestion, onClickAnswer, isSelectedAnswer }) {
+function Questionnaire({
+  currentQuestion,
+  onClickAnswer,
+  isSelectedAnswer,
+  children,
+}) {
   return (
     <div className="questionnaire">
       <SwitchTransition className="animation-wrapper">
@@ -22,11 +27,8 @@ function Questionnaire({ currentQuestion, onClickAnswer, isSelectedAnswer }) {
           />
         </CSSTransition>
       </SwitchTransition>
-      {/* <div
-        className={`questionnaire-area questionnaire__assessment--${currentQuestion.category}`}
-        data-testid={`background-${currentQuestion.category}`}
-      /> */}
-      <ReportCover />
+
+      {children}
     </div>
   );
 }
@@ -37,4 +39,9 @@ Questionnaire.propTypes = {
   currentQuestion: PropTypes.objectOf(PropTypes.any).isRequired,
   onClickAnswer: PropTypes.func.isRequired,
   isSelectedAnswer: PropTypes.func.isRequired,
+  children: PropTypes.element,
+};
+
+Questionnaire.defaultProps = {
+  children: null,
 };

@@ -14,6 +14,7 @@ import questionnaireMapper from '../../mappers/questionnaireMapper';
 import redirectService from '../../services/redirectService';
 import reportService from '../../services/reportService';
 import './styles.scss';
+import ReportCover from '../../components/ReportCover/ReportCover';
 
 const initialUserDetails = {
   firstName: '',
@@ -145,7 +146,9 @@ function App({ initialStep, animationDelay }) {
             currentQuestion={currentQuestionNode.data}
             onClickAnswer={updateState}
             isSelectedAnswer={isSelectedAnswer}
-          />
+          >
+            <ReportCover currentStage={currentQuestionNode.data} />
+          </Questionnaire>
         )}
         {currentStep === 1 && (
           <UserForm

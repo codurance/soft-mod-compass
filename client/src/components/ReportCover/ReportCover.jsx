@@ -1,7 +1,9 @@
 import React from 'react';
 import './styles.scss';
 
-export default function ReportCover() {
+export default function ReportCover({ currentStage }) {
+  console.log(`currentStage: `, currentStage);
+
   return (
     <svg
       className="report-cover"
@@ -111,9 +113,10 @@ export default function ReportCover() {
             />
           </g>
           <g
-            id="Organisational_Maturity"
+            id="organisationalMaturity"
             className="report-cover__report-area report-area"
-            data-status="complete"
+            data-status=""
+            role="presentation"
           >
             <circle
               cy="50"
@@ -226,7 +229,9 @@ export default function ReportCover() {
           </g>
           <g
             className="report-cover__report-area report-area"
-            id="Team_Effectiveness"
+            id="teamEffectiveness"
+            data-status=""
+            role="presentation"
           >
             <circle
               cy="50"
@@ -388,7 +393,9 @@ export default function ReportCover() {
           </g>
           <g
             className="report-cover__report-area report-area"
-            id="Continuous_Delivery"
+            id="continuousDelivery"
+            data-status=""
+            role="presentation"
           >
             <circle
               cy="50"
@@ -462,7 +469,9 @@ export default function ReportCover() {
           </g>
           <g
             className="report-cover__report-area report-area"
-            id="XP_practices"
+            id="xpPractices"
+            data-status=""
+            role="presentation"
           >
             <circle
               cy="50"
@@ -521,7 +530,12 @@ export default function ReportCover() {
               />
             </g>
           </g>
-          <g className="report-cover__report-area report-area" id="Culture">
+          <g
+            className="report-cover__report-area report-area"
+            id="culture"
+            data-status=""
+            role="presentation"
+          >
             <circle
               cy="50"
               fill="white"
