@@ -14,7 +14,7 @@ function generateCategoryMap(questionList) {
   return categoryMap;
 }
 
-function generateProgressBar(completedQuestionnaire, questionList) {
+function generateStageData(completedQuestionnaire, questionList) {
   const categoryMap = generateCategoryMap(questionList);
 
   return Object.keys(categoryMap).map((key) => ({
@@ -23,4 +23,4 @@ function generateProgressBar(completedQuestionnaire, questionList) {
   }));
 }
 
-export default { generateProgressBar };
+export default { generateStageData: generateStageData };

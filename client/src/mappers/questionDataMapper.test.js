@@ -1,9 +1,9 @@
 import { describe, expect, it } from '@jest/globals';
-import progressBarMapper from './progressBarMapper';
+import questionDataMapper from './questionDataMapper';
 
-describe('Progress Bar Mapper should', () => {
+describe('Question Data Mapper should', () => {
   it('generate a object with 1 category and 1 question uncomplete', () => {
-    const expectedProgressBar = [
+    const expectedData = [
       {
         category: 'organisationalMaturity',
         questions: [{ label: 'devSecOps', isCompleted: false }],
@@ -21,17 +21,17 @@ describe('Progress Bar Mapper should', () => {
     ];
 
     // WHEN
-    const progressBar = progressBarMapper.generateProgressBar(
+    const stageData = questionDataMapper.generateStageData(
       emptyQuestionnaire,
       questionList
     );
 
     // THEN
-    expect(progressBar).toEqual(expectedProgressBar);
+    expect(stageData).toEqual(expectedData);
   });
 
   it('generate a object with 1 category and 1 question completed', () => {
-    const expectedProgressBar = [
+    const expectedData = [
       {
         category: 'organisationalMaturity',
         questions: [{ label: 'devSecOps', isCompleted: true }],
@@ -54,17 +54,17 @@ describe('Progress Bar Mapper should', () => {
     ];
 
     // WHEN
-    const progressBar = progressBarMapper.generateProgressBar(
+    const stageData = questionDataMapper.generateStageData(
       QuestionnaireWithOneQuestion,
       questionList
     );
 
     // THEN
-    expect(progressBar).toEqual(expectedProgressBar);
+    expect(stageData).toEqual(expectedData);
   });
 
   it('generate a object with 1 category and 2 question completed', () => {
-    const expectedProgressBar = [
+    const expectedData = [
       {
         category: 'organisationalMaturity',
         questions: [
@@ -99,17 +99,17 @@ describe('Progress Bar Mapper should', () => {
     ];
 
     // WHEN
-    const progressBar = progressBarMapper.generateProgressBar(
+    const stageData = questionDataMapper.generateStageData(
       QuestionnaireWithOneQuestion,
       questionList
     );
 
     // THEN
-    expect(progressBar).toEqual(expectedProgressBar);
+    expect(stageData).toEqual(expectedData);
   });
 
   it('generate a object with 2 category and 2 question completed for each', () => {
-    const expectedProgressBar = [
+    const expectedData = [
       {
         category: 'organisationalMaturity',
         questions: [
@@ -169,17 +169,17 @@ describe('Progress Bar Mapper should', () => {
     ];
 
     // WHEN
-    const progressBar = progressBarMapper.generateProgressBar(
+    const stageData = questionDataMapper.generateStageData(
       QuestionnaireWithOneQuestion,
       questionList
     );
 
     // THEN
-    expect(progressBar).toEqual(expectedProgressBar);
+    expect(stageData).toEqual(expectedData);
   });
 
   it('generate a object with 2 category and 2 question completed for only first category', () => {
-    const expectedProgressBar = [
+    const expectedData = [
       {
         category: 'organisationalMaturity',
         questions: [
@@ -231,12 +231,12 @@ describe('Progress Bar Mapper should', () => {
     ];
 
     // WHEN
-    const progressBar = progressBarMapper.generateProgressBar(
+    const stageData = questionDataMapper.generateStageData(
       QuestionnaireWithTwoQuestion,
       questionList
     );
 
     // THEN
-    expect(progressBar).toEqual(expectedProgressBar);
+    expect(stageData).toEqual(expectedData);
   });
 });

@@ -8,7 +8,7 @@ import Questionnaire from '../../components/Questionnaire/Questionnaire';
 import UserForm from '../../components/UserForm/UserForm';
 import { buildAnswerScore, createLinkedList } from '../../config/factory';
 import questionList from '../../config/QuestionnaireModel';
-import progressBarMapper from '../../mappers/progressBarMapper';
+import questionDataMapper from '../../mappers/questionDataMapper';
 import BackgroundImage from '../../components/BackgroundImage/BackgroundImage';
 import questionnaireMapper from '../../mappers/questionnaireMapper';
 import redirectService from '../../services/redirectService';
@@ -161,7 +161,7 @@ function App({ initialStep, animationDelay }) {
           {!isFirstQuestion(currentQuestionNode) && renderBackButton()}
           <ProgressBar
             currentStage={currentQuestionNode.data.label}
-            stages={progressBarMapper.generateProgressBar(
+            stages={questionDataMapper.generateStageData(
               questionnaire,
               questionList
             )}
