@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import Question from '../Question/Question';
-import ReportCover from '../ReportCover/ReportCover';
 import './styles.scss';
 
 function Questionnaire({
