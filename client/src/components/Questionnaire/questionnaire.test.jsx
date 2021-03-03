@@ -20,22 +20,6 @@ describe('Questionnaire', () => {
     expect(queryByText(secondQuestion)).not.toBeInTheDocument();
   });
 
-  it('should have the category background related to the question', () => {
-    const { getByTestId } = render(
-      <Questionnaire
-        currentQuestion={questionList[0]}
-        onClickAnswer={() => {}}
-        isSelectedAnswer={() => {}}
-      />
-    );
-
-    const firstCategory = questionList[0].category;
-
-    expect(getByTestId(`background-${firstCategory}`)).toHaveClass(
-      `questionnaire__assessment--${firstCategory}`
-    );
-  });
-
   it('should have selected answer', () => {
     const selectedAnswer = questionList[0].answers[0];
     const { getByTestId } = render(
