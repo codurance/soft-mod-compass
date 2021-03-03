@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import './styles.scss';
 
 const isCurrentCategory = (reportArea, currCategory) => {
@@ -960,3 +961,18 @@ export default function ReportCover({ currentCategory, stages }) {
     </svg>
   );
 }
+
+ReportCover.propTypes = {
+  currentCategory: PropTypes.string.isRequired,
+  stages: PropTypes.arrayOf(
+    PropTypes.shape({
+      category: PropTypes.string,
+      questions: PropTypes.arrayOf(
+        PropTypes.shape({
+          label: PropTypes.string,
+          isCompleted: PropTypes.bool,
+        })
+      ),
+    })
+  ).isRequired,
+};
