@@ -23,4 +23,4 @@ function generateStageData(completedQuestionnaire, questionList) {
   }));
 }
 
-export default { generateStageData: generateStageData };
+export default { generateStageData };
