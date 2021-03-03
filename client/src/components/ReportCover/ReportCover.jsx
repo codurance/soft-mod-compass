@@ -1,6 +1,14 @@
 import React, { useRef, useEffect } from 'react';
 import './styles.scss';
 
+const isCurrentCategory = (reportArea, currCategory) => {
+  return reportArea.id === currCategory;
+};
+
+const stageIsCompleted = (stage) => {
+  return stage.questions.every((question) => question.isCompleted);
+};
+
 export default function ReportCover({ currentCategory, stages }) {
   const reportAreas = {
     organisationalMaturity: useRef(),
@@ -14,15 +22,17 @@ export default function ReportCover({ currentCategory, stages }) {
     const updateReportAreas = () => {
       // eslint-disable-next-line consistent-return
       stages.forEach((stage) => {
-        const currentReportArea = reportAreas[stage.category].current;
+        const stageReportArea = reportAreas[stage.category].current;
 
-        if (currentReportArea.id === currentCategory) {
-          currentReportArea.dataset.status = 'current';
-        } else if (stage.questions.every((question) => question.isCompleted)) {
-          currentReportArea.dataset.status = 'complete';
-        } else {
-          currentReportArea.dataset.status = 'incomplete';
+        if (isCurrentCategory(stageReportArea, currentCategory)) {
+          stageReportArea.dataset.status = 'current';
+          return 0;
         }
+        if (stageIsCompleted(stage)) {
+          stageReportArea.dataset.status = 'complete';
+          return 0;
+        }
+        stageReportArea.dataset.status = 'incomplete';
       });
     };
 
