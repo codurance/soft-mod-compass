@@ -1,19 +1,30 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import './styles.scss';
 
 export default function ReportCover({ currentCategory, stages }) {
   console.log(`stages: `, stages);
   console.log(`currentCategory: `, currentCategory);
 
-  const organisationalMaturityArea = useRef();
-
-  console.log('ref', organisationalMaturityArea.current);
-
-  const calcStatus = () => {
-    console.log('this', this);
-
-    return 'status';
+  const reportAreas = {
+    organisationalMaturity: useRef(),
+    crossFunctionalTeams: useRef(),
+    continuousDelivery: useRef(),
+    xpPractices: useRef(),
+    culture: useRef(),
   };
+
+  useEffect(() => {
+    const updateReportAreas = () => {
+      Object.keys(reportAreas).map((key) => {
+        if (key === currentCategory) {
+          reportAreas[key].current.dataset.status = 'current';
+        }
+        return 0;
+      });
+    };
+
+    updateReportAreas();
+  }, [currentCategory]);
 
   return (
     <svg
@@ -123,9 +134,18 @@ export default function ReportCover({ currentCategory, stages }) {
               fill="url(#linear-gradient)"
             />
           </g>
+
+          {/* {stages.map((stage) => (
+            <ReportArea
+              key={stage.category}
+              category={stage.category}
+              currentCategory={currentCategory}
+            />
+          ))} */}
+
           <g
             id="organisationalMaturity"
-            ref={organisationalMaturityArea}
+            ref={reportAreas.organisationalMaturity}
             className="report-cover__report-area report-area"
             data-status=""
             role="presentation"
@@ -240,8 +260,9 @@ export default function ReportCover({ currentCategory, stages }) {
             </g>
           </g>
           <g
+            id="crossFunctionalTeams"
+            ref={reportAreas.crossFunctionalTeams}
             className="report-cover__report-area report-area"
-            id="teamEffectiveness"
             data-status=""
             role="presentation"
           >
@@ -404,8 +425,9 @@ export default function ReportCover({ currentCategory, stages }) {
             </g>
           </g>
           <g
-            className="report-cover__report-area report-area"
             id="continuousDelivery"
+            ref={reportAreas.continuousDelivery}
+            className="report-cover__report-area report-area"
             data-status=""
             role="presentation"
           >
@@ -480,8 +502,9 @@ export default function ReportCover({ currentCategory, stages }) {
             </g>
           </g>
           <g
-            className="report-cover__report-area report-area"
             id="xpPractices"
+            ref={reportAreas.xpPractices}
+            className="report-cover__report-area report-area"
             data-status=""
             role="presentation"
           >
@@ -546,8 +569,9 @@ export default function ReportCover({ currentCategory, stages }) {
             </g>
           </g>
           <g
-            className="report-cover__report-area report-area"
             id="culture"
+            ref={reportAreas.culture}
+            className="report-cover__report-area report-area"
             data-status=""
             role="presentation"
           >
@@ -626,6 +650,7 @@ export default function ReportCover({ currentCategory, stages }) {
               />
             </g>
           </g>
+
           <g id="Header" transform="translate(-369.313 35)">
             <text
               id="Report_Areas-2"

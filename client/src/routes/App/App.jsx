@@ -136,6 +136,11 @@ function App({ initialStep, animationDelay }) {
     questionnaire[currentQuestionNode.data.label] &&
     currentStep === 0;
 
+  const stages = questionDataMapper.generateStageData(
+    questionnaire,
+    questionList
+  );
+
   return (
     <div className="app">
       <BackgroundImage imageClass={`${background}`} testId={`${background}`} />
@@ -147,7 +152,10 @@ function App({ initialStep, animationDelay }) {
             onClickAnswer={updateState}
             isSelectedAnswer={isSelectedAnswer}
           >
-            <ReportCover currentStage={currentQuestionNode.data} />
+            <ReportCover
+              currentCategory={currentQuestionNode.data.category}
+              stages={stages}
+            />
           </Questionnaire>
         )}
         {currentStep === 1 && (
@@ -161,10 +169,7 @@ function App({ initialStep, animationDelay }) {
           {!isFirstQuestion(currentQuestionNode) && renderBackButton()}
           <ProgressBar
             currentStage={currentQuestionNode.data.label}
-            stages={questionDataMapper.generateStageData(
-              questionnaire,
-              questionList
-            )}
+            stages={stages}
           />
           {isNextButtonRendered() && renderNextButton()}
         </div>
