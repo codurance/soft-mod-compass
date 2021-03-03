@@ -1,52 +1,78 @@
+import React from 'react';
 import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
-import React from 'react';
+import stages from './mockStages';
 
 import ReportCover from './ReportCover';
 
-let reportAreas;
-let reportAreaMap;
+const categories = {
+  organisationalMaturity: 'organisationalMaturity',
+  crossFunctionalTeams: 'crossFunctionalTeams',
+  continuousDelivery: 'continuousDelivery',
+  xpPractices: 'xpPractices',
+  culture: 'culture',
+};
 
-function setupTest() {
-  reportAreas = screen.getAllByRole(/presentation/);
+const progressThroughStages = ({ indexToProgressTo = 1 } = {}) => {
+  const updatedStages = stages.slice();
 
-  reportAreaMap = {
-    ORGANISATIONAL_MATURITY: reportAreas.find((x) => {
-      return x.id === 'organisationalMaturity';
-    }),
-    TEAM_EFFECTIVENESS: reportAreas.find((x) => x.id === 'teamEffectiveness'),
-    CONTINUOUS_DELIVERY: reportAreas.find((x) => x.id === 'continuousDelivery'),
-    XP_PRACTICES: reportAreas.find((x) => x.id === 'xpPractices'),
-    ORGANISATIONAL_CULTURE: reportAreas.find((x) => x.id === 'culture'),
-  };
-}
+  for (let i = 0; i < indexToProgressTo; i += 1) {
+    updatedStages[i].questions.forEach((question) => {
+      // eslint-disable-next-line no-param-reassign
+      question.isCompleted = true;
+    });
+  }
+
+  return updatedStages;
+};
 
 describe('ReportCover', () => {
-  it("should render default styles for report area if not yet on or passed the report area's category", () => {
-    render(<ReportCover />);
+  it("should set data-status of incomplete report areas to 'incomplete' ", () => {
+    render(
+      <ReportCover
+        currentCategory={categories.organisationalMaturity}
+        stages={stages}
+      />
+    );
 
-    setupTest(reportAreas, reportAreaMap);
+    const reportAreas = screen.getAllByRole('presentation');
 
-    expect(reportAreaMap.ORGANISATIONAL_MATURITY.dataset.status).toBe('');
+    for (let i = 1; i < reportAreas.length; i += 1) {
+      expect(reportAreas[i].dataset.status).toBe('incomplete');
+    }
   });
 
-  it("should render current styles for report area if on the report area's category", () => {
-    render(<ReportCover />);
+  it("should set the data-status of the report area matching the current question category to 'current' ", () => {
+    const currentCategory = categories.organisationalMaturity;
 
-    setupTest(reportAreas, reportAreaMap);
+    render(<ReportCover currentCategory={currentCategory} stages={stages} />);
 
-    expect(reportAreaMap.ORGANISATIONAL_MATURITY.dataset.status).toBe(
-      /current/
-    );
+    const currentReportArea = screen
+      .getAllByRole('presentation')
+      .find((x) => x.id === currentCategory);
+
+    expect(currentReportArea.dataset.status).toBe('current');
   });
 
-  it("should render compeleted styles for a report area once passed the report area's category", () => {
-    render(<ReportCover />);
+  it("should set the data-status of completed report areas to 'complete' ", () => {
+    const currentCategory = categories.crossFunctionalTeams;
+    const updatedStages = progressThroughStages({ indexToProgressTo: 1 });
 
-    setupTest(reportAreas, reportAreaMap);
-
-    expect(reportAreaMap.ORGANISATIONAL_MATURITY.dataset.status).toBe(
-      /complete/
+    render(
+      <ReportCover currentCategory={currentCategory} stages={updatedStages} />
     );
+
+    const reportAreas = screen.getAllByRole('presentation');
+    const previousReportArea = reportAreas.find(
+      (x) => x.id === categories.organisationalMaturity
+    );
+    const currentReportArea = reportAreas.find((x) => x.id === currentCategory);
+    const nextReportArea = reportAreas.find(
+      (x) => x.id === categories.continuousDelivery
+    );
+
+    expect(previousReportArea.dataset.status).toBe('complete');
+    expect(currentReportArea.dataset.status).toBe('current');
+    expect(nextReportArea.dataset.status).toBe('incomplete');
   });
 });
