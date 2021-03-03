@@ -2,9 +2,6 @@ import React, { useRef, useEffect } from 'react';
 import './styles.scss';
 
 export default function ReportCover({ currentCategory, stages }) {
-  console.log(`stages: `, stages);
-  console.log(`currentCategory: `, currentCategory);
-
   const reportAreas = {
     organisationalMaturity: useRef(),
     crossFunctionalTeams: useRef(),
@@ -15,11 +12,17 @@ export default function ReportCover({ currentCategory, stages }) {
 
   useEffect(() => {
     const updateReportAreas = () => {
-      Object.keys(reportAreas).map((key) => {
-        if (key === currentCategory) {
-          reportAreas[key].current.dataset.status = 'current';
+      // eslint-disable-next-line consistent-return
+      stages.forEach((stage) => {
+        const currentReportArea = reportAreas[stage.category].current;
+
+        if (currentReportArea.id === currentCategory) {
+          currentReportArea.dataset.status = 'current';
+        } else if (stage.questions.every((question) => question.isCompleted)) {
+          currentReportArea.dataset.status = 'complete';
+        } else {
+          currentReportArea.dataset.status = 'incomplete';
         }
-        return 0;
       });
     };
 
@@ -134,14 +137,6 @@ export default function ReportCover({ currentCategory, stages }) {
               fill="url(#linear-gradient)"
             />
           </g>
-
-          {/* {stages.map((stage) => (
-            <ReportArea
-              key={stage.category}
-              category={stage.category}
-              currentCategory={currentCategory}
-            />
-          ))} */}
 
           <g
             id="organisationalMaturity"
