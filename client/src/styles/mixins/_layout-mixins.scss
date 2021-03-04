@@ -11,3 +11,9 @@
   padding-top: 50px;
   max-width: 440px;
 }
+
+@mixin small {
+  @media (max-width: 970px) {
+    @content;
+  }
+}

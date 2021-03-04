@@ -1,11 +1,5 @@
 @import '../../styles/mixins/mixins.scss';
 
-@mixin small-screen-adjustment {
-  @media (max-width: 970px) {
-    @content;
-  }
-}
-
 .landing__wrapper {
   background: url(./src/assets/icons/report-bg-landing-page.svg);
   background-repeat: no-repeat;
@@ -15,7 +9,7 @@
   width: 100%;
   z-index: 1;
 
-  @include small-screen-adjustment {
+  @include small {
     background: url(./src/assets/icons/report-bg-landing-page-mobile.jpg);
     background-repeat: no-repeat;
     background-position-x: 0;
@@ -53,7 +47,7 @@
     bottom: -80px;
     z-index: 1;
 
-    @include small-screen-adjustment {
+    @include small {
       display: none;
     }
   }
@@ -79,7 +73,7 @@
     z-index: 2;
     position: relative;
 
-    @include small-screen-adjustment {
+    @include small {
       margin-top: 30px;
     }
 
@@ -115,7 +109,7 @@
       div + div {
         margin-left: 30px;
 
-        @include small-screen-adjustment {
+        @include small {
           margin-left: 7px;
         }
       }
@@ -124,7 +118,7 @@
     button {
       margin-top: 30px;
 
-      @include small-screen-adjustment {
+      @include small {
         margin-top: 0;
       }
     }
