@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import translator from '../../config/translator';
 import './styles.scss';
 
 const isCurrentCategory = (reportArea, currCategory) => {
@@ -48,20 +49,6 @@ export default function ReportCover({ currentCategory, stages }) {
     >
       <defs>
         <filter
-          id="shadow"
-          x="42.772"
-          y="1.215"
-          width="372.566"
-          height="512.566"
-          filterUnits="userSpaceOnUse"
-        >
-          <feOffset dy="3" input="SourceAlpha" />
-          <feGaussianBlur stdDeviation="3" result="blur" />
-          <feFlood floodColor="#5557f6" />
-          <feComposite operator="in" in2="blur" />
-          <feComposite in="SourceGraphic" />
-        </filter>
-        <filter
           id="page"
           x="39.555"
           y="24.998"
@@ -99,6 +86,31 @@ export default function ReportCover({ currentCategory, stages }) {
           <feComposite operator="in" in2="blur-3" />
           <feComposite in="SourceGraphic" />
         </filter>
+        <linearGradient
+          x1="0"
+          x2="0"
+          y1="0"
+          id="drop-shadow-gradient"
+          y2="1"
+          gradientTransform="rotate(30)"
+        >
+          <stop offset="0%" stopColor="var(--dodger-blue)" />
+
+          <stop offset="100%" stopColor="var(--java)" />
+        </linearGradient>
+        <filter
+          width="372.566"
+          height="512.566"
+          id="drop-shadow-blur"
+          filterUnits="userSpaceOnUse"
+          x="0"
+          y="0"
+        >
+          <feOffset input="SourceAlpha" dy="10" dx="10" />
+          <feGaussianBlur result="blur" stdDeviation="20" />
+          <feComposite operator="in" in2="blur" />
+          <feComposite in="SourceGraphic" />
+        </filter>
       </defs>
       <g
         id="Group_2358"
@@ -107,6 +119,15 @@ export default function ReportCover({ currentCategory, stages }) {
       >
         <g id="report_areas" data-name="report areas">
           <g className="report-cover__report-area report-area" id="Background">
+            <rect
+              width="285"
+              height="397"
+              transform="matrix(0.999, 0.035, -0.035, 0.999, 454.014, 228)"
+              id="shadow"
+              fill="url(#drop-shadow-gradient)"
+              filter="url(#drop-shadow-blur)"
+              opacity="0.5"
+            />
             <g
               transform="matrix(1, 0, 0, 1, 379.44, 188)"
               filter="url(#shadow)"
@@ -166,17 +187,20 @@ export default function ReportCover({ currentCategory, stages }) {
               className="report-area__background"
             />
             <text
-              id="Organisational_Maturity-2"
-              transform="translate(516 354.609)"
-              fontSize="10"
               className="report-area__text"
+              fontSize="10"
+              textAnchor="middle"
+              transform="translate(516 354.609)"
             >
-              <tspan x="-33.425" y="0">
-                Organisational
-              </tspan>
-              <tspan x="-19" y="12">
-                Maturity
-              </tspan>
+              {`${translator.organisationalMaturity.split(' ')[0]}`}
+            </text>
+            <text
+              className="report-area__text"
+              fontSize="10"
+              textAnchor="middle"
+              transform="translate(516 367)"
+            >
+              {`${translator.organisationalMaturity.split(' ')[1]}`}
             </text>
             <g className="report-area__icon" id="icon-oranisational-maturity">
               <line
@@ -282,17 +306,20 @@ export default function ReportCover({ currentCategory, stages }) {
               transform="translate(586 292)"
             />
             <text
-              transform="translate(636 354.609)"
-              fontSize="10"
-              id="Team_Effectiveness"
               className="report-area__text"
+              fontSize="10"
+              textAnchor="middle"
+              transform="translate(636 354.609)"
             >
-              <tspan x="-11.815" y="0">
-                Team
-              </tspan>
-              <tspan x="-29.245" y="12">
-                Effectiveness
-              </tspan>
+              {`${translator.crossFunctionalTeams.split(' ')[0]}`}
+            </text>
+            <text
+              className="report-area__text"
+              fontSize="10"
+              textAnchor="middle"
+              transform="translate(636 366.809)"
+            >
+              {`${translator.crossFunctionalTeams.split(' ')[1]}`}
             </text>
             <g
               transform="translate(-365.49 26)"
@@ -447,17 +474,20 @@ export default function ReportCover({ currentCategory, stages }) {
               transform="translate(463 407)"
             />
             <text
-              id="Continuous_Delivery-2"
-              transform="translate(513 469.609)"
-              fontSize="10"
               className="report-area__text"
+              fontSize="10"
+              textAnchor="middle"
+              transform="translate(513 469.609)"
             >
-              <tspan x="-25.185" y="0">
-                Continuous
-              </tspan>
-              <tspan x="-18.035" y="12">
-                Delivery
-              </tspan>
+              {`${translator.continuousDelivery.split(' ')[0]}`}
+            </text>
+            <text
+              className="report-area__text"
+              fontSize="10"
+              textAnchor="middle"
+              transform="translate(513 481.609)"
+            >
+              {`${translator.continuousDelivery.split(' ')[1]}`}
             </text>
             <g
               id="Group_3"
@@ -524,17 +554,20 @@ export default function ReportCover({ currentCategory, stages }) {
               transform="translate(586 407)"
             />
             <text
-              id="XP_Practices-2"
-              transform="translate(636 469.609)"
-              fontSize="10"
               className="report-area__text"
+              fontSize="10"
+              textAnchor="middle"
+              transform="translate(636 469.609)"
             >
-              <tspan x="-6.21" y="0">
-                XP
-              </tspan>
-              <tspan x="-20.04" y="12">
-                Practices
-              </tspan>
+              {`${translator.xpPractices.split(' ')[0]}`}
+            </text>
+            <text
+              className="report-area__text"
+              fontSize="10"
+              textAnchor="middle"
+              transform="translate(636 481.609)"
+            >
+              {`${translator.xpPractices.split(' ')[1]}`}
             </text>
             <g
               className="report-area__icon"
@@ -591,17 +624,20 @@ export default function ReportCover({ currentCategory, stages }) {
               transform="translate(521 506)"
             />
             <text
-              id="Organisational_Culture"
-              fontSize="10"
               className="report-area__text"
+              fontSize="10"
+              textAnchor="middle"
               transform="translate(570 569.609)"
             >
-              <tspan x="-32.015" y="0">
-                Organisational
-              </tspan>
-              <tspan x="-16.04" y="12">
-                Culture
-              </tspan>
+              {`${translator.companyCulture.split(' ')[0]}`}
+            </text>
+            <text
+              className="report-area__text"
+              fontSize="10"
+              textAnchor="middle"
+              transform="translate(570 581.609)"
+            >
+              {`${translator.companyCulture.split(' ')[1]}`}
             </text>
             <g
               className="report-area__icon"
