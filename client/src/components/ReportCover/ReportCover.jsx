@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import translator from '../../config/translator';
 import './styles.scss';
 
 const isCurrentCategory = (reportArea, currCategory) => {
@@ -186,17 +187,20 @@ export default function ReportCover({ currentCategory, stages }) {
               className="report-area__background"
             />
             <text
-              id="Organisational_Maturity-2"
-              transform="translate(516 354.609)"
-              fontSize="10"
               className="report-area__text"
+              fontSize="10"
+              textAnchor="middle"
+              transform="translate(516 354.609)"
             >
-              <tspan x="-33.425" y="0">
-                Organisational
-              </tspan>
-              <tspan x="-19" y="12">
-                Maturity
-              </tspan>
+              {`${translator.organisationalMaturity.split(' ')[0]}`}
+            </text>
+            <text
+              className="report-area__text"
+              fontSize="10"
+              textAnchor="middle"
+              transform="translate(516 367)"
+            >
+              {`${translator.organisationalMaturity.split(' ')[1]}`}
             </text>
             <g className="report-area__icon" id="icon-oranisational-maturity">
               <line
@@ -302,17 +306,20 @@ export default function ReportCover({ currentCategory, stages }) {
               transform="translate(586 292)"
             />
             <text
-              transform="translate(636 354.609)"
-              fontSize="10"
-              id="Team_Effectiveness"
               className="report-area__text"
+              fontSize="10"
+              textAnchor="middle"
+              transform="translate(636 354.609)"
             >
-              <tspan x="-11.815" y="0">
-                Team
-              </tspan>
-              <tspan x="-29.245" y="12">
-                Effectiveness
-              </tspan>
+              {`${translator.crossFunctionalTeams.split(' ')[0]}`}
+            </text>
+            <text
+              className="report-area__text"
+              fontSize="10"
+              textAnchor="middle"
+              transform="translate(636 366.809)"
+            >
+              {`${translator.crossFunctionalTeams.split(' ')[1]}`}
             </text>
             <g
               transform="translate(-365.49 26)"
@@ -467,17 +474,20 @@ export default function ReportCover({ currentCategory, stages }) {
               transform="translate(463 407)"
             />
             <text
-              id="Continuous_Delivery-2"
-              transform="translate(513 469.609)"
-              fontSize="10"
               className="report-area__text"
+              fontSize="10"
+              textAnchor="middle"
+              transform="translate(513 469.609)"
             >
-              <tspan x="-25.185" y="0">
-                Continuous
-              </tspan>
-              <tspan x="-18.035" y="12">
-                Delivery
-              </tspan>
+              {`${translator.continuousDelivery.split(' ')[0]}`}
+            </text>
+            <text
+              className="report-area__text"
+              fontSize="10"
+              textAnchor="middle"
+              transform="translate(513 481.609)"
+            >
+              {`${translator.continuousDelivery.split(' ')[1]}`}
             </text>
             <g
               id="Group_3"
@@ -544,17 +554,20 @@ export default function ReportCover({ currentCategory, stages }) {
               transform="translate(586 407)"
             />
             <text
-              id="XP_Practices-2"
-              transform="translate(636 469.609)"
-              fontSize="10"
               className="report-area__text"
+              fontSize="10"
+              textAnchor="middle"
+              transform="translate(636 469.609)"
             >
-              <tspan x="-6.21" y="0">
-                XP
-              </tspan>
-              <tspan x="-20.04" y="12">
-                Practices
-              </tspan>
+              {`${translator.xpPractices.split(' ')[0]}`}
+            </text>
+            <text
+              className="report-area__text"
+              fontSize="10"
+              textAnchor="middle"
+              transform="translate(636 481.609)"
+            >
+              {`${translator.xpPractices.split(' ')[1]}`}
             </text>
             <g
               className="report-area__icon"
@@ -611,17 +624,20 @@ export default function ReportCover({ currentCategory, stages }) {
               transform="translate(521 506)"
             />
             <text
-              id="Organisational_Culture"
-              fontSize="10"
               className="report-area__text"
+              fontSize="10"
+              textAnchor="middle"
               transform="translate(570 569.609)"
             >
-              <tspan x="-32.015" y="0">
-                Organisational
-              </tspan>
-              <tspan x="-16.04" y="12">
-                Culture
-              </tspan>
+              {`${translator.companyCulture.split(' ')[0]}`}
+            </text>
+            <text
+              className="report-area__text"
+              fontSize="10"
+              textAnchor="middle"
+              transform="translate(570 581.609)"
+            >
+              {`${translator.companyCulture.split(' ')[1]}`}
             </text>
             <g
               className="report-area__icon"
