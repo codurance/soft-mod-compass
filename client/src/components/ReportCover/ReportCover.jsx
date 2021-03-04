@@ -48,20 +48,6 @@ export default function ReportCover({ currentCategory, stages }) {
     >
       <defs>
         <filter
-          id="shadow"
-          x="42.772"
-          y="1.215"
-          width="372.566"
-          height="512.566"
-          filterUnits="userSpaceOnUse"
-        >
-          <feOffset dy="3" input="SourceAlpha" />
-          <feGaussianBlur stdDeviation="3" result="blur" />
-          <feFlood floodColor="#5557f6" />
-          <feComposite operator="in" in2="blur" />
-          <feComposite in="SourceGraphic" />
-        </filter>
-        <filter
           id="page"
           x="39.555"
           y="24.998"
@@ -99,6 +85,31 @@ export default function ReportCover({ currentCategory, stages }) {
           <feComposite operator="in" in2="blur-3" />
           <feComposite in="SourceGraphic" />
         </filter>
+        <linearGradient
+          x1="0"
+          x2="0"
+          y1="0"
+          id="drop-shadow-gradient"
+          y2="1"
+          gradientTransform="rotate(30)"
+        >
+          <stop offset="0%" stopColor="var(--dodger-blue)" />
+
+          <stop offset="100%" stopColor="var(--java)" />
+        </linearGradient>
+        <filter
+          width="372.566"
+          height="512.566"
+          id="drop-shadow-blur"
+          filterUnits="userSpaceOnUse"
+          x="0"
+          y="0"
+        >
+          <feOffset input="SourceAlpha" dy="10" dx="10" />
+          <feGaussianBlur result="blur" stdDeviation="20" />
+          <feComposite operator="in" in2="blur" />
+          <feComposite in="SourceGraphic" />
+        </filter>
       </defs>
       <g
         id="Group_2358"
@@ -107,6 +118,15 @@ export default function ReportCover({ currentCategory, stages }) {
       >
         <g id="report_areas" data-name="report areas">
           <g className="report-cover__report-area report-area" id="Background">
+            <rect
+              width="285"
+              height="397"
+              transform="matrix(0.999, 0.035, -0.035, 0.999, 454.014, 228)"
+              id="shadow"
+              fill="url(#drop-shadow-gradient)"
+              filter="url(#drop-shadow-blur)"
+              opacity="0.5"
+            />
             <g
               transform="matrix(1, 0, 0, 1, 379.44, 188)"
               filter="url(#shadow)"
