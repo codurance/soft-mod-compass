@@ -1,0 +1,43 @@
+.report-area__background {
+  [data-status='current'] & {
+    stroke: var(--picton-blue);
+  }
+  [data-status='complete'] & {
+    fill: var(--picton-blue);
+  }
+}
+
+.report-area__icon {
+  [data-status='complete'] & {
+    stroke: white;
+    fill: white;
+  }
+  stroke: var(--shark);
+  fill: var(--shark);
+}
+
+.report-area__icon,
+.report-area__text {
+  [data-status='current'] &,
+  [data-status='complete'] & {
+    opacity: 1;
+  }
+  opacity: 0.3;
+}
+
+.report-area__text {
+  [data-status='complete'] & {
+    fill: white;
+  }
+  fill: var(--shark);
+}
+
+.report-area__tick {
+  [data-status='complete'] & {
+    opacity: 1;
+    visibility: visible;
+  }
+  opacity: 0;
+  visibility: hidden;
+  stroke: var(--picton-blue);
+}
