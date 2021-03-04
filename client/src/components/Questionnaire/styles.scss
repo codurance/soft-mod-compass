@@ -8,4 +8,7 @@
 .questionnaire .report-cover {
   height: 100%;
   max-height: 600px;
+  @include small {
+    display: none;
+  }
 }
