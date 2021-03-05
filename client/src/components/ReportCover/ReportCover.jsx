@@ -3,14 +3,6 @@ import PropTypes from 'prop-types';
 import translator from '../../config/translator';
 import './styles.scss';
 
-const isCurrentCategory = (reportArea, currCategory) => {
-  return reportArea.id === currCategory;
-};
-
-const stageIsCompleted = (stage) => {
-  return stage.questions.every((question) => question.isCompleted);
-};
-
 export default function ReportCover({ currentCategory, stages }) {
   const reportAreas = {
     organisationalMaturity: useRef(),
@@ -1012,3 +1004,11 @@ ReportCover.propTypes = {
     })
   ).isRequired,
 };
+
+function isCurrentCategory(reportArea, currCategory) {
+  return reportArea.id === currCategory;
+}
+
+function stageIsCompleted(stage) {
+  return stage.questions.every((question) => question.isCompleted);
+}
