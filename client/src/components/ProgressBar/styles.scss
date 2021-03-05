@@ -31,11 +31,11 @@
     }
 
     &--completed {
-      @include step(var(--picton-blue), 10px, 0.6);
+      @include step(var(--picton-blue), 10px, 1);
     }
 
     &--current {
-      @include step(var(--picton-blue), 12px, 1);
+      @include step(var(--picton-blue), 15px, 1);
       border-radius: 2px;
     }
   }
