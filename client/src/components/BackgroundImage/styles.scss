@@ -1,1 +1,33 @@
 @import '../../styles/animations.scss';
+
+@import '../../styles/mixins/mixins.scss';
+
+.background--organisationalMaturity {
+  @include backgroundImage(
+    './src/assets/icons/background-organisationalMaturity.svg'
+  );
+}
+
+.background--crossFunctionalTeams {
+  @include backgroundImage(
+    './src/assets/icons/background-crossFunctionalTeams.svg'
+  );
+}
+
+.background--xpPractices {
+  @include backgroundImage('./src/assets/icons/background-xpPractices.svg');
+}
+
+.background--culture {
+  @include backgroundImage('./src/assets/icons/background-culture.svg');
+}
+
+.background--continuousDelivery {
+  @include backgroundImage(
+    './src/assets/icons/background-continuousDelivery.svg'
+  );
+}
+
+.background--compass {
+  @include backgroundImage('./src/assets/icons/background-compass.svg');
+}

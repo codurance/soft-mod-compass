@@ -1,23 +1,5 @@
 @import '../../styles/mixins/mixins.scss';
 
-@mixin backgroundImage($url) {
-  background: url($url) no-repeat;
-  background-size: 500px;
-  background-position-x: 100%;
-  background-position-y: -217px;
-  width: 500px;
-  height: 300px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: -1;
-
-  @media (max-width: 500px) {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
 .app {
   max-width: 1100px;
   margin: auto;
@@ -26,30 +8,6 @@
   padding-right: 20px;
   position: relative;
 
-  &--organisationalMaturity {
-    @include backgroundImage(
-      './src/assets/icons/background-organisationalMaturity.svg'
-    );
-  }
-  &--crossFunctionalTeams {
-    @include backgroundImage(
-      './src/assets/icons/background-crossFunctionalTeams.svg'
-    );
-  }
-  &--xpPractices {
-    @include backgroundImage('./src/assets/icons/background-xpPractices.svg');
-  }
-  &--culture {
-    @include backgroundImage('./src/assets/icons/background-culture.svg');
-  }
-  &--continuousDelivery {
-    @include backgroundImage(
-      './src/assets/icons/background-continuousDelivery.svg'
-    );
-  }
-  &--compass {
-    @include backgroundImage('./src/assets/icons/background-compass.svg');
-  }
   main {
     align-items: center;
     display: flex;

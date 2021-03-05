@@ -55,8 +55,8 @@ function App({ initialStep, animationDelay }) {
 
   const setAppBackground = () => {
     if (currentStep === 0)
-      return setBackground(`app--${currentQuestionNode.data.category}`);
-    return setBackground('app--compass');
+      return setBackground(`${currentQuestionNode.data.category}`);
+    return setBackground('compass');
   };
 
   useEffect(() => {
