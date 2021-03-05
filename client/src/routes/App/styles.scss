@@ -1,3 +1,5 @@
+@import '../../styles/mixins/mixins.scss';
+
 @mixin backgroundImage($url) {
   background: url($url) no-repeat;
   background-size: 500px;
@@ -95,7 +97,7 @@
     left: 0;
     position: absolute;
 
-    @media (max-width: 800px) {
+    @include small {
       top: -35px;
       left: 25px;
     }
@@ -116,7 +118,7 @@
     right: 0;
     position: absolute;
 
-    @media (max-width: 800px) {
+    @include small {
       top: -35px;
       right: 25px;
     }
@@ -144,7 +146,7 @@
   margin-top: 20px;
   z-index: 2;
 
-  @media (max-width: 800px) {
+  @include small {
     bottom: 20px;
   }
 
@@ -161,7 +163,7 @@
     z-index: -1;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 
-    @media (max-width: 800px) {
+    @include small {
       height: 115px;
     }
   }

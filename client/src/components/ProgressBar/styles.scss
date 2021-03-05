@@ -1,3 +1,5 @@
+@import '../../styles/mixins/mixins.scss';
+
 @mixin step($color, $height, $opacity: 1) {
   background-color: $color;
   display: flex;
@@ -5,7 +7,7 @@
   width: 38px;
   opacity: $opacity;
 
-  @media (max-width: 800px) {
+  @include small {
     width: 16px;
   }
 }

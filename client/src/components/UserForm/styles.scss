@@ -16,6 +16,7 @@
 
 .form {
   @include main-wrapper();
+  align-items: center;
 
   &__fields-wrapper h2 {
     font-weight: var(--heavy-font-weight);
