@@ -4,6 +4,7 @@
   display: none;
   @include small {
     display: initial;
+    max-width: 150px;
     position: absolute;
     right: 7%;
     top: 20px;
