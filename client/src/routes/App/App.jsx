@@ -144,7 +144,10 @@ function App({ initialStep, animationDelay }) {
 
   return (
     <div className="app">
-      <BackgroundImage imageClass={`${background}`} testId={`${background}`} />
+      <BackgroundImage
+        imageClass={`${background}`}
+        testId={`${background}-background`}
+      />
       <Header />
       <main>
         {currentStep === 0 && (

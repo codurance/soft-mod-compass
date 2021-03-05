@@ -179,14 +179,16 @@ describe('app', () => {
     const { getByTestId } = render(<App initialStep={0} />);
     const firstCategory = questionList[0].category;
 
-    expect(getByTestId(`app--${firstCategory}`)).toHaveClass(
-      `app--${firstCategory}`
+    expect(getByTestId(`${firstCategory}-background`)).toHaveClass(
+      `background--${firstCategory}`
     );
   });
 
   it('should have the compass background when app displays the user form', () => {
     const { getByTestId } = render(<App initialStep={1} />);
 
-    expect(getByTestId(`app--compass`)).toHaveClass(`app--compass`);
+    expect(getByTestId(`compass-background`)).toHaveClass(
+      `background--compass`
+    );
   });
 });
