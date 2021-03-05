@@ -15,6 +15,7 @@ import redirectService from '../../services/redirectService';
 import reportService from '../../services/reportService';
 import './styles.scss';
 import ReportCover from '../../components/ReportCover/ReportCover';
+import ReportAreaIconController from '../../components/ReportAreaIconController/ReportAreaIconController';
 
 const initialUserDetails = {
   firstName: '',
@@ -152,10 +153,15 @@ function App({ initialStep, animationDelay }) {
             onClickAnswer={updateState}
             isSelectedAnswer={isSelectedAnswer}
           >
-            <ReportCover
-              currentCategory={currentQuestionNode.data.category}
-              stages={stages}
-            />
+            <>
+              <ReportCover
+                currentCategory={currentQuestionNode.data.category}
+                stages={stages}
+              />
+              <ReportAreaIconController
+                currentCategory={currentQuestionNode.data.category}
+              />
+            </>
           </Questionnaire>
         )}
         {currentStep === 1 && (

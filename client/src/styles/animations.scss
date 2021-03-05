@@ -47,3 +47,23 @@
   -o-animation: questionnaireFadeLeftOut ease 0.5s;
   -ms-animation: questionnaireFadeLeftOut ease 0.5s;
 }
+
+@mixin simple-fade-transition {
+  transition: opacity 0.3s linear;
+}
+
+.simple-fade-enter {
+  opacity: 0;
+}
+.simple-fade-enter-active {
+  opacity: 1;
+  @include simple-fade-transition();
+}
+
+.simple-fade-exit {
+  opacity: 1;
+}
+.simple-fade-exit-active {
+  opacity: 0;
+  @include simple-fade-transition();
+}
