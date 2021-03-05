@@ -5,14 +5,20 @@ import OrganisationalCultureReportArea from '../ReportArea/OrganisationalCulture
 import TeamEffectivenessReportArea from '../ReportArea/TeamEffectivenessReportArea';
 import XpPracticesReportArea from '../ReportArea/XpPracticesReportArea';
 
-export default function ReportAreaIconController() {
-  return (
-    <>
-      <ContinuousDeliveryReportArea />
-      <OrganisationalMaturityReportArea />
-      <OrganisationalCultureReportArea />
-      <TeamEffectivenessReportArea />
-      <XpPracticesReportArea />
-    </>
-  );
+export default function ReportAreaIconController({ currentCategory }) {
+  switch (currentCategory) {
+    case 'organisationalMaturity':
+      return <OrganisationalMaturityReportArea />;
+    case 'crossFunctionalTeams':
+      return <TeamEffectivenessReportArea />;
+
+    case 'continuousDelivery':
+      return <ContinuousDeliveryReportArea />;
+    case 'xpPractices':
+      return <XpPracticesReportArea />;
+    case 'culture':
+      return <OrganisationalCultureReportArea />;
+    default:
+      return 0;
+  }
 }

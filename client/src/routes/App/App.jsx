@@ -158,7 +158,9 @@ function App({ initialStep, animationDelay }) {
                 currentCategory={currentQuestionNode.data.category}
                 stages={stages}
               />
-              <ReportAreaIconController />
+              <ReportAreaIconController
+                currentCategory={currentQuestionNode.data.category}
+              />
             </>
           </Questionnaire>
         )}
