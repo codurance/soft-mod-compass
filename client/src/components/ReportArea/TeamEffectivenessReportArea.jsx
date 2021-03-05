@@ -4,8 +4,13 @@ import './styles.scss';
 
 export default function TeamEffectivenessReportArea() {
   return (
-    <svg className="report-area-icon" viewBox="0 0 100 100">
-      <g id="background-2">
+    <svg
+      className="report-area-icon"
+      id="crossFunctionalTeams"
+      viewBox="0 0 100 100"
+      role="presentation"
+    >
+      <g>
         <circle cx="50" cy="50.19" r="50" fill="white" />
         <circle
           cx="50"

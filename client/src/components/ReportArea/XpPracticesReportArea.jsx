@@ -4,8 +4,13 @@ import './styles.scss';
 
 export default function XpPracticesReportArea() {
   return (
-    <svg className="report-area-icon" viewBox="0 0 100 100">
-      <g id="Cross Functional Teams">
+    <svg
+      className="report-area-icon"
+      id="xpPractices"
+      viewBox="0 0 100 100"
+      role="presentation"
+    >
+      <g>
         <circle cx="50" cy="50" r="50" fill="white" />
         <circle
           cx="50"

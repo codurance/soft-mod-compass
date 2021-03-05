@@ -4,8 +4,13 @@ import './styles.scss';
 
 export default function OrganisationalMaturityReportArea() {
   return (
-    <svg className="report-area-icon" viewBox="0 0 100 100">
-      <g id="Cross Functional Teams">
+    <svg
+      className="report-area-icon"
+      id="organisationalMaturity"
+      viewBox="0 0 100 100"
+      role="presentation"
+    >
+      <g>
         <circle cx="49.96" cy="50.19" r="50" fill="white" />
         <circle
           cx="49.96"

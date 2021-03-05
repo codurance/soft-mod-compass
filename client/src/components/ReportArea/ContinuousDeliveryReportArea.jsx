@@ -4,19 +4,22 @@ import './styles.scss';
 
 export default function ContinuousDeliveryReportArea() {
   return (
-    <svg className="report-area-icon" viewBox="0 0 100 100">
-      <g id="Cross_Functional_Teams">
-        <g id="background">
-          <circle cx="50.06" cy="50" r="50" fill="white" />
-          <circle
-            cx="50.06"
-            cy="50"
-            r="48.5"
-            fill="none"
-            stroke="var(--picton-blue)"
-            strokeWidth="3"
-          />
-        </g>
+    <svg
+      className="report-area-icon"
+      id="continuousDelivery"
+      viewBox="0 0 100 100"
+      role="presentation"
+    >
+      <g>
+        <circle cx="50.06" cy="50" r="50" fill="white" />
+        <circle
+          cx="50.06"
+          cy="50"
+          r="48.5"
+          fill="none"
+          stroke="var(--picton-blue)"
+          strokeWidth="3"
+        />
       </g>
       <text
         textAnchor="middle"

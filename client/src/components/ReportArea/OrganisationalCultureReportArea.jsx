@@ -4,8 +4,13 @@ import './styles.scss';
 
 export default function OrganisationalCultureReportArea() {
   return (
-    <svg viewBox="0 0 100 100">
-      <g id="Cross Functional Teams">
+    <svg
+      class="report-area-icon"
+      id="culture"
+      viewBox="0 0 100 100"
+      role="presentation"
+    >
+      <g>
         <circle cx="49.9" cy="50" r="50" fill="white" />
         <circle
           cx="49.9"
