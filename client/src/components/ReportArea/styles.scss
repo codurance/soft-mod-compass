@@ -1,0 +1,8 @@
+@import '../../styles/mixins/mixins.scss';
+
+.report-area-icon {
+  display: none;
+  @include small {
+    display: initial;
+  }
+}

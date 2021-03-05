@@ -1,5 +1,6 @@
 import React from 'react';
 import translator from '../../config/translator';
+import './styles.scss';
 
 export default function OrganisationalCultureReportArea() {
   return (
