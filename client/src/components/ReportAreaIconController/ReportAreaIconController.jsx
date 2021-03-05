@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
 import ContinuousDeliveryReportArea from '../ReportArea/ContinuousDeliveryReportArea';
 import OrganisationalMaturityReportArea from '../ReportArea/OrganisationalMaturityReportArea';
@@ -8,21 +9,35 @@ import TeamEffectivenessReportArea from '../ReportArea/TeamEffectivenessReportAr
 import XpPracticesReportArea from '../ReportArea/XpPracticesReportArea';
 
 export default function ReportAreaIconController({ currentCategory }) {
-  switch (currentCategory) {
-    case 'organisationalMaturity':
-      return <OrganisationalMaturityReportArea />;
-    case 'crossFunctionalTeams':
-      return <TeamEffectivenessReportArea />;
+  return (
+    <SwitchTransition className="animation-wrapper">
+      <CSSTransition
+        timeout={600}
+        delay
+        appear
+        key={currentCategory}
+        classNames="simple-fade"
+      >
+        {() => {
+          switch (currentCategory) {
+            case 'organisationalMaturity':
+              return <OrganisationalMaturityReportArea />;
+            case 'crossFunctionalTeams':
+              return <TeamEffectivenessReportArea />;
 
-    case 'continuousDelivery':
-      return <ContinuousDeliveryReportArea />;
-    case 'xpPractices':
-      return <XpPracticesReportArea />;
-    case 'culture':
-      return <OrganisationalCultureReportArea />;
-    default:
-      return 0;
-  }
+            case 'continuousDelivery':
+              return <ContinuousDeliveryReportArea />;
+            case 'xpPractices':
+              return <XpPracticesReportArea />;
+            case 'culture':
+              return <OrganisationalCultureReportArea />;
+            default:
+              return 0;
+          }
+        }}
+      </CSSTransition>
+    </SwitchTransition>
+  );
 }
 
 ReportAreaIconController.propTypes = {
