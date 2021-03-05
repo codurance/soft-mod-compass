@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import ContinuousDeliveryReportArea from '../ReportArea/ContinuousDeliveryReportArea';
 import OrganisationalMaturityReportArea from '../ReportArea/OrganisationalMaturityReportArea';
@@ -23,3 +24,13 @@ export default function ReportAreaIconController({ currentCategory }) {
       return 0;
   }
 }
+
+ReportAreaIconController.propTypes = {
+  currentCategory: PropTypes.oneOf([
+    'organisationalMaturity',
+    'crossFunctionalTeams',
+    'continuousDelivery',
+    'xpPractices',
+    'culture',
+  ]).isRequired,
+};
