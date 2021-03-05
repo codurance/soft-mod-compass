@@ -1,4 +1,5 @@
 import React from 'react';
+import translator from '../../config/translator';
 
 export default function ContinuousDeliveryReportArea() {
   return (
@@ -23,7 +24,7 @@ export default function ContinuousDeliveryReportArea() {
         x="50"
         y="62.61"
       >
-        Continuous
+        {`${translator.continuousDelivery.split(' ')[0]}`}
       </text>
       <text
         textAnchor="middle"
@@ -32,7 +33,7 @@ export default function ContinuousDeliveryReportArea() {
         x="50"
         y="75.63"
       >
-        Delivery
+        {`${translator.continuousDelivery.split(' ')[1]}`}
       </text>
       <g>
         <g>

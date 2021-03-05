@@ -1,4 +1,5 @@
 import React from 'react';
+import translator from '../../config/translator';
 
 export default function TeamEffectivenessReportArea() {
   return (
@@ -21,7 +22,7 @@ export default function TeamEffectivenessReportArea() {
         x="50"
         y="62.61"
       >
-        Team
+        {`${translator.crossFunctionalTeams.split(' ')[0]}`}
       </text>
       <text
         textAnchor="middle"
@@ -30,7 +31,7 @@ export default function TeamEffectivenessReportArea() {
         x="50"
         y="75.63"
       >
-        Effectiveness
+        {`${translator.crossFunctionalTeams.split(' ')[1]}`}
       </text>
       <g>
         <path
