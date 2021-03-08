@@ -10,10 +10,16 @@
     margin: 0 15px;
   }
 
-  img {
-    @include small {
+  @include small {
+    img {
       width: 25%;
       height: auto;
+    }
+    img[alt='Codurance'] {
+      max-width: 125px;
+    }
+    img[alt='Compass'] {
+      max-width: 119px;
     }
   }
 }
