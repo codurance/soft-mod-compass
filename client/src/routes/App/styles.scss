@@ -1,20 +1,4 @@
-@mixin backgroundImage($url) {
-  background: url($url) no-repeat;
-  background-size: 500px;
-  background-position-x: 100%;
-  background-position-y: -217px;
-  width: 500px;
-  height: 300px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: -1;
-
-  @media (max-width: 500px) {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
+@import '../../styles/mixins/mixins.scss';
 
 .app {
   max-width: 1100px;
@@ -24,30 +8,6 @@
   padding-right: 20px;
   position: relative;
 
-  &--organisationalMaturity {
-    @include backgroundImage(
-      './src/assets/icons/background-organisationalMaturity.svg'
-    );
-  }
-  &--crossFunctionalTeams {
-    @include backgroundImage(
-      './src/assets/icons/background-crossFunctionalTeams.svg'
-    );
-  }
-  &--xpPractices {
-    @include backgroundImage('./src/assets/icons/background-xpPractices.svg');
-  }
-  &--culture {
-    @include backgroundImage('./src/assets/icons/background-culture.svg');
-  }
-  &--continuousDelivery {
-    @include backgroundImage(
-      './src/assets/icons/background-continuousDelivery.svg'
-    );
-  }
-  &--compass {
-    @include backgroundImage('./src/assets/icons/background-compass.svg');
-  }
   main {
     align-items: center;
     display: flex;
@@ -95,7 +55,7 @@
     left: 0;
     position: absolute;
 
-    @media (max-width: 800px) {
+    @include small {
       top: -35px;
       left: 25px;
     }
@@ -116,7 +76,7 @@
     right: 0;
     position: absolute;
 
-    @media (max-width: 800px) {
+    @include small {
       top: -35px;
       right: 25px;
     }
@@ -144,7 +104,7 @@
   margin-top: 20px;
   z-index: 2;
 
-  @media (max-width: 800px) {
+  @include small {
     bottom: 20px;
   }
 
@@ -161,7 +121,7 @@
     z-index: -1;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 
-    @media (max-width: 800px) {
+    @include small {
       height: 115px;
     }
   }

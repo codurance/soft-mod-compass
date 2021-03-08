@@ -12,7 +12,7 @@ export default function BackgroundImage({ imageClass, testId }) {
         key={imageClass}
         classNames="simple-fade"
       >
-        <div className={imageClass} data-testid={testId} />
+        <div className={`background--${imageClass}`} data-testid={testId} />
       </CSSTransition>
     </SwitchTransition>
   );

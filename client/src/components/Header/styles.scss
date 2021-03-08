@@ -1,3 +1,5 @@
+@import '../../styles/mixins/mixins.scss';
+
 .header {
   align-items: center;
   display: flex;
@@ -9,7 +11,7 @@
   }
 
   img {
-    @media (max-width: 800px) {
+    @include small {
       width: 25%;
       height: auto;
     }

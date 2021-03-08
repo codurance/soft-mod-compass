@@ -55,8 +55,8 @@ function App({ initialStep, animationDelay }) {
 
   const setAppBackground = () => {
     if (currentStep === 0)
-      return setBackground(`app--${currentQuestionNode.data.category}`);
-    return setBackground('app--compass');
+      return setBackground(`${currentQuestionNode.data.category}`);
+    return setBackground('compass');
   };
 
   useEffect(() => {
@@ -144,7 +144,10 @@ function App({ initialStep, animationDelay }) {
 
   return (
     <div className="app">
-      <BackgroundImage imageClass={`${background}`} testId={`${background}`} />
+      <BackgroundImage
+        imageClass={`${background}`}
+        testId={`${background}-background`}
+      />
       <Header />
       <main>
         {currentStep === 0 && (
