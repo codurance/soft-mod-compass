@@ -1,19 +1,33 @@
-@mixin bg-fade-transition {
-  transition: opacity 0.3s linear;
+@import '../../styles/animations.scss';
+
+@import '../../styles/mixins/mixins.scss';
+
+.background--organisationalMaturity {
+  @include backgroundImage(
+    './src/assets/icons/background-organisationalMaturity.svg'
+  );
 }
 
-.bg-fade-enter {
-  opacity: 0;
-}
-.bg-fade-enter-active {
-  opacity: 1;
-  @include bg-fade-transition();
+.background--crossFunctionalTeams {
+  @include backgroundImage(
+    './src/assets/icons/background-crossFunctionalTeams.svg'
+  );
 }
 
-.bg-fade-exit {
-  opacity: 1;
+.background--xpPractices {
+  @include backgroundImage('./src/assets/icons/background-xpPractices.svg');
 }
-.bg-fade-exit-active {
-  opacity: 0;
-  @include bg-fade-transition();
+
+.background--culture {
+  @include backgroundImage('./src/assets/icons/background-culture.svg');
+}
+
+.background--continuousDelivery {
+  @include backgroundImage(
+    './src/assets/icons/background-continuousDelivery.svg'
+  );
+}
+
+.background--compass {
+  @include backgroundImage('./src/assets/icons/background-compass.svg');
 }

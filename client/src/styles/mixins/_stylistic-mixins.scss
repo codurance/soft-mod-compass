@@ -1,0 +1,23 @@
+$background-set-width: 500px;
+
+@mixin backgroundImage($url) {
+  background: url($url) no-repeat;
+  background-size: $background-set-width;
+  background-position-y: -217px;
+  height: 300px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+
+  @media (min-width: #{$background-set-width + 1px}) {
+    width: $background-set-width;
+  }
+
+  @media (max-width: $background-set-width) {
+    background-position-x: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+  }
+}

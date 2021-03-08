@@ -6,8 +6,13 @@ import './styles.scss';
 export default function BackgroundImage({ imageClass, testId }) {
   return (
     <SwitchTransition className="animation-wrapper">
-      <CSSTransition timeout={300} appear key={imageClass} classNames="bg-fade">
-        <div className={imageClass} data-testid={testId} />
+      <CSSTransition
+        timeout={300}
+        appear
+        key={imageClass}
+        classNames="simple-fade"
+      >
+        <div className={`background--${imageClass}`} data-testid={testId} />
       </CSSTransition>
     </SwitchTransition>
   );

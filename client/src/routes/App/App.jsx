@@ -8,12 +8,14 @@ import Questionnaire from '../../components/Questionnaire/Questionnaire';
 import UserForm from '../../components/UserForm/UserForm';
 import { buildAnswerScore, createLinkedList } from '../../config/factory';
 import questionList from '../../config/QuestionnaireModel';
-import progressBarMapper from '../../mappers/progressBarMapper';
+import questionDataMapper from '../../mappers/questionDataMapper';
 import BackgroundImage from '../../components/BackgroundImage/BackgroundImage';
 import questionnaireMapper from '../../mappers/questionnaireMapper';
 import redirectService from '../../services/redirectService';
 import reportService from '../../services/reportService';
 import './styles.scss';
+import ReportCover from '../../components/ReportCover/ReportCover';
+import ReportAreaIconController from '../../components/ReportAreaIconController/ReportAreaIconController';
 
 const initialUserDetails = {
   firstName: '',
@@ -53,8 +55,8 @@ function App({ initialStep, animationDelay }) {
 
   const setAppBackground = () => {
     if (currentStep === 0)
-      return setBackground(`app--${currentQuestionNode.data.category}`);
-    return setBackground('app--compass');
+      return setBackground(`${currentQuestionNode.data.category}`);
+    return setBackground('compass');
   };
 
   useEffect(() => {
@@ -68,6 +70,7 @@ function App({ initialStep, animationDelay }) {
     reportService
       .submitSurvey(data)
       .then(() => redirectService.redirect())
+      // eslint-disable-next-line no-console
       .catch((reason) => console.log('error from server ', reason));
   };
 
@@ -134,9 +137,17 @@ function App({ initialStep, animationDelay }) {
     questionnaire[currentQuestionNode.data.label] &&
     currentStep === 0;
 
+  const stages = questionDataMapper.generateStageData(
+    questionnaire,
+    questionList
+  );
+
   return (
     <div className="app">
-      <BackgroundImage imageClass={`${background}`} testId={`${background}`} />
+      <BackgroundImage
+        imageClass={`${background}`}
+        testId={`${background}-background`}
+      />
       <Header />
       <main>
         {currentStep === 0 && (
@@ -144,7 +155,17 @@ function App({ initialStep, animationDelay }) {
             currentQuestion={currentQuestionNode.data}
             onClickAnswer={updateState}
             isSelectedAnswer={isSelectedAnswer}
-          />
+          >
+            <>
+              <ReportCover
+                currentCategory={currentQuestionNode.data.category}
+                stages={stages}
+              />
+              <ReportAreaIconController
+                currentCategory={currentQuestionNode.data.category}
+              />
+            </>
+          </Questionnaire>
         )}
         {currentStep === 1 && (
           <UserForm
@@ -157,10 +178,7 @@ function App({ initialStep, animationDelay }) {
           {!isFirstQuestion(currentQuestionNode) && renderBackButton()}
           <ProgressBar
             currentStage={currentQuestionNode.data.label}
-            stages={progressBarMapper.generateProgressBar(
-              questionnaire,
-              questionList
-            )}
+            stages={stages}
           />
           {isNextButtonRendered() && renderNextButton()}
         </div>

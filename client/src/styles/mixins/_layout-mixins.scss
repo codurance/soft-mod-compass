@@ -1,5 +1,4 @@
 @mixin main-wrapper() {
-  align-items: flex-start;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -8,7 +7,12 @@
 }
 
 @mixin main-wrapper-left() {
-  height: 650px;
   padding-top: 50px;
   max-width: 440px;
+}
+
+@mixin small {
+  @media (max-width: 970px) {
+    @content;
+  }
 }

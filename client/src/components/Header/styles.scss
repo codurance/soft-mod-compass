@@ -1,3 +1,5 @@
+@import '../../styles/mixins/mixins.scss';
+
 .header {
   align-items: center;
   display: flex;
@@ -8,10 +10,16 @@
     margin: 0 15px;
   }
 
-  img {
-    @media (max-width: 800px) {
+  @include small {
+    img {
       width: 25%;
       height: auto;
+    }
+    img[alt='Codurance'] {
+      max-width: 125px;
+    }
+    img[alt='Compass'] {
+      max-width: 119px;
     }
   }
 }
