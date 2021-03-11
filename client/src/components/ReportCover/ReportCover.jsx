@@ -694,7 +694,6 @@ export default function ReportCover({ currentCategory, stages }) {
               transform="translate(992 229)"
               fill="#62626a"
               fontSize="13"
-              fontFamily="ProximaNova-Bold, Proxima Nova"
               fontWeight="700"
               letterSpacing="0.003em"
             >
