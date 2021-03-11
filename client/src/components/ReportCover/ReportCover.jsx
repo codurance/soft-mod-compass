@@ -38,6 +38,8 @@ export default function ReportCover({ currentCategory, stages }) {
       className="report-cover"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 415.338 513.781"
+      width="600"
+      height="100%"
     >
       <defs>
         <filter
