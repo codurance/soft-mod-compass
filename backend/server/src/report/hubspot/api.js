@@ -120,6 +120,7 @@ const submitForm = (pdfLink, user, scores) => {
           },
         },
         context: {
+          hutk: user.hutk,
           ipAddress: user.ip,
         },
       },
