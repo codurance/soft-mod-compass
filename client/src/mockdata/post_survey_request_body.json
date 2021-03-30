@@ -6,7 +6,8 @@
     "company": "Some Company",
     "email": "user@company.com",
     "jobFunction": "Founder/ CEO",
-    "language": "en"
+    "language": "en",
+    "hutk": "hubspotutkCookie"
   },
   "categories": {
     "organisationalMaturity": {

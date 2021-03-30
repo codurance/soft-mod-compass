@@ -5,7 +5,7 @@ import './styles.scss';
 export default function OrganisationalCultureReportArea() {
   return (
     <svg
-      class="report-area-icon"
+      className="report-area-icon"
       id="culture"
       viewBox="0 0 100 100"
       role="presentation"
