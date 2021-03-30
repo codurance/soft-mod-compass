@@ -11,6 +11,7 @@ import translator from './config/translator';
 import payloadRequest from './mockdata/post_survey_request_body.json';
 import testHelpers from './mockdata/testHelpers';
 import reportService from './services/reportService';
+import cookieService from './services/cookieService';
 import ipProvider from './services/ipProvider';
 
 reactTransitionGroupConfig.disabled = true;
@@ -51,6 +52,9 @@ const submitSurveySpy = jest.spyOn(reportService, 'submitSurvey');
 const ipProviderSpy = jest
   .spyOn(ipProvider, 'getIp')
   .mockImplementation(() => Promise.resolve('mockedIp'));
+const getCookieSpy = jest
+  .spyOn(cookieService, 'getCookie')
+  .mockImplementation(() => 'hubspotutkCookie');
 const returnFromAsync = (spy) => spy.mock.results[0].value;
 
 /*
@@ -111,5 +115,6 @@ describe('acceptance test', () => {
     const result = await returnFromAsync(submitSurveySpy);
     expect(result).toEqual(successfulResponseFromBackend);
     expect(ipProviderSpy).toHaveBeenCalledTimes(1);
+    expect(getCookieSpy).toHaveBeenCalledTimes(1);
   });
 });
