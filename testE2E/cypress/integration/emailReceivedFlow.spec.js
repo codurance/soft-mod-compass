@@ -1,9 +1,9 @@
 const Survey = require('../support/fillSurvey');
-const generateUuid = require('uuid/v4');
+const { v4: uuidv4 } = require('uuid');
 const comparisonMismatchThreshold = 10;
 
 context('Email Received', { taskTimeout: 90000 }, () => {
-  const randomTag = generateUuid();
+  const randomTag = uuidv4();
   before('given a survey filled in english', () => {
     cy.visit('/');
     cy.get('#hs-eu-confirmation-button').click();
