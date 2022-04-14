@@ -53,6 +53,6 @@
   "jobFunctionError": "Please select an option from the dropdown menu",
   "emailError": "Valid email is required",
   "checkboxError": "Accept Privacy Policy is required",
-  "gdprText": "If you’re happy to receive our latest updates and case studies via email, please tick to let us know. You can unsubscribe at any time and we’ll only ever use your data in line with our",
+  "gdprText": "In order to provide you the content requested, we need to store and process your personal data. If you consent to us storing your personal data for this purpose, please tick the checkbox. We will only ever use your data in line with our",
   "privacyPolicy": "Privacy Policy."
 }

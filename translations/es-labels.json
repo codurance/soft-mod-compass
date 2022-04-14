@@ -53,6 +53,6 @@
   "jobFunctionError": "Selecciona una opción del menú desplegable",
   "emailError": "El campo email debe ser válido",
   "checkboxError": "Es obligatorio aceptar la Política de Privacidad",
-  "gdprText": "Si deseas recibir nuestras últimas novedades y case studies vía email, por favor marca esta casilla. Puedes cancelar la suscripción en cualquier momento, solo utilizaremos tu información de acuerdo con nuestra",
+  "gdprText": "Para hacerte llegar el contenido solicitado, necesitamos almacenar y procesar tus datos personales. Si aceptas que guardemos tus datos personales para este fin, marca la casilla de verificación. Solo utilizaremos tus datos en la linea de lo que especificamos en nuestra ",
   "privacyPolicy": "Política de Privacidad."
 }
