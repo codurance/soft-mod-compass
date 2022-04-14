@@ -1,6 +1,5 @@
 const Survey = require('../support/fillSurvey');
 const { v4: uuidv4 } = require('uuid');
-const comparisonMismatchThreshold = 10;
 
 context('Email Received', { taskTimeout: 90000 }, () => {
   const randomTag = uuidv4();
