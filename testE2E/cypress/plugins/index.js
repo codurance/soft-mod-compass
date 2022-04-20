@@ -29,9 +29,10 @@ module.exports = (on, config) => {
       const response = await requestPromise(options);
       requestSucceeded = true;
       const parsedResponse = JSON.parse(response);
+      console.log(parsedResponse.emails[0].text)
       return {
         reportLink: parsedResponse.emails[0].text.match(
-          '(https:\\/\\/email\\.codurance\\.com\\/e2t\\/sc2.+)\\\n'
+          '(https:\\/\\/email\\.codurance\\.com\\/e3t\\/Ctc.+)\\\n'
         )[0],
         subject: parsedResponse.emails[0].subject,
       };
