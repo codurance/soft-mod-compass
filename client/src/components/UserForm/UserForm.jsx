@@ -138,6 +138,7 @@ function UserForm({ submitForm }) {
       </SwitchTransition>
       <img className="form__assessment" src={submissionImage} alt="Section" />
     </div>
+    
   );
 }
 
