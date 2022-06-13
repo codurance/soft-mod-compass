@@ -123,3 +123,5 @@ compassReport_*.png
 # End of https://www.gitignore.io/api/node,macos,visualstudiocode
 /backend/tmp/
 /backend/scripts/localConf.sh
+client/yarn.lock
+backend/yarn.lock
