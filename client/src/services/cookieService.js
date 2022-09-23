@@ -10,10 +10,7 @@ export default {
       console.error(`Unable to find chosen cookie ${cookieKey}`);
     }
 
-    const chosenCookieValue = chosenCookie.substr(
-      chosenCookie.indexOf('=') + 1,
-      chosenCookie.length
-    );
+    const chosenCookieValue = chosenCookie.slice(chosenCookie.indexOf('=') + 1);
     return chosenCookieValue;
   },
 };
