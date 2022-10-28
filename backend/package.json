@@ -20,7 +20,7 @@
     "dynalite": "^3.2.1",
     "express": "4.16.4",
     "jest-dynalite": "^3.3.1",
-    "jsreport": "2.4.0",
+    "jsreport": "2.6.0",
     "log-timestamp": "^0.3.0",
     "request": "^2.88.2",
     "request-promise": "4.2.6",
