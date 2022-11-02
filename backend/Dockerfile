@@ -1,4 +1,4 @@
-FROM node:18-slim
+FROM node:16-slim
 
 # See https://crbug.com/795759
 RUN apt-get update && apt-get install -yq libgconf-2-4 gnupg2 ca-certificates
