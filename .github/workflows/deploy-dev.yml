@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: 16.x
+          node-version: "14"
       - name: test-backend
         run: |
           cd ./backend
@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: 16.x
+          node-version: "14"
       - name: CI
         run: |
           cd ./client
@@ -44,7 +44,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: 16.x
+          node-version: "14"
 
       - name: Build
         run: |
@@ -74,7 +74,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: 16.x
+          node-version: "14"
       - name: bundle-backend
         run: |
           cd ./backend
