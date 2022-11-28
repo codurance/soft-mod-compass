@@ -20,7 +20,7 @@ const mockConfig = {
     studioEditorEnabled: true,
   },
   hubspot: {
-    authToken: 'fake token',
+    privateAppToken: 'fake token',
     portalId: 'portalid',
     formId: 'formId',
     formApiUrl: HubspotFormApi,
@@ -43,9 +43,10 @@ function mockHubspotFileApi() {
     objects: [{ s3_url: uploadedFileUrl }],
   };
 
-  return nock(hubspotApiBaseUrl)
+  return nock(hubspotApiBaseUrl, {
+    authorization: `Bearer ${mockConfig.hubspot.privateAppToken}`,
+  })
     .post('/filemanager/api/v3/files/upload')
-    .query({ hapikey: mockConfig.hubspot.authToken })
     .reply(200, validResponseWithUploadedFileLink);
 }
 
