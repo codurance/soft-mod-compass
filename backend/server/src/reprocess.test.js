@@ -8,7 +8,7 @@ const mockConfig = {
     studioEditorEnabled: true,
   },
   hubspot: {
-    authToken: 'fake token',
+    privateAppToken: 'fake token',
     portalId: 'portalid',
     formId: 'formId',
   },

@@ -8,6 +8,9 @@ const hubspotPost = (baseUrl, path, { formData, body }) => {
     method: 'POST',
     uri: baseUrl + path,
     json: true,
+    headers: {
+      Authorization: `Bearer ${config.hubspot.privateAppToken}`,
+    },
   };
 
   if (formData) requestOptions.formData = formData;
@@ -15,7 +18,6 @@ const hubspotPost = (baseUrl, path, { formData, body }) => {
 
   return {
     execute: async () => {
-      requestOptions.qs = { hapikey: config.hubspot.authToken };
       return request(requestOptions);
     },
     executeWithoutQueryString: async () => request(requestOptions),

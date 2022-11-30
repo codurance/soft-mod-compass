@@ -106,7 +106,7 @@ jobs:
           --description "commit-sha-${{ github.sha }}"
 
       - name: Create env json
-        run: echo "[{\"Namespace\":\"aws:elasticbeanstalk:application:environment\",\"OptionName\":\"ALLOWED_ORIGIN\",\"Value\":\"http://compass.dev.codurance.io\"},{\"Namespace\":\"aws:elasticbeanstalk:application:environment\",\"OptionName\":\"HUBSPOT_FORM_ID\",\"Value\":\"${{secrets.HUBSPOT_FORM_ID}}\"},{\"Namespace\":\"aws:elasticbeanstalk:application:environment\",\"OptionName\":\"HUBSPOT_AUTH_TOKEN\",\"Value\":\"${{secrets.HUBSPOT_AUTH_TOKEN}}\"},{\"Namespace\":\"aws:elasticbeanstalk:application:environment\",\"OptionName\":\"HUBSPOT_ACCOUNT_ID\",\"Value\":\"${{secrets.HUBSPOT_ACCOUNT_ID}}\"}]" > .github/backendEnvVars.json
+        run: echo "[{\"Namespace\":\"aws:elasticbeanstalk:application:environment\",\"OptionName\":\"ALLOWED_ORIGIN\",\"Value\":\"http://compass.dev.codurance.io\"},{\"Namespace\":\"aws:elasticbeanstalk:application:environment\",\"OptionName\":\"HUBSPOT_FORM_ID\",\"Value\":\"${{secrets.HUBSPOT_FORM_ID}}\"},     {\"Namespace\":\"aws:elasticbeanstalk:application:environment\",\"OptionName\":\"HUBSPOT_PRIVATE_APP_TOKEN\",\"Value\":\"${{secrets.HUBSPOT_PRIVATE_APP_TOKEN}}\"},{\"Namespace\":\"aws:elasticbeanstalk:application:environment\",\"OptionName\":\"HUBSPOT_ACCOUNT_ID\",\"Value\":\"${{secrets.HUBSPOT_ACCOUNT_ID}}\"}]" > .github/backendEnvVars.json
 
       - name: Deploy new ElasticBeanstalk Application Version
         run: |

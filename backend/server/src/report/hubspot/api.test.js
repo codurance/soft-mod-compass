@@ -5,7 +5,7 @@ const hubspotApiBaseUrl = 'https://api.fakeapi.com';
 const mockConfig = {
   hubspot: {
     formId: 'MOCK_FORM_ID',
-    authToken: 'MOCK_AUTH_TOKEN',
+    privateAppToken: 'MOCK_AUTH_TOKEN',
     portalId: 1234,
     formApiUrl: HubspotFormApi,
     fileApiUrl: hubspotApiBaseUrl,
@@ -17,8 +17,6 @@ jest.doMock('../../config', () => mockConfig);
 const api = require('./api');
 
 describe('Hubspot API', () => {
-  const authQueryString = { hapikey: mockConfig.hubspot.authToken };
-
   beforeEach(() => {
     nock.cleanAll();
   });
@@ -37,9 +35,10 @@ describe('Hubspot API', () => {
     };
 
     it('returns link of uploaded file', async () => {
-      nock(hubspotApiBaseUrl)
+      nock(hubspotApiBaseUrl, {
+        authorization: `Bearer ${mockConfig.hubspot.privateAppToken}`,
+      })
         .post(uploadFileApiPath)
-        .query(authQueryString)
         .reply(200, validResponseWithUploadedFileLink);
 
       const result = await api.uploadFile(
