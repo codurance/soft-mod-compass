@@ -9,10 +9,10 @@ jobs:
   ci-backend:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: 12.x
+          node-version: "14"
       - name: test-backend
         run: |
           cd ./backend
@@ -22,10 +22,10 @@ jobs:
   ci-frontend:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: 12.x
+          node-version: "14"
       - name: CI
         run: |
           cd ./client
@@ -41,10 +41,10 @@ jobs:
     needs: [ci-frontend, ci-backend]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: 12.x
+          node-version: "14"
 
       - name: Build
         run: |
@@ -71,10 +71,10 @@ jobs:
     needs: [ci-frontend, ci-backend]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: 12.x
+          node-version: "14"
       - name: bundle-backend
         run: |
           cd ./backend
