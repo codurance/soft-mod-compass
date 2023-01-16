@@ -1,7 +1,7 @@
 const request = require('request');
 const requestPromise = require('request-promise');
 const TESTMAIL_ENDPOINT = (tag) =>
-  `https://api.testmail.app/api/json?apikey=1fac9f34-9341-45f7-9365-ced88e961a37&namespace=9cmtz&tag=${tag}&livequery=true`;
+  `https://api.testmail.app/api/json?apikey=43c44a6d-bbf9-4a67-a2c6-ca3dd76d9bf4&namespace=91tdt&tag=${tag}&livequery=true`;
 
 function requestPdfBody(pdfOptions) {
   // using request because of issue with requesting files : https://github.com/request/request-promise/issues/171
@@ -12,7 +12,7 @@ function requestPdfBody(pdfOptions) {
 
 module.exports = (on, config) => {
   function setBaseUrlBasedOnLanguage() {
-      config.baseUrl = 'http://compass.dev.codurance.io';
+    config.baseUrl = 'http://compass.dev.codurance.io';
   }
 
   on('task', {
@@ -20,16 +20,16 @@ module.exports = (on, config) => {
       console.log(`sending testmail query... tag : ${tag}`);
       var options = {
         uri: TESTMAIL_ENDPOINT(tag),
-        simple: false
+        simple: false,
       };
       let requestSucceeded = false;
-      setTimeout( () => {
-        if(!requestSucceeded) throw new Error('query email timed out');
+      setTimeout(() => {
+        if (!requestSucceeded) throw new Error('query email timed out');
       }, 120000);
       const response = await requestPromise(options);
       requestSucceeded = true;
       const parsedResponse = JSON.parse(response);
-      console.log(parsedResponse.emails[0].text)
+      console.log(parsedResponse.emails[0].text);
       return {
         reportLink: parsedResponse.emails[0].text.match(
           '(https:\\/\\/email\\.codurance\\.com\\/e3t\\/Ctc.+)\\\n'
@@ -51,7 +51,7 @@ module.exports = (on, config) => {
         'utf8'
       );
       return pdfBuffer;
-    }
+    },
   });
 
   setBaseUrlBasedOnLanguage();
