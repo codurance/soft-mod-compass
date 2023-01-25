@@ -17,6 +17,7 @@
     "@typeform/embed": "^0.22.0",
     "aws-sdk": "^2.638.0",
     "body-parser": "^1.19.0",
+    "canvas": "^2.11.0",
     "cors": "^2.8.5",
     "dynalite": "^3.2.1",
     "express": "4.17.3",
