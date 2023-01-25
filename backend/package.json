@@ -1,0 +1,92 @@
+{
+  "name": "codurance-compass",
+  "version": "0.0.1",
+  "main": "./server/index.js",
+  "scripts": {
+    "local": ". ./scripts/localConf.sh && ./scripts/localDB.sh && babel-node ./server/index.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "standard"
+  },
+  "author": "Codurance",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@hubspot/cms-cli": "^1.1.8",
+    "@typeform/embed": "^0.22.0",
+    "aws-sdk": "^2.638.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dynalite": "^3.2.1",
+    "express": "4.17.3",
+    "jest-dynalite": "^3.3.1",
+    "jsreport": "2.6.0",
+    "log-timestamp": "^0.3.0",
+    "request": "^2.88.2",
+    "request-promise": "4.2.6",
+    "sleep-promise": "8.0.1",
+    "uuid": "3.3.2",
+    "uuidgen": "^1.0.0",
+    "translations": "file:../translations/"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "@babel/node": "^7.7.4",
+    "@babel/preset-env": "^7.7.6",
+    "@types/jest": "^26.0.4",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.0.4",
+    "cypress": "^4.7.0",
+    "cypress-iframe": "^1.0.1",
+    "cypress-wait-until": "^1.7.1",
+    "eslint": "^7.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "handlebars-loader": "^1.7.1",
+    "html-webpack-plugin": "^4.3.0",
+    "jest": "26.4.2",
+    "nock": "10.0.2",
+    "nodemon": "1.18.10",
+    "pdf2pic": "^2.1.2",
+    "pixelmatch": "^5.2.1",
+    "prettier": "2.0.5",
+    "react-dev-utils": "^11.0.4",
+    "request-debug": "^0.2.0",
+    "resemblejs": "^3.2.5",
+    "standard": "12.0.1",
+    "supertest": "3.3.0",
+    "webpack": "4.20.2",
+    "webpack-cli": "3.1.2"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "it",
+      "test",
+      "afterEach",
+      "typeformEmbed",
+      "jest",
+      "expect",
+      "XMLHttpRequest"
+    ],
+    "ignore": [
+      "/data/js/index.js/content.js"
+    ]
+  },
+  "nodemonConfig": {
+    "exec": "yarn dev",
+    "ignore": [
+      "dist/*",
+      "data/*",
+      "logs/*"
+    ],
+    "delay": 1000
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/cypress/"
+    ],
+    "preset": "jest-dynalite"
+  }
+}
