@@ -16,6 +16,7 @@
     "@typeform/embed": "^0.22.0",
     "aws-sdk": "^2.638.0",
     "body-parser": "^1.19.0",
+    "canvas": "^2.11.0",
     "cors": "^2.8.5",
     "dynalite": "^3.2.1",
     "express": "4.17.3",
@@ -25,9 +26,9 @@
     "request": "^2.88.2",
     "request-promise": "4.2.6",
     "sleep-promise": "8.0.1",
+    "translations": "file:../translations/",
     "uuid": "3.3.2",
-    "uuidgen": "^1.0.0",
-    "translations": "file:../translations/"
+    "uuidgen": "^1.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.5",
