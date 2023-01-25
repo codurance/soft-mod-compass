@@ -38,5 +38,6 @@ jobs:
       - name: CI
         run: |
           cd ./backend
+          npm cache clean --force
           npm install
           npm run test
