@@ -6,4 +6,9 @@ module.exports = {
       plugins: ['@babel/plugin-transform-runtime'],
     },
   },
+  exclude: [
+    new RegExp(
+      './node_modules/(?!public-ip|is-ip|ip-regex|indent-string|aggregate-error|clean-stack|escape-string-regexp).+\\.js$'
+    ),
+  ],
 };
