@@ -1,4 +1,4 @@
-import { publicIpv4 } from 'public-ip';
+import { publicIpv4 } from 'public-ip/browser';
 
 export default {
   async getIp() {
