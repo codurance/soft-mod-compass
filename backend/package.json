@@ -12,7 +12,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@hubspot/cms-cli": "^1.1.8",
+    "@hubspot/cli": "^4.1.6",
     "@typeform/embed": "^0.22.0",
     "aws-sdk": "^2.638.0",
     "body-parser": "^1.19.0",
@@ -37,7 +37,7 @@
     "@babel/preset-env": "^7.7.6",
     "@types/jest": "^26.0.4",
     "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^5.0.4",
+    "copy-webpack-plugin": "^11.0.0",
     "cypress": "^4.7.0",
     "cypress-iframe": "^1.0.1",
     "cypress-wait-until": "^1.7.1",
