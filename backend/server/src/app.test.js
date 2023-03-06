@@ -8,7 +8,9 @@ jest.doMock('uuid/v4', () => uuidGenerator);
 
 const renderMock = (function () {
   const renderFunction = jest.fn();
-  jest.doMock('./jsreportAdapter', () => renderFunction);
+  jest.doMock('./jsReportService', () => {
+    return { renderPdf: renderFunction, initializeJsReportBackend: jest.fn() };
+  });
   renderFunction.mockReturnValue({ content: 'pdf File' });
   return renderFunction;
 })();

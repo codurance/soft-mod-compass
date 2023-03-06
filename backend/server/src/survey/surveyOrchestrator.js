@@ -2,7 +2,9 @@ const {
   uploadReportToHubspot,
   submitHubspotForm,
 } = require('../report/hubspot/uploadToHubspot');
-const generateReport = require('../jsreportAdapter');
+
+let jsReportService = require('../jsReportService');
+
 const { localMode } = require('../config');
 const fs = require('fs');
 const path = require('path');
@@ -13,10 +15,11 @@ async function submitSurvey(body) {
     engine: 'handlebars',
     recipe: 'chrome-pdf',
   };
-  const pdf = await generateReport(jsReportTemplate, body);
+
+  const pdf = await jsReportService.renderPdf(jsReportTemplate, body);
 
   if (localMode) {
-    generatePdfLocally(pdf.content);
+    savePdfLocally(pdf.content);
     return {
       status: 'ok',
       message: 'Your pdf was generated locally /server/tmp/test.pdf file',
@@ -32,7 +35,7 @@ async function submitSurvey(body) {
   }
 }
 
-function generatePdfLocally(pdfBuffer) {
+function savePdfLocally(pdfBuffer) {
   const pdfPath = path.join(__dirname, `../../../tmp/test.pdf`);
   const route = path.join(__dirname, `../../../tmp`);
 
