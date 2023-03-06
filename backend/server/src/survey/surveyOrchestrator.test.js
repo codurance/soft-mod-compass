@@ -1,7 +1,13 @@
+const { renderPdf, initializeJsReportBackend } = require('../jsReportService');
 const bodyRequest = require('../mockData/post_survey_request_body.json');
 
 const generateReportMock = jest.fn();
-jest.doMock('../jsreportAdapter', () => generateReportMock);
+jest.doMock('../jsReportService', () => {
+  return {
+    renderPdf: generateReportMock,
+    initializeJsReportBackend: jest.fn(),
+  };
+});
 const uploadReportToHubspotMock = {
   uploadReportToHubspot: jest.fn(),
   submitHubspotForm: jest.fn(),

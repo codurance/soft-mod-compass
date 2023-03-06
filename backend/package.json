@@ -5,6 +5,7 @@
   "scripts": {
     "local": ". ./scripts/localConf.sh && ./scripts/localDB.sh && babel-node ./server/index.js",
     "test": "jest",
+    "test:silent": "jest --silent",
     "test:watch": "jest --watch",
     "lint": "standard"
   },

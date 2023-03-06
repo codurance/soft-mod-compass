@@ -8,6 +8,13 @@ testE2E/cypress/screenshots
 .idea
 dist
 
+reportData/fs.version
+reportData/fs.journal
+reportData/fs.lock
+reportData/profiles
+reportData/monitoring
+reportData/reports
+reportData/storage
 
 backend/server/reportData/settings
 scripts/default-env.sh

@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack serve --env REPORT_SERVER_URL=http://localhost:8080",
     "test": "jest",
+    "test:silent": "jest --silent",
     "create-dev": "webpack --env REPORT_SERVER_URL=http://compass.dev-api.codurance.io",
     "create-prod": "webpack --env REPORT_SERVER_URL=https://compass-api.codurance.com",
     "prettify": "npx prettier --write .",
