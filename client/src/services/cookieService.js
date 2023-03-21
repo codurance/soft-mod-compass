@@ -1,6 +1,10 @@
 export default {
+  documentCookies() {
+    return document.cookie;
+  },
+
   getCookie(cookieKey) {
-    const cookiesArray = document.cookie.split('; ');
+    const cookiesArray = this.documentCookies().split('; ');
     const chosenCookie = cookiesArray.find((cookie) =>
       cookie.includes(cookieKey)
     );
