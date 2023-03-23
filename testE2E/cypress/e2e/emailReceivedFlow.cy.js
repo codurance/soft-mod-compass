@@ -9,7 +9,7 @@ context('Email Received', { taskTimeout: 90000 }, () => {
     cy.get('[type=button]').click();
     Survey()
       .fillSurveyWith('Strongly Agree', 'Hourly')
-      .submitToReceiveReportAt(`9cmtz.${randomTag}@inbox.testmail.app`);
+      .submitToReceiveReportAt(`91tdt.${randomTag}@inbox.testmail.app`);
   });
 
   it('should send email with pdf report in english', () => {
@@ -21,7 +21,6 @@ context('Email Received', { taskTimeout: 90000 }, () => {
       });
     });
   });
-
   function assertLanguage(email) {
     expect(email.subject).to.eq('Here is your Codurance Compass report');
   }

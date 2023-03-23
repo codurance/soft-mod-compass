@@ -23,7 +23,12 @@ const config = { ...mockConfig };
 
 jest.doMock('./config', () => config);
 const jsReportMock = jest.fn();
-jest.doMock('./jsreportAdapter', () => jsReportMock);
+jest.doMock('./jsReportService', () => {
+  return {
+    renderPdf: jsReportMock,
+    initializeJsReportBackend: jest.fn(),
+  };
+});
 const uuidGenerator = jest.fn();
 jest.doMock('uuid/v4', () => uuidGenerator);
 

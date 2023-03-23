@@ -15,7 +15,6 @@ module.exports = (env) => {
       filename: 'index_bundle.js',
     },
     devServer: {
-      noInfo: false,
       open: true,
       historyApiFallback: true,
       port: 3000,

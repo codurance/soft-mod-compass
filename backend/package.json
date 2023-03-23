@@ -5,6 +5,7 @@
   "scripts": {
     "local": ". ./scripts/localConf.sh && ./scripts/localDB.sh && babel-node ./server/index.js",
     "test": "jest",
+    "test:silent": "jest --silent",
     "test:watch": "jest --watch",
     "lint": "standard"
   },
@@ -12,22 +13,23 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@hubspot/cms-cli": "^1.1.8",
+    "@hubspot/cli": "^4.1.6",
     "@typeform/embed": "^0.22.0",
     "aws-sdk": "^2.638.0",
     "body-parser": "^1.19.0",
+    "canvas": "^2.11.0",
     "cors": "^2.8.5",
     "dynalite": "^3.2.1",
     "express": "4.17.3",
     "jest-dynalite": "^3.3.1",
-    "jsreport": "2.6.0",
+    "jsreport": "^3.10.0",
     "log-timestamp": "^0.3.0",
     "request": "^2.88.2",
     "request-promise": "4.2.6",
     "sleep-promise": "8.0.1",
+    "translations": "file:../translations/",
     "uuid": "3.3.2",
-    "uuidgen": "^1.0.0",
-    "translations": "file:../translations/"
+    "uuidgen": "^1.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.5",
@@ -36,7 +38,7 @@
     "@babel/preset-env": "^7.7.6",
     "@types/jest": "^26.0.4",
     "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^5.0.4",
+    "copy-webpack-plugin": "^11.0.0",
     "cypress": "^4.7.0",
     "cypress-iframe": "^1.0.1",
     "cypress-wait-until": "^1.7.1",
@@ -47,17 +49,17 @@
     "html-webpack-plugin": "^4.3.0",
     "jest": "26.4.2",
     "nock": "10.0.2",
-    "nodemon": "1.18.10",
+    "nodemon": "^2.0.20",
     "pdf2pic": "^2.1.2",
     "pixelmatch": "^5.2.1",
     "prettier": "2.0.5",
-    "react-dev-utils": "^11.0.4",
+    "react-dev-utils": "^12.0.1",
     "request-debug": "^0.2.0",
-    "resemblejs": "^3.2.5",
+    "resemblejs": "^4.1.0",
     "standard": "12.0.1",
     "supertest": "3.3.0",
-    "webpack": "4.20.2",
-    "webpack-cli": "3.1.2"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.0"
   },
   "standard": {
     "globals": [

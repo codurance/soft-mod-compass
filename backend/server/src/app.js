@@ -2,30 +2,21 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const config = require('./config');
+
+const path = require('path');
+const reportDataDir = path.resolve(__dirname, '..', 'reportData');
+
+//put a timestamp on each line of logs - required for cloudwatch log streaming
+require('log-timestamp');
+
+const SurveyStatus = require('./survey/SurveyState');
+const { processSurvey, reProcessSurvey } = require('./survey/surveyService');
 const {
   saveFailedSurvey,
   dbHealthCheck,
 } = require('./survey/surveyRepository');
-const { processSurvey, reProcessSurvey } = require('./survey/surveyService');
-//put a timestamp on each line of logs - required for cloudwatch log streaming
-require('log-timestamp');
-const SurveyStatus = require('./survey/SurveyState');
 
-module.exports = (reportingApp) => {
-  const app = express();
-  if (config.cors.allowedOrigin)
-    app.use(
-      cors({
-        origin: config.cors.allowedOrigin,
-        methods: 'POST',
-      })
-    );
-  app.use(bodyParser.json({ limit: '50mb' })); // support json encoded bodies
-  app.use(bodyParser.urlencoded({ limit: '50mb', extended: true })); // support encoded bodies
-  if (config.jsreport.studioEditorEnabled) {
-    app.use('/reporting', reportingApp);
-  }
-
+function setupRoutes(app) {
   app.get('/', (req, res) => {
     dbHealthCheck()
       .then(() => res.status(200).send({ status: 'up', database: 'up' }))
@@ -84,6 +75,41 @@ module.exports = (reportingApp) => {
       res.send(id);
     });
   });
+}
+
+function runTestPdf() {
+  const data = require('./mockData/post_survey_request_body.json');
+  const { submitSurvey } = require('./survey/surveyOrchestrator');
+  submitSurvey(data);
+}
+
+module.exports = (reportingApp) => {
+  const app = express();
+
+  if (config.cors.allowedOrigin)
+    app.use(
+      cors({
+        origin: config.cors.allowedOrigin,
+        methods: 'POST',
+      })
+    );
+  app.use(bodyParser.json({ limit: '50mb' })); // support json encoded bodies
+  app.use(bodyParser.urlencoded({ limit: '50mb', extended: true })); // support encoded bodies
+
+  if (config.jsreport.studioEditorEnabled) {
+    app.use('/reporting', reportingApp);
+  }
+
+  require('./jsReportService').initializeJsReportBackend(
+    app,
+    reportingApp,
+    reportDataDir
+  );
+  // .then(() => {
+  //   runTestPdf();
+  // });
+
+  setupRoutes(app);
 
   return app;
 };
