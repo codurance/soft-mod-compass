@@ -9,7 +9,7 @@ A survey for checking how effective is your organisation's software delivery
 The above diagram in the `docs` folder is generated from the PlantUML file: `sequence-diagram.puml`.
 To edit and generate png from plantUML files, check out this [VSCode extension](https://github.com/qjebbs/vscode-plantuml)
 
-#### Question categories
+### Question categories
 
 Questions are grouped in 5 categories
 
