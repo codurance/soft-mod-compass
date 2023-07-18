@@ -1,7 +1,11 @@
+const TESTMAIL_APIKEY = '43c44a6d-bbf9-4a67-a2c6-ca3dd76d9bf4';
+const TESTMAIL_NAMESPACE = '91tdt';
+
 const request = require('request');
 const requestPromise = require('request-promise');
+
 const TESTMAIL_ENDPOINT = (tag) =>
-  `https://api.testmail.app/api/json?apikey=43c44a6d-bbf9-4a67-a2c6-ca3dd76d9bf4&namespace=91tdt&tag=${tag}&livequery=true`;
+  `https://api.testmail.app/api/json?apikey=${TESTMAIL_APIKEY}&namespace=${TESTMAIL_NAMESPACE}&tag=${tag}&livequery=true`;
 
 function requestPdfBody(pdfOptions) {
   // using request because of issue with requesting files : https://github.com/request/request-promise/issues/171
